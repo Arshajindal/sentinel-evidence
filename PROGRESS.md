@@ -32,17 +32,21 @@ Low friction or it rots. The rules:
 > Rewrite this section each session. Keep it short.
 
 **Phase:** 1 of 5 — data foundation and deterministic checks
-**Week:** 0 (not started)
+**Week:** 0 — repo created, decisions settled, no code yet
 **Last worked:** —
 
-**What works:** nothing yet.
+**What works:** nothing yet. Repo scaffolded with README, PROGRESS, docs/phase1-brief, .env.example, .gitignore, LICENSE.
 
 **What's broken:** nothing yet.
 
+**Settled this session:** corpus is PMC open access with NCT numbers, n=1,000 (ADR-021). Resolution goes through APIs, not bulk snapshots, at this scale (ADR-020). Config carries defaults for operational settings only (ADR-022). ClinicalTrials.gov loads from the bulk zip (ADR-019) with personal fields stripped at normalise (ADR-018).
+
 **Next three things:**
-1. Repo scaffold, `pyproject.toml`, Alembic initialised
-2. Initial migration with the Phase 1 schema
-3. Crossref harvester, resumable, with watermarks
+1. Confirm the five base URLs resolve, using real endpoint paths rather than bare roots
+2. `pyproject.toml`, venv, Postgres running with `pg_trgm`, then `config.py` and `db.py`
+3. `alembic init` and the initial migration from brief §5 — test up, down, up
+
+**Then:** the vertical slice — Retraction Watch and ClinicalTrials.gov harvesters, C05, report card, CLI. Target: `sentinel report <nct-id>` prints a real overdue-results finding.
 
 **Blocked on:** nothing.
 
@@ -221,6 +225,90 @@ Follows from ADR-010: this trades recall for precision, which is the correct dir
 
 ---
 
+### ADR-018 — Strip personal contact data from trial records at ingestion
+**Status:** active
+
+ClinicalTrials.gov study records include named individuals and their contact details: `centralContacts`, `overallOfficials`, and per-location `contacts`. That data is published so prospective participants can reach someone about enrolling. Bulk-ingesting it into a database is a different use, and not one anyone consented to.
+
+`trial.raw` is a JSONB column, so the default behaviour is to store the whole payload including those fields. Drop them during `normalise()`, before anything is written. Retain institutional fields only: sponsor name and class, country-level locations, dates, status, enrolment, outcomes.
+
+Sentinel's stated position is that it touches no personal data. Storing trial coordinators' phone numbers in a public repository contradicts that, and someone will notice.
+
+Governed by `SENTINEL_STRIP_PERSONAL_FIELDS` and `SENTINEL_TRIAL_DROP_PATHS`. The flag exists to make the behaviour visible in config, not because turning it off is a supported option.
+
+**Test requirement:** a fixture asserting that no dropped path survives into `trial.raw`. Run it on every ingest change.
+
+---
+
+### ADR-019 — Bulk download for the initial ClinicalTrials.gov load
+**Status:** active
+
+ClinicalTrials.gov publishes every study as one zip at `/api/v2/studies/download?format=json.zip`, using the same JSON schema as the per-study endpoint. This satisfies ADR-005 with no pagination logic for the initial load.
+
+The paginated `/studies` endpoint is retained for incremental refresh. It uses a `pageToken` cursor with a 1,000-row page cap, which maps directly onto the watermark design in the harvester contract.
+
+`/api/v2/version` returns a `dataTimestamp`. Check it before each refresh run to confirm the daily rebuild has completed.
+
+An OpenAPI spec is published at `/api/oas/v2/ctg-oas-v2.yaml`. Generate or validate the trial models against it rather than hand-writing them.
+
+---
+
+### ADR-020 — Amends ADR-005: API resolution, not bulk, at current scale
+**Status:** active · amends ADR-005
+
+ADR-005's reasoning holds — don't let someone else's rate limiter govern throughput at scale. The error was assuming this project is at that scale.
+
+The working corpus is 1,000 papers, roughly 40,000 references. At OpenAlex's polite-pool rate of ~10 rps that resolves in about an hour. The 10,000-paper validation run is ~400,000 references, an overnight job. Downloading hundreds of gigabytes to avoid that is the wrong trade.
+
+Revised split:
+
+| Source | Approach | Footprint |
+|---|---|---|
+| Retraction Watch | Bulk CSV | ~50 MB |
+| ClinicalTrials.gov | Bulk zip (ADR-019) | a few GB |
+| Crossref, OpenAlex | API only | none stored |
+| PMC full text | Fetch corpus only | a few GB |
+
+Total under ~10 GB, so disk ceased to be a design constraint.
+
+The harvester contract is unchanged — resumable, watermarked, rate-limited. Those matter *more* for API ingestion than bulk, because that is where a run dies mid-stream.
+
+**Revisit at:** roughly 50,000 papers, or if OpenAlex daily quota becomes binding.
+
+---
+
+### ADR-021 — Starting corpus: PMC open access, NCT-linked, n=1,000
+**Status:** active
+
+Working corpus: 1,000 papers from the PubMed Central open-access subset that carry an NCT number, any disease area.
+
+The NCT filter does the work. Phase 1's C05 needs registry records; Phase 2's outcome switching needs papers linked to registered trials. One corpus serves both with no reload. Trial reports are also structured, which eases statistics extraction while the parser is still immature.
+
+**Rejected:** narrowing by therapeutic area. Adds a filter step without materially improving coherence or reviewability at this size.
+
+**Known consequence:** C04 (GRIM) will return `not_applicable` for nearly all of this corpus. GRIM needs integer-scale measures with small N — psychology territory, not clinical trials reporting continuous outcomes in hundreds of patients. C04 is proven by fixtures, not by the working corpus. This is expected, not a defect.
+
+Validation corpus, week 13: a random sample of ~10,000 PMC open-access papers across all fields. This is the set compared against published prevalence estimates, because it is a comparable sample. The working corpus is not, and must never be used for that comparison.
+
+---
+
+### ADR-022 — Defaults for operational settings, none for anything that changes findings
+**Status:** active
+
+A hidden default is a setting nobody chose. If a check threshold silently defaults, results depend on a value never reviewed, and `config_hash` is built on invisible inputs. But requiring all forty variables means a fresh clone will not start, which makes testing miserable.
+
+The rule: **if it changes the findings, it must be stated explicitly.**
+
+*Defaults permitted* — batch sizes, timeouts, pool size, max connections, retry counts, backoff, concurrency, log level and format, export directory, corpus label. Changing these alters speed, not answers.
+
+*No defaults, startup fails if unset* — `DATABASE_URL`, `CONTACT_EMAIL`, `USER_AGENT`, `RANDOM_SEED`, `CHECKS_ENABLED`, every `C0N_*` check parameter, every `RESOLVE_*` threshold, and `STRIP_PERSONAL_FIELDS`.
+
+`config.py` implements this by declaring the second group with no default in the pydantic-settings model, so pydantic raises on startup. `config_hash` is computed over the second group only — operational settings do not change run identity.
+
+**Test requirement:** a test asserting that removing any required variable causes startup to fail. Without it this rule decays the first time someone adds a convenience default.
+
+---
+
 ### ADR-0NN — template
 **Status:** active
 
@@ -318,11 +406,11 @@ What happened. What you expected instead. Root cause. What changed as a result. 
 
 | Question | Why it matters | Resolve by | Status |
 |---|---|---|---|
-| Which starting corpus? | Affects fixture design and prevalence comparability | Week 1 | open |
-| GPU available? | Determines local vs API serving for encoders | Week 4 | open |
-| Full-text coverage rate on the chosen corpus? | Caps the addressable share of claim grounding | Week 4 | open |
-| Publish individual findings, or aggregate only? | A false fabrication accusation is a serious harm | Week 13 | open |
-| Does `config.py` carry defaults, or require every variable? | Decides whether `.env.example` is documentation or mandatory setup | Week 1 | open |
+| Which starting corpus? | Affects fixture design and prevalence comparability | Week 1 | **resolved — ADR-021** |
+| Does `config.py` carry defaults, or require every variable? | Decides whether `.env.example` is documentation or mandatory setup | Week 1 | **resolved — ADR-022** |
+| GPU available, or rent one? | Determines local vs API serving for encoders and fine-tuning | Week 6 | open — not needed until Phase 3; hourly rental is likely under $100 total |
+| Full-text coverage rate for *cited* sources? | Caps the addressable share of claim grounding. Distinct from coverage of citing papers, which is ~100% by construction | Week 4 | open — measure on 100 papers, report beside accuracy |
+| Publish individual findings, or aggregate only? | A false fabrication accusation is a serious harm | Week 10 | open — leaning: deterministic checks may name papers, model-based checks report rates only |
 
 ---
 
