@@ -33,7 +33,7 @@ Low friction or it rots. The rules:
 
 **Phase:** 1 of 5 — data foundation and deterministic checks
 **Plan:** `docs/sentinel-project.md` §15 session IDs. Old brief and HTML spec are in `docs/archive/`.
-**Last worked:** 2026-10-18 — catch-up audit, then closed out S1.1 and S1.2
+**Last worked:** 2026-10-18 — S1.3 (harvester base, Retraction Watch)
 
 **Sessions:**
 
@@ -41,18 +41,19 @@ Low friction or it rots. The rules:
 |---|---|---|
 | S1.1 Scaffold | done | Config loads; `tests/test_config.py` covers ADR-022 (each required variable, hash scope, `.env.example` ↔ `Settings` in sync); `alembic current` runs cleanly. |
 | S1.2 Models + initial migration | done | `c9051bc4f780` plus `157fbb99af3c` (finding is about a paper or a trial, §8). `tests/test_migrations.py` runs up, down, up and checks the trigram index; `alembic check` shows no drift. |
-| S1.3 – S1.15 | not started | No `schemas.py`, `ingest/`, `parse/`, `resolve/`, `checks/`, `report/` or `cli.py`. |
+| S1.3 Harvester base + Retraction Watch | done | `ingest/base.py`, `ingest/retraction_watch.py`, migration `17fb3d1f4207` (ADR-024). `sentinel ingest retraction-watch` loaded 73,283 notices in ~12 s; a re-run inserted 0. The 20-row fixture covers load, re-run, update in place and kill-and-resume. |
+| S1.4 – S1.15 | not started | |
 
-**What works:** config, schema at head on local Postgres (all tables empty), 23 tests.
+**What works:** config; schema at head; `sentinel ingest retraction-watch`; 60 tests (DB tests need `TEST_DATABASE_URL`).
 
-**What's broken:** nothing known. The migration test skips unless `TEST_DATABASE_URL` points at a disposable database.
+**What's broken:** nothing known. 5,194 notices have neither DOI nor PMID, so C02 can never match them.
 
 **Next three things:**
-1. S1.3: Harvester base and the Retraction Watch harvester
-2. S1.4: ClinicalTrials.gov lookup client (per study, ADR-023) with the ADR-018 test
-3. S1.5: Check base, contexts, C05, report card, `sentinel report <nct-id>`
+1. S1.4: ClinicalTrials.gov lookup client (per study, ADR-023) with the ADR-018 test
+2. S1.5: Check base, contexts, C05, report card, `sentinel report <nct-id>`
+3. S1.6: Corpus selection and the Europe PMC harvester (decide Q3)
 
-**Then:** S1.6 onward. Target: `sentinel report <nct-id>` prints a real overdue-results finding.
+**Then:** S1.7 onward. Target: `sentinel report <nct-id>` prints a real overdue-results finding.
 
 **Blocked on:** nothing.
 
@@ -325,6 +326,17 @@ Default: fetch one study at a time from `/api/v2/studies/{nctId}` through a look
 **Rejected:** bulk zip for the 1,000-paper corpus. A few GB and a registry-wide parse buys nothing at this size.
 
 **Revisit at:** the 10,000-paper run, or if per-study fetching becomes the bottleneck.
+
+---
+
+### ADR-024 — Retraction notices keyed on the source's record ID
+**Status:** active
+
+Idempotent upserts need a natural key, and §8's `retraction_notice` had none. In the 2026-10-16 Retraction Watch CSV, `(retracted DOI, notice DOI, type)` collides 3,766 times across 73,283 rows, while `Record ID` is unique in every row. Added `source_record_id` with `UNIQUE (source, source_record_id)`, nullable so a future source without IDs can still write rows.
+
+The same data has 163 `Reinstatement` rows, a type §8 didn't list. They're stored as `notice_type = 'reinstatement'` so C02 can avoid calling a reinstated paper retracted. Author and Institution are left out of `raw`: C02 matches on DOI and PMID only, so they aren't needed.
+
+**Rejected:** a unique index on `raw->>'Record ID'` (key hidden in JSONB), and deduplicating in code (nothing in the database prevents duplicates).
 
 ---
 

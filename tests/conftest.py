@@ -1,10 +1,27 @@
-"""Shared test setup. Tests never read the developer's `.env` or call live APIs."""
+"""Shared test setup. Tests never read the developer's `.env` or call live APIs.
+
+Database tests need a disposable Postgres: set TEST_DATABASE_URL (not
+SENTINEL_-prefixed, so it never reaches Settings). They skip when it's unset.
+"""
 
 from __future__ import annotations
 
 import os
+from collections.abc import Iterator
+from pathlib import Path
 
 import pytest
+from alembic import command
+from alembic.config import Config
+from sqlalchemy import Engine, create_engine
+
+ROOT = Path(__file__).resolve().parent.parent
+FIXTURES = ROOT / "tests" / "fixtures"
+TEST_DATABASE_URL = os.environ.get("TEST_DATABASE_URL")
+
+requires_db = pytest.mark.skipif(
+    not TEST_DATABASE_URL, reason="TEST_DATABASE_URL not set"
+)
 
 # A complete set of the settings ADR-022 requires. Values are arbitrary but
 # valid; tests that care about a value set it explicitly.
@@ -36,3 +53,25 @@ def clean_env(monkeypatch: pytest.MonkeyPatch) -> pytest.MonkeyPatch:
         if key.startswith("SENTINEL_"):
             monkeypatch.delenv(key)
     return monkeypatch
+
+
+@pytest.fixture
+def alembic_cfg(clean_env) -> Iterator[Config]:
+    """Alembic pointed at TEST_DATABASE_URL, with no `.env` involved."""
+    from sentinel.config import get_settings
+
+    for key, value in REQUIRED_ENV.items():
+        clean_env.setenv(key, value)
+    clean_env.setenv("SENTINEL_DATABASE_URL", TEST_DATABASE_URL)
+    get_settings.cache_clear()
+    yield Config(str(ROOT / "alembic.ini"))
+    get_settings.cache_clear()
+
+
+@pytest.fixture
+def db_engine(alembic_cfg) -> Iterator[Engine]:
+    """An engine on the test database, migrated to head."""
+    command.upgrade(alembic_cfg, "head")
+    engine = create_engine(TEST_DATABASE_URL)
+    yield engine
+    engine.dispose()
