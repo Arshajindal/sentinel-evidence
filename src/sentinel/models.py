@@ -1,13 +1,11 @@
-"""SQLAlchemy Core Table definitions for the brief §5 schema (ADR-004: Core,
-not the ORM). Alembic owns schema changes against this metadata; `create_all`
-is never called.
+"""SQLAlchemy Core Table definitions for the schema in sentinel-project.md §8
+(ADR-004: Core, not the ORM). Alembic owns schema changes against this
+metadata; `create_all` is never called.
 
 Tables are declared in dependency order for a human reader. SQLAlchemy
 resolves `ForeignKey` by name against `metadata` regardless of declaration
-order, and sorts `CREATE TABLE` statements topologically — unlike the literal
-SQL in brief §5, where `finding` forward-references `check_run` before it is
-declared, this does not matter here. `check_run` is still listed before
-`finding` to keep the file readable.
+order, and sorts `CREATE TABLE` statements topologically. `check_run` is still
+listed before `finding` to keep the file readable.
 """
 
 from __future__ import annotations
@@ -15,6 +13,7 @@ from __future__ import annotations
 from sqlalchemy import (
     BigInteger,
     Boolean,
+    CheckConstraint,
     Column,
     Date,
     DateTime,
@@ -126,7 +125,7 @@ retraction_notice = Table(
 Index("retraction_doi", retraction_notice.c.retracted_doi)
 Index("retraction_pmid", retraction_notice.c.retracted_pmid)
 
-# Registry record for a clinical trial. Ingested now; compared in Phase 2.
+# Registry record for a clinical trial. Personal fields stripped (ADR-018).
 trial = Table(
     "trial",
     metadata,
@@ -151,8 +150,8 @@ trial = Table(
     ),
 )
 
-# Outcome definitions, versioned. ClinicalTrials.gov keeps a change history;
-# capture every version, because outcome switching is detected by diffing them.
+# Outcome definitions, versioned. version_no = 0 is the current record as last
+# fetched (Phase 1); 1..n are registry history versions, added in Phase 3 (Q5).
 trial_outcome = Table(
     "trial_outcome",
     metadata,
@@ -236,20 +235,17 @@ check_run = Table(
     Column("status", Text, nullable=False, server_default=text("'running'")),
 )
 
-# The report card, one row per finding. `evidence` is populated even for
-# `clean` results (ADR-015) — a check reporting clean without showing what it
+# The report card, one row per finding, about a paper OR a trial (C05 runs on
+# registry data with no paper). `evidence` is populated even for `clean`
+# results (ADR-015) — a check reporting clean without showing what it
 # examined is unauditable. `check_ver` lets an improved check produce
 # comparable rows instead of silently overwriting history.
 finding = Table(
     "finding",
     metadata,
     Column("id", BigInteger, primary_key=True),
-    Column(
-        "paper_id",
-        BigInteger,
-        ForeignKey("paper.id", ondelete="CASCADE"),
-        nullable=False,
-    ),
+    Column("paper_id", BigInteger, ForeignKey("paper.id", ondelete="CASCADE")),
+    Column("nct_id", Text, ForeignKey("trial.nct_id", ondelete="CASCADE")),
     Column(
         "run_id",
         BigInteger,
@@ -268,8 +264,12 @@ finding = Table(
         nullable=False,
         server_default=func.now(),
     ),
+    CheckConstraint(
+        "num_nonnulls(paper_id, nct_id) = 1", name="finding_one_subject"
+    ),
 )
 Index("finding_paper", finding.c.paper_id)
+Index("finding_nct", finding.c.nct_id)
 Index("finding_check", finding.c.check_id, finding.c.status)
 
 ingest_watermark = Table(
