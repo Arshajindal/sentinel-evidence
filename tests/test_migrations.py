@@ -1,40 +1,19 @@
 """Migrations run up, down, up against a real Postgres (sentinel-project.md §8).
 
-Needs a disposable database: set TEST_DATABASE_URL (not SENTINEL_-prefixed, so
-it never reaches Settings). Skipped when unset. The test downgrades to base,
-so never point it at a database holding data you want.
+The test downgrades to base, so TEST_DATABASE_URL must be a disposable
+database, never one holding data you want.
 """
 
 from __future__ import annotations
 
-import os
-from pathlib import Path
-
 import pytest
 from alembic import command
-from alembic.config import Config
 from sqlalchemy import create_engine, inspect, text
 from sqlalchemy.exc import IntegrityError
 
-from sentinel.config import get_settings
-from tests.conftest import REQUIRED_ENV
+from tests.conftest import TEST_DATABASE_URL, requires_db
 
-ROOT = Path(__file__).resolve().parent.parent
-TEST_DATABASE_URL = os.environ.get("TEST_DATABASE_URL")
-
-pytestmark = pytest.mark.skipif(
-    not TEST_DATABASE_URL, reason="TEST_DATABASE_URL not set"
-)
-
-
-@pytest.fixture
-def alembic_cfg(clean_env):
-    for key, value in REQUIRED_ENV.items():
-        clean_env.setenv(key, value)
-    clean_env.setenv("SENTINEL_DATABASE_URL", TEST_DATABASE_URL)
-    get_settings.cache_clear()
-    yield Config(str(ROOT / "alembic.ini"))
-    get_settings.cache_clear()
+pytestmark = requires_db
 
 
 def test_up_down_up(alembic_cfg):
@@ -53,6 +32,9 @@ def test_up_down_up(alembic_cfg):
         assert "finding_nct" in {i["name"] for i in insp.get_indexes("finding")}
         checks = {c["name"] for c in insp.get_check_constraints("finding")}
         assert "finding_one_subject" in checks
+
+        uniques = {u["name"] for u in insp.get_unique_constraints("retraction_notice")}
+        assert "retraction_notice_source_record_key" in uniques
 
         # A finding must have exactly one subject. Rolled back, so nothing persists.
         with engine.connect() as conn:

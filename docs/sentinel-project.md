@@ -317,11 +317,13 @@ CREATE TABLE retraction_notice (
     retracted_doi   TEXT,
     retracted_pmid  TEXT,
     notice_doi      TEXT,
-    notice_type     TEXT NOT NULL,   -- retraction|correction|expression_of_concern
+    notice_type     TEXT NOT NULL,   -- retraction|correction|expression_of_concern|reinstatement
     notice_date     DATE,
     reason          TEXT,
     source          TEXT NOT NULL,
-    raw             JSONB
+    source_record_id TEXT,           -- the source's own ID; upsert key (ADR-024)
+    raw             JSONB,
+    UNIQUE (source, source_record_id)
 );
 CREATE INDEX retraction_doi ON retraction_notice (retracted_doi);
 CREATE INDEX retraction_pmid ON retraction_notice (retracted_pmid);

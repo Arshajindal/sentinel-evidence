@@ -109,6 +109,8 @@ Index("reference_citing", reference.c.citing_paper_id)
 Index("reference_status", reference.c.resolution_status)
 
 # Retraction and concern notices, keyed loosely because sources disagree.
+# notice_type: retraction|correction|expression_of_concern|reinstatement.
+# (source, source_record_id) is the upsert key: the source's own record ID.
 retraction_notice = Table(
     "retraction_notice",
     metadata,
@@ -120,7 +122,11 @@ retraction_notice = Table(
     Column("notice_date", Date),
     Column("reason", Text),
     Column("source", Text, nullable=False),
+    Column("source_record_id", Text),
     Column("raw", JSONB),
+    UniqueConstraint(
+        "source", "source_record_id", name="retraction_notice_source_record_key"
+    ),
 )
 Index("retraction_doi", retraction_notice.c.retracted_doi)
 Index("retraction_pmid", retraction_notice.c.retracted_pmid)

@@ -20,6 +20,9 @@ dependencies = [
     "tenacity>=8.2",
 ]
 
+[project.scripts]
+sentinel = "sentinel.cli:app"
+
 [project.optional-dependencies]
 dev = ["pytest>=8.0"]
 
