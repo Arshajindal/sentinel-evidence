@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sentinel — Biomedical Evidence Integrity Engine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FAF9F7; --band:#F2EFEA; --ink:#1A1816; --ink2:#57514B; --ink3:#8A827A;
+  --rule:#E2DDD6; --maroon:#8C1D40; --maroon-ink:#8C1D40; --maroon-tint:#F6E9ED;
+  --gold:#FFC627; --gold-ink:#7A5C00;
+  --sans:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#131211; --band:#1C1A18; --ink:#F1EDE7; --ink2:#B4ADA4; --ink3:#867E75;
+    --rule:#332F2B; --maroon:#E0819B; --maroon-ink:#E0819B; --maroon-tint:#2B1720;
+    --gold:#FFC627; --gold-ink:#FFC627;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#131211; --band:#1C1A18; --ink:#F1EDE7; --ink2:#B4ADA4; --ink3:#867E75;
+  --rule:#332F2B; --maroon:#E0819B; --maroon-ink:#E0819B; --maroon-tint:#2B1720;
+  --gold:#FFC627; --gold-ink:#FFC627;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+  font-size:17px;line-height:1.62;font-variant-numeric:tabular-nums lining-nums}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px 96px}
+p{margin:0 0 1.05em;max-width:66ch}
+li{max-width:64ch;margin-bottom:.4em}
+a{color:var(--maroon-ink)}
+strong{font-weight:600}
+h1,h2,h3,h4{font-family:var(--sans);font-weight:600;letter-spacing:-.014em;line-height:1.18;margin:0}
+h2{font-size:26px;margin:0 0 6px}
+h3{font-size:19px;margin:34px 0 8px}
+h4{font-size:15.5px;margin:22px 0 6px}
+code{font-family:var(--sans);font-weight:500;font-size:.88em;background:var(--band);padding:1px 5px;border-radius:3px}
+header{border-bottom:2px solid var(--maroon);margin-bottom:44px;padding:56px 0 0}
+.kicker{font-family:var(--sans);font-size:13.5px;font-weight:500;color:var(--maroon-ink);margin:0 0 14px}
+h1{font-size:clamp(34px,6.2vw,52px);letter-spacing:-.028em;margin:0 0 16px;max-width:18ch}
+.lede{font-size:19.5px;color:var(--ink2);max-width:60ch;margin:0 0 40px}
+.trend{display:flex;flex-wrap:wrap;border-top:1px solid var(--rule);margin-bottom:18px}
+.step{flex:1 1 170px;padding:20px 20px 22px 0}
+.step + .step{padding-left:24px;border-left:1px solid var(--rule)}
+.step b{display:block;font-family:var(--sans);font-weight:600;letter-spacing:-.03em;
+  line-height:1;font-size:36px;color:var(--maroon-ink)}
+.step span{display:block;font-family:var(--sans);font-size:13px;color:var(--ink3);margin-top:10px;line-height:1.4}
+.srcnote{font-size:14.5px;color:var(--ink3);max-width:62ch;margin:0 0 46px}
+section{margin:0 0 8px;padding:34px 0 0;border-top:1px solid var(--rule)}
+section:first-of-type{border-top:none;padding-top:0}
+.sectlead{font-family:var(--sans);font-size:13.5px;color:var(--ink3);margin:0 0 20px}
+.scroll{overflow-x:auto;margin:20px 0 26px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+table{border-collapse:collapse;width:100%;min-width:580px;font-family:var(--sans);font-size:14.5px}
+th{text-align:left;font-weight:600;color:var(--ink2);padding:11px 16px 11px 0;
+  border-bottom:1px solid var(--rule);vertical-align:bottom;font-size:13.5px}
+td{padding:11px 16px 11px 0;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.45}
+tr:last-child td{border-bottom:none}
+td:last-child,th:last-child{padding-right:0}
+.hfgroup{margin:28px 0 0}
+.hfgroup > h4{color:var(--maroon-ink);border-bottom:1px solid var(--rule);padding-bottom:7px;margin-bottom:0}
+.hfrow{display:grid;grid-template-columns:200px 78px 1fr;gap:16px;padding:11px 0;
+  border-bottom:1px solid var(--rule);align-items:baseline}
+.hfrow:last-child{border-bottom:none}
+.hfname{font-family:var(--sans);font-size:14.5px;font-weight:500}
+.hfuse{font-family:var(--sans);font-size:14.5px;color:var(--ink2);line-height:1.45}
+.tag{font-family:var(--sans);font-size:11.5px;font-weight:600;padding:2px 8px;border-radius:3px;
+  white-space:nowrap;display:inline-block}
+.tag.core{background:var(--maroon);color:#fff}
+.tag.p2{background:var(--gold);color:#5C4400}
+.tag.p3{background:var(--band);color:var(--ink2);border:1px solid var(--rule)}
+@media (max-width:620px){.hfrow{grid-template-columns:1fr 78px;gap:6px 12px}.hfuse{grid-column:1 / -1}}
+.pull{background:var(--maroon-tint);border-left:3px solid var(--maroon);padding:18px 22px;margin:26px 0}
+.pull p{margin:0;max-width:60ch}
+.note{font-size:15px;color:var(--ink2);border-top:1px solid var(--rule);padding-top:14px;margin-top:26px}
+ul,ol{padding-left:22px;margin:0 0 1.05em}
+.bullets{list-style:none;padding:0}
+.bullets li{border-left:2px solid var(--rule);padding:0 0 0 16px;margin-bottom:14px;font-size:16px}
+.add{border-left:3px solid var(--gold);padding:2px 0 2px 20px;margin:26px 0 30px}
+.add h4{margin:0 0 5px;font-size:17px}
+.add p{margin-bottom:.6em}
+.phase{display:grid;grid-template-columns:96px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--rule)}
+.phase:last-child{border-bottom:none}
+.phase b{font-family:var(--sans);font-size:14.5px;font-weight:600;color:var(--maroon-ink)}
+.phase div p{margin:0 0 .4em}
+.phase .ship{font-family:var(--sans);font-size:13.5px;color:var(--ink3);margin:0}
+@media (max-width:560px){.phase{grid-template-columns:1fr;gap:4px}}
+footer{margin-top:52px;padding-top:20px;border-top:2px solid var(--maroon);
+  font-family:var(--sans);font-size:13.5px;color:var(--ink3)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="kicker">Project specification · version 2 · build scope finalised</p>
+  <h1>Sentinel</h1>
+  <p class="lede">A corpus-scale audit engine for biomedical research publications. It checks whether a paper's references exist, whether they have been retracted, whether its own statistics are internally consistent, whether it reported the outcome it registered, and whether it says what its sources actually say.</p>
+
+  <div class="trend">
+    <div class="step"><b>1 in 277</b><span>Papers with a fabricated reference, early 2026</span></div>
+    <div class="step"><b>~31%</b><span>Trials whose primary outcome changed between registration and publication</span></div>
+    <div class="step"><b>1 in 8</b><span>Papers with a p-value error large enough to flip the conclusion</span></div>
+  </div>
+  <p class="srcnote">Sources: Lancet audit of 2 million papers and 97 million citations (2026); systematic reviews of registry-to-publication outcome consistency; statcheck analysis of 250,000 reported p-values. Three different defects, three different checks, all detectable from public data.</p>
+</header>
+
+<section>
+<h2>The problem</h2>
+<p class="sectlead">Why this exists</p>
+
+<p>Clinical decisions rest on a chain. A trial is run, results are published, the publication is pooled into a systematic review, the review becomes a guideline, the guideline changes practice. Errors enter at every link and almost never get caught.</p>
+
+<p>A trial changes its primary outcome after seeing the data. A paper reports a p-value that contradicts its own test statistic. A review cites a study retracted two years earlier. A guideline cites a paper for a claim that paper never made.</p>
+
+<p>Every one of those failures is publicly auditable. The registry, the publication, the retraction database, and the payment records are all open. Nobody audits them because checking requires reading two documents side by side, it takes an expert hours per paper, and there are millions of papers.</p>
+
+<div class="pull">
+<p>The evidence base underlying clinical practice contains detectable, quantifiable defects that nobody checks for, because checking requires reading two documents side by side and nobody has time. That is an automation problem, not a medical one.</p>
+</div>
+
+<p><strong>Primary user:</strong> systematic review teams. A review takes one to two years, and screening plus quality appraisal is the bottleneck. Guideline committees and journal editors are the adjacent buyers. The output is designed for human triage, never for automatic consumption.</p>
+</section>
+
+<section>
+<h2>Scope</h2>
+<p class="sectlead">What the system decides, and what it never decides</p>
+
+<p>Sentinel makes one kind of judgment: whether two documents that should agree actually agree. Registered outcome against published outcome. Citing sentence against cited source. Reported p-value against reported test statistic. It never judges whether a clinical claim is true, never recommends treatment, and never replaces expert appraisal.</p>
+
+<p>This is why the project needs no medical training to build. Comparing two texts for consistency is a language and systems problem. It is also why it touches no patient data: every source is public bibliographic metadata, registry records, and published full text. No protected health information, no regulatory scope, no clinical validation burden.</p>
+</section>
+
+<section>
+<h2>What it checks</h2>
+<p class="sectlead">Twelve checks across three bands</p>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Check</th><th>What it catches</th><th>Band</th><th>Phase</th></tr></thead>
+<tbody>
+<tr><td>Reference existence</td><td>Citations to papers that do not exist</td><td>Deterministic</td><td>1</td></tr>
+<tr><td>Retraction status</td><td>Citing withdrawn or disputed work</td><td>Deterministic</td><td>1</td></tr>
+<tr><td>Statistical consistency</td><td>Reported p-value contradicts its own test statistic</td><td>Deterministic</td><td>1</td></tr>
+<tr><td>Impossible statistics</td><td>Means or deviations that cannot arise from the stated sample</td><td>Deterministic</td><td>1</td></tr>
+<tr><td>Results reporting</td><td>Trial completed, results never posted</td><td>Deterministic</td><td>1</td></tr>
+<tr><td>Outcome switching</td><td>Registered one primary outcome, published a different one</td><td>Cross-document</td><td>2</td></tr>
+<tr><td>Duplicate publication</td><td>Same cohort published repeatedly, inflating meta-analyses</td><td>Cross-document</td><td>2</td></tr>
+<tr><td>Disclosure mismatch</td><td>Declared conflicts contradict public payment records</td><td>Cross-document</td><td>2</td></tr>
+<tr><td>Claim support</td><td>Source does not say what it is cited for</td><td>Grounding</td><td>3</td></tr>
+<tr><td>Spin</td><td>Abstract conclusion overstates the results section</td><td>Grounding</td><td>3</td></tr>
+<tr><td>Paper mill markers</td><td>Tortured phrasing, template structure</td><td>Grounding</td><td>3</td></tr>
+<tr><td>Image integrity</td><td>Duplicated or spliced figure panels</td><td>Grounding</td><td>Stretch</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>The two that carry the project</h3>
+
+<p><strong>Outcome switching</strong> is the core. Both sides of the comparison are public and structured, the matching is genuinely semantic rather than string-based — deciding whether "change in HbA1c at 12 weeks" and "glycemic control at 3 months" are the same outcome is a language problem — and the documented prevalence gives an external validation target. It has a clinical consequence statable in one line: trials that switch outcomes report effect sizes roughly 16% larger.</p>
+
+<p><strong>Claim support</strong> is the hard tier and shares all its machinery with outcome switching. Same entailment models, same retrieval, same evaluation harness.</p>
+
+<h3>Corpus audit, not single-paper lookup</h3>
+
+<p>Sentinel runs over thousands of papers and reports prevalence. A single-paper endpoint exists for demonstration, but the system is built for the corpus. Throughput, batching, concurrency, cost per unit, caching, queueing, partial failure, and retry semantics only become real problems at 400,000 verifications rather than 40 — and those are exactly the problems the project exists to demonstrate.</p>
+</section>
+
+<section>
+<h2>HuggingFace task coverage</h2>
+<p class="sectlead">Mapped against the full task taxonomy, organised as HuggingFace organises it</p>
+
+<p>Thirteen tasks are load-bearing in the core build. The multimodal group is not decoration: effect sizes routinely live in Table 2 or a forest plot and nowhere in the prose, so a verifier that reads only text cannot check the claims that matter most.</p>
+
+<div class="hfgroup">
+<h4>Natural language processing</h4>
+<div class="hfrow"><span class="hfname">Zero-shot classification</span><span><span class="tag core">Core</span></span><span class="hfuse">The central primitive. Natural language inference between two texts that should agree: supported, contradicted, or insufficient. Also the cold-start labeller before supervised data exists.</span></div>
+<div class="hfrow"><span class="hfname">Text classification</span><span><span class="tag core">Core</span></span><span class="hfuse">Fine-tuned verdict head, outcome-equivalence classifier, and citation stance. Compared head-to-head against zero-shot and an LLM judge.</span></div>
+<div class="hfrow"><span class="hfname">Token classification</span><span><span class="tag core">Core</span></span><span class="hfuse">Claim skeleton extraction — population, intervention, comparator, outcome, effect size, sample size, direction — so numeric claims can be checked numerically.</span></div>
+<div class="hfrow"><span class="hfname">Feature extraction</span><span><span class="tag core">Core</span></span><span class="hfuse">Dense retrieval embeddings. MedCPT encoders, contrastively pretrained on 255 million PubMed click events, with SPECTER2 for document-level similarity.</span></div>
+<div class="hfrow"><span class="hfname">Sentence similarity</span><span><span class="tag core">Core</span></span><span class="hfuse">Reference deduplication, duplicate-cohort detection, outcome description matching, and evidence span localisation.</span></div>
+<div class="hfrow"><span class="hfname">Text ranking</span><span><span class="tag core">Core</span></span><span class="hfuse">Cross-encoder reranking of candidate evidence spans. Entailment is expensive; the reranker decides which three spans deserve it.</span></div>
+<div class="hfrow"><span class="hfname">Question answering</span><span><span class="tag core">Core</span></span><span class="hfuse">Extractive second opinion. Ask the source directly what sample size was reported, then compare against the extracted claim.</span></div>
+<div class="hfrow"><span class="hfname">Table question answering</span><span><span class="tag core">Core</span></span><span class="hfuse">Effect sizes, confidence intervals, and cohort counts overwhelmingly live in tables.</span></div>
+<div class="hfrow"><span class="hfname">Summarization</span><span><span class="tag core">Core</span></span><span class="hfuse">Per-paper audit narrative and per-finding rationale, with mandatory span attribution.</span></div>
+<div class="hfrow"><span class="hfname">Text generation</span><span><span class="tag core">Core</span></span><span class="hfuse">The judge model during distillation, the agent reasoning layer, and verdict explanation in reviewable language.</span></div>
+<div class="hfrow"><span class="hfname">Translation</span><span><span class="tag p2">Phase 2</span></span><span class="hfuse">Non-English registry entries and cited sources that Western surveillance systematically misses.</span></div>
+</div>
+
+<div class="hfgroup">
+<h4>Multimodal</h4>
+<div class="hfrow"><span class="hfname">Document question answering</span><span><span class="tag core">Core</span></span><span class="hfuse">Question answering over the cited paper's full PDF when evidence is not in the abstract.</span></div>
+<div class="hfrow"><span class="hfname">Visual document retrieval</span><span><span class="tag core">Core</span></span><span class="hfuse">Late-interaction retrieval over rendered PDF pages, so figure and table evidence is findable without fragile text extraction.</span></div>
+<div class="hfrow"><span class="hfname">Image-text-to-text</span><span><span class="tag core">Core</span></span><span class="hfuse">A vision language model reads forest plots, survival curves, and bar charts to check a numeric claim against the figure carrying it.</span></div>
+<div class="hfrow"><span class="hfname">Visual question answering</span><span><span class="tag p2">Phase 2</span></span><span class="hfuse">Targeted single-figure interrogation once the right panel is located.</span></div>
+</div>
+
+<div class="hfgroup">
+<h4>Tabular</h4>
+<div class="hfrow"><span class="hfname">Tabular classification</span><span><span class="tag core">Core</span></span><span class="hfuse">The honest baseline. Gradient boosting on metadata alone — venue, year, reference count, author history, sponsor class — with real feature engineering, calibrated outputs, and SHAP attributions. The number the expensive pipeline must beat.</span></div>
+<div class="hfrow"><span class="hfname">Tabular regression</span><span><span class="tag p2">Phase 2</span></span><span class="hfuse">Continuous per-paper integrity risk score for triage ordering.</span></div>
+<div class="hfrow"><span class="hfname">Time series forecasting</span><span><span class="tag p2">Phase 2</span></span><span class="hfuse">Production drift monitoring: forecast the expected flag rate and alert on residuals, so model degradation surfaces before a human notices.</span></div>
+</div>
+
+<div class="hfgroup">
+<h4>Other</h4>
+<div class="hfrow"><span class="hfname">Graph machine learning</span><span><span class="tag p2">Phase 2</span></span><span class="hfuse">Retraction contamination propagation through the citation network — how much of a review's evidence base transitively rests on withdrawn work.</span></div>
+</div>
+
+<div class="hfgroup">
+<h4>Computer vision</h4>
+<div class="hfrow"><span class="hfname">Image feature extraction</span><span><span class="tag p3">Stretch</span></span><span class="hfuse">Figure reuse and duplicate-panel detection, an established integrity signal separate from citation checking.</span></div>
+<div class="hfrow"><span class="hfname">Object detection</span><span><span class="tag p3">Stretch</span></span><span class="hfuse">Panel segmentation within composite figures so each panel is fingerprinted independently.</span></div>
+<div class="hfrow"><span class="hfname">Image classification</span><span><span class="tag p3">Stretch</span></span><span class="hfuse">Figure type routing — chart, micrograph, gel, schematic — to send each panel to the right checker.</span></div>
+</div>
+
+<p class="note"><strong>Deliberately unused:</strong> every generative vision and audio task, depth estimation, keypoint detection, video classification, reinforcement learning, and robotics. Fill-mask appears only as a pretraining objective inside the encoders, never as an inference task. Automatic speech recognition was considered for conference-talk evidence and rejected as low value relative to cost. Listing what a system does not use is part of showing it was designed rather than assembled.</p>
+</section>
+
+<section>
+<h2>The four modelling additions</h2>
+<p class="sectlead">Each is required by the product, not added for a resume</p>
+
+<div class="add">
+<h4>Calibration</h4>
+<p>The model outputs a confidence and the system thresholds it to control how many items reach a human. If that confidence is not calibrated, the threshold is arbitrary. Build reliability diagrams, apply Platt scaling and isotonic regression, and report expected calibration error before and after.</p>
+<p>Rarely present in portfolios, and here the product breaks without it.</p>
+</div>
+
+<div class="add">
+<h4>Distillation</h4>
+<p>Use the expensive LLM judge to label a large set, then train a small encoder on those labels. Measure both gaps: accuracy retained and cost reduced.</p>
+<p>The single highest-value addition. One piece of work that reads as a training exercise to a machine learning interviewer and as a fifty-to-hundred-fold cost reduction to an AI engineering interviewer.</p>
+</div>
+
+<div class="add">
+<h4>Class imbalance</h4>
+<p>Fabricated references run near 1%. At that base rate a model predicting "clean" every time scores 99% accuracy. Precision-recall curves rather than ROC, threshold optimisation against an explicit cost function, cost-sensitive loss, and a comparison of resampling strategies.</p>
+<p>This is the modelling conversation an interviewer wants to have, and it is forced by the data rather than chosen.</p>
+</div>
+
+<div class="add">
+<h4>The MLOps loop</h4>
+<p>Model registry with versioned artifacts and lineage, input-distribution drift detection, an automated retraining trigger, and rollback. MLflow for tracking, with the registry and drift monitors built on top.</p>
+<p>Closes the gap between "I trained a model" and "I operate models."</p>
+</div>
+</section>
+
+<section>
+<h2>Technology</h2>
+<p class="sectlead">Chosen for a solo build on modest infrastructure</p>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Layer</th><th>Choice</th><th>Reasoning</th></tr></thead>
+<tbody>
+<tr><td>Orchestration</td><td>LangGraph</td><td>State machine with Postgres checkpointing and a human-interrupt node. A run must survive dying at citation 180,000 and resume there.</td></tr>
+<tr><td>Storage and vectors</td><td>PostgreSQL with pgvector, HNSW</td><td>One system for relational data, full-text search, and embeddings. Hybrid retrieval becomes a join rather than a distributed query.</td></tr>
+<tr><td>Retrieval</td><td>BM25 plus MedCPT, reciprocal rank fusion, cross-encoder rerank</td><td>The lexical-plus-dense fusion validated on biomedical retrieval benchmarks.</td></tr>
+<tr><td>Model serving</td><td>Text Embeddings Inference; LiteLLM router</td><td>Encoders containerised locally; API models routed with fallback chains and per-request cost accounting.</td></tr>
+<tr><td>Training</td><td>PyTorch, Transformers, PEFT</td><td>Fine-tuning and distillation of encoder-scale models. No distributed training required.</td></tr>
+<tr><td>Experiment tracking</td><td>MLflow, self-hosted</td><td>Runs, ablations, model registry, artifact lineage.</td></tr>
+<tr><td>Structured output</td><td>Pydantic v2 with retry-on-parse-failure</td><td>Every extraction is a validated object. Validation failure rate is a tracked metric.</td></tr>
+<tr><td>Evaluation</td><td>Ragas, custom harness, promptfoo in CI</td><td>Eval-gated deployment: a regression past threshold fails the build.</td></tr>
+<tr><td>Observability</td><td>Langfuse, self-hosted</td><td>Traces, token accounting per stage, latency percentiles.</td></tr>
+<tr><td>Service</td><td>FastAPI, Docker Compose</td><td>Independently deployable; CLI for corpus runs, API for the demonstration endpoint.</td></tr>
+<tr><td>Integration</td><td>Model Context Protocol server</td><td>Exposes the audited corpus to desktop agents.</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>Deliberately excluded:</strong> managed vector databases, Kubernetes, Airflow, dbt, distributed training, and any frontend framework. Each is a week that does not exist. Being able to explain when a managed vector store <em>would</em> win — multi-tenancy, billion-scale, outsourced operations — matters more than adopting one.</p>
+</section>
+
+<section>
+<h2>Evaluation</h2>
+<p class="sectlead">The differentiator, and the reason to build this rather than something else</p>
+
+<p>Ground truth comes from three independent directions, which is unusual for a portfolio project.</p>
+
+<ul>
+<li><strong>Programmatic corruption.</strong> Take verified true pairs and corrupt them systematically — swap the source, negate the direction, weaken or strengthen the effect, alter the population. Thousands of labelled examples at controlled difficulty, each with a known corruption type for error analysis.</li>
+<li><strong>Published annotated corpora.</strong> Human-labelled citation integrity data as an external check.</li>
+<li><strong>Hand-labelled holdout.</strong> Two hundred cases labelled manually, selected by active learning rather than at random.</li>
+</ul>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Dimension</th><th>Measure</th><th>Why it is the right measure</th></tr></thead>
+<tbody>
+<tr><td>Verdict accuracy</td><td>Macro F1 across three classes</td><td>Insufficient-evidence is a real class, not a failure to answer.</td></tr>
+<tr><td>Synthetic-to-real gap</td><td>Both numbers, always together</td><td>Published work saw a pipeline fall from 97% on generated benchmarks to 90% on real cases, with one frontier model collapsing from 96% to 33% F1. Reporting only the flattering number is the tell of an unserious system.</td></tr>
+<tr><td>Calibration</td><td>Expected calibration error, reliability diagram</td><td>The operating threshold is meaningless without it.</td></tr>
+<tr><td>Imbalanced performance</td><td>Precision-recall curve, precision at fixed recall</td><td>At a 1% base rate, accuracy and ROC both mislead.</td></tr>
+<tr><td>Distillation</td><td>F1 retained against cost reduced</td><td>A single number pair that answers both an ML and an AI engineering question.</td></tr>
+<tr><td>Coverage</td><td>Share of citations reaching a full-confidence verdict</td><td>A verifier working on 30% of citations is a different product from one working on 90%. Coverage sits beside accuracy, never behind it.</td></tr>
+<tr><td>Retrieval</td><td>nDCG@10, Recall@50 with a four-row ablation</td><td>BM25, dense, fusion, fusion plus rerank. One table, one chart.</td></tr>
+<tr><td>Baseline comparison</td><td>Full pipeline against the tabular model</td><td>If gradient boosting on metadata gets close, that is a finding worth publishing, not one to bury.</td></tr>
+<tr><td>Adversarial</td><td>Prompt injection survival rate</td><td>Untrusted paper text flows into a language model. Payloads must not change a verdict.</td></tr>
+<tr><td>Cost and latency</td><td>p50 and p95 per stage, cost per thousand units</td><td>Tracked from week one, not week eleven.</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="pull">
+<p>At a 1% flag rate over 420,000 citations you hand humans 4,200 items. If a third are false positives, the tool is abandoned within a month. This inverts the usual priority: tune for precision, accept missed cases, and say so out loud.</p>
+</div>
+</section>
+
+<section>
+<h2>Scale</h2>
+<p class="sectlead">Cascade, do not uniform-process</p>
+
+<p>Running the expensive tier on every citation is what makes this look unaffordable. The architecture is a funnel where each stage costs roughly ten to thirty times the last, and only suspicion escalates.</p>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Stage</th><th>Volume on 10k papers</th><th>Unit cost</th><th>Escalation trigger</th></tr></thead>
+<tbody>
+<tr><td>Deterministic checks</td><td>~420,000</td><td>Local lookup, sub-millisecond</td><td>Unresolvable, retracted, statistically inconsistent</td></tr>
+<tr><td>Cross-document</td><td>~40,000</td><td>Embedding plus classifier</td><td>Trial-linked papers, suspected duplicates</td></tr>
+<tr><td>Claim grounding, text</td><td>~15,000</td><td>Retrieval plus entailment</td><td>Flagged above, random audit sample, high-stakes claims</td></tr>
+<tr><td>Claim grounding, visual</td><td>~1,500</td><td>Vision model over pages</td><td>Numeric claim absent from prose</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Expensive work drops from roughly 420,000 units to 15,000, about a twenty-eight-fold reduction. The reference universe is large — OpenAlex holds around 250 million works — but it is a lookup table you query, not a corpus you process. The bounded object is the citation being verified.</p>
+
+<h3>The validation run</h3>
+<p>Ten thousand papers from the PubMed Central open-access subset, every reference and every statistic checked. Free data, no permissions, publishable result. Then compare measured prevalence against the published estimates. Landing near them validates the system against ground truth nobody constructed for it; landing far off is either a bug or a finding, and both are worth writing up.</p>
+
+<h3>What breaks first</h3>
+<p>Not compute. In order: <strong>full-text access</strong>, since claim grounding needs the cited source and much of biomedicine is paywalled — scope it to open access and degrade elsewhere to an explicitly labelled abstract-only verdict. Then <strong>precision</strong>. Then <strong>entity resolution</strong>, which degrades worse than linearly and will consume more time than the models do.</p>
+</section>
+
+<section>
+<h2>Build plan</h2>
+<p class="sectlead">Fifteen weeks, solo, shippable at every phase</p>
+
+<div class="phase">
+<b>Weeks 1–3</b>
+<div>
+<p>Bulk snapshot ingestion of Crossref, OpenAlex, Retraction Watch, ClinicalTrials.gov, and Europe PMC into Postgres. Reference parsing and staged entity resolution. All five deterministic checks. Fixture corpus with hand-verified expected findings.</p>
+<p class="ship">Ships: real findings on real papers, zero false positives on the clean fixtures, no machine learning.</p>
+</div>
+</div>
+
+<div class="phase">
+<b>Weeks 4–6</b>
+<div>
+<p>Full-text acquisition for the open-access subset. pgvector index, hybrid retrieval with reciprocal rank fusion, cross-encoder reranking. Claim skeleton extraction. The corruption generator. Retrieval eval harness. The tabular baseline with feature engineering and SHAP.</p>
+<p class="ship">Ships: the four-row retrieval ablation and a labelled synthetic evaluation set.</p>
+</div>
+</div>
+
+<div class="phase">
+<b>Weeks 7–9</b>
+<div>
+<p>Outcome switching: outcome-equivalence matching between registry versions and publication. Entailment models — zero-shot, fine-tuned, LLM judge, ensemble. Class imbalance handling and threshold optimisation. Calibration with reliability diagrams.</p>
+<p class="ship">Ships: measured outcome-switching prevalence, calibrated confidences, the synthetic-to-real gap reported.</p>
+</div>
+</div>
+
+<div class="phase">
+<b>Weeks 10–12</b>
+<div>
+<p>Distillation of the judge into a small encoder, with the accuracy-versus-cost curve. LangGraph orchestration and the reviewer interrupt. Langfuse tracing, Ragas and promptfoo in CI. Model registry, drift detection, retraining trigger, rollback.</p>
+<p class="ship">Ships: the distilled model with both gaps quantified, and eval-gated CI.</p>
+</div>
+</div>
+
+<div class="phase">
+<b>Weeks 13–15</b>
+<div>
+<p>Visual evidence: page retrieval and vision model reading of tables and figures. Cascade tuning and cost instrumentation. The ten-thousand-paper validation run. Adversarial suite, Docker Compose, MCP server, and the write-ups.</p>
+<p class="ship">Ships: the deployed system, the validated corpus result, the evaluation report, and the post-mortem.</p>
+</div>
+</div>
+
+<p class="note">Cut list in order if the schedule slips: graph propagation, translation, visual question answering, local model serving. Protect the evaluation harness and the distillation work — they carry both career tracks.</p>
+</section>
+
+<section>
+<h2>Career mapping</h2>
+<p class="sectlead">One project, two emphases</p>
+
+<p>The two markets share roughly two thirds of their top skills, so the project serves both. The work does not change; what leads does.</p>
+
+<div class="scroll">
+<table>
+<thead><tr><th>Target</th><th>Lead with</th><th>Example claim</th></tr></thead>
+<tbody>
+<tr><td>AI engineering</td><td>Agent orchestration, retrieval architecture, cost per unit, eval-gated CI, observability, guardrails</td><td>Cut cost per thousand citations from $A to $B through cascade routing and semantic caching.</td></tr>
+<tr><td>ML engineering</td><td>Model comparison and ablations, distillation, calibration, threshold optimisation under imbalance, retraining with drift triggers</td><td>Distilled an LLM judge into a fine-tuned encoder, retaining X% of macro F1 at 1/N the inference cost.</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Both statements describe the same afternoon's work.</p>
+
+<h3>The five deliverables that matter</h3>
+<ol>
+<li>A repository with a real README — architecture diagram, ablation tables, reproducible setup.</li>
+<li>An evaluation report with every metric, synthetic and real, plus error analysis by failure type.</li>
+<li>A deployed instance someone can use without cloning anything.</li>
+<li>A write-up of the validation run against published prevalence estimates.</li>
+<li>A post-mortem of what did not work — the model that underperformed, the retrieval strategy abandoned, the cost blowup fixed.</li>
+</ol>
+
+<p>Most candidates ship the first and stop. The second and fifth are what convince a hiring manager you have shipped something before.</p>
+
+<h3>What this project does not prove</h3>
+<p>Distributed training, GPU and kernel optimisation, high-volume real-time serving, and predictive modelling on proprietary business data — fraud, churn, lifetime value, demand forecasting. If roles of that kind are in the target set, they need a separate three-week project on a public dataset, done end to end. One deep project plus one focused one beats two shallow ones.</p>
+</section>
+
+<section>
+<h2>Impact metrics</h2>
+<p class="sectlead">Templates to fill with measured numbers — every one is produced by the harness</p>
+
+<ul class="bullets">
+<li>Built a corpus-scale evidence integrity engine auditing <strong>[N]</strong> references and <strong>[M]</strong> reported statistics across <strong>[P]</strong> biomedical papers; cascade routing reduced expensive verification volume <strong>[X]</strong>-fold, cutting cost per thousand units from <strong>$[A]</strong> to <strong>$[B]</strong>.</li>
+<li>Distilled an LLM judge into a fine-tuned encoder, retaining <strong>[X]%</strong> of macro F1 at <strong>[N]×</strong> lower inference cost and <strong>[M]×</strong> lower latency.</li>
+<li>Reduced expected calibration error from <strong>[A]</strong> to <strong>[B]</strong> via isotonic regression, enabling a precision-targeted operating threshold at <strong>[X]%</strong> precision and <strong>[Y]%</strong> recall.</li>
+<li>Achieved <strong>[X]</strong> macro F1 on a hand-labelled real-world holdout versus <strong>[Y]</strong> on synthetic benchmarks; analysed and reported the transfer gap.</li>
+<li>Improved evidence retrieval nDCG@10 from <strong>[baseline]</strong> to <strong>[final]</strong> through hybrid fusion and cross-encoder reranking.</li>
+<li>Independently measured outcome-switching prevalence at <strong>[X]%</strong> across <strong>[N]</strong> registered trials, consistent with published systematic review estimates.</li>
+<li>Designed a ten-dimension evaluation harness wired into CI; eval-gated deployment blocked <strong>[N]</strong> regressions before merge.</li>
+</ul>
+
+<p>Calibration, so progress stays legible: hybrid plus reranking should beat BM25 alone by roughly 15–30% nDCG@10; a synthetic-to-real F1 drop of 10–25 points is normal; distillation typically retains 85–95% of teacher performance; cost reduction of 40–70% through caching and routing is achievable. Substantially better than these on a first build usually means leakage.</p>
+</section>
+
+<section>
+<h2>Data and licensing</h2>
+<p class="sectlead">Handled at ingestion, never retrofitted</p>
+
+<p>Metadata from Crossref, OpenAlex, Retraction Watch, and ClinicalTrials.gov is broadly redistributable. Full text is not uniformly so. Store full text only for open-access and licensed records, keep a pointer for everything else, and record the licence per record from day one.</p>
+
+<p>Published outputs report aggregate prevalence and flag counts. Individual findings naming specific papers are held for human review before publication, because a false accusation of fabrication is a serious harm and the system's own documentation should say so.</p>
+
+<p>No patient data is involved at any point.</p>
+</section>
+
+<footer>
+Version 2, build scope finalised. Prevalence figures cited from The Lancet (2026), Nature (2026), published systematic reviews of registry-to-publication outcome consistency, and statcheck analyses of reported p-values. Volume and cost figures are design targets pending measurement.
+</footer>
+
+</div>
+</body>
+</html>

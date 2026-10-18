@@ -51,6 +51,7 @@ class Settings(BaseSettings):
     europepmc_base_url: str = "https://www.ebi.ac.uk/europepmc/webservices/rest"
     clinicaltrials_base_url: str = "https://clinicaltrials.gov/api/v2"
     ncbi_eutils_base_url: str = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
+    doi_handle_base_url: str = "https://doi.org/api/handles"
 
     # --- HTTP client ---------------------------------------------------------
     http_timeout_s: int = 30
@@ -66,13 +67,13 @@ class Settings(BaseSettings):
     rate_ncbi_rps: float = 3
     openalex_daily_quota: int = 100_000
 
-    # --- Bulk snapshots (ADR-005 / ADR-020) -----------------------------------
+    # --- Local data files (ADR-020; Crossref/OpenAlex are API-only) ----------
     data_dir: str = "./data"
-    crossref_snapshot_path: str = "./data/crossref/"
-    openalex_snapshot_uri: str = "s3://openalex/data/"
-    openalex_s3_no_sign_request: bool = True
     pmc_oa_snapshot_path: str = "./data/pmc-oa/"
-    retraction_watch_csv_path: str = "./data/retraction-watch/retractions.csv"
+    retraction_watch_csv_path: str = (
+        "./data/retraction-watch-data/retraction_watch.csv"
+    )
+    # Bulk zip is for the 10,000-paper run only (ADR-019 as amended by ADR-023).
     clinicaltrials_bulk_url: str = (
         "https://clinicaltrials.gov/api/v2/studies/download?format=json.zip"
     )
@@ -93,7 +94,7 @@ class Settings(BaseSettings):
     resolve_batch_size: int = 500
     check_batch_size: int = 200
 
-    # --- Entity resolution cascade (brief §8) — feeds config_hash -------------
+    # --- Entity resolution cascade (§9.5) — feeds config_hash ----------------
     resolve_trigram_min: float  # no default — ADR-022
     resolve_trigram_strict: float  # no default — ADR-022
     resolve_year_tolerance: int  # no default — ADR-022
@@ -108,7 +109,7 @@ class Settings(BaseSettings):
     c04_max_n: int  # no default — ADR-022
     c04_min_decimals: int  # no default — ADR-022
     c04_epsilon: float  # no default — ADR-022
-    c05_overdue_months: int  # no default — ADR-022
+    c05_grace_months: int  # no default — ADR-022
 
     # --- Runs and output -------------------------------------------------------
     default_corpus_label: str = "dev-sample"
@@ -135,7 +136,7 @@ class Settings(BaseSettings):
             "c04_max_n": self.c04_max_n,
             "c04_min_decimals": self.c04_min_decimals,
             "c04_epsilon": self.c04_epsilon,
-            "c05_overdue_months": self.c05_overdue_months,
+            "c05_grace_months": self.c05_grace_months,
         }
         payload = json.dumps(fields, sort_keys=True).encode("utf-8")
         return hashlib.sha256(payload).hexdigest()

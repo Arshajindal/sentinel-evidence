@@ -32,21 +32,27 @@ Low friction or it rots. The rules:
 > Rewrite this section each session. Keep it short.
 
 **Phase:** 1 of 5 — data foundation and deterministic checks
-**Week:** 0 — repo created, decisions settled, no code yet
-**Last worked:** —
+**Plan:** `docs/sentinel-project.md` §15 session IDs. Old brief and HTML spec are in `docs/archive/`.
+**Last worked:** 2026-10-18 — catch-up audit, then closed out S1.1 and S1.2
 
-**What works:** nothing yet. Repo scaffolded with README, PROGRESS, docs/phase1-brief, .env.example, .gitignore, LICENSE.
+**Sessions:**
 
-**What's broken:** nothing yet.
+| Session | Status | Evidence / what's left |
+|---|---|---|
+| S1.1 Scaffold | done | Config loads; `tests/test_config.py` covers ADR-022 (each required variable, hash scope, `.env.example` ↔ `Settings` in sync); `alembic current` runs cleanly. |
+| S1.2 Models + initial migration | done | `c9051bc4f780` plus `157fbb99af3c` (finding is about a paper or a trial, §8). `tests/test_migrations.py` runs up, down, up and checks the trigram index; `alembic check` shows no drift. |
+| S1.3 – S1.15 | not started | No `schemas.py`, `ingest/`, `parse/`, `resolve/`, `checks/`, `report/` or `cli.py`. |
 
-**Settled this session:** corpus is PMC open access with NCT numbers, n=1,000 (ADR-021). Resolution goes through APIs, not bulk snapshots, at this scale (ADR-020). Config carries defaults for operational settings only (ADR-022). ClinicalTrials.gov loads from the bulk zip (ADR-019) with personal fields stripped at normalise (ADR-018).
+**What works:** config, schema at head on local Postgres (all tables empty), 23 tests.
+
+**What's broken:** nothing known. The migration test skips unless `TEST_DATABASE_URL` points at a disposable database.
 
 **Next three things:**
-1. Confirm the five base URLs resolve, using real endpoint paths rather than bare roots
-2. `pyproject.toml`, venv, Postgres running with `pg_trgm`, then `config.py` and `db.py`
-3. `alembic init` and the initial migration from brief §5 — test up, down, up
+1. S1.3: Harvester base and the Retraction Watch harvester
+2. S1.4: ClinicalTrials.gov lookup client (per study, ADR-023) with the ADR-018 test
+3. S1.5: Check base, contexts, C05, report card, `sentinel report <nct-id>`
 
-**Then:** the vertical slice — Retraction Watch and ClinicalTrials.gov harvesters, C05, report card, CLI. Target: `sentinel report <nct-id>` prints a real overdue-results finding.
+**Then:** S1.6 onward. Target: `sentinel report <nct-id>` prints a real overdue-results finding.
 
 **Blocked on:** nothing.
 
@@ -309,6 +315,19 @@ The rule: **if it changes the findings, it must be stated explicitly.**
 
 ---
 
+### ADR-023 — Amends ADR-019: ClinicalTrials.gov fetched per study by default
+**Status:** active · amends ADR-019
+
+ADR-019 made the bulk zip the initial load. The zip holds every study in the registry, around 600,000 records. The working corpus needs roughly 1,000 linked trials (ADR-021). Downloading and parsing the whole registry to use a fraction of a percent of it is the same mistake ADR-020 corrected for Crossref and OpenAlex.
+
+Default: fetch one study at a time from `/api/v2/studies/{nctId}` through a lookup client, upserting into `trial` and `trial_outcome` and keeping the raw response (ADR-018 drop paths applied first). The bulk zip is kept for the 10,000-paper run (ADR-021) or registry-wide statistics. The rest of ADR-019 stands: same JSON schema, `/api/v2/version` before refreshes, models checked against the OpenAPI spec.
+
+**Rejected:** bulk zip for the 1,000-paper corpus. A few GB and a registry-wide parse buys nothing at this size.
+
+**Revisit at:** the 10,000-paper run, or if per-study fetching becomes the bottleneck.
+
+---
+
 ### ADR-0NN — template
 **Status:** active
 
@@ -408,9 +427,16 @@ What happened. What you expected instead. Root cause. What changed as a result. 
 |---|---|---|---|
 | Which starting corpus? | Affects fixture design and prevalence comparability | Week 1 | **resolved — ADR-021** |
 | Does `config.py` carry defaults, or require every variable? | Decides whether `.env.example` is documentation or mandatory setup | Week 1 | **resolved — ADR-022** |
-| GPU available, or rent one? | Determines local vs API serving for encoders and fine-tuning | Week 6 | open — not needed until Phase 3; hourly rental is likely under $100 total |
-| Full-text coverage rate for *cited* sources? | Caps the addressable share of claim grounding. Distinct from coverage of citing papers, which is ~100% by construction | Week 4 | open — measure on 100 papers, report beside accuracy |
-| Publish individual findings, or aggregate only? | A false fabrication accusation is a serious harm | Week 10 | open — leaning: deterministic checks may name papers, model-based checks report rates only |
+| GPU available, or rent one? | Determines local vs API serving for encoders and fine-tuning | Week 6 | open — not needed until Phase 3; hourly rental is likely under $100 total. Tracked as Q1 |
+| Full-text coverage rate for *cited* sources? | Caps the addressable share of claim grounding. Distinct from coverage of citing papers, which is ~100% by construction | Week 4 | open — measure on 100 papers, report beside accuracy. Tracked as Q2 |
+| Publish individual findings, or aggregate only? | A false fabrication accusation is a serious harm | Week 10 | open — leaning: deterministic checks may name papers, model-based checks report rates only. Tracked as Q4 |
+| Q1 — Is a GPU available? | Decides local or API serving for encoders and training | Before S2.4 | open |
+| Q2 — What share of cited sources has open full text? | Caps how much C09 can check | Measured in S2.2 | open |
+| Q3 — What exact Europe PMC query selects the corpus? | Decides what the working corpus is | S1.6 | open |
+| Q4 — Publish individual findings, or aggregate only? | A false accusation of fabrication is a serious harm | Before S5.8 | open |
+| Q5 — Where do earlier versions of registered outcomes come from? The public v2 API has no history endpoint. Options: the website's change-history tab (check terms of use), a third-party reconstructed history dataset (check licence and access), or the current record only, which supports the weaker claim "registry–publication mismatch" rather than "switching". | Decides what C06 can honestly claim | Before S3.9, ideally end of Phase 1 | open |
+| Q6 — Which external labelled dataset, and is its licence compatible? | Validity of the external evaluation | Before S2.8 | open |
+| Q7 — Which LLM for extraction and judging, and what's the budget cap? | Cost and reproducibility | Before S2.7 | open |
 
 ---
 
