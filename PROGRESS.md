@@ -33,7 +33,7 @@ Low friction or it rots. The rules:
 
 **Phase:** 1 of 5 — data foundation and deterministic checks
 **Plan:** `docs/sentinel-project.md` §15 session IDs. Old brief and HTML spec are in `docs/archive/`.
-**Last worked:** 2026-10-18 — S1.4 (ClinicalTrials.gov lookup client)
+**Last worked:** 2026-10-18 — S1.5 (vertical slice: C05, report card)
 
 **Sessions:**
 
@@ -43,18 +43,19 @@ Low friction or it rots. The rules:
 | S1.2 Models + initial migration | done | `c9051bc4f780` plus `157fbb99af3c` (finding is about a paper or a trial, §8). `tests/test_migrations.py` runs up, down, up and checks the trigram index; `alembic check` shows no drift. |
 | S1.3 Harvester base + Retraction Watch | done | `ingest/base.py`, `ingest/retraction_watch.py`, migration `17fb3d1f4207` (ADR-024). `sentinel ingest retraction-watch` loaded 73,283 notices in ~12 s; a re-run inserted 0. The 20-row fixture covers load, re-run, update in place and kill-and-resume. |
 | S1.4 ClinicalTrials.gov lookup client | done | `ingest/clinicaltrials.py`, `ingest/http.py` (token bucket; retries on 429/5xx only), `LookupClient` base. `sentinel ingest clinicaltrials --nct …` stored NCT02016378 and NCT05711641 with version-0 outcomes; ADR-018 test passes on real and synthetic records (ADR-025, ADR-026). |
-| S1.5 – S1.15 | not started | |
+| S1.5 Check base, contexts, C05, report card | done | `checks/` (base, context, C05, registry, runner), `report/card.py`, `sentinel check` and `sentinel report`. Live: `sentinel report NCT02016378` prints "No results posted on ClinicalTrials.gov 45 months after primary completion" (medium); NCT05711641 is clean. Fixture pair passes (ADR-027). **Vertical slice complete.** |
+| S1.6 – S1.15 | not started | |
 
-**What works:** config; schema at head; `sentinel ingest retraction-watch`; `sentinel ingest clinicaltrials --nct`; 102 tests (DB tests need `TEST_DATABASE_URL`).
+**What works:** ingest (Retraction Watch, ClinicalTrials.gov by ID) → `sentinel check` → `sentinel report <nct-id>`; 143 tests (DB tests need `TEST_DATABASE_URL`).
 
-**What's broken:** nothing known. The DB tests that need an empty database skip on the dev DB; a disposable `sentinel_test` database is still to be created. 5,194 retraction notices have neither DOI nor PMID.
+**What's broken:** nothing known. The DB tests that need an empty database skip on the dev DB; a disposable `sentinel_test` database is still to be created. Paper report cards wait for S1.6+.
 
 **Next three things:**
-1. S1.5: Check base, contexts, C05, report card, `sentinel report <nct-id>` (NCT02016378 is a candidate overdue trial)
-2. S1.6: Corpus selection and the Europe PMC harvester (decide Q3)
-3. S1.7: Crossref, OpenAlex and doi.org lookup clients
+1. S1.6: Corpus selection and the Europe PMC harvester (decide Q3 first)
+2. S1.7: Crossref, OpenAlex and doi.org lookup clients
+3. S1.8: Reference parser
 
-**Then:** S1.8 onward. Target: `sentinel report <nct-id>` prints a real overdue-results finding.
+**Then:** S1.9 onward. Target: `sentinel report <nct-id>` prints a real overdue-results finding.
 
 **Blocked on:** nothing.
 
@@ -360,6 +361,17 @@ The client refuses to run if `SENTINEL_STRIP_PERSONAL_FIELDS` is false, instead 
 ClinicalTrials.gov dates are often `YYYY-MM` (sometimes `YYYY`), but `trial` stores DATE columns and C05 counts months from `primary_completion_date`. Partial dates resolve to the latest day they could mean: `2012-10` becomes 2012-10-31, and `2019` becomes 2019-12-31. A date-based check can therefore never fire early (ADR-010). The original string stays in `trial.raw`.
 
 **Rejected:** the first day of the month (a trial can look up to a month more overdue than it is); NULL (C05 loses many older trials to `insufficient_data`).
+
+---
+
+### ADR-027 — C05 measures time to the record's fetch date, not today
+**Status:** active
+
+Checks are pure (§9.6), so C05 can't read the clock. It counts whole months from `primary_completion_date` to the day the registry record was fetched (`trial.ingested_at`). That is also the last time `results_first_posted` was observed, so the finding is true as of the data it rests on. Evidence records `record_fetched_on`. To bring a finding up to date, re-fetch the trial.
+
+Scope as implemented: completed, interventional trials whose phases aren't all Early Phase 1 / Phase 1 (Phase 1/2 and NA are in scope). A different status, or a non-interventional study, gives `not_applicable`. A missing phase or primary completion date gives `insufficient_data`.
+
+**Rejected:** today's date (a stale record could flag a trial that has since posted results, and re-running the same data would change findings); the run's start date (same problem).
 
 ---
 

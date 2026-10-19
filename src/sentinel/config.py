@@ -11,6 +11,7 @@ from __future__ import annotations
 import hashlib
 import json
 from functools import lru_cache
+from typing import Literal
 
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -25,8 +26,8 @@ class Settings(BaseSettings):
 
     # --- Core ------------------------------------------------------------
     env: str = "local"
-    log_level: str = "INFO"
-    log_format: str = "json"
+    log_level: Literal["DEBUG", "INFO", "WARNING", "ERROR"] = "INFO"
+    log_format: Literal["json", "console"] = "json"
     random_seed: int  # no default — ADR-022
 
     # --- Database ----------------------------------------------------------

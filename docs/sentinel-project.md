@@ -623,7 +623,7 @@ This is a check on trials. It runs on registry data alone, which makes it the ch
 It applies only to interventional studies, excluding Early Phase 1 and Phase 1. Flag when all of these hold:
 
 - `overall_status` is completed
-- `primary_completion_date` is more than `SENTINEL_C05_GRACE_MONTHS` (value set in `.env.example`) months in the past
+- `primary_completion_date` is more than `SENTINEL_C05_GRACE_MONTHS` (value set in `.env.example`) whole months before the date the registry record was fetched (ADR-027)
 - `results_first_posted` is null
 
 If `primary_completion_date` is missing, return `insufficient_data`.
