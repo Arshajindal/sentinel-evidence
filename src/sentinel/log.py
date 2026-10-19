@@ -24,7 +24,9 @@ def configure_logging(level: str = "INFO", fmt: str = "json") -> None:
         wrapper_class=structlog.make_filtering_bound_logger(
             logging.getLevelName(level.upper())
         ),
-        logger_factory=structlog.PrintLoggerFactory(file=sys.stderr),
+        # Resolve sys.stderr per message, not once: a stream captured at
+        # configure time may be swapped or closed later (test runners, embedding).
+        logger_factory=lambda *args: structlog.PrintLogger(file=sys.stderr),
         cache_logger_on_first_use=False,
     )
 

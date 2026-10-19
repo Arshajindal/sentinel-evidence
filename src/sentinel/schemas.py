@@ -7,7 +7,7 @@ from __future__ import annotations
 from datetime import date
 from typing import Any, Literal
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 NoticeType = Literal[
     "retraction", "correction", "expression_of_concern", "reinstatement"
@@ -62,3 +62,39 @@ class TrialRecord(BaseModel):
     sponsor_class: str | None = None
     raw: dict[str, Any]
     outcomes: list[TrialOutcome]
+
+
+Severity = Literal["info", "low", "medium", "high"]
+FindingStatus = Literal["flagged", "clean", "not_applicable", "insufficient_data"]
+
+# Ground rule 3: an unmatched reference "could not be verified".
+FORBIDDEN_WORDS = ("fabricated",)
+
+
+class Finding(BaseModel):
+    """One row of `finding`, before it is attached to a run.
+
+    About exactly one subject, a paper or a trial (§8). Evidence is always
+    populated, including for clean results (ADR-015).
+    """
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    paper_id: int | None = None
+    nct_id: str | None = Field(default=None, pattern=r"^NCT\d{8}$")
+    check_id: str = Field(pattern=r"^C\d{2}$")
+    check_ver: str = Field(pattern=r"^\d+\.\d+\.\d+$")
+    severity: Severity
+    status: FindingStatus
+    summary: str = Field(min_length=1)
+    evidence: dict[str, Any] = Field(min_length=1)
+
+    @model_validator(mode="after")
+    def _check(self) -> Finding:
+        if (self.paper_id is None) == (self.nct_id is None):
+            raise ValueError("a finding is about exactly one of paper_id, nct_id")
+        lowered = self.summary.lower()
+        for word in FORBIDDEN_WORDS:
+            if word in lowered:
+                raise ValueError(f"finding summary must not say {word!r}")
+        return self
