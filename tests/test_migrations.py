@@ -16,8 +16,24 @@ from tests.conftest import TEST_DATABASE_URL, requires_db
 pytestmark = requires_db
 
 
+def _tables_with_rows(engine) -> list[str]:
+    insp = inspect(engine)
+    with engine.connect() as conn:
+        return [
+            t for t in insp.get_table_names()
+            if t != "alembic_version"
+            and conn.execute(text(f'SELECT EXISTS (SELECT 1 FROM "{t}")')).scalar()
+        ]
+
+
 def test_up_down_up(alembic_cfg):
     command.upgrade(alembic_cfg, "head")
+    guard = create_engine(TEST_DATABASE_URL)
+    try:
+        if occupied := _tables_with_rows(guard):
+            pytest.skip(f"refusing to downgrade a database with data in {occupied}")
+    finally:
+        guard.dispose()
     command.downgrade(alembic_cfg, "base")
     command.upgrade(alembic_cfg, "head")
 

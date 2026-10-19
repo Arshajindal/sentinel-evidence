@@ -33,7 +33,7 @@ Low friction or it rots. The rules:
 
 **Phase:** 1 of 5 — data foundation and deterministic checks
 **Plan:** `docs/sentinel-project.md` §15 session IDs. Old brief and HTML spec are in `docs/archive/`.
-**Last worked:** 2026-10-18 — S1.3 (harvester base, Retraction Watch)
+**Last worked:** 2026-10-18 — S1.4 (ClinicalTrials.gov lookup client)
 
 **Sessions:**
 
@@ -42,18 +42,19 @@ Low friction or it rots. The rules:
 | S1.1 Scaffold | done | Config loads; `tests/test_config.py` covers ADR-022 (each required variable, hash scope, `.env.example` ↔ `Settings` in sync); `alembic current` runs cleanly. |
 | S1.2 Models + initial migration | done | `c9051bc4f780` plus `157fbb99af3c` (finding is about a paper or a trial, §8). `tests/test_migrations.py` runs up, down, up and checks the trigram index; `alembic check` shows no drift. |
 | S1.3 Harvester base + Retraction Watch | done | `ingest/base.py`, `ingest/retraction_watch.py`, migration `17fb3d1f4207` (ADR-024). `sentinel ingest retraction-watch` loaded 73,283 notices in ~12 s; a re-run inserted 0. The 20-row fixture covers load, re-run, update in place and kill-and-resume. |
-| S1.4 – S1.15 | not started | |
+| S1.4 ClinicalTrials.gov lookup client | done | `ingest/clinicaltrials.py`, `ingest/http.py` (token bucket; retries on 429/5xx only), `LookupClient` base. `sentinel ingest clinicaltrials --nct …` stored NCT02016378 and NCT05711641 with version-0 outcomes; ADR-018 test passes on real and synthetic records (ADR-025, ADR-026). |
+| S1.5 – S1.15 | not started | |
 
-**What works:** config; schema at head; `sentinel ingest retraction-watch`; 60 tests (DB tests need `TEST_DATABASE_URL`).
+**What works:** config; schema at head; `sentinel ingest retraction-watch`; `sentinel ingest clinicaltrials --nct`; 102 tests (DB tests need `TEST_DATABASE_URL`).
 
-**What's broken:** nothing known. 5,194 notices have neither DOI nor PMID, so C02 can never match them.
+**What's broken:** nothing known. The DB tests that need an empty database skip on the dev DB; a disposable `sentinel_test` database is still to be created. 5,194 retraction notices have neither DOI nor PMID.
 
 **Next three things:**
-1. S1.4: ClinicalTrials.gov lookup client (per study, ADR-023) with the ADR-018 test
-2. S1.5: Check base, contexts, C05, report card, `sentinel report <nct-id>`
-3. S1.6: Corpus selection and the Europe PMC harvester (decide Q3)
+1. S1.5: Check base, contexts, C05, report card, `sentinel report <nct-id>` (NCT02016378 is a candidate overdue trial)
+2. S1.6: Corpus selection and the Europe PMC harvester (decide Q3)
+3. S1.7: Crossref, OpenAlex and doi.org lookup clients
 
-**Then:** S1.7 onward. Target: `sentinel report <nct-id>` prints a real overdue-results finding.
+**Then:** S1.8 onward. Target: `sentinel report <nct-id>` prints a real overdue-results finding.
 
 **Blocked on:** nothing.
 
@@ -340,6 +341,28 @@ The same data has 163 `Reinstatement` rows, a type §8 didn't list. They're stor
 
 ---
 
+### ADR-025 — Amends ADR-018: two more personal-data paths in trial records
+**Status:** active · amends ADR-018
+
+ADR-018's three drop paths miss two places the live v2 schema puts named people: `protocolSection.sponsorCollaboratorsModule.responsibleParty` (`investigatorFullName`, title, affiliation when a PI is responsible) and `resultsSection.moreInfoModule.pointOfContact` (name or title, email, phone). Real records carry personal email addresses there. Both objects are now dropped whole.
+
+`responsibleParty.type` (sponsor or PI) goes with it. Nothing in Phases 1–3 needs it, and per-field paths would be easier to get wrong.
+
+The client refuses to run if `SENTINEL_STRIP_PERSONAL_FIELDS` is false, instead of storing the data.
+
+**Rejected:** dropping only the personal subfields of `responsibleParty`; leaving ADR-018 as written.
+
+---
+
+### ADR-026 — Month-only registry dates resolve to the last day
+**Status:** active
+
+ClinicalTrials.gov dates are often `YYYY-MM` (sometimes `YYYY`), but `trial` stores DATE columns and C05 counts months from `primary_completion_date`. Partial dates resolve to the latest day they could mean: `2012-10` becomes 2012-10-31, and `2019` becomes 2019-12-31. A date-based check can therefore never fire early (ADR-010). The original string stays in `trial.raw`.
+
+**Rejected:** the first day of the month (a trial can look up to a month more overdue than it is); NULL (C05 loses many older trials to `insufficient_data`).
+
+---
+
 ### ADR-0NN — template
 **Status:** active
 
@@ -430,6 +453,12 @@ This section becomes deliverable five: the post-mortem. Most candidates ship a R
 
 **Date · one-line title**
 What happened. What you expected instead. Root cause. What changed as a result. Whether a fixture or test now covers it.
+
+**2026-10-18 · ClinicalTrials.gov OpenAPI URL in ADR-019 returns 404**
+`/api/oas/v2/ctg-oas-v2.yaml` is gone; the spec is served as YAML at `/api/oas/v2`. Found while confirming endpoints before S1.4. Fixed in `config.py` and `.env.example`. A URL written from memory or from an old doc rots; confirm each one live.
+
+**2026-10-18 · ADR-018 drop paths missed personal data**
+The live v2 schema also has PI names in `responsibleParty` and contact emails in `resultsSection.moreInfoModule.pointOfContact`, and real records fill them. ADR-018 listed only the contacts module. ADR-025 extends the list. `test_clinicaltrials.py` checks every path on real records and on a synthetic record carrying all five.
 
 ---
 
