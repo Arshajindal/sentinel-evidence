@@ -169,7 +169,7 @@ All sources are public and free. Every source that offers a "polite pool" gets t
 
 **Retraction Watch:** get it with `git clone https://gitlab.com/crossref/retraction-watch-data` and point `SENTINEL_RETRACTION_WATCH_CSV_PATH` at the CSV inside the cloned folder. The old Crossref Labs API link is no longer maintained and returns stale data, so don't use it. `data/` is gitignored.
 
-**Personal data (ADR-018):** drop every path in `SENTINEL_TRIAL_DROP_PATHS` (central contacts, overall officials, per-location contacts) before writing `trial.raw`. Keep only institutional fields: sponsor and sponsor class, country-level locations, dates, status, enrolment, and outcomes.
+**Personal data (ADR-018, ADR-025):** drop every path in `SENTINEL_TRIAL_DROP_PATHS` (central contacts, overall officials, per-location contacts, the responsible party, and the results point of contact) before writing `trial.raw`. Keep only institutional fields: sponsor and sponsor class, country-level locations, dates, status, enrolment, and outcomes.
 
 ---
 

@@ -127,9 +127,15 @@ def rw_engine(db_engine):
         )
         if present - fixture_ids:
             pytest.skip("retraction_notice holds real data; not a disposable database")
+    _clear(db_engine)
+    yield db_engine
+    _clear(db_engine)
+
+
+def _clear(engine) -> None:
+    with engine.begin() as conn:
         conn.execute(text("DELETE FROM retraction_notice WHERE source = 'retraction_watch'"))
         conn.execute(text("DELETE FROM ingest_watermark WHERE source = 'retraction_watch'"))
-    return db_engine
 
 
 def _count(engine) -> int:

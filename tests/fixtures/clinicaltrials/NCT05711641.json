@@ -1,0 +1,1399 @@
+{
+  "protocolSection": {
+    "identificationModule": {
+      "nctId": "NCT05711641",
+      "orgStudyIdInfo": {
+        "id": "5562868"
+      },
+      "organization": {
+        "fullName": "University of Sao Paulo General Hospital",
+        "class": "OTHER"
+      },
+      "briefTitle": "Action of Intra-auricular Topical Lidocaine on Tinnitus",
+      "officialTitle": "Action of Intra-auricular Topical Lidocaine on Tinnitus"
+    },
+    "statusModule": {
+      "statusVerifiedDate": "2024-08",
+      "overallStatus": "COMPLETED",
+      "expandedAccessInfo": {
+        "hasExpandedAccess": false
+      },
+      "startDateStruct": {
+        "date": "2022-09-02",
+        "type": "ACTUAL"
+      },
+      "primaryCompletionDateStruct": {
+        "date": "2023-06-01",
+        "type": "ACTUAL"
+      },
+      "completionDateStruct": {
+        "date": "2023-06-01",
+        "type": "ACTUAL"
+      },
+      "studyFirstSubmitDate": "2023-01-21",
+      "studyFirstSubmitQcDate": "2023-01-31",
+      "studyFirstPostDateStruct": {
+        "date": "2023-02-03",
+        "type": "ACTUAL"
+      },
+      "resultsFirstSubmitDate": "2023-07-08",
+      "resultsFirstSubmitQcDate": "2024-08-25",
+      "resultsFirstPostDateStruct": {
+        "date": "2024-08-30",
+        "type": "ACTUAL"
+      },
+      "lastUpdateSubmitDate": "2024-08-25",
+      "lastUpdatePostDateStruct": {
+        "date": "2024-08-30",
+        "type": "ACTUAL"
+      }
+    },
+    "sponsorCollaboratorsModule": {
+      "responsibleParty": {
+        "type": "REDACTED",
+        "investigatorFullName": "REDACTED",
+        "investigatorTitle": "REDACTED",
+        "investigatorAffiliation": "REDACTED"
+      },
+      "leadSponsor": {
+        "name": "University of Sao Paulo General Hospital",
+        "class": "OTHER"
+      }
+    },
+    "oversightModule": {
+      "oversightHasDmc": false,
+      "isFdaRegulatedDrug": false,
+      "isFdaRegulatedDevice": false,
+      "isUsExport": false
+    },
+    "descriptionModule": {
+      "briefSummary": "The main objective of this clinical trial placebo controled is to evaluate the action of intraauricular topical lidocaine on tinnitus.\n\nThe question to be answered is whether lidocaine is superior to placebo (distilled water) in reducing tinnitus intensity when applied topically within the external auditory canal.\n\nTinnitus intensity will be measured using the visual analog scale and acuphenometry before and after lidocaine or placebo application.",
+      "detailedDescription": "Adult patients who have had continuous, uni or bilateral tinnitus, for at least 6 months are being evaluated. Exclusion criteria are: otological infection, tympanic membrane perforation, anatomical alteration of the external ear, pulsatile tinnitus, objective tinnitus, known allergy to lidocaine or other topical anesthetic and pregnancy All patients receive both lidocaine and placebo at an interval of 15 days and the order of application of the substances is randomized. Only one ear receives the medications and side is defined by the higher intensity of tinnitus, or through draw in the case of symmetrical tinnitus.\n\nThe patient is instructed to lie in lateral decubitus, with the ear under study facing upwards and the substances are applied by filling the external auditory canal with lidocaine or distilled water for 5 min. Tinnitus intensity is measured (acuphenometry and VAS) before and after substance application and the variation is compared between lidocaine and placebo."
+    },
+    "conditionsModule": {
+      "conditions": [
+        "Tinnitus, Subjective"
+      ],
+      "keywords": [
+        "tinnitus",
+        "lidocaine",
+        "tinnitus treatment",
+        "tinnitus diagnosis",
+        "tinnitus suppression"
+      ]
+    },
+    "designModule": {
+      "studyType": "INTERVENTIONAL",
+      "phases": [
+        "NA"
+      ],
+      "designInfo": {
+        "allocation": "RANDOMIZED",
+        "interventionModel": "CROSSOVER",
+        "interventionModelDescription": "All patients will receive both lidocaine and placebo at an interval of 15 days and the order of application of the substances is randomized.",
+        "primaryPurpose": "DIAGNOSTIC",
+        "maskingInfo": {
+          "masking": "DOUBLE",
+          "maskingDescription": "This is a double blind study. The substances are produced by the same handling pharmacy and delivered in identical vials, only with the information: substance 1 and substance 2.",
+          "whoMasked": [
+            "PARTICIPANT",
+            "INVESTIGATOR"
+          ]
+        }
+      },
+      "enrollmentInfo": {
+        "count": 32,
+        "type": "ACTUAL"
+      }
+    },
+    "armsInterventionsModule": {
+      "armGroups": [
+        {
+          "label": "Lidocaine 10%",
+          "type": "EXPERIMENTAL",
+          "description": "The patient is instructed to lie down in lateral decubitus, with the ear in study facing upwards and 10% lidocaine is applied to the external auditory canal, using an eyedropper, until its complete filling (approximate average of 2ml).",
+          "interventionNames": [
+            "Drug: Lidocaine 10 MG/ML"
+          ]
+        },
+        {
+          "label": "Placebo",
+          "type": "PLACEBO_COMPARATOR",
+          "description": "The patient is instructed to lie down in lateral decubitus, with the ear in study facing upwards and distilled water is applied to the external auditory canal, using an eyedropper, until its complete filling (approximate average of 2ml).",
+          "interventionNames": [
+            "Drug: Distilled water"
+          ]
+        }
+      ],
+      "interventions": [
+        {
+          "type": "DRUG",
+          "name": "Lidocaine 10 MG/ML",
+          "description": "Application of 10% topical lidocaine in the external auditory canal of tinnitus patients.",
+          "armGroupLabels": [
+            "Lidocaine 10%"
+          ],
+          "otherNames": [
+            "Active substance"
+          ]
+        },
+        {
+          "type": "DRUG",
+          "name": "Distilled water",
+          "description": "Application of distilled water in the external auditory canal of tinnitus patients.",
+          "armGroupLabels": [
+            "Placebo"
+          ],
+          "otherNames": [
+            "Placebo"
+          ]
+        }
+      ]
+    },
+    "outcomesModule": {
+      "primaryOutcomes": [
+        {
+          "measure": "Change in Visual Analogue Scale (VAS) Score",
+          "description": "scale ranging from 0 to 10 points used to measure the intensity of tinnitus, where zero corresponds to the absence of tinnitus perception and 10 corresponds to the largest volume that the patient imagines that tinnitus may have.",
+          "timeFrame": "Immediately before and 5 minutes after receiving intervention on days 1 and 15"
+        },
+        {
+          "measure": "Change in Tinnitus Loudness",
+          "description": "Acuphenometry is a psychoacoustic test performed in an audiometry booth to measure tinnitus intensity. By comparing the intensity of tinnitus with the intensity sounds offered by the researcher, the tinnitus loudness is defined.\n\nTinnitus loudness is measured in decibels and the higher the value found, the louder the tinnitus intensity.",
+          "timeFrame": "Immediately before and 5 minutes after receiving intervention on days 1 and 15"
+        },
+        {
+          "measure": "Change in Minimum Masking Level (MML)",
+          "description": "Acuphenometry is a psychoacoustic test performed in an audiometry booth to measure minimum masking level. By comparing the intensity of tinnitus with the intensity sounds offered by the researcher, the minimum stimulus that masks tinnitus is determined.\n\nThe minimum masking level is the intensity that an external sound must have to cover up tinnitus until it is no longer perceived by the patient. MML is measured in decibels.\n\nThe lower the MML value, the more easily tinnitus can be masked, suggesting a lower degree of discomfort for the patient.",
+          "timeFrame": "Immediately before and 5 minutes after receiving intervention on days 1 and 15"
+        }
+      ]
+    },
+    "eligibilityModule": {
+      "eligibilityCriteria": "Inclusion Criteria:\n\n* Adult patients who have had continuous, uni or bilateral tinnitus, for at least 6 months\n\nExclusion Criteria:\n\n* Otological infection\n* Tympanic membrane perforation\n* Anatomical alteration of the external ear\n* Pulsatile tinnitus\n* Objective tinnitus\n* Known allergy to lidocaine or other topical anesthetic and pregnancy",
+      "healthyVolunteers": false,
+      "sex": "ALL",
+      "minimumAge": "18 Years",
+      "stdAges": [
+        "ADULT",
+        "OLDER_ADULT"
+      ]
+    },
+    "contactsLocationsModule": {
+      "overallOfficials": [
+        {
+          "name": "REDACTED",
+          "affiliation": "REDACTED",
+          "role": "REDACTED"
+        }
+      ],
+      "locations": [
+        {
+          "facility": "Faculdade de Medicina da Universidade de São Paulo",
+          "city": "São Paulo",
+          "zip": "01246903",
+          "country": "Brazil",
+          "geoPoint": {
+            "lat": -23.5475,
+            "lon": -46.63611
+          }
+        }
+      ]
+    }
+  },
+  "resultsSection": {
+    "participantFlowModule": {
+      "preAssignmentDetails": "Thirty-three patients responded and attended the initial appointment, one was excluded for having only pulsatile tinnitus on the day of the appointment.\n\nThirty-two patients started the study, being divided into study group (n=16) or placebo (n=16) through randomization. Each patient was their own control because this was a crossover study with an interval of 2 weeks between each evaluation.",
+      "recruitmentDetails": "The selected subjects were patients of an otolaryngology center who sought care for tinnitus complaints between April 7, 2021, to April 6, 2022. Of them, 113 patients met the inclusion criteria, and none of the exclusion criteria, and were invited to participate in the study through WhatsApp contact. Thirty-three patients responded and attended the initial appointment, one was excluded for having only pulsatile tinnitus on the day of the appointment. Thirty two were enrolled.",
+      "groups": [
+        {
+          "id": "FG000",
+          "title": "Lidocaine 10%, Then Placebo",
+          "description": "The patients underwent a single, topical intraauricular dose of lidocaine 10%. After a two-week washout, the same subjects underwent a single dose, topical intraauricular distilled water (placebo)."
+        },
+        {
+          "id": "FG001",
+          "title": "Placebo, Then lidocaíne 10%",
+          "description": "The patients underwent a single, topical intraauricular dose of distilled water (placebo). After a two-week washout, the same subjects underwent a single dose, topical intra-auricular lidocaine 10%."
+        }
+      ],
+      "periods": [
+        {
+          "title": "First Intervention (Single Dose)",
+          "milestones": [
+            {
+              "type": "STARTED",
+              "achievements": [
+                {
+                  "groupId": "FG000",
+                  "comment": "Sixteen patients (16) were randomly assigned to the lidocaine then placebo group.\n\nThe patients received a single application of 10% lidocaine via intraauricular contact.",
+                  "numSubjects": "16"
+                },
+                {
+                  "groupId": "FG001",
+                  "comment": "Sixteen patients were randomly assigned to the placebo then lidocaine group. The patients received a single application of distilled water via intraauricular contact.",
+                  "numSubjects": "16"
+                }
+              ]
+            },
+            {
+              "type": "COMPLETED",
+              "achievements": [
+                {
+                  "groupId": "FG000",
+                  "numSubjects": "16"
+                },
+                {
+                  "groupId": "FG001",
+                  "numSubjects": "16"
+                }
+              ]
+            },
+            {
+              "type": "NOT COMPLETED",
+              "achievements": [
+                {
+                  "groupId": "FG000",
+                  "numSubjects": "0"
+                },
+                {
+                  "groupId": "FG001",
+                  "numSubjects": "0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Washout (2 Weeks)",
+          "milestones": [
+            {
+              "type": "STARTED",
+              "achievements": [
+                {
+                  "groupId": "FG000",
+                  "numSubjects": "16"
+                },
+                {
+                  "groupId": "FG001",
+                  "numSubjects": "16"
+                }
+              ]
+            },
+            {
+              "type": "COMPLETED",
+              "achievements": [
+                {
+                  "groupId": "FG000",
+                  "numSubjects": "14"
+                },
+                {
+                  "groupId": "FG001",
+                  "numSubjects": "15"
+                }
+              ]
+            },
+            {
+              "type": "NOT COMPLETED",
+              "achievements": [
+                {
+                  "groupId": "FG000",
+                  "numSubjects": "2"
+                },
+                {
+                  "groupId": "FG001",
+                  "numSubjects": "1"
+                }
+              ]
+            }
+          ],
+          "dropWithdraws": [
+            {
+              "type": "Lost to Follow-up",
+              "reasons": [
+                {
+                  "groupId": "FG000",
+                  "numSubjects": "2"
+                },
+                {
+                  "groupId": "FG001",
+                  "numSubjects": "1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Second Intervention (Single Dose)",
+          "milestones": [
+            {
+              "type": "STARTED",
+              "achievements": [
+                {
+                  "groupId": "FG000",
+                  "numSubjects": "14"
+                },
+                {
+                  "groupId": "FG001",
+                  "numSubjects": "15"
+                }
+              ]
+            },
+            {
+              "type": "COMPLETED",
+              "achievements": [
+                {
+                  "groupId": "FG000",
+                  "numSubjects": "13"
+                },
+                {
+                  "groupId": "FG001",
+                  "numSubjects": "15"
+                }
+              ]
+            },
+            {
+              "type": "NOT COMPLETED",
+              "achievements": [
+                {
+                  "groupId": "FG000",
+                  "numSubjects": "1"
+                },
+                {
+                  "groupId": "FG001",
+                  "numSubjects": "0"
+                }
+              ]
+            }
+          ],
+          "dropWithdraws": [
+            {
+              "type": "Imperceptible tinnitus on the day of the assessment",
+              "reasons": [
+                {
+                  "groupId": "FG000",
+                  "numSubjects": "1"
+                },
+                {
+                  "groupId": "FG001",
+                  "numSubjects": "0"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "baselineCharacteristicsModule": {
+      "populationDescription": "Thirty-three patients responded and attended the initial appointment, one was excluded for having only pulsatile tinnitus on the day of the appointment.\n\nThirty-two patients started the study, being divided into study group (n=16) or placebo (n=16) through randomization. Each patient was their own control because this was a crossover study with an interval of 15 days between each evaluation.",
+      "groups": [
+        {
+          "id": "BG000",
+          "title": "Lidocaine 10%, Then Placebo",
+          "description": "Lidocaine 10 MG/ML: Application of 10% topical lidocaine in the external auditory canal of tinnitus patients.\n\nThe patient is instructed to lie down in lateral decubitus, with the ear in study facing upwards and 10% lidocaine is applied to the external auditory canal, using an eyedropper, until its complete filling (approximate average of 2ml).\n\nAfter an interval of 15 days the same procedure was done with placebo."
+        },
+        {
+          "id": "BG001",
+          "title": "Placebo, Then Lidocaine 10%",
+          "description": "Distilled water: Application of distilled water in the external auditory canal of tinnitus patients.\n\nThe patient is instructed to lie down in lateral decubitus, with the ear in study facing upwards and distilled water is applied to the external auditory canal, using an eyedropper, until its complete filling (approximate average of 2ml).\n\nAfter an interval of 15 days the same procedure was done with lidocaine."
+        },
+        {
+          "id": "BG002",
+          "title": "Total",
+          "description": "Total of all reporting groups"
+        }
+      ],
+      "denoms": [
+        {
+          "units": "Participants",
+          "counts": [
+            {
+              "groupId": "BG000",
+              "value": "16"
+            },
+            {
+              "groupId": "BG001",
+              "value": "16"
+            },
+            {
+              "groupId": "BG002",
+              "value": "32"
+            }
+          ]
+        }
+      ],
+      "measures": [
+        {
+          "title": "Age, Continuous",
+          "paramType": "MEAN",
+          "dispersionType": "STANDARD_DEVIATION",
+          "unitOfMeasure": "years",
+          "classes": [
+            {
+              "categories": [
+                {
+                  "measurements": [
+                    {
+                      "groupId": "BG000",
+                      "value": "52.4",
+                      "spread": "14.22"
+                    },
+                    {
+                      "groupId": "BG001",
+                      "value": "55.5",
+                      "spread": "13.06"
+                    },
+                    {
+                      "groupId": "BG002",
+                      "value": "54",
+                      "spread": "13.7"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Sex: Female, Male",
+          "paramType": "COUNT_OF_PARTICIPANTS",
+          "unitOfMeasure": "Participants",
+          "classes": [
+            {
+              "categories": [
+                {
+                  "title": "Female",
+                  "measurements": [
+                    {
+                      "groupId": "BG000",
+                      "value": "11"
+                    },
+                    {
+                      "groupId": "BG001",
+                      "value": "8"
+                    },
+                    {
+                      "groupId": "BG002",
+                      "value": "19"
+                    }
+                  ]
+                },
+                {
+                  "title": "Male",
+                  "measurements": [
+                    {
+                      "groupId": "BG000",
+                      "value": "5"
+                    },
+                    {
+                      "groupId": "BG001",
+                      "value": "8"
+                    },
+                    {
+                      "groupId": "BG002",
+                      "value": "13"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Ethnicity (NIH/OMB)",
+          "paramType": "COUNT_OF_PARTICIPANTS",
+          "unitOfMeasure": "Participants",
+          "classes": [
+            {
+              "categories": [
+                {
+                  "title": "Hispanic or Latino",
+                  "measurements": [
+                    {
+                      "groupId": "BG000",
+                      "value": "16"
+                    },
+                    {
+                      "groupId": "BG001",
+                      "value": "16"
+                    },
+                    {
+                      "groupId": "BG002",
+                      "value": "32"
+                    }
+                  ]
+                },
+                {
+                  "title": "Not Hispanic or Latino",
+                  "measurements": [
+                    {
+                      "groupId": "BG000",
+                      "value": "0"
+                    },
+                    {
+                      "groupId": "BG001",
+                      "value": "0"
+                    },
+                    {
+                      "groupId": "BG002",
+                      "value": "0"
+                    }
+                  ]
+                },
+                {
+                  "title": "Unknown or Not Reported",
+                  "measurements": [
+                    {
+                      "groupId": "BG000",
+                      "value": "0"
+                    },
+                    {
+                      "groupId": "BG001",
+                      "value": "0"
+                    },
+                    {
+                      "groupId": "BG002",
+                      "value": "0"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Region of Enrollment",
+          "paramType": "NUMBER",
+          "unitOfMeasure": "participants",
+          "classes": [
+            {
+              "title": "Brazil",
+              "categories": [
+                {
+                  "measurements": [
+                    {
+                      "groupId": "BG000",
+                      "value": "16"
+                    },
+                    {
+                      "groupId": "BG001",
+                      "value": "16"
+                    },
+                    {
+                      "groupId": "BG002",
+                      "value": "32"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Tinnitus Handicap Inventory Score",
+          "description": "The Tinnitus Handicap Inventory (THI) is a valuable self-report measure used to assess perceived tinnitus handicap severity. It consists of 25 items grouped into three subscales: functional, emotional, and catastrophic.\n\nThe THI total score ranges from 0 to 100, with higher scores indicating greater tinnitus handicap severity. Very mild (score 0-16), Mild (score 18-36), Moderate (score 38-56), Severe (score 58-76), Catastrophic (score 78-100)",
+          "paramType": "MEAN",
+          "dispersionType": "STANDARD_DEVIATION",
+          "unitOfMeasure": "units on a scale",
+          "classes": [
+            {
+              "categories": [
+                {
+                  "measurements": [
+                    {
+                      "groupId": "BG000",
+                      "value": "33.87",
+                      "spread": "21.31"
+                    },
+                    {
+                      "groupId": "BG001",
+                      "value": "29.25",
+                      "spread": "13.06"
+                    },
+                    {
+                      "groupId": "BG002",
+                      "value": "31.4",
+                      "spread": "17.1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Study ear side right",
+          "paramType": "NUMBER",
+          "unitOfMeasure": "participants",
+          "classes": [
+            {
+              "categories": [
+                {
+                  "measurements": [
+                    {
+                      "groupId": "BG000",
+                      "value": "6"
+                    },
+                    {
+                      "groupId": "BG001",
+                      "value": "6"
+                    },
+                    {
+                      "groupId": "BG002",
+                      "value": "12"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Presence of pain",
+          "paramType": "COUNT_OF_PARTICIPANTS",
+          "unitOfMeasure": "Participants",
+          "classes": [
+            {
+              "categories": [
+                {
+                  "measurements": [
+                    {
+                      "groupId": "BG000",
+                      "value": "6"
+                    },
+                    {
+                      "groupId": "BG001",
+                      "value": "7"
+                    },
+                    {
+                      "groupId": "BG002",
+                      "value": "13"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Dizziness",
+          "paramType": "COUNT_OF_PARTICIPANTS",
+          "unitOfMeasure": "Participants",
+          "classes": [
+            {
+              "categories": [
+                {
+                  "measurements": [
+                    {
+                      "groupId": "BG000",
+                      "value": "3"
+                    },
+                    {
+                      "groupId": "BG001",
+                      "value": "3"
+                    },
+                    {
+                      "groupId": "BG002",
+                      "value": "6"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Diabetes",
+          "paramType": "COUNT_OF_PARTICIPANTS",
+          "unitOfMeasure": "Participants",
+          "classes": [
+            {
+              "categories": [
+                {
+                  "measurements": [
+                    {
+                      "groupId": "BG000",
+                      "value": "2"
+                    },
+                    {
+                      "groupId": "BG001",
+                      "value": "2"
+                    },
+                    {
+                      "groupId": "BG002",
+                      "value": "4"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Systemic arterial hypertension",
+          "paramType": "COUNT_OF_PARTICIPANTS",
+          "unitOfMeasure": "Participants",
+          "classes": [
+            {
+              "categories": [
+                {
+                  "measurements": [
+                    {
+                      "groupId": "BG000",
+                      "value": "7"
+                    },
+                    {
+                      "groupId": "BG001",
+                      "value": "3"
+                    },
+                    {
+                      "groupId": "BG002",
+                      "value": "10"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Dyslipidemia",
+          "paramType": "COUNT_OF_PARTICIPANTS",
+          "unitOfMeasure": "Participants",
+          "classes": [
+            {
+              "categories": [
+                {
+                  "measurements": [
+                    {
+                      "groupId": "BG000",
+                      "value": "7"
+                    },
+                    {
+                      "groupId": "BG001",
+                      "value": "7"
+                    },
+                    {
+                      "groupId": "BG002",
+                      "value": "14"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Hypothyroidism",
+          "paramType": "COUNT_OF_PARTICIPANTS",
+          "unitOfMeasure": "Participants",
+          "classes": [
+            {
+              "categories": [
+                {
+                  "measurements": [
+                    {
+                      "groupId": "BG000",
+                      "value": "1"
+                    },
+                    {
+                      "groupId": "BG001",
+                      "value": "1"
+                    },
+                    {
+                      "groupId": "BG002",
+                      "value": "2"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Anxiety/Depression",
+          "paramType": "COUNT_OF_PARTICIPANTS",
+          "unitOfMeasure": "Participants",
+          "classes": [
+            {
+              "categories": [
+                {
+                  "measurements": [
+                    {
+                      "groupId": "BG000",
+                      "value": "7"
+                    },
+                    {
+                      "groupId": "BG001",
+                      "value": "6"
+                    },
+                    {
+                      "groupId": "BG002",
+                      "value": "13"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Cervical spina dysfunction",
+          "description": "Cervical dysfunction was considered when the patient reported neck pain associated with image changes on cervical tomography or cervical magnetic resonance imaging.\n\nThe measure used for this assessment was the presence (yes) or absence (no) of this type of dysfunction.",
+          "paramType": "COUNT_OF_PARTICIPANTS",
+          "unitOfMeasure": "Participants",
+          "classes": [
+            {
+              "categories": [
+                {
+                  "measurements": [
+                    {
+                      "groupId": "BG000",
+                      "value": "6"
+                    },
+                    {
+                      "groupId": "BG001",
+                      "value": "9"
+                    },
+                    {
+                      "groupId": "BG002",
+                      "value": "15"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Bruxism/temporomandibular dysfunction",
+          "description": "Bruxism refers to the habit of grinding or clenching one's teeth, often unconsciously. It can occur during the day (awake bruxism) or at night (sleep bruxism). Temporomandibular dysfunction (TMD), on the other hand, encompasses a range of symptoms related to the temporomandibular joint (TMJ) and the surrounding muscles. These symptoms may include jaw pain, clicking, limited mouth opening, and headaches. We considered the patient's self-report as positive bruxism and as positive temporomandibular disorder when there was a diagnosis confirmed by a dentist.",
+          "paramType": "COUNT_OF_PARTICIPANTS",
+          "unitOfMeasure": "Participants",
+          "classes": [
+            {
+              "categories": [
+                {
+                  "measurements": [
+                    {
+                      "groupId": "BG000",
+                      "value": "9"
+                    },
+                    {
+                      "groupId": "BG001",
+                      "value": "9"
+                    },
+                    {
+                      "groupId": "BG002",
+                      "value": "18"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Study ear side left",
+          "paramType": "COUNT_OF_PARTICIPANTS",
+          "unitOfMeasure": "Participants",
+          "classes": [
+            {
+              "categories": [
+                {
+                  "measurements": [
+                    {
+                      "groupId": "BG000",
+                      "value": "10"
+                    },
+                    {
+                      "groupId": "BG001",
+                      "value": "10"
+                    },
+                    {
+                      "groupId": "BG002",
+                      "value": "20"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Presence of hearing loss",
+          "paramType": "COUNT_OF_PARTICIPANTS",
+          "unitOfMeasure": "Participants",
+          "classes": [
+            {
+              "categories": [
+                {
+                  "measurements": [
+                    {
+                      "groupId": "BG000",
+                      "value": "3"
+                    },
+                    {
+                      "groupId": "BG001",
+                      "value": "3"
+                    },
+                    {
+                      "groupId": "BG002",
+                      "value": "6"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Somatosensory tinnitus",
+          "description": "Somatosensory tinnitus was considered positive when the following three conditions were present: tinnitus modulation through voluntary movements, somatic maneuvers, or tinnitus manipulation; onset of tinnitus associated with head and neck trauma or the onset of pain in the head and neck region; tinnitus accompanied by frequent neck pain, the presence of trigger points, the presence of muscle tension, temporomandibular disorder, or bruxism.",
+          "paramType": "COUNT_OF_PARTICIPANTS",
+          "unitOfMeasure": "Participants",
+          "classes": [
+            {
+              "categories": [
+                {
+                  "measurements": [
+                    {
+                      "groupId": "BG000",
+                      "value": "7"
+                    },
+                    {
+                      "groupId": "BG001",
+                      "value": "7"
+                    },
+                    {
+                      "groupId": "BG002",
+                      "value": "14"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "outcomeMeasuresModule": {
+      "outcomeMeasures": [
+        {
+          "type": "PRIMARY",
+          "title": "Change in Visual Analogue Scale (VAS) Score",
+          "description": "scale ranging from 0 to 10 points used to measure the intensity of tinnitus, where zero corresponds to the absence of tinnitus perception and 10 corresponds to the largest volume that the patient imagines that tinnitus may have.",
+          "populationDescription": "The mean VAS was compared between lidocaine and the placebo before and after the administration of each substance to evaluate the effect of lidocaine on tinnitus.",
+          "reportingStatus": "POSTED",
+          "paramType": "MEAN",
+          "dispersionType": "Standard Deviation",
+          "unitOfMeasure": "score on a scale",
+          "timeFrame": "Immediately before and 5 minutes after receiving intervention on days 1 and 15",
+          "groups": [
+            {
+              "id": "OG000",
+              "title": "Lidocaine 10%",
+              "description": "Lidocaine 10 MG/ML: Application of 10% topical lidocaine in the external auditory canal of tinnitus patients.\n\nThe patient is instructed to lie down in lateral decubitus, with the ear in study facing upwards and 10% lidocaine is applied to the external auditory canal, using an eyedropper, until its complete filling (approximate average of 2ml)."
+            },
+            {
+              "id": "OG001",
+              "title": "Placebo",
+              "description": "Distilled water: Application of distilled water in the external auditory canal of tinnitus patients.\n\nThe patient is instructed to lie down in lateral decubitus, with the ear in study facing upwards and distilled water is applied to the external auditory canal, using an eyedropper, until its complete filling (approximate average of 2ml)."
+            }
+          ],
+          "denoms": [
+            {
+              "units": "Participants",
+              "counts": [
+                {
+                  "groupId": "OG000",
+                  "value": "31"
+                },
+                {
+                  "groupId": "OG001",
+                  "value": "29"
+                }
+              ]
+            }
+          ],
+          "classes": [
+            {
+              "title": "VAS before the application of the substances",
+              "categories": [
+                {
+                  "measurements": [
+                    {
+                      "groupId": "OG000",
+                      "value": "6.3",
+                      "spread": "1.8"
+                    },
+                    {
+                      "groupId": "OG001",
+                      "value": "6.3",
+                      "spread": "2.0"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "VAS after the application of the substances",
+              "categories": [
+                {
+                  "measurements": [
+                    {
+                      "groupId": "OG000",
+                      "value": "5.5",
+                      "spread": "2.1"
+                    },
+                    {
+                      "groupId": "OG001",
+                      "value": "5.2",
+                      "spread": "2.6"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "analyses": [
+            {
+              "groupIds": [
+                "OG000",
+                "OG001"
+              ],
+              "groupDescription": "The alternative hypothesis of this study is that 10% lidocaine, applied topically to the external auditory canal (EAC), acts on tinnitus intensity differently than placebo, while the null hypothesis is that there is no difference between the action of lidocaine and placebo on tinnitus intensity.\n\nThe analyses were performed using the IBM-SPSS for Windows software version 22.0 and tabulated using the Microsoft-Excel 2010 software, and the tests were performed with a significance level of 5%.",
+              "nonInferiorityType": "OTHER",
+              "nonInferiorityComment": "VAS was described with the use of summary measures, and the variations between the applied substances were compared with the use of Generalized Estimating Equations (GEE) with normal marginal distribution and identity binding function, assuming an interchangeable correlation matrix between the substances (McCullagh; Nelder, 1989).",
+              "paramType": "Generalized Estimating Equations",
+              "otherAnalysisDescription": "VAS was described with the use of summary measures, and the variations between the applied substances were compared with the use of Generalized Estimating Equations (GEE) with normal marginal distribution and identity binding function, assuming an interchangeable correlation matrix between the substances (McCullagh; Nelder, 1989)."
+            }
+          ]
+        },
+        {
+          "type": "PRIMARY",
+          "title": "Change in Tinnitus Loudness",
+          "description": "Acuphenometry is a psychoacoustic test performed in an audiometry booth to measure tinnitus intensity. By comparing the intensity of tinnitus with the intensity sounds offered by the researcher, the tinnitus loudness is defined.\n\nTinnitus loudness is measured in decibels and the higher the value found, the louder the tinnitus intensity.",
+          "populationDescription": "The mean Tinnitus loudness (decibels) was compared between lidocaine and the placebo before and after the administration of each substance to evaluate the effect of lidocaine on tinnitus.",
+          "reportingStatus": "POSTED",
+          "paramType": "MEAN",
+          "dispersionType": "Standard Deviation",
+          "unitOfMeasure": "decibels",
+          "timeFrame": "Immediately before and 5 minutes after receiving intervention on days 1 and 15",
+          "groups": [
+            {
+              "id": "OG000",
+              "title": "Lidocaine 10%",
+              "description": "The patient is instructed to lie down in lateral decubitus, with the ear in study facing upwards and 10% lidocaine is applied to the external auditory canal, using an eyedropper, until its complete filling (approximate average of 2ml).\n\nLidocaine 10 MG/ML: Application of 10% topical lidocaine in the external auditory canal of tinnitus patients."
+            },
+            {
+              "id": "OG001",
+              "title": "Placebo",
+              "description": "The patient is instructed to lie down in lateral decubitus, with the ear in study facing upwards and distilled water is applied to the external auditory canal, using an eyedropper, until its complete filling (approximate average of 2ml).\n\nDistilled water: Application of distilled water in the external auditory canal of tinnitus patients."
+            }
+          ],
+          "denoms": [
+            {
+              "units": "Participants",
+              "counts": [
+                {
+                  "groupId": "OG000",
+                  "value": "31"
+                },
+                {
+                  "groupId": "OG001",
+                  "value": "29"
+                }
+              ]
+            }
+          ],
+          "classes": [
+            {
+              "title": "Tinnitus loudness before application of substances",
+              "categories": [
+                {
+                  "measurements": [
+                    {
+                      "groupId": "OG000",
+                      "value": "7.2",
+                      "spread": "7.8"
+                    },
+                    {
+                      "groupId": "OG001",
+                      "value": "6.4",
+                      "spread": "8.4"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Tinnitus loudness after application of substances",
+              "categories": [
+                {
+                  "measurements": [
+                    {
+                      "groupId": "OG000",
+                      "value": "5.6",
+                      "spread": "7.7"
+                    },
+                    {
+                      "groupId": "OG001",
+                      "value": "4.6",
+                      "spread": "8.3"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "analyses": [
+            {
+              "groupIds": [
+                "OG000",
+                "OG001"
+              ],
+              "groupDescription": "The alternative hypothesis of this study is that 10% lidocaine, applied topically to the external auditory canal (EAC), acts on tinnitus intensity differently than placebo, while the null hypothesis is that there is no difference between the action of lidocaine and placebo on tinnitus intensity.\n\nThe analyses were performed using the IBM-SPSS for Windows software version 22.0 and tabulated using the Microsoft-Excel 2010 software, and the tests were performed with a significance level of 5%.",
+              "nonInferiorityType": "OTHER",
+              "nonInferiorityComment": "Tinnitus loudness was described with the use of summary measures, and the variations between the applied substances were compared with the use of Generalized Estimating Equations (GEE) with normal marginal distribution and identity binding function, assuming an interchangeable correlation matrix between the substances (McCullagh; Nelder, 1989).",
+              "otherAnalysisDescription": "Tinnitus loudness was described with the use of summary measures, and the variations between the applied substances were compared with the use of Generalized Estimating Equations (GEE) with normal marginal distribution and identity binding function, assuming an interchangeable correlation matrix between the substances (McCullagh; Nelder, 1989)."
+            }
+          ]
+        },
+        {
+          "type": "PRIMARY",
+          "title": "Change in Minimum Masking Level (MML)",
+          "description": "Acuphenometry is a psychoacoustic test performed in an audiometry booth to measure minimum masking level. By comparing the intensity of tinnitus with the intensity sounds offered by the researcher, the minimum stimulus that masks tinnitus is determined.\n\nThe minimum masking level is the intensity that an external sound must have to cover up tinnitus until it is no longer perceived by the patient. MML is measured in decibels.\n\nThe lower the MML value, the more easily tinnitus can be masked, suggesting a lower degree of discomfort for the patient.",
+          "populationDescription": "The mean MML (decibels) was compared between lidocaine and the placebo before and after the administration of each substance to evaluate the effect of lidocaine on tinnitus.",
+          "reportingStatus": "POSTED",
+          "paramType": "MEAN",
+          "dispersionType": "Standard Deviation",
+          "unitOfMeasure": "decibels",
+          "timeFrame": "Immediately before and 5 minutes after receiving intervention on days 1 and 15",
+          "groups": [
+            {
+              "id": "OG000",
+              "title": "Lidocaine 10%",
+              "description": "The patient is instructed to lie down in lateral decubitus, with the ear in study facing upwards and 10% lidocaine is applied to the external auditory canal, using an eyedropper, until its complete filling (approximate average of 2ml).\n\nLidocaine 10 MG/ML: Application of 10% topical lidocaine in the external auditory canal of tinnitus patients."
+            },
+            {
+              "id": "OG001",
+              "title": "Placebo",
+              "description": "The patient is instructed to lie down in lateral decubitus, with the ear in study facing upwards and distilled water is applied to the external auditory canal, using an eyedropper, until its complete filling (approximate average of 2ml).\n\nDistilled water: Application of distilled water in the external auditory canal of tinnitus patients."
+            }
+          ],
+          "denoms": [
+            {
+              "units": "Participants",
+              "counts": [
+                {
+                  "groupId": "OG000",
+                  "value": "31"
+                },
+                {
+                  "groupId": "OG001",
+                  "value": "29"
+                }
+              ]
+            }
+          ],
+          "classes": [
+            {
+              "title": "MML before the application of the substances",
+              "categories": [
+                {
+                  "measurements": [
+                    {
+                      "groupId": "OG000",
+                      "value": "4",
+                      "spread": "3"
+                    },
+                    {
+                      "groupId": "OG001",
+                      "value": "4.8",
+                      "spread": "2.4"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "MML after the application of the substances",
+              "categories": [
+                {
+                  "measurements": [
+                    {
+                      "groupId": "OG000",
+                      "value": "3.7",
+                      "spread": "2.9"
+                    },
+                    {
+                      "groupId": "OG001",
+                      "value": "3.8",
+                      "spread": "2.2"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "analyses": [
+            {
+              "groupIds": [
+                "OG000",
+                "OG001"
+              ],
+              "groupDescription": "The alternative hypothesis of this study is that 10% lidocaine, applied topically to the external auditory canal (EAC), acts on tinnitus intensity differently than placebo, while the null hypothesis is that there is no difference between the action of lidocaine and placebo on tinnitus intensity.\n\nThe analyses were performed using the IBM-SPSS for Windows software version 22.0 and tabulated using the Microsoft-Excel 2010 software, and the tests were performed with a significance level of 5%.",
+              "nonInferiorityType": "OTHER",
+              "nonInferiorityComment": "MML was described with the use of summary measures, and the variations between the applied substances were compared with the use of Generalized Estimating Equations (GEE) with normal marginal distribution and identity binding function, assuming an interchangeable correlation matrix between the substances (McCullagh; Nelder, 1989).",
+              "otherAnalysisDescription": "MML was described with the use of summary measures, and the variations between the applied substances were compared with the use of Generalized Estimating Equations (GEE) with normal marginal distribution and identity binding function, assuming an interchangeable correlation matrix between the substances (McCullagh; Nelder, 1989)."
+            }
+          ]
+        }
+      ]
+    },
+    "adverseEventsModule": {
+      "frequencyThreshold": "0",
+      "timeFrame": "The adverse effects were collected up to 1 week after each intervention.",
+      "eventGroups": [
+        {
+          "id": "EG000",
+          "title": "Lidocaine 10%",
+          "description": "The patient is instructed to lie down in lateral decubitus, with the ear in study facing upwards and 10% lidocaine is applied to the external auditory canal, using an eyedropper, until its complete filling (approximate average of 2ml).\n\nLidocaine 10 MG/ML: Application of 10% topical lidocaine in the external auditory canal of tinnitus patients.",
+          "deathsNumAffected": 0,
+          "deathsNumAtRisk": 31,
+          "seriousNumAffected": 0,
+          "seriousNumAtRisk": 31,
+          "otherNumAffected": 0,
+          "otherNumAtRisk": 31
+        },
+        {
+          "id": "EG001",
+          "title": "Placebo",
+          "description": "The patient is instructed to lie down in lateral decubitus, with the ear in study facing upwards and distilled water is applied to the external auditory canal, using an eyedropper, until its complete filling (approximate average of 2ml).\n\nDistilled water: Application of distilled water in the external auditory canal of tinnitus patients.",
+          "deathsNumAffected": 0,
+          "deathsNumAtRisk": 29,
+          "seriousNumAffected": 0,
+          "seriousNumAtRisk": 29,
+          "otherNumAffected": 0,
+          "otherNumAtRisk": 29
+        }
+      ]
+    },
+    "moreInfoModule": {
+      "certainAgreement": {
+        "piSponsorEmployee": false,
+        "restrictiveAgreement": false
+      },
+      "pointOfContact": {
+        "title": "REDACTED",
+        "organization": "REDACTED",
+        "email": "REDACTED",
+        "phone": "REDACTED"
+      }
+    }
+  },
+  "documentSection": {
+    "largeDocumentModule": {
+      "largeDocs": [
+        {
+          "typeAbbrev": "Prot_SAP",
+          "hasProtocol": true,
+          "hasSap": true,
+          "hasIcf": false,
+          "label": "Study Protocol and Statistical Analysis Plan",
+          "date": "2022-08-04",
+          "uploadDate": "2024-03-09T09:09",
+          "filename": "Prot_SAP_000.pdf",
+          "size": 166219
+        }
+      ]
+    }
+  },
+  "derivedSection": {
+    "miscInfoModule": {
+      "versionHolder": "2026-10-16"
+    },
+    "conditionBrowseModule": {
+      "meshes": [
+        {
+          "id": "D014012",
+          "term": "Tinnitus"
+        }
+      ],
+      "ancestors": [
+        {
+          "id": "D006311",
+          "term": "Hearing Disorders"
+        },
+        {
+          "id": "D004427",
+          "term": "Ear Diseases"
+        },
+        {
+          "id": "D010038",
+          "term": "Otorhinolaryngologic Diseases"
+        },
+        {
+          "id": "D012678",
+          "term": "Sensation Disorders"
+        },
+        {
+          "id": "D009461",
+          "term": "Neurologic Manifestations"
+        },
+        {
+          "id": "D009422",
+          "term": "Nervous System Diseases"
+        },
+        {
+          "id": "D012816",
+          "term": "Signs and Symptoms"
+        },
+        {
+          "id": "D013568",
+          "term": "Pathological Conditions, Signs and Symptoms"
+        }
+      ]
+    },
+    "interventionBrowseModule": {
+      "meshes": [
+        {
+          "id": "D008012",
+          "term": "Lidocaine"
+        },
+        {
+          "id": "C033657",
+          "term": "compact-colony-forming active substance"
+        }
+      ],
+      "ancestors": [
+        {
+          "id": "D000083",
+          "term": "Acetanilides"
+        },
+        {
+          "id": "D000813",
+          "term": "Anilides"
+        },
+        {
+          "id": "D000577",
+          "term": "Amides"
+        },
+        {
+          "id": "D009930",
+          "term": "Organic Chemicals"
+        },
+        {
+          "id": "D000814",
+          "term": "Aniline Compounds"
+        },
+        {
+          "id": "D000588",
+          "term": "Amines"
+        }
+      ]
+    }
+  },
+  "hasResults": true
+}

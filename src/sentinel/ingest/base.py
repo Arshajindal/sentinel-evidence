@@ -1,9 +1,12 @@
-"""Harvester contract (sentinel-project.md §9.3).
+"""Harvester and LookupClient contracts (sentinel-project.md §9.3).
 
 A harvester walks a source and saves everything it finds. It resumes from
 `ingest_watermark.cursor`, so a run killed at record 40,000 restarts there.
 Each batch's upsert and its watermark update commit in one transaction, so
 the cursor never runs ahead of what was written.
+
+A lookup client fetches one thing on demand, by ID or query. Every result is
+upserted with its raw response kept, so no lookup is paid for twice.
 """
 
 from __future__ import annotations
@@ -18,6 +21,7 @@ from pydantic import BaseModel, ValidationError
 from sqlalchemy import Connection, Engine, select
 from sqlalchemy.dialects.postgresql import insert
 
+from sentinel.ingest.http import RateLimitedHTTP
 from sentinel.log import get_logger
 from sentinel.models import ingest_watermark
 
@@ -161,6 +165,21 @@ class Harvester(ABC):
                 },
             )
         )
+
+
+class LookupClient(ABC):
+    source: str
+
+    def __init__(self, http: RateLimitedHTTP) -> None:
+        self.http = http
+
+    @abstractmethod
+    def normalise(self, raw: dict) -> BaseModel:
+        """Raw payload -> validated Pydantic model. Never write unvalidated data."""
+
+    @abstractmethod
+    def upsert(self, conn: Connection, record: BaseModel) -> None:
+        """Idempotent upsert on the natural key."""
 
 
 def _error_summary(exc: Exception) -> list[str] | str:

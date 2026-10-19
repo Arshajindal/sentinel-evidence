@@ -78,14 +78,16 @@ class Settings(BaseSettings):
         "https://clinicaltrials.gov/api/v2/studies/download?format=json.zip"
     )
     clinicaltrials_snapshot_path: str = "./data/clinicaltrials/"
-    clinicaltrials_oas_url: str = "https://clinicaltrials.gov/api/oas/v2/ctg-oas-v2.yaml"
+    clinicaltrials_oas_url: str = "https://clinicaltrials.gov/api/oas/v2"
 
-    # --- Privacy filtering (ADR-018) ------------------------------------------
+    # --- Privacy filtering (ADR-018, ADR-025) ----------------------------------
     strip_personal_fields: bool  # no default — ADR-022
     trial_drop_paths: str = (
         "protocolSection.contactsLocationsModule.centralContacts,"
         "protocolSection.contactsLocationsModule.overallOfficials,"
-        "protocolSection.contactsLocationsModule.locations[].contacts"
+        "protocolSection.contactsLocationsModule.locations[].contacts,"
+        "protocolSection.sponsorCollaboratorsModule.responsibleParty,"
+        "resultsSection.moreInfoModule.pointOfContact"
     )
 
     # --- Pipeline batching and concurrency ------------------------------------
@@ -114,6 +116,10 @@ class Settings(BaseSettings):
     # --- Runs and output -------------------------------------------------------
     default_corpus_label: str = "dev-sample"
     export_dir: str = "./out"
+
+    @property
+    def trial_drop_paths_list(self) -> list[str]:
+        return [p.strip() for p in self.trial_drop_paths.split(",") if p.strip()]
 
     @property
     def checks_enabled_list(self) -> list[str]:
