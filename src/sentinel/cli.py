@@ -14,11 +14,15 @@ from sentinel.config import Settings, get_settings
 from sentinel.db import get_engine
 from sentinel.ingest.base import Harvester
 from sentinel.ingest.clinicaltrials import ClinicalTrialsClient, normalise_nct_id
+from sentinel.ingest.crossref import CrossrefClient
+from sentinel.ingest.doi_handle import DoiHandleClient
 from sentinel.ingest.europepmc import EuropePMC, EuropePMCHarvester, select_corpus
+from sentinel.ingest.openalex import OpenAlexClient
 from sentinel.ingest.http import RateLimitedHTTP, RetryableHTTPError, build_http_client
 from sentinel.ingest.retraction_watch import RetractionWatchHarvester
 from sentinel.log import configure_logging, get_logger
 from sentinel.report.card import detect_subject, load_trial_card, render_json, render_text
+from sentinel.resolve.normalize import normalize_doi
 
 app = typer.Typer(no_args_is_help=True, add_completion=False)
 corpus_app = typer.Typer(no_args_is_help=True, help="Select and inspect working corpora.")
@@ -28,7 +32,7 @@ log = get_logger(__name__)
 HARVESTERS: dict[str, Callable[[Settings], Harvester]] = {
     "retraction-watch": lambda s: RetractionWatchHarvester(s.retraction_watch_csv_path),
 }
-LOOKUPS = ("clinicaltrials",)
+LOOKUPS = ("clinicaltrials", "crossref", "openalex", "doi-handle")
 CORPUS_SOURCES = ("europepmc",)
 ALL_SOURCES = [*HARVESTERS, *LOOKUPS, *CORPUS_SOURCES]
 
@@ -98,6 +102,9 @@ def ingest(
     corpus: Annotated[
         Optional[str], typer.Option(help="Corpus label to harvest (europepmc)")
     ] = None,
+    doi: Annotated[
+        Optional[list[str]], typer.Option(help="DOI to look up (crossref/openalex/doi-handle)")
+    ] = None,
 ) -> None:
     """Harvest a source, or fetch records by ID from a lookup source."""
     settings = get_settings()
@@ -105,6 +112,11 @@ def ingest(
         if not nct:
             raise typer.BadParameter("clinicaltrials needs at least one --nct")
         _fetch_trials(settings, nct)
+        return
+    if source in ("crossref", "openalex", "doi-handle"):
+        if not doi:
+            raise typer.BadParameter(f"{source} needs at least one --doi")
+        _lookup_dois(settings, source, doi)
         return
     if source == "europepmc":
         label = corpus or settings.default_corpus_label
@@ -133,6 +145,49 @@ def ingest(
         get_engine(), resume=resume, limit=limit, batch_size=settings.ingest_batch_size
     )
     _echo_stats(source, stats)
+
+
+def _lookup_dois(settings: Settings, source: str, raw_dois: list[str]) -> None:
+    """Look up each DOI; one failure is reported and skipped, exit 1 if any failed."""
+    bad = [d for d in raw_dois if normalize_doi(d) is None]
+    if bad:
+        raise typer.BadParameter(f"not DOIs: {bad}", param_hint="--doi")
+    failed = 0
+    with build_http_client(settings) as client:
+        if source == "crossref":
+            lookup = CrossrefClient(
+                _rate_limited(settings, client, source, settings.rate_crossref_rps),
+                base_url=settings.crossref_base_url, mailto=settings.contact_email,
+            ).lookup
+        elif source == "openalex":
+            lookup = OpenAlexClient(
+                _rate_limited(settings, client, source, settings.rate_openalex_rps),
+                base_url=settings.openalex_base_url, api_key=settings.openalex_api_key,
+                daily_budget_usd=settings.openalex_daily_budget_usd,
+            ).lookup
+        else:
+            handle = DoiHandleClient(
+                _rate_limited(settings, client, source, settings.rate_doi_handle_rps),
+                base_url=settings.doi_handle_base_url,
+            )
+        for value in raw_dois:
+            doi_norm = normalize_doi(value)
+            try:
+                if source == "doi-handle":
+                    typer.echo(f"{doi_norm}: {'registered' if handle.exists(doi_norm) else 'not registered'}")
+                    continue
+                stored = lookup(get_engine(), doi_norm)
+            except (httpx.HTTPError, RetryableHTTPError, ValueError) as exc:
+                failed += 1
+                log.error("lookup_failed", source=source, doi=doi_norm, error=type(exc).__name__)
+                typer.echo(f"{doi_norm}: failed ({type(exc).__name__})")
+                continue
+            if stored is None:
+                typer.echo(f"{doi_norm}: not found in {source}")
+            else:
+                typer.echo(f"{doi_norm}: paper {stored.paper_id} ({stored.action})")
+    if failed:
+        raise typer.Exit(code=1)
 
 
 def _echo_stats(source: str, stats) -> None:

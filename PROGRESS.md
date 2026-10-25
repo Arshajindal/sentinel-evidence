@@ -33,7 +33,7 @@ Low friction or it rots. The rules:
 
 **Phase:** 1 of 5 — data foundation and deterministic checks
 **Plan:** `docs/sentinel-project.md` §15 session IDs. Old brief and HTML spec are in `docs/archive/`.
-**Last worked:** 2026-10-25 — C05 scope fix (ADR-031, C05 v1.1.0), between S1.6 and S1.7
+**Last worked:** 2026-10-25 — S1.7 (Crossref, OpenAlex and doi.org lookup clients)
 
 **Sessions:**
 
@@ -45,18 +45,19 @@ Low friction or it rots. The rules:
 | S1.4 ClinicalTrials.gov lookup client | done | `ingest/clinicaltrials.py`, `ingest/http.py` (token bucket; retries on 429/5xx only), `LookupClient` base. `sentinel ingest clinicaltrials --nct …` stored NCT02016378 and NCT05711641 with version-0 outcomes; ADR-018 test passes on real and synthetic records (ADR-025, ADR-026). |
 | S1.5 Check base, contexts, C05, report card | done | `checks/` (base, context, C05, registry, runner), `report/card.py`, `sentinel check` and `sentinel report`. Live: `sentinel report NCT02016378` prints "No results posted on ClinicalTrials.gov 45 months after primary completion" (medium); NCT05711641 is clean. Fixture pair passes (ADR-027). **Vertical slice complete.** |
 | S1.6 Corpus selection + Europe PMC harvester | done | Corpus `pmc-rct-2015-2024`: 1,000 of 30,457 hits, seed 20260922, selected 2026-10-24 (ADR-028). 1,000 papers, 38,685 references from full-text `<ref-list>` (ADR-030), 1,051 own-trial links from 926 papers to 1,032 trials, all fetched. Migration `9780a018baa5` (ADR-029). |
-| S1.7 – S1.15 | not started | |
+| S1.7 Crossref, OpenAlex, doi.org clients | done | `ingest/crossref.py`, `ingest/openalex.py` (budgeted, ADR-032), `ingest/doi_handle.py`, `ingest/papers.py` (first source owns the row). `sentinel ingest crossref\|openalex\|doi-handle --doi …` checked live; rate limiting, retries and the budget guard tested against recorded responses. |
+| S1.8 – S1.15 | not started | |
 
-**What works:** `sentinel corpus select`, `sentinel ingest europepmc --corpus … [--resume]`, plus everything from S1.5. C05 v1.1.0 flags 70 of 1,034 corpus trials (21.8% of those in scope). 206 tests, 196 of which run without a database (the other 10 need `TEST_DATABASE_URL`).
+**What works:** corpus selection and harvest; lookups by DOI; `sentinel check` / `sentinel report`. C05 v1.1.0 flags 70 of 1,034 corpus trials (21.8% of those in scope). 229 tests: 215 run without a database, and the other 14 need `TEST_DATABASE_URL`.
 
 **What's broken:** nothing known. PMC6561645's full text returns a persistent HTTP 500 upstream, so it's stored without references (a re-run retries it). The DB tests skip on the dev DB now that it holds real data; a disposable `sentinel_test` database is still to be created.
 
 **Next three things:**
-1. S1.7: Crossref, OpenAlex and doi.org lookup clients
-2. S1.8: Reference parser (29,646 `mixed-citation` strings are waiting for it)
-3. S1.9: Resolution cascade and candidate fetch
+1. S1.8: Reference parser (29,646 `mixed-citation` strings are waiting for it)
+2. S1.9: Resolution cascade and candidate fetch (Crossref first; get a free OpenAlex key before this)
+3. S1.10: C01
 
-**Then:** S1.10 onward. Target: `sentinel report <nct-id>` prints a real overdue-results finding.
+**Then:** S1.11 onward. Target: `sentinel report <nct-id>` prints a real overdue-results finding.
 
 **Blocked on:** nothing.
 
@@ -424,7 +425,22 @@ The era gate alone moved only 10 trials (flagged 467 → 461). The real source o
 
 Effect on `pmc-rct-2015-2024`, run 7 (v1.0.0) vs run 9 (v1.1.0): flagged 467 → 70. 478 trials are `outside_fdaaa_scope` and 10 are `before_fdaaa`. 21.8% of in-scope trials have no results after the grace window. Q8 resolved.
 
-**Rejected:** for the era, primary completion ≥ 2007-12-26 (drops covered trials that were still ongoing) and the Final Rule date 2017-01-18 (far narrower than the statute). 2008-01-18 was proposed first and was wrong: it isn't an FDAAA date. For reach: keeping non-US trials at `low` severity (the claim would still imply a duty that doesn't exist), and leaving it for later.
+**Rejected (era and reach):** for the era, primary completion ≥ 2007-12-26 (drops covered trials that were still ongoing) and the Final Rule date 2017-01-18 (far narrower than the statute). 2008-01-18 was proposed first and was wrong: it isn't an FDAAA date. For reach: keeping non-US trials at `low` severity (the claim would still imply a duty that doesn't exist), and leaving it for later.
+
+---
+
+### ADR-032 — Amends ADR-020: OpenAlex is metered; Crossref is the primary candidate source
+**Status:** active · amends ADR-020
+
+ADR-020 assumed OpenAlex's free polite pool, at about 10 rps with no daily cap. Live on 2026-10-25, OpenAlex meters usage in dollars: about $0.10 a day without a key and $1 with a free one (openalex.org/signup). DOI lookups cost $0 and searches $0.001, so a free key allows roughly 1,000 searches a day. `mailto` no longer changes anything. Crossref is unchanged and free: with `mailto`, the polite pool gives 10 rps and 3 concurrent requests.
+
+Decisions:
+- Crossref's `query.bibliographic` search is the primary candidate source for S1.9. OpenAlex title search is a fallback within a daily budget (`SENTINEL_OPENALEX_DAILY_BUDGET_USD`; operational).
+- OpenAlex DOI lookups stay unlimited. Each response's `X-RateLimit-Cost-USD` and `-Remaining-USD` are recorded. A search raises `OpenAlexBudgetExhausted` instead of returning nothing, so an exhausted budget can never make a reference look unresolvable.
+- The OpenAlex key goes in the `Authorization` header, never in a URL that could be logged.
+- Works from lookups are stored by DOI, PMID or PMCID, and the first source owns the row. A later source reuses it without overwriting, and conflicting identifiers are never merged (`ingest/papers.py`).
+
+**Rejected:** dropping OpenAlex (loses a second metadata source); using OpenAlex as an equal search source with no guard (S1.9 would hit the cap within minutes).
 
 ---
 
@@ -521,6 +537,9 @@ What happened. What you expected instead. Root cause. What changed as a result. 
 
 **2026-10-18 · ClinicalTrials.gov OpenAPI URL in ADR-019 returns 404**
 `/api/oas/v2/ctg-oas-v2.yaml` is gone; the spec is served as YAML at `/api/oas/v2`. Found while confirming endpoints before S1.4. Fixed in `config.py` and `.env.example`. A URL written from memory or from an old doc rots; confirm each one live.
+
+**2026-10-25 · OpenAlex went from a free polite pool to metered dollars**
+ADR-020's throughput estimate (40,000 references in about an hour at 10 rps) assumed OpenAlex was free. The response headers now carry `X-RateLimit-Limit-USD: 0.1`, and a search costs $0.001, so without a key about 100 searches a day are possible. Found while probing endpoints before S1.7. ADR-032 makes Crossref primary and puts OpenAlex searches behind a budget. `test_lookups.py` covers the guard.
 
 **2026-10-24 · Europe PMC's references API silently drops unmatched references**
 Expected the structured reference list to be the paper's bibliography. It returns only entries Europe PMC matched to its own records: 49 of 54 for PMC11662519, with every returned entry carrying a PMID. That would have hidden every case C01 is meant to find. Caught by comparing against the full-text `<ref-list>`. ADR-030 switches to the XML. `test_europepmc.py` asserts the full counts (54/59/47).

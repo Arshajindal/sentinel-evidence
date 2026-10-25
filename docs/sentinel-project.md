@@ -157,7 +157,7 @@ All sources are public and free. Every source that offers a "polite pool" gets t
 |---|---|---|---|
 | Europe PMC | REST API, plus the Annotations API for text-mined NCT numbers | Corpus selection, paper metadata, reference lists (from the full-text XML `<ref-list>`, ADR-030), trial links (ADR-028), open-access full text | 1 (body text in 2) |
 | Crossref | REST API | DOI lookups, candidate search for unmatched references, deposited reference lists | 1 |
-| OpenAlex | REST API | Work metadata, a second candidate source, the citation graph | 1 |
+| OpenAlex | REST API, metered (ADR-032): DOI lookups free, searches $0.001 against a daily budget | Work metadata, a fallback candidate source, the citation graph | 1 |
 | doi.org handle API | REST, by DOI | Confirms whether a DOI exists at any registration agency, not just Crossref | 1 |
 | Retraction Watch | CSV from Crossref's GitLab repository | Retraction and expression-of-concern notices | 1 |
 | ClinicalTrials.gov | API v2, one study at a time (`/api/v2/studies/{nctId}`) | Trial records and current outcomes | 1 |
@@ -544,7 +544,7 @@ Entity resolution means matching each reference to a known work. The cascade run
 | 4 | Title trigram ≥ 0.85 **and** first author matches **and** year within ±1 | 0.70–0.90 | `pg_trgm` similarity, with the score scaled by similarity |
 | 5 | Title trigram ≥ 0.92 alone | 0.60 | Weak, so mark it for review |
 
-**Candidate fetch, which follows from ADR-020:** because Crossref and OpenAlex aren't stored locally in full, stages 3–5 need candidates first. When a reference has no local match, query Crossref's bibliographic search and OpenAlex's title search with the parsed title, author and year. Upsert the top results into `paper`, then run stages 3–5 locally. Log the number of candidate fetches as a cost metric.
+**Candidate fetch, which follows from ADR-020:** because Crossref and OpenAlex aren't stored locally in full, stages 3–5 need candidates first. When a reference has no local match, query Crossref's bibliographic search with the parsed title, author and year, and fall back to OpenAlex's title search only within its daily budget (ADR-032). An exhausted budget pauses resolution; it never marks a reference unresolved. Upsert the top results into `paper`, then run stages 3–5 locally. Log the number of candidate fetches as a cost metric.
 
 Record the winning stage in `resolution_method`. If two or more candidates tie at a stage, set the status to `ambiguous` and stop. Don't pick one.
 
