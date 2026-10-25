@@ -67,7 +67,10 @@ class Settings(BaseSettings):
     rate_europepmc_rps: float = 5
     rate_clinicaltrials_rps: float = 5
     rate_ncbi_rps: float = 3
-    openalex_daily_quota: int = 100_000
+    rate_doi_handle_rps: float = 5
+    # OpenAlex is metered (ADR-032). Operational: exhausting it stops searches
+    # with an error, it never changes a finding.
+    openalex_daily_budget_usd: float = 0.10
 
     # --- Local data files (ADR-020; Crossref/OpenAlex are API-only) ----------
     data_dir: str = "./data"

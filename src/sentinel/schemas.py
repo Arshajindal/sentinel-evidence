@@ -75,7 +75,7 @@ class PaperRecord(BaseModel):
     title: str = Field(min_length=1)
     title_norm: str = Field(min_length=1)
     container: str | None = None
-    year: int | None = Field(default=None, ge=1800, le=2100)
+    year: int | None = Field(default=None, ge=1000, le=2100)
     first_author: str | None = None
     authors: list[dict[str, Any]] = []
     source: str = Field(min_length=1)
