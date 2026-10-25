@@ -1,0 +1,128 @@
+[
+ {
+  "source": "MED",
+  "extId": "39172722",
+  "pmcid": "PMC11634091",
+  "annotations": [
+   {
+    "prefix": "h the unique identifying number (UIN) ",
+    "exact": "NCT05034757",
+    "postfix": ". ",
+    "tags": [
+     {
+      "name": "NCT05034757",
+      "uri": "http://identifiers.org/clinicaltrials:NCT05034757"
+     }
+    ],
+    "id": "http://europepmc.org/article/PMC/PMC11634091#europepmc-dd26f237eb50af5e7372c6eed7596e43",
+    "type": "Accession Numbers",
+    "section": "Article (http://semanticscience.org/resource/SIO_001029)",
+    "provider": "Europe PMC",
+    "subType": "NCT"
+   }
+  ],
+  "fullTextIdList": [
+   "PMC11634091"
+  ]
+ },
+ {
+  "source": "MED",
+  "extId": "39709421",
+  "pmcid": "PMC11662519",
+  "annotations": [
+   {
+    "prefix": "clinicaltrials.gov: ",
+    "exact": "NCT03946488",
+    "postfix": ", registered May 10,",
+    "tags": [
+     {
+      "name": "NCT03946488",
+      "uri": "http://identifiers.org/clinicaltrials:NCT03946488"
+     }
+    ],
+    "id": "http://europepmc.org/article/MED/39709421#europepmc-bc1720feded658f515d1bab21f01f978",
+    "type": "Accession Numbers",
+    "section": "Abstract (http://purl.org/dc/terms/abstract)",
+    "provider": "Europe PMC",
+    "subType": "NCT"
+   },
+   {
+    "prefix": "ed May 10, 2019 and ",
+    "exact": "NCT04804384",
+    "postfix": ", registered March 1",
+    "tags": [
+     {
+      "name": "NCT04804384",
+      "uri": "http://identifiers.org/clinicaltrials:NCT04804384"
+     }
+    ],
+    "id": "http://europepmc.org/article/MED/39709421#europepmc-f9c6d2df78b9db49ed348c8cfc12b94e",
+    "type": "Accession Numbers",
+    "section": "Abstract (http://purl.org/dc/terms/abstract)",
+    "provider": "Europe PMC",
+    "subType": "NCT"
+   },
+   {
+    "prefix": "inicalTrial.gov ID: ",
+    "exact": "NCT03946488",
+    "postfix": "; ID-RCB: 2018-A0214",
+    "tags": [
+     {
+      "name": "NCT03946488",
+      "uri": "http://identifiers.org/clinicaltrials:NCT03946488"
+     }
+    ],
+    "id": "http://europepmc.org/article/PMC/PMC11662519#europepmc-c201ed2da45b6f8edd8c93e5bf30e538",
+    "type": "Accession Numbers",
+    "section": "Methods (http://purl.org/orb/Methods)",
+    "provider": "Europe PMC",
+    "subType": "NCT"
+   },
+   {
+    "prefix": "inicalTrial.gov ID: ",
+    "exact": "NCT04804384",
+    "postfix": "; ID-RCB: 2020-A0166",
+    "tags": [
+     {
+      "name": "NCT04804384",
+      "uri": "http://identifiers.org/clinicaltrials:NCT04804384"
+     }
+    ],
+    "id": "http://europepmc.org/article/PMC/PMC11662519#europepmc-c98968ff9faf924649b85813a01d2263",
+    "type": "Accession Numbers",
+    "section": "Methods (http://purl.org/orb/Methods)",
+    "provider": "Europe PMC",
+    "subType": "NCT"
+   }
+  ],
+  "fullTextIdList": [
+   "PMC11662519"
+  ]
+ },
+ {
+  "source": "MED",
+  "extId": "39806585",
+  "pmcid": "PMC11667321",
+  "annotations": [
+   {
+    "prefix": "",
+    "exact": "NCT04803825",
+    "postfix": ". ",
+    "tags": [
+     {
+      "name": "NCT04803825",
+      "uri": "http://identifiers.org/clinicaltrials:NCT04803825"
+     }
+    ],
+    "id": "http://europepmc.org/article/MED/39806585#europepmc-dcd96cff4432866e311f504428034fda",
+    "type": "Accession Numbers",
+    "section": "Abstract (http://purl.org/dc/terms/abstract)",
+    "provider": "Europe PMC",
+    "subType": "NCT"
+   }
+  ],
+  "fullTextIdList": [
+   "PMC11667321"
+  ]
+ }
+]

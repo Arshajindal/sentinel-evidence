@@ -94,6 +94,8 @@ reference = Table(
     Column("parsed_first_author", Text),
     Column("parsed_year", SmallInteger),
     Column("parsed_container", Text),
+    Column("parsed_pmid", Text),
+    Column("raw", JSONB),  # the structured entry as the source gave it
     Column("resolved_paper_id", BigInteger, ForeignKey("paper.id")),
     Column("resolution_method", Text),
     Column("resolution_score", REAL),
@@ -104,6 +106,9 @@ reference = Table(
         server_default=text("'pending'"),
     ),
     Column("resolved_at", DateTime(timezone=True)),
+    UniqueConstraint(
+        "citing_paper_id", "ordinal", name="reference_citing_ordinal_key"
+    ),
 )
 Index("reference_citing", reference.c.citing_paper_id)
 Index("reference_status", reference.c.resolution_status)
@@ -277,6 +282,44 @@ finding = Table(
 Index("finding_paper", finding.c.paper_id)
 Index("finding_nct", finding.c.nct_id)
 Index("finding_check", finding.c.check_id, finding.c.status)
+
+# A working corpus and how it was chosen (§9.2, ADR-029). Members are picked
+# before they are harvested, so corpus_paper keeps the source IDs and
+# paper_id fills in when the paper is stored.
+corpus = Table(
+    "corpus",
+    metadata,
+    Column("label", Text, primary_key=True),
+    Column("source", Text, nullable=False),
+    Column("query", Text, nullable=False),
+    Column("seed", BigInteger, nullable=False),
+    Column("hit_count", Integer, nullable=False),
+    Column("n", Integer, nullable=False),
+    Column(
+        "selected_at",
+        DateTime(timezone=True),
+        nullable=False,
+        server_default=func.now(),
+    ),
+)
+
+corpus_paper = Table(
+    "corpus_paper",
+    metadata,
+    Column(
+        "label",
+        Text,
+        ForeignKey("corpus.label", ondelete="CASCADE"),
+        primary_key=True,
+    ),
+    Column("ordinal", Integer, primary_key=True),
+    Column("source", Text, nullable=False),
+    Column("source_id", Text, nullable=False),
+    Column("pmcid", Text, nullable=False),
+    Column("paper_id", BigInteger, ForeignKey("paper.id", ondelete="SET NULL")),
+    UniqueConstraint("label", "pmcid", name="corpus_paper_label_pmcid_key"),
+)
+Index("corpus_paper_paper", corpus_paper.c.paper_id)
 
 ingest_watermark = Table(
     "ingest_watermark",

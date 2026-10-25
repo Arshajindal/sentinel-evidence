@@ -50,6 +50,7 @@ class Settings(BaseSettings):
     crossref_base_url: str = "https://api.crossref.org"
     openalex_base_url: str = "https://api.openalex.org"
     europepmc_base_url: str = "https://www.ebi.ac.uk/europepmc/webservices/rest"
+    europepmc_annotations_base_url: str = "https://www.ebi.ac.uk/europepmc/annotations_api"
     clinicaltrials_base_url: str = "https://clinicaltrials.gov/api/v2"
     ncbi_eutils_base_url: str = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
     doi_handle_base_url: str = "https://doi.org/api/handles"
@@ -113,6 +114,9 @@ class Settings(BaseSettings):
     c04_min_decimals: int  # no default — ADR-022
     c04_epsilon: float  # no default — ADR-022
     c05_grace_months: int  # no default — ADR-022
+
+    # --- Corpus selection (§9.2, ADR-028) — defines the corpus, no default -----
+    corpus_query: str  # no default — ADR-022
 
     # --- Runs and output -------------------------------------------------------
     default_corpus_label: str = "dev-sample"

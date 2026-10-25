@@ -2,7 +2,51 @@ from __future__ import annotations
 
 import pytest
 
-from sentinel.resolve.normalize import normalize_doi, normalize_pmid
+from sentinel.resolve.normalize import (
+    first_author_surname,
+    normalize_doi,
+    normalize_pmid,
+    normalize_surname,
+    normalize_title,
+)
+
+
+@pytest.mark.parametrize(
+    ("value", "expected"),
+    [
+        ("Acute effect of endurance exercise: a randomised cross-over study.",
+         "acute effect of endurance exercise a randomised cross over study"),
+        ("Effect of <i>Lactobacillus</i> on IL-6", "effect of lactobacillus on il 6"),
+        ("Café  Müller—Ångström", "cafe muller angstrom"),
+        ("PEG-IFNα in hepatitis B", "peg ifnα in hepatitis b"),
+        ("", ""),
+        (None, ""),
+    ],
+)
+def test_normalize_title(value, expected):
+    assert normalize_title(value) == expected
+
+
+@pytest.mark.parametrize(
+    ("value", "expected"),
+    [
+        ("Berglund IJ, Soras SE, Relling BE.", "berglund"),
+        ("van der Berg J, Smith A.", "van der berg"),
+        ("Müller-Lüdenscheidt K", "muller ludenscheidt"),
+        ("O'Brien CA", "o brien"),
+        ("WHO Collaborative Group.", "who collaborative group"),
+        ("Smith", "smith"),
+        ("", None),
+        (None, None),
+    ],
+)
+def test_first_author_surname(value, expected):
+    assert first_author_surname(value) == expected
+
+
+def test_normalize_surname():
+    assert normalize_surname("  Ångström ") == "angstrom"
+    assert normalize_surname("   ") is None
 
 
 @pytest.mark.parametrize(

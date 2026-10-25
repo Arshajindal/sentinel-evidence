@@ -70,6 +70,10 @@ class Harvester(ABC):
         """Identifier logged when a record fails validation. Never log content."""
         return None
 
+    def before_upsert(self, engine: Engine, records: list[BaseModel]) -> None:
+        """Runs before each batch's transaction, e.g. to fetch records the
+        batch refers to. Network calls belong here, never inside upsert()."""
+
     def run(
         self,
         engine: Engine,
@@ -104,6 +108,8 @@ class Harvester(ABC):
                         errors=_error_summary(exc),
                     )
             next_cursor = batch[-1][1]
+            if records:
+                self.before_upsert(engine, records)
             with engine.begin() as conn:
                 counts = self.upsert(conn, records) if records else UpsertCounts()
                 self._write_cursor(
