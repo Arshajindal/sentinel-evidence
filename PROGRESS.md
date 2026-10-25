@@ -33,7 +33,7 @@ Low friction or it rots. The rules:
 
 **Phase:** 1 of 5 — data foundation and deterministic checks
 **Plan:** `docs/sentinel-project.md` §15 session IDs. Old brief and HTML spec are in `docs/archive/`.
-**Last worked:** 2026-10-18 — S1.5 (vertical slice: C05, report card)
+**Last worked:** 2026-10-24 — S1.6 (corpus selection, Europe PMC harvester)
 
 **Sessions:**
 
@@ -44,18 +44,19 @@ Low friction or it rots. The rules:
 | S1.3 Harvester base + Retraction Watch | done | `ingest/base.py`, `ingest/retraction_watch.py`, migration `17fb3d1f4207` (ADR-024). `sentinel ingest retraction-watch` loaded 73,283 notices in ~12 s; a re-run inserted 0. The 20-row fixture covers load, re-run, update in place and kill-and-resume. |
 | S1.4 ClinicalTrials.gov lookup client | done | `ingest/clinicaltrials.py`, `ingest/http.py` (token bucket; retries on 429/5xx only), `LookupClient` base. `sentinel ingest clinicaltrials --nct …` stored NCT02016378 and NCT05711641 with version-0 outcomes; ADR-018 test passes on real and synthetic records (ADR-025, ADR-026). |
 | S1.5 Check base, contexts, C05, report card | done | `checks/` (base, context, C05, registry, runner), `report/card.py`, `sentinel check` and `sentinel report`. Live: `sentinel report NCT02016378` prints "No results posted on ClinicalTrials.gov 45 months after primary completion" (medium); NCT05711641 is clean. Fixture pair passes (ADR-027). **Vertical slice complete.** |
-| S1.6 – S1.15 | not started | |
+| S1.6 Corpus selection + Europe PMC harvester | done | Corpus `pmc-rct-2015-2024`: 1,000 of 30,457 hits, seed 20260922, selected 2026-10-24 (ADR-028). 1,000 papers, 38,685 references from full-text `<ref-list>` (ADR-030), 1,051 own-trial links from 926 papers to 1,032 trials, all fetched. Migration `9780a018baa5` (ADR-029). |
+| S1.7 – S1.15 | not started | |
 
-**What works:** ingest (Retraction Watch, ClinicalTrials.gov by ID) → `sentinel check` → `sentinel report <nct-id>`; 143 tests (DB tests need `TEST_DATABASE_URL`).
+**What works:** `sentinel corpus select`, `sentinel ingest europepmc --corpus … [--resume]`, plus everything from S1.5; 184 tests, 174 of which run without a database (the other 10 need `TEST_DATABASE_URL`).
 
-**What's broken:** nothing known. The DB tests that need an empty database skip on the dev DB; a disposable `sentinel_test` database is still to be created. Paper report cards wait for S1.6+.
+**What's broken:** nothing known. PMC6561645's full text returns a persistent HTTP 500 upstream, so it's stored without references (a re-run retries it). The DB tests skip on the dev DB now that it holds real data; a disposable `sentinel_test` database is still to be created.
 
 **Next three things:**
-1. S1.6: Corpus selection and the Europe PMC harvester (decide Q3 first)
-2. S1.7: Crossref, OpenAlex and doi.org lookup clients
-3. S1.8: Reference parser
+1. S1.7: Crossref, OpenAlex and doi.org lookup clients
+2. S1.8: Reference parser (29,646 `mixed-citation` strings are waiting for it)
+3. S1.9: Resolution cascade and candidate fetch
 
-**Then:** S1.9 onward. Target: `sentinel report <nct-id>` prints a real overdue-results finding.
+**Then:** S1.10 onward. Target: `sentinel report <nct-id>` prints a real overdue-results finding.
 
 **Blocked on:** nothing.
 
@@ -375,6 +376,43 @@ Scope as implemented: completed, interventional trials whose phases aren't all E
 
 ---
 
+### ADR-028 — Narrows ADR-021: the corpus is 2015–2024 RCTs; links only a paper's own trials
+**Status:** active · narrows ADR-021
+
+Q3 resolved. The working corpus query is:
+
+`ACCESSION_TYPE:nct AND OPEN_ACCESS:y AND IN_PMC:y AND HAS_REFLIST:y AND PUB_YEAR:[2015 TO 2024] AND PUB_TYPE:"Randomized Controlled Trial"`
+
+It is held in `SENTINEL_CORPUS_QUERY`, with no default. Selected 2026-10-24: 30,457 hits, 1,000 sampled with seed 20260922 after sorting by PMCID, label `pmc-rct-2015-2024`.
+
+ADR-021 said "any paper carrying an NCT number". Without the RCT filter about 28% of hits are reviews, and among research articles 31% only mention other trials. Among MEDLINE-tagged RCTs, 97/100 name their own NCT in the Title, Abstract or Methods.
+
+Trial links come from Europe PMC's text-mined accession annotations. An NCT is linked (confidence 1.0) only when it is mentioned in the Title, Abstract or Methods. Mentions only in the Introduction, Discussion, Tables or unclassified text are not linked, because they usually cite someone else's trial.
+
+**Rejected:** 2015–2024 research articles (142,775 hits; weaker links); all years and types (287,155 hits; reviews and future issue years); linking every mention scored by section.
+
+---
+
+### ADR-029 — Corpus membership tables and reference keys
+**Status:** active
+
+§8 had no way to say which `paper` rows form a corpus (cited and candidate works will share the table) and nowhere to record how a corpus was chosen. Added `corpus` (label, source, query, seed, hit_count, n, selected_at) and `corpus_paper` (label, ordinal, source IDs, paper_id). Members are chosen before they're harvested, so `paper_id` fills in later.
+
+`reference` gains `UNIQUE (citing_paper_id, ordinal)`, so re-harvesting doesn't duplicate (the same reasoning as ADR-024). It also gains `parsed_pmid`, which cascade stage 2 needs, and `raw` JSONB for the source entry. Migration `9780a018baa5`.
+
+---
+
+### ADR-030 — Reference lists come from the full-text XML, not the references API
+**Status:** active
+
+Europe PMC's `/{source}/{id}/references` returns only references Europe PMC has matched (PMC11662519: 49 returned against 54 in the paper). The unmatched ones are exactly what C01 examines, and resolution rates would be inflated by construction.
+
+Each corpus paper's `<ref-list>` is read from `/{PMCID}/fullTextXML` instead, which is open access and costs one request per paper as before. Fields are taken only where the XML marks them up (`element-citation`). Plain `mixed-citation` entries keep only `raw_string` for the S1.8 parser. The body is neither parsed nor stored, which stays Phase 2. XML is parsed with no DTDs, entities or network access.
+
+**Rejected:** the references API with the gap documented (C01 would be meaningless); merging both sources (fiddly alignment, double the requests).
+
+---
+
 ### ADR-0NN — template
 **Status:** active
 
@@ -469,6 +507,9 @@ What happened. What you expected instead. Root cause. What changed as a result. 
 **2026-10-18 · ClinicalTrials.gov OpenAPI URL in ADR-019 returns 404**
 `/api/oas/v2/ctg-oas-v2.yaml` is gone; the spec is served as YAML at `/api/oas/v2`. Found while confirming endpoints before S1.4. Fixed in `config.py` and `.env.example`. A URL written from memory or from an old doc rots; confirm each one live.
 
+**2026-10-24 · Europe PMC's references API silently drops unmatched references**
+Expected the structured reference list to be the paper's bibliography. It returns only entries Europe PMC matched to its own records: 49 of 54 for PMC11662519, with every returned entry carrying a PMID. That would have hidden every case C01 is meant to find. Caught by comparing against the full-text `<ref-list>`. ADR-030 switches to the XML. `test_europepmc.py` asserts the full counts (54/59/47).
+
 **2026-10-18 · ADR-018 drop paths missed personal data**
 The live v2 schema also has PI names in `responsibleParty` and contact emails in `resultsSection.moreInfoModule.pointOfContact`, and real records fill them. ADR-018 listed only the contacts module. ADR-025 extends the list. `test_clinicaltrials.py` checks every path on real records and on a synthetic record carrying all five.
 
@@ -485,7 +526,7 @@ The live v2 schema also has PI names in `responsibleParty` and contact emails in
 | Publish individual findings, or aggregate only? | A false fabrication accusation is a serious harm | Week 10 | open — leaning: deterministic checks may name papers, model-based checks report rates only. Tracked as Q4 |
 | Q1 — Is a GPU available? | Decides local or API serving for encoders and training | Before S2.4 | open |
 | Q2 — What share of cited sources has open full text? | Caps how much C09 can check | Measured in S2.2 | open |
-| Q3 — What exact Europe PMC query selects the corpus? | Decides what the working corpus is | S1.6 | open |
+| Q3 — What exact Europe PMC query selects the corpus? | Decides what the working corpus is | S1.6 | **resolved — ADR-028** |
 | Q4 — Publish individual findings, or aggregate only? | A false accusation of fabrication is a serious harm | Before S5.8 | open |
 | Q5 — Where do earlier versions of registered outcomes come from? The public v2 API has no history endpoint. Options: the website's change-history tab (check terms of use), a third-party reconstructed history dataset (check licence and access), or the current record only, which supports the weaker claim "registry–publication mismatch" rather than "switching". | Decides what C06 can honestly claim | Before S3.9, ideally end of Phase 1 | open |
 | Q6 — Which external labelled dataset, and is its licence compatible? | Validity of the external evaluation | Before S2.8 | open |

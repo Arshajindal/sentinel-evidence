@@ -14,18 +14,50 @@ from sentinel.config import Settings, get_settings
 from sentinel.db import get_engine
 from sentinel.ingest.base import Harvester
 from sentinel.ingest.clinicaltrials import ClinicalTrialsClient, normalise_nct_id
+from sentinel.ingest.europepmc import EuropePMC, EuropePMCHarvester, select_corpus
 from sentinel.ingest.http import RateLimitedHTTP, RetryableHTTPError, build_http_client
 from sentinel.ingest.retraction_watch import RetractionWatchHarvester
 from sentinel.log import configure_logging, get_logger
 from sentinel.report.card import detect_subject, load_trial_card, render_json, render_text
 
 app = typer.Typer(no_args_is_help=True, add_completion=False)
+corpus_app = typer.Typer(no_args_is_help=True, help="Select and inspect working corpora.")
+app.add_typer(corpus_app, name="corpus")
 log = get_logger(__name__)
 
 HARVESTERS: dict[str, Callable[[Settings], Harvester]] = {
     "retraction-watch": lambda s: RetractionWatchHarvester(s.retraction_watch_csv_path),
 }
 LOOKUPS = ("clinicaltrials",)
+CORPUS_SOURCES = ("europepmc",)
+ALL_SOURCES = [*HARVESTERS, *LOOKUPS, *CORPUS_SOURCES]
+
+
+def _rate_limited(settings: Settings, client: httpx.Client, source: str, rps: float) -> RateLimitedHTTP:
+    return RateLimitedHTTP(
+        client,
+        source=source,
+        rate_per_s=rps,
+        max_retries=settings.http_max_retries,
+        backoff_base_s=settings.http_backoff_base_s,
+    )
+
+
+def _trials_client(settings: Settings, client: httpx.Client) -> ClinicalTrialsClient:
+    return ClinicalTrialsClient(
+        _rate_limited(settings, client, "clinicaltrials", settings.rate_clinicaltrials_rps),
+        base_url=settings.clinicaltrials_base_url,
+        drop_paths=settings.trial_drop_paths_list,
+        strip_personal_fields=settings.strip_personal_fields,
+    )
+
+
+def _europepmc(settings: Settings, client: httpx.Client) -> EuropePMC:
+    return EuropePMC(
+        _rate_limited(settings, client, "europepmc", settings.rate_europepmc_rps),
+        base_url=settings.europepmc_base_url,
+        annotations_url=settings.europepmc_annotations_base_url,
+    )
 
 
 @app.callback()
@@ -35,15 +67,36 @@ def main() -> None:
     configure_logging(settings.log_level, settings.log_format)
 
 
+@corpus_app.command("select")
+def corpus_select(
+    n: Annotated[int, typer.Option(help="Papers to sample")] = 1000,
+    label: Annotated[Optional[str], typer.Option(help="Corpus label")] = None,
+) -> None:
+    """Sample N papers from SENTINEL_CORPUS_QUERY with SENTINEL_RANDOM_SEED."""
+    settings = get_settings()
+    label = label or settings.default_corpus_label
+    with build_http_client(settings) as client:
+        try:
+            sel = select_corpus(
+                get_engine(), _europepmc(settings, client),
+                query=settings.corpus_query, seed=settings.random_seed, n=n, label=label,
+            )
+        except ValueError as exc:
+            raise typer.BadParameter(str(exc)) from exc
+    typer.echo(f"corpus {sel.label}: sampled {sel.n} of {sel.hit_count} hits "
+               f"(seed {settings.random_seed})")
+
+
 @app.command()
 def ingest(
-    source: Annotated[
-        str, typer.Argument(help=f"One of: {', '.join([*HARVESTERS, *LOOKUPS])}")
-    ],
+    source: Annotated[str, typer.Argument(help=f"One of: {', '.join(ALL_SOURCES)}")],
     limit: Annotated[Optional[int], typer.Option(help="Stop after N records")] = None,
     resume: Annotated[bool, typer.Option(help="Continue from the stored cursor")] = False,
     nct: Annotated[
         Optional[list[str]], typer.Option(help="NCT ID to fetch (clinicaltrials; repeatable)")
+    ] = None,
+    corpus: Annotated[
+        Optional[str], typer.Option(help="Corpus label to harvest (europepmc)")
     ] = None,
 ) -> None:
     """Harvest a source, or fetch records by ID from a lookup source."""
@@ -53,13 +106,36 @@ def ingest(
             raise typer.BadParameter("clinicaltrials needs at least one --nct")
         _fetch_trials(settings, nct)
         return
+    if source == "europepmc":
+        label = corpus or settings.default_corpus_label
+        with build_http_client(settings) as client:
+            try:
+                harvester = EuropePMCHarvester(
+                    get_engine(), _europepmc(settings, client),
+                    _trials_client(settings, client), label=label,
+                )
+            except ValueError as exc:
+                raise typer.BadParameter(str(exc)) from exc
+            # Small batches: each one waits on ~25 network calls.
+            stats = harvester.run(get_engine(), resume=resume, limit=limit, batch_size=25)
+        _echo_stats(source, stats)
+        if harvester.not_found:
+            typer.echo(f"trials not in the registry (not linked): {sorted(harvester.not_found)}")
+        if harvester.no_fulltext:
+            typer.echo(f"no full text, stored without references: {sorted(harvester.no_fulltext)}")
+        if harvester.fulltext_failed:
+            typer.echo(f"full text failed upstream, stored without references "
+                       f"(re-run to retry): {sorted(harvester.fulltext_failed)}")
+        return
     if source not in HARVESTERS:
-        raise typer.BadParameter(
-            f"unknown source {source!r}; choose from {[*HARVESTERS, *LOOKUPS]}"
-        )
+        raise typer.BadParameter(f"unknown source {source!r}; choose from {ALL_SOURCES}")
     stats = HARVESTERS[source](settings).run(
         get_engine(), resume=resume, limit=limit, batch_size=settings.ingest_batch_size
     )
+    _echo_stats(source, stats)
+
+
+def _echo_stats(source: str, stats) -> None:
     typer.echo(
         f"{source}: seen {stats.seen}, inserted {stats.inserted}, "
         f"updated {stats.updated}, unchanged {stats.unchanged}, failed {stats.failed}"
@@ -80,19 +156,7 @@ def _fetch_trials(settings: Settings, raw_ids: list[str]) -> None:
 
     failed = 0
     with build_http_client(settings) as client:
-        http = RateLimitedHTTP(
-            client,
-            source="clinicaltrials",
-            rate_per_s=settings.rate_clinicaltrials_rps,
-            max_retries=settings.http_max_retries,
-            backoff_base_s=settings.http_backoff_base_s,
-        )
-        trials = ClinicalTrialsClient(
-            http,
-            base_url=settings.clinicaltrials_base_url,
-            drop_paths=settings.trial_drop_paths_list,
-            strip_personal_fields=settings.strip_personal_fields,
-        )
+        trials = _trials_client(settings, client)
         for nct_id in nct_ids:
             try:
                 record = trials.lookup(get_engine(), nct_id)

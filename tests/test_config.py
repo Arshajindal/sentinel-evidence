@@ -33,6 +33,7 @@ EXPECTED_REQUIRED = {
     "c04_min_decimals",
     "c04_epsilon",
     "c05_grace_months",
+    "corpus_query",
 }
 
 

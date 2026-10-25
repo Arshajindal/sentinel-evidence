@@ -1,0 +1,35 @@
+[
+ {
+  "id": "39709421",
+  "source": "MED",
+  "pmid": "39709421",
+  "pmcid": "PMC11662519",
+  "fullTextIdList": {
+   "fullTextId": [
+    "PMC11662519"
+   ]
+  }
+ },
+ {
+  "id": "39806585",
+  "source": "MED",
+  "pmid": "39806585",
+  "pmcid": "PMC11667321",
+  "fullTextIdList": {
+   "fullTextId": [
+    "PMC11667321"
+   ]
+  }
+ },
+ {
+  "id": "39172722",
+  "source": "MED",
+  "pmid": "39172722",
+  "pmcid": "PMC11634091",
+  "fullTextIdList": {
+   "fullTextId": [
+    "PMC11634091"
+   ]
+  }
+ }
+]

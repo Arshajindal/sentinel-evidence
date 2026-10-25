@@ -155,7 +155,7 @@ All sources are public and free. Every source that offers a "polite pool" gets t
 
 | Source | How Sentinel gets it at current scale | Used for | Phase |
 |---|---|---|---|
-| Europe PMC | REST API | Corpus selection, paper metadata, structured reference lists, open-access full text | 1 (full text in 2) |
+| Europe PMC | REST API, plus the Annotations API for text-mined NCT numbers | Corpus selection, paper metadata, reference lists (from the full-text XML `<ref-list>`, ADR-030), trial links (ADR-028), open-access full text | 1 (body text in 2) |
 | Crossref | REST API | DOI lookups, candidate search for unmatched references, deposited reference lists | 1 |
 | OpenAlex | REST API | Work metadata, a second candidate source, the citation graph | 1 |
 | doi.org handle API | REST, by DOI | Confirms whether a DOI exists at any registration agency, not just Crossref | 1 |
@@ -301,12 +301,15 @@ CREATE TABLE reference (
     parsed_first_author TEXT,
     parsed_year         SMALLINT,
     parsed_container    TEXT,
+    parsed_pmid         TEXT,                 -- cascade stage 2 (ADR-029)
+    raw                 JSONB,                -- the source entry
     resolved_paper_id   BIGINT REFERENCES paper(id),
     resolution_method   TEXT,                 -- winning cascade stage, see 9.5
     resolution_score    REAL,                 -- 0..1
     resolution_status   TEXT NOT NULL DEFAULT 'pending',
                                               -- pending|resolved|unresolved|ambiguous
-    resolved_at         TIMESTAMPTZ
+    resolved_at         TIMESTAMPTZ,
+    UNIQUE (citing_paper_id, ordinal)
 );
 CREATE INDEX reference_citing ON reference (citing_paper_id);
 CREATE INDEX reference_status ON reference (resolution_status);
@@ -420,6 +423,30 @@ CREATE INDEX finding_paper ON finding (paper_id);
 CREATE INDEX finding_nct ON finding (nct_id);
 CREATE INDEX finding_check ON finding (check_id, status);
 
+-- A working corpus and how it was chosen (§9.2, ADR-029).
+CREATE TABLE corpus (
+    label       TEXT PRIMARY KEY,
+    source      TEXT NOT NULL,
+    query       TEXT NOT NULL,
+    seed        BIGINT NOT NULL,
+    hit_count   INT NOT NULL,
+    n           INT NOT NULL,
+    selected_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+-- Members are chosen before they're harvested; paper_id fills in later.
+CREATE TABLE corpus_paper (
+    label     TEXT NOT NULL REFERENCES corpus(label) ON DELETE CASCADE,
+    ordinal   INT NOT NULL,
+    source    TEXT NOT NULL,
+    source_id TEXT NOT NULL,
+    pmcid     TEXT NOT NULL,
+    paper_id  BIGINT REFERENCES paper(id) ON DELETE SET NULL,
+    PRIMARY KEY (label, ordinal),
+    UNIQUE (label, pmcid)
+);
+CREATE INDEX corpus_paper_paper ON corpus_paper (paper_id);
+
 CREATE TABLE ingest_watermark (
     source       TEXT PRIMARY KEY,
     cursor       TEXT,
@@ -458,7 +485,7 @@ If a task seems to need one of these, stop and flag it instead of improvising.
 
 ### 9.2 The corpus (ADR-021)
 
-The working corpus is 1,000 PMC open-access papers that carry NCT numbers, from any disease area. Select them through Europe PMC search (open-access filter plus an NCT accession filter; confirm the exact query syntax first), and sample with `SENTINEL_RANDOM_SEED`. Record the query, the seed, and the date of selection in `PROGRESS.md`, and store the corpus label in `check_run.corpus_label`.
+The working corpus is 1,000 PMC open-access randomised controlled trial reports (2015–2024) that carry NCT numbers, from any disease area (ADR-028 gives the exact query, held in `SENTINEL_CORPUS_QUERY`). Select them through Europe PMC search and sample with `SENTINEL_RANDOM_SEED`. Record the query, the seed, and the date of selection in `PROGRESS.md`, and store the corpus label in `check_run.corpus_label`.
 
 This corpus is deliberately **not representative**, so never compare its flag rates with published prevalence figures. That comparison uses a separate validation set in Phase 5.
 
