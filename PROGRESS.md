@@ -33,7 +33,7 @@ Low friction or it rots. The rules:
 
 **Phase:** 1 of 5 — data foundation and deterministic checks
 **Plan:** `docs/sentinel-project.md` §15 session IDs. Old brief and HTML spec are in `docs/archive/`.
-**Last worked:** 2026-10-24 — S1.6 (corpus selection, Europe PMC harvester)
+**Last worked:** 2026-10-25 — C05 scope fix (ADR-031, C05 v1.1.0), between S1.6 and S1.7
 
 **Sessions:**
 
@@ -47,7 +47,7 @@ Low friction or it rots. The rules:
 | S1.6 Corpus selection + Europe PMC harvester | done | Corpus `pmc-rct-2015-2024`: 1,000 of 30,457 hits, seed 20260922, selected 2026-10-24 (ADR-028). 1,000 papers, 38,685 references from full-text `<ref-list>` (ADR-030), 1,051 own-trial links from 926 papers to 1,032 trials, all fetched. Migration `9780a018baa5` (ADR-029). |
 | S1.7 – S1.15 | not started | |
 
-**What works:** `sentinel corpus select`, `sentinel ingest europepmc --corpus … [--resume]`, plus everything from S1.5; 184 tests, 174 of which run without a database (the other 10 need `TEST_DATABASE_URL`).
+**What works:** `sentinel corpus select`, `sentinel ingest europepmc --corpus … [--resume]`, plus everything from S1.5. C05 v1.1.0 flags 70 of 1,034 corpus trials (21.8% of those in scope). 206 tests, 196 of which run without a database (the other 10 need `TEST_DATABASE_URL`).
 
 **What's broken:** nothing known. PMC6561645's full text returns a persistent HTTP 500 upstream, so it's stored without references (a re-run retries it). The DB tests skip on the dev DB now that it holds real data; a disposable `sentinel_test` database is still to be created.
 
@@ -413,6 +413,21 @@ Each corpus paper's `<ref-list>` is read from `/{PMCID}/fullTextXML` instead, wh
 
 ---
 
+### ADR-031 — C05 covers only trials within FDAAA's plausible reach
+**Status:** active
+
+C05 v1.0.0 flagged trials whose primary completion was as early as 2004, before ClinicalTrials.gov's results requirements existed. FDAAA 801 covers trials initiated after 2007-09-27 or still ongoing on 2007-12-26 (ClinicalTrials.gov FAQ; Anderson et al., NEJM 2015). The statute and eCFR text couldn't be fetched automatically, so these are the agreeing secondary statements.
+
+C05 v1.1.0 applies only when `start > 2007-09-27` or `completion >= 2007-12-26`. Otherwise the finding is `not_applicable` (`before_fdaaa`). With neither date recorded, it is `insufficient_data`. For this gate, partial dates are read at their earliest possible day from the registry's own strings, so a trial counts as covered only if every reading of its dates says so. ADR-026's latest-day rule still applies to the grace-window arithmetic. Both directions favour precision.
+
+The era gate alone moved only 10 trials (flagged 467 → 461). The real source of the 45% flag rate was reach: only 66 of the 461 flagged trials had a US site, and the registry marked just 6 as FDA-regulated. C05 therefore also requires a US site, or `oversightModule.isFdaRegulatedDrug`/`isFdaRegulatedDevice` true. Otherwise the finding is `not_applicable` (`outside_fdaaa_scope`). A trial with neither never had a duty to post on ClinicalTrials.gov.
+
+Effect on `pmc-rct-2015-2024`, run 7 (v1.0.0) vs run 9 (v1.1.0): flagged 467 → 70. 478 trials are `outside_fdaaa_scope` and 10 are `before_fdaaa`. 21.8% of in-scope trials have no results after the grace window. Q8 resolved.
+
+**Rejected:** for the era, primary completion ≥ 2007-12-26 (drops covered trials that were still ongoing) and the Final Rule date 2017-01-18 (far narrower than the statute). 2008-01-18 was proposed first and was wrong: it isn't an FDAAA date. For reach: keeping non-US trials at `low` severity (the claim would still imply a duty that doesn't exist), and leaving it for later.
+
+---
+
 ### ADR-0NN — template
 **Status:** active
 
@@ -531,6 +546,7 @@ The live v2 schema also has PI names in `responsibleParty` and contact emails in
 | Q5 — Where do earlier versions of registered outcomes come from? The public v2 API has no history endpoint. Options: the website's change-history tab (check terms of use), a third-party reconstructed history dataset (check licence and access), or the current record only, which supports the weaker claim "registry–publication mismatch" rather than "switching". | Decides what C06 can honestly claim | Before S3.9, ideally end of Phase 1 | open |
 | Q6 — Which external labelled dataset, and is its licence compatible? | Validity of the external evaluation | Before S2.8 | open |
 | Q7 — Which LLM for extraction and judging, and what's the budget cap? | Cost and reproducibility | Before S2.7 | open |
+| Q8 — Should C05 cover only trials plausibly under FDAAA (a US site or an FDA-regulated product)? 461/1,034 corpus trials are flagged, 393 of them non-industry and many entirely outside the US. | Precision of C05's headline rate (ground rule 4) | Before S1.14 fixtures | **resolved — ADR-031** |
 
 ---
 

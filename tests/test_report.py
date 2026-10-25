@@ -132,7 +132,7 @@ def test_vertical_slice(slice_engine):
                         config_hash="test", corpus_label="test",
                         nct_ids=["NCT02016378", "NCT05711641"])
     runs.append(result.run_id)
-    assert result.counts == {"C05": {"flagged": 1, "clean": 1}}
+    assert result.counts == {"C05": {"flagged": 1, "not_applicable": 1}}
 
     with engine.connect() as conn:
         run = conn.execute(select(check_run).where(check_run.c.id == result.run_id)).one()
@@ -144,4 +144,4 @@ def test_vertical_slice(slice_engine):
     assert [(f.check_id, f.status, f.severity) for f in overdue.findings] == [
         ("C05", "flagged", "medium")]
     assert "45 months after primary completion" in render_text(overdue)
-    assert [(f.check_id, f.status) for f in posted.findings] == [("C05", "clean")]
+    assert [(f.check_id, f.status) for f in posted.findings] == [("C05", "not_applicable")]
