@@ -528,7 +528,7 @@ Structured lists are simple: map the fields and move on. For unstructured string
 - **DOI:** regex for `10.\d{4,9}/\S+`, then normalise
 - **Year:** a four-digit number between 1900 and next year, preferring one next to parentheses
 - **Author:** the leading surname pattern before initials or "et al"
-- **Title:** the longest segment between delimiters that isn't the container
+- **Title:** everything between the author list and the container, once both are located (ADR-033); subtitles and abbreviations like "vs." contain ". " too
 
 Some strings won't parse, and that's expected. Record the `parsed_*` fields as NULL and let resolution handle it. **Don't guess.** A wrong parse is worse than a null, because it leads to a confident wrong match downstream.
 

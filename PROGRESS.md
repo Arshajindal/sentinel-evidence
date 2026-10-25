@@ -33,7 +33,7 @@ Low friction or it rots. The rules:
 
 **Phase:** 1 of 5 — data foundation and deterministic checks
 **Plan:** `docs/sentinel-project.md` §15 session IDs. Old brief and HTML spec are in `docs/archive/`.
-**Last worked:** 2026-10-25 — S1.7 (Crossref, OpenAlex and doi.org lookup clients)
+**Last worked:** 2026-10-25 — S1.8 (reference parser)
 
 **Sessions:**
 
@@ -46,18 +46,19 @@ Low friction or it rots. The rules:
 | S1.5 Check base, contexts, C05, report card | done | `checks/` (base, context, C05, registry, runner), `report/card.py`, `sentinel check` and `sentinel report`. Live: `sentinel report NCT02016378` prints "No results posted on ClinicalTrials.gov 45 months after primary completion" (medium); NCT05711641 is clean. Fixture pair passes (ADR-027). **Vertical slice complete.** |
 | S1.6 Corpus selection + Europe PMC harvester | done | Corpus `pmc-rct-2015-2024`: 1,000 of 30,457 hits, seed 20260922, selected 2026-10-24 (ADR-028). 1,000 papers, 38,685 references from full-text `<ref-list>` (ADR-030), 1,051 own-trial links from 926 papers to 1,032 trials, all fetched. Migration `9780a018baa5` (ADR-029). |
 | S1.7 Crossref, OpenAlex, doi.org clients | done | `ingest/crossref.py`, `ingest/openalex.py` (budgeted, ADR-032), `ingest/doi_handle.py`, `ingest/papers.py` (first source owns the row). `sentinel ingest crossref\|openalex\|doi-handle --doi …` checked live; rate limiting, retries and the budget guard tested against recorded responses. |
-| S1.8 – S1.15 | not started | |
+| S1.8 Reference parser | done | `parse/references.py` (ADR-033). 50 hand-checked strings: 0 wrong or invented, 88.2% filled. On the corpus's 22,019 untagged strings: first author 92.6%, year 97.3%, title 78.9%. Not yet written to `reference`; S1.9 applies it. |
+| S1.9 – S1.15 | not started | |
 
-**What works:** corpus selection and harvest; lookups by DOI; `sentinel check` / `sentinel report`. C05 v1.1.0 flags 70 of 1,034 corpus trials (21.8% of those in scope). 229 tests: 215 run without a database, and the other 14 need `TEST_DATABASE_URL`.
+**What works:** corpus selection and harvest; lookups by DOI; reference parsing (in code); `sentinel check` / `sentinel report`. C05 v1.1.0 flags 70 of 1,034 corpus trials. 311 tests: 297 run without a database, and the other 14 need `TEST_DATABASE_URL`.
 
 **What's broken:** nothing known. PMC6561645's full text returns a persistent HTTP 500 upstream, so it's stored without references (a re-run retries it). The DB tests skip on the dev DB now that it holds real data; a disposable `sentinel_test` database is still to be created.
 
 **Next three things:**
-1. S1.8: Reference parser (29,646 `mixed-citation` strings are waiting for it)
-2. S1.9: Resolution cascade and candidate fetch (Crossref first; get a free OpenAlex key before this)
-3. S1.10: C01
+1. S1.9: Resolution cascade and candidate fetch: parse untagged references, then match (Crossref first; get a free OpenAlex key before this)
+2. S1.10: C01
+3. S1.11: C02
 
-**Then:** S1.11 onward. Target: `sentinel report <nct-id>` prints a real overdue-results finding.
+**Then:** S1.12 onward. Target: `sentinel report <nct-id>` prints a real overdue-results finding.
 
 **Blocked on:** nothing.
 
@@ -444,6 +445,22 @@ Decisions:
 
 ---
 
+### ADR-033 — Reference parser: located-or-null, measured against tagged citations
+**Status:** active
+
+`parse/references.py` (parser 1.0.0) follows §9.4 with one stricter rule: every field is either located by a clear rule or left None.
+- The year must fall between 1900 and the citing paper's year + 1, which is passed in, never read from the clock. Years inside DOIs, URLs and access dates are ignored. A citation-position year wins, a range takes its first year, and conflicting candidates give None.
+- Title and container are produced only when both the author list and the citation details are located.
+- Glued DOIs, organisation "surnames" and author-ish titles give None.
+
+One change from §9.4's wording: the title is everything between the authors and the container, not the longest segment. Subtitles and abbreviations like "vs." contain ". " too, and the tag-derived truth keeps them.
+
+Measured on 7,627 `mixed-citation` strings whose XML tags give the truth: precision 99.2% (first author), 100% (year), 99.3% (title), 99.6% (container). On the 22,019 untagged strings it is built for, it fills first author 92.6%, year 97.3% and title 78.9%. The 50 hand-checked strings: 0 wrong or invented, 88.2% of true fields filled.
+
+**Rejected:** an ML or CRF parser (§9.4 says rule-based); the "longest segment" title rule (truncates subtitles).
+
+---
+
 ### ADR-0NN — template
 **Status:** active
 
@@ -537,6 +554,9 @@ What happened. What you expected instead. Root cause. What changed as a result. 
 
 **2026-10-18 · ClinicalTrials.gov OpenAPI URL in ADR-019 returns 404**
 `/api/oas/v2/ctg-oas-v2.yaml` is gone; the spec is served as YAML at `/api/oas/v2`. Found while confirming endpoints before S1.4. Fixed in `config.py` and `.env.example`. A URL written from memory or from an old doc rots; confirm each one live.
+
+**2026-10-25 · Tagged mixed-citation text glues identifiers together**
+In S1.6, `raw_string` for a `mixed-citation` with child tags joins adjacent elements with no space ("…1636–16442716813510.1007/…"). The citations themselves have no whitespace there, and `jats._text` concatenates. It's harmless for parsing, because those references already have tag-derived fields and the parser runs on the untagged ones. But it makes the strings ugly as C01 evidence. A spacing fix in `jats.py` plus a re-harvest would clean it. Not done in S1.8.
 
 **2026-10-25 · OpenAlex went from a free polite pool to metered dollars**
 ADR-020's throughput estimate (40,000 references in about an hour at 10 rps) assumed OpenAlex was free. The response headers now carry `X-RateLimit-Limit-USD: 0.1`, and a search costs $0.001, so without a key about 100 searches a day are possible. Found while probing endpoints before S1.7. ADR-032 makes Crossref primary and puts OpenAlex searches behind a budget. `test_lookups.py` covers the guard.

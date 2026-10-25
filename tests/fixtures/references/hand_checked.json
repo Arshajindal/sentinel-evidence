@@ -1,0 +1,652 @@
+[
+ {
+  "raw": "Palumbo A, Bringhen S, Mateos MV, et al. Geriatric assessment predicts survival and toxicities in elderly myeloma patients: an International Myeloma Working Group report. Blood. 2015;125(13):2068–2074.",
+  "citing_year": 2020,
+  "note": "vancouver",
+  "expected": {
+   "first_author": "palumbo",
+   "year": 2015,
+   "title": "Geriatric assessment predicts survival and toxicities in elderly myeloma patients: an International Myeloma Working Group report",
+   "container": "Blood",
+   "doi": null,
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Lok R, van Koningsveld MJ, Gordijn MCM, Beersma DGM, Hut RA. Daytime melatonin and light independently affect human alertness and body temperature. J Pineal Res. 2019;67(1):e12583. doi: 10.1111/jpi.12583.",
+  "citing_year": 2022,
+  "note": "vancouver; particle in a later author",
+  "expected": {
+   "first_author": "lok",
+   "year": 2019,
+   "title": "Daytime melatonin and light independently affect human alertness and body temperature",
+   "container": "J Pineal Res",
+   "doi": "10.1111/jpi.12583",
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Brignole M, Ammirati F, Arabia F, Quartieri F, Tomaino M, Ungar A, et al. Assessment of a standardized algorithm for cardiac pacing in older patients affected by severe unpredictable reflex syncopes. Eur Heart J. 2015;36(24):1529–1535. doi: 10.1093/eurheartj/ehv069.",
+  "citing_year": 2017,
+  "note": "vancouver",
+  "expected": {
+   "first_author": "brignole",
+   "year": 2015,
+   "title": "Assessment of a standardized algorithm for cardiac pacing in older patients affected by severe unpredictable reflex syncopes",
+   "container": "Eur Heart J",
+   "doi": "10.1093/eurheartj/ehv069",
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Rajaratnam R.A., Gylling H., Miettinen T.A. Independent Association of Serum Squalene and Noncholesterol Sterols with Coronary Artery Disease in Postmenopausal Women. J. Am. Coll. Cardiol. 2000;35:1185–1191. doi: 10.1016/S0735-1097(00)00527-1.",
+  "citing_year": 2024,
+  "note": "dotted initials; dotted journal abbreviation; DOI with parentheses",
+  "expected": {
+   "first_author": "rajaratnam",
+   "year": 2000,
+   "title": "Independent Association of Serum Squalene and Noncholesterol Sterols with Coronary Artery Disease in Postmenopausal Women",
+   "container": "J. Am. Coll. Cardiol",
+   "doi": "10.1016/s0735-1097(00)00527-1",
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Xie X, Chen Y, Wang Q, Shen Q, Ma L, Huang L, Wu T, Fu Z. Desipramine rescues age-related phenotypes in depression-like rats induced by chronic mild stress. Life Sci. 2017;188:96–100. doi: 10.1016/j.lfs.2017.08.020.",
+  "citing_year": 2021,
+  "note": "vancouver",
+  "expected": {
+   "first_author": "xie",
+   "year": 2017,
+   "title": "Desipramine rescues age-related phenotypes in depression-like rats induced by chronic mild stress",
+   "container": "Life Sci",
+   "doi": "10.1016/j.lfs.2017.08.020",
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Yuce M, Filiztekin E, Ozkaya KG. COVID-19 diagnosis -A review of current methods. Biosens Bioelectron. 2021;172:112752. doi: 10.1016/j.bios.2020.112752.",
+  "citing_year": 2022,
+  "note": "vancouver",
+  "expected": {
+   "first_author": "yuce",
+   "year": 2021,
+   "title": "COVID-19 diagnosis -A review of current methods",
+   "container": "Biosens Bioelectron",
+   "doi": "10.1016/j.bios.2020.112752",
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Schulz, K. F. , Altman, D. G. , & Moher, D. , & CONSORT Group (2010). CONSORT 2010 Statement: Updated guidelines for reporting parallel group randomised trials. Journal of Clinical Epidemiology, 63, 834–840. 10.1016/j.jclinepi.2010.02.005",
+  "citing_year": 2021,
+  "note": "APA with a group author",
+  "expected": {
+   "first_author": "schulz",
+   "year": 2010,
+   "title": "CONSORT 2010 Statement: Updated guidelines for reporting parallel group randomised trials",
+   "container": "Journal of Clinical Epidemiology",
+   "doi": "10.1016/j.jclinepi.2010.02.005",
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Comer SD, Sullivan MA, Yu E, Rothenberg JL, Kleber HD, Kampman K, Dackis C, O’Brien CP. Injectable, sustained-release naltrexone for the treatment of opioid dependence: a randomized, placebo-controlled trial. Arch Gen Psychiatry. 2006;63:210–8.",
+  "citing_year": 2016,
+  "note": "curly apostrophe in an author (O’Brien)",
+  "expected": {
+   "first_author": "comer",
+   "year": 2006,
+   "title": "Injectable, sustained-release naltrexone for the treatment of opioid dependence: a randomized, placebo-controlled trial",
+   "container": "Arch Gen Psychiatry",
+   "doi": null,
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Swaminathan S, Thomas T, Kurpad AV. B-vitamin interventions for women and children in low-income populations. Curr Opin Clin Nutr Metab Care. 2015;18:295–306. doi: 10.1097/MCO.0000000000000166.",
+  "citing_year": 2022,
+  "note": "vancouver",
+  "expected": {
+   "first_author": "swaminathan",
+   "year": 2015,
+   "title": "B-vitamin interventions for women and children in low-income populations",
+   "container": "Curr Opin Clin Nutr Metab Care",
+   "doi": "10.1097/mco.0000000000000166",
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Hannan AL, Hing W, Simas V, Climstein M, Coombes JS, Jayasinghe R, et al. High-intensity interval training versus moderate-intensity continuous training within cardiac rehabilitation: a systematic review and meta-analysis. J Sports Med. 2018;9:1–17. doi: 10.2147/OAJSM.S150596 .",
+  "citing_year": 2023,
+  "note": "DOI followed by ' .'",
+  "expected": {
+   "first_author": "hannan",
+   "year": 2018,
+   "title": "High-intensity interval training versus moderate-intensity continuous training within cardiac rehabilitation: a systematic review and meta-analysis",
+   "container": "J Sports Med",
+   "doi": "10.2147/oajsm.s150596",
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Strom CM, Goos D, Crossley B, et al. Testing for variants in CYP2C19: population frequencies and testing experience in a clinical laboratory. Genet Med. 2012;14(1):95–100. doi: 10.1038/gim.0b013e3182329870.",
+  "citing_year": 2015,
+  "note": "vancouver",
+  "expected": {
+   "first_author": "strom",
+   "year": 2012,
+   "title": "Testing for variants in CYP2C19: population frequencies and testing experience in a clinical laboratory",
+   "container": "Genet Med",
+   "doi": "10.1038/gim.0b013e3182329870",
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Zuckermann A, Manito N, Epailly E, et al. Multidisciplinary insights on clinical guidance for the use of proliferation signal inhibitors in heart transplantation. J Heart Lung Transplant 200827141–149",
+  "citing_year": 2020,
+  "note": "year glued to volume and pages (2008 + 27 + 141-149)",
+  "expected": {
+   "first_author": "zuckermann",
+   "year": 2008,
+   "title": "Multidisciplinary insights on clinical guidance for the use of proliferation signal inhibitors in heart transplantation",
+   "container": "J Heart Lung Transplant",
+   "doi": null,
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Soundy A., Freeman P., Stubbs B., Probst M., Coffee P., Vancampfort D. The transcending benefits of physical activity for individuals with schizophrenia: A systematic review and meta-ethnography. Psychiatry Res. 2014;220:11–19. doi: 10.1016/j.psychres.2014.07.083.",
+  "citing_year": 2019,
+  "note": "dotted initials",
+  "expected": {
+   "first_author": "soundy",
+   "year": 2014,
+   "title": "The transcending benefits of physical activity for individuals with schizophrenia: A systematic review and meta-ethnography",
+   "container": "Psychiatry Res",
+   "doi": "10.1016/j.psychres.2014.07.083",
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Hausdorf J, Lemmens M, Heck K, Grolms N, Korr H, Kertschanska S, et al. Selective loss of unmyelinated nerve fibers after extracorporeal shockwave application to the musculoskeletal system. Neuroscience 2008; 155: 138–144. DOI: 10.1016/j.neuroscience.2008.03.062",
+  "citing_year": 2024,
+  "note": "Lancet-style 'Journal 2008; 155:' and upper-case DOI label",
+  "expected": {
+   "first_author": "hausdorf",
+   "year": 2008,
+   "title": "Selective loss of unmyelinated nerve fibers after extracorporeal shockwave application to the musculoskeletal system",
+   "container": "Neuroscience",
+   "doi": "10.1016/j.neuroscience.2008.03.062",
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Zauber AG, Winawer SJ, O'Brien MJ, Lansdorp-Vogelaar I, van Ballegooijen M, Hankey BF, Shi W, Bond JH, Schapiro M, Panish JF, Stewart ET, Waye JD. Colonoscopic polypectomy and long-term prevention of colorectal-cancer deaths. N Engl J Med. 2012;366:687–696. doi: 10.1056/NEJMoa1100370.",
+  "citing_year": 2020,
+  "note": "vancouver; apostrophe and particle in later authors",
+  "expected": {
+   "first_author": "zauber",
+   "year": 2012,
+   "title": "Colonoscopic polypectomy and long-term prevention of colorectal-cancer deaths",
+   "container": "N Engl J Med",
+   "doi": "10.1056/nejmoa1100370",
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Skrypnik D., Bogdański P., Skrypnik K., Mądry E., Karolkiewicz J., Szulińska M., Suliburska J., Walkowiak J. Influence of endurance and endurance-strength training on mineral status in women with abdominal obesity: A randomized trial. Medicine. 2019;98:e14909. doi: 10.1097/MD.0000000000014909.",
+  "citing_year": 2021,
+  "note": "Unicode in later author names",
+  "expected": {
+   "first_author": "skrypnik",
+   "year": 2019,
+   "title": "Influence of endurance and endurance-strength training on mineral status in women with abdominal obesity: A randomized trial",
+   "container": "Medicine",
+   "doi": "10.1097/md.0000000000014909",
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Vukelich C, Kliman DS. Mature teenage mothers’ infant growth expectations and use of child development information sources. Fam Relat. 1985;34:189–96. doi: 10.2307/583891.",
+  "citing_year": 2015,
+  "note": "curly apostrophe in title",
+  "expected": {
+   "first_author": "vukelich",
+   "year": 1985,
+   "title": "Mature teenage mothers’ infant growth expectations and use of child development information sources",
+   "container": "Fam Relat",
+   "doi": "10.2307/583891",
+   "pmid": null
+  }
+ },
+ {
+  "raw": "WHO. Global Database on Child Growth and Malnutrition. 74 (WHO, Geneva, 1997).",
+  "citing_year": 2019,
+  "note": "organisation author; book",
+  "expected": {
+   "first_author": null,
+   "year": 1997,
+   "title": "Global Database on Child Growth and Malnutrition",
+   "container": null,
+   "doi": null,
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Whitehead J. On the bias of maximum likelihood estimation following a sequential test. Biometrika. 1986;73: 573–581.",
+  "citing_year": 2019,
+  "note": "single author",
+  "expected": {
+   "first_author": "whitehead",
+   "year": 1986,
+   "title": "On the bias of maximum likelihood estimation following a sequential test",
+   "container": "Biometrika",
+   "doi": null,
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Petersen, M. L., Porter, K. E., Gruber, S., Wang, Y. & van der Laan, M. J. Diagnosing and responding to violations in the positivity assumption. Stat. Methods Med. Res.21, 31–54 (2010).",
+  "citing_year": 2024,
+  "note": "Nature style: year at the end, volume glued to journal",
+  "expected": {
+   "first_author": "petersen",
+   "year": 2010,
+   "title": "Diagnosing and responding to violations in the positivity assumption",
+   "container": "Stat. Methods Med. Res",
+   "doi": null,
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Al-Shahi Salman R, Murray GD, Dennis MS. The Restart or Stop Antithrombotics Randomised Trial (RESTART) after stroke due to intracerebral haemorrhage: statistical analysis plan for a randomised controlled trial. Trials. 2019;20:183. doi: 10.1186/s13063-019-3270-2.",
+  "citing_year": 2019,
+  "note": "two-word hyphenated surname",
+  "expected": {
+   "first_author": "al shahi salman",
+   "year": 2019,
+   "title": "The Restart or Stop Antithrombotics Randomised Trial (RESTART) after stroke due to intracerebral haemorrhage: statistical analysis plan for a randomised controlled trial",
+   "container": "Trials",
+   "doi": "10.1186/s13063-019-3270-2",
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Chalasani N, Abdelmalek MF, Loomba R, Kowdley KV, McCullough AJ, Dasarathy S, et al. Relationship between three commonly used non-invasive fibrosis biomarkers and improvement in fibrosis stage in patients with non-alcoholic steatohepatitis. Liver Int. 2019;39(5):924–32. Epub 2018/09/27. doi: 10.1111/liv.13974 ; PubMed Central PMCID: PMC6433535.",
+  "citing_year": 2022,
+  "note": "Epub date 2018/09/27 must not be the year; PMCID after DOI",
+  "expected": {
+   "first_author": "chalasani",
+   "year": 2019,
+   "title": "Relationship between three commonly used non-invasive fibrosis biomarkers and improvement in fibrosis stage in patients with non-alcoholic steatohepatitis",
+   "container": "Liver Int",
+   "doi": "10.1111/liv.13974",
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Bengtsson M, Persson J, Sjölund K, Ohlsson B. Further validation of the visual analogue scale for irritable bowel syndrome after use in clinical practice. Gastroentreol Nurs. 2013;36:188–98.",
+  "citing_year": 2022,
+  "note": "Unicode in a later author; misspelled journal kept as written",
+  "expected": {
+   "first_author": "bengtsson",
+   "year": 2013,
+   "title": "Further validation of the visual analogue scale for irritable bowel syndrome after use in clinical practice",
+   "container": "Gastroentreol Nurs",
+   "doi": null,
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Lalu MM, McIntyre L, Pugliese C, et al. ; Canadian Critical Care Trials Group Safety of cell therapy with mesenchymal stromal cells [SafeCell]: a systematic review and meta-analysis of clinical trials. PLoS One 2012;7:e47559.",
+  "citing_year": 2020,
+  "note": "group name glued before the title",
+  "expected": {
+   "first_author": "lalu",
+   "year": 2012,
+   "title": "Safety of cell therapy with mesenchymal stromal cells [SafeCell]: a systematic review and meta-analysis of clinical trials",
+   "container": "PLoS One",
+   "doi": null,
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Muzzarelli L, Force M, Sebold M. Aromatherapy and reducing preprocedural anxiety: A controlled prospective study. Gastroenterol Nurs. 2006 Nov-Dec;29(6):466– 71. 10.1097/00001610-200611000-00005. PMID: 17273013.",
+  "citing_year": 2024,
+  "note": "month range 'Nov-Dec'; bare DOI; PMID",
+  "expected": {
+   "first_author": "muzzarelli",
+   "year": 2006,
+   "title": "Aromatherapy and reducing preprocedural anxiety: A controlled prospective study",
+   "container": "Gastroenterol Nurs",
+   "doi": "10.1097/00001610-200611000-00005",
+   "pmid": "17273013"
+  }
+ },
+ {
+  "raw": "Webster R, Patel A, Selak V, et al. Effectiveness of fixed dose combination medication (‘polypills’) compared with usual care in patients with cardiovascular disease or at high risk: A prospective, individual patient data meta-analysis of 3140 patients in six countries. Int J Cardiol. 2016;205:147–156. doi: 10.1016/j.ijcard.2015.12.015.",
+  "citing_year": 2022,
+  "note": "curly quotes in title",
+  "expected": {
+   "first_author": "webster",
+   "year": 2016,
+   "title": "Effectiveness of fixed dose combination medication (‘polypills’) compared with usual care in patients with cardiovascular disease or at high risk: A prospective, individual patient data meta-analysis of 3140 patients in six countries",
+   "container": "Int J Cardiol",
+   "doi": "10.1016/j.ijcard.2015.12.015",
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Congdon N, Yan X, Lansingh V, Sisay A, Müller A, Chan V, et al. Assessment of cataract surgical outcomes in settings where follow-up is poor: PRECOG, a multicentre observational study. The Lancet Global health. 2013;1(1):e37–e45. doi: 10.1016/S2214-109X(13)70003-2",
+  "citing_year": 2024,
+  "note": "Unicode in a later author; DOI with parentheses",
+  "expected": {
+   "first_author": "congdon",
+   "year": 2013,
+   "title": "Assessment of cataract surgical outcomes in settings where follow-up is poor: PRECOG, a multicentre observational study",
+   "container": "The Lancet Global health",
+   "doi": "10.1016/s2214-109x(13)70003-2",
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Luke C, Dodd K, Brock K. Outcomes of the Bobath concept on upper limb recovery following stroke. Clinical rehabilitation. 2004;18(8):888–98. 10.1191/0269215504cr793oa",
+  "citing_year": 2018,
+  "note": "bare DOI without label",
+  "expected": {
+   "first_author": "luke",
+   "year": 2004,
+   "title": "Outcomes of the Bobath concept on upper limb recovery following stroke",
+   "container": "Clinical rehabilitation",
+   "doi": "10.1191/0269215504cr793oa",
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Dumont AJL, Araujo MC, Lazzari RD, Santos CA, Carvalho DB, de Moura RCF, et al. Effects of a single session of transcranial direct current stimulation on static balance in a patient with hemiparesis: a case study. J Phys Ther Sci. 2015;27:955–8. doi:10.1589/jpts.27.955.10.1589/jpts.27.955PMC439575225931768",
+  "citing_year": 2017,
+  "note": "DOI repeated and glued to a PMCID",
+  "expected": {
+   "first_author": "dumont",
+   "year": 2015,
+   "title": "Effects of a single session of transcranial direct current stimulation on static balance in a patient with hemiparesis: a case study",
+   "container": "J Phys Ther Sci",
+   "doi": "10.1589/jpts.27.955",
+   "pmid": null
+  }
+ },
+ {
+  "raw": "The General Practice Physical Activity Questionnaire. https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/192453/GPPAQ_-_guidance.pdf. Accessed 10 Mar 2021.",
+  "citing_year": 2021,
+  "note": "website; access date is not a publication year",
+  "expected": {
+   "first_author": null,
+   "year": null,
+   "title": "The General Practice Physical Activity Questionnaire",
+   "container": null,
+   "doi": null,
+   "pmid": null
+  }
+ },
+ {
+  "raw": "World Health Organization. Module 4: HIV testing strategies and algorithms. 2005 [cited 21 Feb 2016]. Available: http://www.who.int/diagnostics_laboratory/documents/guidance/pm_module4.pdf.",
+  "citing_year": 2016,
+  "note": "organisation author; [cited] date",
+  "expected": {
+   "first_author": null,
+   "year": 2005,
+   "title": "Module 4: HIV testing strategies and algorithms",
+   "container": null,
+   "doi": null,
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Muneer A, Minhas FA. Telomere biology in mood disorders: an updated, comprehensive review of the literature. Clin Psychopharmacol Neurosci. 2019;17:343–363. doi: 10.9758/cpn.2019.17.3.343.",
+  "citing_year": 2021,
+  "note": "vancouver",
+  "expected": {
+   "first_author": "muneer",
+   "year": 2019,
+   "title": "Telomere biology in mood disorders: an updated, comprehensive review of the literature",
+   "container": "Clin Psychopharmacol Neurosci",
+   "doi": "10.9758/cpn.2019.17.3.343",
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Hollenbach JP, Cushing A, Melvin E, McGowan B, Cloutier MM, Manice M. Understanding clinicians’ attitudes toward a mobile health strategy to childhood asthma management: a qualitative study. J Asthma. 2017;54(7):754–760. doi: 10.1080/02770903.2016.1263649.",
+  "citing_year": 2024,
+  "note": "curly apostrophe in title",
+  "expected": {
+   "first_author": "hollenbach",
+   "year": 2017,
+   "title": "Understanding clinicians’ attitudes toward a mobile health strategy to childhood asthma management: a qualitative study",
+   "container": "J Asthma",
+   "doi": "10.1080/02770903.2016.1263649",
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Schuh S, Zemek R, Plint A, et al. Magnesium use in asthma pharmacotherapy: a Pediatric Emergency Research Canada study. Pediatrics. 2012;129(5):852-859. doi: 10.1542/peds.2011-2202",
+  "citing_year": 2021,
+  "note": "DOI at end without trailing period",
+  "expected": {
+   "first_author": "schuh",
+   "year": 2012,
+   "title": "Magnesium use in asthma pharmacotherapy: a Pediatric Emergency Research Canada study",
+   "container": "Pediatrics",
+   "doi": "10.1542/peds.2011-2202",
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Vergès B., Fumeron F. Potential Risks Associated with Increased Plasma Plant-Sterol Levels. Diabetes Metab. 2015;41:76–81. doi: 10.1016/j.diabet.2014.11.003.",
+  "citing_year": 2024,
+  "note": "Unicode first author",
+  "expected": {
+   "first_author": "verges",
+   "year": 2015,
+   "title": "Potential Risks Associated with Increased Plasma Plant-Sterol Levels",
+   "container": "Diabetes Metab",
+   "doi": "10.1016/j.diabet.2014.11.003",
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Keränen U, Luukkonen P, Järvinen H. Functional results after restorative proctocolectomy complicated by pouchitis. Dis Colon Rectum. 1997;40:764–769.",
+  "citing_year": 2021,
+  "note": "Unicode first author",
+  "expected": {
+   "first_author": "keranen",
+   "year": 1997,
+   "title": "Functional results after restorative proctocolectomy complicated by pouchitis",
+   "container": "Dis Colon Rectum",
+   "doi": null,
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Pérez-Olmos I, Fernández-Piñeres PE, Rodado-Fuentes S. [The prevalence of war-related post-traumatic stress disorder in children from Cundinamarca, Colombia]. Rev Salud Publica (Bogota). 2005;7(3):268–80.",
+  "citing_year": 2018,
+  "note": "Unicode hyphenated first author; bracketed translated title",
+  "expected": {
+   "first_author": "perez olmos",
+   "year": 2005,
+   "title": "[The prevalence of war-related post-traumatic stress disorder in children from Cundinamarca, Colombia]",
+   "container": "Rev Salud Publica (Bogota)",
+   "doi": null,
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Roggenkämper P, Jost WH, Bihari K, Comes G, Grafe S, NT 201 Blepharospasm Study Team . Efficacy and safety of a new botulinum toxin type A free of complexing proteins in the treatment of blepharospasm. J Neural Transm 2006;113:303–312.",
+  "citing_year": 2016,
+  "note": "Unicode first author; study team among authors",
+  "expected": {
+   "first_author": "roggenkamper",
+   "year": 2006,
+   "title": "Efficacy and safety of a new botulinum toxin type A free of complexing proteins in the treatment of blepharospasm",
+   "container": "J Neural Transm",
+   "doi": null,
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Betrán AP, Ye J, Moller A, Zhang J, Gülmezoglu AM, Torloni M. The Increasing Trend in Caesarean Section Rates: Global, Regional and National Estimates: 1990-2014. PLoS One. 2016;11(2):e0148343–2014. doi: 10.1371/journal.pone.0148343. https://dx.plos.org/10.1371/journal.pone.0148343.",
+  "citing_year": 2020,
+  "note": "Unicode first author; year range inside the title",
+  "expected": {
+   "first_author": "betran",
+   "year": 2016,
+   "title": "The Increasing Trend in Caesarean Section Rates: Global, Regional and National Estimates: 1990-2014",
+   "container": "PLoS One",
+   "doi": "10.1371/journal.pone.0148343",
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Jayaram, H. Intraocular pressure reduction in glaucoma: does every mmhg count?. Taiwan J Ophthalmol 2020, 10 (4), 255. https://doi.org/10.4103/tjo.tjo_63_20.",
+  "citing_year": 2022,
+  "note": "doi.org URL with trailing period",
+  "expected": {
+   "first_author": "jayaram",
+   "year": 2020,
+   "title": "Intraocular pressure reduction in glaucoma: does every mmhg count?",
+   "container": "Taiwan J Ophthalmol",
+   "doi": "10.4103/tjo.tjo_63_20",
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Wechsler D, 2018. Wechsler Abbreviated Scale of Intelligence–Second Edition [cited 2024 Apr 1]. Available from. https://doi.apa.org/doi/10.1037/t15171-000.",
+  "citing_year": 2024,
+  "note": "Harvard style; test manual; [cited] date",
+  "expected": {
+   "first_author": "wechsler",
+   "year": 2018,
+   "title": "Wechsler Abbreviated Scale of Intelligence–Second Edition",
+   "container": null,
+   "doi": "10.1037/t15171-000",
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Bradt J, Dileo C. Music interventions for mechanically ventilated patients. In: The Cochrane Collaboration, editor. Cochrane Database Syst. Rev. [Internet. Chichester: John Wiley & Sons, Ltd; 2014. [cited 2015 Aug 21]. http://doi.wiley.com/10.1002/14651858.CD006902.pub3.",
+  "citing_year": 2016,
+  "note": "book chapter with editors; [cited] date; doi.wiley.com URL",
+  "expected": {
+   "first_author": "bradt",
+   "year": 2014,
+   "title": "Music interventions for mechanically ventilated patients",
+   "container": "Cochrane Database Syst. Rev",
+   "doi": "10.1002/14651858.cd006902.pub3",
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Perseus web survey software [http://www.perseusuk.co.uk/index.html]",
+  "citing_year": 2015,
+  "note": "software; no year",
+  "expected": {
+   "first_author": null,
+   "year": null,
+   "title": "Perseus web survey software",
+   "container": null,
+   "doi": null,
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Organization WH Africa eradicates wild poliovirus. In: Africa eradicates wild poliovirus. https://www.afro.who.int/news/africa-eradicates-wild-poliovirus.",
+  "citing_year": 2022,
+  "note": "inverted organisation name looks like 'Surname Initials'",
+  "expected": {
+   "first_author": null,
+   "year": null,
+   "title": "Africa eradicates wild poliovirus",
+   "container": null,
+   "doi": null,
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Beck AT. Depression: Clinical, experimental and theoretical aspects. New York: Harper and Row. 1967.",
+  "citing_year": 2020,
+  "note": "book",
+  "expected": {
+   "first_author": "beck",
+   "year": 1967,
+   "title": "Depression: Clinical, experimental and theoretical aspects",
+   "container": null,
+   "doi": null,
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Friedman G, Berlot G, Kahn RJ, Vincent JL. Combined measurements of blood lactate concentrations and gastric intramucosal pH in patients with severe sepsis. Crit Care Med. 1995;23 doi: 10.1097/00003246-199507000-00006. 1184-93.",
+  "citing_year": 2022,
+  "note": "DOI before the pages",
+  "expected": {
+   "first_author": "friedman",
+   "year": 1995,
+   "title": "Combined measurements of blood lactate concentrations and gastric intramucosal pH in patients with severe sepsis",
+   "container": "Crit Care Med",
+   "doi": "10.1097/00003246-199507000-00006",
+   "pmid": null
+  }
+ },
+ {
+  "raw": "Luu K, Hall PA. Hatha yoga and executive function: a systematic review. J Altern Complement Med. 2016;22(2):125–33.10.1089/acm.2014.009126398441",
+  "citing_year": 2018,
+  "note": "DOI glued to pages and PMID: its end can't be known",
+  "expected": {
+   "first_author": "luu",
+   "year": 2016,
+   "title": "Hatha yoga and executive function: a systematic review",
+   "container": "J Altern Complement Med",
+   "doi": "10.1089/acm.2014.0091",
+   "pmid": null
+  }
+ },
+ {
+  "raw": "R Core Team. 2019. R: a language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria: http://www.R-project.org. Accessed 18 October 2019.",
+  "citing_year": 2020,
+  "note": "organisation author; software; access date",
+  "expected": {
+   "first_author": null,
+   "year": 2019,
+   "title": "R: a language and environment for statistical computing",
+   "container": null,
+   "doi": null,
+   "pmid": null
+  }
+ },
+ {
+  "raw": "ClinicalTrials.gov. A safety and tolerability study of ARGX-113 in patients with myasthenia gravis who have generalized muscle weakness (ADAPT+) [online]. Available at: https://clinicaltrials.gov/study/NCT03770403. Accessed October 25, 2023.",
+  "citing_year": 2024,
+  "note": "registry page; only an access date",
+  "expected": {
+   "first_author": null,
+   "year": null,
+   "title": "A safety and tolerability study of ARGX-113 in patients with myasthenia gravis who have generalized muscle weakness (ADAPT+)",
+   "container": null,
+   "doi": null,
+   "pmid": null
+  }
+ },
+ {
+  "raw": "KortelingJEH, OprinsEAPBE, KallenVL Measurement of effectiveness for training simulations. North Atlantic Treaty Association Science and Technology Organization. Published June 12, 2012. Accessed November 24, 2020. https://repository.tudelft.nl/view/tno/uuid%3Ae6411a4a-2c2b-4978-a947-cd5dd20ea2bc",
+  "citing_year": 2020,
+  "note": "names glued to initials",
+  "expected": {
+   "first_author": "korteling",
+   "year": 2012,
+   "title": "Measurement of effectiveness for training simulations",
+   "container": null,
+   "doi": null,
+   "pmid": null
+  }
+ }
+]
