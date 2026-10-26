@@ -577,7 +577,7 @@ Checks are pure: the same input and version always give the same findings. There
 
 #### C01 — Reference existence
 
-For each reference, run the cascade and classify the result as in 9.5. Only `unresolved_journal_like` becomes a flag, at `medium` severity, with the summary "could not be verified."
+For each reference, classify the stored cascade result as in 9.5. Only `unresolved_journal_like` becomes a flag, at `medium` severity, with the summary "could not be verified." A reference is not flagged when a recorded candidate suggests the work exists under a variant citation (`near_match`, ADR-035). Each flagged reference is its own finding, and each paper also gets one summary finding with the counts per class.
 
 Evidence: the raw string, the parsed fields, every stage attempted, near-misses with their scores, and the doi.org check result when one was made. A reviewer must be able to see why the match failed.
 

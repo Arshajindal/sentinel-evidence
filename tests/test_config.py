@@ -26,6 +26,8 @@ EXPECTED_REQUIRED = {
     "resolve_trigram_strict",
     "resolve_year_tolerance",
     "resolve_ambiguous_margin",
+    "c01_near_match_min",
+    "c01_same_title_min",
     "c02_grace_months",
     "c03_alpha",
     "c03_allow_one_tailed",

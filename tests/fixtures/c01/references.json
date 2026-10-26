@@ -1,0 +1,2314 @@
+[
+ {
+  "reference": {
+   "reference_id": 641,
+   "ordinal": 1,
+   "raw_string": "Uyeki TM, Hui DS, Zambon M, Wentworth DE, Monto AS.. Influenza. Lancet. 2022;400(10353):693–9. doi: 10.1016/S0140-6736(22)00982-5.",
+   "citation_tag": "mixed-citation",
+   "publication_type": null,
+   "parsed_doi": "10.1016/s0140-6736(22)00982-5",
+   "parsed_pmid": null,
+   "parsed_title": "Influenza",
+   "parsed_first_author": "uyeki",
+   "parsed_year": 2022,
+   "parsed_container": "Lancet",
+   "resolution_status": "resolved",
+   "resolution_method": "doi",
+   "resolved_paper_id": 1019,
+   "resolution_evidence": {
+    "parser": "1.0.0",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "matched"
+     }
+    ],
+    "lookups": {
+     "found": [
+      "doi:10.1016/s0140-6736(22)00982-5"
+     ],
+     "crossref_doi": 1
+    }
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "resolved",
+  "note": "resolved by the cascade"
+ },
+ {
+  "reference": {
+   "reference_id": 642,
+   "ordinal": 2,
+   "raw_string": "World Health Organization . Influenza (seasonal). 2020. [accessed 2023 Oct 3]. https: //www.Who.int/en/news-room/fact-sheets/detail/influenza-(seasonal).",
+   "citation_tag": "mixed-citation",
+   "publication_type": null,
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": null,
+   "parsed_first_author": null,
+   "parsed_year": 2020,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": "1.1.0",
+    "reason": "nothing_to_match_on",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "stage": "3-5",
+      "outcome": "no_title"
+     }
+    ],
+    "lookups": {}
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "nonjournal",
+  "note": "WHO fact sheet webpage"
+ },
+ {
+  "reference": {
+   "reference_id": 643,
+   "ordinal": 3,
+   "raw_string": "Iuliano AD, Roguski KM, Chang HH, Muscatello DJ, Palekar R, Tempia S, Cohen C, Gran JM, Schanzer D, Cowling BJ, et al. Estimates of global seasonal influenza-associated respiratory mortality: a modelling study. Lancet. 2018;391(10127):1285–1300. doi: 10.1016/S0140-6736(17)33293-2.",
+   "citation_tag": "mixed-citation",
+   "publication_type": null,
+   "parsed_doi": "10.1016/s0140-6736(17)33293-2",
+   "parsed_pmid": null,
+   "parsed_title": "Estimates of global seasonal influenza-associated respiratory mortality: a modelling study",
+   "parsed_first_author": "iuliano",
+   "parsed_year": 2018,
+   "parsed_container": "Lancet",
+   "resolution_status": "resolved",
+   "resolution_method": "doi",
+   "resolved_paper_id": 1020,
+   "resolution_evidence": {
+    "parser": "1.0.0",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "matched"
+     }
+    ],
+    "lookups": {
+     "found": [
+      "doi:10.1016/s0140-6736(17)33293-2"
+     ],
+     "crossref_doi": 1
+    }
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "resolved",
+  "note": "resolved by the cascade"
+ },
+ {
+  "reference": {
+   "reference_id": 644,
+   "ordinal": 4,
+   "raw_string": "Li L, Liu Y, Wu P, Peng Z, Wang X, Chen T, Wong JYT, Yang J, Bond HS, Wang L, et al. Influenza-associated excess respiratory mortality in China, 2010–15: a population-based study. Lancet Public Health. 2019;4(9):e473–e481. doi: 10.1016/S2468-2667(19)30163-X.",
+   "citation_tag": "mixed-citation",
+   "publication_type": null,
+   "parsed_doi": "10.1016/s2468-2667(19)30163-x",
+   "parsed_pmid": null,
+   "parsed_title": "Influenza-associated excess respiratory mortality in China, 2010–15: a population-based study",
+   "parsed_first_author": "li",
+   "parsed_year": 2019,
+   "parsed_container": "Lancet Public Health",
+   "resolution_status": "resolved",
+   "resolution_method": "doi",
+   "resolved_paper_id": 1021,
+   "resolution_evidence": {
+    "parser": "1.0.0",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "matched"
+     }
+    ],
+    "lookups": {
+     "found": [
+      "doi:10.1016/s2468-2667(19)30163-x"
+     ],
+     "crossref_doi": 1
+    }
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "resolved",
+  "note": "resolved by the cascade"
+ },
+ {
+  "reference": {
+   "reference_id": 655,
+   "ordinal": 15,
+   "raw_string": "Note for guidance on harmonization of requirements for influenza vaccines. 1997. [accessed 1997 Mar 12]. https://www.ema.europa.eu/en/documents/scientific-guideline/note-guidance-harmonisation-requirements-influenza-vaccines_en.pdf;.",
+   "citation_tag": "mixed-citation",
+   "publication_type": null,
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": null,
+   "parsed_first_author": null,
+   "parsed_year": 1997,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": "1.1.0",
+    "reason": "nothing_to_match_on",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "stage": "3-5",
+      "outcome": "no_title"
+     }
+    ],
+    "lookups": {}
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "nonjournal",
+  "note": "EMA note for guidance"
+ },
+ {
+  "reference": {
+   "reference_id": 3906,
+   "ordinal": 49,
+   "raw_string": "Ministry of Environment and Food in Denmark. The danish official dietary recommendations. secondary the danish official dietary recommendations. http://altomkost.dk/raad-og-anbefalinger/de-officielle-kostraad/",
+   "citation_tag": "mixed-citation",
+   "publication_type": null,
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": null,
+   "parsed_first_author": null,
+   "parsed_year": null,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "nothing_to_match_on",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "stage": "3-5",
+      "outcome": "no_title"
+     }
+    ],
+    "lookups": {}
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "nonjournal",
+  "note": "ministry dietary recommendations webpage"
+ },
+ {
+  "reference": {
+   "reference_id": 5235,
+   "ordinal": 9,
+   "raw_string": "American Psychiatric Association . Diagnostic and Statistical Manual of Mental Disorders. 5th ed. American Psychiatric Association; 2013.",
+   "citation_tag": "mixed-citation",
+   "publication_type": null,
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": null,
+   "parsed_first_author": null,
+   "parsed_year": 2013,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "nothing_to_match_on",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "stage": "3-5",
+      "outcome": "no_title"
+     }
+    ],
+    "lookups": {}
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "nonjournal",
+  "note": "DSM-5 manual"
+ },
+ {
+  "reference": {
+   "reference_id": 5374,
+   "ordinal": 1,
+   "raw_string": "Wisselink DJ Kuijpers WJG Mol A Kerncijfers verslavingszorg 2013 2014 Houten Stichting Informatie Voorziening Zorg",
+   "citation_tag": "element-citation",
+   "publication_type": "book",
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": "Kerncijfers verslavingszorg 2013",
+   "parsed_first_author": "wisselink",
+   "parsed_year": 2014,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "no_candidate_matched",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "pass": "local",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "crossref",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "openalex",
+      "stage": "3-5",
+      "outcome": "no_match"
+     }
+    ],
+    "lookups": {
+     "crossref_search": 1,
+     "openalex_search": 1
+    },
+    "near_misses": []
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "nonjournal",
+  "note": "key figures report (book type)"
+ },
+ {
+  "reference": {
+   "reference_id": 5637,
+   "ordinal": 5,
+   "raw_string": "Gutiérrez JP, Rivera-Dommarco J, Shamah-Levy T, et al. Instituto Nacional de Salud Pública; Cuernavaca, México(MX): March 20, 2022. Encuesta Nacional de Salud y Nutrición 2012. Resultados Nacionales.https://ensanut.insp.mx/encuestas/ensanut2012/doctos/informes/ENSANUT2012ResultadosNacionales.pdf 2012. Available at. Accessed.",
+   "citation_tag": "mixed-citation",
+   "publication_type": null,
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": null,
+   "parsed_first_author": "gutierrez",
+   "parsed_year": null,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "nothing_to_match_on",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "stage": "3-5",
+      "outcome": "no_title"
+     }
+    ],
+    "lookups": {}
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "nonjournal",
+  "note": "national survey report"
+ },
+ {
+  "reference": {
+   "reference_id": 6776,
+   "ordinal": 12,
+   "raw_string": "American Psychological Association Teaching tip sheet: self-efficacy 2009 2020-11-02 https://www.apa.org/pi/aids/resources/education/self-efficacy",
+   "citation_tag": "element-citation",
+   "publication_type": "webpage",
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": "American Psychological Association",
+   "parsed_first_author": null,
+   "parsed_year": 2009,
+   "parsed_container": "Teaching tip sheet: self-efficacy",
+   "resolution_status": "ambiguous",
+   "resolution_method": "title_exact",
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "tied": [
+     2702,
+     2703
+    ],
+    "parser": null,
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "pass": "local",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "crossref",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "openalex",
+      "stage": "3-5",
+      "outcome": "ambiguous"
+     }
+    ],
+    "lookups": {
+     "crossref_search": 1,
+     "openalex_search": 1
+    }
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "ambiguous",
+  "note": "two records match"
+ },
+ {
+  "reference": {
+   "reference_id": 9974,
+   "ordinal": 23,
+   "raw_string": "Telemedicine in intensive care medicine Association of the Scientific Medical Societies in Germany 2021 2022-01-21 https://www.awmf.org/leitlinien/detail/ll/001-034.html",
+   "citation_tag": "element-citation",
+   "publication_type": "webpage",
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": "Telemedicine in intensive care medicine",
+   "parsed_first_author": null,
+   "parsed_year": 2021,
+   "parsed_container": "Association of the Scientific Medical Societies in Germany",
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "no_candidate_matched",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "pass": "local",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "crossref",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "openalex",
+      "stage": "3-5",
+      "outcome": "no_match"
+     }
+    ],
+    "lookups": {
+     "crossref_search": 1,
+     "openalex_search": 1
+    },
+    "near_misses": []
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "nonjournal",
+  "note": "society guideline webpage"
+ },
+ {
+  "reference": {
+   "reference_id": 10129,
+   "ordinal": 22,
+   "raw_string": "Morris S. Devlin N. Parkin D. Economic analysis in health care 2007 John Wiley & Sons Chichester",
+   "citation_tag": "element-citation",
+   "publication_type": "book",
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": "Economic analysis in health care",
+   "parsed_first_author": "morris",
+   "parsed_year": 2007,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "no_candidate_matched",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "pass": "local",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "crossref",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "openalex",
+      "stage": "3-5",
+      "outcome": "no_match"
+     }
+    ],
+    "lookups": {
+     "crossref_search": 1,
+     "openalex_search": 1
+    },
+    "near_misses": [
+     {
+      "year": 2007,
+      "paper_id": 2167,
+      "rejected": "first author 'a' vs 'morris'",
+      "similarity": 1.0,
+      "first_author": "a"
+     },
+     {
+      "year": 2007,
+      "paper_id": 3596,
+      "rejected": "first author 'a' vs 'morris'",
+      "similarity": 1.0,
+      "first_author": "a"
+     },
+     {
+      "year": 2008,
+      "paper_id": 2169,
+      "rejected": "first author 'rizk' vs 'morris'",
+      "similarity": 0.7857,
+      "first_author": "rizk"
+     }
+    ]
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "nonjournal",
+  "note": "book (Wiley)"
+ },
+ {
+  "reference": {
+   "reference_id": 11712,
+   "ordinal": 31,
+   "raw_string": "Garland S, Kutana S, Zhou ES. There’s an app for that: digital health solutions for treating insomnia in cancer survivors. ASCO Post. September 10, 2023. Accessed July 1, 2024. https://ascopost.com/issues/september-10-2023/there-s-an-app-for-that-digital-health-solutions-for-treating-insomnia-in-cancer-survivors/",
+   "citation_tag": "mixed-citation",
+   "publication_type": "webpage",
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": null,
+   "parsed_first_author": "garland",
+   "parsed_year": null,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "nothing_to_match_on",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "stage": "3-5",
+      "outcome": "no_title"
+     }
+    ],
+    "lookups": {}
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "nonjournal",
+  "note": "news article webpage"
+ },
+ {
+  "reference": {
+   "reference_id": 12961,
+   "ordinal": 12,
+   "raw_string": "Mould DR, Upton RN: Basic concepts in population modeling, simulation, and model-based drug development. CPT Pharmacometrics Syst Pharmacol 1:e6, 2012",
+   "citation_tag": "mixed-citation",
+   "publication_type": null,
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": null,
+   "parsed_first_author": "mould",
+   "parsed_year": 2012,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "nothing_to_match_on",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "stage": "3-5",
+      "outcome": "no_title"
+     }
+    ],
+    "lookups": {}
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "unparseable",
+  "note": "year only at the end; title not located"
+ },
+ {
+  "reference": {
+   "reference_id": 13577,
+   "ordinal": 4,
+   "raw_string": "Driver VR , de Leon JM . Health economic implications for wound care and limb preservation. J Manag Care Med. 2008;11(1):13‐19.",
+   "citation_tag": "mixed-citation",
+   "publication_type": "journal",
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": "Health economic implications for wound care and limb preservation",
+   "parsed_first_author": "driver",
+   "parsed_year": 2008,
+   "parsed_container": "J Manag Care Med",
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "no_candidate_matched",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "pass": "local",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "crossref",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "openalex",
+      "stage": "3-5",
+      "outcome": "no_match"
+     }
+    ],
+    "lookups": {
+     "crossref_search": 1,
+     "openalex_search": 1
+    },
+    "near_misses": []
+   }
+  },
+  "expected_flag": true,
+  "expected_class": "journal_like",
+  "note": "J Manag Care Med 2008, not indexed"
+ },
+ {
+  "reference": {
+   "reference_id": 13812,
+   "ordinal": 26,
+   "raw_string": "Emmanuel K. Access to health care in the Democratic Republic of Congo: major challenges for the poor. J Nursing Palliat Serv. 2016;1(1):6–8.",
+   "citation_tag": "mixed-citation",
+   "publication_type": null,
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": "Access to health care in the Democratic Republic of Congo: major challenges for the poor",
+   "parsed_first_author": "emmanuel",
+   "parsed_year": 2016,
+   "parsed_container": "J Nursing Palliat Serv",
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "no_candidate_matched",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "pass": "local",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "crossref",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "openalex",
+      "stage": "3-5",
+      "outcome": "no_match"
+     }
+    ],
+    "lookups": {
+     "crossref_search": 1,
+     "openalex_search": 1
+    },
+    "near_misses": [
+     {
+      "year": 2016,
+      "paper_id": 1697,
+      "rejected": "first author 'kongo' vs 'emmanuel'",
+      "similarity": 0.8837,
+      "first_author": "kongo"
+     },
+     {
+      "year": 2016,
+      "paper_id": 2603,
+      "rejected": "first author 'kongo' vs 'emmanuel'",
+      "similarity": 0.8837,
+      "first_author": "kongo"
+     },
+     {
+      "year": 2016,
+      "paper_id": 3600,
+      "rejected": "first author 'kongo' vs 'emmanuel'",
+      "similarity": 0.8837,
+      "first_author": "kongo"
+     }
+    ]
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "near_match",
+  "note": "author names inverted (Emmanuel K vs Kongo E); same-year title 0.88"
+ },
+ {
+  "reference": {
+   "reference_id": 13854,
+   "ordinal": 6,
+   "raw_string": "World Health Organization Nutritional anaemias: tools for effective prevention and control 2017 Geneva WHO",
+   "citation_tag": "element-citation",
+   "publication_type": "book",
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": "Nutritional anaemias: tools for effective prevention and control",
+   "parsed_first_author": "world health organization",
+   "parsed_year": 2017,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "no_candidate_matched",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "pass": "local",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "crossref",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "openalex",
+      "stage": "3-5",
+      "outcome": "no_match"
+     }
+    ],
+    "lookups": {
+     "crossref_search": 1,
+     "openalex_search": 1
+    },
+    "near_misses": []
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "nonjournal",
+  "note": "WHO book"
+ },
+ {
+  "reference": {
+   "reference_id": 14189,
+   "ordinal": 6,
+   "raw_string": "Fiore MC, Jaén CR, Baker TB, et al. Treating Tobacco Use and Dependence: 2008 Update. Clinical Practice Guideline. Rockville: U.S. Department of Health and Human Services. Public Health Service; 2008.",
+   "citation_tag": "mixed-citation",
+   "publication_type": null,
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": null,
+   "parsed_first_author": "fiore",
+   "parsed_year": 2008,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "nothing_to_match_on",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "stage": "3-5",
+      "outcome": "no_title"
+     }
+    ],
+    "lookups": {}
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "nonjournal",
+  "note": "clinical practice guideline"
+ },
+ {
+  "reference": {
+   "reference_id": 14653,
+   "ordinal": 1,
+   "raw_string": "Centers for Disease Control and Prevention (CDC) 2019 7 30 2019-07-12 STDs in Adolescents and Young Adults https://www.cdc.gov/std/stats18/adolescents.htm",
+   "citation_tag": "element-citation",
+   "publication_type": "webpage",
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": null,
+   "parsed_first_author": null,
+   "parsed_year": 2019,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "nothing_to_match_on",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "stage": "3-5",
+      "outcome": "no_title"
+     }
+    ],
+    "lookups": {}
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "nonjournal",
+  "note": "CDC webpage"
+ },
+ {
+  "reference": {
+   "reference_id": 15344,
+   "ordinal": 10,
+   "raw_string": "Edelhoff, D. , Schweiger, J. , Prandtner, O. , Stimmelmayr, M. , & Guth, J. F. (2019b). Metal‐free implant‐supported single‐tooth restorations. Part II: Hybrid abutment crowns and material selection. Quintessence International, 50(4), 260–269.",
+   "citation_tag": "mixed-citation",
+   "publication_type": null,
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": "Metal‐free implant‐supported single‐tooth restorations",
+   "parsed_first_author": "edelhoff",
+   "parsed_year": 2019,
+   "parsed_container": "Part II: Hybrid abutment crowns and material selection. Quintessence International",
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "no_candidate_matched",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "pass": "local",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "crossref",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "openalex",
+      "stage": "3-5",
+      "outcome": "no_match"
+     }
+    ],
+    "lookups": {
+     "crossref_search": 1,
+     "openalex_search": 1
+    },
+    "near_misses": [
+     {
+      "year": 2019,
+      "paper_id": 2240,
+      "rejected": "similarity 0.651 below 0.85",
+      "similarity": 0.6506,
+      "first_author": "edelhoff"
+     }
+    ]
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "near_match",
+  "note": "same author and year, title cited with part numbering"
+ },
+ {
+  "reference": {
+   "reference_id": 15677,
+   "ordinal": 25,
+   "raw_string": "World Health Statistics 2018: Monitoring Health for the SDGs, Sustainable Development Goals: World Health Organization 2018 Available online: https://apps.who.int/iris/bitstream/handle/10665/272596/9789241565585-eng.pdf?sequence=1&isAllowed=y (accessed on 20 July 2022)",
+   "citation_tag": "element-citation",
+   "publication_type": "webpage",
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": "World Health Statistics 2018: Monitoring Health for the SDGs, Sustainable Development Goals: World Health Organization 2018",
+   "parsed_first_author": null,
+   "parsed_year": null,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "no_candidate_matched",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "pass": "local",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "crossref",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "openalex",
+      "stage": "3-5",
+      "outcome": "no_match"
+     }
+    ],
+    "lookups": {
+     "crossref_search": 1,
+     "openalex_search": 1
+    },
+    "near_misses": []
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "nonjournal",
+  "note": "WHO statistics report (webpage)"
+ },
+ {
+  "reference": {
+   "reference_id": 16484,
+   "ordinal": 13,
+   "raw_string": "Montagna F. L. N. Piras V. Denotti G. L’ortodonzia E. I. S. U. O. I. Dispositivi. Apparecchi Mobili E Fissi Rimovibili Nella Pratica Clinica. Orthodontics, fixed and removable devices in clinical practice 2007",
+   "citation_tag": "element-citation",
+   "publication_type": "book",
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": "Dispositivi. Apparecchi Mobili E Fissi Rimovibili Nella Pratica Clinica. Orthodontics, fixed and removable devices in clinical practice",
+   "parsed_first_author": "montagna",
+   "parsed_year": 2007,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "no_candidate_matched",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "pass": "local",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "crossref",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "openalex",
+      "stage": "3-5",
+      "outcome": "no_match"
+     }
+    ],
+    "lookups": {
+     "crossref_search": 1,
+     "openalex_search": 1
+    },
+    "near_misses": []
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "nonjournal",
+  "note": "book"
+ },
+ {
+  "reference": {
+   "reference_id": 17447,
+   "ordinal": 24,
+   "raw_string": "Wagner C Ingersoll K Motivational Interviewing in Groups 2013 The Guilford Press",
+   "citation_tag": "element-citation",
+   "publication_type": "book",
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": "Motivational Interviewing in Groups",
+   "parsed_first_author": "wagner",
+   "parsed_year": 2013,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "no_candidate_matched",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "pass": "local",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "crossref",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "openalex",
+      "stage": "3-5",
+      "outcome": "no_match"
+     }
+    ],
+    "lookups": {
+     "crossref_search": 1,
+     "openalex_search": 1
+    },
+    "near_misses": [
+     {
+      "year": 2014,
+      "paper_id": 2851,
+      "rejected": "first author 'riall' vs 'wagner'",
+      "similarity": 0.7727,
+      "first_author": "riall"
+     },
+     {
+      "year": 2013,
+      "paper_id": 2848,
+      "rejected": "similarity 0.765 below 0.85",
+      "similarity": 0.7647,
+      "first_author": "wagner"
+     }
+    ]
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "nonjournal",
+  "note": "book (Guilford Press)"
+ },
+ {
+  "reference": {
+   "reference_id": 17498,
+   "ordinal": 75,
+   "raw_string": "Beretvas SN Hox J Roberts JK Cross-classified and multiple-membership models Handbook of Advanced Multilevel Analysis 2011 Routledge",
+   "citation_tag": "element-citation",
+   "publication_type": "book",
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": "Cross-classified and multiple-membership models",
+   "parsed_first_author": "beretvas",
+   "parsed_year": 2011,
+   "parsed_container": "Handbook of Advanced Multilevel Analysis",
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "no_candidate_matched",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "pass": "local",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "crossref",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "openalex",
+      "stage": "3-5",
+      "outcome": "no_match"
+     }
+    ],
+    "lookups": {
+     "crossref_search": 1,
+     "openalex_search": 1
+    },
+    "near_misses": [
+     {
+      "year": 2015,
+      "paper_id": 3418,
+      "rejected": "year 2015 vs 2011",
+      "similarity": 1.0,
+      "first_author": "beretvas"
+     },
+     {
+      "year": 2012,
+      "paper_id": 3419,
+      "rejected": "author or year missing or not matching",
+      "similarity": 0.8824,
+      "first_author": null
+     },
+     {
+      "year": 2011,
+      "paper_id": 3420,
+      "rejected": "first author 'goldstein' vs 'beretvas'",
+      "similarity": 0.8824,
+      "first_author": "goldstein"
+     }
+    ]
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "nonjournal",
+  "note": "book chapter (Handbook)"
+ },
+ {
+  "reference": {
+   "reference_id": 19442,
+   "ordinal": 58,
+   "raw_string": "McCarty C, Lubbers MJ, Vacca R, Molina JL. Conducting personal network research: a practical guide. New York: Guilford Press; 2019.",
+   "citation_tag": "mixed-citation",
+   "publication_type": null,
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": null,
+   "parsed_first_author": "mccarty",
+   "parsed_year": 2019,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "nothing_to_match_on",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "stage": "3-5",
+      "outcome": "no_title"
+     }
+    ],
+    "lookups": {}
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "nonjournal",
+  "note": "book (Guilford Press)"
+ },
+ {
+  "reference": {
+   "reference_id": 21251,
+   "ordinal": 59,
+   "raw_string": "Spreen O Strauss E A compendium of neurological tests 1998 2 New York Oxford University Press, Inc.",
+   "citation_tag": "element-citation",
+   "publication_type": "book",
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": "A compendium of neurological tests",
+   "parsed_first_author": "spreen",
+   "parsed_year": 1998,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "no_candidate_matched",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "pass": "local",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "crossref",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "openalex",
+      "stage": "3-5",
+      "outcome": "no_match"
+     }
+    ],
+    "lookups": {
+     "crossref_search": 1,
+     "openalex_search": 1
+    },
+    "near_misses": []
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "nonjournal",
+  "note": "book (Oxford University Press)"
+ },
+ {
+  "reference": {
+   "reference_id": 23292,
+   "ordinal": 35,
+   "raw_string": "Spielberger CD, Gorsuch RL, Lushene R, Vagg PR, Jacobs GA. Manual for the State-Trait Anxiety Inventory. Palo Alto: Consulting Psychologists; 1983.",
+   "citation_tag": "mixed-citation",
+   "publication_type": null,
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": null,
+   "parsed_first_author": "spielberger",
+   "parsed_year": 1983,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "nothing_to_match_on",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "stage": "3-5",
+      "outcome": "no_title"
+     }
+    ],
+    "lookups": {}
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "nonjournal",
+  "note": "test manual"
+ },
+ {
+  "reference": {
+   "reference_id": 23623,
+   "ordinal": 6,
+   "raw_string": "Wu Z, McGoogan JM. Characteristics of and important lessons from the Coronavirus Disease 2019 (COVID-19) outbreak in China: summary of a report of 72 314 cases from the Chinese Center for Disease Control and Prevention. JAMA 2020;323:1239-1242.",
+   "citation_tag": "mixed-citation",
+   "publication_type": null,
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": "Characteristics of and important lessons from the Coronavirus Disease 2019 (COVID-19) outbreak in China: summary of a report of 72 314 cases from the Chinese Center for Disease Control and Prevention",
+   "parsed_first_author": "wu",
+   "parsed_year": 2020,
+   "parsed_container": "JAMA",
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "no_candidate_matched",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "pass": "local",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "crossref",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "openalex",
+      "stage": "3-5",
+      "outcome": "no_match"
+     }
+    ],
+    "lookups": {
+     "crossref_search": 1,
+     "openalex_search": 1
+    },
+    "near_misses": [
+     {
+      "year": 2020,
+      "paper_id": 1645,
+      "rejected": "first author 'harries' vs 'wu'",
+      "similarity": 0.869,
+      "first_author": "harries"
+     },
+     {
+      "year": 2020,
+      "paper_id": 1644,
+      "rejected": "similarity 0.644 below 0.85",
+      "similarity": 0.6438,
+      "first_author": "wu"
+     }
+    ]
+   }
+  },
+  "expected_flag": false,
+  "expected_class": null,
+  "note": "Wu & McGoogan, JAMA 2020: real and well known; must not be flagged"
+ },
+ {
+  "reference": {
+   "reference_id": 23624,
+   "ordinal": 7,
+   "raw_string": "O’Shaughnessy JA. Re: emergency use authorization 091. Silver Spring, MD: Food and Drug Administration. January 24, 2021. (https://www.fda.gov/media/145610/download).",
+   "citation_tag": "mixed-citation",
+   "publication_type": null,
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": null,
+   "parsed_first_author": "o shaughnessy",
+   "parsed_year": 2021,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "nothing_to_match_on",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "stage": "3-5",
+      "outcome": "no_title"
+     }
+    ],
+    "lookups": {}
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "nonjournal",
+  "note": "FDA letter"
+ },
+ {
+  "reference": {
+   "reference_id": 24258,
+   "ordinal": 10,
+   "raw_string": "Chapman CR Syrjala KL Bonica JJ Pain. Lea & Febiger 1990 580 94",
+   "citation_tag": "element-citation",
+   "publication_type": "book",
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": "Pain. Lea & Febiger",
+   "parsed_first_author": "chapman",
+   "parsed_year": 1990,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "no_candidate_matched",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "pass": "local",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "crossref",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "openalex",
+      "stage": "3-5",
+      "outcome": "no_match"
+     }
+    ],
+    "lookups": {
+     "crossref_search": 1,
+     "openalex_search": 1
+    },
+    "near_misses": []
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "nonjournal",
+  "note": "book (Lea & Febiger)"
+ },
+ {
+  "reference": {
+   "reference_id": 24786,
+   "ordinal": 4,
+   "raw_string": "U.S. Department of Health and Human Services . Centers for Disease Control and Prevention. National Diabetes Statistics Report 2020. https://www.cdc.gov/diabetes/pdfs/data/statistics/national-diabetes-statistics-report.pdf Accessed 22 July 2020.",
+   "citation_tag": "mixed-citation",
+   "publication_type": null,
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": null,
+   "parsed_first_author": null,
+   "parsed_year": 2020,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "nothing_to_match_on",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "stage": "3-5",
+      "outcome": "no_title"
+     }
+    ],
+    "lookups": {}
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "nonjournal",
+  "note": "CDC statistics report"
+ },
+ {
+  "reference": {
+   "reference_id": 25311,
+   "ordinal": 10,
+   "raw_string": "Duley Lelia, Gülmezoglu A Metin, Henderson-Smart David J, Chou Doris. Magnesium sulphate and other anticonvulsants for women with pre-eclampsia. Cochrane Database of Systematic Reviews. In: The Cochrane Library, Issue 11, Art. No. CD000025. doi:10.1002/14651858.CD000025.pub3",
+   "citation_tag": "mixed-citation",
+   "publication_type": null,
+   "parsed_doi": "10.1002/14651858.cd000025.pub3",
+   "parsed_pmid": null,
+   "parsed_title": null,
+   "parsed_first_author": null,
+   "parsed_year": null,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "nothing_to_match_on",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "doi_not_found",
+      "doi_org_registered": false
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "stage": "3-5",
+      "outcome": "no_title"
+     }
+    ],
+    "lookups": {
+     "doi_handle": 1,
+     "crossref_doi": 1,
+     "openalex_doi": 1
+    }
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "nonjournal",
+  "note": "Cochrane review cited 'In: The Cochrane Library'"
+ },
+ {
+  "reference": {
+   "reference_id": 25533,
+   "ordinal": 117,
+   "raw_string": "Fernandes R, Prathikanti S. Treating Depression with Yoga Breathing: An Open-label Feasibility Study. San Diego, CA: Poster presented at the National Institute of Mental Health Summer Training On Aging Research Topics In Mental Health; 2005 Aug.",
+   "citation_tag": "mixed-citation",
+   "publication_type": "other",
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": null,
+   "parsed_first_author": "fernandes",
+   "parsed_year": 2005,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "nothing_to_match_on",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "stage": "3-5",
+      "outcome": "no_title"
+     }
+    ],
+    "lookups": {}
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "nonjournal",
+  "note": "poster presentation"
+ },
+ {
+  "reference": {
+   "reference_id": 26098,
+   "ordinal": 14,
+   "raw_string": "Chiang CN, Kishimoto A, Barnett G, Hollister LE. Implantable narcotic antagonists: a possible new treatment for narcotic addiction. Psychopharmacol Bull. 1985;21:672.",
+   "citation_tag": "mixed-citation",
+   "publication_type": null,
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": "Implantable narcotic antagonists: a possible new treatment for narcotic addiction",
+   "parsed_first_author": "chiang",
+   "parsed_year": 1985,
+   "parsed_container": "Psychopharmacol Bull",
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "no_candidate_matched",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "pass": "local",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "crossref",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "openalex",
+      "stage": "3-5",
+      "outcome": "no_match"
+     }
+    ],
+    "lookups": {
+     "crossref_search": 1,
+     "openalex_search": 1
+    },
+    "near_misses": [
+     {
+      "year": 1985,
+      "paper_id": 1935,
+      "rejected": "first author 'cn' vs 'chiang'",
+      "similarity": 1.0,
+      "first_author": "cn"
+     }
+    ]
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "near_match",
+  "note": "exact title, same year; candidate author metadata is 'cn'"
+ },
+ {
+  "reference": {
+   "reference_id": 26347,
+   "ordinal": 3,
+   "raw_string": "European Medicines Agency. Guideline on similar biological medicinal products containing monoclonal antibodies - non-clinical and clinical issues. 2012. http://www.ema.europa.eu/docs/en_GB/document_library/Scientific_guideline/2012/06/WC500128686.pdf",
+   "citation_tag": "mixed-citation",
+   "publication_type": null,
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": null,
+   "parsed_first_author": null,
+   "parsed_year": 2012,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "nothing_to_match_on",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "stage": "3-5",
+      "outcome": "no_title"
+     }
+    ],
+    "lookups": {}
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "nonjournal",
+  "note": "EMA guideline"
+ },
+ {
+  "reference": {
+   "reference_id": 27036,
+   "ordinal": 13,
+   "raw_string": "Zaman M Chowdhury M Rahman M Bhuiyan R Karim M Islam M Sobhan M Mohammad S Non-Communicable disease risk factor survey: Bangladesh 2010 2010 2020-11-23 https://apps.who.int/iris/bitstream/handle/10665/279484/9789290223931-eng.pdf",
+   "citation_tag": "element-citation",
+   "publication_type": "webpage",
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": null,
+   "parsed_first_author": "zaman",
+   "parsed_year": 2010,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "nothing_to_match_on",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "stage": "3-5",
+      "outcome": "no_title"
+     }
+    ],
+    "lookups": {}
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "nonjournal",
+  "note": "survey report webpage"
+ },
+ {
+  "reference": {
+   "reference_id": 27478,
+   "ordinal": 26,
+   "raw_string": "Ciancio D A comparison of plaque accumulation in bonded versus banded teeth J Dent Res 1985 64 325 325",
+   "citation_tag": "element-citation",
+   "publication_type": "journal",
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": "A comparison of plaque accumulation in bonded versus banded teeth",
+   "parsed_first_author": "ciancio",
+   "parsed_year": 1985,
+   "parsed_container": "J Dent Res",
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "no_candidate_matched",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "pass": "local",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "crossref",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "openalex",
+      "stage": "3-5",
+      "outcome": "no_match"
+     }
+    ],
+    "lookups": {
+     "crossref_search": 1,
+     "openalex_search": 1
+    },
+    "near_misses": []
+   }
+  },
+  "expected_flag": true,
+  "expected_class": "journal_like",
+  "note": "J Dent Res 1985 64:325, a one-page abstract not indexed"
+ },
+ {
+  "reference": {
+   "reference_id": 27569,
+   "ordinal": 28,
+   "raw_string": "The Federal Democratic Republic of Ethiopia. Policy and Practice. 2015; 5(1).",
+   "citation_tag": "mixed-citation",
+   "publication_type": "other",
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": null,
+   "parsed_first_author": null,
+   "parsed_year": 2015,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "nothing_to_match_on",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "stage": "3-5",
+      "outcome": "no_title"
+     }
+    ],
+    "lookups": {}
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "nonjournal",
+  "note": "government policy document (type 'other')"
+ },
+ {
+  "reference": {
+   "reference_id": 29791,
+   "ordinal": 80,
+   "raw_string": "Teschler M. Weissenfels A. Bebenek M. Frohlich M. Kohl M. von Stengel S. Kemmler W. Very high creatine kinase CK levels after WB_EMS. Are there implications for health Int. J. Clin. Exp. Med. 2016 9 22841 22850",
+   "citation_tag": "element-citation",
+   "publication_type": "journal",
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": "Very high creatine kinase CK levels after WB_EMS. Are there implications for health",
+   "parsed_first_author": "teschler",
+   "parsed_year": 2016,
+   "parsed_container": "Int. J. Clin. Exp. Med.",
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "no_candidate_matched",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "pass": "local",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "crossref",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "openalex",
+      "stage": "3-5",
+      "outcome": "no_match"
+     }
+    ],
+    "lookups": {
+     "crossref_search": 1,
+     "openalex_search": 1
+    },
+    "near_misses": []
+   }
+  },
+  "expected_flag": true,
+  "expected_class": "journal_like",
+  "note": "Int J Clin Exp Med 2016, journal without Crossref DOIs"
+ },
+ {
+  "reference": {
+   "reference_id": 30600,
+   "ordinal": 36,
+   "raw_string": "Breier A, Hamilton SH Comparative efficacy of olanzapine and haloperidol for patients with treatment-resistant schizophrenia. Biol Psychiatry. 1999; 45(4): 403–411.",
+   "citation_tag": "mixed-citation",
+   "publication_type": null,
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": null,
+   "parsed_first_author": "breier",
+   "parsed_year": 1999,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "nothing_to_match_on",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "stage": "3-5",
+      "outcome": "no_title"
+     }
+    ],
+    "lookups": {}
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "unparseable",
+  "note": "no period after authors; title not located"
+ },
+ {
+  "reference": {
+   "reference_id": 31010,
+   "ordinal": 13,
+   "raw_string": "Smolen JS Nash P Durez P, et al. Maintenance, reduction, or withdrawal of etanercept after treatment with etanercept and methotrexate in patients with moderate rheumatoid arthritis (PRESERVE): a randomised controlled trial. Lancet. 2013;381:918–929.",
+   "citation_tag": "mixed-citation",
+   "publication_type": null,
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": null,
+   "parsed_first_author": "smolen",
+   "parsed_year": 2013,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "nothing_to_match_on",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "stage": "3-5",
+      "outcome": "no_title"
+     }
+    ],
+    "lookups": {}
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "unparseable",
+  "note": "authors without commas; title not located"
+ },
+ {
+  "reference": {
+   "reference_id": 31016,
+   "ordinal": 19,
+   "raw_string": "Backhaus M Burmester GR Sandrock D, et al. Prospective two year follow up study comparing novel and conventional imaging procedures in patients with arthritic finger joints. Ann Rheum Dis. 2002;61:895–904.",
+   "citation_tag": "mixed-citation",
+   "publication_type": null,
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": null,
+   "parsed_first_author": "backhaus",
+   "parsed_year": 2002,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "nothing_to_match_on",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "stage": "3-5",
+      "outcome": "no_title"
+     }
+    ],
+    "lookups": {}
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "unparseable",
+  "note": "authors without commas; title not located"
+ },
+ {
+  "reference": {
+   "reference_id": 31121,
+   "ordinal": 2,
+   "raw_string": "National Diabetes Statistics Report 2020. Estimates of diabetes and its burden in the United States. 2020. p. 32.",
+   "citation_tag": "mixed-citation",
+   "publication_type": "journal",
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": "National Diabetes Statistics Report 2020",
+   "parsed_first_author": null,
+   "parsed_year": 2020,
+   "parsed_container": "Estimates of diabetes and its burden in the United States",
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "no_candidate_matched",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "pass": "local",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "crossref",
+      "stage": "3-5",
+      "outcome": "no_match"
+     },
+     {
+      "pass": "openalex",
+      "stage": "3-5",
+      "outcome": "no_match"
+     }
+    ],
+    "lookups": {
+     "crossref_search": 1,
+     "openalex_search": 1
+    },
+    "near_misses": []
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "nonjournal",
+  "note": "statistics report"
+ },
+ {
+  "reference": {
+   "reference_id": 32126,
+   "ordinal": 4,
+   "raw_string": "No authors listed . The New Zealand joint registry nineteen year report January 1999 to December 2017. New Zealand joint registry. 2018. https://nzoa.org.nz/system/files/DH8152_NZJR_2018_Report_v6_4Decv18.pdf (date last accessed 24 June 2020).",
+   "citation_tag": "mixed-citation",
+   "publication_type": null,
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": null,
+   "parsed_first_author": null,
+   "parsed_year": null,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "nothing_to_match_on",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "stage": "3-5",
+      "outcome": "no_title"
+     }
+    ],
+    "lookups": {}
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "nonjournal",
+  "note": "joint registry annual report"
+ },
+ {
+  "reference": {
+   "reference_id": 34195,
+   "ordinal": 10,
+   "raw_string": "Center for Drug Evaluation and Research and Center for Biologics Evaluation and Research. Adjusting for Covariates in Randomized Clinical Trials for Drugs and Biological Products: Guidance for Industry [Internet]. Silver Spring, MD: Food and Drug Administration; 2023 May [cited 4 Jan 2024]. Available from: https://www.fda.gov/media/148910/download.",
+   "citation_tag": "mixed-citation",
+   "publication_type": "other",
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": null,
+   "parsed_first_author": null,
+   "parsed_year": 2023,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "nothing_to_match_on",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "stage": "3-5",
+      "outcome": "no_title"
+     }
+    ],
+    "lookups": {}
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "nonjournal",
+  "note": "FDA guidance for industry"
+ },
+ {
+  "reference": {
+   "reference_id": 34697,
+   "ordinal": 21,
+   "raw_string": "National Competence Center For Mental Health Work. Rask Psykisk Helsehjelp [Prompt Mental Health Care] Trondheim, Norway: National Competence Center For Mental Health Work; 2021 [Available from: https://napha.no/content/13931/rask-psykisk-helsehjelp].",
+   "citation_tag": "mixed-citation",
+   "publication_type": "other",
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": null,
+   "parsed_first_author": null,
+   "parsed_year": 2021,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "nothing_to_match_on",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "stage": "3-5",
+      "outcome": "no_title"
+     }
+    ],
+    "lookups": {}
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "nonjournal",
+  "note": "national guidance (type 'other')"
+ },
+ {
+  "reference": {
+   "reference_id": 38674,
+   "ordinal": 16,
+   "raw_string": "Tukey, J. W. Exploratory Data Analysis. (Addison-Wesley Publishing Company, 1977).",
+   "citation_tag": "mixed-citation",
+   "publication_type": null,
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": null,
+   "parsed_first_author": "tukey",
+   "parsed_year": 1977,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "nothing_to_match_on",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "stage": "3-5",
+      "outcome": "no_title"
+     }
+    ],
+    "lookups": {}
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "nonjournal",
+  "note": "book (Addison-Wesley)"
+ },
+ {
+  "reference": {
+   "reference_id": 39020,
+   "ordinal": 41,
+   "raw_string": "Bonell C, Prost A, Melendez-Torres GJ, Davey C, Hargreaves JR: Will it work here? A realist approach to local decisions about implementing interventions evaluated as effective elsewhere. Journal of epidemiology and community health 2020.",
+   "citation_tag": "mixed-citation",
+   "publication_type": null,
+   "parsed_doi": null,
+   "parsed_pmid": null,
+   "parsed_title": null,
+   "parsed_first_author": "bonell",
+   "parsed_year": 2020,
+   "parsed_container": null,
+   "resolution_status": "unresolved",
+   "resolution_method": null,
+   "resolved_paper_id": null,
+   "resolution_evidence": {
+    "parser": null,
+    "reason": "nothing_to_match_on",
+    "stages": [
+     {
+      "stage": 1,
+      "outcome": "no_doi"
+     },
+     {
+      "stage": 2,
+      "outcome": "no_pmid"
+     },
+     {
+      "stage": "3-5",
+      "outcome": "no_title"
+     }
+    ],
+    "lookups": {}
+   }
+  },
+  "expected_flag": false,
+  "expected_class": "unparseable",
+  "note": "title not located"
+ }
+]

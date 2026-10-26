@@ -110,6 +110,8 @@ class Settings(BaseSettings):
     # --- Check parameters — feed config_hash ----------------------------------
     checks_enabled: str  # comma-separated check ids, e.g. "C01,C02,C03,C04,C05"
 
+    c01_near_match_min: float  # no default — ADR-022 / ADR-035
+    c01_same_title_min: float  # no default — ADR-022 / ADR-035
     c02_grace_months: int  # no default — ADR-022 / ADR-017
     c03_alpha: float  # no default — ADR-022
     c03_allow_one_tailed: bool  # no default — ADR-022 / ADR-009
@@ -144,6 +146,8 @@ class Settings(BaseSettings):
             "resolve_year_tolerance": self.resolve_year_tolerance,
             "resolve_ambiguous_margin": self.resolve_ambiguous_margin,
             "strip_personal_fields": self.strip_personal_fields,
+            "c01_near_match_min": self.c01_near_match_min,
+            "c01_same_title_min": self.c01_same_title_min,
             "c02_grace_months": self.c02_grace_months,
             "c03_alpha": self.c03_alpha,
             "c03_allow_one_tailed": self.c03_allow_one_tailed,

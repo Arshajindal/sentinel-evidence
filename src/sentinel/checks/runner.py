@@ -13,7 +13,7 @@ from dataclasses import dataclass
 from sqlalchemy import Engine, func, insert, update
 
 from sentinel.checks.base import Check
-from sentinel.checks.context import load_trial_contexts
+from sentinel.checks.context import corpus_paper_ids, load_paper_contexts, load_trial_contexts
 from sentinel.log import get_logger
 from sentinel.models import check_run, finding
 from sentinel.schemas import Finding
@@ -34,8 +34,12 @@ def run_checks(
     config_hash: str,
     corpus_label: str | None,
     nct_ids: list[str] | None = None,
+    paper_ids: list[int] | None = None,
     limit: int | None = None,
+    paper_batch: int = 100,
 ) -> RunResult:
+    """Run trial checks over stored trials and paper checks over the papers of
+    `corpus_label` (or `paper_ids`), recording one check_run."""
     with engine.begin() as conn:
         run_id = conn.execute(
             insert(check_run)
@@ -51,27 +55,43 @@ def run_checks(
     try:
         counts: dict[str, Counter] = {c.check_id: Counter() for c in checks}
         trial_checks = [c for c in checks if c.subject == "trial"]
-        with engine.begin() as conn:
-            contexts = load_trial_contexts(conn, nct_ids, limit) if trial_checks else []
-            for ctx in contexts:
-                findings: list[Finding] = []
-                for check in trial_checks:
-                    findings.extend(check.run(ctx))
-                for f in findings:
-                    counts[f.check_id][f.status] += 1
-                if findings:
-                    conn.execute(
-                        insert(finding),
-                        [{**f.model_dump(), "run_id": run_id} for f in findings],
-                    )
+        paper_checks = [c for c in checks if c.subject == "paper"]
+        n_trials = n_papers = 0
+
+        def record(conn, findings: list[Finding]) -> None:
+            for f in findings:
+                counts[f.check_id][f.status] += 1
+            if findings:
+                conn.execute(insert(finding), [{**f.model_dump(), "run_id": run_id} for f in findings])
+
+        if trial_checks:
+            with engine.begin() as conn:
+                contexts = load_trial_contexts(conn, nct_ids, limit)
+                n_trials = len(contexts)
+                for ctx in contexts:
+                    record(conn, [f for check in trial_checks for f in check.run(ctx)])
+
+        if paper_checks:
+            if paper_ids is None:
+                if corpus_label is None:
+                    raise ValueError("paper checks need a corpus label or paper IDs")
+                with engine.connect() as conn:
+                    paper_ids = corpus_paper_ids(conn, corpus_label, limit)
+            for i in range(0, len(paper_ids), paper_batch):
+                with engine.begin() as conn:
+                    for ctx in load_paper_contexts(conn, paper_ids[i:i + paper_batch]):
+                        record(conn, [f for check in paper_checks for f in check.run(ctx)])
+            n_papers = len(paper_ids)
+
         result_counts = {k: dict(v) for k, v in counts.items()}
-        _finish(engine, run_id, "done", {**result_counts, "trials": len(contexts)})
+        _finish(engine, run_id, "done",
+                {**result_counts, "trials": n_trials, "papers": n_papers})
     except Exception:
         _finish(engine, run_id, "failed", None)
         log.exception("check_run_failed", run_id=run_id)
         raise
 
-    log.info("check_run_done", run_id=run_id, trials=len(contexts), counts=result_counts)
+    log.info("check_run_done", run_id=run_id, trials=n_trials, papers=n_papers, counts=result_counts)
     return RunResult(run_id=run_id, counts=result_counts)
 
 

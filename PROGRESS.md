@@ -33,7 +33,7 @@ Low friction or it rots. The rules:
 
 **Phase:** 1 of 5 — data foundation and deterministic checks
 **Plan:** `docs/sentinel-project.md` §15 session IDs. Old brief and HTML spec are in `docs/archive/`.
-**Last worked:** 2026-10-25 — S1.9 (resolution cascade and candidate fetch)
+**Last worked:** 2026-10-25 — S1.10 (C01 reference existence)
 
 **Sessions:**
 
@@ -48,18 +48,19 @@ Low friction or it rots. The rules:
 | S1.7 Crossref, OpenAlex, doi.org clients | done | `ingest/crossref.py`, `ingest/openalex.py` (budgeted, ADR-032), `ingest/doi_handle.py`, `ingest/papers.py` (first source owns the row). `sentinel ingest crossref\|openalex\|doi-handle --doi …` checked live; rate limiting, retries and the budget guard tested against recorded responses. |
 | S1.8 Reference parser | done | `parse/references.py` (ADR-033). 50 hand-checked strings: 0 wrong or invented, 88.2% filled. On the corpus's 22,019 untagged strings: first author 92.6%, year 97.3%, title 78.9%. Not yet written to `reference`; S1.9 applies it. |
 | S1.9 Resolution cascade + candidate fetch | done | `resolve/cascade.py`, `resolve/candidates.py`, `sentinel resolve`, migration `80034d5e56ce`, parser 1.1.0 (ADR-034). §9.10 sample (structured, seed 20260922): 944/1,000 resolved (94.4%); all-reference sample: 88.7%. No wrong title-stage match found. 1,786 references processed so far (1,637 resolved); the other 36,899 resolve in S1.15. |
-| S1.10 – S1.15 | not started | |
+| S1.10 C01 | done | `checks/c01_existence.py` (ADR-035), doi.org check during resolution, paper checks in the runner, paper report cards. 48-reference real fixture labelled by hand: all agree, no non-journal item flagged. Live on three fully resolved papers: one unindexed journal reference flagged in each. |
+| S1.11 – S1.15 | not started | |
 
-**What works:** corpus selection and harvest; DOI lookups; parsing and resolution (`sentinel resolve`); `sentinel check` / `sentinel report`. C05 v1.1.0 flags 70 of 1,034 corpus trials. 348 tests: 334 run without a database, and the other 14 need `TEST_DATABASE_URL`.
+**What works:** corpus selection and harvest; DOI lookups; parsing and resolution; `sentinel check` (C01 over papers, C05 over trials); `sentinel report` for trials and papers. 441 tests: 427 run without a database, and the other 14 need `TEST_DATABASE_URL`.
 
 **What's broken:** nothing known. PMC6561645's full text returns a persistent HTTP 500 upstream, so it's stored without references (a re-run retries it). The DB tests skip on the dev DB now that it holds real data; a disposable `sentinel_test` database is still to be created.
 
 **Next three things:**
-1. S1.10: C01. Classify unresolved references (non-journal / unparseable / journal-like), ask doi.org before flagging, and surface low title agreement on DOI matches
-2. S1.11: C02
-3. S1.12: Statistic extraction and C03
+1. S1.11: C02 (retraction status, three timing bands)
+2. S1.12: Statistic extraction and C03
+3. S1.13: C04
 
-**Then:** S1.13 onward. Target: `sentinel report <nct-id>` prints a real overdue-results finding.
+**Then:** S1.14 onward. Open from S1.9/S1.10: a DOI pointing at a differently titled paper (title agreement is recorded) has no check yet; decide whether it belongs in C01 or a new check. Target: `sentinel report <nct-id>` prints a real overdue-results finding.
 
 **Blocked on:** nothing.
 
@@ -480,6 +481,33 @@ Parser 1.1.0 (amends ADR-033's version) adds "et al" glued to initials, Harvard 
 Precision: no checkable title-stage match was wrong. The three "disagreements" were references whose tagged DOIs are malformed in the source XML. A random read of title matches found none wrong.
 
 **Rejected:** judging on the all-reference sample (it measures grey-literature share as much as resolution); relaxing the author guard to win back about 2 references with odd Crossref author metadata.
+
+---
+
+### ADR-035 — C01: classes, one flag per unverifiable reference, and guards against flagging real works
+**Status:** active
+
+C01 (`checks/c01_existence.py`, v1.0.0) is pure. It classifies each reference from the stored resolution result and trail (ADR-034) into one of:
+- **resolved** or **ambiguous**: the work exists.
+- **doi_registered**: doi.org knows the DOI.
+- **nonjournal**: the XML `publication-type` isn't journal, or there are book, web, guideline, report, conference, preprint or organisation-author cues. Cues are read outside the journal name, because "Proceedings" and "Association" occur in real journal names.
+- **near_match**: a recorded candidate looks like this work.
+- **unparseable**: title, first author, year or journal missing.
+- **journal_like**: everything else. Only this class is flagged.
+
+The doi.org check (§9.5) runs during resolution, because checks can't call the network. The result is stored in the trail.
+
+**Findings** (your choice): one `flagged`/`medium` finding per journal-like reference, worded "Reference N could not be verified: no matching record in Crossref or OpenAlex[; its DOI is not registered at doi.org]", with its own evidence. Plus one summary finding per paper (`clean`, or `insufficient_data` when there are no references, some are still pending, or none could be parsed), with the counts and every non-resolved reference's class.
+
+**Guards against flagging real works** (they cost only recall):
+- *near_match*: a candidate with the same first author and a year within ±1 at similarity ≥ `SENTINEL_C01_NEAR_MATCH_MIN` (0.6), or any candidate in the same year at ≥ `SENTINEL_C01_SAME_TITLE_MIN` (0.85). Both are config with no default (ADR-022). Found in real data: Wu & McGoogan (*JAMA* 2020) missed the stage-4 threshold; a 1985 paper's candidate had first author "cn"; Emmanuel K is Kongo E with the names inverted.
+- The near-miss evidence now keeps every same-author candidate, not just the top 3.
+
+Fixture: 48 real references labelled by reading each, before looking at C01's output. All 48 agree, including 32 non-journal items (none flagged) and 3 journal articles not indexed anywhere (flagged).
+
+Paper report cards (`sentinel report <paper-id|doi>`) show each check's latest-run findings plus linked trials' cards (§9.8).
+
+**Rejected:** one finding per paper (problems collapse into one line); one per reference (~38,700 rows a run); flagging journal-like references whose candidates suggest the work exists.
 
 ---
 

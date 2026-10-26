@@ -82,6 +82,10 @@ def authors_match(a: str | None, b: str | None) -> bool:
     return bool(ta and tb) and (ta <= tb or tb <= ta)
 
 
+def authors_overlap(a: str | None, b: str | None) -> bool:
+    return bool(author_tokens(a) & author_tokens(b))
+
+
 def contradicts(ref: RefFields, c: Candidate, year_tolerance: int) -> str | None:
     """Why a candidate can't be this work, or None if nothing contradicts."""
     if ref.year is not None and c.year is not None and abs(ref.year - c.year) > year_tolerance:
@@ -139,8 +143,13 @@ def match_title(ref: RefFields, candidates: list[Candidate], th: Thresholds) -> 
 
 
 def near_misses(ref: RefFields, candidates: list[Candidate], th: Thresholds, n: int = 3) -> list[dict]:
+    """The top `n` candidates by similarity, plus every candidate sharing the
+    reference's first author (C01 needs those to tell 'exists under a variant
+    title' from 'not found'). At most 8."""
+    picked = list(candidates[:n])
+    picked += [c for c in candidates[n:] if authors_overlap(ref.first_author, c.first_author)]
     out = []
-    for c in candidates[:n]:
+    for c in picked[:8]:
         why = contradicts(ref, c, th.year_tolerance)
         if why is None:
             why = (f"similarity {c.similarity:.3f} below {th.trigram_min}"
@@ -186,10 +195,12 @@ class Resolver:
     def _run(self, ref: RefFields, lookups: LookupLog, stages: list[dict]) -> Resolution:
         if ref.doi:
             paper_id = self.source.paper_by("doi", ref.doi) or self.source.fetch_doi(ref.doi, lookups)
-            stages.append({"stage": 1, "outcome": "matched" if paper_id else "doi_not_found"})
             if paper_id:
+                stages.append({"stage": 1, "outcome": "matched"})
                 return Resolution("resolved", "doi", 1.0, paper_id,
                                   evidence=self._title_agreement(ref, paper_id))
+            stages.append({"stage": 1, "outcome": "doi_not_found",
+                           "doi_org_registered": self.source.doi_registered(ref.doi, lookups)})
         else:
             stages.append({"stage": 1, "outcome": "no_doi"})
 
