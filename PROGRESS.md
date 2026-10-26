@@ -33,7 +33,7 @@ Low friction or it rots. The rules:
 
 **Phase:** 1 of 5 — data foundation and deterministic checks
 **Plan:** `docs/sentinel-project.md` §15 session IDs. Old brief and HTML spec are in `docs/archive/`.
-**Last worked:** 2026-10-25 — S1.8 (reference parser)
+**Last worked:** 2026-10-25 — S1.9 (resolution cascade and candidate fetch)
 
 **Sessions:**
 
@@ -47,18 +47,19 @@ Low friction or it rots. The rules:
 | S1.6 Corpus selection + Europe PMC harvester | done | Corpus `pmc-rct-2015-2024`: 1,000 of 30,457 hits, seed 20260922, selected 2026-10-24 (ADR-028). 1,000 papers, 38,685 references from full-text `<ref-list>` (ADR-030), 1,051 own-trial links from 926 papers to 1,032 trials, all fetched. Migration `9780a018baa5` (ADR-029). |
 | S1.7 Crossref, OpenAlex, doi.org clients | done | `ingest/crossref.py`, `ingest/openalex.py` (budgeted, ADR-032), `ingest/doi_handle.py`, `ingest/papers.py` (first source owns the row). `sentinel ingest crossref\|openalex\|doi-handle --doi …` checked live; rate limiting, retries and the budget guard tested against recorded responses. |
 | S1.8 Reference parser | done | `parse/references.py` (ADR-033). 50 hand-checked strings: 0 wrong or invented, 88.2% filled. On the corpus's 22,019 untagged strings: first author 92.6%, year 97.3%, title 78.9%. Not yet written to `reference`; S1.9 applies it. |
-| S1.9 – S1.15 | not started | |
+| S1.9 Resolution cascade + candidate fetch | done | `resolve/cascade.py`, `resolve/candidates.py`, `sentinel resolve`, migration `80034d5e56ce`, parser 1.1.0 (ADR-034). §9.10 sample (structured, seed 20260922): 944/1,000 resolved (94.4%); all-reference sample: 88.7%. No wrong title-stage match found. 1,786 references processed so far (1,637 resolved); the other 36,899 resolve in S1.15. |
+| S1.10 – S1.15 | not started | |
 
-**What works:** corpus selection and harvest; lookups by DOI; reference parsing (in code); `sentinel check` / `sentinel report`. C05 v1.1.0 flags 70 of 1,034 corpus trials. 311 tests: 297 run without a database, and the other 14 need `TEST_DATABASE_URL`.
+**What works:** corpus selection and harvest; DOI lookups; parsing and resolution (`sentinel resolve`); `sentinel check` / `sentinel report`. C05 v1.1.0 flags 70 of 1,034 corpus trials. 348 tests: 334 run without a database, and the other 14 need `TEST_DATABASE_URL`.
 
 **What's broken:** nothing known. PMC6561645's full text returns a persistent HTTP 500 upstream, so it's stored without references (a re-run retries it). The DB tests skip on the dev DB now that it holds real data; a disposable `sentinel_test` database is still to be created.
 
 **Next three things:**
-1. S1.9: Resolution cascade and candidate fetch: parse untagged references, then match (Crossref first; get a free OpenAlex key before this)
-2. S1.10: C01
-3. S1.11: C02
+1. S1.10: C01. Classify unresolved references (non-journal / unparseable / journal-like), ask doi.org before flagging, and surface low title agreement on DOI matches
+2. S1.11: C02
+3. S1.12: Statistic extraction and C03
 
-**Then:** S1.12 onward. Target: `sentinel report <nct-id>` prints a real overdue-results finding.
+**Then:** S1.13 onward. Target: `sentinel report <nct-id>` prints a real overdue-results finding.
 
 **Blocked on:** nothing.
 
@@ -461,6 +462,27 @@ Measured on 7,627 `mixed-citation` strings whose XML tags give the truth: precis
 
 ---
 
+### ADR-034 — Resolution cascade: stages, precision guards, evidence, and how the target is measured
+**Status:** active
+
+`resolve/cascade.py` implements §9.5's five stages. Missing works are fetched: a DOI via Crossref then OpenAlex, a PMID via OpenAlex (both free), and titles via a Crossref bibliographic search, then OpenAlex search within budget (ADR-032). Ties at any stage give `ambiguous`. An exhausted OpenAlex budget stops the run; it never marks a reference unresolved.
+
+Precision guards beyond §9.5 (both cost only recall):
+- At stages 3 and 5, a candidate whose year (beyond ±tolerance) or first author contradicts the reference is rejected. Authors are compared by shared name tokens, so "al shahi salman" and "salman" are compatible.
+- Stage 5 needs a title of at least 4 words.
+
+Evidence: new column `reference.resolution_evidence` (migration `80034d5e56ce`) holds stages tried, near-misses, lookups, the parser version, and for DOI/PMID matches the agreement between cited and matched titles. A low agreement means the cited identifier names a differently titled work; it's left for C01, and the identifier match stands. Untitled records a source returns are not stored, but are recorded as "registered". Searches a service rejects (4xx) are recorded and skipped.
+
+Parser 1.1.0 (amends ADR-033's version) adds "et al" glued to initials, Harvard "Author, 2017. Title", author lists ending in ":", hyphenated initials, and APA with no container. Tagged precision is unchanged (title 99.2%, container 99.6%). Untagged references whose fields came from an older parser version are re-parsed; tag-derived fields never are.
+
+**How the ≥90% target is measured:** §9.10 defines it on references from structured reference lists (`sentinel resolve --sample 1000 --structured`). Seeded sample (seed 20260922), 2026-10-25: **944/1,000 resolved (94.4%)**, 1 ambiguous, 55 unresolved. Methods: DOI 897, PMID 29, title exact 15, title+author+year 3, title only 1. For context, a sample of 1,000 drawn from all reference types resolves **88.7%**: unstructured strings resolve 85.7%, and at least 68 of its 110 misses are grey literature (guidelines, agency reports, websites, books).
+
+Precision: no checkable title-stage match was wrong. The three "disagreements" were references whose tagged DOIs are malformed in the source XML. A random read of title matches found none wrong.
+
+**Rejected:** judging on the all-reference sample (it measures grey-literature share as much as resolution); relaxing the author guard to win back about 2 references with odd Crossref author metadata.
+
+---
+
 ### ADR-0NN — template
 **Status:** active
 
@@ -554,6 +576,12 @@ What happened. What you expected instead. Root cause. What changed as a result. 
 
 **2026-10-18 · ClinicalTrials.gov OpenAPI URL in ADR-019 returns 404**
 `/api/oas/v2/ctg-oas-v2.yaml` is gone; the spec is served as YAML at `/api/oas/v2`. Found while confirming endpoints before S1.4. Fixed in `config.py` and `.env.example`. A URL written from memory or from an old doc rots; confirm each one live.
+
+**2026-10-25 · Two single records stopped whole resolution runs**
+First, OpenAlex answers HTTP 400 when a title filter contains `?` or `*`, which it treats as wildcards ("…what is needed?"), and that one reference stopped the sample run after 701. Second, a DOI whose Crossref record has no title failed `PaperRecord` validation and stopped the structured run. Fixes: strip `?` and `*` from OpenAlex title filters; treat a 4xx on a search as "no candidates from this source" (recorded); record untitled records as "registered" without storing them. Each has a test. Lesson: anything from one external record must fail that record, not the run.
+
+**2026-10-25 · Some citations cite a DOI that names a different paper**
+In the structured sample, a reference titled "Effects of caffeine on exercise performance in sedentary females" (2010) cites a DOI that belongs to "Effects of caffeine on time trial performance in sedentary men" (2012). Stage 1 trusts DOIs (§9.5), so the match goes to the DOI's paper. Title agreement is now recorded in the evidence for every DOI/PMID match so C01 can surface these.
 
 **2026-10-25 · Tagged mixed-citation text glues identifiers together**
 In S1.6, `raw_string` for a `mixed-citation` with child tags joins adjacent elements with no space ("…1636–16442716813510.1007/…"). The citations themselves have no whitespace there, and `jats._text` concatenates. It's harmless for parsing, because those references already have tag-derived fields and the parser runs on the untagged ones. But it makes the strings ugly as C01 evidence. A spacing fix in `jats.py` plus a re-harvest would clean it. Not done in S1.8.

@@ -25,7 +25,9 @@ log = get_logger(__name__)
 @dataclass(frozen=True)
 class StoredPaper:
     paper_id: int | None
-    action: Literal["inserted", "updated", "existing", "conflict"]
+    # "unusable": the source has the record but it can't be stored (no title);
+    # it exists, but nothing is written.
+    action: Literal["inserted", "updated", "existing", "conflict", "unusable"]
 
 
 def upsert_paper(conn: Connection, record: PaperRecord) -> StoredPaper:
