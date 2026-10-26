@@ -14,6 +14,7 @@ import httpx
 from sqlalchemy import Engine, func, select, text
 
 from sentinel.ingest.crossref import CrossrefClient
+from sentinel.ingest.doi_handle import DoiHandleClient
 from sentinel.ingest.openalex import OpenAlexClient
 from sentinel.models import paper
 
@@ -38,6 +39,7 @@ class LookupLog:
     openalex_pmid: int = 0
     crossref_search: int = 0
     openalex_search: int = 0
+    doi_handle: int = 0
     found: list[str] = field(default_factory=list)
     rejected: list[str] = field(default_factory=list)
     registered_untitled: list[str] = field(default_factory=list)
@@ -47,10 +49,25 @@ class LookupLog:
 
 
 class CandidateSource:
-    def __init__(self, engine: Engine, crossref: CrossrefClient, openalex: OpenAlexClient) -> None:
+    def __init__(self, engine: Engine, crossref: CrossrefClient, openalex: OpenAlexClient,
+                 doi_handle: DoiHandleClient | None = None) -> None:
         self.engine = engine
         self.crossref = crossref
         self.openalex = openalex
+        self.doi_handle = doi_handle
+
+    def doi_registered(self, doi: str, log: LookupLog) -> bool | None:
+        """Is the DOI registered at any agency (doi.org)? None if not asked.
+
+        §9.5: before C01 flags a reference whose DOI Crossref doesn't know,
+        doi.org is asked; the DOI may be DataCite's or another agency's.
+        """
+        if log.registered_untitled:
+            return True  # a source returned a record for it
+        if self.doi_handle is None:
+            return None
+        log.doi_handle += 1
+        return self.doi_handle.exists(doi)
 
     def title_norm_of(self, paper_id: int) -> str | None:
         with self.engine.connect() as conn:

@@ -154,6 +154,12 @@ class FakeSource:
     def paper_by(self, column, value):
         return self.ids.get((column, value))
 
+    registered_dois: set = set()
+
+    def doi_registered(self, doi, log):
+        log.doi_handle += 1
+        return doi in self.registered_dois
+
     def title_norm_of(self, paper_id):
         c = self.stored.get(paper_id)
         return c.title_norm if c else None
@@ -212,7 +218,17 @@ def test_unknown_doi_falls_through_to_title():
     src = FakeSource(stored={7: _cand(7)})
     r = Resolver(src, TH).resolve(_ref(doi="10.1/missing"))
     assert (r.method, r.paper_id) == ("title_exact", 7)
-    assert r.evidence["stages"][0] == {"stage": 1, "outcome": "doi_not_found"}
+    assert r.evidence["stages"][0] == {"stage": 1, "outcome": "doi_not_found",
+                                       "doi_org_registered": False}
+
+
+def test_doi_unknown_to_crossref_is_checked_at_doi_org():
+    src = FakeSource()
+    src.registered_dois = {"10.5061/dryad.x"}
+    r = Resolver(src, TH).resolve(_ref(doi="10.5061/dryad.x", title=None))
+    assert r.status == "unresolved"
+    assert r.evidence["stages"][0]["doi_org_registered"] is True
+    assert r.evidence["lookups"]["doi_handle"] == 1
 
 
 def test_stage2_pmid_fetched():

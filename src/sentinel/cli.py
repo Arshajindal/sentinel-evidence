@@ -29,7 +29,15 @@ from sentinel.resolve.cascade import (
 from sentinel.ingest.http import RateLimitedHTTP, RetryableHTTPError, build_http_client
 from sentinel.ingest.retraction_watch import RetractionWatchHarvester
 from sentinel.log import configure_logging, get_logger
-from sentinel.report.card import detect_subject, load_trial_card, render_json, render_text
+from sentinel.report.card import (
+    detect_subject,
+    load_paper_card,
+    load_trial_card,
+    render_json,
+    render_paper_json,
+    render_paper_text,
+    render_text,
+)
 from sentinel.resolve.normalize import normalize_doi
 
 app = typer.Typer(no_args_is_help=True, add_completion=False)
@@ -267,8 +275,11 @@ def resolve(
         openalex = OpenAlexClient(_rate_limited(settings, client, "openalex", settings.rate_openalex_rps),
                                   base_url=settings.openalex_base_url, api_key=settings.openalex_api_key,
                                   daily_budget_usd=settings.openalex_daily_budget_usd)
+        doi_handle = DoiHandleClient(
+            _rate_limited(settings, client, "doi_handle", settings.rate_doi_handle_rps),
+            base_url=settings.doi_handle_base_url)
         resolver = Resolver(
-            CandidateSource(engine, crossref, openalex),
+            CandidateSource(engine, crossref, openalex, doi_handle),
             Thresholds(settings.resolve_trigram_min, settings.resolve_trigram_strict,
                        settings.resolve_year_tolerance, settings.resolve_ambiguous_margin),
         )
@@ -295,6 +306,12 @@ def check(
     nct: Annotated[
         Optional[list[str]], typer.Option(help="Only these trials (repeatable)")
     ] = None,
+    corpus: Annotated[
+        Optional[str], typer.Option(help="Corpus label for paper checks")
+    ] = None,
+    paper: Annotated[
+        Optional[list[int]], typer.Option(help="Only these paper IDs (repeatable)")
+    ] = None,
 ) -> None:
     """Run checks over stored data and record a check_run."""
     settings = get_settings()
@@ -310,8 +327,9 @@ def check(
         get_engine(),
         built,
         config_hash=settings.config_hash,
-        corpus_label=settings.default_corpus_label,
+        corpus_label=corpus or settings.default_corpus_label,
         nct_ids=nct_ids,
+        paper_ids=paper,
         limit=limit,
     )
     typer.echo(f"run {result.run_id}: {result.counts}")
@@ -322,7 +340,7 @@ def report(
     subject: Annotated[str, typer.Argument(help="NCT ID, DOI or paper ID")],
     format: Annotated[str, typer.Option(help="text or json")] = "text",
 ) -> None:
-    """Print the report card for a trial (papers arrive in later sessions)."""
+    """Print the report card for a trial, or a paper with its linked trials."""
     if format not in ("text", "json"):
         raise typer.BadParameter("format must be text or json", param_hint="--format")
     try:
@@ -330,8 +348,15 @@ def report(
     except ValueError as exc:
         raise typer.BadParameter(str(exc)) from exc
     if kind != "trial":
-        typer.echo(f"Report cards for papers aren't built yet ({kind} {value}).", err=True)
-        raise typer.Exit(code=2)
+        with get_engine().connect() as conn:
+            paper_card = load_paper_card(conn, value if kind == "paper" else None,
+                                         doi=value if kind == "doi" else None)
+        if paper_card is None:
+            typer.echo(f"No paper {value} in the database.", err=True)
+            raise typer.Exit(code=1)
+        typer.echo(render_paper_json(paper_card) if format == "json"
+                   else render_paper_text(paper_card))
+        return
     with get_engine().connect() as conn:
         card = load_trial_card(conn, value)
     if card is None:
