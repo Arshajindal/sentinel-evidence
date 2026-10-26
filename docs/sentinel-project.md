@@ -583,7 +583,7 @@ Evidence: the raw string, the parsed fields, every stage attempted, near-misses 
 
 #### C02 — Retraction and concern status
 
-For each resolved reference, look up `retraction_notice` by DOI and by PMID.
+For each reference, look up `retraction_notice` by DOI and by PMID, using the reference's own identifiers and its resolved paper's. `publication_date` is the citing paper's first publication date in Europe PMC. Each affected reference is its own finding, plus one summary finding per paper (ADR-036).
 
 A paper can sit in press for six to twelve months, so a paper published shortly after a retraction notice may have had no way of knowing about it. Severity therefore depends on timing, in three bands.
 
@@ -594,7 +594,9 @@ Let `gap = citing_paper.publication_date − notice.notice_date` and `G = SENTIN
 | `gap > G` | `high` | Cited after retraction |
 | `0 < gap ≤ G` | `low` | Retracted while this paper was in press |
 | `gap ≤ 0` | `low` | Cited before retraction; downstream claims may need review |
+| Retraction marked "Retract and Replace" or "Withdrawn as Out of Date", any timing | `low` | A current version exists and should be checked (ADR-036) |
 | Expression of concern, any timing | `medium` | Concern raised about a cited source |
+| Retraction later reversed by a reinstatement | not flagged | (listed in the summary) |
 
 If the citing paper's publication date is unknown, return `insufficient_data` instead of guessing a band.
 

@@ -1,0 +1,1009 @@
+[
+ {
+  "paper": {
+   "paper_id": 85,
+   "publication_date": "2015-06-01",
+   "references": [
+    {
+     "reference_id": 3351,
+     "ordinal": 1,
+     "raw_string": "Ng M, Fleming T, Robinson M, Thomson B, Graetz N, Margono C et al. Global, regional, and national prevalence of overweight and obesity in children and adults during 1980–2013: a systematic analysis for the Global Burden of Disease Study 2013. Lancet. 2014.10.1016/S0140-6736(14)60460-8PMC462426424880830",
+     "citation_tag": "mixed-citation",
+     "publication_type": "other",
+     "parsed_doi": "10.1016/s0140-6736(14)60460-8",
+     "parsed_pmid": "24880830",
+     "parsed_title": null,
+     "parsed_first_author": null,
+     "parsed_year": null,
+     "parsed_container": null,
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": []
+    },
+    {
+     "reference_id": 3352,
+     "ordinal": 2,
+     "raw_string": "World Health Organization. Fact sheet on obesity and overweight. 2013. Available: http://www.who.int/topics/obesity/en.",
+     "citation_tag": "mixed-citation",
+     "publication_type": "other",
+     "parsed_doi": null,
+     "parsed_pmid": null,
+     "parsed_title": null,
+     "parsed_first_author": null,
+     "parsed_year": null,
+     "parsed_container": null,
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": []
+    },
+    {
+     "reference_id": 3368,
+     "ordinal": 18,
+     "raw_string": "Shaw K, O'Rourke P, Del MC, Kenardy J. Psychological interventions for overweight or obesity. Cochrane Database Syst Rev. 2005; CD003818.10.1002/14651858.CD003818.pub215846683",
+     "citation_tag": "mixed-citation",
+     "publication_type": "other",
+     "parsed_doi": "10.1002/14651858.cd003818.pub2",
+     "parsed_pmid": "15846683",
+     "parsed_title": null,
+     "parsed_first_author": null,
+     "parsed_year": null,
+     "parsed_container": null,
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": [
+      {
+       "notice_type": "retraction",
+       "notice_date": "2014-05-06",
+       "notice_doi": "10.1002/14651858.cd003818.pub3",
+       "reason": "Retract and Replace;Withdrawn as Out of Date;",
+       "source": "retraction_watch",
+       "source_record_id": "32408",
+       "matched_on": "doi"
+      }
+     ]
+    }
+   ],
+   "trials": []
+  },
+  "expected": {
+   "3368": {
+    "band": "replaced",
+    "severity": "low",
+    "why": "Cochrane review withdrawn as out of date / retract and replace, 2014"
+   }
+  }
+ },
+ {
+  "paper": {
+   "paper_id": 137,
+   "publication_date": "2021-07-28",
+   "references": [
+    {
+     "reference_id": 5694,
+     "ordinal": 1,
+     "raw_string": "Doenst T Nguyen TD Abel ED. Cardiac metabolism in heart failure: implications beyond ATP production Circ Res 113 6 2013 709–24 10.1161/CIRCRESAHA.113.300376 PMC3896379 23989714",
+     "citation_tag": "element-citation",
+     "publication_type": "journal",
+     "parsed_doi": "10.1161/circresaha.113.300376",
+     "parsed_pmid": "23989714",
+     "parsed_title": "Cardiac metabolism in heart failure: implications beyond ATP production",
+     "parsed_first_author": "doenst",
+     "parsed_year": 2013,
+     "parsed_container": "Circ Res",
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": []
+    },
+    {
+     "reference_id": 5695,
+     "ordinal": 2,
+     "raw_string": "Dick SA Epelman S. Chronic heart failure and inflammation: what do we really know? Circ Res 119 1 2016 159–76 10.1161/CIRCRESAHA.116.308030 27340274",
+     "citation_tag": "element-citation",
+     "publication_type": "journal",
+     "parsed_doi": "10.1161/circresaha.116.308030",
+     "parsed_pmid": "27340274",
+     "parsed_title": "Chronic heart failure and inflammation: what do we really know?",
+     "parsed_first_author": "dick",
+     "parsed_year": 2016,
+     "parsed_container": "Circ Res",
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": []
+    },
+    {
+     "reference_id": 5720,
+     "ordinal": 27,
+     "raw_string": "Jørgensen SF Macpherson ME Bjørnetrø T Holm K Kummen M Rashidi A Rifaximin alters gut microbiota profile, but does not affect systemic inflammation - a randomized controlled trial in common variable immunodeficiency Sci Rep 9 1 2019 167 30655568 10.1038/s41598-018-35367-7 PMC6336782",
+     "citation_tag": "element-citation",
+     "publication_type": "journal",
+     "parsed_doi": "10.1038/s41598-018-35367-7",
+     "parsed_pmid": "30655568",
+     "parsed_title": "Rifaximin alters gut microbiota profile, but does not affect systemic inflammation - a randomized controlled trial in common variable immunodeficiency",
+     "parsed_first_author": "jørgensen",
+     "parsed_year": 2019,
+     "parsed_container": "Sci Rep",
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": [
+      {
+       "notice_type": "retraction",
+       "notice_date": "2024-02-14",
+       "notice_doi": "10.1038/s41598-024-54117-6",
+       "reason": "Concerns/Issues about Data;Error in Data;",
+       "source": "retraction_watch",
+       "source_record_id": "51891",
+       "matched_on": "doi"
+      }
+     ]
+    }
+   ],
+   "trials": []
+  },
+  "expected": {
+   "5720": {
+    "band": "before",
+    "severity": "low",
+    "why": "cited 2021-07, retracted 2024-02"
+   }
+  }
+ },
+ {
+  "paper": {
+   "paper_id": 164,
+   "publication_date": "2021-11-02",
+   "references": [
+    {
+     "reference_id": 6765,
+     "ordinal": 1,
+     "raw_string": "Silveri MM Dager AD Cohen-Gilbert JE Sneider JT Neurobiological signatures associated with alcohol and drug use in the human adolescent brain Neurosci Biobehav Rev 2016 11 70 244 259 10.1016/j.neubiorev.2016.06.042 27377691 S0149-7634(16)30151-8 27377691 PMC5494836",
+     "citation_tag": "element-citation",
+     "publication_type": "journal",
+     "parsed_doi": "10.1016/j.neubiorev.2016.06.042",
+     "parsed_pmid": "27377691",
+     "parsed_title": "Neurobiological signatures associated with alcohol and drug use in the human adolescent brain",
+     "parsed_first_author": "silveri",
+     "parsed_year": 2016,
+     "parsed_container": "Neurosci Biobehav Rev",
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": []
+    },
+    {
+     "reference_id": 6766,
+     "ordinal": 2,
+     "raw_string": "Camchong J Lim KO Kumra S Adverse effects of cannabis on adolescent brain development: a longitudinal study Cereb Cortex 2017 03 27 3 1922 1930 10.1093/cercor/bhw015 26912785 3056289 26912785 PMC5963818",
+     "citation_tag": "element-citation",
+     "publication_type": "journal",
+     "parsed_doi": "10.1093/cercor/bhw015",
+     "parsed_pmid": "26912785",
+     "parsed_title": "Adverse effects of cannabis on adolescent brain development: a longitudinal study",
+     "parsed_first_author": "camchong",
+     "parsed_year": 2017,
+     "parsed_container": "Cereb Cortex",
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": []
+    },
+    {
+     "reference_id": 6789,
+     "ordinal": 25,
+     "raw_string": "Suresh K An overview of randomization techniques: an unbiased assessment of outcome in clinical research J Hum Reprod Sci 2011 01 4 1 8 11 10.4103/0974-1208.82352 21772732 JHRS-4-8 21772732 PMC3136079",
+     "citation_tag": "element-citation",
+     "publication_type": "journal",
+     "parsed_doi": "10.4103/0974-1208.82352",
+     "parsed_pmid": "21772732",
+     "parsed_title": "An overview of randomization techniques: an unbiased assessment of outcome in clinical research",
+     "parsed_first_author": "suresh",
+     "parsed_year": 2011,
+     "parsed_container": "J Hum Reprod Sci",
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": [
+      {
+       "notice_type": "retraction",
+       "notice_date": "2017-01-01",
+       "notice_doi": "10.4103/0974-1208.170593",
+       "reason": "Date of Article and/or Notice Unknown;Duplication of/in Article;Euphemisms for Duplication;",
+       "source": "retraction_watch",
+       "source_record_id": "8343",
+       "matched_on": "doi"
+      }
+     ]
+    }
+   ],
+   "trials": []
+  },
+  "expected": {
+   "6789": {
+    "band": "after_grace",
+    "severity": "high",
+    "why": "retracted 2017-01 (duplication), cited 2021-11"
+   }
+  }
+ },
+ {
+  "paper": {
+   "paper_id": 216,
+   "publication_date": "2021-01-25",
+   "references": [
+    {
+     "reference_id": 8529,
+     "ordinal": 1,
+     "raw_string": "Zhu N, Zhang D, Wang W, Li X, Yang B, Song J, et al. A novel coronavirus from patients with pneumonia in China, 2019. N Engl J Med. 2020;382(8):727–733. doi: 10.1056/NEJMoa2001017.",
+     "citation_tag": "mixed-citation",
+     "publication_type": null,
+     "parsed_doi": null,
+     "parsed_pmid": null,
+     "parsed_title": null,
+     "parsed_first_author": null,
+     "parsed_year": null,
+     "parsed_container": null,
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": []
+    },
+    {
+     "reference_id": 8530,
+     "ordinal": 2,
+     "raw_string": "Yin Y, Wunderink RG. MERS, SARS and other coronaviruses as causes of pneumonia. Respirology. 2018;23(2):130–137. doi: 10.1111/resp.13196.",
+     "citation_tag": "mixed-citation",
+     "publication_type": null,
+     "parsed_doi": null,
+     "parsed_pmid": null,
+     "parsed_title": null,
+     "parsed_first_author": null,
+     "parsed_year": null,
+     "parsed_container": null,
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": []
+    },
+    {
+     "reference_id": 8545,
+     "ordinal": 17,
+     "raw_string": "Cai Q, Yang M, Liu D, et al. Experimental treatment with favipiravir for COVID-19: an open-label control study. Engineering (Beijing) 2020 doi: 10.1016/j.eng.2020.03.007.",
+     "citation_tag": "mixed-citation",
+     "publication_type": null,
+     "parsed_doi": "10.1016/j.eng.2020.03.007",
+     "parsed_pmid": null,
+     "parsed_title": null,
+     "parsed_first_author": "cai",
+     "parsed_year": 2020,
+     "parsed_container": null,
+     "resolution_status": "resolved",
+     "resolution_method": "doi",
+     "resolved_paper_id": 1132,
+     "resolution_evidence": {
+      "parser": "1.0.0",
+      "stages": [
+       {
+        "stage": 1,
+        "outcome": "matched"
+       }
+      ],
+      "lookups": {
+       "found": [
+        "doi:10.1016/j.eng.2020.03.007"
+       ],
+       "crossref_doi": 1
+      }
+     },
+     "notices": [
+      {
+       "notice_type": "retraction",
+       "notice_date": "2020-04-01",
+       "notice_doi": "10.1016/j.eng.2020.03.007",
+       "reason": "Date of Article and/or Notice Unknown;Notice - Limited or No Information;Retract and Replace;Removed;",
+       "source": "retraction_watch",
+       "source_record_id": "22995",
+       "matched_on": "doi"
+      }
+     ]
+    }
+   ],
+   "trials": []
+  },
+  "expected": {
+   "8545": {
+    "band": "replaced",
+    "severity": "low",
+    "why": "favipiravir study, 'Retract and Replace', 2020-04"
+   }
+  }
+ },
+ {
+  "paper": {
+   "paper_id": 248,
+   "publication_date": "2023-02-01",
+   "references": [
+    {
+     "reference_id": 9849,
+     "ordinal": 1,
+     "raw_string": "Picetti D Foster S Pangle A Schrader A Wei JY Azhar G Knowledge and consumption of protein in older adults: Opportunity for improvement Int J Dev Res 2017 7 4 12519 12524",
+     "citation_tag": "element-citation",
+     "publication_type": "journal",
+     "parsed_doi": null,
+     "parsed_pmid": null,
+     "parsed_title": "Knowledge and consumption of protein in older adults: Opportunity for improvement",
+     "parsed_first_author": "picetti",
+     "parsed_year": 2017,
+     "parsed_container": "Int J Dev Res",
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": []
+    },
+    {
+     "reference_id": 9850,
+     "ordinal": 2,
+     "raw_string": "Cheng YL Sung SH Cheng HM Hsu PF Guo CY Yu WC Chen CH Prognostic nutritional index and the risk of mortality in patients with acute heart failure J Am Heart Assoc 2017 6 6 e004876 10.1161/JAHA.116.004876 28649089 PMC5669149",
+     "citation_tag": "element-citation",
+     "publication_type": "journal",
+     "parsed_doi": "10.1161/jaha.116.004876",
+     "parsed_pmid": "28649089",
+     "parsed_title": "Prognostic nutritional index and the risk of mortality in patients with acute heart failure",
+     "parsed_first_author": "cheng",
+     "parsed_year": 2017,
+     "parsed_container": "J Am Heart Assoc",
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": []
+    },
+    {
+     "reference_id": 9891,
+     "ordinal": 43,
+     "raw_string": "Nagy N Malik G Fisher AB Das DK Targeted disruption of peroxiredoxin 6 gene renders the heart vulnerable to ischemia-reperfusion injury Am J Physiol Heart Circ Physiol 2006 291 H2636 H2640 10.1152/ajpheart.00399.2006 16766642",
+     "citation_tag": "element-citation",
+     "publication_type": "journal",
+     "parsed_doi": "10.1152/ajpheart.00399.2006",
+     "parsed_pmid": "16766642",
+     "parsed_title": "Targeted disruption of peroxiredoxin 6 gene renders the heart vulnerable to ischemia-reperfusion injury",
+     "parsed_first_author": "nagy",
+     "parsed_year": 2006,
+     "parsed_container": "Am J Physiol Heart Circ Physiol",
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": [
+      {
+       "notice_type": "retraction",
+       "notice_date": "2012-06-01",
+       "notice_doi": "10.1152/ajpheart.zh4-0449-retr.2012",
+       "reason": "Author Unresponsive;Falsification/Fabrication of Data;Falsification/Fabrication of Image;Investigation by Company/Institution;Misconduct - Official Investigation(s) and/or Finding(s);Misconduct by Author;",
+       "source": "retraction_watch",
+       "source_record_id": "125",
+       "matched_on": "doi"
+      }
+     ]
+    }
+   ],
+   "trials": []
+  },
+  "expected": {
+   "9891": {
+    "band": "after_grace",
+    "severity": "high",
+    "why": "retracted 2012-06 (misconduct finding), cited 2023-02"
+   }
+  }
+ },
+ {
+  "paper": {
+   "paper_id": 258,
+   "publication_date": "2016-05-29",
+   "references": [
+    {
+     "reference_id": 10162,
+     "ordinal": 1,
+     "raw_string": "Goldberg ND . Iron deficiency anemia in patients with inflammatory bowel disease. Clin Exp Gastroenterol 2013; 6: 61–70.2376665510.2147/CEG.S43493PMC3678593",
+     "citation_tag": "mixed-citation",
+     "publication_type": "journal",
+     "parsed_doi": "10.2147/ceg.s43493",
+     "parsed_pmid": "23766655",
+     "parsed_title": "Iron deficiency anemia in patients with inflammatory bowel disease",
+     "parsed_first_author": "goldberg",
+     "parsed_year": 2013,
+     "parsed_container": "Clin Exp Gastroenterol",
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": []
+    },
+    {
+     "reference_id": 10163,
+     "ordinal": 2,
+     "raw_string": "Breuer W , Hershko C , Cabantchik ZI . The importance of non‐transferrin bound iron in disorders of iron metabolism. Transfus Sci 2000; 23: 185–92.1109989410.1016/s0955-3886(00)00087-4",
+     "citation_tag": "mixed-citation",
+     "publication_type": "journal",
+     "parsed_doi": "10.1016/s0955-3886(00)00087-4",
+     "parsed_pmid": "11099894",
+     "parsed_title": "The importance of non‐transferrin bound iron in disorders of iron metabolism",
+     "parsed_first_author": "breuer",
+     "parsed_year": 2000,
+     "parsed_container": "Transfus Sci",
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": []
+    },
+    {
+     "reference_id": 10176,
+     "ordinal": 15,
+     "raw_string": "Dignass A , Lindsay JO , Sturm A , et al Second European evidence‐based consensus on the diagnosis and management of ulcerative colitis part 2: current management. J Crohns Colitis 2012; 6: 991–1030.2304045110.1016/j.crohns.2012.09.002",
+     "citation_tag": "mixed-citation",
+     "publication_type": "journal",
+     "parsed_doi": "10.1016/j.crohns.2012.09.002",
+     "parsed_pmid": "23040451",
+     "parsed_title": "Second European evidence‐based consensus on the diagnosis and management of ulcerative colitis part 2: current management",
+     "parsed_first_author": "dignass",
+     "parsed_year": 2012,
+     "parsed_container": "J Crohns Colitis",
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": [
+      {
+       "notice_type": "expression_of_concern",
+       "notice_date": "2022-01-24",
+       "notice_doi": "10.1093/ecco-jcc/jjab227",
+       "reason": "Civil Proceedings;Concerns/Issues about Data;Concerns/Issues about Results and/or Conclusions;Legal Reasons and/or Threats;",
+       "source": "retraction_watch",
+       "source_record_id": "35124",
+       "matched_on": "doi"
+      }
+     ]
+    }
+   ],
+   "trials": []
+  },
+  "expected": {
+   "10176": {
+    "band": "expression_of_concern",
+    "severity": "medium",
+    "why": "ECCO consensus, concern 2022-01, cited 2016"
+   }
+  }
+ },
+ {
+  "paper": {
+   "paper_id": 269,
+   "publication_date": "2020-12-06",
+   "references": [
+    {
+     "reference_id": 10630,
+     "ordinal": 1,
+     "raw_string": "Levine A. Koletzko S. Turner D. Escher J.C. Cucchiara S. De Ridder L. Kolho K.-L. Veres G. Russell R. Paerregaard A. The ESPGHAN Revised Porto Criteria for the Diagnosis of Inflammatory Bowel Disease in Children and Adolescents J. Pediatr. Gastroenterol. Nutr. 2013 58 795 806 10.1097/MPG.0000000000000239 24231644",
+     "citation_tag": "element-citation",
+     "publication_type": "journal",
+     "parsed_doi": "10.1097/mpg.0000000000000239",
+     "parsed_pmid": "24231644",
+     "parsed_title": "The ESPGHAN Revised Porto Criteria for the Diagnosis of Inflammatory Bowel Disease in Children and Adolescents",
+     "parsed_first_author": "levine",
+     "parsed_year": 2013,
+     "parsed_container": "J. Pediatr. Gastroenterol. Nutr.",
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": []
+    },
+    {
+     "reference_id": 10631,
+     "ordinal": 2,
+     "raw_string": "Prevention CfDCa Inflamm Bowel Dis. 2018 Available online: https://www.cdc.gov/ibd/data-statistics.htm (accessed on 6 December 2020)",
+     "citation_tag": "element-citation",
+     "publication_type": "journal",
+     "parsed_doi": null,
+     "parsed_pmid": null,
+     "parsed_title": "Inflamm",
+     "parsed_first_author": "prevention cfdca",
+     "parsed_year": 2018,
+     "parsed_container": "Bowel Dis.",
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": []
+    },
+    {
+     "reference_id": 10639,
+     "ordinal": 10,
+     "raw_string": "Chassaing B. Koren O. Goodrich J.K. Poole A.C. Srinivasan S. Ley R.E. Gewirtz A.T. Dietary emulsifiers impact the mouse gut microbiota promoting colitis and metabolic syndrome Nature 2015 519 92 96 10.1038/nature14232 25731162 PMC4910713",
+     "citation_tag": "element-citation",
+     "publication_type": "journal",
+     "parsed_doi": "10.1038/nature14232",
+     "parsed_pmid": "25731162",
+     "parsed_title": "Dietary emulsifiers impact the mouse gut microbiota promoting colitis and metabolic syndrome",
+     "parsed_first_author": "chassaing",
+     "parsed_year": 2015,
+     "parsed_container": "Nature",
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": [
+      {
+       "notice_type": "correction",
+       "notice_date": "2016-05-04",
+       "notice_doi": "10.1038/nature18000",
+       "reason": "Error in Data;Error in Text;Miscommunication with/by Journal/Publisher;",
+       "source": "retraction_watch",
+       "source_record_id": "8972",
+       "matched_on": "doi"
+      }
+     ]
+    }
+   ],
+   "trials": []
+  },
+  "expected": {
+   "10639": {
+    "band": "corrected",
+    "severity": null,
+    "why": "correction only: never flagged"
+   }
+  }
+ },
+ {
+  "paper": {
+   "paper_id": 346,
+   "publication_date": "2017-08-18",
+   "references": [
+    {
+     "reference_id": 13379,
+     "ordinal": 1,
+     "raw_string": "VlaarAP, BinnekadeJM, PrinsD, et al Risk factors and outcome of transfusion-related acute lung injury in the critically ill: a nested case-control study. Crit Care Med 2010;38:771–8. 10.1097/CCM.0b013e3181cc4d4b 20035217",
+     "citation_tag": "mixed-citation",
+     "publication_type": "journal",
+     "parsed_doi": "10.1097/ccm.0b013e3181cc4d4b",
+     "parsed_pmid": "20035217",
+     "parsed_title": "Risk factors and outcome of transfusion-related acute lung injury in the critically ill: a nested case-control study",
+     "parsed_first_author": "vlaar",
+     "parsed_year": 2010,
+     "parsed_container": "Crit Care Med",
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": []
+    },
+    {
+     "reference_id": 13380,
+     "ordinal": 2,
+     "raw_string": "GajicO, RanaR, WintersJL, et al Transfusion-related acute lung injury in the critically ill: prospective nested case-control study. Am J Respir Crit Care Med 2007;176:886–91. 10.1164/rccm.200702-271OC 17626910PMC2048675",
+     "citation_tag": "mixed-citation",
+     "publication_type": "journal",
+     "parsed_doi": "10.1164/rccm.200702-271oc",
+     "parsed_pmid": "17626910",
+     "parsed_title": "Transfusion-related acute lung injury in the critically ill: prospective nested case-control study",
+     "parsed_first_author": "gajic",
+     "parsed_year": 2007,
+     "parsed_container": "Am J Respir Crit Care Med",
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": []
+    },
+    {
+     "reference_id": 13432,
+     "ordinal": 54,
+     "raw_string": "BasranS, FrumentoRJ, CohenA, et al The association between duration of storage of transfused red blood cells and morbidity and mortality after reoperative cardiac surgery. Anesth Analg 2006;103:15–20. table of contents. 10.1213/01.ane.0000221167.58135.3d 16790618",
+     "citation_tag": "mixed-citation",
+     "publication_type": "journal",
+     "parsed_doi": "10.1213/01.ane.0000221167.58135.3d",
+     "parsed_pmid": "16790618",
+     "parsed_title": "The association between duration of storage of transfused red blood cells and morbidity and mortality after reoperative cardiac surgery",
+     "parsed_first_author": "basran",
+     "parsed_year": 2006,
+     "parsed_container": "Anesth Analg",
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": [
+      {
+       "notice_type": "retraction",
+       "notice_date": "2009-06-01",
+       "notice_doi": "10.1213/01.ane.0000351544.23942.33",
+       "reason": "Concerns/Issues about Data;Error in Data;",
+       "source": "retraction_watch",
+       "source_record_id": "264",
+       "matched_on": "doi"
+      }
+     ]
+    }
+   ],
+   "trials": []
+  },
+  "expected": {
+   "13432": {
+    "band": "after_grace",
+    "severity": "high",
+    "why": "retracted 2009-06 (data concerns), cited 2017-08"
+   }
+  }
+ },
+ {
+  "paper": {
+   "paper_id": 494,
+   "publication_date": "2021-02-18",
+   "references": [
+    {
+     "reference_id": 19282,
+     "ordinal": 1,
+     "raw_string": "Gajendra S Kumar JV Oral health and pregnancy: a review N Y State Dent J 2004 70 40 44 15042797",
+     "citation_tag": "element-citation",
+     "publication_type": "journal",
+     "parsed_doi": null,
+     "parsed_pmid": "15042797",
+     "parsed_title": "Oral health and pregnancy: a review",
+     "parsed_first_author": "gajendra",
+     "parsed_year": 2004,
+     "parsed_container": "N Y State Dent J",
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": []
+    },
+    {
+     "reference_id": 19283,
+     "ordinal": 2,
+     "raw_string": "Simón-Soro A Mira A Solving the etiology of dental caries Trends Microbiol 2015 23 76 82 10.1016/j.tim.2014.10.010 25435135",
+     "citation_tag": "element-citation",
+     "publication_type": "journal",
+     "parsed_doi": "10.1016/j.tim.2014.10.010",
+     "parsed_pmid": "25435135",
+     "parsed_title": "Solving the etiology of dental caries",
+     "parsed_first_author": "simon soro",
+     "parsed_year": 2015,
+     "parsed_container": "Trends Microbiol",
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": []
+    },
+    {
+     "reference_id": 19292,
+     "ordinal": 11,
+     "raw_string": "Shah AF Batra M Qureshi A Evaluation of impact of pregnancy on oral health status and oral health related quality of life among women of Kashmir Valley J Clin Diagn Res JCDR. 2017 11 ZC01 ZC04 28658896 10.7860/JCDR/2017/25862.9769 PMC5483798",
+     "citation_tag": "element-citation",
+     "publication_type": "journal",
+     "parsed_doi": "10.7860/jcdr/2017/25862.9769",
+     "parsed_pmid": "28658896",
+     "parsed_title": "Evaluation of impact of pregnancy on oral health status and oral health related quality of life among women of Kashmir Valley",
+     "parsed_first_author": "shah",
+     "parsed_year": 2017,
+     "parsed_container": "J Clin Diagn Res JCDR.",
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": [
+      {
+       "notice_type": "retraction",
+       "notice_date": "2018-01-01",
+       "notice_doi": "10.7860/jcdr/2018/25862.11047",
+       "reason": "Error in Analyses;Error in Data;Error in Results and/or Conclusions;",
+       "source": "retraction_watch",
+       "source_record_id": "18340",
+       "matched_on": "doi"
+      }
+     ]
+    },
+    {
+     "reference_id": 19314,
+     "ordinal": 33,
+     "raw_string": "Suresh K An overview of randomization techniques: An unbiased assessment of outcome in clinical research J Hum Reprod Sci 2011 4 8 11 10.4103/0974-1208.82352 21772732 PMC3136079",
+     "citation_tag": "element-citation",
+     "publication_type": "journal",
+     "parsed_doi": "10.4103/0974-1208.82352",
+     "parsed_pmid": "21772732",
+     "parsed_title": "An overview of randomization techniques: An unbiased assessment of outcome in clinical research",
+     "parsed_first_author": "suresh",
+     "parsed_year": 2011,
+     "parsed_container": "J Hum Reprod Sci",
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": [
+      {
+       "notice_type": "retraction",
+       "notice_date": "2017-01-01",
+       "notice_doi": "10.4103/0974-1208.170593",
+       "reason": "Date of Article and/or Notice Unknown;Duplication of/in Article;Euphemisms for Duplication;",
+       "source": "retraction_watch",
+       "source_record_id": "8343",
+       "matched_on": "doi"
+      }
+     ]
+    }
+   ],
+   "trials": []
+  },
+  "expected": {
+   "19292": {
+    "band": "after_grace",
+    "severity": "high",
+    "why": "retracted 2018-01 (errors), cited 2021-02"
+   },
+   "19314": {
+    "band": "after_grace",
+    "severity": "high",
+    "why": "retracted 2017-01 (duplication), cited 2021-02"
+   }
+  }
+ },
+ {
+  "paper": {
+   "paper_id": 526,
+   "publication_date": "2023-11-18",
+   "references": [
+    {
+     "reference_id": 20587,
+     "ordinal": 1,
+     "raw_string": "Global strategy on oral health. In Seventy-fifth World Health Assembly. Provisional agenda item 14.1 2022 Geneva World Health Organization",
+     "citation_tag": "element-citation",
+     "publication_type": "book",
+     "parsed_doi": null,
+     "parsed_pmid": null,
+     "parsed_title": "Seventy-fifth World Health Assembly. Provisional agenda item 14.1",
+     "parsed_first_author": "global strategy on oral health in",
+     "parsed_year": 2022,
+     "parsed_container": null,
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": []
+    },
+    {
+     "reference_id": 20588,
+     "ordinal": 2,
+     "raw_string": "Oral health. In Seventy-fourth World Health Assembly. Summary and verbatim records 2021 Geneva World Health Organization",
+     "citation_tag": "element-citation",
+     "publication_type": "book",
+     "parsed_doi": null,
+     "parsed_pmid": null,
+     "parsed_title": "Seventy-fourth World Health Assembly. Summary and verbatim records",
+     "parsed_first_author": "oral health in",
+     "parsed_year": 2021,
+     "parsed_container": null,
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": []
+    },
+    {
+     "reference_id": 20627,
+     "ordinal": 41,
+     "raw_string": "Sahana S Vasa AA Geddam D Reddy VK Nalluri S Velagapudi N Effectiveness of chemomechanical caries removal agents Papacarie(®) and Carie-Care™ in primary molars: an in vitro study J Int Soc Prev Community Dent 2016 6 17 22 10.4103/2231-0762.181162 PMC4863478 27195222",
+     "citation_tag": "element-citation",
+     "publication_type": "journal",
+     "parsed_doi": "10.4103/2231-0762.181162",
+     "parsed_pmid": "27195222",
+     "parsed_title": "Effectiveness of chemomechanical caries removal agents Papacarie(®) and Carie-Care™ in primary molars: an in vitro study",
+     "parsed_first_author": "sahana",
+     "parsed_year": 2016,
+     "parsed_container": "J Int Soc Prev Community Dent",
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": [
+      {
+       "notice_type": "retraction",
+       "notice_date": "2016-07-25",
+       "notice_doi": "10.4103/2231-0762.186808",
+       "reason": "Plagiarism of Data;Plagiarism of Image;",
+       "source": "retraction_watch",
+       "source_record_id": "5019",
+       "matched_on": "doi"
+      }
+     ]
+    }
+   ],
+   "trials": []
+  },
+  "expected": {
+   "20627": {
+    "band": "after_grace",
+    "severity": "high",
+    "why": "retracted 2016-07 (plagiarism), cited 2023-11"
+   }
+  }
+ },
+ {
+  "paper": {
+   "paper_id": 591,
+   "publication_date": "2020-03-18",
+   "references": [
+    {
+     "reference_id": 22990,
+     "ordinal": 1,
+     "raw_string": "Okifuji A , Hare BD . Management of fibromyalgia syndrome: review of evidence. Pain Ther 2013;2:87–104.2513514710.1007/s40122-013-0016-9PMC4107911",
+     "citation_tag": "mixed-citation",
+     "publication_type": "journal",
+     "parsed_doi": "10.1007/s40122-013-0016-9",
+     "parsed_pmid": "25135147",
+     "parsed_title": "Management of fibromyalgia syndrome: review of evidence",
+     "parsed_first_author": "okifuji",
+     "parsed_year": 2013,
+     "parsed_container": "Pain Ther",
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": []
+    },
+    {
+     "reference_id": 22991,
+     "ordinal": 2,
+     "raw_string": "Vincent A , Whipple MO , McAllister SJ , Aleman KM , St Sauver JL . A cross‐sectional assessment of the prevalence of multiple chronic conditions and medication use in a sample of community‐dwelling adults with fibromyalgia in Olmsted County, Minnesota. BMJ Open 2015;5:e006681.10.1136/bmjopen-2014-006681PMC436082925735301",
+     "citation_tag": "mixed-citation",
+     "publication_type": "journal",
+     "parsed_doi": "10.1136/bmjopen-2014-006681",
+     "parsed_pmid": "25735301",
+     "parsed_title": "A cross‐sectional assessment of the prevalence of multiple chronic conditions and medication use in a sample of community‐dwelling adults with fibromyalgia in Olmsted County, Minnesota",
+     "parsed_first_author": "vincent",
+     "parsed_year": 2015,
+     "parsed_container": "BMJ Open",
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": []
+    },
+    {
+     "reference_id": 23039,
+     "ordinal": 50,
+     "raw_string": "Rampakakis E , Ste‐Marie PA , Sampalis JS , Karellis A , Shir Y , Fitzcharles MA . Real‐life assessment of the validity of patient global impression of change in fibromyalgia. RMD Open 2015;1:e000146.2653515010.1136/rmdopen-2015-000146PMC4623367",
+     "citation_tag": "mixed-citation",
+     "publication_type": "journal",
+     "parsed_doi": "10.1136/rmdopen-2015-000146",
+     "parsed_pmid": "26535150",
+     "parsed_title": "Real‐life assessment of the validity of patient global impression of change in fibromyalgia",
+     "parsed_first_author": "rampakakis",
+     "parsed_year": 2015,
+     "parsed_container": "RMD Open",
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": [
+      {
+       "notice_type": "correction",
+       "notice_date": "2015-10-01",
+       "notice_doi": "10.1136/rmdopen-2015-000146corr1",
+       "reason": "Error in Data;Error in Text;",
+       "source": "retraction_watch",
+       "source_record_id": "9190",
+       "matched_on": "doi"
+      }
+     ]
+    }
+   ],
+   "trials": []
+  },
+  "expected": {
+   "23039": {
+    "band": "corrected",
+    "severity": null,
+    "why": "correction only: never flagged"
+   }
+  }
+ },
+ {
+  "paper": {
+   "paper_id": 718,
+   "publication_date": "2021-03-30",
+   "references": [
+    {
+     "reference_id": 27882,
+     "ordinal": 1,
+     "raw_string": "Danforth K. Granich R. Wiedeman D. Baxi S. Padian N. Holmes K.K. Bertozzi S. Bloom B.R. Jha P. Global Mortality and Morbidity of HIV/AIDS Dis. Control. Priorities 2017 6 29 44 30212096",
+     "citation_tag": "element-citation",
+     "publication_type": "journal",
+     "parsed_doi": null,
+     "parsed_pmid": "30212096",
+     "parsed_title": "Global Mortality and Morbidity of HIV/AIDS",
+     "parsed_first_author": "danforth",
+     "parsed_year": 2017,
+     "parsed_container": "Dis. Control. Priorities",
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": []
+    },
+    {
+     "reference_id": 27883,
+     "ordinal": 2,
+     "raw_string": "Martínez E. Milinkovic A. Buira E. De Lazzari E. Leon A. Larrousse M. Lonca M. Laguno M. Blanco J. Mallolas J. Incidence and causes of death in HIV-infected persons receiving highly active antiretroviral therapy compared with estimates for the general population of similar age and from the same geographical area HIV Med. 2007 8 251 258 10.1111/j.1468-1293.2007.00468.x 17461853",
+     "citation_tag": "element-citation",
+     "publication_type": "journal",
+     "parsed_doi": "10.1111/j.1468-1293.2007.00468.x",
+     "parsed_pmid": "17461853",
+     "parsed_title": "Incidence and causes of death in HIV-infected persons receiving highly active antiretroviral therapy compared with estimates for the general population of similar age and from the same geographical area",
+     "parsed_first_author": "martinez",
+     "parsed_year": 2007,
+     "parsed_container": "HIV Med.",
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": []
+    },
+    {
+     "reference_id": 27895,
+     "ordinal": 14,
+     "raw_string": "Estruch R. Ros E. Salas-Salvadó J. Covas M.-I. Corella D. Arós F. Gómez-Gracia E. Ruiz-Gutiérrez V. Fiol M. Lapetra J. Primary prevention of cardiovascular disease with a Mediterranean diet N. Engl. J. Med. 2013 368 1279 1290 10.1056/NEJMoa1200303 29897867",
+     "citation_tag": "element-citation",
+     "publication_type": "journal",
+     "parsed_doi": "10.1056/nejmoa1200303",
+     "parsed_pmid": "29897867",
+     "parsed_title": "Primary prevention of cardiovascular disease with a Mediterranean diet",
+     "parsed_first_author": "estruch",
+     "parsed_year": 2013,
+     "parsed_container": "N. Engl. J. Med.",
+     "resolution_status": "pending",
+     "resolution_method": null,
+     "resolved_paper_id": null,
+     "resolution_evidence": null,
+     "notices": [
+      {
+       "notice_type": "retraction",
+       "notice_date": "2018-06-13",
+       "notice_doi": "10.1056/nejmc1806491",
+       "reason": "Error in Analyses;Error in Methods;Error in Results and/or Conclusions;Retract and Replace;",
+       "source": "retraction_watch",
+       "source_record_id": "18405",
+       "matched_on": "doi"
+      }
+     ]
+    }
+   ],
+   "trials": []
+  },
+  "expected": {
+   "27895": {
+    "band": "replaced",
+    "severity": "low",
+    "why": "PREDIMED, retracted and replaced 2018-06, cited 2021-03"
+   }
+  }
+ }
+]

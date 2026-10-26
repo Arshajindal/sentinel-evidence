@@ -33,7 +33,7 @@ Low friction or it rots. The rules:
 
 **Phase:** 1 of 5 — data foundation and deterministic checks
 **Plan:** `docs/sentinel-project.md` §15 session IDs. Old brief and HTML spec are in `docs/archive/`.
-**Last worked:** 2026-10-25 — S1.10 (C01 reference existence)
+**Last worked:** 2026-10-25 — S1.11 (C02 retraction status)
 
 **Sessions:**
 
@@ -49,16 +49,17 @@ Low friction or it rots. The rules:
 | S1.8 Reference parser | done | `parse/references.py` (ADR-033). 50 hand-checked strings: 0 wrong or invented, 88.2% filled. On the corpus's 22,019 untagged strings: first author 92.6%, year 97.3%, title 78.9%. Not yet written to `reference`; S1.9 applies it. |
 | S1.9 Resolution cascade + candidate fetch | done | `resolve/cascade.py`, `resolve/candidates.py`, `sentinel resolve`, migration `80034d5e56ce`, parser 1.1.0 (ADR-034). §9.10 sample (structured, seed 20260922): 944/1,000 resolved (94.4%); all-reference sample: 88.7%. No wrong title-stage match found. 1,786 references processed so far (1,637 resolved); the other 36,899 resolve in S1.15. |
 | S1.10 C01 | done | `checks/c01_existence.py` (ADR-035), doi.org check during resolution, paper checks in the runner, paper report cards. 48-reference real fixture labelled by hand: all agree, no non-journal item flagged. Live on three fully resolved papers: one unindexed journal reference flagged in each. |
-| S1.11 – S1.15 | not started | |
+| S1.11 C02 | done | `checks/c02_retraction.py` (ADR-036): three timing bands, plus a low band for retract-and-replace. Fixture: 12 real papers (after-grace, before, replaced, concern, corrected) plus constructed in-press and edge cases. Corpus: 6 citations in 5 papers made more than 6 months after a plain retraction. |
+| S1.12 – S1.15 | not started | |
 
-**What works:** corpus selection and harvest; DOI lookups; parsing and resolution; `sentinel check` (C01 over papers, C05 over trials); `sentinel report` for trials and papers. 441 tests: 427 run without a database, and the other 14 need `TEST_DATABASE_URL`.
+**What works:** corpus selection and harvest; DOI lookups; parsing and resolution; `sentinel check` (C01, C02 over papers; C05 over trials); `sentinel report` for trials and papers. 479 tests: 465 run without a database, and the other 14 need `TEST_DATABASE_URL`.
 
 **What's broken:** nothing known. PMC6561645's full text returns a persistent HTTP 500 upstream, so it's stored without references (a re-run retries it). The DB tests skip on the dev DB now that it holds real data; a disposable `sentinel_test` database is still to be created.
 
 **Next three things:**
-1. S1.11: C02 (retraction status, three timing bands)
-2. S1.12: Statistic extraction and C03
-3. S1.13: C04
+1. S1.12: Statistic extraction and C03 (needs the full text's body, which nothing has fetched or parsed yet; see §9.1)
+2. S1.13: C04
+3. S1.14: Complete the fixture set, plus `stats` and `export`
 
 **Then:** S1.14 onward. Open from S1.9/S1.10: a DOI pointing at a differently titled paper (title agreement is recorded) has no check yet; decide whether it belongs in C01 or a new check. Target: `sentinel report <nct-id>` prints a real overdue-results finding.
 
@@ -508,6 +509,26 @@ Fixture: 48 real references labelled by reading each, before looking at C01's ou
 Paper report cards (`sentinel report <paper-id|doi>`) show each check's latest-run findings plus linked trials' cards (§9.8).
 
 **Rejected:** one finding per paper (problems collapse into one line); one per reference (~38,700 rows a run); flagging journal-like references whose candidates suggest the work exists.
+
+---
+
+### ADR-036 — C02: §9.7's bands, plus a low band for retract-and-replace
+**Status:** active
+
+C02 (`checks/c02_retraction.py`, v1.0.0) applies ADR-017's three timing bands with G = `C02_GRACE_MONTHS` (6), measured in whole months from the *earliest* retraction notice to the citing paper's Europe PMC `firstPublicationDate`:
+- more than G months after the retraction → high;
+- 0 to G months → low, "in press";
+- on or before the retraction date → low.
+
+Expressions of concern are medium at any timing. Corrections are never flagged.
+
+New, from real data: Retraction Watch marks 927 retractions "Retract and Replace", and Cochrane withdrawals appear as "Withdrawn as Out of Date". In this corpus, 3 of the 9 "cited after retraction" cases were of this kind (PREDIMED *NEJM* 2013, a favipiravir COVID-19 study, a Cochrane review). Flagging them high would mislead, so (your choice) a retraction whose every notice carries one of those reasons is its own band: **low**, "retracted and replaced or withdrawn as out of date; the current version should be checked". A retraction followed by a reinstatement isn't flagged. An unknown citing or retraction date gives `insufficient_data`.
+
+Matching uses the reference's own DOI/PMID and its resolved paper's, so C02 works before full resolution. Output follows ADR-035: one finding per affected reference plus a per-paper summary.
+
+Fixture: 12 real corpus papers (13 noticed references), with bands written from the notices and dates before running C02. The corpus has no real "in press" case, so that band and the edge rules (boundaries, reinstatement, earliest notice, unknown dates) use constructed contexts. On the corpus, 6 references in 5 papers were cited more than 6 months after a plain retraction.
+
+**Rejected:** §9.7's bands applied literally (a third of the high flags would mislead); not flagging replaced works (loses the signal that the cited version isn't current).
 
 ---
 
