@@ -17,7 +17,15 @@ from sentinel.ingest.clinicaltrials import ClinicalTrialsClient, normalise_nct_i
 from sentinel.ingest.crossref import CrossrefClient
 from sentinel.ingest.doi_handle import DoiHandleClient
 from sentinel.ingest.europepmc import EuropePMC, EuropePMCHarvester, select_corpus
-from sentinel.ingest.openalex import OpenAlexClient
+from sentinel.ingest.openalex import OpenAlexBudgetExhausted, OpenAlexClient
+from sentinel.resolve.candidates import CandidateSource
+from sentinel.resolve.cascade import (
+    Resolver,
+    Thresholds,
+    resolve_references,
+    select_references,
+    summarise,
+)
 from sentinel.ingest.http import RateLimitedHTTP, RetryableHTTPError, build_http_client
 from sentinel.ingest.retraction_watch import RetractionWatchHarvester
 from sentinel.log import configure_logging, get_logger
@@ -227,6 +235,55 @@ def _fetch_trials(settings: Settings, raw_ids: list[str]) -> None:
                 typer.echo(f"{record.nct_id}: stored, {len(record.outcomes)} outcomes")
     if failed:
         raise typer.Exit(code=1)
+
+
+@app.command()
+def resolve(
+    corpus: Annotated[Optional[str], typer.Option(help="Corpus label")] = None,
+    sample: Annotated[
+        Optional[int], typer.Option(help="Resolve a seeded sample of N references")
+    ] = None,
+    limit: Annotated[Optional[int], typer.Option(help="Stop after N references")] = None,
+    retry: Annotated[bool, typer.Option(help="Re-resolve references already done")] = False,
+    batch_size: Annotated[int, typer.Option(help="References per commit")] = 50,
+    structured: Annotated[
+        bool, typer.Option(help="Only references from structured lists (section 9.10's target)")
+    ] = False,
+) -> None:
+    """Match references to known works (stages 1-5, sentinel-project.md section 9.5)."""
+    settings = get_settings()
+    label = corpus or settings.default_corpus_label
+    engine = get_engine()
+    ids = select_references(engine, corpus=label, retry=retry, sample=sample,
+                            seed=settings.random_seed if sample else None, limit=limit,
+                            structured=structured)
+    sample_ids = (select_references(engine, corpus=label, retry=True, sample=sample,
+                                    seed=settings.random_seed, structured=structured)
+                  if sample else None)
+    typer.echo(f"{len(ids)} references to resolve")
+    with build_http_client(settings) as client:
+        crossref = CrossrefClient(_rate_limited(settings, client, "crossref", settings.rate_crossref_rps),
+                                  base_url=settings.crossref_base_url, mailto=settings.contact_email)
+        openalex = OpenAlexClient(_rate_limited(settings, client, "openalex", settings.rate_openalex_rps),
+                                  base_url=settings.openalex_base_url, api_key=settings.openalex_api_key,
+                                  daily_budget_usd=settings.openalex_daily_budget_usd)
+        resolver = Resolver(
+            CandidateSource(engine, crossref, openalex),
+            Thresholds(settings.resolve_trigram_min, settings.resolve_trigram_strict,
+                       settings.resolve_year_tolerance, settings.resolve_ambiguous_margin),
+        )
+        try:
+            stats = resolve_references(engine, resolver, ids, batch_size=batch_size)
+        except OpenAlexBudgetExhausted as exc:
+            typer.echo(f"stopped: {exc}. Finished batches are kept; run again tomorrow to resume.")
+            raise typer.Exit(code=3) from exc
+    typer.echo(f"resolved this run: {stats.by_status} (parsed {stats.parsed}); "
+               f"OpenAlex spent ${openalex.budget.spent_usd:.3f}")
+    if sample_ids:
+        summary = summarise(engine, sample_ids)
+        done = summary["by_status"].get("resolved", 0)
+        typer.echo(f"sample of {len(sample_ids)}: {summary['by_status']} "
+                   f"-> {100 * done / len(sample_ids):.1f}% resolved; methods {summary['by_method']}")
 
 
 @app.command()

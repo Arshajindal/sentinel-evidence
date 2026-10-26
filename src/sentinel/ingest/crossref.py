@@ -87,8 +87,14 @@ class CrossrefClient(LookupClient):
         if raw is None:
             log.info("crossref_not_found", doi=doi_norm)
             return None
+        try:
+            record = self.normalise(raw)
+        except ValueError:
+            # Registered, but without a title it can't be stored or matched.
+            log.warning("crossref_record_unusable", doi=doi_norm)
+            return StoredPaper(None, "unusable")
         with engine.begin() as conn:
-            stored = self.upsert(conn, self.normalise(raw))
+            stored = self.upsert(conn, record)
         log.info("crossref_stored", doi=doi_norm, paper_id=stored.paper_id, action=stored.action)
         return stored
 

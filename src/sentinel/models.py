@@ -106,6 +106,8 @@ reference = Table(
         server_default=text("'pending'"),
     ),
     Column("resolved_at", DateTime(timezone=True)),
+    # Stages tried, near-misses, lookups made; C01's evidence (ADR-034).
+    Column("resolution_evidence", JSONB),
     UniqueConstraint(
         "citing_paper_id", "ordinal", name="reference_citing_ordinal_key"
     ),

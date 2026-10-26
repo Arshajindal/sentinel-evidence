@@ -24,7 +24,7 @@ from dataclasses import dataclass
 
 from sentinel.resolve.normalize import normalize_doi, normalize_surname
 
-PARSER_VERSION = "1.0.0"
+PARSER_VERSION = "1.1.0"
 
 _MONTHS = r"(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z]*\.?"
 # Surname words contain a lowercase letter ("McAuley", "van", "İdiman");
@@ -39,7 +39,9 @@ _HYPHEN = "\\-‐‑"  # ASCII hyphen, U+2010, U+2011
 _SURWORD = (rf"(?=[^\s,;.]*[{_LOWER}])(?![^\s,;.]*[{_LOWER}][{_UPPER}]{{2}})"
             rf"[^\W\d_]+(?:['’][^\W\d_]+)*")
 _SURNAME = rf"{_SURWORD}(?:[ {_HYPHEN}]{_SURWORD}){{0,3}}"
-_INITIALS = rf"(?:[{_UPPER}]{{1,4}}\b|(?:[{_UPPER}]\.\s?[{_HYPHEN}]?){{1,4}}(?:[{_UPPER}]\b)?)"
+_INITIALS = (rf"(?:[{_UPPER}](?:[{_HYPHEN}][{_UPPER}])+\b"            # H-C, M‐J
+             rf"|[{_UPPER}]{{1,4}}\b"                                # SA
+             rf"|(?:[{_UPPER}]\.\s?[{_HYPHEN}]?){{1,4}}(?:[{_UPPER}]\b)?)")  # S.M., J. C
 _SUFFIX = r"(?:\s*,?\s*(?:Jr|Sr|II|III|IV)\b\.?)"
 _AUTHOR = rf"{_SURNAME},?\s+{_INITIALS}{_SUFFIX}?"
 _SEP = r"(?:\s*,\s*(?:…\s*|\.\.\.\s*)?|\s*;\s*|,?\s*&\s*|,?\s+and\s+)"
@@ -59,6 +61,7 @@ _STRONG_YEAR = [
     re.compile(r"(?<![\d.])(\d{4})[a-z]?\s*;"),             # 2015;
     # 2019 Mar 5;  2006 Nov-Dec;
     re.compile(rf"(?<![\d.])(\d{{4}})\s+{_MONTHS}(?:\s*[-–/]\s*{_MONTHS})?(?:\s*\d{{1,2}})?\s*[;:]"),
+    re.compile(r"(?<=[A-Za-z.]),\s*(\d{4})[a-z]?\.\s"),     # Harvard: "Nitsche MA, 2017. "
 ]
 _ANY_YEAR = re.compile(r"(?<![\d./])(\d{4})(?![\d/])")
 # "Accessed 10 Mar 2021", "[cited 2015 Aug 21]": when it was read, not published.
@@ -76,6 +79,7 @@ _NOT_SURNAMES = frozenset({
     "authority", "programme", "program", "alliance", "federation", "college", "academy",
 })
 _TRAILING_BRACKET = re.compile(r"\s*\[[^\]]{1,40}\]\s*$")  # "[review]", "[Internet]"
+_NOT_A_CONTAINER = re.compile(r"(?i)^(?:available|retrieved|accessed|in:|cited|from\b|\[|online)")
 _JOURNAL_PIECE = re.compile(r"[A-Z][\w&]{0,15}(?: [A-Z][\w&]{0,15}){0,2}")
 # Signs that author names leaked into a title: a leading comma or ampersand,
 # or "X., Surname" / "& Surname, X." patterns.
@@ -96,6 +100,8 @@ def parse_reference(text: str | None, *, max_year: int) -> ParsedReference:
     if not text or not text.strip():
         return ParsedReference()
     s = _LIST_MARKER.sub("", " ".join(text.split()))
+    # "Liscio Pet al." -> "Liscio P, et al." ("et al" glued onto initials).
+    s = re.sub(rf"(?<=\s[{_UPPER}])(?=et al\b)|(?<=\s[{_UPPER}]{{2}})(?=et al\b)", ", ", s)
 
     doi = _doi(s)
     pmid_match = _PMID.search(s)
@@ -170,7 +176,7 @@ def _authors_end(core: str, limit: int) -> int | None:
     everything before it is a well-formed author list. The last, not the
     first: "Smith, I. C., & Jones, A." parses as authors after "I." too."""
     end = None
-    for cut in re.finditer(r"\.\s+|\s+\(|,\s+(?=\d{4}\b)|(?<=\bet al)\s+", core[:limit]):
+    for cut in re.finditer(r"\.\s+|\s*:\s+|\s+\(|,\s+(?=\d{4}\b)|(?<=\bet al)\s+", core[:limit]):
         head = core[:cut.start()].rstrip(" ,.")
         if head and _AUTHOR_LIST.fullmatch(head):
             end = cut.start() if core[cut.start()] in " ," else cut.end()
@@ -187,14 +193,23 @@ def _title_and_container(core: str, year_span: tuple[int, int] | None) -> tuple[
     if end >= year_span[0] - 3:
         # Author-year style: "Authors (2016). Title. Journal, 7..." or "Authors, 2014. Title."
         rest = core[year_span[1]:].lstrip(" ).,:")
+        # Only ". " ends the title here: "A question of control? Examining..."
         parts = [p for p in re.split(r"\.\s+", rest) if p.strip()]
-        if len(parts) < 2:
+        if not parts:
             return None, None
         title = _clean(parts[0])
-        container = _clean(re.split(r",|\s\d", parts[1])[0])
+        if _AUTHORISH.search(title):
+            return None, None
+        # The container is everything after the title up to the volume
+        # ("Int. Rev. Psychiatry 29 (2), ..."); "Steer RA (1997) Beck anxiety
+        # inventory" has none.
+        after = rest[rest.find(parts[0]) + len(parts[0]):].lstrip(" .?!")
+        container = _clean(re.split(r",|\s\d|\(", after)[0]) if after else ""
+        if _NOT_A_CONTAINER.match(container):
+            container = ""
         return title or None, container or None
 
-    middle = core[end:year_span[0]]
+    middle = core[end:year_span[0]].lstrip(" :")
     # Volume and pages before a trailing year ("Nutr. 59, 347–355 (2014)").
     middle = _TRAILING_NUMBERS.sub("", middle).strip().rstrip(".").strip()
     # Segments end at ". " or after "? "/"! " (a question-mark title keeps its "?").

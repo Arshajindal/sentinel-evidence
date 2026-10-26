@@ -81,6 +81,14 @@ class OpenAlexClient(LookupClient):
         response.raise_for_status()
         return response.json()
 
+    def work_by_pmid(self, pmid: str) -> dict | None:
+        """Free, like DOI lookups. 404 if OpenAlex has no work with this PMID."""
+        response = self._get(f"{self.base_url}/works/pmid:{pmid}")
+        if response.status_code == 404:
+            return None
+        response.raise_for_status()
+        return response.json()
+
     def search_title(self, title: str, *, year: int | None = None, rows: int = 5) -> list[dict]:
         if not self.budget.can_spend(SEARCH_COST_USD):
             log.warning("openalex_budget_exhausted", spent_usd=round(self.budget.spent_usd, 4),
@@ -89,8 +97,9 @@ class OpenAlexClient(LookupClient):
                 f"OpenAlex budget spent (this run ${self.budget.spent_usd:.3f} of "
                 f"${self.budget.limit_usd:.2f}; server reports "
                 f"{self.budget.server_remaining_usd} left)")
-        # Commas and colons are filter syntax; strip them from the title.
-        clean = " ".join(re.sub(r"[,:|]", " ", title).split())
+        # Commas, colons and pipes are filter syntax, and "?" and "*" are
+        # wildcards that OpenAlex rejects with 400 (checked live 2026-10-25).
+        clean = " ".join(re.sub(r"[,:|?*]", " ", title).split())
         filters = [f"title.search:{clean}"]
         if year is not None:
             filters.append(f"publication_year:{year - 1}-{year + 1}")
@@ -137,10 +146,32 @@ class OpenAlexClient(LookupClient):
         if raw is None:
             log.info("openalex_not_found", doi=doi_norm)
             return None
+        record = self._usable(raw, doi=doi_norm)
+        if record is None:
+            return StoredPaper(None, "unusable")
         with engine.begin() as conn:
-            stored = self.upsert(conn, self.normalise(raw))
+            stored = self.upsert(conn, record)
         log.info("openalex_stored", doi=doi_norm, paper_id=stored.paper_id, action=stored.action)
         return stored
+
+    def lookup_pmid(self, engine: Engine, pmid: str) -> StoredPaper | None:
+        raw = self.work_by_pmid(pmid)
+        if raw is None:
+            log.info("openalex_pmid_not_found", pmid=pmid)
+            return None
+        record = self._usable(raw, pmid=pmid)
+        if record is None:
+            return StoredPaper(None, "unusable")
+        with engine.begin() as conn:
+            return self.upsert(conn, record)
+
+    def _usable(self, raw: dict, **ids) -> PaperRecord | None:
+        """The record, or None if it can't be stored (no title)."""
+        try:
+            return self.normalise(raw)
+        except ValueError:
+            log.warning("openalex_record_unusable", **ids)
+            return None
 
     def search_and_store(self, engine: Engine, title: str, *, year: int | None = None,
                          rows: int = 5) -> list[StoredPaper]:

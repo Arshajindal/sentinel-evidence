@@ -113,6 +113,20 @@ def test_crossref_retries_then_succeeds(status):
     assert len(seen) == 2
 
 
+def test_untitled_record_is_not_stored_but_reported():
+    work = dict(_message("crossref_work.json"), title=[])
+    handler, _ = _sequence(lambda: httpx.Response(200, json={"message": work}))
+    stored = _crossref(handler).lookup(engine=None, doi=DOI)  # never touches the DB
+    assert (stored.paper_id, stored.action) == (None, "unusable")
+
+
+def test_openalex_untitled_record_is_not_stored_but_reported():
+    work = dict(_fixture("openalex_work.json")[1], display_name=None, title=None)
+    handler, _ = _sequence(lambda: httpx.Response(200, json=work))
+    stored = _openalex(handler).lookup(engine=None, doi=DOI)
+    assert (stored.paper_id, stored.action) == (None, "unusable")
+
+
 def test_crossref_skips_untitled_candidates():
     item = dict(_message("crossref_work.json"), title=[])
     with pytest.raises(ValueError):
@@ -159,6 +173,12 @@ def test_openalex_search_filters_and_records_cost():
         "publication_year:2005-2007")
     assert client.budget.spent_usd == pytest.approx(0.001)
     assert client.budget.server_remaining_usd == pytest.approx(0.097)
+
+
+def test_openalex_search_strips_wildcards_it_would_reject():
+    handler, seen = _sequence(lambda: _respond("openalex_search.json"))
+    _openalex(handler).search_title("Collaborative care: what is needed? A *review*")
+    assert seen[0].url.params["filter"] == "title.search:Collaborative care what is needed A review"
 
 
 def test_openalex_stops_searching_when_local_budget_is_spent():

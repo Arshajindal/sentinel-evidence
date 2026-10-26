@@ -309,6 +309,7 @@ CREATE TABLE reference (
     resolution_status   TEXT NOT NULL DEFAULT 'pending',
                                               -- pending|resolved|unresolved|ambiguous
     resolved_at         TIMESTAMPTZ,
+    resolution_evidence JSONB,                -- stages tried, near-misses, lookups (ADR-034)
     UNIQUE (citing_paper_id, ordinal)
 );
 CREATE INDEX reference_citing ON reference (citing_paper_id);
@@ -547,6 +548,8 @@ Entity resolution means matching each reference to a known work. The cascade run
 **Candidate fetch, which follows from ADR-020:** because Crossref and OpenAlex aren't stored locally in full, stages 3–5 need candidates first. When a reference has no local match, query Crossref's bibliographic search with the parsed title, author and year, and fall back to OpenAlex's title search only within its daily budget (ADR-032). An exhausted budget pauses resolution; it never marks a reference unresolved. Upsert the top results into `paper`, then run stages 3–5 locally. Log the number of candidate fetches as a cost metric.
 
 Record the winning stage in `resolution_method`. If two or more candidates tie at a stage, set the status to `ambiguous` and stop. Don't pick one.
+
+At stages 3 and 5, a candidate whose year or first author contradicts the reference is rejected, and stage 5 needs a title of at least four words (ADR-034). The trail (stages tried, near-misses, lookups) goes in `reference.resolution_evidence` for C01.
 
 **The distinction that protects the project's credibility: unresolved is not fabricated.** A reference can fail every stage because it's a book, a conference abstract, a regional journal that isn't indexed, a personal communication, or just badly formatted. C01 separates three cases:
 
