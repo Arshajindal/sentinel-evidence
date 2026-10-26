@@ -13,7 +13,7 @@ from typing import Any
 from pydantic import BaseModel, ConfigDict
 from sqlalchemy import Connection, select
 
-from sentinel.models import corpus_paper, reference, trial, trial_outcome
+from sentinel.models import corpus_paper, paper, reference, retraction_notice, trial, trial_outcome
 from sentinel.schemas import TrialOutcome, TrialRecord
 
 
@@ -24,6 +24,20 @@ class TrialContext(BaseModel):
     # The day the registry record was fetched. Date-based checks measure to
     # here, which keeps them pure and reproducible.
     fetched_on: date
+
+
+class NoticeContext(BaseModel):
+    """A Retraction Watch notice about a cited work (C02)."""
+
+    model_config = ConfigDict(frozen=True)
+
+    notice_type: str                  # retraction|correction|expression_of_concern|reinstatement
+    notice_date: date | None
+    notice_doi: str | None
+    reason: str | None
+    source: str
+    source_record_id: str | None
+    matched_on: str                   # doi | pmid
 
 
 class ReferenceContext(BaseModel):
@@ -46,6 +60,9 @@ class ReferenceContext(BaseModel):
     resolution_method: str | None
     resolved_paper_id: int | None
     resolution_evidence: dict[str, Any] | None
+    # Notices about the cited work, matched by the reference's own DOI/PMID
+    # or its resolved paper's (C02).
+    notices: tuple[NoticeContext, ...] = ()
 
 
 class PaperContext(BaseModel):
@@ -54,20 +71,32 @@ class PaperContext(BaseModel):
     model_config = ConfigDict(frozen=True)
 
     paper_id: int
+    # When the paper first appeared (Europe PMC firstPublicationDate); C02's
+    # timing bands measure from here.
+    publication_date: date | None = None
     references: tuple[ReferenceContext, ...] = ()
     trials: tuple[TrialContext, ...] = ()
 
 
 def load_paper_contexts(conn: Connection, paper_ids: list[int]) -> list[PaperContext]:
-    """Papers with their references (in bibliography order)."""
+    """Papers with their references (in bibliography order) and the notices
+    about each cited work."""
     if not paper_ids:
         return []
-    refs: dict[int, list[ReferenceContext]] = {pid: [] for pid in paper_ids}
+    cited = paper.alias("cited")
     rows = conn.execute(
-        select(reference)
+        select(reference, cited.c.doi.label("cited_doi"), cited.c.pmid.label("cited_pmid"))
+        .outerjoin(cited, cited.c.id == reference.c.resolved_paper_id)
         .where(reference.c.citing_paper_id.in_(paper_ids))
         .order_by(reference.c.citing_paper_id, reference.c.ordinal, reference.c.id)
-    ).mappings()
+    ).mappings().all()
+    notices = _notices_for(conn, rows)
+    pub_dates = {
+        pid: _iso_date((raw or {}).get("firstPublicationDate"))
+        for pid, raw in conn.execute(select(paper.c.id, paper.c.raw).where(paper.c.id.in_(paper_ids)))
+    }
+
+    refs: dict[int, list[ReferenceContext]] = {pid: [] for pid in paper_ids}
     for r in rows:
         raw = r["raw"] or {}
         refs[r["citing_paper_id"]].append(ReferenceContext(
@@ -79,8 +108,45 @@ def load_paper_contexts(conn: Connection, paper_ids: list[int]) -> list[PaperCon
             resolution_status=r["resolution_status"], resolution_method=r["resolution_method"],
             resolved_paper_id=r["resolved_paper_id"],
             resolution_evidence=r["resolution_evidence"],
+            notices=tuple(notices.get(r["id"], ())),
         ))
-    return [PaperContext(paper_id=pid, references=tuple(refs[pid])) for pid in paper_ids]
+    return [PaperContext(paper_id=pid, publication_date=pub_dates.get(pid),
+                         references=tuple(refs[pid])) for pid in paper_ids]
+
+
+def _notices_for(conn: Connection, rows) -> dict[int, list[NoticeContext]]:
+    """Notices per reference ID, matched on DOI or PMID (the reference's own
+    or its resolved paper's). A notice found both ways is listed once."""
+    dois: dict[str, set[int]] = {}
+    pmids: dict[str, set[int]] = {}
+    for r in rows:
+        for value in {r["parsed_doi"], r["cited_doi"]} - {None}:
+            dois.setdefault(value, set()).add(r["id"])
+        for value in {r["parsed_pmid"], r["cited_pmid"]} - {None}:
+            pmids.setdefault(value, set()).add(r["id"])
+    if not dois and not pmids:
+        return {}
+    found = conn.execute(select(retraction_notice).where(
+        retraction_notice.c.retracted_doi.in_(list(dois))
+        | retraction_notice.c.retracted_pmid.in_(list(pmids)))).mappings()
+    out: dict[int, dict[int, NoticeContext]] = {}
+    for n in found:
+        for matched_on, ref_ids in (("doi", dois.get(n["retracted_doi"], set())),
+                                    ("pmid", pmids.get(n["retracted_pmid"], set()))):
+            for ref_id in ref_ids:
+                out.setdefault(ref_id, {}).setdefault(n["id"], NoticeContext(
+                    notice_type=n["notice_type"], notice_date=n["notice_date"],
+                    notice_doi=n["notice_doi"], reason=n["reason"], source=n["source"],
+                    source_record_id=n["source_record_id"], matched_on=matched_on))
+    return {ref_id: sorted(by_id.values(), key=lambda x: (x.notice_date or date.max, x.notice_type))
+            for ref_id, by_id in out.items()}
+
+
+def _iso_date(value: str | None) -> date | None:
+    try:
+        return date.fromisoformat(value) if value else None
+    except ValueError:
+        return None
 
 
 def corpus_paper_ids(conn: Connection, label: str, limit: int | None = None) -> list[int]:
