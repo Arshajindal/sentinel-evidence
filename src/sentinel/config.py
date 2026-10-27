@@ -74,6 +74,7 @@ class Settings(BaseSettings):
 
     # --- Local data files (ADR-020; Crossref/OpenAlex are API-only) ----------
     data_dir: str = "./data"
+    fulltext_cache_dir: str = "./data/fulltext"  # JATS XML of corpus papers (ADR-037)
     pmc_oa_snapshot_path: str = "./data/pmc-oa/"
     retraction_watch_csv_path: str = (
         "./data/retraction-watch-data/retraction_watch.csv"

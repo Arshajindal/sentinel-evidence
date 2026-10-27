@@ -7,6 +7,7 @@ from collections.abc import Callable
 from sentinel.checks.base import Check
 from sentinel.checks.c01_existence import C01ReferenceExistence
 from sentinel.checks.c02_retraction import C02Retraction
+from sentinel.checks.c03_statcheck import C03StatCheck
 from sentinel.checks.c05_results_reporting import C05ResultsReporting
 from sentinel.config import Settings
 
@@ -15,6 +16,7 @@ REGISTRY: dict[str, Callable[[Settings], Check]] = {
         near_match_min=s.c01_near_match_min, same_title_min=s.c01_same_title_min,
         year_tolerance=s.resolve_year_tolerance),
     "C02": lambda s: C02Retraction(grace_months=s.c02_grace_months),
+    "C03": lambda s: C03StatCheck(alpha=s.c03_alpha, allow_one_tailed=s.c03_allow_one_tailed),
     "C05": lambda s: C05ResultsReporting(grace_months=s.c05_grace_months),
 }
 

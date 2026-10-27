@@ -33,7 +33,7 @@ Low friction or it rots. The rules:
 
 **Phase:** 1 of 5 — data foundation and deterministic checks
 **Plan:** `docs/sentinel-project.md` §15 session IDs. Old brief and HTML spec are in `docs/archive/`.
-**Last worked:** 2026-10-25 — S1.11 (C02 retraction status)
+**Last worked:** 2026-10-26 — S1.12 (statistic extraction and C03)
 
 **Sessions:**
 
@@ -50,16 +50,17 @@ Low friction or it rots. The rules:
 | S1.9 Resolution cascade + candidate fetch | done | `resolve/cascade.py`, `resolve/candidates.py`, `sentinel resolve`, migration `80034d5e56ce`, parser 1.1.0 (ADR-034). §9.10 sample (structured, seed 20260922): 944/1,000 resolved (94.4%); all-reference sample: 88.7%. No wrong title-stage match found. 1,786 references processed so far (1,637 resolved); the other 36,899 resolve in S1.15. |
 | S1.10 C01 | done | `checks/c01_existence.py` (ADR-035), doi.org check during resolution, paper checks in the runner, paper report cards. 48-reference real fixture labelled by hand: all agree, no non-journal item flagged. Live on three fully resolved papers: one unindexed journal reference flagged in each. |
 | S1.11 C02 | done | `checks/c02_retraction.py` (ADR-036): three timing bands, plus a low band for retract-and-replace. Fixture: 12 real papers (after-grace, before, replaced, concern, corrected) plus constructed in-press and edge cases. Corpus: 6 citations in 5 papers made more than 6 months after a plain retraction. |
-| S1.12 – S1.15 | not started | |
+| S1.12 Statistic extraction + C03 | done | `parse/statistics.py`, `ingest/fulltext_stats.py` (`sentinel extract stats`), `checks/c03_statcheck.py` (ADR-037). All five §9.7 patterns parse; the one-tailed rule is tested; 22 real corpus statistics in the tests. Corpus: 332 tests in 32 papers, 16 low flags in 7 papers, none gross. |
+| S1.13 – S1.15 | not started | |
 
-**What works:** corpus selection and harvest; DOI lookups; parsing and resolution; `sentinel check` (C01, C02 over papers; C05 over trials); `sentinel report` for trials and papers. 479 tests: 465 run without a database, and the other 14 need `TEST_DATABASE_URL`.
+**What works:** corpus selection and harvest; DOI lookups; parsing and resolution; statistic extraction; `sentinel check` (C01, C02, C03 over papers; C05 over trials); `sentinel report` for trials and papers. 560 tests: 545 run without a database, and the other 15 need `TEST_DATABASE_URL` (not set up yet).
 
 **What's broken:** nothing known. PMC6561645's full text returns a persistent HTTP 500 upstream, so it's stored without references (a re-run retries it). The DB tests skip on the dev DB now that it holds real data; a disposable `sentinel_test` database is still to be created.
 
 **Next three things:**
-1. S1.12: Statistic extraction and C03 (needs the full text's body, which nothing has fetched or parsed yet; see §9.1)
-2. S1.13: C04
-3. S1.14: Complete the fixture set, plus `stats` and `export`
+1. S1.13: C04 (GRIM). It can reuse the cached full text, and is expected to be `not_applicable` for nearly all RCTs (ADR-021)
+2. S1.14: Complete the fixture set, plus `stats` and `export`
+3. S1.15: Full corpus run (resolve the ~36,900 pending references) and README
 
 **Then:** S1.14 onward. Open from S1.9/S1.10: a DOI pointing at a differently titled paper (title agreement is recorded) has no check yet; decide whether it belongs in C01 or a new check. Target: `sentinel report <nct-id>` prints a real overdue-results finding.
 
@@ -532,6 +533,28 @@ Fixture: 12 real corpus papers (13 noticed references), with bands written from 
 
 ---
 
+### ADR-037 — C03: full text cached on disk, statistics from body paragraphs, precision rules
+**Status:** active
+
+**Full text (your choice):** each corpus paper's JATS XML is cached under `SENTINEL_FULLTEXT_CACHE_DIR` (`data/fulltext/`, gitignored; 999 papers, 108 MB). Body text is not stored in the database. `sentinel extract stats` (resumable) reads only body paragraphs, skipping tables, figure captions, the abstract (it repeats the results) and the reference list. It stores each matched test string with its top-level section in `stat_test`, and sets `paper.fulltext_status = 'full'` once the body is examined. A paper's `stat_test` rows are derived data and re-extraction replaces them. Phase 2 can reuse the cache.
+
+**Parser** (`parse/statistics.py`): t, F, χ² (χ², χ2, X2, chi-square), r and z, each with the adjacent p-value. `t`/`r` must be lowercase and `F` uppercase. **A z next to a rank test (Wilcoxon, Mann–Whitney, Kruskal–Wallis, Friedman, or U/V/W/T/H in the same sentence) is skipped.** In real data that z was an effect size, and the p came from the exact test: 7 false "gross" flags in one paper before this rule.
+
+**C03** (`checks/c03_statcheck.py`, v1.0.0), following §9.7:
+- Two-tailed for t, r and z; F and χ² are never halved.
+- Precision is respected on both sides: a statistic printed 2.10 is the range [2.095, 2.105], and p is compared at its printed decimals. The operator is respected.
+- One-tailed consistency is not flagged (ADR-009).
+- inconsistent → low; inconsistent across α (`C03_ALPHA`) → high.
+- Two reporting conventions count as consistent: "p = .001" used as a floor for anything smaller, and "p < .000" for "rounds to .000". These removed 10 of 26 flags, all unremarkable. Truncation (.0177 printed .017) was tried and rejected, because at two decimals it would accept .03 for anything up to .0399, including §9.7's own inconsistent example.
+
+Output follows ADR-035: one finding per inconsistent test plus a per-paper summary. `not_applicable` means no recheckable test was found; `insufficient_data` means the body wasn't examined.
+
+**Corpus (run 15):** 332 tests in 32 papers; 967 papers report none (expected for RCT reports, which mostly give CIs). 16 low-severity flags in 7 papers, none gross. Each flagged string was read in its sentence. Examples: "χ2(3) = 5.60, p = 0.905" (gives .133), "t (168.810) = 0.018, p = 0.86" (gives .986), "F(1, 112) = 0.64, p = 0.524" (gives .425).
+
+**Rejected:** storing body text now (pre-empts Phase 2's passage design); stats-only with no cache (every extractor fix re-fetches 1,000 papers); checking tables (fragmented cells pair statistics with the wrong p).
+
+---
+
 ### ADR-0NN — template
 **Status:** active
 
@@ -625,6 +648,9 @@ What happened. What you expected instead. Root cause. What changed as a result. 
 
 **2026-10-18 · ClinicalTrials.gov OpenAPI URL in ADR-019 returns 404**
 `/api/oas/v2/ctg-oas-v2.yaml` is gone; the spec is served as YAML at `/api/oas/v2`. Found while confirming endpoints before S1.4. Fixed in `config.py` and `.env.example`. A URL written from memory or from an old doc rots; confirm each one live.
+
+**2026-10-26 · C03's first corpus pass flagged things no reviewer would**
+Before precision rules, 7 "gross" z-flags in one paper were "Z = 0.777, p = 0.002" inside Wilcoxon reports, where Z was an effect size and p came from the exact V test. Another 10 flags were "p = .001" used as a floor and "p < .000". Each was caught by reading the sentence behind every flag before trusting the count. Rules were added (ADR-037), and a third (accepting truncation) was tried and backed out when it made §9.7's own inconsistent example pass. The run made with the pre-fix logic (run 14) was deleted, so check version 1.0.0 names one set of rules.
 
 **2026-10-25 · Housekeeping before S1.12**
 - Tagged citation text no longer glues adjacent elements together; 7,180 stored strings were rebuilt from the saved XML, with no re-harvest.
