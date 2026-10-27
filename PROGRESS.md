@@ -33,7 +33,7 @@ Low friction or it rots. The rules:
 
 **Phase:** 1 of 5 — data foundation and deterministic checks
 **Plan:** `docs/sentinel-project.md` §15 session IDs. Old brief and HTML spec are in `docs/archive/`.
-**Last worked:** 2026-10-26 — S1.12 (statistic extraction and C03)
+**Last worked:** 2026-10-26 — S1.13 (C04 GRIM)
 
 **Sessions:**
 
@@ -51,16 +51,17 @@ Low friction or it rots. The rules:
 | S1.10 C01 | done | `checks/c01_existence.py` (ADR-035), doi.org check during resolution, paper checks in the runner, paper report cards. 48-reference real fixture labelled by hand: all agree, no non-journal item flagged. Live on three fully resolved papers: one unindexed journal reference flagged in each. |
 | S1.11 C02 | done | `checks/c02_retraction.py` (ADR-036): three timing bands, plus a low band for retract-and-replace. Fixture: 12 real papers (after-grace, before, replaced, concern, corrected) plus constructed in-press and edge cases. Corpus: 6 citations in 5 papers made more than 6 months after a plain retraction. |
 | S1.12 Statistic extraction + C03 | done | `parse/statistics.py`, `ingest/fulltext_stats.py` (`sentinel extract stats`), `checks/c03_statcheck.py` (ADR-037). All five §9.7 patterns parse; the one-tailed rule is tested; 22 real corpus statistics in the tests. Corpus: 332 tests in 32 papers, 16 low flags in 7 papers, none gross. |
-| S1.13 – S1.15 | not started | |
+| S1.13 C04 | done | `checks/c04_grim.py` (ADR-038): gate conditions each tested in both directions, arithmetic verified against brute force. No mean extraction in Phase 1, so the corpus is all `not_applicable`, as ADR-021 expected. |
+| S1.14 – S1.15 | not started | |
 
-**What works:** corpus selection and harvest; DOI lookups; parsing and resolution; statistic extraction; `sentinel check` (C01, C02, C03 over papers; C05 over trials); `sentinel report` for trials and papers. 560 tests: 545 run without a database, and the other 15 need `TEST_DATABASE_URL` (not set up yet).
+**What works:** corpus selection and harvest; DOI lookups; parsing and resolution; statistic extraction; all five checks via `sentinel check` (C01–C04 over papers, C05 over trials); `sentinel report` for trials and papers. 596 tests: 581 run without a database, and the other 15 need `TEST_DATABASE_URL` (not set up yet).
 
 **What's broken:** nothing known. PMC6561645's full text returns a persistent HTTP 500 upstream, so it's stored without references (a re-run retries it). The DB tests skip on the dev DB now that it holds real data; a disposable `sentinel_test` database is still to be created.
 
 **Next three things:**
-1. S1.13: C04 (GRIM). It can reuse the cached full text, and is expected to be `not_applicable` for nearly all RCTs (ADR-021)
-2. S1.14: Complete the fixture set, plus `stats` and `export`
-3. S1.15: Full corpus run (resolve the ~36,900 pending references) and README
+1. S1.14: Complete the fixture set (30–50 papers and trials, §9.9), plus `sentinel stats` and `sentinel export`
+2. S1.15: Full corpus run (resolve the ~36,900 pending references) and README; the end of Phase 1, checked against §9.10
+3. Before S1.14: create `sentinel_test` so the 15 database tests run
 
 **Then:** S1.14 onward. Open from S1.9/S1.10: a DOI pointing at a differently titled paper (title agreement is recorded) has no check yet; decide whether it belongs in C01 or a new check. Target: `sentinel report <nct-id>` prints a real overdue-results finding.
 
@@ -552,6 +553,29 @@ Output follows ADR-035: one finding per inconsistent test plus a per-paper summa
 **Corpus (run 15):** 332 tests in 32 papers; 967 papers report none (expected for RCT reports, which mostly give CIs). 16 low-severity flags in 7 papers, none gross. Each flagged string was read in its sentence. Examples: "χ2(3) = 5.60, p = 0.905" (gives .133), "t (168.810) = 0.018, p = 0.86" (gives .986), "F(1, 112) = 0.64, p = 0.524" (gives .425).
 
 **Rejected:** storing body text now (pre-empts Phase 2's passage design); stats-only with no cache (every extractor fix re-fetches 1,000 papers); checking tables (fragmented cells pair statistics with the wrong p).
+
+---
+
+### ADR-038 — C04: GRIM and its gate, proven by fixtures; no mean extraction in Phase 1
+**Status:** active
+
+C04 (`checks/c04_grim.py`, v1.0.0) checks means supplied as `MeanContext`: the mean as printed, N, whether the measure is integer-valued, and items per participant. **Nothing extracts means from the corpus in Phase 1 (your choice).** Text rarely says whether a measure is integer-valued (a mean age may come from whole years or from dates of birth), so guessing would break precision. As ADR-021 anticipated, every corpus paper is `not_applicable` (run 16: 1,000 of 1,000), and C04 is proven by fixtures.
+
+**Gate:** all must hold, else `not_applicable` with a reason code:
+- integer-valued measure, where unknown counts as no;
+- N known and ≤ `C04_MAX_N`;
+- at least `C04_MIN_DECIMALS` printed decimals;
+- N × items < 10^decimals. Beyond that every mean is possible, a mathematical limit added to §9.7's conditions.
+
+Each condition is tested in both directions.
+
+**Arithmetic:** whole-number totals on both sides of mean × N × items are tried, not only §9.7's `round(M × N)`, so a mean at a rounding boundary (7/8 printed 0.87 or 0.88) is never misjudged. Agreement is verified against a brute force over every total for 2,000 random cases.
+
+**Output** follows ADR-035: a `medium` flag per impossible mean ("Mean 3.45 for X can't arise from 18 whole-number values: no total divided by 18 rounds to it"), plus a per-paper summary.
+
+**Revisit:** Phase 2, once tables are parsed. A conservative extractor would need N and an explicit integer-scale cue beside each mean.
+
+**Rejected:** a text extractor now (near-zero yield on RCTs, new schema, precision risk).
 
 ---
 
