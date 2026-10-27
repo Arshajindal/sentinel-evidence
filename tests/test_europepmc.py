@@ -105,6 +105,21 @@ def test_ordinals_are_document_order():
     assert [r.ordinal for r in refs] == list(range(1, 48))
 
 
+def test_adjacent_elements_are_spaced_but_inline_text_kept():
+    xml = b"""<article><back><ref-list><ref id="r1"><mixed-citation publication-type="journal">
+      <person-group><name><surname>McAuley</surname><given-names>SA</given-names></name></person-group>.
+      <article-title>Insulin pump</article-title>. <source>Diabetologia</source> <year>2016</year>;<volume>59</volume>:<fpage>1636</fpage>&#8211;<lpage>1644</lpage><pub-id pub-id-type="pmid">27168135</pub-id><pub-id pub-id-type="doi">10.1007/x</pub-id>
+    </mixed-citation></ref></ref-list></back></article>"""
+    ref = parse_ref_list(xml)[0]
+    assert ref.raw_string == ("McAuley SA. Insulin pump. Diabetologia 2016;59:1636–1644 "
+                              "27168135 10.1007/x")
+
+
+def test_untagged_mixed_citation_text_unchanged():
+    refs = parse_ref_list(_xml("PMC11662519"))
+    assert refs[0].raw_string.startswith("Feigin VL, et al. Global and regional burden of stroke")
+
+
 def test_sub_article_refs_are_skipped():
     xml = b"""<article><back><ref-list>
       <ref id="r1"><mixed-citation>Main A. One. 2020.</mixed-citation></ref>
@@ -362,6 +377,22 @@ def test_rerun_adds_no_duplicates(epmc_engine):
     stats = EuropePMCHarvester(epmc_engine, epmc, trials, label=LABEL).run(epmc_engine)
     assert (stats.inserted, stats.updated) == (0, 3)
     assert _counts(epmc_engine) == before
+
+
+@requires_db
+def test_reharvest_keeps_parser_filled_fields(epmc_engine):
+    epmc, trials = _clients()
+    EuropePMCHarvester(epmc_engine, epmc, trials, label=LABEL).run(epmc_engine)
+    with epmc_engine.begin() as conn:  # as the reference parser would fill an untagged one
+        ref_id = conn.execute(select(reference.c.id).where(reference.c.parsed_title.is_(None))
+                              .order_by(reference.c.id).limit(1)).scalar_one()
+        conn.execute(reference.update().where(reference.c.id == ref_id)
+                     .values(parsed_title="Filled by the parser", parsed_year=2001))
+    EuropePMCHarvester(epmc_engine, epmc, trials, label=LABEL).run(epmc_engine)
+    with epmc_engine.connect() as conn:
+        row = conn.execute(select(reference.c.parsed_title, reference.c.parsed_year)
+                           .where(reference.c.id == ref_id)).one()
+    assert tuple(row) == ("Filled by the parser", 2001)
 
 
 @requires_db

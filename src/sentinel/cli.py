@@ -7,6 +7,7 @@ from typing import Annotated, Optional
 
 import httpx
 import typer
+from sqlalchemy import select
 
 from sentinel.checks.registry import build_checks
 from sentinel.checks.runner import run_checks
@@ -29,6 +30,7 @@ from sentinel.resolve.cascade import (
 from sentinel.ingest.http import RateLimitedHTTP, RetryableHTTPError, build_http_client
 from sentinel.ingest.retraction_watch import RetractionWatchHarvester
 from sentinel.log import configure_logging, get_logger
+from sentinel.models import corpus as corpus_table
 from sentinel.report.card import (
     detect_subject,
     load_paper_card,
@@ -262,6 +264,9 @@ def resolve(
     settings = get_settings()
     label = corpus or settings.default_corpus_label
     engine = get_engine()
+    if label not in _corpus_labels():
+        raise typer.BadParameter(f"no corpus {label!r}. Known corpora: {_corpus_labels()}",
+                                 param_hint="--corpus")
     ids = select_references(engine, corpus=label, retry=retry, sample=sample,
                             seed=settings.random_seed if sample else None, limit=limit,
                             structured=structured)
@@ -323,16 +328,24 @@ def check(
         raise typer.BadParameter(str(exc)) from exc
     if not built:
         raise typer.BadParameter("no implemented checks are enabled")
-    result = run_checks(
-        get_engine(),
-        built,
-        config_hash=settings.config_hash,
-        corpus_label=corpus or settings.default_corpus_label,
-        nct_ids=nct_ids,
-        paper_ids=paper,
-        limit=limit,
-    )
+    try:
+        result = run_checks(
+            get_engine(),
+            built,
+            config_hash=settings.config_hash,
+            corpus_label=corpus or settings.default_corpus_label,
+            nct_ids=nct_ids,
+            paper_ids=paper,
+            limit=limit,
+        )
+    except ValueError as exc:
+        raise typer.BadParameter(f"{exc}. Known corpora: {_corpus_labels()}") from exc
     typer.echo(f"run {result.run_id}: {result.counts}")
+
+
+def _corpus_labels() -> list[str]:
+    with get_engine().connect() as conn:
+        return list(conn.execute(select(corpus_table.c.label).order_by(corpus_table.c.label)).scalars())
 
 
 @app.command()

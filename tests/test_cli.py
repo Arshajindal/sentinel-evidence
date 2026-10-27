@@ -59,6 +59,25 @@ def test_one_failed_study_does_not_stop_the_rest(env, monkeypatch):
     assert result.exit_code == 1
 
 
+def test_resolve_with_unknown_corpus_fails_loudly(env, monkeypatch):
+    monkeypatch.setattr(cli, "_corpus_labels", lambda: ["pmc-rct-2015-2024"])
+    monkeypatch.setattr(cli, "get_engine", lambda: None)
+    result = runner.invoke(cli.app, ["resolve", "--corpus", "dev-sample"])
+    assert result.exit_code == 2
+    assert "no corpus 'dev-sample'" in result.output
+
+
+def test_check_with_empty_corpus_fails_loudly(env, monkeypatch):
+    def empty(*args, **kwargs):
+        raise ValueError("corpus 'dev-sample' has no harvested papers")
+
+    monkeypatch.setattr(cli, "run_checks", empty)
+    monkeypatch.setattr(cli, "_corpus_labels", lambda: ["pmc-rct-2015-2024"])
+    result = runner.invoke(cli.app, ["check", "--checks", "C01"])
+    assert result.exit_code == 2
+    assert "has no harvested papers" in result.output
+
+
 def test_invalid_log_level_fails_at_startup(env):
     from pydantic import ValidationError
 

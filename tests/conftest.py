@@ -17,7 +17,22 @@ from sqlalchemy import Engine, create_engine
 
 ROOT = Path(__file__).resolve().parent.parent
 FIXTURES = ROOT / "tests" / "fixtures"
-TEST_DATABASE_URL = os.environ.get("TEST_DATABASE_URL")
+
+
+def _test_database_url() -> str | None:
+    """TEST_DATABASE_URL from the environment, or else from `.env` (pytest
+    doesn't load `.env` itself). Only this one key is read; no SENTINEL_
+    setting leaks into the tests."""
+    if os.environ.get("TEST_DATABASE_URL"):
+        return os.environ["TEST_DATABASE_URL"]
+    try:
+        from dotenv import dotenv_values
+    except ImportError:  # pragma: no cover
+        return None
+    return dotenv_values(ROOT / ".env").get("TEST_DATABASE_URL") or None
+
+
+TEST_DATABASE_URL = _test_database_url()
 
 requires_db = pytest.mark.skipif(
     not TEST_DATABASE_URL, reason="TEST_DATABASE_URL not set"

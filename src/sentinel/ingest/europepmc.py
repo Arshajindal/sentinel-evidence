@@ -21,7 +21,7 @@ from collections.abc import Iterator
 from dataclasses import dataclass
 from typing import Any
 
-from sqlalchemy import Connection, Engine, insert as core_insert, literal_column, select, update
+from sqlalchemy import Connection, Engine, func, insert as core_insert, literal_column, select, update
 from sqlalchemy.dialects.postgresql import insert
 
 from sentinel.ingest.base import Harvester, UpsertCounts
@@ -286,11 +286,15 @@ class EuropePMCHarvester(Harvester):
                 ref_stmt = insert(reference).values(
                     [{"citing_paper_id": paper_id, **r.model_dump()} for r in record.references]
                 )
-                parsed = [c for c in ReferenceRecord.model_fields if c != "ordinal"]
-                # Parsed fields refresh; resolution results are left alone.
+                # The text and the source entry refresh. A parsed field the XML
+                # supplies replaces the stored one; one it doesn't supply keeps
+                # what the reference parser filled in (re-harvesting must not
+                # wipe it). Resolution results are left alone.
+                parsed = [c for c in ReferenceRecord.model_fields if c.startswith("parsed_")]
                 conn.execute(ref_stmt.on_conflict_do_update(
                     index_elements=[reference.c.citing_paper_id, reference.c.ordinal],
-                    set_={c: ref_stmt.excluded[c] for c in parsed},
+                    set_={"raw_string": ref_stmt.excluded.raw_string, "raw": ref_stmt.excluded.raw,
+                          **{c: func.coalesce(ref_stmt.excluded[c], reference.c[c]) for c in parsed}},
                 ))
 
             links = [n for n in record.nct_ids if n in known]

@@ -26,6 +26,8 @@ def normalize_doi(value: str | None) -> str | None:
         if doi.startswith(prefix):
             doi = doi[len(prefix):]
             break
+    # A link or second value glued on ("10.1038/x,http://www.ncbi..."): keep the DOI.
+    doi = re.split(r"\s|,\s*(?:https?:|www\.)", doi)[0]
     doi = doi.rstrip(".,;:")
     return doi if _DOI_RE.match(doi) else None
 

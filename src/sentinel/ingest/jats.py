@@ -72,9 +72,35 @@ def _reference(ref: etree._Element, ordinal: int) -> ReferenceRecord:
 
 
 def _text(node: etree._Element | None) -> str:
+    """Text of a node. Two child elements with nothing between them
+    ("<lpage>1644</lpage><pub-id>27168135</pub-id>") get a space, so their
+    contents don't run together; text between elements is kept as it is."""
     if node is None:
         return ""
-    return " ".join("".join(node.itertext()).split())
+    return " ".join(_joined(node).split())
+
+
+def _joined(node: etree._Element) -> str:
+    out = node.text or ""
+    after_element = False
+    for child in node:
+        if not isinstance(child.tag, str):  # comments, processing instructions
+            out += child.tail or ""
+            after_element = False
+            continue
+        inner = _joined(child)
+        if after_element and out and inner and not out[-1].isspace() and not inner[0].isspace():
+            out += " "
+        out += inner
+        out += child.tail or ""
+        after_element = not child.tail
+    return out
+
+
+def ref_raw_string(ref_xml: str) -> str | None:
+    """The raw string for one stored <ref> element (as kept in reference.raw)."""
+    ref = etree.fromstring(ref_xml.encode("utf-8"), parser=_PARSER)
+    return _reference(ref, 1).raw_string
 
 
 def _spaced_text(node: etree._Element) -> str:
