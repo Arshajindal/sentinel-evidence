@@ -626,6 +626,17 @@ What happened. What you expected instead. Root cause. What changed as a result. 
 **2026-10-18 · ClinicalTrials.gov OpenAPI URL in ADR-019 returns 404**
 `/api/oas/v2/ctg-oas-v2.yaml` is gone; the spec is served as YAML at `/api/oas/v2`. Found while confirming endpoints before S1.4. Fixed in `config.py` and `.env.example`. A URL written from memory or from an old doc rots; confirm each one live.
 
+**2026-10-25 · Housekeeping before S1.12**
+- Tagged citation text no longer glues adjacent elements together; 7,180 stored strings were rebuilt from the saved XML, with no re-harvest.
+- Re-harvesting no longer wipes parser-filled fields: an XML-supplied field replaces the stored one, a missing one keeps it.
+- DOIs with a link glued on are cleaned (1 stored DOI fixed and re-resolved).
+- Title agreement was filled for 1,454 older DOI/PMID matches; 36 of 1,569 are below 0.6.
+- Tests read `TEST_DATABASE_URL` from `.env`.
+- Fixture sources, redactions and licences are listed in `tests/fixtures/README.md`. The Retraction Watch licence is unconfirmed: neither Crossref's repository nor its documentation names one.
+
+**2026-10-25 · A wrong corpus label made commands silently do nothing**
+`SENTINEL_DEFAULT_CORPUS_LABEL` was still `dev-sample`, so `sentinel resolve` reported "0 references to resolve" and `sentinel check --checks C01` recorded an empty run as if it had succeeded. Now both fail with the known corpus labels listed, and the runner refuses to record a paper-check run with no papers. Tests in `test_cli.py`. The `.env` default is set to `pmc-rct-2015-2024`.
+
 **2026-10-25 · Two single records stopped whole resolution runs**
 First, OpenAlex answers HTTP 400 when a title filter contains `?` or `*`, which it treats as wildcards ("…what is needed?"), and that one reference stopped the sample run after 701. Second, a DOI whose Crossref record has no title failed `PaperRecord` validation and stopped the structured run. Fixes: strip `?` and `*` from OpenAlex title filters; treat a 4xx on a search as "no candidates from this source" (recorded); record untitled records as "registered" without storing them. Each has a test. Lesson: anything from one external record must fail that record, not the run.
 

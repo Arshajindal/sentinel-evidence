@@ -39,7 +39,18 @@ def run_checks(
     paper_batch: int = 100,
 ) -> RunResult:
     """Run trial checks over stored trials and paper checks over the papers of
-    `corpus_label` (or `paper_ids`), recording one check_run."""
+    `corpus_label` (or `paper_ids`), recording one check_run.
+
+    Paper checks with nothing to run on raise instead of recording an empty
+    run: a mistyped corpus label must not look like a clean corpus.
+    """
+    if any(c.subject == "paper" for c in checks) and paper_ids is None:
+        if corpus_label is None:
+            raise ValueError("paper checks need a corpus label or paper IDs")
+        with engine.connect() as conn:
+            paper_ids = corpus_paper_ids(conn, corpus_label, limit)
+        if not paper_ids:
+            raise ValueError(f"corpus {corpus_label!r} has no harvested papers")
     with engine.begin() as conn:
         run_id = conn.execute(
             insert(check_run)
@@ -72,11 +83,6 @@ def run_checks(
                     record(conn, [f for check in trial_checks for f in check.run(ctx)])
 
         if paper_checks:
-            if paper_ids is None:
-                if corpus_label is None:
-                    raise ValueError("paper checks need a corpus label or paper IDs")
-                with engine.connect() as conn:
-                    paper_ids = corpus_paper_ids(conn, corpus_label, limit)
             for i in range(0, len(paper_ids), paper_batch):
                 with engine.begin() as conn:
                     for ctx in load_paper_contexts(conn, paper_ids[i:i + paper_batch]):

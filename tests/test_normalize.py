@@ -66,7 +66,11 @@ def test_normalize_surname():
         # Junk prefixes seen in Retraction Watch: don't guess, return None.
         ("xx10.1007/978-3-030-00524-5_9", None),
         ("10.1/too-short-registrant", None),
-        ("10.1000/has space", None),
+        # Seen in source XML: a PubMed link glued on after a comma.
+        ("10.1038/s41574-018-0110-5,http://www.ncbi.nlm.nih.gov/pubmed/30367179",
+         "10.1038/s41574-018-0110-5"),
+        ("10.1000/abc, www.example.org", "10.1000/abc"),
+        ("10.1000/has space", "10.1000/has"),
     ],
 )
 def test_normalize_doi(value, expected):
