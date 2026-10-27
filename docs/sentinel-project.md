@@ -634,6 +634,8 @@ The comparison rules matter more than the recomputation:
 
 Severity is `low` for inconsistent and `high` for gross.
 
+Also (ADR-037): the statistic's own printed precision gives a range of p-values; "p = .001" printed as a floor and "p < .000" count as consistent; a z reported alongside a rank test isn't rechecked. Statistics come from body paragraphs only (not tables, the abstract or the reference list), read from the cached full-text XML.
+
 #### C04 — Impossible statistics (GRIM)
 
 For a mean `M` of `N` items measured on an integer scale, `M × N` must be a whole number. If it isn't, within the rounding implied by the reported decimals, that mean can't come from the stated data.

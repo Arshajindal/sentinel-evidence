@@ -13,7 +13,15 @@ from typing import Any
 from pydantic import BaseModel, ConfigDict
 from sqlalchemy import Connection, select
 
-from sentinel.models import corpus_paper, paper, reference, retraction_notice, trial, trial_outcome
+from sentinel.models import (
+    corpus_paper,
+    paper,
+    reference,
+    retraction_notice,
+    stat_test,
+    trial,
+    trial_outcome,
+)
 from sentinel.schemas import TrialOutcome, TrialRecord
 
 
@@ -65,8 +73,18 @@ class ReferenceContext(BaseModel):
     notices: tuple[NoticeContext, ...] = ()
 
 
+class StatTestContext(BaseModel):
+    """A reported test found in the paper's body text (C03)."""
+
+    model_config = ConfigDict(frozen=True)
+
+    stat_test_id: int
+    location: str | None
+    raw_string: str
+
+
 class PaperContext(BaseModel):
-    """A paper and what is known about it. Statistical tests are added in S1.12."""
+    """A paper and what is known about it."""
 
     model_config = ConfigDict(frozen=True)
 
@@ -74,7 +92,10 @@ class PaperContext(BaseModel):
     # When the paper first appeared (Europe PMC firstPublicationDate); C02's
     # timing bands measure from here.
     publication_date: date | None = None
+    # "full" once the body text has been examined for statistics (C03).
+    fulltext_status: str = "none"
     references: tuple[ReferenceContext, ...] = ()
+    stat_tests: tuple[StatTestContext, ...] = ()
     trials: tuple[TrialContext, ...] = ()
 
 
@@ -91,10 +112,15 @@ def load_paper_contexts(conn: Connection, paper_ids: list[int]) -> list[PaperCon
         .order_by(reference.c.citing_paper_id, reference.c.ordinal, reference.c.id)
     ).mappings().all()
     notices = _notices_for(conn, rows)
-    pub_dates = {
-        pid: _iso_date((raw or {}).get("firstPublicationDate"))
-        for pid, raw in conn.execute(select(paper.c.id, paper.c.raw).where(paper.c.id.in_(paper_ids)))
-    }
+    meta = {pid: (_iso_date((raw or {}).get("firstPublicationDate")), status)
+            for pid, raw, status in conn.execute(
+                select(paper.c.id, paper.c.raw, paper.c.fulltext_status).where(paper.c.id.in_(paper_ids)))}
+    tests: dict[int, list[StatTestContext]] = {}
+    for st in conn.execute(select(stat_test.c.id, stat_test.c.paper_id, stat_test.c.location,
+                                  stat_test.c.raw_string)
+                           .where(stat_test.c.paper_id.in_(paper_ids)).order_by(stat_test.c.id)):
+        tests.setdefault(st.paper_id, []).append(
+            StatTestContext(stat_test_id=st.id, location=st.location, raw_string=st.raw_string))
 
     refs: dict[int, list[ReferenceContext]] = {pid: [] for pid in paper_ids}
     for r in rows:
@@ -110,8 +136,10 @@ def load_paper_contexts(conn: Connection, paper_ids: list[int]) -> list[PaperCon
             resolution_evidence=r["resolution_evidence"],
             notices=tuple(notices.get(r["id"], ())),
         ))
-    return [PaperContext(paper_id=pid, publication_date=pub_dates.get(pid),
-                         references=tuple(refs[pid])) for pid in paper_ids]
+    return [PaperContext(paper_id=pid, publication_date=meta.get(pid, (None, None))[0],
+                         fulltext_status=meta.get(pid, (None, "none"))[1] or "none",
+                         references=tuple(refs[pid]), stat_tests=tuple(tests.get(pid, ())))
+            for pid in paper_ids]
 
 
 def _notices_for(conn: Connection, rows) -> dict[int, list[NoticeContext]]:

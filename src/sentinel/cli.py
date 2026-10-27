@@ -18,6 +18,7 @@ from sentinel.ingest.clinicaltrials import ClinicalTrialsClient, normalise_nct_i
 from sentinel.ingest.crossref import CrossrefClient
 from sentinel.ingest.doi_handle import DoiHandleClient
 from sentinel.ingest.europepmc import EuropePMC, EuropePMCHarvester, select_corpus
+from sentinel.ingest.fulltext_stats import StatExtractor
 from sentinel.ingest.openalex import OpenAlexBudgetExhausted, OpenAlexClient
 from sentinel.resolve.candidates import CandidateSource
 from sentinel.resolve.cascade import (
@@ -45,6 +46,8 @@ from sentinel.resolve.normalize import normalize_doi
 app = typer.Typer(no_args_is_help=True, add_completion=False)
 corpus_app = typer.Typer(no_args_is_help=True, help="Select and inspect working corpora.")
 app.add_typer(corpus_app, name="corpus")
+extract_app = typer.Typer(no_args_is_help=True, help="Extract structured data from full text.")
+app.add_typer(extract_app, name="extract")
 log = get_logger(__name__)
 
 HARVESTERS: dict[str, Callable[[Settings], Harvester]] = {
@@ -107,6 +110,29 @@ def corpus_select(
             raise typer.BadParameter(str(exc)) from exc
     typer.echo(f"corpus {sel.label}: sampled {sel.n} of {sel.hit_count} hits "
                f"(seed {settings.random_seed})")
+
+
+@extract_app.command("stats")
+def extract_stats(
+    corpus: Annotated[Optional[str], typer.Option(help="Corpus label")] = None,
+    limit: Annotated[Optional[int], typer.Option(help="Stop after N papers")] = None,
+    resume: Annotated[bool, typer.Option(help="Continue from the stored cursor")] = False,
+) -> None:
+    """Find reported test statistics in corpus papers' body text (C03's input)."""
+    settings = get_settings()
+    label = corpus or settings.default_corpus_label
+    with build_http_client(settings) as client:
+        try:
+            extractor = StatExtractor(get_engine(), _europepmc(settings, client), label=label,
+                                      cache_dir=settings.fulltext_cache_dir,
+                                      alpha=settings.c03_alpha,
+                                      allow_one_tailed=settings.c03_allow_one_tailed)
+        except ValueError as exc:
+            raise typer.BadParameter(f"{exc}. Known corpora: {_corpus_labels()}") from exc
+        stats = extractor.run(get_engine(), resume=resume, limit=limit, batch_size=25)
+    typer.echo(f"papers {stats.seen}: {stats.inserted} reported tests stored, failed {stats.failed}")
+    if extractor.no_fulltext:
+        typer.echo(f"no full text: {len(extractor.no_fulltext)} papers")
 
 
 @app.command()
