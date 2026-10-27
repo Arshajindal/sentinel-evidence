@@ -8,6 +8,7 @@ from sentinel.checks.base import Check
 from sentinel.checks.c01_existence import C01ReferenceExistence
 from sentinel.checks.c02_retraction import C02Retraction
 from sentinel.checks.c03_statcheck import C03StatCheck
+from sentinel.checks.c04_grim import C04Grim
 from sentinel.checks.c05_results_reporting import C05ResultsReporting
 from sentinel.config import Settings
 
@@ -17,6 +18,8 @@ REGISTRY: dict[str, Callable[[Settings], Check]] = {
         year_tolerance=s.resolve_year_tolerance),
     "C02": lambda s: C02Retraction(grace_months=s.c02_grace_months),
     "C03": lambda s: C03StatCheck(alpha=s.c03_alpha, allow_one_tailed=s.c03_allow_one_tailed),
+    "C04": lambda s: C04Grim(max_n=s.c04_max_n, min_decimals=s.c04_min_decimals,
+                             epsilon=s.c04_epsilon),
     "C05": lambda s: C05ResultsReporting(grace_months=s.c05_grace_months),
 }
 

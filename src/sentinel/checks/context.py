@@ -83,6 +83,20 @@ class StatTestContext(BaseModel):
     raw_string: str
 
 
+class MeanContext(BaseModel):
+    """A reported mean for C04 (GRIM). Nothing extracts these from the corpus
+    in Phase 1 (ADR-038); fixtures supply them."""
+
+    model_config = ConfigDict(frozen=True)
+
+    label: str                      # what was measured
+    mean_text: str                  # as printed, e.g. "3.45": its decimals matter
+    n: int | None                   # number of participants the mean is over
+    integer_scale: bool | None      # each value a whole number? None = unknown
+    items: int = 1                  # items averaged per participant (1 = single measure)
+    source: str | None = None       # where it was read
+
+
 class PaperContext(BaseModel):
     """A paper and what is known about it."""
 
@@ -96,6 +110,7 @@ class PaperContext(BaseModel):
     fulltext_status: str = "none"
     references: tuple[ReferenceContext, ...] = ()
     stat_tests: tuple[StatTestContext, ...] = ()
+    means: tuple[MeanContext, ...] = ()
     trials: tuple[TrialContext, ...] = ()
 
 

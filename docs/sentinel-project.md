@@ -646,7 +646,7 @@ granular   = round(M * N) / N
 consistent = abs(M - granular) <= tolerance + epsilon
 ```
 
-The check only applies when all of these hold: the measure is integer-valued, `N` is known and under about 100, and the mean is reported to at least two decimal places. Otherwise return `not_applicable` rather than guessing.
+The check only applies when all of these hold: the measure is integer-valued, `N` is known and under about 100, and the mean is reported to at least two decimal places. Otherwise return `not_applicable` rather than guessing. Two refinements (ADR-038): N × items must be below 10^decimals (at or above it every mean is possible), and the whole-number totals on both sides of M × N are tried, so a rounding boundary is never misjudged. Phase 1 extracts no means from the corpus; C04 is proven by fixtures.
 
 Severity is `medium`. When the check applies, its precision is very high, which is exactly why the conditions must be strict.
 
