@@ -1,0 +1,1518 @@
+{
+ "id": "PMC5089582",
+ "subject": "paper",
+ "categories": [
+  "c02_expression_of_concern"
+ ],
+ "source": {
+  "corpus": "pmc-rct-2015-2024",
+  "paper_id": 258,
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "41 references. One cited work later got an expression of concern.",
+ "expected": [
+  {
+   "check": "C01",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C02",
+   "status": "flagged",
+   "severity": "medium",
+   "item": "ref 15",
+   "band": "expression_of_concern",
+   "why": "Expression of concern (2022-01-24) on the cited J Crohns Colitis 2012 paper: medium at any timing."
+  },
+  {
+   "check": "C02",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C03",
+   "status": "not_applicable",
+   "severity": "info"
+  },
+  {
+   "check": "C04",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "paper_id": 258,
+  "publication_date": "2016-05-29",
+  "fulltext_status": "full",
+  "references": [
+   {
+    "reference_id": 10162,
+    "ordinal": 1,
+    "raw_string": "Goldberg ND . Iron deficiency anemia in patients with inflammatory bowel disease. Clin Exp Gastroenterol 2013; 6: 61–70.23766655 10.2147/CEG.S43493 PMC3678593",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2147/ceg.s43493",
+    "parsed_pmid": "23766655",
+    "parsed_title": "Iron deficiency anemia in patients with inflammatory bowel disease",
+    "parsed_first_author": "goldberg",
+    "parsed_year": 2013,
+    "parsed_container": "Clin Exp Gastroenterol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4081,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2147/ceg.s43493"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10163,
+    "ordinal": 2,
+    "raw_string": "Breuer W , Hershko C , Cabantchik ZI . The importance of non‐transferrin bound iron in disorders of iron metabolism. Transfus Sci 2000; 23: 185–92.11099894 10.1016/s0955-3886(00)00087-4",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s0955-3886(00)00087-4",
+    "parsed_pmid": "11099894",
+    "parsed_title": "The importance of non‐transferrin bound iron in disorders of iron metabolism",
+    "parsed_first_author": "breuer",
+    "parsed_year": 2000,
+    "parsed_container": "Transfus Sci",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4082,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0955-3886(00)00087-4"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10164,
+    "ordinal": 3,
+    "raw_string": "Dignass AU , Gasche C , Bettenworth D , et al European consensus on the diagnosis and management of iron deficiency and anaemia in inflammatory bowel diseases. J Crohns Colitis 2015; 9: 211–22.25518052 10.1093/ecco-jcc/jju009",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/ecco-jcc/jju009",
+    "parsed_pmid": "25518052",
+    "parsed_title": "European consensus on the diagnosis and management of iron deficiency and anaemia in inflammatory bowel diseases",
+    "parsed_first_author": "dignass",
+    "parsed_year": 2015,
+    "parsed_container": "J Crohns Colitis",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4083,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/ecco-jcc/jju009"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10165,
+    "ordinal": 4,
+    "raw_string": "Stein J , Hartmann F , Dignass AU . Diagnosis and management of iron deficiency anemia in patients with IBD. Nat Rev Gastroenterol Hepatol 2010; 7: 599–610.20924367 10.1038/nrgastro.2010.151",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/nrgastro.2010.151",
+    "parsed_pmid": "20924367",
+    "parsed_title": "Diagnosis and management of iron deficiency anemia in patients with IBD",
+    "parsed_first_author": "stein",
+    "parsed_year": 2010,
+    "parsed_container": "Nat Rev Gastroenterol Hepatol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4084,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1038/nrgastro.2010.151"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10166,
+    "ordinal": 5,
+    "raw_string": "Gomollon F , Gisbert JP . Anemia and inflammatory bowel diseases. World J Gastroenterol 2009; 15: 4659–65.19787829 10.3748/wjg.15.4659 PMC2754514",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3748/wjg.15.4659",
+    "parsed_pmid": "19787829",
+    "parsed_title": "Anemia and inflammatory bowel diseases",
+    "parsed_first_author": "gomollon",
+    "parsed_year": 2009,
+    "parsed_container": "World J Gastroenterol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 2065,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {},
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10167,
+    "ordinal": 6,
+    "raw_string": "Gasche C , Beguin Y , de Silva AD , et al IBD and anemia In: Gasche C, ed. Anemia in Inflammatory Bowel Diseases. Bremen, London, Boston: UNI‐MED Verlag AG, 2008; 15–53.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "IBD and anemia",
+    "parsed_first_author": "gasche",
+    "parsed_year": 2008,
+    "parsed_container": "Anemia in Inflammatory Bowel Diseases",
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": [
+      {
+       "year": 2000,
+       "paper_id": 4085,
+       "rejected": "year 2000 vs 2008",
+       "similarity": 0.7333,
+       "first_author": "sachar"
+      }
+     ]
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10168,
+    "ordinal": 7,
+    "raw_string": "Van Assche G , Dignass A , Reinisch W , et al The second European evidence‐based Consensus on the diagnosis and management of Crohn's disease: Special situations. J Crohns Colitis 2010; 4: 63–101.21122490 10.1016/j.crohns.2009.09.009",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.crohns.2009.09.009",
+    "parsed_pmid": "21122490",
+    "parsed_title": "The second European evidence‐based Consensus on the diagnosis and management of Crohn's disease: Special situations",
+    "parsed_first_author": "van assche",
+    "parsed_year": 2010,
+    "parsed_container": "J Crohns Colitis",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4091,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.crohns.2009.09.009"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10169,
+    "ordinal": 8,
+    "raw_string": "Wells CW , Lewis S , Barton JR , Corbett S . Effects of changes in hemoglobin level on quality of life and cognitive function in inflammatory bowel disease patients. Inflamm Bowel Dis 2006; 12: 123–30.16432377 10.1097/01.MIB.0000196646.64615.db",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/01.mib.0000196646.64615.db",
+    "parsed_pmid": "16432377",
+    "parsed_title": "Effects of changes in hemoglobin level on quality of life and cognitive function in inflammatory bowel disease patients",
+    "parsed_first_author": "wells",
+    "parsed_year": 2006,
+    "parsed_container": "Inflamm Bowel Dis",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4092,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/01.mib.0000196646.64615.db"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10170,
+    "ordinal": 9,
+    "raw_string": "Ershler WB , Chen K , Reyes EB , Dubois R . Economic burden of patients with anemia in selected diseases. Value Health 2005; 8: 629–38.16283863 10.1111/j.1524-4733.2005.00058.x",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1524-4733.2005.00058.x",
+    "parsed_pmid": "16283863",
+    "parsed_title": "Economic burden of patients with anemia in selected diseases",
+    "parsed_first_author": "ershler",
+    "parsed_year": 2005,
+    "parsed_container": "Value Health",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4093,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1524-4733.2005.00058.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10171,
+    "ordinal": 10,
+    "raw_string": "Weiss G , Goodnough LT . Anemia of chronic disease. N Engl J Med 2005; 352: 1011–23.15758012 10.1056/NEJMra041809",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1056/nejmra041809",
+    "parsed_pmid": "15758012",
+    "parsed_title": "Anemia of chronic disease",
+    "parsed_first_author": "weiss",
+    "parsed_year": 2005,
+    "parsed_container": "N Engl J Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4094,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1056/nejmra041809"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10172,
+    "ordinal": 11,
+    "raw_string": "Gasche C , Berstad A , Befrits R , et al Guidelines on the diagnosis and management of iron deficiency and anemia in inflammatory bowel diseases. Inflamm Bowel Dis 2007; 13: 1545–53.17985376 10.1002/ibd.20285",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/ibd.20285",
+    "parsed_pmid": "17985376",
+    "parsed_title": "Guidelines on the diagnosis and management of iron deficiency and anemia in inflammatory bowel diseases",
+    "parsed_first_author": "gasche",
+    "parsed_year": 2007,
+    "parsed_container": "Inflamm Bowel Dis",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 2068,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {},
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10173,
+    "ordinal": 12,
+    "raw_string": "Blumenstein I , Dignass A , Vollmer S , Klemm W , Weber‐Mangal S , Stein J . Current practice in the diagnosis and management of IBD‐associated anaemia and iron deficiency in Germany: the German AnaemIBD Study. J Crohns Colitis 2014; 8: 1308–14.24721157 10.1016/j.crohns.2014.03.010",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.crohns.2014.03.010",
+    "parsed_pmid": "24721157",
+    "parsed_title": "Current practice in the diagnosis and management of IBD‐associated anaemia and iron deficiency in Germany: the German AnaemIBD Study",
+    "parsed_first_author": "blumenstein",
+    "parsed_year": 2014,
+    "parsed_container": "J Crohns Colitis",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4095,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.crohns.2014.03.010"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10174,
+    "ordinal": 13,
+    "raw_string": "Gasche C , Beguin Y , de Silva AD . Anemia in Inflammatory Bowel Diseases. Bremen, London, Boston: UNI‐MED Verlag AG, 2008.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Anemia in Inflammatory Bowel Diseases",
+    "parsed_first_author": "gasche",
+    "parsed_year": 2008,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": [
+      {
+       "year": 2009,
+       "paper_id": 2065,
+       "rejected": "first author 'gomollon' vs 'gasche'",
+       "similarity": 0.9211,
+       "first_author": "gomollon"
+      },
+      {
+       "year": 2009,
+       "paper_id": 2069,
+       "rejected": "first author 'fernando' vs 'gasche'",
+       "similarity": 0.9211,
+       "first_author": "fernando"
+      },
+      {
+       "year": 2009,
+       "paper_id": 3599,
+       "rejected": "first author 'fernando' vs 'gasche'",
+       "similarity": 0.9211,
+       "first_author": "fernando"
+      }
+     ]
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10175,
+    "ordinal": 14,
+    "raw_string": "Tolkien Z , Stecher L , Mander AP , Pereira DI , Powell JJ . Ferrous sulphate supplementation causes significant gastrointestinal side effects in adults: a systematic review and meta‐analysis. PLoS ONE 2015; 10: e0117383.25700159 10.1371/journal.pone.0117383 PMC4336293",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1371/journal.pone.0117383",
+    "parsed_pmid": "25700159",
+    "parsed_title": "Ferrous sulphate supplementation causes significant gastrointestinal side effects in adults: a systematic review and meta‐analysis",
+    "parsed_first_author": "tolkien",
+    "parsed_year": 2015,
+    "parsed_container": "PLoS ONE",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4096,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1371/journal.pone.0117383"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.988
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10176,
+    "ordinal": 15,
+    "raw_string": "Dignass A , Lindsay JO , Sturm A , et al Second European evidence‐based consensus on the diagnosis and management of ulcerative colitis part 2: current management. J Crohns Colitis 2012; 6: 991–1030.23040451 10.1016/j.crohns.2012.09.002",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.crohns.2012.09.002",
+    "parsed_pmid": "23040451",
+    "parsed_title": "Second European evidence‐based consensus on the diagnosis and management of ulcerative colitis part 2: current management",
+    "parsed_first_author": "dignass",
+    "parsed_year": 2012,
+    "parsed_container": "J Crohns Colitis",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4097,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.crohns.2012.09.002"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": [
+     {
+      "notice_type": "expression_of_concern",
+      "notice_date": "2022-01-24",
+      "notice_doi": "10.1093/ecco-jcc/jjab227",
+      "reason": "Civil Proceedings;Concerns/Issues about Data;Concerns/Issues about Results and/or Conclusions;Legal Reasons and/or Threats;",
+      "source": "retraction_watch",
+      "source_record_id": "35124",
+      "matched_on": "doi"
+     }
+    ]
+   },
+   {
+    "reference_id": 10177,
+    "ordinal": 16,
+    "raw_string": "D'Arcy PF , Howard EM . The acute toxicity of ferrous salts administered to dogs by mouth. J Pathol Bacteriol 1962; 83: 65–72.13882977 10.1002/path.1700830109",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/path.1700830109",
+    "parsed_pmid": "13882977",
+    "parsed_title": "The acute toxicity of ferrous salts administered to dogs by mouth",
+    "parsed_first_author": "d arcy",
+    "parsed_year": 1962,
+    "parsed_container": "J Pathol Bacteriol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4098,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/path.1700830109"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10178,
+    "ordinal": 17,
+    "raw_string": "Evstatiev R , Marteau P , Iqbal T , et al FERGIcor, a randomized controlled trial on ferric carboxymaltose for iron deficiency anemia in inflammatory bowel disease. Gastroenterology 2011; 141: 846–53 e1–2.21699794 10.1053/j.gastro.2011.06.005",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1053/j.gastro.2011.06.005",
+    "parsed_pmid": "21699794",
+    "parsed_title": "FERGIcor, a randomized controlled trial on ferric carboxymaltose for iron deficiency anemia in inflammatory bowel disease",
+    "parsed_first_author": "evstatiev",
+    "parsed_year": 2011,
+    "parsed_container": "Gastroenterology",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4099,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1053/j.gastro.2011.06.005"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10179,
+    "ordinal": 18,
+    "raw_string": "European Medicines Agency (EMA) . New recommendations to manage risk of allergic reactions with intravenous iron‐containing medicines. 13 September 2013. Available at: http://www.ema.europa.eu/ema/index.jsp?curl=pages/medicines/human/medicines/000435/human_med_001171.jsp&murl=menus/medicines/medicines.jsp&mid=WC0b01ac058001d125 (accessed 22 April 2016).",
+    "citation_tag": "mixed-citation",
+    "publication_type": "miscellaneous",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "New recommendations to manage risk of allergic reactions with intravenous iron‐containing medicines",
+    "parsed_first_author": "european medicines agency ema",
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": [
+      {
+       "year": 2014,
+       "paper_id": 4101,
+       "rejected": "first author 'gomollon' vs 'european medicines agency ema'",
+       "similarity": 0.6034,
+       "first_author": "gomollon"
+      }
+     ]
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10180,
+    "ordinal": 19,
+    "raw_string": "Gomollon F , Chowers Y , Danese S , et al Letter: European Medicines Agency recommendations for allergic reactions to intravenous iron‐containing medicines. Aliment Pharmacol Ther 2014; 39: 743–4.24588280 10.1111/apt.12648",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/apt.12648",
+    "parsed_pmid": "24588280",
+    "parsed_title": "Letter: European Medicines Agency recommendations for allergic reactions to intravenous iron‐containing medicines",
+    "parsed_first_author": "gomollon",
+    "parsed_year": 2014,
+    "parsed_container": "Aliment Pharmacol Ther",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4101,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {},
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10181,
+    "ordinal": 20,
+    "raw_string": "Auerbach M , Rodgers GM . Intravenous iron. N Engl J Med 2007; 357: 93–4.17611217 10.1056/NEJMc070203",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1056/nejmc070203",
+    "parsed_pmid": "17611217",
+    "parsed_title": "Intravenous iron",
+    "parsed_first_author": "auerbach",
+    "parsed_year": 2007,
+    "parsed_container": "N Engl J Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4105,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1056/nejmc070203"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10182,
+    "ordinal": 21,
+    "raw_string": "Barrand MA , Callingham BA , Dobbin P , Hider RC . Dissociation of a ferric maltol complex and its subsequent metabolism during absorption across the small intestine of the rat. Br J Pharmacol 1991; 102: 723–9.1364845 10.1111/j.1476-5381.1991.tb12240.x PMC1917947",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1476-5381.1991.tb12240.x",
+    "parsed_pmid": "1364845",
+    "parsed_title": "Dissociation of a ferric maltol complex and its subsequent metabolism during absorption across the small intestine of the rat",
+    "parsed_first_author": "barrand",
+    "parsed_year": 1991,
+    "parsed_container": "Br J Pharmacol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4106,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1476-5381.1991.tb12240.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10183,
+    "ordinal": 22,
+    "raw_string": "Kelsey SM , Hider RC , Bloor JR , Blake DR , Gutteridge CN , Newland AC . Absorption of low and therapeutic doses of ferric maltol, a novel ferric iron compound, in iron deficient subjects using a single dose iron absorption test. J Clin Pharm Ther 1991; 16: 117–22.1856249 10.1111/j.1365-2710.1991.tb00292.x",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1365-2710.1991.tb00292.x",
+    "parsed_pmid": "1856249",
+    "parsed_title": "Absorption of low and therapeutic doses of ferric maltol, a novel ferric iron compound, in iron deficient subjects using a single dose iron absorption test",
+    "parsed_first_author": "kelsey",
+    "parsed_year": 1991,
+    "parsed_container": "J Clin Pharm Ther",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4107,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1365-2710.1991.tb00292.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10184,
+    "ordinal": 23,
+    "raw_string": "Kelsey SM , Blake DR , Hider RC , Gutteridge CN , Newland AC . Absorption of ferric maltol, a novel ferric iron compound, in iron‐deficient subjects. Clin Lab Haematol 1989; 11: 287–8.2591161 10.1111/j.1365-2257.1989.tb00222.x",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1365-2257.1989.tb00222.x",
+    "parsed_pmid": "2591161",
+    "parsed_title": "Absorption of ferric maltol, a novel ferric iron compound, in iron‐deficient subjects",
+    "parsed_first_author": "kelsey",
+    "parsed_year": 1989,
+    "parsed_container": "Clin Lab Haematol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4108,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1365-2257.1989.tb00222.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10185,
+    "ordinal": 24,
+    "raw_string": "Barrand MA , Callingham BA . Evidence for regulatory control of iron uptake from ferric maltol across the small intestine of the rat. Br J Pharmacol 1991; 102: 408–14.2015422 10.1111/j.1476-5381.1991.tb12187.x PMC1918048",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1476-5381.1991.tb12187.x",
+    "parsed_pmid": "2015422",
+    "parsed_title": "Evidence for regulatory control of iron uptake from ferric maltol across the small intestine of the rat",
+    "parsed_first_author": "barrand",
+    "parsed_year": 1991,
+    "parsed_container": "Br J Pharmacol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4109,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1476-5381.1991.tb12187.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10186,
+    "ordinal": 25,
+    "raw_string": "Levey JA , Barrand MA , Callingham BA , Hider RC . Characteristics of iron(III) uptake by isolated fragments of rat small intestine in the presence of the hydroxypyrones, maltol and ethyl maltol. Biochem Pharmacol 1988; 37: 2051–7.3377810 10.1016/0006-2952(88)90556-4",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/0006-2952(88)90556-4",
+    "parsed_pmid": "3377810",
+    "parsed_title": "Characteristics of iron(III) uptake by isolated fragments of rat small intestine in the presence of the hydroxypyrones, maltol and ethyl maltol",
+    "parsed_first_author": "levey",
+    "parsed_year": 1988,
+    "parsed_container": "Biochem Pharmacol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4110,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/0006-2952(88)90556-4"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10187,
+    "ordinal": 26,
+    "raw_string": "Gasche C , Ahmad T , Tulassay Z , et al Ferric maltol is effective in correcting iron deficiency anemia in patients with inflammatory bowel disease: results from a phase‐3 clinical trial program. Inflamm Bowel Dis 2015; 21: 579–88.25545376 10.1097/MIB.0000000000000314 PMC4342319",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/mib.0000000000000314",
+    "parsed_pmid": "25545376",
+    "parsed_title": "Ferric maltol is effective in correcting iron deficiency anemia in patients with inflammatory bowel disease: results from a phase‐3 clinical trial program",
+    "parsed_first_author": "gasche",
+    "parsed_year": 2015,
+    "parsed_container": "Inflamm Bowel Dis",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4111,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/mib.0000000000000314"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.823
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10188,
+    "ordinal": 27,
+    "raw_string": "World Health Organisation (WHO) . Haemoglobin concentrations for the diagnosis of anaemia and assessment of severity In: Maria de Regil L, ed. Vitamin and Mineral Nutrition Information System (WHO/NMH/NHD/MNM/11.1). Geneva: World Health Organization, 2011; 1–4.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Haemoglobin concentrations for the diagnosis of anaemia and assessment of severity",
+    "parsed_first_author": "maria de regil",
+    "parsed_year": 2011,
+    "parsed_container": "Vitamin and Mineral Nutrition Information System",
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10189,
+    "ordinal": 28,
+    "raw_string": "Ware JE Jr , Sherbourne CD . The MOS 36‐item short‐form health survey (SF‐36). I. Conceptual framework and item selection. Med Care 1992; 30: 473–83.1593914",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": "1593914",
+    "parsed_title": "The MOS 36‐item short‐form health survey (SF‐36). I. Conceptual framework and item selection",
+    "parsed_first_author": "ware",
+    "parsed_year": 1992,
+    "parsed_container": "Med Care",
+    "resolution_status": "resolved",
+    "resolution_method": "pmid",
+    "resolved_paper_id": 4117,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "pmid:1593914"
+      ],
+      "openalex_pmid": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10190,
+    "ordinal": 29,
+    "raw_string": "Walmsley RS , Ayres RC , Pounder RE , Allan RN . A simple clinical colitis activity index. Gut 1998; 43: 29–32.9771402 10.1136/gut.43.1.29 PMC1727189",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1136/gut.43.1.29",
+    "parsed_pmid": "9771402",
+    "parsed_title": "A simple clinical colitis activity index",
+    "parsed_first_author": "walmsley",
+    "parsed_year": 1998,
+    "parsed_container": "Gut",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4118,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1136/gut.43.1.29"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10191,
+    "ordinal": 30,
+    "raw_string": "Best WR , Becktel JM , Singleton JW , Kern F Jr . Development of a Crohn's disease activity index. National Cooperative Crohn's Disease Study. Gastroenterology 1976; 70: 439–44.1248701",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": "1248701",
+    "parsed_title": "Development of a Crohn's disease activity index. National Cooperative Crohn's Disease Study",
+    "parsed_first_author": "best",
+    "parsed_year": 1976,
+    "parsed_container": "Gastroenterology",
+    "resolution_status": "resolved",
+    "resolution_method": "pmid",
+    "resolved_paper_id": 4119,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "pmid:1248701"
+      ],
+      "openalex_pmid": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10192,
+    "ordinal": 31,
+    "raw_string": "Lopez A , Cacoub P , Macdougall IC , Peyrin‐Biroulet L . Iron deficiency anaemia. Lancet 2015; 387: 907–16.26314490 10.1016/S0140-6736(15)60865-0",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s0140-6736(15)60865-0",
+    "parsed_pmid": "26314490",
+    "parsed_title": "Iron deficiency anaemia",
+    "parsed_first_author": "lopez",
+    "parsed_year": 2015,
+    "parsed_container": "Lancet",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4120,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0140-6736(15)60865-0"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10193,
+    "ordinal": 32,
+    "raw_string": "Kulnigg S , Teischinger L , Dejaco C , Waldhor T , Gasche C . Rapid recurrence of IBD‐associated anemia and iron deficiency after intravenous iron sucrose and erythropoietin treatment. Am J Gastroenterol 2009; 104: 1460–7.19491860 10.1038/ajg.2009.114",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/ajg.2009.114",
+    "parsed_pmid": "19491860",
+    "parsed_title": "Rapid recurrence of IBD‐associated anemia and iron deficiency after intravenous iron sucrose and erythropoietin treatment",
+    "parsed_first_author": "kulnigg",
+    "parsed_year": 2009,
+    "parsed_container": "Am J Gastroenterol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4088,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {},
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10194,
+    "ordinal": 33,
+    "raw_string": "Qunibi WY . The efficacy and safety of current intravenous iron preparations for the management of iron‐deficiency anaemia: a review. Arzneimittelforschung 2010; 60: 399–412.20648931 10.1055/s-0031-1296304",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1055/s-0031-1296304",
+    "parsed_pmid": "20648931",
+    "parsed_title": "The efficacy and safety of current intravenous iron preparations for the management of iron‐deficiency anaemia: a review",
+    "parsed_first_author": "qunibi",
+    "parsed_year": 2010,
+    "parsed_container": "Arzneimittelforschung",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4121,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1055/s-0031-1296304"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10195,
+    "ordinal": 34,
+    "raw_string": "Kulnigg S , Stoinov S , Simanenkov V , et al A novel intravenous iron formulation for treatment of anemia in inflammatory bowel disease: the ferric carboxymaltose (FERINJECT) randomized controlled trial. Am J Gastroenterol 2008; 103: 1182–92.18371137 10.1111/j.1572-0241.2007.01744.x",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1572-0241.2007.01744.x",
+    "parsed_pmid": "18371137",
+    "parsed_title": "A novel intravenous iron formulation for treatment of anemia in inflammatory bowel disease: the ferric carboxymaltose (FERINJECT) randomized controlled trial",
+    "parsed_first_author": "kulnigg",
+    "parsed_year": 2008,
+    "parsed_container": "Am J Gastroenterol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4122,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1572-0241.2007.01744.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10196,
+    "ordinal": 35,
+    "raw_string": "Schroder O , Mickisch O , Seidler U , et al Intravenous iron sucrose versus oral iron supplementation for the treatment of iron deficiency anemia in patients with inflammatory bowel disease–a randomized, controlled, open‐label, multicenter study. Am J Gastroenterol 2005; 100: 2503–9.16279906 10.1111/j.1572-0241.2005.00250.x",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1572-0241.2005.00250.x",
+    "parsed_pmid": "16279906",
+    "parsed_title": "Intravenous iron sucrose versus oral iron supplementation for the treatment of iron deficiency anemia in patients with inflammatory bowel disease–a randomized, controlled, open‐label, multicenter study",
+    "parsed_first_author": "schroder",
+    "parsed_year": 2005,
+    "parsed_container": "Am J Gastroenterol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4123,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1572-0241.2005.00250.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10197,
+    "ordinal": 36,
+    "raw_string": "Bodemar G , Kechagias S , Almer S , Danielson BG . Treatment of anaemia in inflammatory bowel disease with iron sucrose. Scand J Gastroenterol 2004; 39: 454–8.15180183 10.1080/00365520310008818-1",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1080/00365520310008818-1",
+    "parsed_pmid": "15180183",
+    "parsed_title": "Treatment of anaemia in inflammatory bowel disease with iron sucrose",
+    "parsed_first_author": "bodemar",
+    "parsed_year": 2004,
+    "parsed_container": "Scand J Gastroenterol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4124,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1080/00365520310008818-1"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10198,
+    "ordinal": 37,
+    "raw_string": "Erichsen K , Ulvik RJ , Nysaeter G , et al Oral ferrous fumarate or intravenous iron sucrose for patients with inflammatory bowel disease. Scand J Gastroenterol 2005; 40: 1058–65.16165718 10.1080/00365520510023198",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1080/00365520510023198",
+    "parsed_pmid": "16165718",
+    "parsed_title": "Oral ferrous fumarate or intravenous iron sucrose for patients with inflammatory bowel disease",
+    "parsed_first_author": "erichsen",
+    "parsed_year": 2005,
+    "parsed_container": "Scand J Gastroenterol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4125,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1080/00365520510023198"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10199,
+    "ordinal": 38,
+    "raw_string": "Stein J , Dignass AU . Management of iron deficiency anemia in inflammatory bowel disease ‐ a practical approach. Ann Gastroenterol 2013; 26: 104–13.24714874 PMC3959949",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": "24714874",
+    "parsed_title": "Management of iron deficiency anemia in inflammatory bowel disease ‐ a practical approach",
+    "parsed_first_author": "stein",
+    "parsed_year": 2013,
+    "parsed_container": "Ann Gastroenterol",
+    "resolution_status": "resolved",
+    "resolution_method": "pmid",
+    "resolved_paper_id": 4126,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "pmid:24714874"
+      ],
+      "openalex_pmid": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10200,
+    "ordinal": 39,
+    "raw_string": "Lindgren S , Wikman O , Befrits R , et al Intravenous iron sucrose is superior to oral iron sulphate for correcting anaemia and restoring iron stores in IBD patients: a randomized, controlled, evaluator‐blind, multicentre study. Scand J Gastroenterol 2009; 44: 838–45.19330567 10.1080/00365520902839667",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1080/00365520902839667",
+    "parsed_pmid": "19330567",
+    "parsed_title": "Intravenous iron sucrose is superior to oral iron sulphate for correcting anaemia and restoring iron stores in IBD patients: a randomized, controlled, evaluator‐blind, multicentre study",
+    "parsed_first_author": "lindgren",
+    "parsed_year": 2009,
+    "parsed_container": "Scand J Gastroenterol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 1971,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1080/00365520902839667"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10201,
+    "ordinal": 40,
+    "raw_string": "Gisbert JP , Bermejo F , Pajares R , et al Oral and intravenous iron treatment in inflammatory bowel disease: hematological response and quality of life improvement. Inflamm Bowel Dis 2009; 15: 1485–91.19408339 10.1002/ibd.20925",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/ibd.20925",
+    "parsed_pmid": "19408339",
+    "parsed_title": "Oral and intravenous iron treatment in inflammatory bowel disease: hematological response and quality of life improvement",
+    "parsed_first_author": "gisbert",
+    "parsed_year": 2009,
+    "parsed_container": "Inflamm Bowel Dis",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4127,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/ibd.20925"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10202,
+    "ordinal": 41,
+    "raw_string": "Harvey RS , Reffitt DM , Doig LA , et al Ferric trimaltol corrects iron deficiency anaemia in patients intolerant of iron. Aliment Pharmacol Ther 1998; 12: 845–8.9768526 10.1046/j.1365-2036.1998.00380.x",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1046/j.1365-2036.1998.00380.x",
+    "parsed_pmid": "9768526",
+    "parsed_title": "Ferric trimaltol corrects iron deficiency anaemia in patients intolerant of iron",
+    "parsed_first_author": "harvey",
+    "parsed_year": 1998,
+    "parsed_container": "Aliment Pharmacol Ther",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4128,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1046/j.1365-2036.1998.00380.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   }
+  ],
+  "stat_tests": [],
+  "means": [],
+  "trials": []
+ }
+}

@@ -1,0 +1,436 @@
+{
+ "id": "PMC8385553",
+ "subject": "paper",
+ "categories": [
+  "clean"
+ ],
+ "source": {
+  "corpus": "pmc-rct-2015-2024",
+  "paper_id": 336,
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "No flags from any check. All references resolved or non-journal; no statistics found in the body text, and no means (C04 never applies in Phase 1).",
+ "expected": [
+  {
+   "check": "C01",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C02",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C03",
+   "status": "not_applicable",
+   "severity": "info"
+  },
+  {
+   "check": "C04",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "paper_id": 336,
+  "publication_date": "2021-08-18",
+  "fulltext_status": "full",
+  "references": [
+   {
+    "reference_id": 13096,
+    "ordinal": 1,
+    "raw_string": "Ko JY, Danielson ML, Town M, et al. Risk factors for coronavirus disease 2019 (COVID-19)-associated hospitalization: COVID-19-Associated Hospitalization Surveillance Network and Behavioral Risk Factor Surveillance System. Clin Infect Dis 2021;72(11):e695-e703.32945846 10.1093/cid/ciaa1419 PMC7543371",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/cid/ciaa1419",
+    "parsed_pmid": "32945846",
+    "parsed_title": "Risk factors for coronavirus disease 2019 (COVID-19)-associated hospitalization: COVID-19-Associated Hospitalization Surveillance Network and Behavioral Risk Factor Surveillance System.",
+    "parsed_first_author": "ko",
+    "parsed_year": 2021,
+    "parsed_container": "Clin Infect Dis",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4355,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/cid/ciaa1419"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13097,
+    "ordinal": 2,
+    "raw_string": "Ripoll JG, van Helmond N, Senefeld JW, et al. Convalescent plasma for infectious diseases: historical framework and use in COVID-19. Clin Microbiol Newsl 2021;43(4):23-32.33564204 10.1016/j.clinmicnews.2021.02.001 PMC7862032",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.clinmicnews.2021.02.001",
+    "parsed_pmid": "33564204",
+    "parsed_title": "Convalescent plasma for infectious diseases: historical framework and use in COVID-19.",
+    "parsed_first_author": "ripoll",
+    "parsed_year": 2021,
+    "parsed_container": "Clin Microbiol Newsl",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 1137,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.clinmicnews.2021.02.001"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13098,
+    "ordinal": 3,
+    "raw_string": "Li L, Zhang W, Hu Y, et al. Effect of convalescent plasma therapy on time to clinical improvement in patients with severe and life-threatening COVID-19: a randomized clinical trial. JAMA 2020;324:460-470.32492084 10.1001/jama.2020.10044 PMC7270883",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1001/jama.2020.10044",
+    "parsed_pmid": "32492084",
+    "parsed_title": "Effect of convalescent plasma therapy on time to clinical improvement in patients with severe and life-threatening COVID-19: a randomized clinical trial.",
+    "parsed_first_author": "li",
+    "parsed_year": 2020,
+    "parsed_container": "JAMA",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4356,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1001/jama.2020.10044"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.898
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13099,
+    "ordinal": 4,
+    "raw_string": "Agarwal A, Mukherjee A, Kumar G, Chatterjee P, Bhatnagar T, Malhotra P. Convalescent plasma in the management of moderate covid-19 in adults in India: open label phase II multicentre randomised controlled trial (PLACID Trial). BMJ 2020;371:m3939-m3939.33093056 10.1136/bmj.m3939 PMC7578662",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1136/bmj.m3939",
+    "parsed_pmid": "33093056",
+    "parsed_title": "Convalescent plasma in the management of moderate covid-19 in adults in India: open label phase II multicentre randomised controlled trial (PLACID Trial).",
+    "parsed_first_author": "agarwal",
+    "parsed_year": 2020,
+    "parsed_container": "BMJ",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4357,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1136/bmj.m3939"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13100,
+    "ordinal": 5,
+    "raw_string": "Libster R, Pérez Marc G, Wappner D, et al. Early high-titer plasma therapy to prevent severe Covid-19 in older adults. N Engl J Med 2021;384:610-618.33406353 10.1056/NEJMoa2033700 PMC7793608",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1056/nejmoa2033700",
+    "parsed_pmid": "33406353",
+    "parsed_title": "Early high-titer plasma therapy to prevent severe Covid-19 in older adults.",
+    "parsed_first_author": "libster",
+    "parsed_year": 2021,
+    "parsed_container": "N Engl J Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 667,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {},
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13101,
+    "ordinal": 6,
+    "raw_string": "Di Germanio C, Simmons G, Kelly K, et al. SARS-CoV-2 antibody persistence in COVID-19 convalescent plasma donors. March 26, 2021 (https://www.medrxiv.org/content/10.1101/2021.03.24.21254260v1). preprint.10.1111/trf.16555 PMC8447038 34121205",
+    "citation_tag": "mixed-citation",
+    "publication_type": "eref",
+    "parsed_doi": "10.1111/trf.16555",
+    "parsed_pmid": "34121205",
+    "parsed_title": "SARS-CoV-2 antibody persistence in COVID-19 convalescent plasma donors.",
+    "parsed_first_author": "di germanio",
+    "parsed_year": 2021,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4358,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/trf.16555"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.683
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13102,
+    "ordinal": 7,
+    "raw_string": "WHO Working Group on the Clinical Characterisation and Management of COVID-19 infection. A minimal common outcome measure set for COVID-19 clinical research. Lancet Infect Dis 2020;20(8):e192-e197.32539990 10.1016/S1473-3099(20)30483-7 PMC7292605",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s1473-3099(20)30483-7",
+    "parsed_pmid": "32539990",
+    "parsed_title": "A minimal common outcome measure set for COVID-19 clinical research.",
+    "parsed_first_author": "who working group on the clinical characterisation and management of covid 19 infection",
+    "parsed_year": 2020,
+    "parsed_container": "Lancet Infect Dis",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4359,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s1473-3099(20)30483-7"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13103,
+    "ordinal": 8,
+    "raw_string": "Long Q-X, Liu B-Z, Deng H-J, et al. Antibody responses to SARS-CoV-2 in patients with COVID-19. Nat Med 2020;26:845-848.32350462 10.1038/s41591-020-0897-1",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/s41591-020-0897-1",
+    "parsed_pmid": "32350462",
+    "parsed_title": "Antibody responses to SARS-CoV-2 in patients with COVID-19.",
+    "parsed_first_author": "long",
+    "parsed_year": 2020,
+    "parsed_container": "Nat Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4360,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1038/s41591-020-0897-1"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13104,
+    "ordinal": 9,
+    "raw_string": "Peng HT, Rhind SG, Beckett A. Convalescent plasma for the prevention and treatment of COVID-19: a systematic review and quantitative analysis. JMIR Public Health Surveill 2021;7(4):e25500-e25500.33825689 10.2196/25500 PMC8245055",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2196/25500",
+    "parsed_pmid": "33825689",
+    "parsed_title": "Convalescent plasma for the prevention and treatment of COVID-19: a systematic review and quantitative analysis.",
+    "parsed_first_author": "peng",
+    "parsed_year": 2021,
+    "parsed_container": "JMIR Public Health Surveill",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4361,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2196/25500"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13105,
+    "ordinal": 10,
+    "raw_string": "Joyner MJ, Carter RE, Senefeld JW, et al. Convalescent plasma antibody levels and the risk of death from Covid-19. N Engl J Med 2021;384:1015-1027.33523609 10.1056/NEJMoa2031893 PMC7821984",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1056/nejmoa2031893",
+    "parsed_pmid": "33523609",
+    "parsed_title": "Convalescent plasma antibody levels and the risk of death from Covid-19.",
+    "parsed_first_author": "joyner",
+    "parsed_year": 2021,
+    "parsed_container": "N Engl J Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4362,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1056/nejmoa2031893"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13106,
+    "ordinal": 11,
+    "raw_string": "Simonovich VA, Burgos Pratx LD, Scibona P, et al. A randomized trial of convalescent plasma in Covid-19 severe pneumonia. N Engl J Med 2021;384:619-629.33232588 10.1056/NEJMoa2031304 PMC7722692",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1056/nejmoa2031304",
+    "parsed_pmid": "33232588",
+    "parsed_title": "A randomized trial of convalescent plasma in Covid-19 severe pneumonia.",
+    "parsed_first_author": "simonovich",
+    "parsed_year": 2021,
+    "parsed_container": "N Engl J Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4363,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1056/nejmoa2031304"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13107,
+    "ordinal": 12,
+    "raw_string": "Janiaud P, Axfors C, Schmitt AM, et al. Association of convalescent plasma treatment with clinical outcomes in patients with COVID-19: a systematic review and meta-analysis. JAMA 2021;325:1185-1195.33635310 10.1001/jama.2021.2747 PMC7911095",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1001/jama.2021.2747",
+    "parsed_pmid": "33635310",
+    "parsed_title": "Association of convalescent plasma treatment with clinical outcomes in patients with COVID-19: a systematic review and meta-analysis.",
+    "parsed_first_author": "janiaud",
+    "parsed_year": 2021,
+    "parsed_container": "JAMA",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4364,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1001/jama.2021.2747"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.83
+    },
+    "notices": []
+   }
+  ],
+  "stat_tests": [],
+  "means": [],
+  "trials": []
+ }
+}

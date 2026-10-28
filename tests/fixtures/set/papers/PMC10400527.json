@@ -1,0 +1,2502 @@
+{
+ "id": "PMC10400527",
+ "subject": "paper",
+ "categories": [
+  "c02_cited_after_retraction"
+ ],
+ "source": {
+  "corpus": "pmc-rct-2015-2024",
+  "paper_id": 248,
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "73 references: 70 resolved, 2 non-journal, 1 unverifiable journal reference (ref 1). One citation of a work retracted 128 months earlier.",
+ "expected": [
+  {
+   "check": "C01",
+   "status": "flagged",
+   "severity": "medium",
+   "item": "ref 1",
+   "why": "Picetti 2017, Int J Dev Res. Searched by hand in Crossref (bibliographic) and OpenAlex on 2026-10-27: no record of this work. 'Could not be verified' is accurate; the work may exist outside both indexes."
+  },
+  {
+   "check": "C01",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C02",
+   "status": "flagged",
+   "severity": "high",
+   "item": "ref 43",
+   "band": "after_grace",
+   "why": "Nagy 2006 Am J Physiol Heart (DOI matches) retracted 2012-06-01; paper published 2023-02-01 = 128 whole months later."
+  },
+  {
+   "check": "C02",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C03",
+   "status": "not_applicable",
+   "severity": "info"
+  },
+  {
+   "check": "C04",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "paper_id": 248,
+  "publication_date": "2023-02-01",
+  "fulltext_status": "full",
+  "references": [
+   {
+    "reference_id": 9849,
+    "ordinal": 1,
+    "raw_string": "Picetti D Foster S Pangle A Schrader A Wei JY Azhar G Knowledge and consumption of protein in older adults: Opportunity for improvement Int J Dev Res 2017 7 4 12519 12524",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Knowledge and consumption of protein in older adults: Opportunity for improvement",
+    "parsed_first_author": "picetti",
+    "parsed_year": 2017,
+    "parsed_container": "Int J Dev Res",
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9850,
+    "ordinal": 2,
+    "raw_string": "Cheng YL Sung SH Cheng HM Hsu PF Guo CY Yu WC Chen CH Prognostic nutritional index and the risk of mortality in patients with acute heart failure J Am Heart Assoc 2017 6 6 e004876 10.1161/JAHA.116.004876 28649089 PMC5669149",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1161/jaha.116.004876",
+    "parsed_pmid": "28649089",
+    "parsed_title": "Prognostic nutritional index and the risk of mortality in patients with acute heart failure",
+    "parsed_first_author": "cheng",
+    "parsed_year": 2017,
+    "parsed_container": "J Am Heart Assoc",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4016,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1161/jaha.116.004876"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9851,
+    "ordinal": 3,
+    "raw_string": "Kitzman DW Nicklas B Kraus WE Lyles MF Eggebeen J Morgan TM Haykowsky M Skeletal muscle abnormalities and exercise intolerance in older patients with heart failure and preserved ejection fraction Am J Physiol-Heart Circ Physiol 2014 306 9 H1364 H1370 10.1152/ajpheart.00004.2014 24658015 PMC4010668",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1152/ajpheart.00004.2014",
+    "parsed_pmid": "24658015",
+    "parsed_title": "Skeletal muscle abnormalities and exercise intolerance in older patients with heart failure and preserved ejection fraction",
+    "parsed_first_author": "kitzman",
+    "parsed_year": 2014,
+    "parsed_container": "Am J Physiol-Heart Circ Physiol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4017,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1152/ajpheart.00004.2014"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9852,
+    "ordinal": 4,
+    "raw_string": "Azhar G Wei JY The demographics of aging and its impact on the cardiovascular health Curr Cardiovasc Risk Rep 2015 9 13 10.1007/s12170-015-0441-x",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s12170-015-0441-x",
+    "parsed_pmid": null,
+    "parsed_title": "The demographics of aging and its impact on the cardiovascular health",
+    "parsed_first_author": "azhar",
+    "parsed_year": 2015,
+    "parsed_container": "Curr Cardiovasc Risk Rep",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4018,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s12170-015-0441-x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9853,
+    "ordinal": 5,
+    "raw_string": "Braunstein JB Anderson GF Gerstenblith G Noncardiac comorbidity increases preventable hospitalizations and mortality among Medicare beneficiaries with chronic heart failure J Am Coll Cardiol 2003 42 7 1226 1233 10.1016/S0735-1097(03)00947-1 14522486",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s0735-1097(03)00947-1",
+    "parsed_pmid": "14522486",
+    "parsed_title": "Noncardiac comorbidity increases preventable hospitalizations and mortality among Medicare beneficiaries with chronic heart failure",
+    "parsed_first_author": "braunstein",
+    "parsed_year": 2003,
+    "parsed_container": "J Am Coll Cardiol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4019,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0735-1097(03)00947-1"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9854,
+    "ordinal": 6,
+    "raw_string": "Gary RA Sueta CA Dougherty M Home-based exercise improves functional performance and quality of life in women with diastolic heart failure Heart Lung 2004 33 4 210 218 10.1016/j.hrtlng.2004.01.004 15252410",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.hrtlng.2004.01.004",
+    "parsed_pmid": "15252410",
+    "parsed_title": "Home-based exercise improves functional performance and quality of life in women with diastolic heart failure",
+    "parsed_first_author": "gary",
+    "parsed_year": 2004,
+    "parsed_container": "Heart Lung",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4020,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.hrtlng.2004.01.004"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9855,
+    "ordinal": 7,
+    "raw_string": "Azhar G Wei JY Schutzler SE Coker K Gibson RV Kirby MF Ferrando AA Wolfe RR Daily Consumption of a Specially Formulated Essential Amino Acid-Based Dietary Supplement Improves Physical Performance in Older Adults with Low Physical Functioning J Gerontol A Biol Sci Med Sci 2021 76 7 1184 1191 10.1093/gerona/glab019 33475727 PMC8202157",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/gerona/glab019",
+    "parsed_pmid": "33475727",
+    "parsed_title": "Daily Consumption of a Specially Formulated Essential Amino Acid-Based Dietary Supplement Improves Physical Performance in Older Adults with Low Physical Functioning",
+    "parsed_first_author": "azhar",
+    "parsed_year": 2021,
+    "parsed_container": "J Gerontol A Biol Sci Med Sci",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4021,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/gerona/glab019"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9856,
+    "ordinal": 8,
+    "raw_string": "Baum JI Kim IY Wolfe RR Protein consumption and the elderly: What is the optimal level of intake? Nutrients 2016 8 6 359 10.3390/nu8060359 27338461 PMC4924200",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3390/nu8060359",
+    "parsed_pmid": "27338461",
+    "parsed_title": "Protein consumption and the elderly: What is the optimal level of intake?",
+    "parsed_first_author": "baum",
+    "parsed_year": 2016,
+    "parsed_container": "Nutrients",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4022,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3390/nu8060359"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9857,
+    "ordinal": 9,
+    "raw_string": "Maldonado-Martín S Brubaker PH Eggebeen J Stewart KP Kitzman DW Association between 6-minute walk test distance and objective variables of functional capacity after exercise training in elderly heart failure patients with preserved ejection fraction: a randomized exercise trial Arch Phys Med Rehabil 2017 98 3 600 603 10.1016/j.apmr.2016.08.481 27693420 PMC7707852",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.apmr.2016.08.481",
+    "parsed_pmid": "27693420",
+    "parsed_title": "Association between 6-minute walk test distance and objective variables of functional capacity after exercise training in elderly heart failure patients with preserved ejection fraction: a randomized exercise trial",
+    "parsed_first_author": "maldonado martin",
+    "parsed_year": 2017,
+    "parsed_container": "Arch Phys Med Rehabil",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4023,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.apmr.2016.08.481"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9858,
+    "ordinal": 10,
+    "raw_string": "Volpi E Kobayashi H Sheffield-Moore M Mittendorfer B Wolfe RR Essential amino acids are primarily responsible for the amino acid stimulation of muscle protein anabolism in healthy elderly adults Am J Clin Nutr 2003 78 21 250 258 10.1093/ajcn/78.2.250 12885705 PMC3192452",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/ajcn/78.2.250",
+    "parsed_pmid": "12885705",
+    "parsed_title": "Essential amino acids are primarily responsible for the amino acid stimulation of muscle protein anabolism in healthy elderly adults",
+    "parsed_first_author": "volpi",
+    "parsed_year": 2003,
+    "parsed_container": "Am J Clin Nutr",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4024,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/ajcn/78.2.250"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9859,
+    "ordinal": 11,
+    "raw_string": "Baum JI Wolfe RR The Link between Dietary Protein Intake, Skeletal Muscle Function and Health in Older Adults Healthcare 2015 3 529 543 10.3390/healthcare3030529 27417778 PMC4939566",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3390/healthcare3030529",
+    "parsed_pmid": "27417778",
+    "parsed_title": "The Link between Dietary Protein Intake, Skeletal Muscle Function and Health in Older Adults",
+    "parsed_first_author": "baum",
+    "parsed_year": 2015,
+    "parsed_container": "Healthcare",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4025,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3390/healthcare3030529"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9860,
+    "ordinal": 12,
+    "raw_string": "Kim IY Park S Smeets ET Schutzler S Azhar G Wei JY Ferrando AA Wolfe RR Consumption of a specially formulated mixture of essential amino acids promotes gain in whole-body protein to a greater extent than a complete meal replacement in older women with heart failure Nutrients 2019 11 6 1360 10.3390/nu11061360 31212940 PMC6627910",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3390/nu11061360",
+    "parsed_pmid": "31212940",
+    "parsed_title": "Consumption of a specially formulated mixture of essential amino acids promotes gain in whole-body protein to a greater extent than a complete meal replacement in older women with heart failure",
+    "parsed_first_author": "kim",
+    "parsed_year": 2019,
+    "parsed_container": "Nutrients",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4026,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3390/nu11061360"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9861,
+    "ordinal": 13,
+    "raw_string": "Paddon-Jones D Sheffield-Moore M Katsanos CS Zhang XJ Wolfe RR Differential stimulation of muscle protein synthesis in elderly humans following isocaloric ingestion of amino acids or whey protein Exp Gerontol 2006 41 2 215 219 10.1016/j.exger.2005.10.006 16310330",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.exger.2005.10.006",
+    "parsed_pmid": "16310330",
+    "parsed_title": "Differential stimulation of muscle protein synthesis in elderly humans following isocaloric ingestion of amino acids or whey protein",
+    "parsed_first_author": "paddon jones",
+    "parsed_year": 2006,
+    "parsed_container": "Exp Gerontol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4027,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.exger.2005.10.006"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9862,
+    "ordinal": 14,
+    "raw_string": "Volpi E Ferrando AA Yeckel CW Tipton KD Wolfe RR Exogenous amino acids stimulate net muscle protein synthesis in the elderly J Clin Investig 1998 101 2000 2007 10.1172/JCI939 9576765 PMC508787",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1172/jci939",
+    "parsed_pmid": "9576765",
+    "parsed_title": "Exogenous amino acids stimulate net muscle protein synthesis in the elderly",
+    "parsed_first_author": "volpi",
+    "parsed_year": 1998,
+    "parsed_container": "J Clin Investig",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 2294,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1172/jci939"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9863,
+    "ordinal": 15,
+    "raw_string": "Paddon-Jones D Sheffield-Moore M Zhang XJ Volpi E Wolf SE Aarsland A Ferrando AA Wolfe RR Amino acid ingestion improves muscle protein synthesis in the young and elderly Am J Physiol Endocrinol Metab 2004 286 E321 E328 10.1152/ajpendo.00368.2003 14583440",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1152/ajpendo.00368.2003",
+    "parsed_pmid": "14583440",
+    "parsed_title": "Amino acid ingestion improves muscle protein synthesis in the young and elderly",
+    "parsed_first_author": "paddon jones",
+    "parsed_year": 2004,
+    "parsed_container": "Am J Physiol Endocrinol Metab",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4028,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1152/ajpendo.00368.2003"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9864,
+    "ordinal": 16,
+    "raw_string": "Dillon EL Sheffield-Moore M Paddon-Jones D Amino acid supplementation increases lean body mass, basal muscle protein synthesis, and insulin-like growth factor-I expression in older women J Clin Endocrinol Metab 2009 94 1630 1637 10.1210/jc.2008-1564 19208731 PMC2684480",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1210/jc.2008-1564",
+    "parsed_pmid": "19208731",
+    "parsed_title": "Amino acid supplementation increases lean body mass, basal muscle protein synthesis, and insulin-like growth factor-I expression in older women",
+    "parsed_first_author": "dillon",
+    "parsed_year": 2009,
+    "parsed_container": "J Clin Endocrinol Metab",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4029,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1210/jc.2008-1564"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9865,
+    "ordinal": 17,
+    "raw_string": "Børsheim E Bui QU Tissier S Amino acid supplementation decreases plasma and liver triacylglycerols in elderly Nutrition 2009 25 3 281 288 10.1016/j.nut.2008.09.001 19041223 PMC2696073",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.nut.2008.09.001",
+    "parsed_pmid": "19041223",
+    "parsed_title": "Amino acid supplementation decreases plasma and liver triacylglycerols in elderly",
+    "parsed_first_author": "børsheim",
+    "parsed_year": 2009,
+    "parsed_container": "Nutrition",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4030,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.nut.2008.09.001"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9866,
+    "ordinal": 18,
+    "raw_string": "Marquis BJ Hurren NM Carvalho E Kim IY Schutzler S Azhar G Wolfe RR Børsheim E Skeletal Muscle Acute and Chronic Metabolic Response to Essential Amino Acid Supplementation in Hypertriglyceridemic Older Adults Curr Dev Nutr 2017 1 11 e002071 10.3945/cdn.117.002071 29955688 PMC5998789",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3945/cdn.117.002071",
+    "parsed_pmid": "29955688",
+    "parsed_title": "Skeletal Muscle Acute and Chronic Metabolic Response to Essential Amino Acid Supplementation in Hypertriglyceridemic Older Adults",
+    "parsed_first_author": "marquis",
+    "parsed_year": 2017,
+    "parsed_container": "Curr Dev Nutr",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4031,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3945/cdn.117.002071"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9867,
+    "ordinal": 19,
+    "raw_string": "Gold L Ayers D Bertino J Bock C Bock A Aptamer-Based Multiplexed Proteomic Technology for Biomarker Discovery PLoS ONE 2010 5 12 e15004 10.1371/journal.pone.0015004 21165148 PMC3000457",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1371/journal.pone.0015004",
+    "parsed_pmid": "21165148",
+    "parsed_title": "Aptamer-Based Multiplexed Proteomic Technology for Biomarker Discovery",
+    "parsed_first_author": "gold",
+    "parsed_year": 2010,
+    "parsed_container": "PLoS ONE",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4032,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1371/journal.pone.0015004"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9868,
+    "ordinal": 20,
+    "raw_string": "Kim CH Tworoger SS Stampfer MJ Dillon ST Gu X Sawyer SJ Chan AT Libermann TA Eliassen AH Stability and reproducibility of proteomic profiles measured with an aptamer-based platform Sci Rep 2018 8 8382 10.1038/s41598-018-26640-w 29849057 PMC5976624",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/s41598-018-26640-w",
+    "parsed_pmid": "29849057",
+    "parsed_title": "Stability and reproducibility of proteomic profiles measured with an aptamer-based platform",
+    "parsed_first_author": "kim",
+    "parsed_year": 2018,
+    "parsed_container": "Sci Rep",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4033,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1038/s41598-018-26640-w"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9869,
+    "ordinal": 21,
+    "raw_string": "Bolstad BM Irizarry RA Astrand M Speed TP A comparison of normalization methods for high density oligonucleotide array data based on variance and bias Bioinformatics (Oxford, England) 2003 19 2 185 193 12538238 10.1093/bioinformatics/19.2.185",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/bioinformatics/19.2.185",
+    "parsed_pmid": "12538238",
+    "parsed_title": "A comparison of normalization methods for high density oligonucleotide array data based on variance and bias",
+    "parsed_first_author": "bolstad",
+    "parsed_year": 2003,
+    "parsed_container": "Bioinformatics (Oxford, England)",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4034,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/bioinformatics/19.2.185"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9870,
+    "ordinal": 22,
+    "raw_string": "Janssen E Dzeja PP Oerlemans F Simonetti AW Heerschap A De Haan A Rush PS Terjung RR Wieringa B Terzic A Adenylate kinase 1 gene deletion disrupts muscle energetic economy despite metabolic rearrangement EMBO J 2000 19 6371 6381 10.1093/emboj/19.23.6371 11101510 PMC305872",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/emboj/19.23.6371",
+    "parsed_pmid": "11101510",
+    "parsed_title": "Adenylate kinase 1 gene deletion disrupts muscle energetic economy despite metabolic rearrangement",
+    "parsed_first_author": "janssen",
+    "parsed_year": 2000,
+    "parsed_container": "EMBO J",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 2295,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/emboj/19.23.6371"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9871,
+    "ordinal": 23,
+    "raw_string": "Hancock CR Janssen E Terjung RL Skeletal muscle contractile performance and ADP accumulation in adenylate kinase deficient mice Am J Physiol Cell Physiol 2005 288 1287 1297 10.1152/ajpcell.00567.2004 15659712",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1152/ajpcell.00567.2004",
+    "parsed_pmid": "15659712",
+    "parsed_title": "Skeletal muscle contractile performance and ADP accumulation in adenylate kinase deficient mice",
+    "parsed_first_author": "hancock",
+    "parsed_year": 2005,
+    "parsed_container": "Am J Physiol Cell Physiol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4035,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1152/ajpcell.00567.2004"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9872,
+    "ordinal": 24,
+    "raw_string": "Dzeja PP Bast P Pucar D Wieringa B Terzic A Defective Metabolic Signaling in Adenylate Kinase AK1 Gene Knock-out Hearts Compromises Post-Ischemic Coronary Reflow J Biol Chem 2007 282 31366 31372 10.1074/jbc.M705268200 17704060 PMC3232003",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1074/jbc.m705268200",
+    "parsed_pmid": "17704060",
+    "parsed_title": "Defective Metabolic Signaling in Adenylate Kinase AK1 Gene Knock-out Hearts Compromises Post-Ischemic Coronary Reflow",
+    "parsed_first_author": "dzeja",
+    "parsed_year": 2007,
+    "parsed_container": "J Biol Chem",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4036,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1074/jbc.m705268200"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9873,
+    "ordinal": 25,
+    "raw_string": "Dzeja PP Chung S Faustino RS Behfar A Terzic A Developmental Enhancement of Adenylate Kinase-AMPK Metabolic Signaling Axis Supports Stem Cell Cardiac Differentiation PLoS ONE 2011 6 e19300 10.1371/journal.pone.0019300 21556322 PMC3083437",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1371/journal.pone.0019300",
+    "parsed_pmid": "21556322",
+    "parsed_title": "Developmental Enhancement of Adenylate Kinase-AMPK Metabolic Signaling Axis Supports Stem Cell Cardiac Differentiation",
+    "parsed_first_author": "dzeja",
+    "parsed_year": 2011,
+    "parsed_container": "PLoS ONE",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4037,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1371/journal.pone.0019300"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9874,
+    "ordinal": 26,
+    "raw_string": "Yegutkin GG Wieringa B Robson SC Jalkanen S Metabolism of circulating ADP in the bloodstream is mediated via integrated actions of soluble adenylate kinase-1 and NTPDase1/CD39 activities FASEB J 2012 26 3875 3883 10.1096/fj.12-205658 22637533 PMC3425827",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1096/fj.12-205658",
+    "parsed_pmid": "22637533",
+    "parsed_title": "Metabolism of circulating ADP in the bloodstream is mediated via integrated actions of soluble adenylate kinase-1 and NTPDase1/CD39 activities",
+    "parsed_first_author": "yegutkin",
+    "parsed_year": 2012,
+    "parsed_container": "FASEB J",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4038,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1096/fj.12-205658"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9875,
+    "ordinal": 27,
+    "raw_string": "Sevasti Z Subtle Role for Adenylate Kinase 1 in Maintaining Normal Basal Contractile Function and Metabolism in the Murine Heart Front Physiol 2021 12 454 10.3389/fphys.2021.623969 PMC8044416 33867998",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3389/fphys.2021.623969",
+    "parsed_pmid": "33867998",
+    "parsed_title": "Subtle Role for Adenylate Kinase 1 in Maintaining Normal Basal Contractile Function and Metabolism in the Murine Heart",
+    "parsed_first_author": "sevasti",
+    "parsed_year": 2021,
+    "parsed_container": "Front Physiol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4039,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3389/fphys.2021.623969"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9876,
+    "ordinal": 28,
+    "raw_string": "Yue Ge Proteomic analysis of mdx skeletal muscle: Great reduction of adenylate kinase 1 expression and enzymatic activity Proteomics 2003 3 10 1895 1903 10.1002/pmic.200300561 14625851",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/pmic.200300561",
+    "parsed_pmid": "14625851",
+    "parsed_title": "Proteomic analysis of mdx skeletal muscle: Great reduction of adenylate kinase 1 expression and enzymatic activity",
+    "parsed_first_author": "yue",
+    "parsed_year": 2003,
+    "parsed_container": "Proteomics",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4040,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/pmic.200300561"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9877,
+    "ordinal": 29,
+    "raw_string": "O’Connell, Kathleen, et al. Proteomic and Biochemical Profiling of Aged Skeletal Muscle. Sarcopenia–Age-Related Muscle Wasting and Weakness. Springer, Dordrecht. 2011; 259–287.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "other",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": 2011,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9878,
+    "ordinal": 30,
+    "raw_string": "Meggio F Pinna LA One-thousand-and-one substrates of protein kinase CK2? FASEB J 2003 17 349 368 10.1096/fj.02-0473rev 12631575",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1096/fj.02-0473rev",
+    "parsed_pmid": "12631575",
+    "parsed_title": "One-thousand-and-one substrates of protein kinase CK2?",
+    "parsed_first_author": "meggio",
+    "parsed_year": 2003,
+    "parsed_container": "FASEB J",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4041,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1096/fj.02-0473rev"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9879,
+    "ordinal": 31,
+    "raw_string": "Salvi M Sarno S Cesaro L Nakamura H Pinna LA Extraordinary pleiotropy of protein kinase CK2 revealed by weblogo phosphoproteome analysis Biochim Biophys Acta 2009 1793 847 859 10.1016/j.bbamcr.2009.01.013 19339213",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.bbamcr.2009.01.013",
+    "parsed_pmid": "19339213",
+    "parsed_title": "Extraordinary pleiotropy of protein kinase CK2 revealed by weblogo phosphoproteome analysis",
+    "parsed_first_author": "salvi",
+    "parsed_year": 2009,
+    "parsed_container": "Biochim Biophys Acta",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4042,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.bbamcr.2009.01.013"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9880,
+    "ordinal": 32,
+    "raw_string": "Götz C Montenarh M Protein kinase CK2 in development and differentiation Biomed Rep 2017 6 127 133 10.3892/br.2016.829 28357063 PMC5351287",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3892/br.2016.829",
+    "parsed_pmid": "28357063",
+    "parsed_title": "Protein kinase CK2 in development and differentiation",
+    "parsed_first_author": "gotz",
+    "parsed_year": 2017,
+    "parsed_container": "Biomed Rep",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4043,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3892/br.2016.829"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9881,
+    "ordinal": 33,
+    "raw_string": "Nuñez de Villavicencio-Diaz T Rabalski AJ Litchfield DW Protein Kinase CK2: intricate relationships within regulatory cellular networks Pharmaceuticals 2017 10 E27 10.3390/ph10010027 PMC5374431 28273877",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3390/ph10010027",
+    "parsed_pmid": "28273877",
+    "parsed_title": "Protein Kinase CK2: intricate relationships within regulatory cellular networks",
+    "parsed_first_author": "nunez de villavicencio diaz",
+    "parsed_year": 2017,
+    "parsed_container": "Pharmaceuticals",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4044,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3390/ph10010027"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9882,
+    "ordinal": 34,
+    "raw_string": "Salizzato V Zanin S Borgo C Lidron E Salvi M Rizzuto R Pallafacchina G Donella-Deana A Protein kinase CK2 subunits exert specific and coordinated functions in skeletal muscle differentiation and fusogenic activity FASEB J 2019 33 10 10648 10667 10.1096/fj.201801833RR 31268746 PMC6766657",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1096/fj.201801833rr",
+    "parsed_pmid": "31268746",
+    "parsed_title": "Protein kinase CK2 subunits exert specific and coordinated functions in skeletal muscle differentiation and fusogenic activity",
+    "parsed_first_author": "salizzato",
+    "parsed_year": 2019,
+    "parsed_container": "FASEB J",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4045,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1096/fj.201801833rr"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9883,
+    "ordinal": 35,
+    "raw_string": "Wiedmann B Sakai H Davis TA Wiedmann M A protein complex required for signal-sequence-specific sorting and translocation Nature 1994 370 434 440 10.1038/370434a0 8047162",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/370434a0",
+    "parsed_pmid": "8047162",
+    "parsed_title": "A protein complex required for signal-sequence-specific sorting and translocation",
+    "parsed_first_author": "wiedmann",
+    "parsed_year": 1994,
+    "parsed_container": "Nature",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4046,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1038/370434a0"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9884,
+    "ordinal": 36,
+    "raw_string": "Sims RJ Weihe EK Zhu L O’Malley S Harriss JV Gottlieb PD m-Bop, a repressor protein essential for cardiogenesis, interacts with skNAC, a heart- and muscle-specific transcription factor J Biol Chem 2002 277 26524 26529 10.1074/jbc.M204121200 12011100",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1074/jbc.m204121200",
+    "parsed_pmid": "12011100",
+    "parsed_title": "m-Bop, a repressor protein essential for cardiogenesis, interacts with skNAC, a heart- and muscle-specific transcription factor",
+    "parsed_first_author": "sims",
+    "parsed_year": 2002,
+    "parsed_container": "J Biol Chem",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4047,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1074/jbc.m204121200"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9885,
+    "ordinal": 37,
+    "raw_string": "Li H Randall WR Du SJ SkNAC (skeletal Naca), a muscle-specific isoform of Naca (nascent polypeptide-associated complex alpha), is required for myofibril organization in zebrafish embryo FASEB J 2009 23 1988 2000 10.1096/fj.08-125542 19211926",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1096/fj.08-125542",
+    "parsed_pmid": "19211926",
+    "parsed_title": "SkNAC (skeletal Naca), a muscle-specific isoform of Naca (nascent polypeptide-associated complex alpha), is required for myofibril organization in zebrafish embryo",
+    "parsed_first_author": "li",
+    "parsed_year": 2009,
+    "parsed_container": "FASEB J",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4048,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1096/fj.08-125542"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.932
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9886,
+    "ordinal": 38,
+    "raw_string": "Park CY Pierce SA von Drehle M Ivey KN Morgan JA Blau HM Srivastava D skNAC, a Smyd1-interacting transcription factor, is involved in cardiac development and skeletal muscle growth and regeneration Proc Natl Acad Sci U S A 2010 107 48 20750 20755 10.1073/pnas.1013493107 21071677 PMC2996447",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1073/pnas.1013493107",
+    "parsed_pmid": "21071677",
+    "parsed_title": "skNAC, a Smyd1-interacting transcription factor, is involved in cardiac development and skeletal muscle growth and regeneration",
+    "parsed_first_author": "park",
+    "parsed_year": 2010,
+    "parsed_container": "Proc Natl Acad Sci U S A",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4049,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1073/pnas.1013493107"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9887,
+    "ordinal": 39,
+    "raw_string": "Wadley AJ Aldred S Coles SJ An unexplored role for Peroxiredoxin in exercise-induced redox signaling? Redox Biol 2016 8 51 58 10.1016/j.redox.2015.10.003 26748042 PMC4712319",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.redox.2015.10.003",
+    "parsed_pmid": "26748042",
+    "parsed_title": "An unexplored role for Peroxiredoxin in exercise-induced redox signaling?",
+    "parsed_first_author": "wadley",
+    "parsed_year": 2016,
+    "parsed_container": "Redox Biol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4050,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.redox.2015.10.003"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.993
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9888,
+    "ordinal": 40,
+    "raw_string": "Tang C Yin G Huang C Wang H Gao J Luo J Zhang Z Wang J Hong J Chai X Peroxiredoxin-1 ameliorates pressure overload-induced cardiac hypertrophy and fibrosis Biomed Pharmacother 2020 129 110357 10.1016/j.biopha.2020.110357 32531679",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.biopha.2020.110357",
+    "parsed_pmid": "32531679",
+    "parsed_title": "Peroxiredoxin-1 ameliorates pressure overload-induced cardiac hypertrophy and fibrosis",
+    "parsed_first_author": "tang",
+    "parsed_year": 2020,
+    "parsed_container": "Biomed Pharmacother",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4051,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.biopha.2020.110357"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9889,
+    "ordinal": 41,
+    "raw_string": "Jiang L, Gong Y, Hu Y, You Y, Wang J, Zhang Z, Wei Z, Tang C. Peroxiredoxin-1 overexpression attenuates doxorubicin-induced cardiotoxicity by inhibiting oxidative stress and cardiomyocyte apoptosis. Oxid Med. Cell Longev. 2020; 2405135.10.1155/2020/2405135 PMC7411498 32802259",
+    "citation_tag": "mixed-citation",
+    "publication_type": "other",
+    "parsed_doi": "10.1155/2020/2405135",
+    "parsed_pmid": "32802259",
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4052,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1155/2020/2405135"
+      ],
+      "crossref_doi": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9890,
+    "ordinal": 42,
+    "raw_string": "Manevich Y Sweitzer T Pak JH Feinstein SI Muzykantov V Fisher AB 1-cys peroxiredoxin overexpression protects cells against phospholipid peroxidation-mediated membrane damage Proc Natl Acad Sci USA 2002 99 11599 11604 10.1073/pnas.182384499 12193653 PMC129315",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1073/pnas.182384499",
+    "parsed_pmid": "12193653",
+    "parsed_title": "1-cys peroxiredoxin overexpression protects cells against phospholipid peroxidation-mediated membrane damage",
+    "parsed_first_author": "manevich",
+    "parsed_year": 2002,
+    "parsed_container": "Proc Natl Acad Sci USA",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4053,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1073/pnas.182384499"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9891,
+    "ordinal": 43,
+    "raw_string": "Nagy N Malik G Fisher AB Das DK Targeted disruption of peroxiredoxin 6 gene renders the heart vulnerable to ischemia-reperfusion injury Am J Physiol Heart Circ Physiol 2006 291 H2636 H2640 10.1152/ajpheart.00399.2006 16766642",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1152/ajpheart.00399.2006",
+    "parsed_pmid": "16766642",
+    "parsed_title": "Targeted disruption of peroxiredoxin 6 gene renders the heart vulnerable to ischemia-reperfusion injury",
+    "parsed_first_author": "nagy",
+    "parsed_year": 2006,
+    "parsed_container": "Am J Physiol Heart Circ Physiol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4054,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1152/ajpheart.00399.2006"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": [
+     {
+      "notice_type": "retraction",
+      "notice_date": "2012-06-01",
+      "notice_doi": "10.1152/ajpheart.zh4-0449-retr.2012",
+      "reason": "Author Unresponsive;Falsification/Fabrication of Data;Falsification/Fabrication of Image;Investigation by Company/Institution;Misconduct - Official Investigation(s) and/or Finding(s);Misconduct by Author;",
+      "source": "retraction_watch",
+      "source_record_id": "125",
+      "matched_on": "doi"
+     }
+    ]
+   },
+   {
+    "reference_id": 9892,
+    "ordinal": 44,
+    "raw_string": "Li DX Chen W Jiang YL Ni JQ Lu L Antioxidant protein peroxiredoxin 6 suppresses the vascular inflammation, oxidative stress, and endothelial dysfunction in angiotensin ii-induced endotheliocyte Gen Physiol Biophys 2020 39 545 555 10.4149/gpb_2020029 33226363",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.4149/gpb_2020029",
+    "parsed_pmid": "33226363",
+    "parsed_title": "Antioxidant protein peroxiredoxin 6 suppresses the vascular inflammation, oxidative stress, and endothelial dysfunction in angiotensin ii-induced endotheliocyte",
+    "parsed_first_author": "li",
+    "parsed_year": 2020,
+    "parsed_container": "Gen Physiol Biophys",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4055,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.4149/gpb_2020029"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9893,
+    "ordinal": 45,
+    "raw_string": "London B Michalec M Mehdi H Zhu X Kerchner L Sanyal S Viswanathan PC Pfahnl AE Shang LL Madhusudanan M Baty CJ Lagana S Aleong R Gutmann R Ackerman MJ McNamara DM Weiss R Dudley SC Jr Mutation in glycerol-3-phosphate dehydrogenase 1 like gene (GPD1-L) decreases cardiac Na+ current and causes inherited arrhythmias Circulation 2007 116 20 2260 2268 10.1161/CIRCULATIONAHA.107.703330 17967977 PMC3150966",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1161/circulationaha.107.703330",
+    "parsed_pmid": "17967977",
+    "parsed_title": "Jr Mutation in glycerol-3-phosphate dehydrogenase 1 like gene (GPD1-L) decreases cardiac Na+ current and causes inherited arrhythmias",
+    "parsed_first_author": "london",
+    "parsed_year": 2007,
+    "parsed_container": "Circulation",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 1523,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1161/circulationaha.107.703330"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.988
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9894,
+    "ordinal": 46,
+    "raw_string": "Liu X Qu H Zheng Y Liao Q Zhang L Liao X Xiong X Wang Y Zhang R Wang H Tong Q Liu Z Dong H Yang G Zhu Z Xu J Zheng H Mitochondrial glycerol 3-phosphate dehydrogenase promotes skeletal muscle regeneration EMBO Mol Med 2018 10 12 e9390 10.15252/emmm.201809390 30389681 PMC6284384",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.15252/emmm.201809390",
+    "parsed_pmid": "30389681",
+    "parsed_title": "Mitochondrial glycerol 3-phosphate dehydrogenase promotes skeletal muscle regeneration",
+    "parsed_first_author": "liu",
+    "parsed_year": 2018,
+    "parsed_container": "EMBO Mol Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4056,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.15252/emmm.201809390"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9895,
+    "ordinal": 47,
+    "raw_string": "Ceriello A Genovese S Mannucci E Gronda E Glucagon and heart in type 2 diabetes: new perspectives Cardiovasc Diabetol 2016 15 1 123 10.1186/s12933-016-0440-3 27568179 PMC5002329",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1186/s12933-016-0440-3",
+    "parsed_pmid": "27568179",
+    "parsed_title": "Glucagon and heart in type 2 diabetes: new perspectives",
+    "parsed_first_author": "ceriello",
+    "parsed_year": 2016,
+    "parsed_container": "Cardiovasc Diabetol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4057,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/s12933-016-0440-3"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9896,
+    "ordinal": 48,
+    "raw_string": "Petersen KM Bogevig S Holst JJ Knop FK Christensen MB Hemody- namic efects of glucagon: a literature review J Clin Endocrinol Metab 2018 103 1804 12 10.1210/jc.2018-00050 29546411",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1210/jc.2018-00050",
+    "parsed_pmid": "29546411",
+    "parsed_title": "Hemody- namic efects of glucagon: a literature review",
+    "parsed_first_author": "petersen",
+    "parsed_year": 2018,
+    "parsed_container": "J Clin Endocrinol Metab",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4058,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1210/jc.2018-00050"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.98
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9897,
+    "ordinal": 49,
+    "raw_string": "Adeva-Andany MM Fernández-Fernández C López-Pereiro Y Castro-Calvo I Carneiro-Freire N The effects of glucagon and the target of rapamycin (TOR) on skeletal muscle protein synthesis and age-dependent sarcopenia in humans Clinical nutrition ESPEN 2021 44 15 25 10.1016/j.clnesp.2021.06.025 34330459",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.clnesp.2021.06.025",
+    "parsed_pmid": "34330459",
+    "parsed_title": "The effects of glucagon and the target of rapamycin (TOR) on skeletal muscle protein synthesis and age-dependent sarcopenia in humans",
+    "parsed_first_author": "adeva andany",
+    "parsed_year": 2021,
+    "parsed_container": "Clinical nutrition ESPEN",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4059,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.clnesp.2021.06.025"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9898,
+    "ordinal": 50,
+    "raw_string": "Wang JF Yang Y Sullivan MF Min J Cai J Zeldin DC Xiao YF Morgan JP Induction of cardiac cytochrome p450 in cocaine-treated mice Exp Biol Med (Maywood) 2002 227 3 182 188 10.1177/153537020222700305 11856816",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1177/153537020222700305",
+    "parsed_pmid": "11856816",
+    "parsed_title": "Induction of cardiac cytochrome p450 in cocaine-treated mice",
+    "parsed_first_author": "wang",
+    "parsed_year": 2002,
+    "parsed_container": "Exp Biol Med (Maywood)",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4060,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1177/153537020222700305"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9899,
+    "ordinal": 51,
+    "raw_string": "Granville DJ Tashakkor B Takeuchi C Gustafsson AB Huang C Sayen MR Wentworth P Jr Yeager M Gottlieb RA Reduction of ischemia and reperfusion-induced myocardial damage by cytochrome P450 inhibitors Proc Natl Acad Sci USA 2004 101 5 1321 1326 10.1073/pnas.0308185100 14734800 PMC337051",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1073/pnas.0308185100",
+    "parsed_pmid": "14734800",
+    "parsed_title": "Reduction of ischemia and reperfusion-induced myocardial damage by cytochrome P450 inhibitors",
+    "parsed_first_author": "granville",
+    "parsed_year": 2004,
+    "parsed_container": "Proc Natl Acad Sci USA",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4061,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1073/pnas.0308185100"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9900,
+    "ordinal": 52,
+    "raw_string": "Fang C Gu J Xie F Behr M Yang W Abel ED Ding X Deletion of the NADPH-cytochrome P450 reductase gene in cardiomyocytes does not protect mice against doxorubicin-mediated acute cardiac toxicity Drug Metab Dispos 2008 36 8 1722 1728 10.1124/dmd.108.021881 18463197 PMC2575052",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1124/dmd.108.021881",
+    "parsed_pmid": "18463197",
+    "parsed_title": "Deletion of the NADPH-cytochrome P450 reductase gene in cardiomyocytes does not protect mice against doxorubicin-mediated acute cardiac toxicity",
+    "parsed_first_author": "fang",
+    "parsed_year": 2008,
+    "parsed_container": "Drug Metab Dispos",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4062,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1124/dmd.108.021881"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9901,
+    "ordinal": 53,
+    "raw_string": "Hettling H van Beek JH Analyzing the functional properties of the creatine kinase system with multiscale ‘sloppy’ modeling PLoS Comput Biol 2011 7 8 e1002130 10.1371/journal.pcbi.1002130 21912519 PMC3166207",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1371/journal.pcbi.1002130",
+    "parsed_pmid": "21912519",
+    "parsed_title": "Analyzing the functional properties of the creatine kinase system with multiscale ‘sloppy’ modeling",
+    "parsed_first_author": "hettling",
+    "parsed_year": 2011,
+    "parsed_container": "PLoS Comput Biol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 2296,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1371/journal.pcbi.1002130"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9902,
+    "ordinal": 54,
+    "raw_string": "Fred F Ferri. C-Laboratory Tests and Interpretation of Results. Ferri’s Clinical Advisor. 2022;1951–1967",
+    "citation_tag": "mixed-citation",
+    "publication_type": "other",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "fred",
+    "parsed_year": 2022,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9903,
+    "ordinal": 55,
+    "raw_string": "Saskia CA, de Jager, Adriaan O Kraaijeveld, Robert W Grauss, Wilco de Jager, Su-San Liem, Bas L van der Hoeven, Berent J Prakken, Hein Putter, Theo JC, van Berkel, Douwe E. Atsma, Martin J Schalij, J Wouter Jukema, Erik AL Biessen. CCL3 (MIP-1α) levels are elevated during acute coronary syndromes and show strong prognostic power for future ischemic events. J Mol Cell Cardiol. 2008; 45 (3):446-45210.1016/j.yjmcc.2008.06.003 18619972",
+    "citation_tag": "mixed-citation",
+    "publication_type": "other",
+    "parsed_doi": "10.1016/j.yjmcc.2008.06.003",
+    "parsed_pmid": "18619972",
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4063,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.yjmcc.2008.06.003"
+      ],
+      "crossref_doi": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9904,
+    "ordinal": 56,
+    "raw_string": "Yndestad A Holm AM Muller F Simonsen S Froland SS Gullestad L Aukrust P Enhanced expression of inflammatory cytokines and activation markers in T-cells from patients with chronic heart failure Cardiovasc Res 2003 60 141 146 10.1016/S0008-6363(03)00362-6 14522416",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s0008-6363(03)00362-6",
+    "parsed_pmid": "14522416",
+    "parsed_title": "Enhanced expression of inflammatory cytokines and activation markers in T-cells from patients with chronic heart failure",
+    "parsed_first_author": "yndestad",
+    "parsed_year": 2003,
+    "parsed_container": "Cardiovasc Res",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4064,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0008-6363(03)00362-6"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9905,
+    "ordinal": 57,
+    "raw_string": "Woldbaek PR Tonnessen T Henriksen UL Florholmen G Lunde PK Lyberg T Christensen G Increased cardiac IL-18 mRNA, pro-IL-18 and plasma IL-18 after myocardial infarction in the mouse; a potential role in cardiac dysfunction Cardiovasc Res 2003 59 122 131 10.1016/S0008-6363(03)00339-0 12829183",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s0008-6363(03)00339-0",
+    "parsed_pmid": "12829183",
+    "parsed_title": "Increased cardiac IL-18 mRNA, pro-IL-18 and plasma IL-18 after myocardial infarction in the mouse; a potential role in cardiac dysfunction",
+    "parsed_first_author": "woldbaek",
+    "parsed_year": 2003,
+    "parsed_container": "Cardiovasc Res",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4065,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0008-6363(03)00339-0"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9906,
+    "ordinal": 58,
+    "raw_string": "Shyu K-G The Role of Endoglin in Myocardial Fibrosis Acta Cardiol Sin 2017 33 461467 10.6515/ACS20170221B PMC5611341 28959097",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.6515/acs20170221b",
+    "parsed_pmid": "28959097",
+    "parsed_title": "The Role of Endoglin in Myocardial Fibrosis",
+    "parsed_first_author": "shyu",
+    "parsed_year": 2017,
+    "parsed_container": "Acta Cardiol Sin",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4066,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.6515/acs20170221b"
+      ],
+      "crossref_doi": 1,
+      "openalex_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9907,
+    "ordinal": 59,
+    "raw_string": "Haj-Yehia E Mertens RW Kahles F Rückbeil MV Rau M Moellmann J Biener M Almalla M Schroeder J Giannitsis E Katus HA Marx N Lehrke M Peptide YY (PYY) Is Associated with Cardiovascular Risk in Patients with Acute Myocardial Infarction J Clin Med 2020 9 12 3952 10.3390/jcm9123952 33291235 PMC7762108",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3390/jcm9123952",
+    "parsed_pmid": "33291235",
+    "parsed_title": "Peptide YY (PYY) Is Associated with Cardiovascular Risk in Patients with Acute Myocardial Infarction",
+    "parsed_first_author": "haj yehia",
+    "parsed_year": 2020,
+    "parsed_container": "J Clin Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4067,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3390/jcm9123952"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9908,
+    "ordinal": 60,
+    "raw_string": "Zhang W Wu C Ni R Yang Q Luo L He J Formimidoyltransferase cyclodeaminase prevents the starvation-induced liver hepatomegaly and dysfunction through downregulating mTORC1 PLoS Genet 2021 17 12 e1009980 10.1371/journal.pgen.1009980 34941873 PMC8741050",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1371/journal.pgen.1009980",
+    "parsed_pmid": "34941873",
+    "parsed_title": "Formimidoyltransferase cyclodeaminase prevents the starvation-induced liver hepatomegaly and dysfunction through downregulating mTORC1",
+    "parsed_first_author": "zhang",
+    "parsed_year": 2021,
+    "parsed_container": "PLoS Genet",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4068,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1371/journal.pgen.1009980"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9909,
+    "ordinal": 61,
+    "raw_string": "Huitema LF Apschner A Logister I Spoorendonk KM Bussmann J Hammond CL Schulte-Merker S Entpd5 is essential for skeletal mineralization and regulates phosphate homeostasis in zebrafish Proc Natl Acad Sci USA 2012 109 52 21372 21377 10.1073/pnas.1214231110 23236130 PMC3535636",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1073/pnas.1214231110",
+    "parsed_pmid": "23236130",
+    "parsed_title": "Entpd5 is essential for skeletal mineralization and regulates phosphate homeostasis in zebrafish",
+    "parsed_first_author": "huitema",
+    "parsed_year": 2012,
+    "parsed_container": "Proc Natl Acad Sci USA",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4069,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1073/pnas.1214231110"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9910,
+    "ordinal": 62,
+    "raw_string": "Read R Hansen G Kramer J Finch R Li L Vogel P Ectonucleoside triphosphate diphosphohydrolase type 5 (Entpd5)-deficient mice develop progressive hepatopathy, hepatocellular tumors, and spermatogenic arrest Vet Pathol 2009 46 3 491 504 10.1354/vp.08-VP-0201-R-AM 19176496",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1354/vp.08-vp-0201-r-am",
+    "parsed_pmid": "19176496",
+    "parsed_title": "Ectonucleoside triphosphate diphosphohydrolase type 5 (Entpd5)-deficient mice develop progressive hepatopathy, hepatocellular tumors, and spermatogenic arrest",
+    "parsed_first_author": "read",
+    "parsed_year": 2009,
+    "parsed_container": "Vet Pathol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4070,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1354/vp.08-vp-0201-r-am"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9911,
+    "ordinal": 63,
+    "raw_string": "Engelke UF Sass JO Van Coster RN Gerlo E Olbrich H Krywawych S Calvin J Hart C Omran H Wevers RA NMR spectroscopy of aminoacylase 1 deficiency, a novel inborn error of metabolism NMR Biomed 2008 21 2 138 147 10.1002/nbm.1170 17516490",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/nbm.1170",
+    "parsed_pmid": "17516490",
+    "parsed_title": "NMR spectroscopy of aminoacylase 1 deficiency, a novel inborn error of metabolism",
+    "parsed_first_author": "engelke",
+    "parsed_year": 2008,
+    "parsed_container": "NMR Biomed",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4071,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/nbm.1170"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9912,
+    "ordinal": 64,
+    "raw_string": "Violette S Festor E Pandrea-Vasile I Mitchell V Adida C Dussaulx E Reg IV, a new member of the regenerating gene family, is overexpressed in colorectal carcinomas Int J Cancer 2003 103 185 193 10.1002/ijc.10788 12455032",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/ijc.10788",
+    "parsed_pmid": "12455032",
+    "parsed_title": "Reg IV, a new member of the regenerating gene family, is overexpressed in colorectal carcinomas",
+    "parsed_first_author": "violette",
+    "parsed_year": 2003,
+    "parsed_container": "Int J Cancer",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4072,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/ijc.10788"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9913,
+    "ordinal": 65,
+    "raw_string": "Oue N Mitani Y Aung PP Sakakura C Takeshima Y Kaneko M Expression and localization of Reg IV in human neoplastic and non-neoplastic tissues: reg IV expression is associated with intestinal and neuroendocrine differentiation in gastric adenocarcinoma J Pathol 2005 207 185 198 10.1002/path.1827 16086444",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/path.1827",
+    "parsed_pmid": "16086444",
+    "parsed_title": "Expression and localization of Reg IV in human neoplastic and non-neoplastic tissues: reg IV expression is associated with intestinal and neuroendocrine differentiation in gastric adenocarcinoma",
+    "parsed_first_author": "oue",
+    "parsed_year": 2005,
+    "parsed_container": "J Pathol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 1614,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/path.1827"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9914,
+    "ordinal": 66,
+    "raw_string": "Saukkonen K Hagström J Mustonen H Lehtinen L Carpen O Andersson LC Seppänen H Haglund C Prognostic and diagnostic value of REG4 serum and tissue expression in pancreatic ductal adenocarcinoma Tumour Biol 2018 40 3 1010428318761494 10.1177/1010428318761494 29542402",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1177/1010428318761494",
+    "parsed_pmid": "29542402",
+    "parsed_title": "Prognostic and diagnostic value of REG4 serum and tissue expression in pancreatic ductal adenocarcinoma",
+    "parsed_first_author": "saukkonen",
+    "parsed_year": 2018,
+    "parsed_container": "Tumour Biol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4073,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1177/1010428318761494"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9915,
+    "ordinal": 67,
+    "raw_string": "Lörchner H Hou Y Adrian-Segarra JM Kulhei J Detzer J Günther S Gajawada P Warnecke H Niessen HW Pöling J Braun T Reg proteins direct accumulation of functionally distinct macrophage subsets after myocardial infarction Cardiovasc Res 2018 114 12 1667 1679 10.1093/cvr/cvy126 29850784",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/cvr/cvy126",
+    "parsed_pmid": "29850784",
+    "parsed_title": "Reg proteins direct accumulation of functionally distinct macrophage subsets after myocardial infarction",
+    "parsed_first_author": "lorchner",
+    "parsed_year": 2018,
+    "parsed_container": "Cardiovasc Res",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4074,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/cvr/cvy126"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9916,
+    "ordinal": 68,
+    "raw_string": "Yun J Lee J Jang J Lee EJ Jang KT Kim JH Kim KM KIT amplification and gene mutations in acral/mucosal melanoma in Korea APMIS Acta Pathologica, Microbiologica, Et Immunologica Scandinavica 2011 119 6 330 335 10.1111/j.1600-0463.2011.02737.x 21569090",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1600-0463.2011.02737.x",
+    "parsed_pmid": "21569090",
+    "parsed_title": "KIT amplification and gene mutations in acral/mucosal melanoma in Korea",
+    "parsed_first_author": "yun",
+    "parsed_year": 2011,
+    "parsed_container": "APMIS Acta Pathologica, Microbiologica, Et Immunologica Scandinavica",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4075,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1600-0463.2011.02737.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9917,
+    "ordinal": 69,
+    "raw_string": "Omholt K Grafström E Kanter-Lewensohn L Hansson J Ragnarsson-Olding BK KIT pathway alterations in mucosal melanomas of the vulva and other sites Clin Cancer Res 2011 17 12 3933 3942 10.1158/1078-0432.CCR-10-2917 21680547",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1158/1078-0432.ccr-10-2917",
+    "parsed_pmid": "21680547",
+    "parsed_title": "KIT pathway alterations in mucosal melanomas of the vulva and other sites",
+    "parsed_first_author": "omholt",
+    "parsed_year": 2011,
+    "parsed_container": "Clin Cancer Res",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4076,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1158/1078-0432.ccr-10-2917"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9918,
+    "ordinal": 70,
+    "raw_string": "Smith KG Clatworthy MR FcgammaRIIB in autoimmunity and infection: evolutionary and therapeutic implications Nat Rev Immunol 2010 10 5 328 343 10.1038/nri2762 20414206 PMC4148599",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/nri2762",
+    "parsed_pmid": "20414206",
+    "parsed_title": "FcgammaRIIB in autoimmunity and infection: evolutionary and therapeutic implications",
+    "parsed_first_author": "smith",
+    "parsed_year": 2010,
+    "parsed_container": "Nat Rev Immunol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4077,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1038/nri2762"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.963
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9919,
+    "ordinal": 71,
+    "raw_string": "Song X Zou X Ge W Hou C Cao Z Zhao H Zhang T Jin L Fu Y Kong W Yan C Cai J Wang J Blocking FcγRIIB in Smooth Muscle Cells Reduces Hypertension Circ Res 2021 129 2 308 325 10.1161/CIRCRESAHA.120.318447 33980031",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1161/circresaha.120.318447",
+    "parsed_pmid": "33980031",
+    "parsed_title": "Blocking FcγRIIB in Smooth Muscle Cells Reduces Hypertension",
+    "parsed_first_author": "song",
+    "parsed_year": 2021,
+    "parsed_container": "Circ Res",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4078,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1161/circresaha.120.318447"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9920,
+    "ordinal": 72,
+    "raw_string": "Bottemanne P Muccioli GG Alhouayek M N-acylethanolamine hydrolyzing acid amidase inhibition: tools and potential therapeutic opportunities Drug Discovery Today 2018 23 8 1520 1529 10.1016/j.drudis.2018.03.007 29567427",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.drudis.2018.03.007",
+    "parsed_pmid": "29567427",
+    "parsed_title": "N-acylethanolamine hydrolyzing acid amidase inhibition: tools and potential therapeutic opportunities",
+    "parsed_first_author": "bottemanne",
+    "parsed_year": 2018,
+    "parsed_container": "Drug Discovery Today",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4079,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.drudis.2018.03.007"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 9921,
+    "ordinal": 73,
+    "raw_string": "Gorelik A Gebai A Illes K Piomelli D Nagar B Molecular mechanism of activation of the immunoregulatory amidase NAAA Proc Natl Acad Sci USA 2018 115 43 E10032 E10040 10.1073/pnas.1811759115 30301806 PMC6205464",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1073/pnas.1811759115",
+    "parsed_pmid": "30301806",
+    "parsed_title": "Molecular mechanism of activation of the immunoregulatory amidase NAAA",
+    "parsed_first_author": "gorelik",
+    "parsed_year": 2018,
+    "parsed_container": "Proc Natl Acad Sci USA",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4080,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1073/pnas.1811759115"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   }
+  ],
+  "stat_tests": [],
+  "means": [],
+  "trials": []
+ }
+}

@@ -1,0 +1,2843 @@
+{
+ "id": "PMC5629697",
+ "subject": "paper",
+ "categories": [
+  "c02_cited_after_retraction"
+ ],
+ "source": {
+  "corpus": "pmc-rct-2015-2024",
+  "paper_id": 346,
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "83 references, 82 resolved, 1 book. One citation of a 2009 retraction.",
+ "expected": [
+  {
+   "check": "C01",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C02",
+   "status": "flagged",
+   "severity": "high",
+   "item": "ref 54",
+   "band": "after_grace",
+   "why": "Basran 2006 Anesth Analg (DOI matches) retracted 2009-06-01; paper published 2017-08-18 = 98 months later."
+  },
+  {
+   "check": "C02",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C03",
+   "status": "not_applicable",
+   "severity": "info"
+  },
+  {
+   "check": "C04",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "paper_id": 346,
+  "publication_date": "2017-08-18",
+  "fulltext_status": "full",
+  "references": [
+   {
+    "reference_id": 13379,
+    "ordinal": 1,
+    "raw_string": "Vlaar AP, Binnekade JM, Prins D, et al Risk factors and outcome of transfusion-related acute lung injury in the critically ill: a nested case-control study. Crit Care Med 2010;38:771–8. 10.1097/CCM.0b013e3181cc4d4b 20035217",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/ccm.0b013e3181cc4d4b",
+    "parsed_pmid": "20035217",
+    "parsed_title": "Risk factors and outcome of transfusion-related acute lung injury in the critically ill: a nested case-control study",
+    "parsed_first_author": "vlaar",
+    "parsed_year": 2010,
+    "parsed_container": "Crit Care Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4365,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/ccm.0b013e3181cc4d4b"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13380,
+    "ordinal": 2,
+    "raw_string": "Gajic O, Rana R, Winters JL, et al Transfusion-related acute lung injury in the critically ill: prospective nested case-control study. Am J Respir Crit Care Med 2007;176:886–91. 10.1164/rccm.200702-271OC 17626910 PMC2048675",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1164/rccm.200702-271oc",
+    "parsed_pmid": "17626910",
+    "parsed_title": "Transfusion-related acute lung injury in the critically ill: prospective nested case-control study",
+    "parsed_first_author": "gajic",
+    "parsed_year": 2007,
+    "parsed_container": "Am J Respir Crit Care Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4366,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1164/rccm.200702-271oc"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.756
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13381,
+    "ordinal": 3,
+    "raw_string": "Silliman CC, Fung YL, Ball JB, et al Transfusion-related acute lung injury (TRALI): current concepts and misconceptions. Blood Rev 2009;23:245–55. 10.1016/j.blre.2009.07.005 19699017 PMC3134874",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.blre.2009.07.005",
+    "parsed_pmid": "19699017",
+    "parsed_title": "Transfusion-related acute lung injury (TRALI): current concepts and misconceptions",
+    "parsed_first_author": "silliman",
+    "parsed_year": 2009,
+    "parsed_container": "Blood Rev",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4367,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.blre.2009.07.005"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13382,
+    "ordinal": 4,
+    "raw_string": "Popovsky MA The Emily Cooley Lecture 2009 to breathe or not to breathe-that is the question. Transfusion 2010:2057–62. 10.1111/j.1537-2995.2010.02788.x 20630040",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1537-2995.2010.02788.x",
+    "parsed_pmid": "20630040",
+    "parsed_title": "The Emily Cooley Lecture 2009 to breathe or not to breathe-that is the question",
+    "parsed_first_author": "popovsky",
+    "parsed_year": 2010,
+    "parsed_container": "Transfusion",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4368,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1537-2995.2010.02788.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13383,
+    "ordinal": 5,
+    "raw_string": "Popovsky MA Transfusion and the lung: circulatory overload and acute lung injury. Vox Sang 2004;87:62–5. 10.1111/j.1741-6892.2004.00453.x 15209881",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1741-6892.2004.00453.x",
+    "parsed_pmid": "15209881",
+    "parsed_title": "Transfusion and the lung: circulatory overload and acute lung injury",
+    "parsed_first_author": "popovsky",
+    "parsed_year": 2004,
+    "parsed_container": "Vox Sang",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4369,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1741-6892.2004.00453.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13384,
+    "ordinal": 6,
+    "raw_string": "Li G, Kojicic M, Reriani MK, et al Long-term survival and quality of life after transfusion-associated pulmonary edema in critically ill medical patients. Chest 2010;137:783–9. 10.1378/chest.09-0841 19837827 PMC2851555",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1378/chest.09-0841",
+    "parsed_pmid": "19837827",
+    "parsed_title": "Long-term survival and quality of life after transfusion-associated pulmonary edema in critically ill medical patients",
+    "parsed_first_author": "li",
+    "parsed_year": 2010,
+    "parsed_container": "Chest",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4370,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1378/chest.09-0841"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.983
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13385,
+    "ordinal": 7,
+    "raw_string": "Bux J, Sachs UJ The pathogenesis of transfusion-related acute lung injury (TRALI). Br J Haematol 2007;136:788–99. 10.1111/j.1365-2141.2007.06492.x 17341264",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1365-2141.2007.06492.x",
+    "parsed_pmid": "17341264",
+    "parsed_title": "The pathogenesis of transfusion-related acute lung injury (TRALI)",
+    "parsed_first_author": "bux",
+    "parsed_year": 2007,
+    "parsed_container": "Br J Haematol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4371,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1365-2141.2007.06492.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13386,
+    "ordinal": 8,
+    "raw_string": "Rana R, Fernández-Pérez ER, Khan SA, et al Transfusion-related acute lung injury and pulmonary edema in critically ill patients: a retrospective study. Transfusion 2006;46:1478–83. 10.1111/j.1537-2995.2006.00930.x 16965572",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1537-2995.2006.00930.x",
+    "parsed_pmid": "16965572",
+    "parsed_title": "Transfusion-related acute lung injury and pulmonary edema in critically ill patients: a retrospective study",
+    "parsed_first_author": "rana",
+    "parsed_year": 2006,
+    "parsed_container": "Transfusion",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4372,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1537-2995.2006.00930.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13387,
+    "ordinal": 9,
+    "raw_string": "Kopko PM, Popovsky MA Pulmonary injury from transfusion-related acute lung injury. Clin Chest Med 2004;25:105–11. 10.1016/S0272-5231(03)00135-7 15062602",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s0272-5231(03)00135-7",
+    "parsed_pmid": "15062602",
+    "parsed_title": "Pulmonary injury from transfusion-related acute lung injury",
+    "parsed_first_author": "kopko",
+    "parsed_year": 2004,
+    "parsed_container": "Clin Chest Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4373,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0272-5231(03)00135-7"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13388,
+    "ordinal": 10,
+    "raw_string": "Silliman CC, Moore EE, Kelher MR, et al Identification of lipids that accumulate during the routine storage of prestorage leukoreduced red blood cells and cause acute lung injury. Transfusion 2011;51:2549–54. 10.1111/j.1537-2995.2011.03186.x 21615744 PMC3179800",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1537-2995.2011.03186.x",
+    "parsed_pmid": "21615744",
+    "parsed_title": "Identification of lipids that accumulate during the routine storage of prestorage leukoreduced red blood cells and cause acute lung injury",
+    "parsed_first_author": "silliman",
+    "parsed_year": 2011,
+    "parsed_container": "Transfusion",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4374,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1537-2995.2011.03186.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13389,
+    "ordinal": 11,
+    "raw_string": "Silliman CC The two-event model of transfusion-related acute lung injury. Crit Care Med 2006;34:S124–S131. 10.1097/01.CCM.0000214292.62276.8E 16617256",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/01.ccm.0000214292.62276.8e",
+    "parsed_pmid": "16617256",
+    "parsed_title": "The two-event model of transfusion-related acute lung injury",
+    "parsed_first_author": "silliman",
+    "parsed_year": 2006,
+    "parsed_container": "Crit Care Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4375,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/01.ccm.0000214292.62276.8e"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13390,
+    "ordinal": 12,
+    "raw_string": "Khan SY, Kelher MR, Heal JM, et al Soluble CD40 ligand accumulates in stored blood components, primes neutrophils through CD40, and is a potential cofactor in the development of transfusion-related acute lung injury. Blood 2006;108:2455–62. 10.1182/blood-2006-04-017251 16772606 PMC1895564",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1182/blood-2006-04-017251",
+    "parsed_pmid": "16772606",
+    "parsed_title": "Soluble CD40 ligand accumulates in stored blood components, primes neutrophils through CD40, and is a potential cofactor in the development of transfusion-related acute lung injury",
+    "parsed_first_author": "khan",
+    "parsed_year": 2006,
+    "parsed_container": "Blood",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4376,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1182/blood-2006-04-017251"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13391,
+    "ordinal": 13,
+    "raw_string": "Bierbaum BE, Callaghan JJ, Galante JO, et al An analysis of blood management in patients having a total hip or knee arthroplasty. J Bone Joint Surg Am 1999;81:2–10. 10.2106/00004623-199901000-00002 9973048",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2106/00004623-199901000-00002",
+    "parsed_pmid": "9973048",
+    "parsed_title": "An analysis of blood management in patients having a total hip or knee arthroplasty",
+    "parsed_first_author": "bierbaum",
+    "parsed_year": 1999,
+    "parsed_container": "J Bone Joint Surg Am",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4377,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2106/00004623-199901000-00002"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13392,
+    "ordinal": 14,
+    "raw_string": "Popovsky MA, Audet AM, Andrzejewski C Transfusion-associated circulatory overload in orthopedic surgery patients: a multi-institutional study. Immunohematology 1996;12:87–9.15387748",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": "15387748",
+    "parsed_title": "Transfusion-associated circulatory overload in orthopedic surgery patients: a multi-institutional study",
+    "parsed_first_author": "popovsky",
+    "parsed_year": 1996,
+    "parsed_container": "Immunohematology",
+    "resolution_status": "resolved",
+    "resolution_method": "pmid",
+    "resolved_paper_id": 4378,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "pmid:15387748"
+      ],
+      "openalex_pmid": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13393,
+    "ordinal": 15,
+    "raw_string": "Bless NM, Huber-Lang M, Guo RF, et al Role of CC chemokines (macrophage inflammatory protein-1 beta, monocyte chemoattractant protein-1, RANTES) in acute lung injury in rats. J Immunol 2000;164:2650–9. 10.4049/jimmunol.164.5.2650 10679105",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.4049/jimmunol.164.5.2650",
+    "parsed_pmid": "10679105",
+    "parsed_title": "Role of CC chemokines (macrophage inflammatory protein-1 beta, monocyte chemoattractant protein-1, RANTES) in acute lung injury in rats",
+    "parsed_first_author": "bless",
+    "parsed_year": 2000,
+    "parsed_container": "J Immunol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4379,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.4049/jimmunol.164.5.2650"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.977
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13394,
+    "ordinal": 16,
+    "raw_string": "Andrzejewski C, Popovsky MA, Stec TC, et al Hemotherapy bedside biovigilance involving vital sign values and characteristics of patients with suspected transfusion reactions associated with fluid challenges: can some cases of transfusion-associated circulatory overload have proinflammatory aspects? Transfusion 2012;52:2310–20. 10.1111/j.1537-2995.2012.03595.x 23216230",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1537-2995.2012.03595.x",
+    "parsed_pmid": "23216230",
+    "parsed_title": "Hemotherapy bedside biovigilance involving vital sign values and characteristics of patients with suspected transfusion reactions associated with fluid challenges: can some cases of transfusion-associated circulatory overload have proinflammatory aspects?",
+    "parsed_first_author": "andrzejewski",
+    "parsed_year": 2012,
+    "parsed_container": "Transfusion",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4380,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1537-2995.2012.03595.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13395,
+    "ordinal": 17,
+    "raw_string": "Klein HG, Anstee DJ, Mollison's Blood Transfusion in Clinical Medicine. 11 ed Malden, MA: Oxford: Blackwell Publishing, 2006.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Mollison's Blood Transfusion in Clinical Medicine",
+    "parsed_first_author": "klein",
+    "parsed_year": 2006,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4383,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13396,
+    "ordinal": 18,
+    "raw_string": "Vermeulen Windsant IC, de Wit NC, Sertorio JT, et al Blood transfusions increase circulating plasma free hemoglobin levels and plasma nitric oxide consumption: a prospective observational pilot study. Crit Care 2012;16:R95 10.1186/cc11359 22624585 PMC3580641",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1186/cc11359",
+    "parsed_pmid": "22624585",
+    "parsed_title": "Blood transfusions increase circulating plasma free hemoglobin levels and plasma nitric oxide consumption: a prospective observational pilot study",
+    "parsed_first_author": "vermeulen windsant",
+    "parsed_year": 2012,
+    "parsed_container": "Crit Care",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4386,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/cc11359"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13397,
+    "ordinal": 19,
+    "raw_string": "Stapley R, Owusu BY, Brandon A, et al Erythrocyte storage increases rates of NO and nitrite scavenging: implications for transfusion-related toxicity. Biochem J 2012;446:499–508. 10.1042/BJ20120675 22720637 PMC3572541",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1042/bj20120675",
+    "parsed_pmid": "22720637",
+    "parsed_title": "Erythrocyte storage increases rates of NO and nitrite scavenging: implications for transfusion-related toxicity",
+    "parsed_first_author": "stapley",
+    "parsed_year": 2012,
+    "parsed_container": "Biochem J",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4387,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1042/bj20120675"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13398,
+    "ordinal": 20,
+    "raw_string": "Singel DJ, Stamler JS Chemical physiology of blood flow regulation by red blood cells: the role of nitric oxide and S-nitrosohemoglobin. Annu Rev Physiol 2005;67:99–145. 10.1146/annurev.physiol.67.060603.090918 15709954",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1146/annurev.physiol.67.060603.090918",
+    "parsed_pmid": "15709954",
+    "parsed_title": "Chemical physiology of blood flow regulation by red blood cells: the role of nitric oxide and S-nitrosohemoglobin",
+    "parsed_first_author": "singel",
+    "parsed_year": 2005,
+    "parsed_container": "Annu Rev Physiol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4388,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1146/annurev.physiol.67.060603.090918"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.72
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13399,
+    "ordinal": 21,
+    "raw_string": "Jy W, Ricci M, Shariatmadar S, et al Microparticles in stored red blood cells as potential mediators of transfusion complications. Transfusion 2011;51:886–93. 10.1111/j.1537-2995.2011.03099.x 21496051 PMC3095366",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1537-2995.2011.03099.x",
+    "parsed_pmid": "21496051",
+    "parsed_title": "Microparticles in stored red blood cells as potential mediators of transfusion complications",
+    "parsed_first_author": "jy",
+    "parsed_year": 2011,
+    "parsed_container": "Transfusion",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4389,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1537-2995.2011.03099.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13400,
+    "ordinal": 22,
+    "raw_string": "Gladwin MT, Kim-Shapiro DB Storage lesion in banked blood due to hemolysis-dependent disruption of nitric oxide homeostasis. Curr Opin Hematol 2009;16:515–23. 10.1097/MOH.0b013e32833157f4 19701085",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/moh.0b013e32833157f4",
+    "parsed_pmid": "19701085",
+    "parsed_title": "Storage lesion in banked blood due to hemolysis-dependent disruption of nitric oxide homeostasis",
+    "parsed_first_author": "gladwin",
+    "parsed_year": 2009,
+    "parsed_container": "Curr Opin Hematol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4390,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/moh.0b013e32833157f4"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13401,
+    "ordinal": 23,
+    "raw_string": "Burnier L, Fontana P, Kwak BR, et al Cell-derived microparticles in haemostasis and vascular medicine. Thromb Haemost 2009;101:439–51. 10.1160/TH08-08-0521 19277403",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1160/th08-08-0521",
+    "parsed_pmid": "19277403",
+    "parsed_title": "Cell-derived microparticles in haemostasis and vascular medicine",
+    "parsed_first_author": "burnier",
+    "parsed_year": 2009,
+    "parsed_container": "Thromb Haemost",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4391,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1160/th08-08-0521"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13402,
+    "ordinal": 24,
+    "raw_string": "Westphal-Varghese B, Erren M, Westphal M, et al Processing of stored packed red blood cells using autotransfusion devices decreases potassium and microaggregates: a prospective, randomized, single-blinded in vitro study. Transfus Med 2007;17:89–95. 10.1111/j.1365-3148.2007.00732.x 17430464",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1365-3148.2007.00732.x",
+    "parsed_pmid": "17430464",
+    "parsed_title": "Processing of stored packed red blood cells using autotransfusion devices decreases potassium and microaggregates: a prospective, randomized, single-blinded in vitro study",
+    "parsed_first_author": "westphal varghese",
+    "parsed_year": 2007,
+    "parsed_container": "Transfus Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4392,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1365-3148.2007.00732.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13403,
+    "ordinal": 25,
+    "raw_string": "Rosolski T, Matthey T, Frick U, et al Blood separation with two different autotransfusion devices: effects on blood cell quality and coagulation variables. Int J Artif Organs 1998;21:820–4.9988360",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": "9988360",
+    "parsed_title": "Blood separation with two different autotransfusion devices: effects on blood cell quality and coagulation variables",
+    "parsed_first_author": "rosolski",
+    "parsed_year": 1998,
+    "parsed_container": "Int J Artif Organs",
+    "resolution_status": "resolved",
+    "resolution_method": "pmid",
+    "resolved_paper_id": 4393,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "pmid:9988360"
+      ],
+      "openalex_pmid": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13404,
+    "ordinal": 26,
+    "raw_string": "Gruber M, Breu A, Frauendorf M, et al Washing of banked blood by three different blood salvage devices. Transfusion 2013;53:1001–9. 10.1111/j.1537-2995.2012.03853.x 22897672",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1537-2995.2012.03853.x",
+    "parsed_pmid": "22897672",
+    "parsed_title": "Washing of banked blood by three different blood salvage devices",
+    "parsed_first_author": "gruber",
+    "parsed_year": 2013,
+    "parsed_container": "Transfusion",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4394,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1537-2995.2012.03853.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13405,
+    "ordinal": 27,
+    "raw_string": "Booke M, Fobker M, Fingerhut D, et al Fat elimination during intraoperative autotransfusion: an in vitro investigation. Anesth Analg 1997;85:959–62.9356084 10.1097/00000539-199711000-00002",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/00000539-199711000-00002",
+    "parsed_pmid": "9356084",
+    "parsed_title": "Fat elimination during intraoperative autotransfusion: an in vitro investigation",
+    "parsed_first_author": "booke",
+    "parsed_year": 1997,
+    "parsed_container": "Anesth Analg",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4395,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/00000539-199711000-00002"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.803
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13406,
+    "ordinal": 28,
+    "raw_string": "Blumberg N, Heal JM, Gettings KF, et al An association between decreased cardiopulmonary complications (transfusion-related acute lung injury and transfusion-associated circulatory overload) and implementation of universal leukoreduction of blood transfusions. Transfusion 2010;50:2738–44. 10.1111/j.1537-2995.2010.02748.x 20561296 PMC2944002",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1537-2995.2010.02748.x",
+    "parsed_pmid": "20561296",
+    "parsed_title": "An association between decreased cardiopulmonary complications (transfusion-related acute lung injury and transfusion-associated circulatory overload) and implementation of universal leukoreduction of blood transfusions",
+    "parsed_first_author": "blumberg",
+    "parsed_year": 2010,
+    "parsed_container": "Transfusion",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4396,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1537-2995.2010.02748.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13407,
+    "ordinal": 29,
+    "raw_string": "Blumberg N, Heal JM, Rowe JM A randomized trial of washed red blood cell and platelet transfusions in adult acute leukemia [ISRCTN76536440]. BMC Blood Disord 2004;4:6 10.1186/1471-2326-4-6 15588315 PMC544564",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1186/1471-2326-4-6",
+    "parsed_pmid": "15588315",
+    "parsed_title": "A randomized trial of washed red blood cell and platelet transfusions in adult acute leukemia [ISRCTN76536440]",
+    "parsed_first_author": "blumberg",
+    "parsed_year": 2004,
+    "parsed_container": "BMC Blood Disord",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4397,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/1471-2326-4-6"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13408,
+    "ordinal": 30,
+    "raw_string": "Biffl WL, Moore EE, Offner PJ, et al Plasma from aged stored red blood cells delays neutrophil apoptosis and primes for cytotoxicity: abrogation by poststorage washing but not prestorage leukoreduction. J Trauma 2001;50:426–32. discussion 32. 10.1097/00005373-200103000-00005 11265021",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/00005373-200103000-00005",
+    "parsed_pmid": "11265021",
+    "parsed_title": "Plasma from aged stored red blood cells delays neutrophil apoptosis and primes for cytotoxicity: abrogation by poststorage washing but not prestorage leukoreduction",
+    "parsed_first_author": "biffl",
+    "parsed_year": 2001,
+    "parsed_container": "J Trauma",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4398,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/00005373-200103000-00005"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13409,
+    "ordinal": 31,
+    "raw_string": "Silliman CC, Moore EE, Johnson JL, et al Transfusion of the injured patient: proceed with caution. Shock 2004;21:291–9. 10.1097/00024382-200404000-00001 15179127",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/00024382-200404000-00001",
+    "parsed_pmid": "15179127",
+    "parsed_title": "Transfusion of the injured patient: proceed with caution",
+    "parsed_first_author": "silliman",
+    "parsed_year": 2004,
+    "parsed_container": "Shock",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4399,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/00024382-200404000-00001"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13410,
+    "ordinal": 32,
+    "raw_string": "The 2011 National blood collection and utilization survey. Washington, DC: Department of Health and Human Services, 2011.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "The 2011 National blood collection and utilization survey",
+    "parsed_first_author": null,
+    "parsed_year": 2011,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": [
+      {
+       "year": 2021,
+       "paper_id": 4404,
+       "rejected": "year 2021 vs 2011",
+       "similarity": 0.6579,
+       "first_author": "mowla"
+      }
+     ]
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13411,
+    "ordinal": 33,
+    "raw_string": "Reeves BC, Murphy GJ Increased mortality, morbidity, and cost associated with red blood cell transfusion after cardiac surgery. Curr Opin Cardiol 2008;23:607–12. 10.1097/HCO.0b013e328310fc95 18830077",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/hco.0b013e328310fc95",
+    "parsed_pmid": "18830077",
+    "parsed_title": "Increased mortality, morbidity, and cost associated with red blood cell transfusion after cardiac surgery",
+    "parsed_first_author": "reeves",
+    "parsed_year": 2008,
+    "parsed_container": "Curr Opin Cardiol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4405,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/hco.0b013e328310fc95"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13412,
+    "ordinal": 34,
+    "raw_string": "Koch CG, Li L, Sessler DI, et al Duration of red-cell storage and complications after cardiac surgery. N Engl J Med 2008;358:1229–39. 10.1056/NEJMoa070403 18354101",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1056/nejmoa070403",
+    "parsed_pmid": "18354101",
+    "parsed_title": "Duration of red-cell storage and complications after cardiac surgery",
+    "parsed_first_author": "koch",
+    "parsed_year": 2008,
+    "parsed_container": "N Engl J Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4406,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1056/nejmoa070403"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13413,
+    "ordinal": 35,
+    "raw_string": "Koch CG, Li L, Duncan AI, et al Morbidity and mortality risk associated with red blood cell and blood-component transfusion in isolated coronary artery bypass grafting. Crit Care Med 2006;34:1608–16. 10.1097/01.CCM.0000217920.48559.D8 16607235",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/01.ccm.0000217920.48559.d8",
+    "parsed_pmid": "16607235",
+    "parsed_title": "Morbidity and mortality risk associated with red blood cell and blood-component transfusion in isolated coronary artery bypass grafting",
+    "parsed_first_author": "koch",
+    "parsed_year": 2006,
+    "parsed_container": "Crit Care Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4407,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/01.ccm.0000217920.48559.d8"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13414,
+    "ordinal": 36,
+    "raw_string": "Koch C, Li L, Figueroa P, et al Transfusion and pulmonary morbidity after cardiac surgery. Ann Thorac Surg 2009;88:1410–8. 10.1016/j.athoracsur.2009.07.020 19853083",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.athoracsur.2009.07.020",
+    "parsed_pmid": "19853083",
+    "parsed_title": "Transfusion and pulmonary morbidity after cardiac surgery",
+    "parsed_first_author": "koch",
+    "parsed_year": 2009,
+    "parsed_container": "Ann Thorac Surg",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4408,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.athoracsur.2009.07.020"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13415,
+    "ordinal": 37,
+    "raw_string": "Goudie R, Sterne JA, Verheyden V, et al Risk scores to facilitate preoperative prediction of transfusion and large volume blood transfusion associated with adult cardiac surgery. Br J Anaesth 2015;114:757–66. 10.1093/bja/aeu483 25904607",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/bja/aeu483",
+    "parsed_pmid": "25904607",
+    "parsed_title": "Risk scores to facilitate preoperative prediction of transfusion and large volume blood transfusion associated with adult cardiac surgery",
+    "parsed_first_author": "goudie",
+    "parsed_year": 2015,
+    "parsed_container": "Br J Anaesth",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4409,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/bja/aeu483"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13416,
+    "ordinal": 38,
+    "raw_string": "Murphy GJ, Reeves BC, Rogers CA, et al Increased mortality, postoperative morbidity, and cost after red blood cell transfusion in patients having cardiac surgery. Circulation 2007;116:2544–52. 10.1161/CIRCULATIONAHA.107.698977 17998460",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1161/circulationaha.107.698977",
+    "parsed_pmid": "17998460",
+    "parsed_title": "Increased mortality, postoperative morbidity, and cost after red blood cell transfusion in patients having cardiac surgery",
+    "parsed_first_author": "murphy",
+    "parsed_year": 2007,
+    "parsed_container": "Circulation",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4410,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1161/circulationaha.107.698977"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13417,
+    "ordinal": 39,
+    "raw_string": "Li G, Rachmale S, Kojicic M, et al Incidence and transfusion risk factors for transfusion-associated circulatory overload among medical intensive care unit patients. Transfusion 2011;51:338–43. 10.1111/j.1537-2995.2010.02816.x 20723173 PMC3006039",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1537-2995.2010.02816.x",
+    "parsed_pmid": "20723173",
+    "parsed_title": "Incidence and transfusion risk factors for transfusion-associated circulatory overload among medical intensive care unit patients",
+    "parsed_first_author": "li",
+    "parsed_year": 2011,
+    "parsed_container": "Transfusion",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4411,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1537-2995.2010.02816.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13418,
+    "ordinal": 40,
+    "raw_string": "O'Leary MF, Szklarski P, Klein TM, et al Hemolysis of red blood cells after cell washing with different automated technologies: clinical implications in a neonatal cardiac surgery population. Transfusion 2011;51:955–60. 10.1111/j.1537-2995.2010.02935.x 21091957",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1537-2995.2010.02935.x",
+    "parsed_pmid": "21091957",
+    "parsed_title": "Hemolysis of red blood cells after cell washing with different automated technologies: clinical implications in a neonatal cardiac surgery population",
+    "parsed_first_author": "o leary",
+    "parsed_year": 2011,
+    "parsed_container": "Transfusion",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4412,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1537-2995.2010.02935.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13419,
+    "ordinal": 41,
+    "raw_string": "Mehta RL, Kellum JA, Shah SV, et al Acute Kidney Injury Network: report of an initiative to improve outcomes in acute kidney injury. Crit Care 2007;11:R31 10.1186/cc5713 17331245 PMC2206446",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1186/cc5713",
+    "parsed_pmid": "17331245",
+    "parsed_title": "Acute Kidney Injury Network: report of an initiative to improve outcomes in acute kidney injury",
+    "parsed_first_author": "mehta",
+    "parsed_year": 2007,
+    "parsed_container": "Crit Care",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4413,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/cc5713"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13420,
+    "ordinal": 42,
+    "raw_string": "Bakkour S, Acker JP, Chafets DM, et al Manufacturing method affects mitochondrial DNA release and extracellular vesicle composition in stored red blood cells. Vox Sang 2016;111:22–32. 10.1111/vox.12390 26918437",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/vox.12390",
+    "parsed_pmid": "26918437",
+    "parsed_title": "Manufacturing method affects mitochondrial DNA release and extracellular vesicle composition in stored red blood cells",
+    "parsed_first_author": "bakkour",
+    "parsed_year": 2016,
+    "parsed_container": "Vox Sang",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4414,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/vox.12390"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13421,
+    "ordinal": 43,
+    "raw_string": "Danesh A, Inglis HC, Jackman RP, et al Exosomes from red blood cell units bind to monocytes and induce proinflammatory cytokines, boosting T-cell responses in vitro. Blood 2014;123:687–96. 10.1182/blood-2013-10-530469 24335232 PMC3907755",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1182/blood-2013-10-530469",
+    "parsed_pmid": "24335232",
+    "parsed_title": "Exosomes from red blood cell units bind to monocytes and induce proinflammatory cytokines, boosting T-cell responses in vitro",
+    "parsed_first_author": "danesh",
+    "parsed_year": 2014,
+    "parsed_container": "Blood",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4415,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1182/blood-2013-10-530469"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13422,
+    "ordinal": 44,
+    "raw_string": "Bridges EJ, Woods SL Pulmonary artery pressure measurement: state of the art. Heart Lung 1993;22:99–111.8449767",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": "8449767",
+    "parsed_title": "Pulmonary artery pressure measurement: state of the art",
+    "parsed_first_author": "bridges",
+    "parsed_year": 1993,
+    "parsed_container": "Heart Lung",
+    "resolution_status": "resolved",
+    "resolution_method": "pmid",
+    "resolved_paper_id": 4416,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "pmid:8449767"
+      ],
+      "openalex_pmid": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13423,
+    "ordinal": 45,
+    "raw_string": "Fremont RD, Koyama T, Calfee CS, et al Acute lung injury in patients with traumatic injuries: utility of a panel of biomarkers for diagnosis and pathogenesis. J Trauma 2010;68:1121–7. 10.1097/TA.0b013e3181c40728 20038857 PMC3347639",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/ta.0b013e3181c40728",
+    "parsed_pmid": "20038857",
+    "parsed_title": "Acute lung injury in patients with traumatic injuries: utility of a panel of biomarkers for diagnosis and pathogenesis",
+    "parsed_first_author": "fremont",
+    "parsed_year": 2010,
+    "parsed_container": "J Trauma",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4417,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/ta.0b013e3181c40728"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13424,
+    "ordinal": 46,
+    "raw_string": "Shi Q, Pavey ES, Carter RE Bonferroni-based correction factor for multiple, correlated endpoints. Pharm Stat 2012;11:300–9. 10.1002/pst.1514 22588983",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/pst.1514",
+    "parsed_pmid": "22588983",
+    "parsed_title": "Bonferroni-based correction factor for multiple, correlated endpoints",
+    "parsed_first_author": "shi",
+    "parsed_year": 2012,
+    "parsed_container": "Pharm Stat",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4418,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/pst.1514"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13425,
+    "ordinal": 47,
+    "raw_string": "Fransen E, Maessen J, Dentener M, et al Impact of blood transfusions on inflammatory mediator release in patients undergoing cardiac surgery. Chest 1999;116:1233–9. 10.1378/chest.116.5.1233 10559080",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1378/chest.116.5.1233",
+    "parsed_pmid": "10559080",
+    "parsed_title": "Impact of blood transfusions on inflammatory mediator release in patients undergoing cardiac surgery",
+    "parsed_first_author": "fransen",
+    "parsed_year": 1999,
+    "parsed_container": "Chest",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4419,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1378/chest.116.5.1233"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13426,
+    "ordinal": 48,
+    "raw_string": "Hirai S Systemic inflammatory response syndrome after cardiac surgery under cardiopulmonary bypass. Ann Thorac Cardiovasc Surg 2003;9:365–70.15003097",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": "15003097",
+    "parsed_title": "Systemic inflammatory response syndrome after cardiac surgery under cardiopulmonary bypass",
+    "parsed_first_author": "hirai",
+    "parsed_year": 2003,
+    "parsed_container": "Ann Thorac Cardiovasc Surg",
+    "resolution_status": "resolved",
+    "resolution_method": "pmid",
+    "resolved_paper_id": 4420,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "pmid:15003097"
+      ],
+      "openalex_pmid": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13427,
+    "ordinal": 49,
+    "raw_string": "Allan CK, Newburger JW, McGrath E, et al The relationship between inflammatory activation and clinical outcome after infant cardiopulmonary bypass. Anesth Analg 2010;111:1244–51. 10.1213/ANE.0b013e3181f333aa 20829561",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1213/ane.0b013e3181f333aa",
+    "parsed_pmid": "20829561",
+    "parsed_title": "The relationship between inflammatory activation and clinical outcome after infant cardiopulmonary bypass",
+    "parsed_first_author": "allan",
+    "parsed_year": 2010,
+    "parsed_container": "Anesth Analg",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4421,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1213/ane.0b013e3181f333aa"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13428,
+    "ordinal": 50,
+    "raw_string": "Meduri GU, Headley S, Kohler G, et al Persistent elevation of inflammatory cytokines predicts a poor outcome in ARDS. plasma IL-1 beta and IL-6 levels are consistent and efficient predictors of outcome over time. Chest 1995;107:1062–73.7705118 10.1378/chest.107.4.1062",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1378/chest.107.4.1062",
+    "parsed_pmid": "7705118",
+    "parsed_title": "Persistent elevation of inflammatory cytokines predicts a poor outcome in ARDS. plasma IL-1 beta and IL-6 levels are consistent and efficient predictors of outcome over time",
+    "parsed_first_author": "meduri",
+    "parsed_year": 1995,
+    "parsed_container": "Chest",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4422,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1378/chest.107.4.1062"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.624
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13429,
+    "ordinal": 51,
+    "raw_string": "Koch CG, Li L, Sessler DI, et al Duration of red-cell storage and complications after cardiac surgery. N Engl J Med 2008;358:1229–39. 10.1056/NEJMoa070403 18354101",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1056/nejmoa070403",
+    "parsed_pmid": "18354101",
+    "parsed_title": "Duration of red-cell storage and complications after cardiac surgery",
+    "parsed_first_author": "koch",
+    "parsed_year": 2008,
+    "parsed_container": "N Engl J Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4406,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {},
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13430,
+    "ordinal": 52,
+    "raw_string": "Eikelboom JW, Cook RJ, Liu Y, et al Duration of red cell storage before transfusion and in-hospital mortality. Am Heart J 2010;159:737–43. 10.1016/j.ahj.2009.12.045 20435180",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.ahj.2009.12.045",
+    "parsed_pmid": "20435180",
+    "parsed_title": "Duration of red cell storage before transfusion and in-hospital mortality",
+    "parsed_first_author": "eikelboom",
+    "parsed_year": 2010,
+    "parsed_container": "Am Heart J",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4423,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.ahj.2009.12.045"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13431,
+    "ordinal": 53,
+    "raw_string": "Manlhiot C, McCrindle BW, Menjak IB, et al Longer blood storage is associated with suboptimal outcomes in high-risk pediatric cardiac surgery. Ann Thorac Surg 2012;93:1563–9. 10.1016/j.athoracsur.2011.08.075 22137242",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.athoracsur.2011.08.075",
+    "parsed_pmid": "22137242",
+    "parsed_title": "Longer blood storage is associated with suboptimal outcomes in high-risk pediatric cardiac surgery",
+    "parsed_first_author": "manlhiot",
+    "parsed_year": 2012,
+    "parsed_container": "Ann Thorac Surg",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4424,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.athoracsur.2011.08.075"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13432,
+    "ordinal": 54,
+    "raw_string": "Basran S, Frumento RJ, Cohen A, et al The association between duration of storage of transfused red blood cells and morbidity and mortality after reoperative cardiac surgery. Anesth Analg 2006;103:15–20. table of contents. 10.1213/01.ane.0000221167.58135.3d 16790618",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1213/01.ane.0000221167.58135.3d",
+    "parsed_pmid": "16790618",
+    "parsed_title": "The association between duration of storage of transfused red blood cells and morbidity and mortality after reoperative cardiac surgery",
+    "parsed_first_author": "basran",
+    "parsed_year": 2006,
+    "parsed_container": "Anesth Analg",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4425,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1213/01.ane.0000221167.58135.3d"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.964
+    },
+    "notices": [
+     {
+      "notice_type": "retraction",
+      "notice_date": "2009-06-01",
+      "notice_doi": "10.1213/01.ane.0000351544.23942.33",
+      "reason": "Concerns/Issues about Data;Error in Data;",
+      "source": "retraction_watch",
+      "source_record_id": "264",
+      "matched_on": "doi"
+     }
+    ]
+   },
+   {
+    "reference_id": 13433,
+    "ordinal": 55,
+    "raw_string": "Silliman CC, Clay KL, Thurman GW, et al Partial characterization of lipids that develop during the routine storage of blood and prime the neutrophil NADPH oxidase. J Lab Clin Med 1994;124:684–94.7964126 PMC4451958",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": "7964126",
+    "parsed_title": "Partial characterization of lipids that develop during the routine storage of blood and prime the neutrophil NADPH oxidase",
+    "parsed_first_author": "silliman",
+    "parsed_year": 1994,
+    "parsed_container": "J Lab Clin Med",
+    "resolution_status": "resolved",
+    "resolution_method": "pmid",
+    "resolved_paper_id": 4426,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "pmid:7964126"
+      ],
+      "openalex_pmid": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13434,
+    "ordinal": 56,
+    "raw_string": "Kristiansson M, Soop M, Saraste L, et al Cytokines in stored red blood cell concentrates: promoters of systemic inflammation and simulators of acute transfusion reactions? Acta Anaesthesiol Scand 1996;40:496–501. 10.1111/j.1399-6576.1996.tb04475.x 8738697",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1399-6576.1996.tb04475.x",
+    "parsed_pmid": "8738697",
+    "parsed_title": "Cytokines in stored red blood cell concentrates: promoters of systemic inflammation and simulators of acute transfusion reactions?",
+    "parsed_first_author": "kristiansson",
+    "parsed_year": 1996,
+    "parsed_container": "Acta Anaesthesiol Scand",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4427,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1399-6576.1996.tb04475.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13435,
+    "ordinal": 57,
+    "raw_string": "Nielsen HJ, Reimert CM, Pedersen AN, et al Time-dependent, spontaneous release of white cell- and platelet-derived bioactive substances from stored human blood. Transfusion 1996;36:960–5. 10.1046/j.1537-2995.1996.36111297091738.x 8937404",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1046/j.1537-2995.1996.36111297091738.x",
+    "parsed_pmid": "8937404",
+    "parsed_title": "Time-dependent, spontaneous release of white cell- and platelet-derived bioactive substances from stored human blood",
+    "parsed_first_author": "nielsen",
+    "parsed_year": 1996,
+    "parsed_container": "Transfusion",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4428,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1046/j.1537-2995.1996.36111297091738.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13436,
+    "ordinal": 58,
+    "raw_string": "Rapido F, Brittenham GM, Bandyopadhyay S, et al Prolonged red cell storage before transfusion increases extravascular hemolysis. J Clin Invest 2017;127:375–82. 10.1172/JCI90837 27941245 PMC5199711",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1172/jci90837",
+    "parsed_pmid": "27941245",
+    "parsed_title": "Prolonged red cell storage before transfusion increases extravascular hemolysis",
+    "parsed_first_author": "rapido",
+    "parsed_year": 2017,
+    "parsed_container": "J Clin Invest",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4429,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1172/jci90837"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13437,
+    "ordinal": 59,
+    "raw_string": "Ware LB, Koyama T, Billheimer DD, et al Prognostic and pathogenetic value of combining clinical and biochemical indices in patients with acute lung injury. Chest 2010;137:288–96. 10.1378/chest.09-1484 19858233 PMC2816641",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1378/chest.09-1484",
+    "parsed_pmid": "19858233",
+    "parsed_title": "Prognostic and pathogenetic value of combining clinical and biochemical indices in patients with acute lung injury",
+    "parsed_first_author": "ware",
+    "parsed_year": 2010,
+    "parsed_container": "Chest",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4430,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1378/chest.09-1484"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13438,
+    "ordinal": 60,
+    "raw_string": "Parsons PE, Eisner MD, Thompson BT, et al Lower tidal volume ventilation and plasma cytokine markers of inflammation in patients with acute lung injury. Crit Care Med 2005;33:1–6. discussion 230-2. 10.1097/01.CCM.0000149854.61192.DC 15644641",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/01.ccm.0000149854.61192.dc",
+    "parsed_pmid": "15644641",
+    "parsed_title": "Lower tidal volume ventilation and plasma cytokine markers of inflammation in patients with acute lung injury",
+    "parsed_first_author": "parsons",
+    "parsed_year": 2005,
+    "parsed_container": "Crit Care Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4431,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/01.ccm.0000149854.61192.dc"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13439,
+    "ordinal": 61,
+    "raw_string": "McClintock D, Zhuo H, Wickersham N, et al Biomarkers of inflammation, coagulation and fibrinolysis predict mortality in acute lung injury. Crit Care 2008;12:R41 10.1186/cc6846 18358078 PMC2447583",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1186/cc6846",
+    "parsed_pmid": "18358078",
+    "parsed_title": "Biomarkers of inflammation, coagulation and fibrinolysis predict mortality in acute lung injury",
+    "parsed_first_author": "mcclintock",
+    "parsed_year": 2008,
+    "parsed_container": "Crit Care",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4432,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/cc6846"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13440,
+    "ordinal": 62,
+    "raw_string": "Ware LB, Matthay MA, Parsons PE, et al Pathogenetic and prognostic significance of altered coagulation and fibrinolysis in acute lung injury/acute respiratory distress syndrome. Crit Care Med 2007;35:1821–8. 10.1097/01.CCM.0000275386.95968.5F 17667242 PMC2764536",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/01.ccm.0000275386.95968.5f",
+    "parsed_pmid": "17667242",
+    "parsed_title": "Pathogenetic and prognostic significance of altered coagulation and fibrinolysis in acute lung injury/acute respiratory distress syndrome",
+    "parsed_first_author": "ware",
+    "parsed_year": 2007,
+    "parsed_container": "Crit Care Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4433,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/01.ccm.0000275386.95968.5f"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13441,
+    "ordinal": 63,
+    "raw_string": "Prabhakaran P, Ware LB, White KE, et al Elevated levels of plasminogen activator inhibitor-1 in pulmonary edema fluid are associated with mortality in acute lung injury. Am J Physiol Lung Cell Mol Physiol 2003;285:L20–L28. 10.1152/ajplung.00312.2002 12730079",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1152/ajplung.00312.2002",
+    "parsed_pmid": "12730079",
+    "parsed_title": "Elevated levels of plasminogen activator inhibitor-1 in pulmonary edema fluid are associated with mortality in acute lung injury",
+    "parsed_first_author": "prabhakaran",
+    "parsed_year": 2003,
+    "parsed_container": "Am J Physiol Lung Cell Mol Physiol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4434,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1152/ajplung.00312.2002"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13442,
+    "ordinal": 64,
+    "raw_string": "Christie JD, Robinson N, Ware LB, et al Association of protein C and type 1 plasminogen activator inhibitor with primary graft dysfunction. Am J Respir Crit Care Med 2007;175:69–74. 10.1164/rccm.200606-827OC 17023732 PMC1899260",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1164/rccm.200606-827oc",
+    "parsed_pmid": "17023732",
+    "parsed_title": "Association of protein C and type 1 plasminogen activator inhibitor with primary graft dysfunction",
+    "parsed_first_author": "christie",
+    "parsed_year": 2007,
+    "parsed_container": "Am J Respir Crit Care Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4435,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1164/rccm.200606-827oc"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13443,
+    "ordinal": 65,
+    "raw_string": "Ware LB, Koyama T, Billheimer DD, et al Prognostic and pathogenetic value of combining clinical and biochemical indices in patients with acute lung injury. Chest 2010;137:288–96. 10.1378/chest.09-1484 19858233 PMC2816641",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1378/chest.09-1484",
+    "parsed_pmid": "19858233",
+    "parsed_title": "Prognostic and pathogenetic value of combining clinical and biochemical indices in patients with acute lung injury",
+    "parsed_first_author": "ware",
+    "parsed_year": 2010,
+    "parsed_container": "Chest",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4430,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {},
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13444,
+    "ordinal": 66,
+    "raw_string": "Fremont RD, Koyama T, Calfee CS, et al Acute lung injury in patients with traumatic injuries: utility of a panel of biomarkers for diagnosis and pathogenesis. J Trauma 2010;68:1121–7. 10.1097/TA.0b013e3181c40728 20038857 PMC3347639",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/ta.0b013e3181c40728",
+    "parsed_pmid": "20038857",
+    "parsed_title": "Acute lung injury in patients with traumatic injuries: utility of a panel of biomarkers for diagnosis and pathogenesis",
+    "parsed_first_author": "fremont",
+    "parsed_year": 2010,
+    "parsed_container": "J Trauma",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4417,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {},
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13445,
+    "ordinal": 67,
+    "raw_string": "Ware LB, Eisner MD, Thompson BT, et al Significance of von Willebrand factor in septic and nonseptic patients with acute lung injury. Am J Respir Crit Care Med 2004;170:766–72. 10.1164/rccm.200310-1434OC 15201135",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1164/rccm.200310-1434oc",
+    "parsed_pmid": "15201135",
+    "parsed_title": "Significance of von Willebrand factor in septic and nonseptic patients with acute lung injury",
+    "parsed_first_author": "ware",
+    "parsed_year": 2004,
+    "parsed_container": "Am J Respir Crit Care Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4436,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1164/rccm.200310-1434oc"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13446,
+    "ordinal": 68,
+    "raw_string": "Ware LB, Conner ER, Matthay MA Von Willebrand factor antigen is an independent marker of poor outcome in patients with early acute lung injury. Crit Care Med 2001;29:2325–31. 10.1097/00003246-200112000-00016 11801836",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/00003246-200112000-00016",
+    "parsed_pmid": "11801836",
+    "parsed_title": "Von Willebrand factor antigen is an independent marker of poor outcome in patients with early acute lung injury",
+    "parsed_first_author": "ware",
+    "parsed_year": 2001,
+    "parsed_container": "Crit Care Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4437,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/00003246-200112000-00016"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13447,
+    "ordinal": 69,
+    "raw_string": "Rubin DB, Wiener-Kronish JP, Murray JF, et al Elevated von Willebrand factor antigen is an early plasma predictor of acute lung injury in nonpulmonary sepsis syndrome. J Clin Invest 1990;86:474–80. 10.1172/JCI114733 2384595 PMC296749",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1172/jci114733",
+    "parsed_pmid": "2384595",
+    "parsed_title": "Elevated von Willebrand factor antigen is an early plasma predictor of acute lung injury in nonpulmonary sepsis syndrome",
+    "parsed_first_author": "rubin",
+    "parsed_year": 1990,
+    "parsed_container": "J Clin Invest",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4438,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1172/jci114733"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13448,
+    "ordinal": 70,
+    "raw_string": "Moss M, Ackerson L, Gillespie MK, et al von Willebrand factor antigen levels are not predictive for the adult respiratory distress syndrome. Am J Respir Crit Care Med 1995;151:15–20. 10.1164/ajrccm.151.1.7812545 7812545",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1164/ajrccm.151.1.7812545",
+    "parsed_pmid": "7812545",
+    "parsed_title": "von Willebrand factor antigen levels are not predictive for the adult respiratory distress syndrome",
+    "parsed_first_author": "moss",
+    "parsed_year": 1995,
+    "parsed_container": "Am J Respir Crit Care Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4439,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1164/ajrccm.151.1.7812545"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13449,
+    "ordinal": 71,
+    "raw_string": "Calfee CS, Eisner MD, Parsons PE, et al Soluble intercellular adhesion molecule-1 and clinical outcomes in patients with acute lung injury. Intensive Care Med 2009;35:248–57. 10.1007/s00134-008-1235-0 18670758 PMC2790376",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s00134-008-1235-0",
+    "parsed_pmid": "18670758",
+    "parsed_title": "Soluble intercellular adhesion molecule-1 and clinical outcomes in patients with acute lung injury",
+    "parsed_first_author": "calfee",
+    "parsed_year": 2009,
+    "parsed_container": "Intensive Care Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4440,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s00134-008-1235-0"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13450,
+    "ordinal": 72,
+    "raw_string": "Covarrubias M, Ware LB, Kawut SM, et al Plasma intercellular adhesion molecule-1 and Von Willebrand factor in primary graft dysfunction after lung transplantation. Am J Transplant 2007;7:2573–8. 10.1111/j.1600-6143.2007.01981.x 17908278",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1600-6143.2007.01981.x",
+    "parsed_pmid": "17908278",
+    "parsed_title": "Plasma intercellular adhesion molecule-1 and Von Willebrand factor in primary graft dysfunction after lung transplantation",
+    "parsed_first_author": "covarrubias",
+    "parsed_year": 2007,
+    "parsed_container": "Am J Transplant",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4441,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1600-6143.2007.01981.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13451,
+    "ordinal": 73,
+    "raw_string": "Agouridakis P, Kyriakou D, Alexandrakis MG, et al The predictive role of serum and bronchoalveolar lavage cytokines and adhesion molecules for acute respiratory distress syndrome development and outcome. Respir Res 2002;3:25 10.1186/rr193 12537603 PMC150513",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1186/rr193",
+    "parsed_pmid": "12537603",
+    "parsed_title": "The predictive role of serum and bronchoalveolar lavage cytokines and adhesion molecules for acute respiratory distress syndrome development and outcome",
+    "parsed_first_author": "agouridakis",
+    "parsed_year": 2002,
+    "parsed_container": "Respir Res",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4442,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/rr193"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13452,
+    "ordinal": 74,
+    "raw_string": "Eisner MD, Parsons P, Matthay MA, et al Plasma surfactant protein levels and clinical outcomes in patients with acute lung injury. Thorax 2003;58:983–8. 10.1136/thorax.58.11.983 14586055 PMC1746524",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1136/thorax.58.11.983",
+    "parsed_pmid": "14586055",
+    "parsed_title": "Plasma surfactant protein levels and clinical outcomes in patients with acute lung injury",
+    "parsed_first_author": "eisner",
+    "parsed_year": 2003,
+    "parsed_container": "Thorax",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4443,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1136/thorax.58.11.983"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13453,
+    "ordinal": 75,
+    "raw_string": "Greene KE, Wright JR, Steinberg KP, et al Serial changes in surfactant-associated proteins in lung and serum before and after onset of ARDS. Am J Respir Crit Care Med 1999;160:1843–50. 10.1164/ajrccm.160.6.9901117 10588595",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1164/ajrccm.160.6.9901117",
+    "parsed_pmid": "10588595",
+    "parsed_title": "Serial changes in surfactant-associated proteins in lung and serum before and after onset of ARDS",
+    "parsed_first_author": "greene",
+    "parsed_year": 1999,
+    "parsed_container": "Am J Respir Crit Care Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4444,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1164/ajrccm.160.6.9901117"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13454,
+    "ordinal": 76,
+    "raw_string": "Christie JD, Shah CV, Kawut SM, et al Plasma levels of receptor for advanced glycation end products, blood transfusion, and risk of primary graft dysfunction. Am J Respir Crit Care Med 2009;180:1010–5. 10.1164/rccm.200901-0118OC 19661249 PMC2778153",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1164/rccm.200901-0118oc",
+    "parsed_pmid": "19661249",
+    "parsed_title": "Plasma levels of receptor for advanced glycation end products, blood transfusion, and risk of primary graft dysfunction",
+    "parsed_first_author": "christie",
+    "parsed_year": 2009,
+    "parsed_container": "Am J Respir Crit Care Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4445,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1164/rccm.200901-0118oc"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13455,
+    "ordinal": 77,
+    "raw_string": "Calfee CS, Ware LB, Eisner MD, et al Plasma receptor for advanced glycation end products and clinical outcomes in acute lung injury. Thorax 2008;63:1083–9. 10.1136/thx.2008.095588 18566109 PMC2764528",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1136/thx.2008.095588",
+    "parsed_pmid": "18566109",
+    "parsed_title": "Plasma receptor for advanced glycation end products and clinical outcomes in acute lung injury",
+    "parsed_first_author": "calfee",
+    "parsed_year": 2008,
+    "parsed_container": "Thorax",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 2530,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1136/thx.2008.095588"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13456,
+    "ordinal": 78,
+    "raw_string": "Grommes J, Alard JE, Drechsler M, et al Disruption of platelet-derived chemokine heteromers prevents neutrophil extravasation in acute lung injury. Am J Respir Crit Care Med 2012;185:628–36. 10.1164/rccm.201108-1533OC 22246174 PMC3326286",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1164/rccm.201108-1533oc",
+    "parsed_pmid": "22246174",
+    "parsed_title": "Disruption of platelet-derived chemokine heteromers prevents neutrophil extravasation in acute lung injury",
+    "parsed_first_author": "grommes",
+    "parsed_year": 2012,
+    "parsed_container": "Am J Respir Crit Care Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4446,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1164/rccm.201108-1533oc"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13457,
+    "ordinal": 79,
+    "raw_string": "Conti P, DiGioacchino M MCP-1 and RANTES are mediators of acute and chronic inflammation. Allergy Asthma Proc 2001;22:133–7. 10.2500/108854101778148737 11424873",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2500/108854101778148737",
+    "parsed_pmid": "11424873",
+    "parsed_title": "MCP-1 and RANTES are mediators of acute and chronic inflammation",
+    "parsed_first_author": "conti",
+    "parsed_year": 2001,
+    "parsed_container": "Allergy Asthma Proc",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4447,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2500/108854101778148737"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13458,
+    "ordinal": 80,
+    "raw_string": "Donadee C, Raat NJ, Kanias T, et al Nitric oxide scavenging by red blood cell microparticles and cell-free hemoglobin as a mechanism for the red cell storage lesion. Circulation 2011;124:465–76. 10.1161/CIRCULATIONAHA.110.008698 21747051 PMC3891836",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1161/circulationaha.110.008698",
+    "parsed_pmid": "21747051",
+    "parsed_title": "Nitric oxide scavenging by red blood cell microparticles and cell-free hemoglobin as a mechanism for the red cell storage lesion",
+    "parsed_first_author": "donadee",
+    "parsed_year": 2011,
+    "parsed_container": "Circulation",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4448,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1161/circulationaha.110.008698"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13459,
+    "ordinal": 81,
+    "raw_string": "Li G, Daniels CE, Kojicic M, et al The accuracy of natriuretic peptides (brain natriuretic peptide and N-terminal pro-brain natriuretic) in the differentiation between transfusion-related acute lung injury and transfusion-related circulatory overload in the critically ill. Transfusion 2009;49:13–20. 10.1111/j.1537-2995.2008.01941.x 18954397 PMC2752382",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1537-2995.2008.01941.x",
+    "parsed_pmid": "18954397",
+    "parsed_title": "The accuracy of natriuretic peptides (brain natriuretic peptide and N-terminal pro-brain natriuretic) in the differentiation between transfusion-related acute lung injury and transfusion-related circulatory overload in the critically ill",
+    "parsed_first_author": "li",
+    "parsed_year": 2009,
+    "parsed_container": "Transfusion",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4449,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1537-2995.2008.01941.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13460,
+    "ordinal": 82,
+    "raw_string": "Tobian AA, Sokoll LJ, Tisch DJ, et al N-terminal pro-brain natriuretic peptide is a useful diagnostic marker for transfusion-associated circulatory overload. Transfusion 2008;48:1143–50. 10.1111/j.1537-2995.2008.01656.x 18298592",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1537-2995.2008.01656.x",
+    "parsed_pmid": "18298592",
+    "parsed_title": "N-terminal pro-brain natriuretic peptide is a useful diagnostic marker for transfusion-associated circulatory overload",
+    "parsed_first_author": "tobian",
+    "parsed_year": 2008,
+    "parsed_container": "Transfusion",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4450,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1537-2995.2008.01656.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13461,
+    "ordinal": 83,
+    "raw_string": "Zhou L, Giacherio D, Cooling L, et al Use of B-natriuretic peptide as a diagnostic marker in the differential diagnosis of transfusion-associated circulatory overload. Transfusion 2005;45:1056–63. 10.1111/j.1537-2995.2005.04326.x 15987348",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1537-2995.2005.04326.x",
+    "parsed_pmid": "15987348",
+    "parsed_title": "Use of B-natriuretic peptide as a diagnostic marker in the differential diagnosis of transfusion-associated circulatory overload",
+    "parsed_first_author": "zhou",
+    "parsed_year": 2005,
+    "parsed_container": "Transfusion",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4451,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1537-2995.2005.04326.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   }
+  ],
+  "stat_tests": [],
+  "means": [],
+  "trials": []
+ }
+}

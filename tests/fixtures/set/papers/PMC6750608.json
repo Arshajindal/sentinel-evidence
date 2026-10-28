@@ -1,0 +1,3076 @@
+{
+ "id": "PMC6750608",
+ "subject": "paper",
+ "categories": [
+  "c03_false_positive_regression",
+  "clean"
+ ],
+ "source": {
+  "corpus": "pmc-rct-2015-2024",
+  "paper_id": 913,
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "Paper 913: 'p = .001' used as a floor (an early false positive) counts as consistent; 6 tests, all consistent. No flags from any check.",
+ "expected": [
+  {
+   "check": "C01",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C02",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C03",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C04",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "paper_id": 913,
+  "publication_date": "2019-09-18",
+  "fulltext_status": "full",
+  "references": [
+   {
+    "reference_id": 35363,
+    "ordinal": 1,
+    "raw_string": "Costello EJ, Egger HL, Copeland W, Erkanli A, Angold A. The developmental epidemiology of anxiety disorders: Phenomenology, prevalence, and comorbidity In: Silverman WK FA, editor. Anxiety disorders in children and adolescents. 2. ed Cambridge: Cambridge University Press; 2011. p. 56–75.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "costello",
+    "parsed_year": 2011,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35364,
+    "ordinal": 2,
+    "raw_string": "Polanczyk GV, Salum GA, Sugaya LS, Caye A, Rohde LA. Annual research review: A meta-analysis of the worldwide prevalence of mental disorders in children and adolescents. Journal of child psychology and psychiatry, and allied disciplines. 2015;56(3):345–65. Epub 2015/02/05. 10.1111/jcpp.12381 .",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1111/jcpp.12381",
+    "parsed_pmid": null,
+    "parsed_title": "Annual research review: A meta-analysis of the worldwide prevalence of mental disorders in children and adolescents",
+    "parsed_first_author": "polanczyk",
+    "parsed_year": 2015,
+    "parsed_container": "Journal of child psychology and psychiatry, and allied disciplines",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5104,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/jcpp.12381"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35365,
+    "ordinal": 3,
+    "raw_string": "Merikangas KR, He JP, Burstein M, Swanson SA, Avenevoli S, Cui L, et al. Lifetime prevalence of mental disorders in U.S. adolescents: results from the National Comorbidity Survey Replication—Adolescent Supplement (NCS-A). Journal of the American Academy of Child and Adolescent Psychiatry. 2010;49(10):980–9. Epub 2010/09/22. 10.1016/j.jaac.2010.05.017",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1016/j.jaac.2010.05.017",
+    "parsed_pmid": null,
+    "parsed_title": "Lifetime prevalence of mental disorders in U.S. adolescents: results from the National Comorbidity Survey Replication—Adolescent Supplement (NCS-A)",
+    "parsed_first_author": "merikangas",
+    "parsed_year": 2010,
+    "parsed_container": "Journal of the American Academy of Child and Adolescent Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5105,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.jaac.2010.05.017"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35366,
+    "ordinal": 4,
+    "raw_string": "Beesdo-Baum K, Knappe S. Developmental epidemiology of anxiety disorders. Child Adolesc Psychiatr Clin N Am. 2012;21(3):457–78. Epub 2012/07/18. 10.1016/j.chc.2012.05.001 .",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1016/j.chc.2012.05.001",
+    "parsed_pmid": null,
+    "parsed_title": "Developmental epidemiology of anxiety disorders",
+    "parsed_first_author": "beesdo baum",
+    "parsed_year": 2012,
+    "parsed_container": "Child Adolesc Psychiatr Clin N Am",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5106,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.chc.2012.05.001"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35367,
+    "ordinal": 5,
+    "raw_string": "Kessler RC, Avenevoli S, Costello EJ, Georgiades K, Green JG, Gruber MJ, et al. Prevalence, persistence, and sociodemographic correlates of DSM-IV disorders in the National Comorbidity Survey Replication Adolescent Supplement. Archives of General Psychiatry. 2012;69(4):372–80. 10.1001/archgenpsychiatry.2011.160 ; 2012-09587-005.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1001/archgenpsychiatry.2011.160",
+    "parsed_pmid": null,
+    "parsed_title": "Prevalence, persistence, and sociodemographic correlates of DSM-IV disorders in the National Comorbidity Survey Replication Adolescent Supplement",
+    "parsed_first_author": "kessler",
+    "parsed_year": 2012,
+    "parsed_container": "Archives of General Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5107,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1001/archgenpsychiatry.2011.160"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35368,
+    "ordinal": 6,
+    "raw_string": "Kessler RC, Petukhova M, Sampson NA, Zaslavsky AM, Wittchen H-U. Twelve-month and lifetime prevalence and lifetime morbid risk of anxiety and mood disorders in the United States. International Journal of Methods in Psychiatric Research. 2012;21(3):169–84. 10.1002/mpr.1359",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1002/mpr.1359",
+    "parsed_pmid": null,
+    "parsed_title": "Twelve-month and lifetime prevalence and lifetime morbid risk of anxiety and mood disorders in the United States",
+    "parsed_first_author": "kessler",
+    "parsed_year": 2012,
+    "parsed_container": "International Journal of Methods in Psychiatric Research",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5108,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/mpr.1359"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35369,
+    "ordinal": 7,
+    "raw_string": "James AC, James G, Cowdrey FA, Soler A, Choke A. Cognitive behavioural therapy for anxiety disorders in children and adolescents. The Cochrane database of systematic reviews. 2013;(6):Cd004690. Epub 2013/06/05. 10.1002/14651858.CD004690.pub3 .",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1002/14651858.cd004690.pub3",
+    "parsed_pmid": null,
+    "parsed_title": "Cognitive behavioural therapy for anxiety disorders in children and adolescents",
+    "parsed_first_author": "james",
+    "parsed_year": 2013,
+    "parsed_container": "The Cochrane database of systematic reviews",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5109,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/14651858.cd004690.pub3"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35370,
+    "ordinal": 8,
+    "raw_string": "Merikangas KR, He J-P, Brody D, Fisher PW, Bourdon K, Koretz DS. Prevalence and treatment of mental disorders among US children in the 2001–2004 NHANES. Pediatrics. 2010;125(1):75–81. 10.1542/peds.2008-2598 ; 2010-17117-014.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1542/peds.2008-2598",
+    "parsed_pmid": null,
+    "parsed_title": "Prevalence and treatment of mental disorders among US children in the 2001–2004 NHANES",
+    "parsed_first_author": "merikangas",
+    "parsed_year": 2010,
+    "parsed_container": "Pediatrics",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5110,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1542/peds.2008-2598"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35371,
+    "ordinal": 9,
+    "raw_string": "Wang PS, Aguilar-Gaxiola S, Alonso J, Angermeyer MC, Borges G, Bromet EJ, et al. Use of mental health services for anxiety, mood, and substance disorders in 17 countries in the WHO world mental health surveys. The Lancet. 2007;370(9590):841–50. 10.1016/S0140-6736(07)61414-7. ; 2007-13901-003.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1016/s0140-6736(07)61414-7",
+    "parsed_pmid": null,
+    "parsed_title": "Use of mental health services for anxiety, mood, and substance disorders in 17 countries in the WHO world mental health surveys",
+    "parsed_first_author": "wang",
+    "parsed_year": 2007,
+    "parsed_container": "The Lancet",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5111,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0140-6736(07)61414-7"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35372,
+    "ordinal": 10,
+    "raw_string": "Shafran R, Clark DM, Fairburn CG, Arntz A, Barlow DH, Ehlers A, et al. Mind the gap: Improving the dissemination of CBT. Behav Res Ther. 2009;47(11):902–9. Epub 2009/08/12. 10.1016/j.brat.2009.07.003 .",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1016/j.brat.2009.07.003",
+    "parsed_pmid": null,
+    "parsed_title": "Mind the gap: Improving the dissemination of CBT",
+    "parsed_first_author": "shafran",
+    "parsed_year": 2009,
+    "parsed_container": "Behav Res Ther",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5112,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.brat.2009.07.003"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35373,
+    "ordinal": 11,
+    "raw_string": "Stallard P, Udwin O, Goddard M, Hibbert S. The Availability of Cognitive Behaviour Therapy Within Specialist Child and Adolescent Mental Health Services (CAMHS): A National Survey. Behavioural and Cognitive Psychotherapy. 2007;35(4):501–5. Epub 2007/05/31. 10.1017/S1352465807003724",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1017/s1352465807003724",
+    "parsed_pmid": null,
+    "parsed_title": "The Availability of Cognitive Behaviour Therapy Within Specialist Child and Adolescent Mental Health Services (CAMHS): A National Survey",
+    "parsed_first_author": "stallard",
+    "parsed_year": 2007,
+    "parsed_container": "Behavioural and Cognitive Psychotherapy",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5113,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1017/s1352465807003724"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35374,
+    "ordinal": 12,
+    "raw_string": "Gulliver A, Griffiths KM, Christensen H. Perceived barriers and facilitators to mental health help-seeking in young people: A systematic review. BMC psychiatry. 2010;10 10.1186/1471-244X-10-10 ; 2011-02872-001.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1186/1471-244x-10-10",
+    "parsed_pmid": null,
+    "parsed_title": "Perceived barriers and facilitators to mental health help-seeking in young people: A systematic review",
+    "parsed_first_author": "gulliver",
+    "parsed_year": 2010,
+    "parsed_container": "BMC psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5114,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/1471-244x-10-10"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.243
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35375,
+    "ordinal": 13,
+    "raw_string": "Adolescents Tillett J. and Informed Consent: Ethical and Legal Issues. The Journal of Perinatal & Neonatal Nursing. 2005;19(2):112–21. ; 2006-03909-002.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "and Informed Consent: Ethical and Legal Issues",
+    "parsed_first_author": "adolescents tillett",
+    "parsed_year": 2005,
+    "parsed_container": "The Journal of Perinatal & Neonatal Nursing",
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": [
+      {
+       "year": 2006,
+       "paper_id": 5120,
+       "rejected": "first author 'holm' vs 'adolescents tillett'",
+       "similarity": 1.0,
+       "first_author": "holm"
+      }
+     ]
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35376,
+    "ordinal": 14,
+    "raw_string": "Zachrisson HD, Rodje K, Mykletun A. Utilization of health services in relation to mental health problems in adolescents: a population based survey. BMC public health. 2006;6:34 Epub 2006/02/17. 10.1186/1471-2458-6-34",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1186/1471-2458-6-34",
+    "parsed_pmid": null,
+    "parsed_title": "Utilization of health services in relation to mental health problems in adolescents: a population based survey",
+    "parsed_first_author": "zachrisson",
+    "parsed_year": 2006,
+    "parsed_container": "BMC public health",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5122,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/1471-2458-6-34"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35377,
+    "ordinal": 15,
+    "raw_string": "Reavley NJ, Cvetkovski S, Jorm AF, Lubman DI. Help-Seeking for Substance Use, Anxiety and Affective Disorders Among Young People: Results from the 2007 Australian National Survey of Mental Health and Wellbeing. Australian & New Zealand Journal of Psychiatry. 2010;44(8):729–35. 10.3109/00048671003705458",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.3109/00048671003705458",
+    "parsed_pmid": null,
+    "parsed_title": "Help-Seeking for Substance Use, Anxiety and Affective Disorders Among Young People: Results from the 2007 Australian National Survey of Mental Health and Wellbeing",
+    "parsed_first_author": "reavley",
+    "parsed_year": 2010,
+    "parsed_container": "Australian & New Zealand Journal of Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5123,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3109/00048671003705458"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35378,
+    "ordinal": 16,
+    "raw_string": "Nearchou FA, Bird N, Costello A, Duggan S, Gilroy J, Long R, et al. Personal and perceived public mental-health stigma as predictors of help-seeking intentions in adolescents. J Adolesc. 2018;66:83–90. Epub 2018/05/26. 10.1016/j.adolescence.2018.05.003 .",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1016/j.adolescence.2018.05.003",
+    "parsed_pmid": null,
+    "parsed_title": "Personal and perceived public mental-health stigma as predictors of help-seeking intentions in adolescents",
+    "parsed_first_author": "nearchou",
+    "parsed_year": 2018,
+    "parsed_container": "J Adolesc",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5124,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.adolescence.2018.05.003"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35379,
+    "ordinal": 17,
+    "raw_string": "Rickwood DJ, Deane FP, Wilson CJ. When and how do young people seek professional help for mental health problems? The Medical journal of Australia. 2007;187(7 Suppl):S35–9. Epub 2007/11/28. .",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "When and how do young people seek professional help for mental health problems?",
+    "parsed_first_author": "rickwood",
+    "parsed_year": 2007,
+    "parsed_container": "The Medical journal of Australia",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 5125,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35380,
+    "ordinal": 18,
+    "raw_string": "Wilson CJ, Bushnell JA, Caputi P. Early access and help seeking: practice implications and new initiatives. Early intervention in psychiatry. 2011;5 Suppl 1:34–9. Epub 2011/01/19. 10.1111/j.1751-7893.2010.00238.x .",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1111/j.1751-7893.2010.00238.x",
+    "parsed_pmid": null,
+    "parsed_title": "Early access and help seeking: practice implications and new initiatives",
+    "parsed_first_author": "wilson",
+    "parsed_year": 2011,
+    "parsed_container": "Early intervention in psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5130,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1751-7893.2010.00238.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35381,
+    "ordinal": 19,
+    "raw_string": "Elliott BA, Larson JT. Adolescents in mid-sized and rural communities: Foregone care, perceived barriers, and risk factors. Journal of Adolescent Health. 2004;35(4):303–9. 10.1016/j.jadohealth.2003.09.015 ; 2004-19430-007.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1016/j.jadohealth.2003.09.015",
+    "parsed_pmid": null,
+    "parsed_title": "Adolescents in mid-sized and rural communities: Foregone care, perceived barriers, and risk factors",
+    "parsed_first_author": "elliott",
+    "parsed_year": 2004,
+    "parsed_container": "Journal of Adolescent Health",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5131,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.jadohealth.2003.09.015"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35382,
+    "ordinal": 20,
+    "raw_string": "Andersson G, Titov N. Advantages and limitations of Internet-based interventions for common mental disorders. World Psychiatry. 2014;13(1):4–11. Epub 2014/02/06. 10.1002/wps.20083",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1002/wps.20083",
+    "parsed_pmid": null,
+    "parsed_title": "Advantages and limitations of Internet-based interventions for common mental disorders",
+    "parsed_first_author": "andersson",
+    "parsed_year": 2014,
+    "parsed_container": "World Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5132,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/wps.20083"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35383,
+    "ordinal": 21,
+    "raw_string": "Barak A, Klein B, Proudfoot JG. Defining internet-supported therapeutic interventions. Annals of behavioral medicine: a publication of the Society of Behavioral Medicine. 2009;38(1):4–17. Epub 2009/09/30. 10.1007/s12160-009-9130-7 .",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1007/s12160-009-9130-7",
+    "parsed_pmid": null,
+    "parsed_title": "Defining internet-supported therapeutic interventions",
+    "parsed_first_author": "barak",
+    "parsed_year": 2009,
+    "parsed_container": "Annals of behavioral medicine: a publication of the Society of Behavioral Medicine",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5133,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s12160-009-9130-7"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35384,
+    "ordinal": 22,
+    "raw_string": "Andersson G. Internet-Delivered Psychological Treatments. Annu Rev Clin Psychol. 2016;12:157–79. Epub 2015/12/15. 10.1146/annurev-clinpsy-021815-093006 .",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1146/annurev-clinpsy-021815-093006",
+    "parsed_pmid": null,
+    "parsed_title": "Internet-Delivered Psychological Treatments",
+    "parsed_first_author": "andersson",
+    "parsed_year": 2016,
+    "parsed_container": "Annu Rev Clin Psychol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5134,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1146/annurev-clinpsy-021815-093006"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35385,
+    "ordinal": 23,
+    "raw_string": "Johansson R, Andersson G. Internet-based psychological treatments for depression. Expert Review of Neurotherapeutics. 2012;12(7):861–70. 10.1586/ern.12.63",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1586/ern.12.63",
+    "parsed_pmid": null,
+    "parsed_title": "Internet-based psychological treatments for depression",
+    "parsed_first_author": "johansson",
+    "parsed_year": 2012,
+    "parsed_container": "Expert Review of Neurotherapeutics",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5135,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1586/ern.12.63"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35386,
+    "ordinal": 24,
+    "raw_string": "Kleiboer A, Donker T, Seekles W, van Straten A, Riper H, Cuijpers P. A randomized controlled trial on the role of support in Internet-based problem solving therapy for depression and anxiety. Behav Res Ther. 2015;72:63–71. Epub 2015/07/21. 10.1016/j.brat.2015.06.013 .",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1016/j.brat.2015.06.013",
+    "parsed_pmid": null,
+    "parsed_title": "A randomized controlled trial on the role of support in Internet-based problem solving therapy for depression and anxiety",
+    "parsed_first_author": "kleiboer",
+    "parsed_year": 2015,
+    "parsed_container": "Behav Res Ther",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5136,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.brat.2015.06.013"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35387,
+    "ordinal": 25,
+    "raw_string": "Baumeister H, Reichler L, Munzinger M, Lin J. The impact of guidance on Internet-based mental health interventions—A systematic review. Internet Interventions. 2014;1(4):205–15. 10.1016/j.invent.2014.08.003.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1016/j.invent.2014.08.003",
+    "parsed_pmid": null,
+    "parsed_title": "The impact of guidance on Internet-based mental health interventions—A systematic review",
+    "parsed_first_author": "baumeister",
+    "parsed_year": 2014,
+    "parsed_container": "Internet Interventions",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5137,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.invent.2014.08.003"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35388,
+    "ordinal": 26,
+    "raw_string": "Griffiths KM, Christensen H. Review of randomised controlled trials of internet interventions for mental disorders and related conditions. Clinical Psychologist. 2006;10(1):16–29. http://dx.doi.org.ez.statsbiblioteket.dk:2048/10.1080/13284200500378696.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1080/13284200500378696",
+    "parsed_pmid": null,
+    "parsed_title": "Review of randomised controlled trials of internet interventions for mental disorders and related conditions",
+    "parsed_first_author": "griffiths",
+    "parsed_year": 2006,
+    "parsed_container": "Clinical Psychologist",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5138,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1080/13284200500378696"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35389,
+    "ordinal": 27,
+    "raw_string": "Christensen H, Batterham P, Calear A. Online interventions for anxiety disorders. Current opinion in psychiatry. 2014;27(1):7–13. 10.1097/YCO.0000000000000019 ; 2013-43204-002.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1097/yco.0000000000000019",
+    "parsed_pmid": null,
+    "parsed_title": "Online interventions for anxiety disorders",
+    "parsed_first_author": "christensen",
+    "parsed_year": 2014,
+    "parsed_container": "Current opinion in psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5139,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/yco.0000000000000019"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35390,
+    "ordinal": 28,
+    "raw_string": "Hedman E, Ljotsson B, Lindefors N. Cognitive behavior therapy via the Internet: a systematic review of applications, clinical efficacy and cost-effectiveness. Expert review of pharmacoeconomics & outcomes research. 2012;12(6):745–64. Epub 2012/12/21. 10.1586/erp.12.67 .",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1586/erp.12.67",
+    "parsed_pmid": null,
+    "parsed_title": "Cognitive behavior therapy via the Internet: a systematic review of applications, clinical efficacy and cost-effectiveness",
+    "parsed_first_author": "hedman",
+    "parsed_year": 2012,
+    "parsed_container": "Expert review of pharmacoeconomics & outcomes research",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5140,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1586/erp.12.67"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35391,
+    "ordinal": 29,
+    "raw_string": "Richards D, Richardson T, Timulak L, McElvaney J. The efficacy of internet-delivered treatment for generalized anxiety disorder: A systematic review and meta-analysis. Internet Interventions. 2015;2(3):272–82. 10.1016/j.invent.2015.07.003.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1016/j.invent.2015.07.003",
+    "parsed_pmid": null,
+    "parsed_title": "The efficacy of internet-delivered treatment for generalized anxiety disorder: A systematic review and meta-analysis",
+    "parsed_first_author": "richards",
+    "parsed_year": 2015,
+    "parsed_container": "Internet Interventions",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5141,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.invent.2015.07.003"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35392,
+    "ordinal": 30,
+    "raw_string": "Spek V, Cuijpers P, Nyklíček I, Riper H, Keyzer J, Pop V. Internet-based cognitive behaviour therapy for symptoms of depression and anxiety: A meta-analysis. Psychological Medicine. 2007;37(3):319–28. 10.1017/S0033291706008944 ; 2007-03729-002.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1017/s0033291706008944",
+    "parsed_pmid": null,
+    "parsed_title": "Internet-based cognitive behaviour therapy for symptoms of depression and anxiety: A meta-analysis",
+    "parsed_first_author": "spek",
+    "parsed_year": 2007,
+    "parsed_container": "Psychological Medicine",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5142,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1017/s0033291706008944"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35393,
+    "ordinal": 31,
+    "raw_string": "Cunningham MJ, Wuthrich VM, Rapee RM, Lyneham HJ, Schniering CA, Hudson JL. The Cool Teens CD-ROM for anxiety disorders in adolescents: a pilot case series. Eur Child Adolesc Psychiatry. 2009;18(2):125–9. Epub 2008/06/20. 10.1007/s00787-008-0703-y .",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1007/s00787-008-0703-y",
+    "parsed_pmid": null,
+    "parsed_title": "The Cool Teens CD-ROM for anxiety disorders in adolescents: a pilot case series",
+    "parsed_first_author": "cunningham",
+    "parsed_year": 2009,
+    "parsed_container": "Eur Child Adolesc Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5143,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s00787-008-0703-y"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.853
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35394,
+    "ordinal": 32,
+    "raw_string": "Donker T, Blankers M, Hedman E, Ljotsson B, Petrie K, Christensen H. Economic evaluations of Internet interventions for mental health: a systematic review. Psychol Med. 2015:1–20. Epub 2015/08/04. 10.1017/s0033291715001427 .",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1017/s0033291715001427",
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "donker",
+    "parsed_year": 2015,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5144,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1017/s0033291715001427"
+      ],
+      "crossref_doi": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35395,
+    "ordinal": 33,
+    "raw_string": "Hedman E, Andersson E, Ljótsson B, Andersson G, Rück C, Lindefors N. Cost-effectiveness of Internet-based cognitive behavior therapy vs. cognitive behavioral group therapy for social anxiety disorder: Results from a randomized controlled trial. Behaviour Research and Therapy. 2011;49(11):729–36. 10.1016/j.brat.2011.07.009",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1016/j.brat.2011.07.009",
+    "parsed_pmid": null,
+    "parsed_title": "Cost-effectiveness of Internet-based cognitive behavior therapy vs. cognitive behavioral group therapy for social anxiety disorder: Results from a randomized controlled trial",
+    "parsed_first_author": "hedman",
+    "parsed_year": 2011,
+    "parsed_container": "Behaviour Research and Therapy",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5145,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.brat.2011.07.009"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35396,
+    "ordinal": 34,
+    "raw_string": "Lenhard F, Ssegonja R, Andersson E, Feldman I, Ruck C, Mataix-Cols D, et al. Cost-effectiveness of therapist-guided internet-delivered cognitive behaviour therapy for paediatric obsessive-compulsive disorder: results from a randomised controlled trial. BMJ open. 2017;7(5):e015246 Epub 2017/05/19. 10.1136/bmjopen-2016-015246 .",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1136/bmjopen-2016-015246",
+    "parsed_pmid": null,
+    "parsed_title": "Cost-effectiveness of therapist-guided internet-delivered cognitive behaviour therapy for paediatric obsessive-compulsive disorder: results from a randomised controlled trial",
+    "parsed_first_author": "lenhard",
+    "parsed_year": 2017,
+    "parsed_container": "BMJ open",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5146,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1136/bmjopen-2016-015246"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35397,
+    "ordinal": 35,
+    "raw_string": "Ho J, Corden ME, Caccamo L, Tomasino KN, Duffecy J, Begale M, et al. Design and evaluation of a peer network to support adherence to a web-based intervention for adolescents. Internet Interventions. 2016;6:50–6. 10.1016/j.invent.2016.09.005",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1016/j.invent.2016.09.005",
+    "parsed_pmid": null,
+    "parsed_title": "Design and evaluation of a peer network to support adherence to a web-based intervention for adolescents",
+    "parsed_first_author": "ho",
+    "parsed_year": 2016,
+    "parsed_container": "Internet Interventions",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5147,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.invent.2016.09.005"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35398,
+    "ordinal": 36,
+    "raw_string": "Stallard P, Velleman S, Richardson T. Computer use and attitudes towards computerised therapy amongst young people and parents attending child and adolescent mental health services. Child and Adolescent Mental Health. 2010;15(2):80–4. 10.1111/j.1475-3588.2009.00540.x. ; 2010-06698-003.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1111/j.1475-3588.2009.00540.x",
+    "parsed_pmid": null,
+    "parsed_title": "Computer use and attitudes towards computerised therapy amongst young people and parents attending child and adolescent mental health services",
+    "parsed_first_author": "stallard",
+    "parsed_year": 2010,
+    "parsed_container": "Child and Adolescent Mental Health",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5148,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1475-3588.2009.00540.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35399,
+    "ordinal": 37,
+    "raw_string": "Subrahmanyam K, Lin G. Adolescents on the net: Internet use and well-being. Adolescence. 2007;42(168):659–77. ; 2007-19818-003.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Adolescents on the net: Internet use and well-being",
+    "parsed_first_author": "subrahmanyam",
+    "parsed_year": 2007,
+    "parsed_container": "Adolescence",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 5154,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35400,
+    "ordinal": 38,
+    "raw_string": "Nicholas J, Oliver K, Lee K, O’Brien M. Help-seeking behaviour and the Internet: An investigation among Australian adolescents. Australian e-Journal for the Advancement of Mental Health. 2004;3(1):16–23. 10.5172/jamh.3.1.16",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.5172/jamh.3.1.16",
+    "parsed_pmid": null,
+    "parsed_title": "Help-seeking behaviour and the Internet: An investigation among Australian adolescents",
+    "parsed_first_author": "nicholas",
+    "parsed_year": 2004,
+    "parsed_container": "Australian e-Journal for the Advancement of Mental Health",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5155,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.5172/jamh.3.1.16"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35401,
+    "ordinal": 39,
+    "raw_string": "Ebert DD, Zarski AC, Christensen H, Stikkelbroek Y, Cuijpers P, Berking M, et al. Internet and computer-based cognitive behavioral therapy for anxiety and depression in youth: a meta-analysis of randomized controlled outcome trials. PloS one. 2015;10(3):e0119895 Epub 2015/03/19. 10.1371/journal.pone.0119895 .",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1371/journal.pone.0119895",
+    "parsed_pmid": null,
+    "parsed_title": "Internet and computer-based cognitive behavioral therapy for anxiety and depression in youth: a meta-analysis of randomized controlled outcome trials",
+    "parsed_first_author": "ebert",
+    "parsed_year": 2015,
+    "parsed_container": "PloS one",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5156,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1371/journal.pone.0119895"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35402,
+    "ordinal": 40,
+    "raw_string": "Pennant ME, Loucas CE, Whittington C, Creswell C, Fonagy P, Fuggle P, et al. Computerised therapies for anxiety and depression in children and young people: A systematic review and meta-analysis. Behaviour Research and Therapy. 2015;67:1–18. 10.1016/j.brat.2015.01.009 ; 2015-12473-002.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1016/j.brat.2015.01.009",
+    "parsed_pmid": null,
+    "parsed_title": "Computerised therapies for anxiety and depression in children and young people: A systematic review and meta-analysis",
+    "parsed_first_author": "pennant",
+    "parsed_year": 2015,
+    "parsed_container": "Behaviour Research and Therapy",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5157,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.brat.2015.01.009"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35403,
+    "ordinal": 41,
+    "raw_string": "Podina IR, Mogoase C, David D, Szentagotai A, Dobrean A. A Meta-Analysis on the Efficacy of Technology Mediated CBT for Anxious Children and Adolescents. Journal of Rational-Emotive & Cognitive-Behavior Therapy. 2016;34(1):31–50. 10.1007/s10942-015-0228-5",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1007/s10942-015-0228-5",
+    "parsed_pmid": null,
+    "parsed_title": "A Meta-Analysis on the Efficacy of Technology Mediated CBT for Anxious Children and Adolescents",
+    "parsed_first_author": "podina",
+    "parsed_year": 2016,
+    "parsed_container": "Journal of Rational-Emotive & Cognitive-Behavior Therapy",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5158,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s10942-015-0228-5"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35404,
+    "ordinal": 42,
+    "raw_string": "Ye X, Bapuji SB, Winters SE, Struthers A, Raynard M, Metge C, et al. Effectiveness of internet-based interventions for children, youth, and young adults with anxiety and/or depression: a systematic review and meta-analysis. BMC health services research. 2014;14:313 Epub 2014/07/20. 10.1186/1472-6963-14-313",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1186/1472-6963-14-313",
+    "parsed_pmid": null,
+    "parsed_title": "Effectiveness of internet-based interventions for children, youth, and young adults with anxiety and/or depression: a systematic review and meta-analysis",
+    "parsed_first_author": "ye",
+    "parsed_year": 2014,
+    "parsed_container": "BMC health services research",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5159,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/1472-6963-14-313"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35405,
+    "ordinal": 43,
+    "raw_string": "Hollis C, Falconer CJ, Martin JL, Whittington C, Stockton S, Glazebrook C, et al. Annual Research Review: Digital health interventions for children and young people with mental health problems—A systematic and meta‐review. Journal of Child Psychology and Psychiatry. 2017;58(4):474–503. 10.1111/jcpp.12663 ; 2016-60086-001.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1111/jcpp.12663",
+    "parsed_pmid": null,
+    "parsed_title": "Annual Research Review: Digital health interventions for children and young people with mental health problems—A systematic and meta‐review",
+    "parsed_first_author": "hollis",
+    "parsed_year": 2017,
+    "parsed_container": "Journal of Child Psychology and Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5160,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/jcpp.12663"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35406,
+    "ordinal": 44,
+    "raw_string": "Tillfors M, Andersson G, Ekselius L, Furmark T, Lewenhaupt S, Karlsson A, et al. A randomized trial of internet-delivered treatment for social anxiety disorder in high school students. Cognitive Behaviour Therapy. 2011;40(2):147–57. 10.1080/16506073.2011.555486 ; 2011-14818-007.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1080/16506073.2011.555486",
+    "parsed_pmid": null,
+    "parsed_title": "A randomized trial of internet-delivered treatment for social anxiety disorder in high school students",
+    "parsed_first_author": "tillfors",
+    "parsed_year": 2011,
+    "parsed_container": "Cognitive Behaviour Therapy",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5161,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1080/16506073.2011.555486"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35407,
+    "ordinal": 45,
+    "raw_string": "Spence SH, Donovan CL, March S, Gamble A, Anderson R, Prosser S, et al. Online CBT in the treatment of child and adolescent anxiety disorders: Issues in the development of BRAVE-ONLINE and two case illustrations. Behavioural and Cognitive Psychotherapy. 2008;36(4):411–30. 10.1017/S135246580800444X. ; 2008-15717-004.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1017/s135246580800444x",
+    "parsed_pmid": null,
+    "parsed_title": "Online CBT in the treatment of child and adolescent anxiety disorders: Issues in the development of BRAVE-ONLINE and two case illustrations",
+    "parsed_first_author": "spence",
+    "parsed_year": 2008,
+    "parsed_container": "Behavioural and Cognitive Psychotherapy",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5162,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1017/s135246580800444x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35408,
+    "ordinal": 46,
+    "raw_string": "Spence SH, Donovan CL, March S, Gamble A, Anderson RE, Prosser S, et al. A randomized controlled trial of online versus clinic-based CBT for adolescent anxiety. Journal of consulting and clinical psychology. 2011;79(5):629–42. 10.1037/a0024512 ; 2011-14202-001.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1037/a0024512",
+    "parsed_pmid": null,
+    "parsed_title": "A randomized controlled trial of online versus clinic-based CBT for adolescent anxiety",
+    "parsed_first_author": "spence",
+    "parsed_year": 2011,
+    "parsed_container": "Journal of consulting and clinical psychology",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5163,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1037/a0024512"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35409,
+    "ordinal": 47,
+    "raw_string": "Lenhard F, Vigerland S, Andersson E, Ruck C, Mataix-Cols D, Thulin U, et al. Internet-delivered cognitive behavior therapy for adolescents with obsessive-compulsive disorder: an open trial. PloS one. 2014;9(6):e100773 10.1371/journal.pone.0100773",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1371/journal.pone.0100773",
+    "parsed_pmid": null,
+    "parsed_title": "Internet-delivered cognitive behavior therapy for adolescents with obsessive-compulsive disorder: an open trial",
+    "parsed_first_author": "lenhard",
+    "parsed_year": 2014,
+    "parsed_container": "PloS one",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5164,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1371/journal.pone.0100773"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35410,
+    "ordinal": 48,
+    "raw_string": "Lenhard F, Andersson E, Mataix-Cols D, Ruck C, Vigerland S, Hogstrom J, et al. Therapist-Guided, Internet-Delivered Cognitive-Behavioral Therapy for Adolescents With Obsessive-Compulsive Disorder: A Randomized Controlled Trial. Journal of the American Academy of Child and Adolescent Psychiatry. 2017;56(1):10–9.e2. Epub 2016/12/21. 10.1016/j.jaac.2016.09.515 .",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1016/j.jaac.2016.09.515",
+    "parsed_pmid": null,
+    "parsed_title": "Therapist-Guided, Internet-Delivered Cognitive-Behavioral Therapy for Adolescents With Obsessive-Compulsive Disorder: A Randomized Controlled Trial",
+    "parsed_first_author": "lenhard",
+    "parsed_year": 2017,
+    "parsed_container": "Journal of the American Academy of Child and Adolescent Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5165,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.jaac.2016.09.515"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35411,
+    "ordinal": 49,
+    "raw_string": "Tillfors M, Carlbring P, Furmark T, Lewenhaupt S, Spak M, Eriksson A, et al. Treating university students with social phobia and public speaking fears: Internet delivered self-help with or without live group exposure sessions. Depression and Anxiety. 2008;25(8):708–17. 10.1002/da.20416 ; 2008-13151-008.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1002/da.20416",
+    "parsed_pmid": null,
+    "parsed_title": "Treating university students with social phobia and public speaking fears: Internet delivered self-help with or without live group exposure sessions",
+    "parsed_first_author": "tillfors",
+    "parsed_year": 2008,
+    "parsed_container": "Depression and Anxiety",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5166,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/da.20416"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35412,
+    "ordinal": 50,
+    "raw_string": "Spence SH. A measure of anxiety symptoms among children. Behaviour Research and Therapy. 1998;36(5):545–66. 10.1016/s0005-7967(98)00034-5 ; 1998-10708-006.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1016/s0005-7967(98)00034-5",
+    "parsed_pmid": null,
+    "parsed_title": "A measure of anxiety symptoms among children",
+    "parsed_first_author": "spence",
+    "parsed_year": 1998,
+    "parsed_container": "Behaviour Research and Therapy",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5167,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0005-7967(98)00034-5"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35413,
+    "ordinal": 51,
+    "raw_string": "Scahill L, Riddle MA, McSwiggin-Hardin M, Ort SI, King RA, Goodman WK, et al. Children's Yale-Brown Obsessive Compulsive Scale: Reliability and validity. Journal of the American Academy of Child & Adolescent Psychiatry. 1997;36(6):844–52. 10.1097/00004583-199706000-00023. ; 1997-04647-022.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1097/00004583-199706000-00023",
+    "parsed_pmid": null,
+    "parsed_title": "Children's Yale-Brown Obsessive Compulsive Scale: Reliability and validity",
+    "parsed_first_author": "scahill",
+    "parsed_year": 1997,
+    "parsed_container": "Journal of the American Academy of Child & Adolescent Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5168,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/00004583-199706000-00023"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35414,
+    "ordinal": 52,
+    "raw_string": "Lyneham HJ, McLellan LF, Cunningham M, Wuthrich V, Schniering C, Hudson JL, et al. ChilledOut Online Program. Sydney: Centre for Emotional Health, Macquarie University; 2014.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "lyneham",
+    "parsed_year": 2014,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35415,
+    "ordinal": 53,
+    "raw_string": "Rapee RM, Lyneham HJ, Schniering CA, Wuthrich V, Abbott MA, Hudson JL, et al. The cool kids child and adolescents anxiety program–therapist manual. Sydney, NSW: Centre for Emotional Health, Macquarie University; 2006.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "rapee",
+    "parsed_year": 2006,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35416,
+    "ordinal": 54,
+    "raw_string": "Wuthrich VM, Cunningham MJ, Rapee RM. Cool Teens: A Computerized Intervention for Anxious Adolescents The Wiley-Blackwell Handbook of The Treatment of Childhood and Adolescent Anxiety: John Wiley & Sons, Ltd; 2013. p. 249–74.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "wuthrich",
+    "parsed_year": 2013,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35417,
+    "ordinal": 55,
+    "raw_string": "Cunningham M. Overview of design approaches in the Cool Teens CD and other computer programs for adolescent anxiety. E-Journal of Applied Psychology. 2008;4(2):6–11. ; 2010-10939-002.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Overview of design approaches in the Cool Teens CD and other computer programs for adolescent anxiety",
+    "parsed_first_author": "cunningham",
+    "parsed_year": 2008,
+    "parsed_container": "E-Journal of Applied Psychology",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 5169,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35418,
+    "ordinal": 56,
+    "raw_string": "Wuthrich VM, Rapee RM, Cunningham MJ, Lyneham HJ, Hudson JL, Schniering CA. A randomized controlled trial of the Cool Teens CD-ROM computerized program for adolescent anxiety. Journal of the American Academy of Child & Adolescent Psychiatry. 2012;51(3):261–70. 10.1016/j.jaac.2011.12.002. ; 2012-05353-009.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1016/j.jaac.2011.12.002",
+    "parsed_pmid": null,
+    "parsed_title": "A randomized controlled trial of the Cool Teens CD-ROM computerized program for adolescent anxiety",
+    "parsed_first_author": "wuthrich",
+    "parsed_year": 2012,
+    "parsed_container": "Journal of the American Academy of Child & Adolescent Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5171,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {},
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35419,
+    "ordinal": 57,
+    "raw_string": "Stjerneklar S, Hougaard E, Nielsen AD, Gaardsvig MM, Thastum M. Internet-based cognitive behavioral therapy for adolescents with anxiety disorders: A feasibility study. Internet Interventions. 2018;11:30–40. 10.1016/j.invent.2018.01.001",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1016/j.invent.2018.01.001",
+    "parsed_pmid": null,
+    "parsed_title": "Internet-based cognitive behavioral therapy for adolescents with anxiety disorders: A feasibility study",
+    "parsed_first_author": "stjerneklar",
+    "parsed_year": 2018,
+    "parsed_container": "Internet Interventions",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5173,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.invent.2018.01.001"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35420,
+    "ordinal": 58,
+    "raw_string": "American Psychiatric Association. Diagnostic and Statistical Manual of Mental Disorders, Fourth Edition 4th ed. ed. Washington, DC: American Psychiatric Association; 1994.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": 1994,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35421,
+    "ordinal": 59,
+    "raw_string": "Silverman WK, Albano AM. Anxiety Disorders Interview Schedule for Children for DSM–IV: Child and Parent Versions. San Antonio: TX: Psychological Corporation; 1996.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "silverman",
+    "parsed_year": 1996,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35422,
+    "ordinal": 60,
+    "raw_string": "Silverman WK, Saavedra LM, Pina AA. Test-retest reliability of anxiety symptoms and diagnoses with anxiety disorders interview schedule for DSM-IV: Child and parent versions. Journal of the American Academy of Child & Adolescent Psychiatry. 2001;40(8):937–44. 10.1097/00004583-200108000-00016. ; 2001-01750-010.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1097/00004583-200108000-00016",
+    "parsed_pmid": null,
+    "parsed_title": "Test-retest reliability of anxiety symptoms and diagnoses with anxiety disorders interview schedule for DSM-IV: Child and parent versions",
+    "parsed_first_author": "silverman",
+    "parsed_year": 2001,
+    "parsed_container": "Journal of the American Academy of Child & Adolescent Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5174,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/00004583-200108000-00016"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.986
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35423,
+    "ordinal": 61,
+    "raw_string": "Wood JJ, Piacentini JC, Bergman RL, McCracken J, Barrios V. Concurrent validity of the anxiety disorders section of the Anxiety Disorders Interview Schedule for DSM-IV: child and parent versions. Journal of clinical child and adolescent psychology: the official journal for the Society of Clinical Child and Adolescent Psychology, American Psychological Association, Division 53. 2002;31(3):335–42. Epub 2002/08/02. 10.1207/s15374424jccp3103_05 .",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1207/s15374424jccp3103_05",
+    "parsed_pmid": null,
+    "parsed_title": "Concurrent validity of the anxiety disorders section of the Anxiety Disorders Interview Schedule for DSM-IV: child and parent versions",
+    "parsed_first_author": "wood",
+    "parsed_year": 2002,
+    "parsed_container": "Journal of clinical child and adolescent psychology: the official journal for the Society of Clinical Child and Adolescent Psychology, American Psychological Association, Division 53",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5175,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1207/s15374424jccp3103_05"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35424,
+    "ordinal": 62,
+    "raw_string": "Lyneham HJ, Rapee RM. Agreement Between Telephone and In-Person Delivery of a Structured Interview for Anxiety Disorders in Children. Journal of the American Academy of Child & Adolescent Psychiatry. 2005;44(3):274–82. 10.1097/00004583-200503000-00012. ; 2005-02313-012.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1097/00004583-200503000-00012",
+    "parsed_pmid": null,
+    "parsed_title": "Agreement Between Telephone and In-Person Delivery of a Structured Interview for Anxiety Disorders in Children",
+    "parsed_first_author": "lyneham",
+    "parsed_year": 2005,
+    "parsed_container": "Journal of the American Academy of Child & Adolescent Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5176,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/00004583-200503000-00012"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35425,
+    "ordinal": 63,
+    "raw_string": "Arendt K, Hougaard E, Thastum M. Psychometric properties of the child and parent versions of Spence Children's Anxiety Scale in a Danish community and clinical sample. Journal of Anxiety Disorders. 2014;28(8):947–56. 10.1016/j.janxdis.2014.09.021",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1016/j.janxdis.2014.09.021",
+    "parsed_pmid": null,
+    "parsed_title": "Psychometric properties of the child and parent versions of Spence Children's Anxiety Scale in a Danish community and clinical sample",
+    "parsed_first_author": "arendt",
+    "parsed_year": 2014,
+    "parsed_container": "Journal of Anxiety Disorders",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5177,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.janxdis.2014.09.021"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35426,
+    "ordinal": 64,
+    "raw_string": "Lyneham HJ, Sburlati ES, Abbott MJ, Rapee RM, Hudson JL, Tolin DF, et al. Psychometric properties of the Child Anxiety Life Interference Scale (CALIS). Journal of Anxiety Disorders. 2013;27(7):711–9. 10.1016/j.janxdis.2013.09.008 ; 2013-41121-012.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1016/j.janxdis.2013.09.008",
+    "parsed_pmid": null,
+    "parsed_title": "Psychometric properties of the Child Anxiety Life Interference Scale (CALIS)",
+    "parsed_first_author": "lyneham",
+    "parsed_year": 2013,
+    "parsed_container": "Journal of Anxiety Disorders",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5178,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.janxdis.2013.09.008"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35427,
+    "ordinal": 65,
+    "raw_string": "Angold A, Costello EJ, Messer SC, Pickles A. Development of a short questionnaire for use in epidemiological studies of depression in children and adolescents. International Journal of Methods in Psychiatric Research. 1995;5(4):237–49. ; 1996-02633-002.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Development of a short questionnaire for use in epidemiological studies of depression in children and adolescents",
+    "parsed_first_author": "angold",
+    "parsed_year": 1995,
+    "parsed_container": "International Journal of Methods in Psychiatric Research",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 5184,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35428,
+    "ordinal": 66,
+    "raw_string": "Muris P. A brief questionnaire for measuring self-efficacy in youths. Journal of Psychopathology and Behavioral Assessment. 2001;23(3):145–9. 10.1023/A:1010961119608. ; 2002-10117-002.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1023/a:1010961119608",
+    "parsed_pmid": null,
+    "parsed_title": "A brief questionnaire for measuring self-efficacy in youths",
+    "parsed_first_author": "muris",
+    "parsed_year": 2001,
+    "parsed_container": "Journal of Psychopathology and Behavioral Assessment",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5186,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1023/a:1010961119608"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35429,
+    "ordinal": 67,
+    "raw_string": "Muris P. Relationships between self-efficacy and symptoms of anxiety disorders and depression in a normal adolescent sample. Personality and Individual Differences. 2002;32(2):337–48. 10.1016/S0191-8869(01)00027-7. ; 2002-00167-010.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1016/s0191-8869(01)00027-7",
+    "parsed_pmid": null,
+    "parsed_title": "Relationships between self-efficacy and symptoms of anxiety disorders and depression in a normal adolescent sample",
+    "parsed_first_author": "muris",
+    "parsed_year": 2002,
+    "parsed_container": "Personality and Individual Differences",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5187,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0191-8869(01)00027-7"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35430,
+    "ordinal": 68,
+    "raw_string": "Suldo SM, Shaffer EJ. Evaluation of the Self-Efficacy Questionnaire for Children in Two Samples of American Adolescents. Journal of Psychoeducational Assessment. 2007;25(4):341–55. 10.1177/0734282907300636",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1177/0734282907300636",
+    "parsed_pmid": null,
+    "parsed_title": "Evaluation of the Self-Efficacy Questionnaire for Children in Two Samples of American Adolescents",
+    "parsed_first_author": "suldo",
+    "parsed_year": 2007,
+    "parsed_container": "Journal of Psychoeducational Assessment",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5188,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1177/0734282907300636"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35431,
+    "ordinal": 69,
+    "raw_string": "Topp CW, Østergaard SD, Søndergaard S, Bech P. The WHO-5 Well-Being Index: A Systematic Review of the Literature. Psychotherapy and Psychosomatics. 2015;84(3):167–76. 10.1159/000376585",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1159/000376585",
+    "parsed_pmid": null,
+    "parsed_title": "The WHO-5 Well-Being Index: A Systematic Review of the Literature",
+    "parsed_first_author": "topp",
+    "parsed_year": 2015,
+    "parsed_container": "Psychotherapy and Psychosomatics",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5189,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1159/000376585"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35432,
+    "ordinal": 70,
+    "raw_string": "Löwe B, Spitzer RL, Gräfe K, Kroenke K, Quenter A, Zipfel S, et al. Comparative validity of three screening questionnaires for DSM-IV depressive disorders and physicians’ diagnoses. Journal of affective disorders. 2004;78(2):131–40. 10.1016/s0165-0327(02)00237-9",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1016/s0165-0327(02)00237-9",
+    "parsed_pmid": null,
+    "parsed_title": "Comparative validity of three screening questionnaires for DSM-IV depressive disorders and physicians’ diagnoses",
+    "parsed_first_author": "lowe",
+    "parsed_year": 2004,
+    "parsed_container": "Journal of affective disorders",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5190,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0165-0327(02)00237-9"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35433,
+    "ordinal": 71,
+    "raw_string": "Brähler E, Mühlan H, Albani C, Schmidt S. Teststatistische Prüfung und Normierung der deutschen Versionen des EUROHIS-QOL Lebensqualität-Index und des WHO-5 Wohlbefindens-Index. Diagnostica. 2007;53(2):83–96. 10.1026/0012-1924.53.2.83",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1026/0012-1924.53.2.83",
+    "parsed_pmid": null,
+    "parsed_title": "Teststatistische Prüfung und Normierung der deutschen Versionen des EUROHIS-QOL Lebensqualität-Index und des WHO-5 Wohlbefindens-Index",
+    "parsed_first_author": "brahler",
+    "parsed_year": 2007,
+    "parsed_container": "Diagnostica",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5191,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1026/0012-1924.53.2.83"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35434,
+    "ordinal": 72,
+    "raw_string": "Brown A, Ford T, Deighton J, Wolpert M. Satisfaction in Child and Adolescent Mental Health Services: Translating Users’ Feedback into Measurement. Administration and Policy in Mental Health and Mental Health Services Research. 2014;41(4):434–46. 10.1007/s10488-012-0433-9",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1007/s10488-012-0433-9",
+    "parsed_pmid": null,
+    "parsed_title": "Satisfaction in Child and Adolescent Mental Health Services: Translating Users’ Feedback into Measurement",
+    "parsed_first_author": "brown",
+    "parsed_year": 2014,
+    "parsed_container": "Administration and Policy in Mental Health and Mental Health Services Research",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5192,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s10488-012-0433-9"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35435,
+    "ordinal": 73,
+    "raw_string": "Attride-Stirling J. Development of methods to capture users’ views of CAMHS in clinical governance reviews Cambridge, UK: Commission for Health Improvement; 2002.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "attride stirling",
+    "parsed_year": 2002,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35436,
+    "ordinal": 74,
+    "raw_string": "Goodman R, Meltzer H, Bailey V. The strengths and difficulties questionnaire: A pilot study on the validity of the self-report version. European Child & Adolescent Psychiatry. 1998;7(3):125–30. 10.1007/s007870050057",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1007/s007870050057",
+    "parsed_pmid": null,
+    "parsed_title": "The strengths and difficulties questionnaire: A pilot study on the validity of the self-report version",
+    "parsed_first_author": "goodman",
+    "parsed_year": 1998,
+    "parsed_container": "European Child & Adolescent Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5193,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s007870050057"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35437,
+    "ordinal": 75,
+    "raw_string": "Goodman R. The Strengths and Difficulties Questionnaire: A Research Note. Journal of Child Psychology and Psychiatry. 1997;38(5):581–6. 10.1111/j.1469-7610.1997.tb01545.x",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1111/j.1469-7610.1997.tb01545.x",
+    "parsed_pmid": null,
+    "parsed_title": "The Strengths and Difficulties Questionnaire: A Research Note",
+    "parsed_first_author": "goodman",
+    "parsed_year": 1997,
+    "parsed_container": "Journal of Child Psychology and Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5194,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1469-7610.1997.tb01545.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35438,
+    "ordinal": 76,
+    "raw_string": "Tracey TJ, Kokotovic AM. Factor structure of the Working Alliance Inventory. Psychological Assessment: A Journal of Consulting and Clinical Psychology. 1989;1(3):207–10. 10.1037/1040-3590.1.3.207. ; 1990-03343-001.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1037/1040-3590.1.3.207",
+    "parsed_pmid": null,
+    "parsed_title": "Factor structure of the Working Alliance Inventory",
+    "parsed_first_author": "tracey",
+    "parsed_year": 1989,
+    "parsed_container": "Psychological Assessment: A Journal of Consulting and Clinical Psychology",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5195,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1037/1040-3590.1.3.207"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35439,
+    "ordinal": 77,
+    "raw_string": "Melville KM, Casey LM, Kavanagh DJ. Dropout from Internet-based treatment for psychological disorders. The British journal of clinical psychology / the British Psychological Society. 2010;49(Pt 4):455–71. Epub 2009/10/06. 10.1348/014466509x472138 .",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1348/014466509x472138",
+    "parsed_pmid": null,
+    "parsed_title": "Dropout from Internet-based treatment for psychological disorders",
+    "parsed_first_author": "melville",
+    "parsed_year": 2010,
+    "parsed_container": "The British journal of clinical psychology / the British Psychological Society",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5196,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1348/014466509x472138"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35440,
+    "ordinal": 78,
+    "raw_string": "Cohen J. Statistical Power Analysis for the Behavioral Sciences. 2 ed Hillsdale, NJ: Lawrence Erlbaum Associates; 1988.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "cohen",
+    "parsed_year": 1988,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35441,
+    "ordinal": 79,
+    "raw_string": "Chakraborty H, Gu H. A Mixed Model Approach for Intent-to-Treat Analysis in Longitudinal Clinical Trials with Missing Values. RTI Press publication No MR-0009-0903 [Internet]. 2009. 31.01.2018. Available from: 10.3768/rtipress.2009.mr.0009.0903",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.3768/rtipress.2009.mr.0009.0903",
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "chakraborty",
+    "parsed_year": 2009,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4467,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35442,
+    "ordinal": 80,
+    "raw_string": "Jacobson NS, Truax P. Clinical significance: A statistical approach to defining meaningful change in psychotherapy research. Journal of consulting and clinical psychology. 1991;59(1):12–9. 10.1037//0022-006x.59.1.12 ; 1991-16094-001.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1037//0022-006x.59.1.12",
+    "parsed_pmid": null,
+    "parsed_title": "Clinical significance: A statistical approach to defining meaningful change in psychotherapy research",
+    "parsed_first_author": "jacobson",
+    "parsed_year": 1991,
+    "parsed_container": "Journal of consulting and clinical psychology",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5197,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1037//0022-006x.59.1.12"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35443,
+    "ordinal": 81,
+    "raw_string": "Heck RH, Thomas SL, Tabata LN. Multilevel and Longitudinal Modeling with IBM SPSS (Quantitative Methodology Series). 2 ed New York and London: Routledge/Taylor & Francis; 2014.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "heck",
+    "parsed_year": 2014,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35444,
+    "ordinal": 82,
+    "raw_string": "Bisgaard MP, Poulin PD. Statistical Yearbook. 121th ed: Statistics Denmark; 2017. june 2017. 568 p.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "bisgaard",
+    "parsed_year": 2017,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35445,
+    "ordinal": 83,
+    "raw_string": "Vigerland S, Ljótsson B, Thulin U, Öst L-G, Andersson G, Serlachius E. Internet-delivered cognitive behavioural therapy for children with anxiety disorders: A randomised controlled trial. Behaviour Research and Therapy. 2016;76:47–56. 10.1016/j.brat.2015.11.006 ; 2015-59077-007.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1016/j.brat.2015.11.006",
+    "parsed_pmid": null,
+    "parsed_title": "Internet-delivered cognitive behavioural therapy for children with anxiety disorders: A randomised controlled trial",
+    "parsed_first_author": "vigerland",
+    "parsed_year": 2016,
+    "parsed_container": "Behaviour Research and Therapy",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5198,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.brat.2015.11.006"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35446,
+    "ordinal": 84,
+    "raw_string": "Spence SH, Donovan CL, March S, Kenardy JA, Hearn CS. Generic versus disorder specific cognitive behavior therapy for social anxiety disorder in youth: A randomized controlled trial using internet delivery. Behav Res Ther. 2017;90:41–57. Epub 2016/12/19. 10.1016/j.brat.2016.12.003 .",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1016/j.brat.2016.12.003",
+    "parsed_pmid": null,
+    "parsed_title": "Generic versus disorder specific cognitive behavior therapy for social anxiety disorder in youth: A randomized controlled trial using internet delivery",
+    "parsed_first_author": "spence",
+    "parsed_year": 2017,
+    "parsed_container": "Behav Res Ther",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5199,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.brat.2016.12.003"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35447,
+    "ordinal": 85,
+    "raw_string": "Thirlwall K, Cooper PJ, Karalus J, Voysey M, Willetts L, Creswell C. Treatment of child anxiety disorders via guided parent-delivered cognitive-behavioural therapy: randomised controlled trial. The British journal of psychiatry: the journal of mental science. 2013;203(6):436–44. Epub 2013/08/24. 10.1192/bjp.bp.113.126698 .",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1192/bjp.bp.113.126698",
+    "parsed_pmid": null,
+    "parsed_title": "Treatment of child anxiety disorders via guided parent-delivered cognitive-behavioural therapy: randomised controlled trial",
+    "parsed_first_author": "thirlwall",
+    "parsed_year": 2013,
+    "parsed_container": "The British journal of psychiatry: the journal of mental science",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5200,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1192/bjp.bp.113.126698"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35448,
+    "ordinal": 86,
+    "raw_string": "March S, Spence SH, Donovan CL. The efficacy of an Internet-based cognitive-behavioral therapy intervention for child anxiety disorders. Journal of Pediatric Psychology. 2009;34(5):474–87. 10.1093/jpepsy/jsn099 ; 2009-08292-004.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1093/jpepsy/jsn099",
+    "parsed_pmid": null,
+    "parsed_title": "The efficacy of an Internet-based cognitive-behavioral therapy intervention for child anxiety disorders",
+    "parsed_first_author": "march",
+    "parsed_year": 2009,
+    "parsed_container": "Journal of Pediatric Psychology",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5201,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/jpepsy/jsn099"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35449,
+    "ordinal": 87,
+    "raw_string": "Arendt K, Thastum M, Hougaard E. Efficacy of a Danish version of the Cool Kids program: a randomized wait-list controlled trial. Acta Psychiatr Scand. 2015. 10.1111/acps.12448 .",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1111/acps.12448",
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "arendt",
+    "parsed_year": 2015,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5202,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/acps.12448"
+      ],
+      "crossref_doi": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 35450,
+    "ordinal": 88,
+    "raw_string": "Cuijpers P, Sijbrandij M, Koole S, Huibers M, Berking M, Andersson G. Psychological treatment of generalized anxiety disorder: a meta-analysis. Clin Psychol Rev. 2014;34(2):130–40. Epub 2014/02/04. 10.1016/j.cpr.2014.01.002 .",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1016/j.cpr.2014.01.002",
+    "parsed_pmid": null,
+    "parsed_title": "Psychological treatment of generalized anxiety disorder: a meta-analysis",
+    "parsed_first_author": "cuijpers",
+    "parsed_year": 2014,
+    "parsed_container": "Clin Psychol Rev",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5203,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.cpr.2014.01.002"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   }
+  ],
+  "stat_tests": [
+   {
+    "stat_test_id": 613,
+    "location": "Results",
+    "raw_string": "t (68) = 3.345, p = 0.001"
+   },
+   {
+    "stat_test_id": 614,
+    "location": "Results",
+    "raw_string": "χ2 (1) = 11.62, p = .001"
+   },
+   {
+    "stat_test_id": 615,
+    "location": "Results",
+    "raw_string": "χ2 (1) = 11.56, p = .001"
+   },
+   {
+    "stat_test_id": 616,
+    "location": "Results",
+    "raw_string": "χ2 (1) = 14.66, p < .001"
+   },
+   {
+    "stat_test_id": 617,
+    "location": "Results",
+    "raw_string": "χ2 (1) = 4.62, p = .032"
+   },
+   {
+    "stat_test_id": 618,
+    "location": "Results",
+    "raw_string": "χ2 (1) = 2.02, p = .156"
+   }
+  ],
+  "means": [],
+  "trials": []
+ }
+}

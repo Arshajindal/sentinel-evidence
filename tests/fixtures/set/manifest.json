@@ -1,0 +1,367 @@
+[
+ {
+  "id": "PMC8596241",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "c02_cited_after_retraction",
+   "c01_false_positive_regression"
+  ]
+ },
+ {
+  "id": "PMC10400527",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "c02_cited_after_retraction"
+  ]
+ },
+ {
+  "id": "PMC5629697",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "c02_cited_after_retraction"
+  ]
+ },
+ {
+  "id": "PMC7891028",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "c02_cited_after_retraction"
+  ]
+ },
+ {
+  "id": "PMC10657635",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "c02_cited_after_retraction",
+   "c01_false_positive_regression",
+   "c01_unverified_reference"
+  ]
+ },
+ {
+  "id": "PMC8339250",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "c02_cited_before_retraction"
+  ]
+ },
+ {
+  "id": "PMC4452367",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "c02_retract_and_replace"
+  ]
+ },
+ {
+  "id": "PMC5089582",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "c02_expression_of_concern"
+  ]
+ },
+ {
+  "id": "PMC8289762",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "c03_inconsistent",
+   "c03_false_positive_regression"
+  ]
+ },
+ {
+  "id": "PMC11425656",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "c03_inconsistent",
+   "edge_unicode_author"
+  ]
+ },
+ {
+  "id": "PMC10520597",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "c03_inconsistent"
+  ]
+ },
+ {
+  "id": "PMC7052440",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "c03_inconsistent",
+   "c03_false_positive_regression",
+   "c01_false_positive_regression"
+  ]
+ },
+ {
+  "id": "PMC11356300",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "c03_inconsistent"
+  ]
+ },
+ {
+  "id": "PMC11188441",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "c03_inconsistent"
+  ]
+ },
+ {
+  "id": "PMC11654723",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "c03_inconsistent"
+  ]
+ },
+ {
+  "id": "PMC6750608",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "c03_false_positive_regression",
+   "clean"
+  ]
+ },
+ {
+  "id": "PMC7286651",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "c01_non_journal_references"
+  ]
+ },
+ {
+  "id": "PMC9544662",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "c01_non_journal_references"
+  ]
+ },
+ {
+  "id": "PMC5113248",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "c01_non_journal_references"
+  ]
+ },
+ {
+  "id": "PMC6534260",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "c01_non_journal_references"
+  ]
+ },
+ {
+  "id": "PMC8693692",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "c01_non_journal_references"
+  ]
+ },
+ {
+  "id": "PMC7380046",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "c01_unverified_reference"
+  ]
+ },
+ {
+  "id": "PMC8018752",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "c01_unverified_reference"
+  ]
+ },
+ {
+  "id": "PMC7468852",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "c01_unverified_reference"
+  ]
+ },
+ {
+  "id": "PMC5063175",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "clean"
+  ]
+ },
+ {
+  "id": "PMC4554137",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "clean"
+  ]
+ },
+ {
+  "id": "PMC8385553",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "clean"
+  ]
+ },
+ {
+  "id": "PMC5525206",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "clean"
+  ]
+ },
+ {
+  "id": "PMC6647057",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "clean"
+  ]
+ },
+ {
+  "id": "PMC5132079",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "clean"
+  ]
+ },
+ {
+  "id": "PMC4957378",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "clean"
+  ]
+ },
+ {
+  "id": "PMC11572236",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "edge_doi_trailing_punctuation"
+  ]
+ },
+ {
+  "id": "PMC7879107",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "edge_no_year"
+  ]
+ },
+ {
+  "id": "PMC4526282",
+  "subject": "paper",
+  "corpus": "pmc-rct-2015-2024",
+  "categories": [
+   "edge_no_year"
+  ]
+ },
+ {
+  "id": "PMC7052980",
+  "subject": "paper",
+  "corpus": "fixtures-in-press",
+  "categories": [
+   "c02_retracted_in_press"
+  ]
+ },
+ {
+  "id": "NCT00005970",
+  "subject": "trial",
+  "categories": [
+   "c05_overdue"
+  ]
+ },
+ {
+  "id": "NCT00339625",
+  "subject": "trial",
+  "categories": [
+   "c05_overdue"
+  ]
+ },
+ {
+  "id": "NCT00763737",
+  "subject": "trial",
+  "categories": [
+   "c05_overdue"
+  ]
+ },
+ {
+  "id": "NCT00017953",
+  "subject": "trial",
+  "categories": [
+   "c05_results_posted"
+  ]
+ },
+ {
+  "id": "NCT00072761",
+  "subject": "trial",
+  "categories": [
+   "c05_results_posted"
+  ]
+ },
+ {
+  "id": "NCT00116805",
+  "subject": "trial",
+  "categories": [
+   "c05_results_posted"
+  ]
+ },
+ {
+  "id": "NCT00594217",
+  "subject": "trial",
+  "categories": [
+   "c05_out_of_scope_phase"
+  ]
+ },
+ {
+  "id": "NCT00001987",
+  "subject": "trial",
+  "categories": [
+   "c05_out_of_scope_observational"
+  ]
+ },
+ {
+  "id": "NCT00089791",
+  "subject": "trial",
+  "categories": [
+   "c05_out_of_scope_fdaaa"
+  ]
+ },
+ {
+  "id": "NCT00027300",
+  "subject": "trial",
+  "categories": [
+   "c05_before_fdaaa"
+  ]
+ },
+ {
+  "id": "NCT00235495",
+  "subject": "trial",
+  "categories": [
+   "c05_not_completed"
+  ]
+ }
+]

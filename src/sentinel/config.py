@@ -13,16 +13,45 @@ import json
 from functools import lru_cache
 from typing import Literal
 
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic_settings import BaseSettings, PydanticBaseSettingsSource, SettingsConfigDict
+
+PREFIX = "SENTINEL_"
+
+
+class _OnlySentinelKeys(PydanticBaseSettingsSource):
+    """The `.env` source, keeping only SENTINEL_ keys.
+
+    `.env` is shared with other tools (e.g. TEST_DATABASE_URL for the test
+    suite). Their keys are ignored; an unknown SENTINEL_ key still reaches
+    validation, so a typo like SENTINEL_LOG_LEVL fails at startup.
+    """
+
+    def __init__(self, settings_cls: type[BaseSettings], inner: PydanticBaseSettingsSource) -> None:
+        super().__init__(settings_cls)
+        self.inner = inner
+
+    def get_field_value(self, field, field_name):  # values come from __call__
+        return None, field_name, False
+
+    def __call__(self) -> dict:
+        prefix = PREFIX.lower()
+        return {k: v for k, v in self.inner().items()
+                if k in self.settings_cls.model_fields or k.lower().startswith(prefix)}
 
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
-        env_prefix="SENTINEL_",
+        env_prefix=PREFIX,
         env_file=".env",
         env_file_encoding="utf-8",
         extra="forbid",
     )
+
+    @classmethod
+    def settings_customise_sources(cls, settings_cls, init_settings, env_settings,
+                                   dotenv_settings, file_secret_settings):
+        return (init_settings, env_settings, _OnlySentinelKeys(settings_cls, dotenv_settings),
+                file_secret_settings)
 
     # --- Core ------------------------------------------------------------
     env: str = "local"

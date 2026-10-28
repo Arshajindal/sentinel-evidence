@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from collections.abc import Callable
+from pathlib import Path
 from typing import Annotated, Optional
 
 import httpx
@@ -20,6 +21,8 @@ from sentinel.ingest.doi_handle import DoiHandleClient
 from sentinel.ingest.europepmc import EuropePMC, EuropePMCHarvester, select_corpus
 from sentinel.ingest.fulltext_stats import StatExtractor
 from sentinel.ingest.openalex import OpenAlexBudgetExhausted, OpenAlexClient
+from sentinel.report.export import export_findings, run_status
+from sentinel.report.stats import load_run_stats, render_stats_json, render_stats_text
 from sentinel.resolve.candidates import CandidateSource
 from sentinel.resolve.cascade import (
     Resolver,
@@ -42,6 +45,7 @@ from sentinel.report.card import (
     render_text,
 )
 from sentinel.resolve.normalize import normalize_doi
+from sentinel.stages import StageHandle, record_stage
 
 app = typer.Typer(no_args_is_help=True, add_completion=False)
 corpus_app = typer.Typer(no_args_is_help=True, help="Select and inspect working corpora.")
@@ -129,7 +133,9 @@ def extract_stats(
                                       allow_one_tailed=settings.c03_allow_one_tailed)
         except ValueError as exc:
             raise typer.BadParameter(f"{exc}. Known corpora: {_corpus_labels()}") from exc
-        stats = extractor.run(get_engine(), resume=resume, limit=limit, batch_size=25)
+        with record_stage(get_engine(), "extract", source="stats", corpus_label=label) as stage:
+            stats = extractor.run(get_engine(), resume=resume, limit=limit, batch_size=25)
+            _stage_counts(stage, stats)
     typer.echo(f"papers {stats.seen}: {stats.inserted} reported tests stored, failed {stats.failed}")
     if extractor.no_fulltext:
         typer.echo(f"no full text: {len(extractor.no_fulltext)} papers")
@@ -173,7 +179,9 @@ def ingest(
             except ValueError as exc:
                 raise typer.BadParameter(str(exc)) from exc
             # Small batches: each one waits on ~25 network calls.
-            stats = harvester.run(get_engine(), resume=resume, limit=limit, batch_size=25)
+            with record_stage(get_engine(), "ingest", source=source, corpus_label=label) as stage:
+                stats = harvester.run(get_engine(), resume=resume, limit=limit, batch_size=25)
+                _stage_counts(stage, stats)
         _echo_stats(source, stats)
         if harvester.not_found:
             typer.echo(f"trials not in the registry (not linked): {sorted(harvester.not_found)}")
@@ -185,10 +193,18 @@ def ingest(
         return
     if source not in HARVESTERS:
         raise typer.BadParameter(f"unknown source {source!r}; choose from {ALL_SOURCES}")
-    stats = HARVESTERS[source](settings).run(
-        get_engine(), resume=resume, limit=limit, batch_size=settings.ingest_batch_size
-    )
+    with record_stage(get_engine(), "ingest", source=source) as stage:
+        stats = HARVESTERS[source](settings).run(
+            get_engine(), resume=resume, limit=limit, batch_size=settings.ingest_batch_size
+        )
+        _stage_counts(stage, stats)
     _echo_stats(source, stats)
+
+
+def _stage_counts(stage: StageHandle, stats) -> None:
+    stage.items = stats.seen
+    stage.counts = {"inserted": stats.inserted, "updated": stats.updated,
+                    "unchanged": stats.unchanged, "failed": stats.failed}
 
 
 def _lookup_dois(settings: Settings, source: str, raw_dois: list[str]) -> None:
@@ -314,11 +330,16 @@ def resolve(
             Thresholds(settings.resolve_trigram_min, settings.resolve_trigram_strict,
                        settings.resolve_year_tolerance, settings.resolve_ambiguous_margin),
         )
-        try:
-            stats = resolve_references(engine, resolver, ids, batch_size=batch_size)
-        except OpenAlexBudgetExhausted as exc:
-            typer.echo(f"stopped: {exc}. Finished batches are kept; run again tomorrow to resume.")
-            raise typer.Exit(code=3) from exc
+        with record_stage(engine, "resolve", corpus_label=label) as stage:
+            try:
+                stats = resolve_references(engine, resolver, ids, batch_size=batch_size)
+            except OpenAlexBudgetExhausted as exc:
+                stage.status = "stopped"
+                typer.echo(f"stopped: {exc}. Finished batches are kept; run again tomorrow to resume.")
+                raise typer.Exit(code=3) from exc
+            stage.items = stats.seen
+            stage.counts = {"by_status": stats.by_status, "by_method": stats.by_method,
+                            "openalex_spent_usd": round(openalex.budget.spent_usd, 4)}
     typer.echo(f"resolved this run: {stats.by_status} (parsed {stats.parsed}); "
                f"OpenAlex spent ${openalex.budget.spent_usd:.3f}")
     if sample_ids:
@@ -403,6 +424,41 @@ def report(
                    f"`sentinel ingest clinicaltrials --nct {value}`.", err=True)
         raise typer.Exit(code=1)
     typer.echo(render_json(card) if format == "json" else render_text(card))
+
+
+@app.command()
+def stats(
+    run: Annotated[int, typer.Option(help="Check run ID")],
+    format: Annotated[str, typer.Option(help="text or json")] = "text",
+) -> None:
+    """Per-check counts and flag rates, cascade ratios, and wall time per stage."""
+    if format not in ("text", "json"):
+        raise typer.BadParameter("format must be text or json", param_hint="--format")
+    with get_engine().connect() as conn:
+        result = load_run_stats(conn, run)
+    if result is None:
+        typer.echo(f"No check run {run}.", err=True)
+        raise typer.Exit(code=1)
+    typer.echo(render_stats_json(result) if format == "json" else render_stats_text(result))
+
+
+@app.command()
+def export(
+    run: Annotated[int, typer.Option(help="Check run ID")],
+    out: Annotated[Path, typer.Option(help="File to write")],
+    format: Annotated[str, typer.Option(help="csv or json")] = "csv",
+) -> None:
+    """Write a run's findings to a file, one row per finding."""
+    if format not in ("csv", "json"):
+        raise typer.BadParameter("format must be csv or json", param_hint="--format")
+    with get_engine().connect() as conn:
+        status = run_status(conn, run)
+        if status is None:
+            typer.echo(f"No check run {run}.", err=True)
+            raise typer.Exit(code=1)
+        n = export_findings(conn, run, out, format)
+    note = "" if status == "done" else f" (run is {status}: findings may be incomplete)"
+    typer.echo(f"{n} findings from run {run} written to {out}{note}")
 
 
 if __name__ == "__main__":

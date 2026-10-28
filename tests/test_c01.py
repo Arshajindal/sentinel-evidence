@@ -111,6 +111,16 @@ def test_journal_name_itself_is_not_a_cue():
     assert _cls(ref) == "journal_like"
 
 
+@pytest.mark.parametrize("container", ["Handb. Neuropsychol.", "Handbook of Clinical Neurology",
+                                       "Encyclopedia of Neuroscience"])
+def test_book_named_as_container_is_non_journal(container):
+    # Real false positive (PMC7052440 ref 18): a Handbook of Neuropsychology chapter the XML
+    # tagged as a journal article.
+    ref = _ref(publication_type="journal", parsed_container=container,
+               raw_string=f"Davidson R.J. Laterality and emotion {container} 3 1989 419 441")
+    assert _cls(ref) == "nonjournal"
+
+
 def test_organisation_author_is_non_journal():
     assert _cls(_ref(parsed_first_author="world health organization")) == "nonjournal"
 

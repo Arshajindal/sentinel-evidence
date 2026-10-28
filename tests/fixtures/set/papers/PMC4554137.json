@@ -1,0 +1,445 @@
+{
+ "id": "PMC4554137",
+ "subject": "paper",
+ "categories": [
+  "clean"
+ ],
+ "source": {
+  "corpus": "pmc-rct-2015-2024",
+  "paper_id": 178,
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "No flags from any check. All references resolved or non-journal; no statistics found in the body text, and no means (C04 never applies in Phase 1).",
+ "expected": [
+  {
+   "check": "C01",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C02",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C03",
+   "status": "not_applicable",
+   "severity": "info"
+  },
+  {
+   "check": "C04",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "paper_id": 178,
+  "publication_date": "2015-07-01",
+  "fulltext_status": "full",
+  "references": [
+   {
+    "reference_id": 7276,
+    "ordinal": 1,
+    "raw_string": "Bauman WA Schwartz E Rose HG Early and long-term effects of acute caloric deprivation in obese diabetic patients. Am J Med 1988; 85:38–46.3291612 10.1016/0002-9343(88)90500-1",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/0002-9343(88)90500-1",
+    "parsed_pmid": "3291612",
+    "parsed_title": "Early and long-term effects of acute caloric deprivation in obese diabetic patients",
+    "parsed_first_author": "bauman",
+    "parsed_year": 1988,
+    "parsed_container": "Am J Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3999,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/0002-9343(88)90500-1"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 7277,
+    "ordinal": 2,
+    "raw_string": "Cochran E Musso C Gorden P The use of U-500 in patients with extreme insulin resistance. Diabetes Care 2005; 28:1240–1244.15855601 10.2337/diacare.28.5.1240",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2337/diacare.28.5.1240",
+    "parsed_pmid": "15855601",
+    "parsed_title": "The use of U-500 in patients with extreme insulin resistance",
+    "parsed_first_author": "cochran",
+    "parsed_year": 2005,
+    "parsed_container": "Diabetes Care",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4000,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2337/diacare.28.5.1240"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 7278,
+    "ordinal": 3,
+    "raw_string": "Cochran EK Valentine V Samaan KH Practice tips and tools for the successful use of U-500 regular human insulin: the diabetes educator is key. Diabetes Educ 2014; 40:153–165.24159006 10.1177/0145721713508822",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1177/0145721713508822",
+    "parsed_pmid": "24159006",
+    "parsed_title": "Practice tips and tools for the successful use of U-500 regular human insulin: the diabetes educator is key",
+    "parsed_first_author": "cochran",
+    "parsed_year": 2014,
+    "parsed_container": "Diabetes Educ",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4001,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1177/0145721713508822"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.842
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 7279,
+    "ordinal": 4,
+    "raw_string": "Distiller LA Nortje H Wellmann H Treatment of the obese type 2 diabetes patient with severe insulin resistance: a 24-week, prospective, randomized, ppen-label, treat-to-target study: a pilot study to compare the efficacy of U-500 regular insulin plus metformin with U-500 regular insulin, metformin, and exenatide. Endocr Pract 2014; 1–26.24936555 10.4158/EP14067.OR",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.4158/ep14067.or",
+    "parsed_pmid": "24936555",
+    "parsed_title": "Treatment of the obese type 2 diabetes patient with severe insulin resistance: a 24-week, prospective, randomized, ppen-label, treat-to-target study: a pilot study to compare the efficacy of U-500 regular insulin plus metformin with U-500 regular insulin, metformin, and exenatide",
+    "parsed_first_author": "distiller",
+    "parsed_year": 2014,
+    "parsed_container": "Endocr Pract",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4002,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.4158/ep14067.or"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.476
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 7280,
+    "ordinal": 5,
+    "raw_string": "Gorden P Zadeh ES Cochran E Syndromic insulin resistance: models for the therapeutic basis of the metabolic syndrome and other targets of insulin resistance. Endocr Pract 2012; 18:763–771.23047930 10.4158/EP12139.RA PMC3875336",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.4158/ep12139.ra",
+    "parsed_pmid": "23047930",
+    "parsed_title": "Syndromic insulin resistance: models for the therapeutic basis of the metabolic syndrome and other targets of insulin resistance",
+    "parsed_first_author": "gorden",
+    "parsed_year": 2012,
+    "parsed_container": "Endocr Pract",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4003,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.4158/ep12139.ra"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 7281,
+    "ordinal": 6,
+    "raw_string": "Guidone C Manco M Valera-Mora E Mechanisms of recovery from type 2 diabetes after malabsorptive bariatric surgery. Diabetes 2006; 55:2025–2031.16804072 10.2337/db06-0068",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2337/db06-0068",
+    "parsed_pmid": "16804072",
+    "parsed_title": "Mechanisms of recovery from type 2 diabetes after malabsorptive bariatric surgery",
+    "parsed_first_author": "guidone",
+    "parsed_year": 2006,
+    "parsed_container": "Diabetes",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4004,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2337/db06-0068"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 7282,
+    "ordinal": 7,
+    "raw_string": "Jazet IM Pijl H Frolich M Two days of a very low calorie diet reduces endogenous glucose production in obese type 2 diabetic patients despite the withdrawal of blood glucose-lowering therapies including insulin. Metabolism 2005; 54:705–712.15931603 10.1016/j.metabol.2004.12.015",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.metabol.2004.12.015",
+    "parsed_pmid": "15931603",
+    "parsed_title": "Two days of a very low calorie diet reduces endogenous glucose production in obese type 2 diabetic patients despite the withdrawal of blood glucose-lowering therapies including insulin",
+    "parsed_first_author": "jazet",
+    "parsed_year": 2005,
+    "parsed_container": "Metabolism",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4005,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.metabol.2004.12.015"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 7283,
+    "ordinal": 8,
+    "raw_string": "Lane WS Cochran EK Jackson JA High-dose insulin therapy: is it time for U-500 insulin? Endocr Pract 2009; 15:71–79.19211405 10.4158/EP.15.1.71",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.4158/ep.15.1.71",
+    "parsed_pmid": "19211405",
+    "parsed_title": "High-dose insulin therapy: is it time for U-500 insulin?",
+    "parsed_first_author": "lane",
+    "parsed_year": 2009,
+    "parsed_container": "Endocr Pract",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4006,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.4158/ep.15.1.71"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 7284,
+    "ordinal": 9,
+    "raw_string": "Markovic TP Jenkins AB Campbell LV The determinants of glycemic responses to diet restriction and weight loss in obesity and NIDDM. Diabetes Care 1998; 21:687–694.9589225 10.2337/diacare.21.5.687",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2337/diacare.21.5.687",
+    "parsed_pmid": "9589225",
+    "parsed_title": "The determinants of glycemic responses to diet restriction and weight loss in obesity and NIDDM",
+    "parsed_first_author": "markovic",
+    "parsed_year": 1998,
+    "parsed_container": "Diabetes Care",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4007,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2337/diacare.21.5.687"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 7285,
+    "ordinal": 10,
+    "raw_string": "Mifflin MD St Jeor ST Hill LA A new predictive equation for resting energy expenditure in healthy individuals. Am J Clin Nutr 1990; 51:241–247.2305711 10.1093/ajcn/51.2.241",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/ajcn/51.2.241",
+    "parsed_pmid": "2305711",
+    "parsed_title": "A new predictive equation for resting energy expenditure in healthy individuals",
+    "parsed_first_author": "mifflin",
+    "parsed_year": 1990,
+    "parsed_container": "Am J Clin Nutr",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4008,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/ajcn/51.2.241"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 7286,
+    "ordinal": 11,
+    "raw_string": "Polyzogopoulou EV Kalfarentzos F Vagenakis AG Restoration of euglycemia and normal acute insulin response to glucose in obese subjects with type 2 diabetes following bariatric surgery. Diabetes 2003; 52:1098–1103.12716738 10.2337/diabetes.52.5.1098",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2337/diabetes.52.5.1098",
+    "parsed_pmid": "12716738",
+    "parsed_title": "Restoration of euglycemia and normal acute insulin response to glucose in obese subjects with type 2 diabetes following bariatric surgery",
+    "parsed_first_author": "polyzogopoulou",
+    "parsed_year": 2003,
+    "parsed_container": "Diabetes",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4009,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2337/diabetes.52.5.1098"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 7287,
+    "ordinal": 12,
+    "raw_string": "Szczesniak G Dziemidok P Paprzycki PS Are we helping or harming our insulin-treated diabetic patients during ambulatory treatment? Ann Agric Environ Med 2013; 20:346–350.23772589",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": "23772589",
+    "parsed_title": "Are we helping or harming our insulin-treated diabetic patients during ambulatory treatment?",
+    "parsed_first_author": "szczesniak",
+    "parsed_year": 2013,
+    "parsed_container": "Ann Agric Environ Med",
+    "resolution_status": "resolved",
+    "resolution_method": "pmid",
+    "resolved_paper_id": 4010,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "pmid:23772589"
+      ],
+      "openalex_pmid": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   }
+  ],
+  "stat_tests": [],
+  "means": [],
+  "trials": []
+ }
+}

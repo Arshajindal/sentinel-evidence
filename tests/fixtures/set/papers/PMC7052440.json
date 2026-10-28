@@ -1,0 +1,3606 @@
+{
+ "id": "PMC7052440",
+ "subject": "paper",
+ "categories": [
+  "c03_inconsistent",
+  "c03_false_positive_regression",
+  "c01_false_positive_regression"
+ ],
+ "source": {
+  "corpus": "pmc-rct-2015-2024",
+  "paper_id": 528,
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "Paper 528. 'p < .000' (an early false positive) counts as consistent. C01 used to flag ref 18, Davidson 1989 in 'Handb. Neuropsychol.', a handbook chapter the XML tags as a journal article; a book named as the container is now non-journal (C01 1.0.1).",
+ "expected": [
+  {
+   "check": "C01",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C02",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C03",
+   "status": "flagged",
+   "severity": "low",
+   "item": "stat 7",
+   "why": "t(29) = 13.942 gives p ~ 2e-14, printed 'p>.001' (beside three 'p<.001' in the same sentence, so probably a typo, but as printed it is inconsistent). Recomputed with scipy over every statistic value that rounds to the printed one: the reported p is outside the range, and it doesn't cross alpha = 0.05, so low. Sentence read in the full text: the extraction is faithful."
+  },
+  {
+   "check": "C03",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C04",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "paper_id": 528,
+  "publication_date": "2020-02-19",
+  "fulltext_status": "full",
+  "references": [
+   {
+    "reference_id": 20671,
+    "ordinal": 1,
+    "raw_string": "Åhs F. Gingnell M. Furmark T. Fredrikson M. Within-session effect of repeated stress exposure on extinction circuitry function in social anxiety disorder Psychiatry Res. Neuroimag. 261 2017 85 90 10.1016/j.pscychresns.2017.01.009 28167379",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.pscychresns.2017.01.009",
+    "parsed_pmid": "28167379",
+    "parsed_title": "Within-session effect of repeated stress exposure on extinction circuitry function in social anxiety disorder",
+    "parsed_first_author": "ahs",
+    "parsed_year": 2017,
+    "parsed_container": "Psychiatry Res. Neuroimag.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4635,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.pscychresns.2017.01.009"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20672,
+    "ordinal": 2,
+    "raw_string": "Amano T. Unal C.T. Paré D. Synaptic correlates of fear extinction in the amygdala Nat. Neurosci. 13 2010 489 20208529 10.1038/nn.2499 PMC2847017",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/nn.2499",
+    "parsed_pmid": "20208529",
+    "parsed_title": "Synaptic correlates of fear extinction in the amygdala",
+    "parsed_first_author": "amano",
+    "parsed_year": 2010,
+    "parsed_container": "Nat. Neurosci.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 2795,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1038/nn.2499"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20673,
+    "ordinal": 3,
+    "raw_string": "American Psychiatric Association Diagnostic and Statistical Manual of Mental disorders: DSM-5 5th ed 2013 American Psychiatric Association Washington, D.C. ed.",
+    "citation_tag": "element-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Diagnostic and Statistical Manual of Mental disorders: DSM-5",
+    "parsed_first_author": "american psychiatric association",
+    "parsed_year": 2013,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "title_author_year",
+    "resolved_paper_id": 4638,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20674,
+    "ordinal": 4,
+    "raw_string": "Arntz A. Lavy E. van den Berg G. van Rijsoort S. Negative beliefs of spider phobics: a psychometric evaluation of the spider phobia beliefs questionnaire Adv. Behav. Res. Ther., Phobia: Etiological, Cognit. Physiol. Aspects 15 1993 257 277",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Negative beliefs of spider phobics: a psychometric evaluation of the spider phobia beliefs questionnaire",
+    "parsed_first_author": "arntz",
+    "parsed_year": 1993,
+    "parsed_container": "Adv. Behav. Res. Ther., Phobia: Etiological, Cognit. Physiol. Aspects",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4641,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20675,
+    "ordinal": 5,
+    "raw_string": "Barlow D.H. Anxiety and Its Disorders, Second Edition: The Nature and Treatment of Anxiety and Panic 2 New edition 2004 Guilford Publications New York, NY ed.",
+    "citation_tag": "element-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Anxiety and Its Disorders, Second Edition: The Nature and Treatment of Anxiety and Panic",
+    "parsed_first_author": "barlow",
+    "parsed_year": 2004,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "title_only",
+    "resolved_paper_id": 4646,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20676,
+    "ordinal": 6,
+    "raw_string": "Blakey S.M. Abramowitz J.S. The effects of safety behaviors during exposure therapy for anxiety: critical analysis from an inhibitory learning perspective Clin. Psychol. Rev. 49 2016 1 15 27475477 10.1016/j.cpr.2016.07.002",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.cpr.2016.07.002",
+    "parsed_pmid": "27475477",
+    "parsed_title": "The effects of safety behaviors during exposure therapy for anxiety: critical analysis from an inhibitory learning perspective",
+    "parsed_first_author": "blakey",
+    "parsed_year": 2016,
+    "parsed_container": "Clin. Psychol. Rev.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4651,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.cpr.2016.07.002"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20677,
+    "ordinal": 7,
+    "raw_string": "Blasi G. Goldberg T.E. Weickert T. Das S. Kohn P. Zoltick B. Bertolino A. Callicott J.H. Weinberger D.R. Mattay V.S. Brain regions underlying response inhibition and interference monitoring and suppression Eur. J. Neurosci. 23 2006 1658 1664 16553630 10.1111/j.1460-9568.2006.04680.x",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1460-9568.2006.04680.x",
+    "parsed_pmid": "16553630",
+    "parsed_title": "Brain regions underlying response inhibition and interference monitoring and suppression",
+    "parsed_first_author": "blasi",
+    "parsed_year": 2006,
+    "parsed_container": "Eur. J. Neurosci.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4652,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1460-9568.2006.04680.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20678,
+    "ordinal": 8,
+    "raw_string": "Brigadoi S. Ceccherini L. Cutini S. Scarpa F. Scatturin P. Selb J. Gagnon L. Boas D.A. Cooper R.J. Motion artifacts in functional near-infrared spectroscopy: a comparison of motion correction techniques applied to real cognitive data Neuroimage 85 2014 181 191 23639260 10.1016/j.neuroimage.2013.04.082 PMC3762942",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.neuroimage.2013.04.082",
+    "parsed_pmid": "23639260",
+    "parsed_title": "Motion artifacts in functional near-infrared spectroscopy: a comparison of motion correction techniques applied to real cognitive data",
+    "parsed_first_author": "brigadoi",
+    "parsed_year": 2014,
+    "parsed_container": "Neuroimage",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4653,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.neuroimage.2013.04.082"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20679,
+    "ordinal": 9,
+    "raw_string": "Brooks S.J. Stein D.J. A systematic review of the neural bases of psychotherapy for anxiety and related disorders Dialog. Clin. Neurosci. 17 2015 261 279 10.31887/DCNS.2015.17.3/sbrooks PMC4610611 26487807",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.31887/dcns.2015.17.3/sbrooks",
+    "parsed_pmid": "26487807",
+    "parsed_title": "A systematic review of the neural bases of psychotherapy for anxiety and related disorders",
+    "parsed_first_author": "brooks",
+    "parsed_year": 2015,
+    "parsed_container": "Dialog. Clin. Neurosci.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4654,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.31887/dcns.2015.17.3/sbrooks"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20680,
+    "ordinal": 10,
+    "raw_string": "Carpenter J.K. Andrews L.A. Witcraft S.M. Powers M.B. Smits J.A. Hofmann S.G. Cognitive behavioral therapy for anxiety and related disorders: a meta-analysis of randomized placebo-controlled trials Depress. Anxiety 35 2018 502 514 29451967 10.1002/da.22728 PMC5992015",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/da.22728",
+    "parsed_pmid": "29451967",
+    "parsed_title": "Cognitive behavioral therapy for anxiety and related disorders: a meta-analysis of randomized placebo-controlled trials",
+    "parsed_first_author": "carpenter",
+    "parsed_year": 2018,
+    "parsed_container": "Depress. Anxiety",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4655,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/da.22728"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20681,
+    "ordinal": 11,
+    "raw_string": "Cieslik E.C. Mueller V.I. Eickhoff C.R. Langner R. Eickhoff S.B. Three key regions for supervisory attentional control: evidence from neuroimaging meta-analyses Neurosci. Biobehav. Rev. 48 2015 22 34 25446951 10.1016/j.neubiorev.2014.11.003 PMC4272620",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.neubiorev.2014.11.003",
+    "parsed_pmid": "25446951",
+    "parsed_title": "Three key regions for supervisory attentional control: evidence from neuroimaging meta-analyses",
+    "parsed_first_author": "cieslik",
+    "parsed_year": 2015,
+    "parsed_container": "Neurosci. Biobehav. Rev.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4656,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.neubiorev.2014.11.003"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20682,
+    "ordinal": 12,
+    "raw_string": "Clark D.A. Beck A.T. Cognitive theory and therapy of anxiety and depression: convergence with neurobiological findings Trends Cogn. Sci. 14 2010 418 424 20655801 10.1016/j.tics.2010.06.007",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.tics.2010.06.007",
+    "parsed_pmid": "20655801",
+    "parsed_title": "Cognitive theory and therapy of anxiety and depression: convergence with neurobiological findings",
+    "parsed_first_author": "clark",
+    "parsed_year": 2010,
+    "parsed_container": "Trends Cogn. Sci.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4657,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.tics.2010.06.007"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20683,
+    "ordinal": 13,
+    "raw_string": "Craske M.G. Optimizing exposure therapy for anxiety disorders: an inhibitory learning and inhibitory regulation approach Verhaltenstherapie 25 2015 134 143",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Optimizing exposure therapy for anxiety disorders: an inhibitory learning and inhibitory regulation approach",
+    "parsed_first_author": "craske",
+    "parsed_year": 2015,
+    "parsed_container": "Verhaltenstherapie",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4658,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20684,
+    "ordinal": 14,
+    "raw_string": "Craske M.G. Kircanski K. Zelikowsky M. Mystkowski J. Chowdhury N. Baker A. Optimizing inhibitory learning during exposure therapy Behav. Res. Ther. 46 2008 5 27 18005936 10.1016/j.brat.2007.10.003",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.brat.2007.10.003",
+    "parsed_pmid": "18005936",
+    "parsed_title": "Optimizing inhibitory learning during exposure therapy",
+    "parsed_first_author": "craske",
+    "parsed_year": 2008,
+    "parsed_container": "Behav. Res. Ther.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4660,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {},
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20685,
+    "ordinal": 15,
+    "raw_string": "Craske M.G. Treanor M. Conway C.C. Zbozinek T. Vervliet B. Maximizing exposure therapy: an inhibitory learning approach Behav. Res. Ther. 58 2014 10 23 24864005 10.1016/j.brat.2014.04.006 PMC4114726",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.brat.2014.04.006",
+    "parsed_pmid": "24864005",
+    "parsed_title": "Maximizing exposure therapy: an inhibitory learning approach",
+    "parsed_first_author": "craske",
+    "parsed_year": 2014,
+    "parsed_container": "Behav. Res. Ther.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 2461,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.brat.2014.04.006"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20686,
+    "ordinal": 16,
+    "raw_string": "Cutuli D. Cognitive reappraisal and expressive suppression strategies role in the emotion regulation: an overview on their modulatory effects and neural correlates Front. Syst. Neurosci. 8 2014 175 –175 25285072 10.3389/fnsys.2014.00175 PMC4168764",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3389/fnsys.2014.00175",
+    "parsed_pmid": "25285072",
+    "parsed_title": "Cognitive reappraisal and expressive suppression strategies role in the emotion regulation: an overview on their modulatory effects and neural correlates",
+    "parsed_first_author": "cutuli",
+    "parsed_year": 2014,
+    "parsed_container": "Front. Syst. Neurosci.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4662,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3389/fnsys.2014.00175"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20687,
+    "ordinal": 17,
+    "raw_string": "Cui X. Bray S. Reiss A.L. Functional near infrared spectroscopy (NIRS) signal improvement based on negative correlation between oxygenated and deoxygenated hemoglobin dynamics Neuroimage 49 2010 3039 3046 19945536 10.1016/j.neuroimage.2009.11.050 PMC2818571",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.neuroimage.2009.11.050",
+    "parsed_pmid": "19945536",
+    "parsed_title": "Functional near infrared spectroscopy (NIRS) signal improvement based on negative correlation between oxygenated and deoxygenated hemoglobin dynamics",
+    "parsed_first_author": "cui",
+    "parsed_year": 2010,
+    "parsed_container": "Neuroimage",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4663,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.neuroimage.2009.11.050"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20688,
+    "ordinal": 18,
+    "raw_string": "Davidson R.J. Tomarken A.J. Laterality and emotion: an electrophysiological approach Handb. Neuropsychol. 3 1989 419 441",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Laterality and emotion: an electrophysiological approach",
+    "parsed_first_author": "davidson",
+    "parsed_year": 1989,
+    "parsed_container": "Handb. Neuropsychol.",
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20689,
+    "ordinal": 19,
+    "raw_string": "De Silva P. Rachman S. Does escape behaviour strengthen agoraphobic avoidance? A preliminary study Behav. Res. Ther. 22 1984 87 91 6538084 10.1016/0005-7967(84)90038-x",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/0005-7967(84)90038-x",
+    "parsed_pmid": "6538084",
+    "parsed_title": "Does escape behaviour strengthen agoraphobic avoidance? A preliminary study",
+    "parsed_first_author": "de silva",
+    "parsed_year": 1984,
+    "parsed_container": "Behav. Res. Ther.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4669,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/0005-7967(84)90038-x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20690,
+    "ordinal": 20,
+    "raw_string": "Deacon B.J. Sy J.T. Lickel J.J. Nelson E.A. Does the judicious use of safety behaviors improve the efficacy and acceptability of exposure therapy for claustrophobic fear? J. Behav. Ther. Exp. Psychiatry 41 2010 71 80 19892318 10.1016/j.jbtep.2009.10.004",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.jbtep.2009.10.004",
+    "parsed_pmid": "19892318",
+    "parsed_title": "Does the judicious use of safety behaviors improve the efficacy and acceptability of exposure therapy for claustrophobic fear?",
+    "parsed_first_author": "deacon",
+    "parsed_year": 2010,
+    "parsed_container": "J. Behav. Ther. Exp. Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4670,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.jbtep.2009.10.004"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20691,
+    "ordinal": 21,
+    "raw_string": "Deppermann S. Notzon S. Kroczek A. Rosenbaum D. Haeussinger F.B. Diemer J. Domschke K. Fallgatter A.J. Ehlis A.-.C. Zwanzger P. Functional co-activation within the prefrontal cortex supports the maintenance of behavioural performance in fear-relevant situations before an iTBS modulated virtual reality challenge in participants with spider phobia Behav. Brain Res. 2016 10.1016/j.bbr.2016.03.028 26996315",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.bbr.2016.03.028",
+    "parsed_pmid": "26996315",
+    "parsed_title": "Functional co-activation within the prefrontal cortex supports the maintenance of behavioural performance in fear-relevant situations before an iTBS modulated virtual reality challenge in participants with spider phobia",
+    "parsed_first_author": "deppermann",
+    "parsed_year": 2016,
+    "parsed_container": "Behav. Brain Res.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4671,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.bbr.2016.03.028"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20692,
+    "ordinal": 22,
+    "raw_string": "Deppermann S. Vennewald N. Diemer J. Sickinger S. Haeussinger F.B. Dresler T. Notzon S. Laeger I. Arolt V. Ehlis A.-.C. Fallgatter A.J. Zwanzger P. Neurobiological and clinical effects of fNIRS-controlled rTMS in patients with panic disorder/agoraphobia during cognitive-behavioural therapy NeuroImage Clin 16 2017 668 677 29085773 10.1016/j.nicl.2017.09.013 PMC5650598",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.nicl.2017.09.013",
+    "parsed_pmid": "29085773",
+    "parsed_title": "Neurobiological and clinical effects of fNIRS-controlled rTMS in patients with panic disorder/agoraphobia during cognitive-behavioural therapy",
+    "parsed_first_author": "deppermann",
+    "parsed_year": 2017,
+    "parsed_container": "NeuroImage Clin",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4672,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.nicl.2017.09.013"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20693,
+    "ordinal": 23,
+    "raw_string": "Duval E.R. Javanbakht A. Liberzon I. Neural circuits in anxiety and stress disorders: a focused review Ther. Clin. Risk Manag. 11 2015 115 126 25670901 10.2147/TCRM.S48528 PMC4315464",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2147/tcrm.s48528",
+    "parsed_pmid": "25670901",
+    "parsed_title": "Neural circuits in anxiety and stress disorders: a focused review",
+    "parsed_first_author": "duval",
+    "parsed_year": 2015,
+    "parsed_container": "Ther. Clin. Risk Manag.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4673,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2147/tcrm.s48528"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.934
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20694,
+    "ordinal": 24,
+    "raw_string": "Etkin A. Büchel C. Gross J.J. The neural bases of emotion regulation Nat. Rev. Neurosci. 16 2015 693 700 26481098 10.1038/nrn4044",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/nrn4044",
+    "parsed_pmid": "26481098",
+    "parsed_title": "The neural bases of emotion regulation",
+    "parsed_first_author": "etkin",
+    "parsed_year": 2015,
+    "parsed_container": "Nat. Rev. Neurosci.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4674,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1038/nrn4044"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20695,
+    "ordinal": 25,
+    "raw_string": "Etkin A. Wager T.D. Functional neuroimaging of anxiety: a meta-analysis of emotional processing in PTSD, social anxiety disorder, and specific phobia Am. J. Psychiatry 164 2007 1476 1488 17898336 10.1176/appi.ajp.2007.07030504 PMC3318959",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1176/appi.ajp.2007.07030504",
+    "parsed_pmid": "17898336",
+    "parsed_title": "Functional neuroimaging of anxiety: a meta-analysis of emotional processing in PTSD, social anxiety disorder, and specific phobia",
+    "parsed_first_author": "etkin",
+    "parsed_year": 2007,
+    "parsed_container": "Am. J. Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4675,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1176/appi.ajp.2007.07030504"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20696,
+    "ordinal": 26,
+    "raw_string": "Etten M.L.V. Taylor S. Comparative efficacy of treatments for post-traumatic stress disorder: a meta-analysis Clin. Psychol. Psychother. 5 1998 126 144",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Comparative efficacy of treatments for post-traumatic stress disorder: a meta-analysis",
+    "parsed_first_author": "etten",
+    "parsed_year": 1998,
+    "parsed_container": "Clin. Psychol. Psychother.",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4676,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20697,
+    "ordinal": 27,
+    "raw_string": "Feske U. Chambless D.L. Cognitive behavioral versus exposure only treatment for social phobia: a meta-analysis Behav. Ther. 26 1995 695 720",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Cognitive behavioral versus exposure only treatment for social phobia: a meta-analysis",
+    "parsed_first_author": "feske",
+    "parsed_year": 1995,
+    "parsed_container": "Behav. Ther.",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4681,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20698,
+    "ordinal": 28,
+    "raw_string": "Foa E.B. Kozak M.J. Emotional processing of fear: exposure to corrective information Psychol. Bull. 99 1986 20 35 2871574",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": "2871574",
+    "parsed_title": "Emotional processing of fear: exposure to corrective information",
+    "parsed_first_author": "foa",
+    "parsed_year": 1986,
+    "parsed_container": "Psychol. Bull.",
+    "resolution_status": "resolved",
+    "resolution_method": "pmid",
+    "resolved_paper_id": 4686,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "pmid:2871574"
+      ],
+      "openalex_pmid": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20699,
+    "ordinal": 29,
+    "raw_string": "Goldin P.R. McRae K. Ramel W. Gross J.J. The neural bases of emotion regulation: reappraisal and suppression of negative emotion Biol. Psychiatry, Stress, Anxiety, Post-Traumatic Stress Disord. 63 2008 577 586 10.1016/j.biopsych.2007.05.031 PMC2483789 17888411",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.biopsych.2007.05.031",
+    "parsed_pmid": "17888411",
+    "parsed_title": "The neural bases of emotion regulation: reappraisal and suppression of negative emotion",
+    "parsed_first_author": "goldin",
+    "parsed_year": 2008,
+    "parsed_container": "Biol. Psychiatry, Stress, Anxiety, Post-Traumatic Stress Disord.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4687,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.biopsych.2007.05.031"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20700,
+    "ordinal": 30,
+    "raw_string": "Goossens L. Sunaert S. Peeters R. Griez E.J. Schruers K.R. Amygdala hyperfunction in phobic fear normalizes after exposure Biol. Psychiatry 62 2007 1119 1125 17706612 10.1016/j.biopsych.2007.04.024",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.biopsych.2007.04.024",
+    "parsed_pmid": "17706612",
+    "parsed_title": "Amygdala hyperfunction in phobic fear normalizes after exposure",
+    "parsed_first_author": "goossens",
+    "parsed_year": 2007,
+    "parsed_container": "Biol. Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4688,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.biopsych.2007.04.024"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20701,
+    "ordinal": 31,
+    "raw_string": "Gould R.A. Buckminster S. Pollack M.H. Otto M.W. Massachusetts L.Y. Cognitive-Behavioral and pharmacological treatment for social phobia: a meta-analysis Clin. Psychol. Sci. Pract. 4 1997 291 306",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Cognitive-Behavioral and pharmacological treatment for social phobia: a meta-analysis",
+    "parsed_first_author": "gould",
+    "parsed_year": 1997,
+    "parsed_container": "Clin. Psychol. Sci. Pract.",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4689,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20702,
+    "ordinal": 32,
+    "raw_string": "Haeussinger F. Dresler T. Heinzel S. Schecklmann M. Fallgatter A.J. Ehlis A.-C. Reconstructing functional near-infrared spectroscopy (fNIRS) signals impaired by extra-cranial confounds: an easy-to-use filter method Neuroimage 95 2014 69 79 24657779 10.1016/j.neuroimage.2014.02.035",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.neuroimage.2014.02.035",
+    "parsed_pmid": "24657779",
+    "parsed_title": "Reconstructing functional near-infrared spectroscopy (fNIRS) signals impaired by extra-cranial confounds: an easy-to-use filter method",
+    "parsed_first_author": "haeussinger",
+    "parsed_year": 2014,
+    "parsed_container": "Neuroimage",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4691,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.neuroimage.2014.02.035"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20703,
+    "ordinal": 33,
+    "raw_string": "Haeussinger F.B. Heinzel S. Hahn T. Schecklmann M. Ehlis A.-C. Fallgatter A.J. Simulation of near-infrared light absorption considering individual head and prefrontal cortex anatomy: implications for optical neuroimaging PLoS ONE 6 2011 e26377 22039475 10.1371/journal.pone.0026377 PMC3200329",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1371/journal.pone.0026377",
+    "parsed_pmid": "22039475",
+    "parsed_title": "Simulation of near-infrared light absorption considering individual head and prefrontal cortex anatomy: implications for optical neuroimaging",
+    "parsed_first_author": "haeussinger",
+    "parsed_year": 2011,
+    "parsed_container": "PLoS ONE",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4692,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1371/journal.pone.0026377"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20704,
+    "ordinal": 34,
+    "raw_string": "Hariri A.R. Bookheimer S.Y. Mazziotta J.C. Modulating emotional responses: effects of a neocortical network on the limbic system [Miscellaneous Article] Neuroreport 11 2000 43 48 10683827 10.1097/00001756-200001170-00009",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/00001756-200001170-00009",
+    "parsed_pmid": "10683827",
+    "parsed_title": "Modulating emotional responses: effects of a neocortical network on the limbic system",
+    "parsed_first_author": "hariri",
+    "parsed_year": 2000,
+    "parsed_container": "Neuroreport",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4693,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/00001756-200001170-00009"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.526
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20705,
+    "ordinal": 35,
+    "raw_string": "Hermann A. Schäfer A. Walter B. Stark R. Vaitl D. Schienle A. Emotion regulation in spider phobia: role of the medial prefrontal cortex Soc. Cogn. Affect. Neurosci. 4 2009 257 267 19398537 10.1093/scan/nsp013 PMC2728632",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/scan/nsp013",
+    "parsed_pmid": "19398537",
+    "parsed_title": "Emotion regulation in spider phobia: role of the medial prefrontal cortex",
+    "parsed_first_author": "hermann",
+    "parsed_year": 2009,
+    "parsed_container": "Soc. Cogn. Affect. Neurosci.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4694,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/scan/nsp013"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20706,
+    "ordinal": 36,
+    "raw_string": "Hermann A. Schäfer A. Walter B. Stark R. Vaitl D. Schienle A. Diminished medial prefrontal cortex activity in blood-injection-injury phobia Biol. Psychol. 75 2007 124 130 17306437 10.1016/j.biopsycho.2007.01.002",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.biopsycho.2007.01.002",
+    "parsed_pmid": "17306437",
+    "parsed_title": "Diminished medial prefrontal cortex activity in blood-injection-injury phobia",
+    "parsed_first_author": "hermann",
+    "parsed_year": 2007,
+    "parsed_container": "Biol. Psychol.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4695,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.biopsycho.2007.01.002"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20707,
+    "ordinal": 37,
+    "raw_string": "Herrmann M.J. Katzorke A. Busch Y. Gromer D. Polak T. Pauli P. Deckert J. Medial prefrontal cortex stimulation accelerates therapy response of exposure therapy in acrophobia Brain Stimulat 10 2017 291 297 10.1016/j.brs.2016.11.007 27931887",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.brs.2016.11.007",
+    "parsed_pmid": "27931887",
+    "parsed_title": "Medial prefrontal cortex stimulation accelerates therapy response of exposure therapy in acrophobia",
+    "parsed_first_author": "herrmann",
+    "parsed_year": 2017,
+    "parsed_container": "Brain Stimulat",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4696,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.brs.2016.11.007"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20708,
+    "ordinal": 38,
+    "raw_string": "Hofmann S.G. Asnaani A. Vonk I.J.J. Sawyer A.T. Fang A. The efficacy of cognitive behavioral therapy: a review of meta-analyses Cogn. Ther. Res. 36 2012 427 440 10.1007/s10608-012-9476-1 PMC3584580 23459093",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s10608-012-9476-1",
+    "parsed_pmid": "23459093",
+    "parsed_title": "The efficacy of cognitive behavioral therapy: a review of meta-analyses",
+    "parsed_first_author": "hofmann",
+    "parsed_year": 2012,
+    "parsed_container": "Cogn. Ther. Res.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4697,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s10608-012-9476-1"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20709,
+    "ordinal": 39,
+    "raw_string": "Hood H.K. Antony M.M. Koerner N. Monson C.M. Effects of safety behaviors on fear reduction during exposure Behav. Res. Ther. 48 2010 1161 1169 20870219 10.1016/j.brat.2010.08.006",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.brat.2010.08.006",
+    "parsed_pmid": "20870219",
+    "parsed_title": "Effects of safety behaviors on fear reduction during exposure",
+    "parsed_first_author": "hood",
+    "parsed_year": 2010,
+    "parsed_container": "Behav. Res. Ther.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4698,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.brat.2010.08.006"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20710,
+    "ordinal": 40,
+    "raw_string": "Hornberger M. Bertoux M. Right lateral prefrontal cortex—specificity for inhibition or strategy use? Brain 138 2015 833 835 25802318 10.1093/brain/awv027",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/brain/awv027",
+    "parsed_pmid": "25802318",
+    "parsed_title": "Right lateral prefrontal cortex—specificity for inhibition or strategy use?",
+    "parsed_first_author": "hornberger",
+    "parsed_year": 2015,
+    "parsed_container": "Brain",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4699,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/brain/awv027"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20711,
+    "ordinal": 41,
+    "raw_string": "Hung Y. Gaillard S.L. Yarmak P. Arsalidou M. Dissociations of cognitive inhibition, response inhibition, and emotional interference: voxelwise ale meta-analyses of fMRI studies Hum. Brain Mapp. 39 2018 4065 4082 29923271 10.1002/hbm.24232 PMC6866358",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/hbm.24232",
+    "parsed_pmid": "29923271",
+    "parsed_title": "Dissociations of cognitive inhibition, response inhibition, and emotional interference: voxelwise ale meta-analyses of fMRI studies",
+    "parsed_first_author": "hung",
+    "parsed_year": 2018,
+    "parsed_container": "Hum. Brain Mapp.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4700,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/hbm.24232"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20712,
+    "ordinal": 42,
+    "raw_string": "Ipser J.C. Singh L. Stein D.J. Meta-analysis of functional brain imaging in specific phobia Psychiatry Clin. Neurosci. 67 2013 311 322 23711114 10.1111/pcn.12055",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/pcn.12055",
+    "parsed_pmid": "23711114",
+    "parsed_title": "Meta-analysis of functional brain imaging in specific phobia",
+    "parsed_first_author": "ipser",
+    "parsed_year": 2013,
+    "parsed_container": "Psychiatry Clin. Neurosci.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4701,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/pcn.12055"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20713,
+    "ordinal": 43,
+    "raw_string": "Jasper H. Report of the committee on methods of clinical examination in electroencephalography Electroencephalogr. Clin. Neurophysiol. 10 1958 370 375",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Report of the committee on methods of clinical examination in electroencephalography",
+    "parsed_first_author": "jasper",
+    "parsed_year": 1958,
+    "parsed_container": "Electroencephalogr. Clin. Neurophysiol.",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4702,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20714,
+    "ordinal": 44,
+    "raw_string": "Johanson A. Risberg J. Tucker D.M. Gustafson L. Changes in frontal lobe activity with cognitive therapy for spider phobia Appl. Neuropsychol. 13 2006 34 41 16594869 10.1207/s15324826an1301_5",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1207/s15324826an1301_5",
+    "parsed_pmid": "16594869",
+    "parsed_title": "Changes in frontal lobe activity with cognitive therapy for spider phobia",
+    "parsed_first_author": "johanson",
+    "parsed_year": 2006,
+    "parsed_container": "Appl. Neuropsychol.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3120,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1207/s15324826an1301_5"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20715,
+    "ordinal": 45,
+    "raw_string": "Kelly A.C. Garavan H. Human functional neuroimaging of brain changes associated with practice Cereb. Cortex 15 2004 1089 1102 15616134 10.1093/cercor/bhi005",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/cercor/bhi005",
+    "parsed_pmid": "15616134",
+    "parsed_title": "Human functional neuroimaging of brain changes associated with practice",
+    "parsed_first_author": "kelly",
+    "parsed_year": 2004,
+    "parsed_container": "Cereb. Cortex",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4707,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/cercor/bhi005"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20716,
+    "ordinal": 46,
+    "raw_string": "Klorman R. Weerts T.C. Hastings J.E. Melamed B.G. Lang P.J. Psychometric description of some specific-fear questionnaires Behav. Ther. 5 1974 401 409",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Psychometric description of some specific-fear questionnaires",
+    "parsed_first_author": "klorman",
+    "parsed_year": 1974,
+    "parsed_container": "Behav. Ther.",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4708,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20717,
+    "ordinal": 47,
+    "raw_string": "Kohn N. Eickhoff S.B. Scheller M. Laird A.R. Fox P.T. Habel U. Neural network of cognitive emotion regulation — An ALE meta-analysis and MACM analysis Neuroimage 87 2014 345 355 24220041 10.1016/j.neuroimage.2013.11.001 PMC4801480",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.neuroimage.2013.11.001",
+    "parsed_pmid": "24220041",
+    "parsed_title": "Neural network of cognitive emotion regulation — An ALE meta-analysis and MACM analysis",
+    "parsed_first_author": "kohn",
+    "parsed_year": 2014,
+    "parsed_container": "Neuroimage",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4713,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.neuroimage.2013.11.001"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20718,
+    "ordinal": 48,
+    "raw_string": "Landowska A. Roberts D. Eachus P. Barrett A. Within-and between-session prefrontal cortex response to virtual reality exposure therapy for acrophobia Front. Hum. Neurosci. 12 2018 10.3389/fnhum.2018.00362 PMC6221970 30443209",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3389/fnhum.2018.00362",
+    "parsed_pmid": "30443209",
+    "parsed_title": "Within-and between-session prefrontal cortex response to virtual reality exposure therapy for acrophobia",
+    "parsed_first_author": "landowska",
+    "parsed_year": 2018,
+    "parsed_container": "Front. Hum. Neurosci.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4714,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3389/fnhum.2018.00362"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20719,
+    "ordinal": 49,
+    "raw_string": "Maier M.J. Rosenbaum D. Haeussinger F.B. Brüne M. Enzi B. Plewnia C. Fallgatter A.J. Ehlis A.-C. Forgiveness and cognitive control - Provoking revenge via theta-burst-stimulation of the DLPFC Neuroimage 183 2018 769 775 30170150 10.1016/j.neuroimage.2018.08.065",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.neuroimage.2018.08.065",
+    "parsed_pmid": "30170150",
+    "parsed_title": "Forgiveness and cognitive control - Provoking revenge via theta-burst-stimulation of the DLPFC",
+    "parsed_first_author": "maier",
+    "parsed_year": 2018,
+    "parsed_container": "Neuroimage",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4715,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.neuroimage.2018.08.065"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20720,
+    "ordinal": 50,
+    "raw_string": "Maier M.J. Rosenbaum D. Haeussinger F.B. Brüne M. Fallgatter A.J. Ehlis A.-.C. Disinhibited Revenge – An fNIRS study on forgiveness and cognitive control Front. Behav. Neurosci. 13 2019 223 31616261 10.3389/fnbeh.2019.00223 PMC6775276",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3389/fnbeh.2019.00223",
+    "parsed_pmid": "31616261",
+    "parsed_title": "Disinhibited Revenge – An fNIRS study on forgiveness and cognitive control",
+    "parsed_first_author": "maier",
+    "parsed_year": 2019,
+    "parsed_container": "Front. Behav. Neurosci.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 1317,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3389/fnbeh.2019.00223"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20721,
+    "ordinal": 51,
+    "raw_string": "Maren S. Quirk G.J. Neuronal signalling of fear memory Nat. Rev. Neurosci. 5 2004 844 15496862 10.1038/nrn1535",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/nrn1535",
+    "parsed_pmid": "15496862",
+    "parsed_title": "Neuronal signalling of fear memory",
+    "parsed_first_author": "maren",
+    "parsed_year": 2004,
+    "parsed_container": "Nat. Rev. Neurosci.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4716,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1038/nrn1535"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20722,
+    "ordinal": 52,
+    "raw_string": "McSweeney F.K. Swindell S. Common processes may contribute to extinction and habituation J. Gen. Psychol. 129 2002 364 400 12494990 10.1080/00221300209602103",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1080/00221300209602103",
+    "parsed_pmid": "12494990",
+    "parsed_title": "Common processes may contribute to extinction and habituation",
+    "parsed_first_author": "mcsweeney",
+    "parsed_year": 2002,
+    "parsed_container": "J. Gen. Psychol.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4717,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1080/00221300209602103"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20723,
+    "ordinal": 53,
+    "raw_string": "Messina I. Sambin M. Palmieri A. Viviani R. Neural correlates of psychotherapy in anxiety and depression: a meta-analysis PLoS ONE 8 2013 e74657 24040309 10.1371/journal.pone.0074657 PMC3770681",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1371/journal.pone.0074657",
+    "parsed_pmid": "24040309",
+    "parsed_title": "Neural correlates of psychotherapy in anxiety and depression: a meta-analysis",
+    "parsed_first_author": "messina",
+    "parsed_year": 2013,
+    "parsed_container": "PLoS ONE",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4718,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1371/journal.pone.0074657"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20724,
+    "ordinal": 54,
+    "raw_string": "Meulders A. Van Daele T. Volders S. Vlaeyen J.W. The use of safety-seeking behavior in exposure-based treatments for fear and anxiety: benefit or burden? A meta-analytic review Clin. Psychol. Rev. 45 2016 144 156 26905473 10.1016/j.cpr.2016.02.002",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.cpr.2016.02.002",
+    "parsed_pmid": "26905473",
+    "parsed_title": "The use of safety-seeking behavior in exposure-based treatments for fear and anxiety: benefit or burden? A meta-analytic review",
+    "parsed_first_author": "meulders",
+    "parsed_year": 2016,
+    "parsed_container": "Clin. Psychol. Rev.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4719,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.cpr.2016.02.002"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20725,
+    "ordinal": 55,
+    "raw_string": "Michałowski J.M. Matuszewski J. Droździel D. Koziejowski W. Rynkiewicz A. Jednoróg K. Marchewka A. Neural response patterns in spider, blood-injection-injury and social fearful individuals: new insights from a simultaneous EEG/ECG–FMRI study Brain Imaging Behav 11 2017 829 845 27194564 10.1007/s11682-016-9557-y",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s11682-016-9557-y",
+    "parsed_pmid": "27194564",
+    "parsed_title": "Neural response patterns in spider, blood-injection-injury and social fearful individuals: new insights from a simultaneous EEG/ECG–FMRI study",
+    "parsed_first_author": "michałowski",
+    "parsed_year": 2017,
+    "parsed_container": "Brain Imaging Behav",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4720,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s11682-016-9557-y"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20726,
+    "ordinal": 56,
+    "raw_string": "Milosevic I. Radomsky A.S. Safety behaviour does not necessarily interfere with exposure therapy Behav. Res. Ther. 46 2008 1111 1118 18691700 10.1016/j.brat.2008.05.011",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.brat.2008.05.011",
+    "parsed_pmid": "18691700",
+    "parsed_title": "Safety behaviour does not necessarily interfere with exposure therapy",
+    "parsed_first_author": "milosevic",
+    "parsed_year": 2008,
+    "parsed_container": "Behav. Res. Ther.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4721,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.brat.2008.05.011"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20727,
+    "ordinal": 57,
+    "raw_string": "Münsterkötter A.L. Notzon S. Redlich R. Grotegerd D. Dohm K. Arolt V. Kugel H. Zwanzger P. Dannlowski U. Spider or no spider? Neural correlates of sustained and phasic fear in spider phobia. depress Anxiety 32 2015 656 663 26115440 10.1002/da.22382",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/da.22382",
+    "parsed_pmid": "26115440",
+    "parsed_title": "Spider or no spider? Neural correlates of sustained and phasic fear in spider phobia. depress",
+    "parsed_first_author": "munsterkotter",
+    "parsed_year": 2015,
+    "parsed_container": "Anxiety",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4722,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/da.22382"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.954
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20728,
+    "ordinal": 58,
+    "raw_string": "Muris P. Merckelbach H. A comparison of two spider fear questionnaires J. Behav. Ther. Exp. Psychiatry 27 1996 241 244 8959425 10.1016/s0005-7916(96)00022-5",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s0005-7916(96)00022-5",
+    "parsed_pmid": "8959425",
+    "parsed_title": "A comparison of two spider fear questionnaires",
+    "parsed_first_author": "muris",
+    "parsed_year": 1996,
+    "parsed_container": "J. Behav. Ther. Exp. Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4723,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0005-7916(96)00022-5"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20729,
+    "ordinal": 59,
+    "raw_string": "Myers K.M. Davis M. Mechanisms of fear extinction Mol. Psychiatry 12 2007 120 17160066 10.1038/sj.mp.4001939",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/sj.mp.4001939",
+    "parsed_pmid": "17160066",
+    "parsed_title": "Mechanisms of fear extinction",
+    "parsed_first_author": "myers",
+    "parsed_year": 2007,
+    "parsed_container": "Mol. Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4724,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1038/sj.mp.4001939"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20730,
+    "ordinal": 60,
+    "raw_string": "Ocklenburg S. Güntürkün O. Beste C. Lateralized neural mechanisms underlying the modulation of response inhibition processes Neuroimage 55 2011 1771 1778 21256235 10.1016/j.neuroimage.2011.01.035",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.neuroimage.2011.01.035",
+    "parsed_pmid": "21256235",
+    "parsed_title": "Lateralized neural mechanisms underlying the modulation of response inhibition processes",
+    "parsed_first_author": "ocklenburg",
+    "parsed_year": 2011,
+    "parsed_container": "Neuroimage",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4725,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.neuroimage.2011.01.035"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20731,
+    "ordinal": 61,
+    "raw_string": "Oliver N.S. Page A.C. Effects of internal and external distraction and focus during exposure to blood-injury-injection stimuli J. Anxiety Disord. 22 2008 283 291 17321105 10.1016/j.janxdis.2007.01.006",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.janxdis.2007.01.006",
+    "parsed_pmid": "17321105",
+    "parsed_title": "Effects of internal and external distraction and focus during exposure to blood-injury-injection stimuli",
+    "parsed_first_author": "oliver",
+    "parsed_year": 2008,
+    "parsed_container": "J. Anxiety Disord.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4726,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.janxdis.2007.01.006"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20732,
+    "ordinal": 62,
+    "raw_string": "Paquette V. Lévesque J. Mensour B. Leroux J.-M. Beaudoin G. Bourgouin P. Beauregard M. “Change the mind and you change the brain”: effects of cognitive-behavioral therapy on the neural correlates of spider phobia Neuroimage 18 2003 401 409 12595193 10.1016/s1053-8119(02)00030-7",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s1053-8119(02)00030-7",
+    "parsed_pmid": "12595193",
+    "parsed_title": "“Change the mind and you change the brain”: effects of cognitive-behavioral therapy on the neural correlates of spider phobia",
+    "parsed_first_author": "paquette",
+    "parsed_year": 2003,
+    "parsed_container": "Neuroimage",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4727,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s1053-8119(02)00030-7"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20733,
+    "ordinal": 63,
+    "raw_string": "Parrish C.L. Radomsky A.S. Dugas M.J. Anxiety-control strategies: is there room for neutralization in successful exposure treatment? Clin. Psychol. Rev. 28 2008 1400 1412 18783862 10.1016/j.cpr.2008.07.007",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.cpr.2008.07.007",
+    "parsed_pmid": "18783862",
+    "parsed_title": "Anxiety-control strategies: is there room for neutralization in successful exposure treatment?",
+    "parsed_first_author": "parrish",
+    "parsed_year": 2008,
+    "parsed_container": "Clin. Psychol. Rev.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4728,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.cpr.2008.07.007"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20734,
+    "ordinal": 64,
+    "raw_string": "Patel R. Spreng R.N. Shin L.M. Girard T.A. Neurocircuitry models of posttraumatic stress disorder and beyond: a meta-analysis of functional neuroimaging studies Neurosci. Biobehav. Rev. 36 2012 2130 2142 22766141 10.1016/j.neubiorev.2012.06.003",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.neubiorev.2012.06.003",
+    "parsed_pmid": "22766141",
+    "parsed_title": "Neurocircuitry models of posttraumatic stress disorder and beyond: a meta-analysis of functional neuroimaging studies",
+    "parsed_first_author": "patel",
+    "parsed_year": 2012,
+    "parsed_container": "Neurosci. Biobehav. Rev.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4729,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.neubiorev.2012.06.003"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20735,
+    "ordinal": 65,
+    "raw_string": "Petersen S.E. Van Mier H. Fiez J.A. Raichle M.E. The effects of practice on the functional anatomy of task performance Proc. Natl. Acad. Sci. 95 1998 853 860 9448251 10.1073/pnas.95.3.853 PMC33808",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1073/pnas.95.3.853",
+    "parsed_pmid": "9448251",
+    "parsed_title": "The effects of practice on the functional anatomy of task performance",
+    "parsed_first_author": "petersen",
+    "parsed_year": 1998,
+    "parsed_container": "Proc. Natl. Acad. Sci.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4730,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1073/pnas.95.3.853"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20736,
+    "ordinal": 66,
+    "raw_string": "Podină I.R. Koster E.H. Philippot P. Dethier V. David D.O. Optimal attentional focus during exposure in specific phobia: a meta-analysis Clin. Psychol. Rev. 33 2013 1172 1183 24185091 10.1016/j.cpr.2013.10.002",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.cpr.2013.10.002",
+    "parsed_pmid": "24185091",
+    "parsed_title": "Optimal attentional focus during exposure in specific phobia: a meta-analysis",
+    "parsed_first_author": "podina",
+    "parsed_year": 2013,
+    "parsed_container": "Clin. Psychol. Rev.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4731,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.cpr.2013.10.002"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20737,
+    "ordinal": 67,
+    "raw_string": "Quinn J.J. Fanselow M.S. Defenses and memories: functional neural circuitry of fear and conditional responding Fear and Learning: From Basic Processes to Clinical Implications 2006 American Psychological Association Washington, DC, US 55 74",
+    "citation_tag": "element-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Defenses and memories: functional neural circuitry of fear and conditional responding",
+    "parsed_first_author": "quinn",
+    "parsed_year": 2006,
+    "parsed_container": "Fear and Learning: From Basic Processes to Clinical Implications",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4732,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20738,
+    "ordinal": 68,
+    "raw_string": "Rachman S. Robinson S. Lopatka C. Is incomplete fear-reduction followed by a return of fear? Behav. Res. Ther. 1987 10.1016/0005-7967(87)90116-1 2884986",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/0005-7967(87)90116-1",
+    "parsed_pmid": "2884986",
+    "parsed_title": "Is incomplete fear-reduction followed by a return of fear?",
+    "parsed_first_author": "rachman",
+    "parsed_year": 1987,
+    "parsed_container": "Behav. Res. Ther.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4737,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/0005-7967(87)90116-1"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20739,
+    "ordinal": 69,
+    "raw_string": "Raij T. Nummenmaa A. Marin M.-.F. Porter D. Furtak S. Setsompop K. Milad M.R. Prefrontal cortex stimulation enhances fear extinction memory in humans Biol. Psychiatry 84 2018 129 137 29246436 10.1016/j.biopsych.2017.10.022 PMC5936658",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.biopsych.2017.10.022",
+    "parsed_pmid": "29246436",
+    "parsed_title": "Prefrontal cortex stimulation enhances fear extinction memory in humans",
+    "parsed_first_author": "raij",
+    "parsed_year": 2018,
+    "parsed_container": "Biol. Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4738,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.biopsych.2017.10.022"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20740,
+    "ordinal": 70,
+    "raw_string": "Rentz T.O. Powers M.B. Smits J.A. Cougle J.R. Telch M.J. Active-imaginal exposure: examination of a new behavioral treatment for cynophobia (dog phobia) Behav. Res. Ther. 41 2003 1337 1353 14527532 10.1016/s0005-7967(03)00041-x",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s0005-7967(03)00041-x",
+    "parsed_pmid": "14527532",
+    "parsed_title": "Active-imaginal exposure: examination of a new behavioral treatment for cynophobia (dog phobia)",
+    "parsed_first_author": "rentz",
+    "parsed_year": 2003,
+    "parsed_container": "Behav. Res. Ther.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4739,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0005-7967(03)00041-x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20741,
+    "ordinal": 71,
+    "raw_string": "Rosenbaum D. Blum L. Schweizer P. Fallgatter A.J. Herrmann M.J. Ehlis A.-C. Metzger F.G. Comparison of speed versus complexity effects on the hemodynamic response of the trail making test in block designs Neurophotonics 5 2018 045007 10.1117/1.NPh.5.4.045007 PMC6286664 30539043",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1117/1.nph.5.4.045007",
+    "parsed_pmid": "30539043",
+    "parsed_title": "Comparison of speed versus complexity effects on the hemodynamic response of the trail making test in block designs",
+    "parsed_first_author": "rosenbaum",
+    "parsed_year": 2018,
+    "parsed_container": "Neurophotonics",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4740,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1117/1.nph.5.4.045007"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20742,
+    "ordinal": 72,
+    "raw_string": "Rosenbaum D. Hilsendegen P. Thomas M. Haeussinger F.B. Metzger F.G. Nuerk H.-C. Fallgatter A.J. Nieratschker V. Ehlis A.-C. Cortical hemodynamic changes during the trier social stress test: an fNIRS study Neuroimage 171 2018 107 115 29274500 10.1016/j.neuroimage.2017.12.061",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.neuroimage.2017.12.061",
+    "parsed_pmid": "29274500",
+    "parsed_title": "Cortical hemodynamic changes during the trier social stress test: an fNIRS study",
+    "parsed_first_author": "rosenbaum",
+    "parsed_year": 2018,
+    "parsed_container": "Neuroimage",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4741,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.neuroimage.2017.12.061"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20743,
+    "ordinal": 73,
+    "raw_string": "Rosenbaum D. Hilsendegen P. Thomas M. Haeussinger F.B. Nuerk H.-.C. Fallgatter A.J. Nieratschker V. Ehlis A.-.C. Metzger F.G. Disrupted prefrontal functional connectivity during post-stress adaption in high ruminators Sci. Rep. 8 2018 15588 30348981 10.1038/s41598-018-33777-1 PMC6197217",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/s41598-018-33777-1",
+    "parsed_pmid": "30348981",
+    "parsed_title": "Disrupted prefrontal functional connectivity during post-stress adaption in high ruminators",
+    "parsed_first_author": "rosenbaum",
+    "parsed_year": 2018,
+    "parsed_container": "Sci. Rep.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4742,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1038/s41598-018-33777-1"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20744,
+    "ordinal": 74,
+    "raw_string": "Rosenbaum D. Maier M.J. Hudak J. Metzger F.G. Wells A. Fallgatter A.J. Ehlis A.-C. Neurophysiological correlates of the attention training technique: a component study NeuroImage Clin 19 2018 1018 1024 30003039 10.1016/j.nicl.2018.06.021 PMC6039840",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.nicl.2018.06.021",
+    "parsed_pmid": "30003039",
+    "parsed_title": "Neurophysiological correlates of the attention training technique: a component study",
+    "parsed_first_author": "rosenbaum",
+    "parsed_year": 2018,
+    "parsed_container": "NeuroImage Clin",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4743,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.nicl.2018.06.021"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20745,
+    "ordinal": 75,
+    "raw_string": "Rosenbaum D. Thomas M. Hilsendegen P. Metzger F.G. Haeussinger F.B. Nuerk H.-C. Fallgatter A.J. Nieratschker V. Ehlis A.-C. Stress-related dysfunction of the right inferior frontal cortex in high ruminators: an fNIRS study NeuroImage Clin 18 2018 510 517 29560307 10.1016/j.nicl.2018.02.022 PMC5857918",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.nicl.2018.02.022",
+    "parsed_pmid": "29560307",
+    "parsed_title": "Stress-related dysfunction of the right inferior frontal cortex in high ruminators: an fNIRS study",
+    "parsed_first_author": "rosenbaum",
+    "parsed_year": 2018,
+    "parsed_container": "NeuroImage Clin",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4744,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.nicl.2018.02.022"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20746,
+    "ordinal": 76,
+    "raw_string": "Rutherford H.J. Lindell A.K. Thriving and surviving: approach and avoidance motivation and lateralization Emot. Rev. 3 2011 333 343",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Thriving and surviving: approach and avoidance motivation and lateralization",
+    "parsed_first_author": "rutherford",
+    "parsed_year": 2011,
+    "parsed_container": "Emot. Rev.",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4745,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20747,
+    "ordinal": 77,
+    "raw_string": "Sankoh A.J. Huque M.F. Dubey S.D. Some comments on frequently used multiple endpoint adjustment methods in clinical trials Stat. Med. 16 1997 2529 2542 9403954 10.1002/(sici)1097-0258(19971130)16:22<2529::aid-sim692>3.0.co;2-j",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/(sici)1097-0258(19971130)16:22<2529::aid-sim692>3.0.co;2-j",
+    "parsed_pmid": "9403954",
+    "parsed_title": "Some comments on frequently used multiple endpoint adjustment methods in clinical trials",
+    "parsed_first_author": "sankoh",
+    "parsed_year": 1997,
+    "parsed_container": "Stat. Med.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4750,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/(sici)1097-0258(19971130)16:22<2529::aid-sim692>3.0.co;2-j"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20748,
+    "ordinal": 78,
+    "raw_string": "Schienle A. Schäfer A. Hermann A. Rohrmann S. Vaitl D. Symptom provocation and reduction in patients suffering from spider phobia Eur. Arch. Psychiatry Clin. Neurosci. 257 2007 486 493 17902000 10.1007/s00406-007-0754-y",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s00406-007-0754-y",
+    "parsed_pmid": "17902000",
+    "parsed_title": "Symptom provocation and reduction in patients suffering from spider phobia",
+    "parsed_first_author": "schienle",
+    "parsed_year": 2007,
+    "parsed_container": "Eur. Arch. Psychiatry Clin. Neurosci.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4751,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s00406-007-0754-y"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20749,
+    "ordinal": 79,
+    "raw_string": "Schienle A. Schäfer A. Stark R. Vaitl D. Long-term effects of cognitive behavior therapy on brain activation in spider phobia Psychiatry Res. Neuroimaging 172 2009 99 102 10.1016/j.pscychresns.2008.11.005 19321317",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.pscychresns.2008.11.005",
+    "parsed_pmid": "19321317",
+    "parsed_title": "Long-term effects of cognitive behavior therapy on brain activation in spider phobia",
+    "parsed_first_author": "schienle",
+    "parsed_year": 2009,
+    "parsed_container": "Psychiatry Res. Neuroimaging",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4752,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.pscychresns.2008.11.005"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20750,
+    "ordinal": 80,
+    "raw_string": "Schweckendiek J. Klucken T. Merz C.J. Tabbert K. Walter B. Ambach W. Vaitl D. Stark R. Weaving the (neuronal) web: fear learning in spider phobia Neuroimage 54 2011 681 688 20673801 10.1016/j.neuroimage.2010.07.049",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.neuroimage.2010.07.049",
+    "parsed_pmid": "20673801",
+    "parsed_title": "Weaving the (neuronal) web: fear learning in spider phobia",
+    "parsed_first_author": "schweckendiek",
+    "parsed_year": 2011,
+    "parsed_container": "Neuroimage",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4753,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.neuroimage.2010.07.049"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20751,
+    "ordinal": 81,
+    "raw_string": "Singh A.K. Okamoto M. Dan H. Jurcak V. Dan I. Spatial registration of multichannel multi-subject fNIRS data to MNI space without MRI Neuroimage 27 2005 842 851 15979346 10.1016/j.neuroimage.2005.05.019",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.neuroimage.2005.05.019",
+    "parsed_pmid": "15979346",
+    "parsed_title": "Spatial registration of multichannel multi-subject fNIRS data to MNI space without MRI",
+    "parsed_first_author": "singh",
+    "parsed_year": 2005,
+    "parsed_container": "Neuroimage",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 2657,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.neuroimage.2005.05.019"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20752,
+    "ordinal": 82,
+    "raw_string": "Sloan T. Telch M.J. The effects of safety-seeking behavior and guided threat reappraisal on fear reduction during exposure: an experimental investigation Behav. Res. Ther. 40 2002 235 251 11863235 10.1016/s0005-7967(01)00007-9",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s0005-7967(01)00007-9",
+    "parsed_pmid": "11863235",
+    "parsed_title": "The effects of safety-seeking behavior and guided threat reappraisal on fear reduction during exposure: an experimental investigation",
+    "parsed_first_author": "sloan",
+    "parsed_year": 2002,
+    "parsed_container": "Behav. Res. Ther.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4754,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0005-7967(01)00007-9"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20753,
+    "ordinal": 83,
+    "raw_string": "Soravia L.M. Orosz A. Schwab S. Nakataki M. Wiest R. Federspiel A. CBT reduces CBF: cognitive‐behavioral therapy reduces cerebral blood flow in fear‐relevant brain regions in spider phobia Brain Behav. 6 2016 10.1002/brb3.510 PMC5036433 27688940",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/brb3.510",
+    "parsed_pmid": "27688940",
+    "parsed_title": "CBT reduces CBF: cognitive‐behavioral therapy reduces cerebral blood flow in fear‐relevant brain regions in spider phobia",
+    "parsed_first_author": "soravia",
+    "parsed_year": 2016,
+    "parsed_container": "Brain Behav.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4755,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/brb3.510"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20754,
+    "ordinal": 84,
+    "raw_string": "Sotres-Bayon F. Bush D.E. LeDoux J.E. Emotional perseveration: an update on prefrontal-amygdala interactions in fear extinction Learn. Mem. 11 2004 525 535 15466303 10.1101/lm.79504",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1101/lm.79504",
+    "parsed_pmid": "15466303",
+    "parsed_title": "Emotional perseveration: an update on prefrontal-amygdala interactions in fear extinction",
+    "parsed_first_author": "sotres bayon",
+    "parsed_year": 2004,
+    "parsed_container": "Learn. Mem.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4756,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1101/lm.79504"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20755,
+    "ordinal": 85,
+    "raw_string": "Sotres-Bayon F. Cain C.K. LeDoux J.E. Brain mechanisms of fear extinction: historical perspectives on the contribution of prefrontal cortex Biol. Psychiatry 60 2006 329 336 16412988 10.1016/j.biopsych.2005.10.012",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.biopsych.2005.10.012",
+    "parsed_pmid": "16412988",
+    "parsed_title": "Brain mechanisms of fear extinction: historical perspectives on the contribution of prefrontal cortex",
+    "parsed_first_author": "sotres bayon",
+    "parsed_year": 2006,
+    "parsed_container": "Biol. Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 2392,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.biopsych.2005.10.012"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20756,
+    "ordinal": 86,
+    "raw_string": "Spielberg J.M. Stewart J.L. Levin R.L. Miller G.A. Heller W. Prefrontal cortex, emotion, and approach/withdrawal motivation Soc. Personal. Psychol. Compass 2 2008 135 153 20574551 10.1111/j.1751-9004.2007.00064.x PMC2889703",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1751-9004.2007.00064.x",
+    "parsed_pmid": "20574551",
+    "parsed_title": "Prefrontal cortex, emotion, and approach/withdrawal motivation",
+    "parsed_first_author": "spielberg",
+    "parsed_year": 2008,
+    "parsed_container": "Soc. Personal. Psychol. Compass",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4757,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1751-9004.2007.00064.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20757,
+    "ordinal": 87,
+    "raw_string": "Straube T. Mentzel H.-J. Miltner W.H.R. Waiting for spiders: brain activation during anticipatory anxiety in spider phobics Neuroimage 37 2007 1427 1436 17681799 10.1016/j.neuroimage.2007.06.023",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.neuroimage.2007.06.023",
+    "parsed_pmid": "17681799",
+    "parsed_title": "Waiting for spiders: brain activation during anticipatory anxiety in spider phobics",
+    "parsed_first_author": "straube",
+    "parsed_year": 2007,
+    "parsed_container": "Neuroimage",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4758,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.neuroimage.2007.06.023"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20758,
+    "ordinal": 88,
+    "raw_string": "Strigo I.A. Simmons A.N. Matthews S.C. Craig A.D. The relationship between amygdala activation and passive exposure time to an aversive cue during a continuous performance task PLoS ONE 5 2010 e15093 21124739 10.1371/journal.pone.0015093 PMC2993966",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1371/journal.pone.0015093",
+    "parsed_pmid": "21124739",
+    "parsed_title": "The relationship between amygdala activation and passive exposure time to an aversive cue during a continuous performance task",
+    "parsed_first_author": "strigo",
+    "parsed_year": 2010,
+    "parsed_container": "PLoS ONE",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4759,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1371/journal.pone.0015093"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20759,
+    "ordinal": 89,
+    "raw_string": "Sy J.T. Dixon L.J. Lickel J.J. Nelson E.A. Deacon B.J. Failure to replicate the deleterious effects of safety behaviors in exposure therapy Behav. Res. Ther. 49 2011 305 314 21397895 10.1016/j.brat.2011.02.005",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.brat.2011.02.005",
+    "parsed_pmid": "21397895",
+    "parsed_title": "Failure to replicate the deleterious effects of safety behaviors in exposure therapy",
+    "parsed_first_author": "sy",
+    "parsed_year": 2011,
+    "parsed_container": "Behav. Res. Ther.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4760,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.brat.2011.02.005"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20760,
+    "ordinal": 90,
+    "raw_string": "Tsuzuki D. Dan I. Spatial registration for functional near-infrared spectroscopy: from channel position on the scalp to cortical location in individual and group analyses NeuroImage, Celebrating 20 Years of Functional Near Infrared Spectroscopy (fNIRS) 85 2014 92 103 10.1016/j.neuroimage.2013.07.025 23891905",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.neuroimage.2013.07.025",
+    "parsed_pmid": "23891905",
+    "parsed_title": "Spatial registration for functional near-infrared spectroscopy: from channel position on the scalp to cortical location in individual and group analyses",
+    "parsed_first_author": "tsuzuki",
+    "parsed_year": 2014,
+    "parsed_container": "NeuroImage, Celebrating 20 Years of Functional Near Infrared Spectroscopy (fNIRS)",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3121,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.neuroimage.2013.07.025"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20761,
+    "ordinal": 91,
+    "raw_string": "Tsuzuki D. Jurcak V. Singh A.K. Okamoto M. Watanabe E. Dan I. Virtual spatial registration of stand-alone fNIRS data to MNI space Neuroimage 34 2007 1506 1518 17207638 10.1016/j.neuroimage.2006.10.043",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.neuroimage.2006.10.043",
+    "parsed_pmid": "17207638",
+    "parsed_title": "Virtual spatial registration of stand-alone fNIRS data to MNI space",
+    "parsed_first_author": "tsuzuki",
+    "parsed_year": 2007,
+    "parsed_container": "Neuroimage",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4761,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.neuroimage.2006.10.043"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20762,
+    "ordinal": 92,
+    "raw_string": "Wendt J. Lotze M. Weike A.I. Hosten N. Hamm A.O. Brain activation and defensive response mobilization during sustained exposure to phobia-related and other affective pictures in spider phobia Psychophysiology 45 2008 205 215 17995911 10.1111/j.1469-8986.2007.00620.x",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1469-8986.2007.00620.x",
+    "parsed_pmid": "17995911",
+    "parsed_title": "Brain activation and defensive response mobilization during sustained exposure to phobia-related and other affective pictures in spider phobia",
+    "parsed_first_author": "wendt",
+    "parsed_year": 2008,
+    "parsed_container": "Psychophysiology",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4762,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1469-8986.2007.00620.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20763,
+    "ordinal": 93,
+    "raw_string": "Wittchen H.-.U. Wunderlich U. Gruschwitz S. Zaudig M. SKID I. Strukturiertes Klinisches Interview für DSM-IV. Achse I: Psychische Störungen. Interviewheft und Beurteilungsheft. Eine deutschsprachige, Erweiterte Bearb. d. Amerikanischen Originalversion Des SKID I 1997 Hogrefe, Göttingen",
+    "citation_tag": "element-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "SKID I. Strukturiertes Klinisches Interview für DSM-IV. Achse I: Psychische Störungen. Interviewheft und Beurteilungsheft. Eine deutschsprachige, Erweiterte Bearb. d. Amerikanischen Originalversion Des SKID I",
+    "parsed_first_author": "wittchen",
+    "parsed_year": 1997,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4768,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20764,
+    "ordinal": 94,
+    "raw_string": "Wolitzky-Taylor K.B. Horowitz J.D. Powers M.B. Telch M.J. Psychological approaches in the treatment of specific phobias: a meta-analysis Clin. Psychol. Rev. 28 2008 1021 1037 18410984 10.1016/j.cpr.2008.02.007",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.cpr.2008.02.007",
+    "parsed_pmid": "18410984",
+    "parsed_title": "Psychological approaches in the treatment of specific phobias: a meta-analysis",
+    "parsed_first_author": "wolitzky taylor",
+    "parsed_year": 2008,
+    "parsed_container": "Clin. Psychol. Rev.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4769,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.cpr.2008.02.007"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20765,
+    "ordinal": 95,
+    "raw_string": "Zhang X. Noah J.A. Hirsch J. Separation of the global and local components in functional near-infrared spectroscopy signals using principal component spatial filtering Neurophotonics 3 2016 015004 10.1117/1.NPh.3.1.015004 PMC4742567 26866047",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1117/1.nph.3.1.015004",
+    "parsed_pmid": "26866047",
+    "parsed_title": "Separation of the global and local components in functional near-infrared spectroscopy signals using principal component spatial filtering",
+    "parsed_first_author": "zhang",
+    "parsed_year": 2016,
+    "parsed_container": "Neurophotonics",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4770,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1117/1.nph.3.1.015004"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20766,
+    "ordinal": 96,
+    "raw_string": "Zilverstand A. Sorger B. Kaemingk A. Goebel R. Quantitative representations of an exaggerated anxiety response in the brain of female spider phobics—a parametric fMRI study Hum. Brain Mapp. 38 2017 3025 3038 28321945 10.1002/hbm.23571 PMC6867041",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/hbm.23571",
+    "parsed_pmid": "28321945",
+    "parsed_title": "Quantitative representations of an exaggerated anxiety response in the brain of female spider phobics—a parametric fMRI study",
+    "parsed_first_author": "zilverstand",
+    "parsed_year": 2017,
+    "parsed_container": "Hum. Brain Mapp.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4771,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/hbm.23571"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.996
+    },
+    "notices": []
+   }
+  ],
+  "stat_tests": [
+   {
+    "stat_test_id": 489,
+    "location": "Results",
+    "raw_string": "F(2,56)=62.209, p<.001"
+   },
+   {
+    "stat_test_id": 490,
+    "location": "Results",
+    "raw_string": "F(2,56)=86.760, p<.001"
+   },
+   {
+    "stat_test_id": 491,
+    "location": "Results",
+    "raw_string": "F(2,56)=45.492, p<.001"
+   },
+   {
+    "stat_test_id": 492,
+    "location": "Results",
+    "raw_string": "F(2,56)=158.544, p<.001"
+   },
+   {
+    "stat_test_id": 493,
+    "location": "Results",
+    "raw_string": "t(29)=9.71, p<.001"
+   },
+   {
+    "stat_test_id": 494,
+    "location": "Results",
+    "raw_string": "t(29)=15.847, p<.001"
+   },
+   {
+    "stat_test_id": 495,
+    "location": "Results",
+    "raw_string": "t(29)=13.942, p>.001"
+   },
+   {
+    "stat_test_id": 496,
+    "location": "Results",
+    "raw_string": "t(29)=36.163, p<.001"
+   },
+   {
+    "stat_test_id": 497,
+    "location": "Results",
+    "raw_string": "t(14)=2.447, p<.05"
+   },
+   {
+    "stat_test_id": 498,
+    "location": "Results",
+    "raw_string": "t(14) = 0.330, p > .1"
+   },
+   {
+    "stat_test_id": 499,
+    "location": "Results",
+    "raw_string": "t(14) = 0.816, p > .1"
+   },
+   {
+    "stat_test_id": 500,
+    "location": "Results",
+    "raw_string": "t(14) = -0.323, p > .1"
+   },
+   {
+    "stat_test_id": 501,
+    "location": "Results",
+    "raw_string": "χ²(4)=115.235, p<.000"
+   },
+   {
+    "stat_test_id": 502,
+    "location": "Results",
+    "raw_string": "χ²(2)=216.98, p<.000"
+   },
+   {
+    "stat_test_id": 503,
+    "location": "Results",
+    "raw_string": "χ²(8)=267.03, p<.000"
+   },
+   {
+    "stat_test_id": 504,
+    "location": "Results",
+    "raw_string": "χ²(32)=142.01, p<.000"
+   },
+   {
+    "stat_test_id": 505,
+    "location": "Results",
+    "raw_string": "χ²(16)=50.304, p<.000"
+   },
+   {
+    "stat_test_id": 506,
+    "location": "Results",
+    "raw_string": "F(2,58)=280.843, p<.001"
+   },
+   {
+    "stat_test_id": 507,
+    "location": "Results",
+    "raw_string": "F(2,58)=92.04, p<.001"
+   },
+   {
+    "stat_test_id": 508,
+    "location": "Results",
+    "raw_string": "F(2,58)=15.725, p<.001"
+   },
+   {
+    "stat_test_id": 509,
+    "location": "Results",
+    "raw_string": "F(2,58)=59.694, p<.001"
+   },
+   {
+    "stat_test_id": 510,
+    "location": "Results",
+    "raw_string": "F(2,58)=38.138, p<.001"
+   },
+   {
+    "stat_test_id": 511,
+    "location": "Results",
+    "raw_string": "F(1,29)=357.183, p<.001"
+   },
+   {
+    "stat_test_id": 512,
+    "location": "Results",
+    "raw_string": "F(1,29)=100.191, p<.001"
+   },
+   {
+    "stat_test_id": 513,
+    "location": "Results",
+    "raw_string": "F(1,29)=16.227, p<.001"
+   },
+   {
+    "stat_test_id": 514,
+    "location": "Results",
+    "raw_string": "F(1,29)=15.289, p<.001"
+   },
+   {
+    "stat_test_id": 515,
+    "location": "Results",
+    "raw_string": "F(1,29)=16.170, p<.001"
+   },
+   {
+    "stat_test_id": 516,
+    "location": "Results",
+    "raw_string": "F(1,29)=14.107, p<.001"
+   },
+   {
+    "stat_test_id": 517,
+    "location": "Results",
+    "raw_string": "F(1,29)=15.289, p<.001"
+   },
+   {
+    "stat_test_id": 518,
+    "location": "Results",
+    "raw_string": "F(1,29)=38.554, p<.001"
+   },
+   {
+    "stat_test_id": 519,
+    "location": "Results",
+    "raw_string": "F(1,29)=29.397, p<.001"
+   },
+   {
+    "stat_test_id": 520,
+    "location": "Results",
+    "raw_string": "F(1,29)=27.968, p<.001"
+   },
+   {
+    "stat_test_id": 521,
+    "location": "Results",
+    "raw_string": "F(8,232)=3.194, p<.01"
+   },
+   {
+    "stat_test_id": 522,
+    "location": "Results",
+    "raw_string": "F(1,29)=11.186, p<.01"
+   },
+   {
+    "stat_test_id": 523,
+    "location": "Results",
+    "raw_string": "F(1,29)=6.645,p<.05"
+   },
+   {
+    "stat_test_id": 524,
+    "location": "Results",
+    "raw_string": "F(1,29)=21.361, p<.001"
+   },
+   {
+    "stat_test_id": 525,
+    "location": "Results",
+    "raw_string": "F(2,58)=5.030, p<.05"
+   },
+   {
+    "stat_test_id": 526,
+    "location": "Results",
+    "raw_string": "F(4,116)=4.298, p<.01"
+   },
+   {
+    "stat_test_id": 527,
+    "location": "Results",
+    "raw_string": "F(1,29)=7.397, p<.05"
+   },
+   {
+    "stat_test_id": 528,
+    "location": "Results",
+    "raw_string": "F(1,29)=9.944, p<.01"
+   },
+   {
+    "stat_test_id": 529,
+    "location": "Results",
+    "raw_string": "F(8,232)=2179, p<.05"
+   },
+   {
+    "stat_test_id": 530,
+    "location": "Results",
+    "raw_string": "F(1,29)=9.819, p<.01"
+   },
+   {
+    "stat_test_id": 531,
+    "location": "Results",
+    "raw_string": "F(1,29)=8.191, p<.01"
+   },
+   {
+    "stat_test_id": 532,
+    "location": "Results",
+    "raw_string": "F(2,58)=3.497, p<.05"
+   },
+   {
+    "stat_test_id": 533,
+    "location": "Results",
+    "raw_string": "F(4,116)=10.604, p<.001"
+   },
+   {
+    "stat_test_id": 534,
+    "location": "Results",
+    "raw_string": "F(1,29)=6.013, p<.05"
+   },
+   {
+    "stat_test_id": 535,
+    "location": "Results",
+    "raw_string": "F(1,29)=8.244, p<.01"
+   },
+   {
+    "stat_test_id": 536,
+    "location": "Results",
+    "raw_string": "F(1,29)=17.370, p<.001"
+   }
+  ],
+  "means": [],
+  "trials": []
+ }
+}

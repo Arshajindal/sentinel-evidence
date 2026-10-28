@@ -12,6 +12,7 @@ replaced with `REDACTED`, keeping the keys so stripping can be tested.
 | `lookups/` | Crossref, OpenAlex and doi.org responses for DOI 10.1093/aje/kwj325 and test DOIs | 2026-10-25 | ORCIDs, affiliations; **abstracts removed** (publisher copyright) | Bibliographic metadata only. Crossref treats it as facts with no reuse restriction, abstracts excepted; OpenAlex metadata is CC0 (help.openalex.org/data/licenses). |
 | `references/` | 50 reference strings from corpus papers' bibliographies, with hand-written expected fields | 2026-10-25 | none needed (citations) | Citations from the articles above and other corpus papers. |
 | `c01/`, `c02/` | Stored references and resolution trails from the corpus, with hand-written labels | 2026-10-25 | inherits the above | as above |
+| `set/` | The §9.9 fixture set: 35 papers (34 from corpus `pmc-rct-2015-2024`, plus PMC7052980 from corpus `fixtures-in-press`, chosen as a real "retracted while in press" citation) and 11 ClinicalTrials.gov trials. Each file is the exact check input frozen from the database by `set/freeze.py`, plus hand-written `expected` findings and `notes` | 2026-10-27 | no author or affiliation of the citing paper is stored; trials keep only identifiers, status, oversight, design, outcomes and site countries (facilities and cities dropped) | Citations and bibliographic metadata as above; registry data as above |
 
 Constructed data: the C02 "retracted while in press" band and its edge rules,
 C05 branch cases, and C01 rule cases are built in the test files themselves,

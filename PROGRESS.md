@@ -33,7 +33,7 @@ Low friction or it rots. The rules:
 
 **Phase:** 1 of 5 — data foundation and deterministic checks
 **Plan:** `docs/sentinel-project.md` §15 session IDs. Old brief and HTML spec are in `docs/archive/`.
-**Last worked:** 2026-10-26 — S1.13 (C04 GRIM)
+**Last worked:** 2026-10-27 — S1.14 (fixture set, `stats`, `export`)
 
 **Sessions:**
 
@@ -52,18 +52,19 @@ Low friction or it rots. The rules:
 | S1.11 C02 | done | `checks/c02_retraction.py` (ADR-036): three timing bands, plus a low band for retract-and-replace. Fixture: 12 real papers (after-grace, before, replaced, concern, corrected) plus constructed in-press and edge cases. Corpus: 6 citations in 5 papers made more than 6 months after a plain retraction. |
 | S1.12 Statistic extraction + C03 | done | `parse/statistics.py`, `ingest/fulltext_stats.py` (`sentinel extract stats`), `checks/c03_statcheck.py` (ADR-037). All five §9.7 patterns parse; the one-tailed rule is tested; 22 real corpus statistics in the tests. Corpus: 332 tests in 32 papers, 16 low flags in 7 papers, none gross. |
 | S1.13 C04 | done | `checks/c04_grim.py` (ADR-038): gate conditions each tested in both directions, arithmetic verified against brute force. No mean extraction in Phase 1, so the corpus is all `not_applicable`, as ADR-021 expected. |
-| S1.14 – S1.15 | not started | |
+| S1.14 Fixture set + `stats` + `export` | done | 46 real fixtures (35 papers, 11 trials) in `tests/fixtures/set/` with hand-checked expected findings; all five checks match them exactly, with zero unexpected findings and zero flags on the 8 clean papers (ADR-040). Building the set found 3 C01 false positives and a C02 wording bug, all fixed (C01 1.0.1, C02 1.0.1, HTML entities decoded in titles). `stage_run` (migration `b41d7c2e9a10`) times ingest, resolve and extract; `sentinel stats --run N` and `sentinel export --run N --format csv\|json` (ADR-039). Run 17 over the 34 corpus fixture papers demonstrates both. |
+| S1.15 | not started | |
 
-**What works:** corpus selection and harvest; DOI lookups; parsing and resolution; statistic extraction; all five checks via `sentinel check` (C01–C04 over papers, C05 over trials); `sentinel report` for trials and papers. 596 tests: 581 run without a database, and the other 15 need `TEST_DATABASE_URL` (not set up yet).
+**What works:** corpus selection and harvest; DOI lookups; parsing and resolution; statistic extraction; all five checks via `sentinel check` (C01–C04 over papers, C05 over trials); `sentinel report` for trials and papers; `sentinel stats` and `sentinel export`; stage timing. 672 tests, all passing, including the database tests against `sentinel_test` and the 46-item fixture set.
 
-**What's broken:** nothing known. PMC6561645's full text returns a persistent HTTP 500 upstream, so it's stored without references (a re-run retries it). The DB tests skip on the dev DB now that it holds real data; a disposable `sentinel_test` database is still to be created.
+**What's broken:** nothing known. PMC6561645's full text returns a persistent HTTP 500 upstream, so it's stored without references (a re-run retries it). 133 corpus references left unresolved or ambiguous on 2026-10-25, before the glued-text fix, have never been retried; S1.15 should retry them.
 
 **Next three things:**
-1. S1.14: Complete the fixture set (30–50 papers and trials, §9.9), plus `sentinel stats` and `sentinel export`
-2. S1.15: Full corpus run (resolve the ~36,900 pending references) and README; the end of Phase 1, checked against §9.10
-3. Before S1.14: create `sentinel_test` so the 15 database tests run
+1. S1.15: Full corpus run: resolve the ~35,700 pending references, retry the 133 from before the glued-text fix, then `sentinel check` and `sentinel stats` on the whole corpus
+2. S1.15: README covering setup, each check and its known limits; then check every item of §9.10. **This ends Phase 1.**
+3. Change the local database password from the `.env.example` placeholder (and update both URLs in `.env`)
 
-**Then:** S1.14 onward. Open from S1.9/S1.10: a DOI pointing at a differently titled paper (title agreement is recorded) has no check yet; decide whether it belongs in C01 or a new check. Target: `sentinel report <nct-id>` prints a real overdue-results finding.
+**Then:** Phase 2 after S1.15. Open from S1.9/S1.10: a DOI pointing at a differently titled paper (title agreement is recorded) has no check yet; decide whether it belongs in C01 or a new check. Target: `sentinel report <nct-id>` prints a real overdue-results finding.
 
 **Blocked on:** nothing.
 
@@ -579,6 +580,71 @@ Each condition is tested in both directions.
 
 ---
 
+### ADR-039 — Stage timing in `stage_run`; `stats` and `export` read runs
+**Status:** active
+
+§9.8 asks `sentinel stats` for wall time per stage and says to build it in from the start, but only check runs had any timing. **Your choice:** a new `stage_run` table (migration `b41d7c2e9a10`). `ingest`, `resolve` and `extract stats` each write one row: stage, source, corpus, start, end, status (`done`, `failed`, or `stopped` when the OpenAlex budget runs out), item count and counts. The row is written at the start, so a killed run still shows when it began. One-off lookups (`--doi`, `--nct`) aren't recorded.
+
+Check runs keep their timing in `check_run`, and `counts` now also holds:
+- each check's wall time, plus context loading;
+- a **snapshot of the cascade** over the run's papers, counted by status, by resolving method, and by the candidate pass that found title matches.
+
+The snapshot is needed because re-resolution overwrites `reference`, so the ratios a run saw can't be rebuilt later.
+
+`sentinel stats --run N [--format json]` shows:
+- each check's flag rate, defined as subjects with at least one flag divided by subjects where the check applied (not every finding `not_applicable`);
+- each check's status counts, and its flags by severity;
+- the cascade snapshot;
+- the summed time of that corpus's stage runs, plus corpus-wide stage runs, started before the check run.
+
+Runs from before this ADR show "not recorded" rather than zeros.
+
+`sentinel export --run N --format csv|json --out PATH` writes one row per finding with the subject's identifiers. Summaries can quote paper text, which is untrusted. In CSV, a cell starting with `= + - @`, a tab or a carriage return gets a leading apostrophe so a spreadsheet can't run it. JSON keeps values exactly.
+
+**Rejected:**
+- Timing only in `check_run.counts`: no ingest or resolve times, and S1.15's 36,900-reference resolve would go unmeasured.
+- Rebuilding cascade ratios from `reference` at `stats` time: wrong after any `--retry`.
+
+---
+
+### ADR-040 — The §9.9 fixture set: frozen check inputs, exact expected findings
+**Status:** active
+
+`tests/fixtures/set/` holds 46 real items: 35 papers and 11 trials. Each file is the exact context the checks receive, frozen from the database by `set/freeze.py`, plus hand-written `expected` findings and `notes`. `test_fixture_set.py` runs all five checks with the thresholds in `.env.example`, so changing a threshold there forces the fixtures to be rechecked. It asserts the findings equal `expected` exactly: check ID, status, severity, which reference or statistic each per-item finding is about, and C02's band. An extra or missing finding fails.
+
+How expectations were made:
+- Every flag (6 C01, 11 C02, 16 C03, 3 C05) was checked by hand and carries a `why`:
+  - C01: Crossref and OpenAlex searched by hand.
+  - C02: the notice, its DOI and the month count recomputed.
+  - C03: p recomputed with scipy over every statistic value that rounds to the printed one, and the sentence read in the full text.
+  - C05: registry dates recomputed.
+- Summaries and the unresolved references' classes were reviewed. The writer script refuses any flag without a written reason.
+
+**Coverage of §9.9:**
+- C02: 9 papers, covering all three timing bands, plus retract-and-replace and an expression of concern.
+- C03: 7 papers with hand-checked inconsistencies.
+- C01: 5 papers with books, reports and package inserts, none flagged.
+- 8 clean papers with no flags.
+- C05: 3 overdue trials, 3 with results posted, and 5 out of scope (Phase 1, observational, outside FDAAA, before FDAAA, terminated).
+- Edge cases: Unicode first authors, 27 DOIs with a trailing period, and references with no year.
+- The four earlier false positives are included: C03's Wilcoxon Z, `p = .001` and `p < .000`, plus this session's three C01 cases.
+
+The corpus has no real "retracted while in press" citation, so one was found outside it. A Europe PMC `CITES:` search found PMC7052980, published 52 days after a work it cites was retracted. It was added as its own one-paper corpus, `fixtures-in-press` (query `PMCID:PMC7052980`), through the normal `corpus select`, `ingest`, `extract stats` and `resolve` commands, so the main corpus is untouched.
+
+C04 is `not_applicable` on every paper, as ADR-038 expects. Its constructed cases stay in `test_c04.py`.
+
+Building the set found **3 C01 false positives and 1 wording bug**. All are fixed and kept as fixtures; see the failure log.
+- C01 1.0.1: a container naming a handbook or encyclopedia counts as non-journal.
+- `normalize_title` decodes HTML entities.
+- C02 1.0.1: "1 month", not "1 months".
+
+**Rejected:**
+- Constructed contexts for the set: §9.9 asks for real papers.
+- Expectations limited to flags: an unexpected summary status must fail too.
+- Storing only reference IDs and loading from the database: tests never touch live data.
+
+---
+
 ### ADR-0NN — template
 **Status:** active
 
@@ -672,6 +738,17 @@ What happened. What you expected instead. Root cause. What changed as a result. 
 
 **2026-10-18 · ClinicalTrials.gov OpenAPI URL in ADR-019 returns 404**
 `/api/oas/v2/ctg-oas-v2.yaml` is gone; the spec is served as YAML at `/api/oas/v2`. Found while confirming endpoints before S1.4. Fixed in `config.py` and `.env.example`. A URL written from memory or from an old doc rots; confirm each one live.
+
+**2026-10-27 · Building the fixture set found three C01 false positives**
+Each flag was searched by hand in Crossref and OpenAlex before being accepted, and three were real works:
+- **Davidson 1989, "Handb. Neuropsychol.":** a handbook chapter that the XML tags as a journal article. C01 removes the container name before looking for book cues, and its cue list only had "handbook" spelled out. A book named as the container now counts as non-journal (C01 1.0.1).
+- **Kannaiyan 2022:** Crossref lists the work with the author's names swapped, and its title contains `&amp;`. The entity put an "amp" token into `title_norm`, which held similarity at 0.849, just under the 0.85 same-title rule. `normalize_title` now decodes entities. The 22 stored titles with entities were re-normalised, and the reference now scores 0.870, a probable match.
+- **Proulx 2017:** resolved on 2026-10-25, before the glued-text fix (committed 2026-10-26). Re-resolved now, it matches OpenAlex by exact title.
+
+152 references came out unresolved or ambiguous before that fix. The 19 in fixture papers were retried now, and 1 changed; the other 133 should be retried in S1.15. Separately, C02 printed "(1 months before publication)", found on the real in-press case and fixed in C02 1.0.1.
+
+**2026-10-27 · TEST_DATABASE_URL in .env broke every command**
+In S1.6 I assumed pydantic-settings ignores `.env` keys without the `SENTINEL_` prefix. It doesn't: with `extra="forbid"`, `TEST_DATABASE_URL` made settings fail to load, so every `sentinel` command and many tests failed as soon as the test database was configured. `config.py` now passes only `SENTINEL_` keys from `.env` to validation, so other tools' keys are ignored and a misspelt `SENTINEL_` key still fails. Tests in `test_config.py`. With the test database in place the full suite runs: 598 passed, 0 skipped.
 
 **2026-10-26 · C03's first corpus pass flagged things no reviewer would**
 Before precision rules, 7 "gross" z-flags in one paper were "Z = 0.777, p = 0.002" inside Wilcoxon reports, where Z was an effect size and p came from the exact V test. Another 10 flags were "p = .001" used as a floor and "p < .000". Each was caught by reading the sentence behind every flag before trusting the count. Rules were added (ADR-037), and a third (accepting truncation) was tried and backed out when it made §9.7's own inconsistent example pass. The run made with the pre-fix logic (run 14) was deleted, so check version 1.0.0 names one set of rules.

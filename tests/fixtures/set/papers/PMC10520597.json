@@ -1,0 +1,1643 @@
+{
+ "id": "PMC10520597",
+ "subject": "paper",
+ "categories": [
+  "c03_inconsistent"
+ ],
+ "source": {
+  "corpus": "pmc-rct-2015-2024",
+  "paper_id": 434,
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "36 tests rechecked, 4 inconsistent.",
+ "expected": [
+  {
+   "check": "C01",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C02",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C03",
+   "status": "flagged",
+   "severity": "low",
+   "item": "stat 5",
+   "why": "t(168.81) = 0.018 gives p 0.986, reported 0.86. Recomputed with scipy over every statistic value that rounds to the printed one: the reported p is outside the range, and it doesn't cross alpha = 0.05, so low. Sentence read in the full text: the extraction is faithful."
+  },
+  {
+   "check": "C03",
+   "status": "flagged",
+   "severity": "low",
+   "item": "stat 8",
+   "why": "F(1,74) = 0.876 gives p 0.352, reported 0.38. Recomputed with scipy over every statistic value that rounds to the printed one: the reported p is outside the range, and it doesn't cross alpha = 0.05, so low. Sentence read in the full text: the extraction is faithful."
+  },
+  {
+   "check": "C03",
+   "status": "flagged",
+   "severity": "low",
+   "item": "stat 32",
+   "why": "t(37) = 1.34 gives p 0.187-0.190, reported 0.17. Recomputed with scipy over every statistic value that rounds to the printed one: the reported p is outside the range, and it doesn't cross alpha = 0.05, so low. Sentence read in the full text: the extraction is faithful."
+  },
+  {
+   "check": "C03",
+   "status": "flagged",
+   "severity": "low",
+   "item": "stat 36",
+   "why": "F(1,74) = 1.39 gives p 0.242, reported 0.41. Recomputed with scipy over every statistic value that rounds to the printed one: the reported p is outside the range, and it doesn't cross alpha = 0.05, so low. Sentence read in the full text: the extraction is faithful."
+  },
+  {
+   "check": "C03",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C04",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "paper_id": 434,
+  "publication_date": "2023-01-09",
+  "fulltext_status": "full",
+  "references": [
+   {
+    "reference_id": 16843,
+    "ordinal": 1,
+    "raw_string": "Angst, J., Azorin, J.-M., Bowden, C.L., Perugi, G.., Vieta, E., Gamma, A., … BRIDGE Study Group (2011). Prevalence and characteristics of undiagnosed bipolar disorders in patients with a major depressive episode: The BRIDGE study. Archives of General Psychiatry, 68 (8), 791–798. doi: 10.1001/arcgenpsychiatry.2011.87 21810644",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1001/arcgenpsychiatry.2011.87",
+    "parsed_pmid": "21810644",
+    "parsed_title": "Prevalence and characteristics of undiagnosed bipolar disorders in patients with a major depressive episode: The BRIDGE study",
+    "parsed_first_author": "angst",
+    "parsed_year": 2011,
+    "parsed_container": "Archives of General Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "pmid",
+    "resolved_paper_id": 4452,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "doi_not_found",
+       "doi_org_registered": false
+      },
+      {
+       "stage": 2,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "pmid:21810644"
+      ],
+      "doi_handle": 1,
+      "crossref_doi": 1,
+      "openalex_doi": 1,
+      "openalex_pmid": 1
+     },
+     "title_agreement": 0.926
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16844,
+    "ordinal": 2,
+    "raw_string": "Baert, S., De Raedt, R., Schacht, R., & Koster, E. H. W. (2010). Attentional bias training in depression: Therapeutic effects depend on depression severity. Journal of Behavior Therapy and Experimental Psychiatry, 41(3), 265–274. doi: 10.1016/j.jbtep.2010.02.004 20227062",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.jbtep.2010.02.004",
+    "parsed_pmid": "20227062",
+    "parsed_title": "Attentional bias training in depression: Therapeutic effects depend on depression severity",
+    "parsed_first_author": "baert",
+    "parsed_year": 2010,
+    "parsed_container": "Journal of Behavior Therapy and Experimental Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4453,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.jbtep.2010.02.004"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16845,
+    "ordinal": 3,
+    "raw_string": "Basanovic, J., Grafton, B., Ford, A., Hirani, V., Glance, D., MacLeod, C., & Almeida, O. P. (2020). Cognitive bias modification to prevent depression (COPE): Results of a randomised controlled trial. Psychological Medicine, 50(15), 2514–2525. doi: 10.1017/S0033291719002599 31544719",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1017/s0033291719002599",
+    "parsed_pmid": "31544719",
+    "parsed_title": "Cognitive bias modification to prevent depression (COPE): Results of a randomised controlled trial",
+    "parsed_first_author": "basanovic",
+    "parsed_year": 2020,
+    "parsed_container": "Psychological Medicine",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4454,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1017/s0033291719002599"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16846,
+    "ordinal": 4,
+    "raw_string": "Bates, D., Mächler, M., Bolker, B., & Walker, S. (2015). Fitting linear mixed-effects models using lme4. Journal of Statistical Software, 67(1), 1–48. doi: 10.18637/jss.v067.i01",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.18637/jss.v067.i01",
+    "parsed_pmid": null,
+    "parsed_title": "Fitting linear mixed-effects models using lme4",
+    "parsed_first_author": "bates",
+    "parsed_year": 2015,
+    "parsed_container": "Journal of Statistical Software",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 1699,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.18637/jss.v067.i01"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16847,
+    "ordinal": 5,
+    "raw_string": "Beck, A. T., Epstein, N., Brown, G., & Steer, R. A. (1988a). An inventory for measuring clinical anxiety: Psychometric properties. Journal of Consulting and Clinical Psychology, 56(6), 893.3204199 10.1037//0022-006x.56.6.893",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1037//0022-006x.56.6.893",
+    "parsed_pmid": "3204199",
+    "parsed_title": "An inventory for measuring clinical anxiety: Psychometric properties",
+    "parsed_first_author": "beck",
+    "parsed_year": null,
+    "parsed_container": "Journal of Consulting and Clinical Psychology",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4455,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1037//0022-006x.56.6.893"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16848,
+    "ordinal": 6,
+    "raw_string": "Beck, A. T., Steer, R. A., & Carbin, M. G. (1988b). Psychometric properties of the Beck Depression Inventory: Twenty-five years of evaluation. Clinical Psychology Review, 8(1), 77–100.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Psychometric properties of the Beck Depression Inventory: Twenty-five years of evaluation",
+    "parsed_first_author": "beck",
+    "parsed_year": null,
+    "parsed_container": "Clinical Psychology Review",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4456,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16849,
+    "ordinal": 7,
+    "raw_string": "Blackwell, S., Woud, M., & Macleod, C. (2017). A question of control? Examining the role of control conditions in experimental psychopathology using the example of cognitive bias modification research. The Spanish Journal of Psychology, 20, E54. doi: 10.1017/sjp.2017.41 29072159",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1017/sjp.2017.41",
+    "parsed_pmid": "29072159",
+    "parsed_title": "A question of control? Examining the role of control conditions in experimental psychopathology using the example of cognitive bias modification research",
+    "parsed_first_author": "blackwell",
+    "parsed_year": 2017,
+    "parsed_container": "The Spanish Journal of Psychology",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4461,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1017/sjp.2017.41"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16850,
+    "ordinal": 8,
+    "raw_string": "Blackwell, S. E. (2020). Clinical efficacy of cognitive bias modification interventions. The Lancet Psychiatry, 7(6), 465–467. doi: 10.1016/S2215-0366(20)30170-X 32445673",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s2215-0366(20)30170-x",
+    "parsed_pmid": "32445673",
+    "parsed_title": "Clinical efficacy of cognitive bias modification interventions",
+    "parsed_first_author": "blackwell",
+    "parsed_year": 2020,
+    "parsed_container": "The Lancet Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4462,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s2215-0366(20)30170-x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16851,
+    "ordinal": 9,
+    "raw_string": "Bø, R., Kraft, B., Jonassen, R., Harmer, C. J., Hilland, E., Stiles, T. C., … Landrø, N. I. (2021). Symptom severity moderates the outcome of attention bias modification for depression: An exploratory study. Journal of Psychiatric Research, 138, 528–534. doi: 10.1016/j.jpsychires.2021.04.027 33984807",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.jpsychires.2021.04.027",
+    "parsed_pmid": "33984807",
+    "parsed_title": "Symptom severity moderates the outcome of attention bias modification for depression: An exploratory study",
+    "parsed_first_author": "bø",
+    "parsed_year": 2021,
+    "parsed_container": "Journal of Psychiatric Research",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4463,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.jpsychires.2021.04.027"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16852,
+    "ordinal": 10,
+    "raw_string": "Bø, R., Kraft, B., Joormann, J., Jonassen, R., Osnes, K., Harmer, C. J., … Landrø, N. I. (2022). Cognitive predictors of mood reactivity and recovery in depression. OSF Preprints, 1–19. doi: 10.31219/osf.io/45xfj",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.31219/osf.io/45xfj",
+    "parsed_pmid": null,
+    "parsed_title": "Cognitive predictors of mood reactivity and recovery in depression",
+    "parsed_first_author": "bø",
+    "parsed_year": 2022,
+    "parsed_container": "OSF Preprints",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4464,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.31219/osf.io/45xfj"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.721
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16853,
+    "ordinal": 11,
+    "raw_string": "Browning, M., Holmes, E. A., Charles, M., Cowen, P. J., & Harmer, C. J. (2012). Using attentional bias modification as a cognitive vaccine against depression. Biological Psychiatry, 72(7), 572–579. doi: 10.1016/j.biopsych.2012.04.014 22579509 PMC3504298",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.biopsych.2012.04.014",
+    "parsed_pmid": "22579509",
+    "parsed_title": "Using attentional bias modification as a cognitive vaccine against depression",
+    "parsed_first_author": "browning",
+    "parsed_year": 2012,
+    "parsed_container": "Biological Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4465,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.biopsych.2012.04.014"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16854,
+    "ordinal": 12,
+    "raw_string": "Burcusa, S. L., & Iacono, W. G. (2007). Risk for recurrence in depression. Clinical Psychology Review, 27(8), 959–985. doi: 10.1016/j.cpr.2007.02.005 17448579 PMC2169519",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.cpr.2007.02.005",
+    "parsed_pmid": "17448579",
+    "parsed_title": "Risk for recurrence in depression",
+    "parsed_first_author": "burcusa",
+    "parsed_year": 2007,
+    "parsed_container": "Clinical Psychology Review",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4466,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.cpr.2007.02.005"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16855,
+    "ordinal": 13,
+    "raw_string": "Chakraborty, H., & Gu, H. (2009). A mixed model approach for intent-to-treat analysis in longitudinal clinical trials with missing values [Internet]. Research Triangle Park, NC: RTI Press. doi: 10.3768/rtipress.2009.mr.0009.0903.30896910",
+    "citation_tag": "mixed-citation",
+    "publication_type": "book",
+    "parsed_doi": "10.3768/rtipress.2009.mr.0009.0903",
+    "parsed_pmid": "30896910",
+    "parsed_title": "A mixed model approach for intent-to-treat analysis in longitudinal clinical trials with missing values [Internet]",
+    "parsed_first_author": "chakraborty",
+    "parsed_year": 2009,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4467,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3768/rtipress.2009.mr.0009.0903"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.958
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16856,
+    "ordinal": 14,
+    "raw_string": "Coplan, J. D., Aaronson, C. J., Panthangi, V., & Kim, Y. (2015). Treating comorbid anxiety and depression: Psychosocial and pharmacological approaches. World Journal of Psychiatry, 5(4), 366–378. doi: 10.5498/wjp.v5.i4.366 26740928 PMC4694550",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.5498/wjp.v5.i4.366",
+    "parsed_pmid": "26740928",
+    "parsed_title": "Treating comorbid anxiety and depression: Psychosocial and pharmacological approaches",
+    "parsed_first_author": "coplan",
+    "parsed_year": 2015,
+    "parsed_container": "World Journal of Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4468,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.5498/wjp.v5.i4.366"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16857,
+    "ordinal": 15,
+    "raw_string": "Dai, Q., Hu, L., & Feng, Z. (2019). Attentional bias modification reduces clinical depression and enhances attention toward happiness. Journal of Psychiatric Research, 109, 145–155. doi: 10.1016/j.jpsychires.2018.11.024 30551021",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.jpsychires.2018.11.024",
+    "parsed_pmid": "30551021",
+    "parsed_title": "Attentional bias modification reduces clinical depression and enhances attention toward happiness",
+    "parsed_first_author": "dai",
+    "parsed_year": 2019,
+    "parsed_container": "Journal of Psychiatric Research",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4469,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.jpsychires.2018.11.024"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16858,
+    "ordinal": 16,
+    "raw_string": "de Voogd, E. L., Wiers, R. W., Prins, P. J. M., de Jong, P. J., Boendermaker, W. J., Zwitser, R. J., & Salemink, E. (2016). Online attentional bias modification training targeting anxiety and depression in unselected adolescents: Short- and long-term effects of a randomized controlled trial. Behaviour Research and Therapy, 87, 11–22. doi: 10.1016/j.brat.2016.08.018 27585484",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.brat.2016.08.018",
+    "parsed_pmid": "27585484",
+    "parsed_title": "Online attentional bias modification training targeting anxiety and depression in unselected adolescents: Short- and long-term effects of a randomized controlled trial",
+    "parsed_first_author": "de voogd",
+    "parsed_year": 2016,
+    "parsed_container": "Behaviour Research and Therapy",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4470,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.brat.2016.08.018"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16859,
+    "ordinal": 17,
+    "raw_string": "Ferrari, G. R., Becker, E. S., Smit, F., Rinck, M., & Spijker, J. (2016). Investigating the (cost-) effectiveness of attention bias modification (ABM) for outpatients with major depressive disorder (MDD): A randomized controlled trial protocol. BMC Psychiatry, 16(1), 370. doi: 10.1186/s12888-016-1085-1 27809880 PMC5094081",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1186/s12888-016-1085-1",
+    "parsed_pmid": "27809880",
+    "parsed_title": "Investigating the (cost-) effectiveness of attention bias modification (ABM) for outpatients with major depressive disorder (MDD): A randomized controlled trial protocol",
+    "parsed_first_author": "ferrari",
+    "parsed_year": 2016,
+    "parsed_container": "BMC Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4471,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/s12888-016-1085-1"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16860,
+    "ordinal": 18,
+    "raw_string": "Fodor, L. A., Georgescu, R., Cuijpers, P., Szamoskozi, Ş, David, D., Furukawa, T. A., & Cristea, I. A. (2020). Efficacy of cognitive bias modification interventions in anxiety and depressive disorders: A systematic review and network meta-analysis. The Lancet Psychiatry, 7(6), 506–514. doi: 10.1016/s2215-0366(20)30130-9 32445689",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s2215-0366(20)30130-9",
+    "parsed_pmid": "32445689",
+    "parsed_title": "Efficacy of cognitive bias modification interventions in anxiety and depressive disorders: A systematic review and network meta-analysis",
+    "parsed_first_author": "fodor",
+    "parsed_year": 2020,
+    "parsed_container": "The Lancet Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4472,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s2215-0366(20)30130-9"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16861,
+    "ordinal": 19,
+    "raw_string": "Garland, E., & Howard, M. O. (2013). A transdiagnostic perspective on cognitive, affective, and neurobiological processes underlying human suffering. Research on Social Work Practices, 24(1), 142–151. doi: 10.1177/1049731513503909",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1177/1049731513503909",
+    "parsed_pmid": null,
+    "parsed_title": "A transdiagnostic perspective on cognitive, affective, and neurobiological processes underlying human suffering",
+    "parsed_first_author": "garland",
+    "parsed_year": 2013,
+    "parsed_container": "Research on Social Work Practices",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4473,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1177/1049731513503909"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16862,
+    "ordinal": 20,
+    "raw_string": "Godlewska, B. R., & Harmer, C. J. (2021). Cognitive neuropsychological theory of antidepressant action: A modern-day approach to depression and its treatment. Psychopharmacology, 238(5), 1265–1278. doi: 10.1007/s00213-019-05448-0 31938879 PMC8062380",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s00213-019-05448-0",
+    "parsed_pmid": "31938879",
+    "parsed_title": "Cognitive neuropsychological theory of antidepressant action: A modern-day approach to depression and its treatment",
+    "parsed_first_author": "godlewska",
+    "parsed_year": 2021,
+    "parsed_container": "Psychopharmacology",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4474,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s00213-019-05448-0"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16863,
+    "ordinal": 21,
+    "raw_string": "Grafton, B., MacLeod, C., Rudaizky, D., Holmes, E. A., Salemink, E., Fox, E., & Notebaert, L. (2017). Confusing procedures with process when appraising the impact of cognitive bias modification on emotional vulnerability. British Journal of Psychiatry, 211(5), 266–271. doi: 10.1192/bjp.bp.115.176123 29092835",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1192/bjp.bp.115.176123",
+    "parsed_pmid": "29092835",
+    "parsed_title": "Confusing procedures with process when appraising the impact of cognitive bias modification on emotional vulnerability",
+    "parsed_first_author": "grafton",
+    "parsed_year": 2017,
+    "parsed_container": "British Journal of Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4475,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1192/bjp.bp.115.176123"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16864,
+    "ordinal": 22,
+    "raw_string": "Hallion, L. S., & Ruscio, A. M. (2011). A meta-analysis of the effect of cognitive bias modification on anxiety and depression. Psychological Bulletin, 137(6), 940–958. doi: 10.1037/a0024355 21728399",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1037/a0024355",
+    "parsed_pmid": "21728399",
+    "parsed_title": "A meta-analysis of the effect of cognitive bias modification on anxiety and depression",
+    "parsed_first_author": "hallion",
+    "parsed_year": 2011,
+    "parsed_container": "Psychological Bulletin",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4476,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1037/a0024355"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16865,
+    "ordinal": 23,
+    "raw_string": "Henssler, J., Heinz, A., Brandt, L., & Bschor, T. (2019). Antidepressant withdrawal and rebound phenomena. Deutsche Ärzteblatt International, 116(20), 355–361. doi: 10.3238/arztebl.2019.0355 PMC6637660 31288917",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3238/arztebl.2019.0355",
+    "parsed_pmid": "31288917",
+    "parsed_title": "Antidepressant withdrawal and rebound phenomena",
+    "parsed_first_author": "henssler",
+    "parsed_year": 2019,
+    "parsed_container": "Deutsche Ärzteblatt International",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4477,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3238/arztebl.2019.0355"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16866,
+    "ordinal": 24,
+    "raw_string": "Hur, J., Gaul, K., & Berenbaum, H. (2019). Different patterns of attention bias in worry and rumination. Cognitive Therapy and Research, 43, 713–725. doi: 10.1007/s10608-018-09993-4",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s10608-018-09993-4",
+    "parsed_pmid": null,
+    "parsed_title": "Different patterns of attention bias in worry and rumination",
+    "parsed_first_author": "hur",
+    "parsed_year": 2019,
+    "parsed_container": "Cognitive Therapy and Research",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4478,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s10608-018-09993-4"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16867,
+    "ordinal": 25,
+    "raw_string": "Jonassen, R., Harmer, C. J., Hilland, E., Maglanoc, L. A., Kraft, B., Browning, M., … Landrø, N. I. (2019). Effects of attentional bias modification on residual symptoms in depression: A randomized controlled trial. BMC Psychiatry, 19(1), 141. doi: 10.1186/s12888-019-2105-8 31068158 PMC6505271",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1186/s12888-019-2105-8",
+    "parsed_pmid": "31068158",
+    "parsed_title": "Effects of attentional bias modification on residual symptoms in depression: A randomized controlled trial",
+    "parsed_first_author": "jonassen",
+    "parsed_year": 2019,
+    "parsed_container": "BMC Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4479,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/s12888-019-2105-8"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16868,
+    "ordinal": 26,
+    "raw_string": "Joormann, J., & Gotlib, I. H. (2007). Selective attention to emotional faces following recovery from depression. Journal of Abnormal Psychology, 116(1), 80–85. doi: 10.1037/0021-843X.116.1.80 17324018",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1037/0021-843x.116.1.80",
+    "parsed_pmid": "17324018",
+    "parsed_title": "Selective attention to emotional faces following recovery from depression",
+    "parsed_first_author": "joormann",
+    "parsed_year": 2007,
+    "parsed_container": "Journal of Abnormal Psychology",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4480,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1037/0021-843x.116.1.80"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16869,
+    "ordinal": 27,
+    "raw_string": "Kessler, R. C., Berglund, P., Demler, O., Jin, R., Merikangas, K. R., & Walters, E. E. (2005). Lifetime prevalence and age-of-onset distributions of DSM-IV disorders in the National Comorbidity Survey Replication. Archives of General Psychiatry, 62(6), 593–602. doi: 10.1001/archpsyc.62.6.593 15939837",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1001/archpsyc.62.6.593",
+    "parsed_pmid": "15939837",
+    "parsed_title": "Lifetime prevalence and age-of-onset distributions of DSM-IV disorders in the National Comorbidity Survey Replication",
+    "parsed_first_author": "kessler",
+    "parsed_year": 2005,
+    "parsed_container": "Archives of General Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4481,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1001/archpsyc.62.6.593"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16870,
+    "ordinal": 28,
+    "raw_string": "Kessler, R. C., Crum, R. M., Warner, L. A., Nelson, C. B., Schulenberg, J., & Anthony, J. C. (1997). Lifetime co-occurrence of DSM-III-R alcohol abuse and dependence with other psychiatric disorders in the National Comorbidity Survey. Archives of General Psychiatry, 54(4), 313–321.9107147 10.1001/archpsyc.1997.01830160031005",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1001/archpsyc.1997.01830160031005",
+    "parsed_pmid": "9107147",
+    "parsed_title": "Lifetime co-occurrence of DSM-III-R alcohol abuse and dependence with other psychiatric disorders in the National Comorbidity Survey",
+    "parsed_first_author": "kessler",
+    "parsed_year": 1997,
+    "parsed_container": "Archives of General Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4482,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1001/archpsyc.1997.01830160031005"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16871,
+    "ordinal": 29,
+    "raw_string": "Marchetti, I., Mor, N., Chiorri, C., & Koster, E. H. W. (2018). The Brief State Rumination Inventory (BSRI): Validation and psychometric evaluation. Cognitive Therapy and Research, 42(4), 447–460. doi: 10.1007/s10608-018-9901-1",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s10608-018-9901-1",
+    "parsed_pmid": null,
+    "parsed_title": "The Brief State Rumination Inventory (BSRI): Validation and psychometric evaluation",
+    "parsed_first_author": "marchetti",
+    "parsed_year": 2018,
+    "parsed_container": "Cognitive Therapy and Research",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4483,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s10608-018-9901-1"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16872,
+    "ordinal": 30,
+    "raw_string": "McLaughlin, K. A., & Nolen-Hoeksema, S. (2011). Rumination as a transdiagnostic factor in depression and anxiety. Behaviour Research and Therapy, 49(3), 186–193. doi: 10.1016/j.brat.2010.12.006 21238951 PMC3042543",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.brat.2010.12.006",
+    "parsed_pmid": "21238951",
+    "parsed_title": "Rumination as a transdiagnostic factor in depression and anxiety",
+    "parsed_first_author": "mclaughlin",
+    "parsed_year": 2011,
+    "parsed_container": "Behaviour Research and Therapy",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4484,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.brat.2010.12.006"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16873,
+    "ordinal": 31,
+    "raw_string": "Meissel, E. E. E., Liu, H., Stevens, E. S., Evans, T. C., Britton, J. C., Letkiewicz, A. M., & Shankman, S. A. (2022). The reliability and validity of response-based measures of attention bias. Cognitive Therapy and Research, 46(1), 146–160. doi: 10.1007/s10608-021-10212-w 35330671 PMC8939897",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s10608-021-10212-w",
+    "parsed_pmid": "35330671",
+    "parsed_title": "The reliability and validity of response-based measures of attention bias",
+    "parsed_first_author": "meissel",
+    "parsed_year": 2022,
+    "parsed_container": "Cognitive Therapy and Research",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4485,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s10608-021-10212-w"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16874,
+    "ordinal": 32,
+    "raw_string": "National Institute of Health and Clinical Excellence. (2009). Treatment and management of depression in adults, including adults with a chronic physical health problem. Leicester, UK: National Institute of Health and Clinical Excellence.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Treatment and management of depression in adults, including adults with a chronic physical health problem",
+    "parsed_first_author": "national institute of health and clinical excellence",
+    "parsed_year": 2009,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": [
+      {
+       "year": 2009,
+       "paper_id": 4486,
+       "rejected": "first author 'haddad' vs 'national institute of health and clinical excellence'",
+       "similarity": 0.8764,
+       "first_author": "haddad"
+      },
+      {
+       "year": 2009,
+       "paper_id": 4489,
+       "rejected": "first author 'pilling' vs 'national institute of health and clinical excellence'",
+       "similarity": 0.6053,
+       "first_author": "pilling"
+      }
+     ]
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16875,
+    "ordinal": 33,
+    "raw_string": "Saunders, J. B., Aasland, O. G., Babor, T. F., De la Fuente, J. R., & Grant, M. (1993). Development of the alcohol use disorders identification test (AUDIT): WHO collaborative project on early detection of persons with harmful alcohol consumption-II. Addiction, 88(6), 791–804.8329970 10.1111/j.1360-0443.1993.tb02093.x",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1360-0443.1993.tb02093.x",
+    "parsed_pmid": "8329970",
+    "parsed_title": "Development of the alcohol use disorders identification test (AUDIT): WHO collaborative project on early detection of persons with harmful alcohol consumption-II",
+    "parsed_first_author": "saunders",
+    "parsed_year": 1993,
+    "parsed_container": "Addiction",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4491,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1360-0443.1993.tb02093.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16876,
+    "ordinal": 34,
+    "raw_string": "Sinha, R., & Tuit, K. L. (2012). Imagery script development procedures. New Haven, USA: Yale University School of Medicine.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Imagery script development procedures",
+    "parsed_first_author": "sinha",
+    "parsed_year": 2012,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16877,
+    "ordinal": 35,
+    "raw_string": "Spijker, J., De Graaf, R., Bijl, R., Beekman, A., Ormel, J., & Nolen, W. (2002). Duration of major depressive episodes in the general population: Results from the Netherlands Mental Health Survey and Incidence Study (NEMESIS). British Journal of Psychiatry, 181(3), 208–213. doi: 10.1192/bjp.181.3.208 12204924",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1192/bjp.181.3.208",
+    "parsed_pmid": "12204924",
+    "parsed_title": "Duration of major depressive episodes in the general population: Results from the Netherlands Mental Health Survey and Incidence Study (NEMESIS)",
+    "parsed_first_author": "spijker",
+    "parsed_year": 2002,
+    "parsed_container": "British Journal of Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4497,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1192/bjp.181.3.208"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16878,
+    "ordinal": 36,
+    "raw_string": "Uher, R., Perlis, R. H., Placentino, A., Dernovšek, M. Z., Henigsberg, N., Mors, O., … Farmer, A. (2012). Self-report and clinician-rated measures of depression severity: Can one replace the other? Depression and Anxiety, 29(12), 1043–1049.22933451 10.1002/da.21993 PMC3750710",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/da.21993",
+    "parsed_pmid": "22933451",
+    "parsed_title": "Self-report and clinician-rated measures of depression severity: Can one replace the other?",
+    "parsed_first_author": "uher",
+    "parsed_year": 2012,
+    "parsed_container": "Depression and Anxiety",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4498,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/da.21993"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16879,
+    "ordinal": 37,
+    "raw_string": "Van Bockstaele, B., Verschuere, B., Tibboel, H., De Houwer, J., Crombez, G., & Koster, E. H. (2014). A review of current evidence for the causal impact of attentional bias on fear and anxiety. Psychological Bulletin, 140(3), 682–721. doi: 10.1037/a0034834 24188418",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1037/a0034834",
+    "parsed_pmid": "24188418",
+    "parsed_title": "A review of current evidence for the causal impact of attentional bias on fear and anxiety",
+    "parsed_first_author": "van bockstaele",
+    "parsed_year": 2014,
+    "parsed_container": "Psychological Bulletin",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4499,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1037/a0034834"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16880,
+    "ordinal": 38,
+    "raw_string": "Wells, T. T., & Beevers, C. G. (2010). Biased attention and dysphoria: Manipulating selective attention reduces subsequent depressive symptoms. Cognition and Emotion, 24(4), 719–728. doi: 10.1080/02699930802652388",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1080/02699930802652388",
+    "parsed_pmid": null,
+    "parsed_title": "Biased attention and dysphoria: Manipulating selective attention reduces subsequent depressive symptoms",
+    "parsed_first_author": "wells",
+    "parsed_year": 2010,
+    "parsed_container": "Cognition and Emotion",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4500,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1080/02699930802652388"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16881,
+    "ordinal": 39,
+    "raw_string": "Yang, W., Ding, Z., Dai, T., Peng, F., & Zhang, J. X. (2015). Attention bias modification training in individuals with depressive symptoms: A randomized controlled trial. Journal of Behavior Therapy and Experimental Psychiatry, 49, 101–111. doi: 10.1016/j.jbtep.2014.08.005 25245928",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.jbtep.2014.08.005",
+    "parsed_pmid": "25245928",
+    "parsed_title": "Attention bias modification training in individuals with depressive symptoms: A randomized controlled trial",
+    "parsed_first_author": "yang",
+    "parsed_year": 2015,
+    "parsed_container": "Journal of Behavior Therapy and Experimental Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4501,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.jbtep.2014.08.005"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 16882,
+    "ordinal": 40,
+    "raw_string": "Yang, W., Zhang, J. X., Ding, Z., & Xiao, L. (2016). Attention bias modification treatment for adolescents with major depression: A randomized controlled trial. Journal of the American Academy of Child and Adolescent Psychiatry, 55(3), 208–218. e202. doi: 10.1016/j.jaac.2015.12.005 26903254",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.jaac.2015.12.005",
+    "parsed_pmid": "26903254",
+    "parsed_title": "Attention bias modification treatment for adolescents with major depression: A randomized controlled trial",
+    "parsed_first_author": "yang",
+    "parsed_year": 2016,
+    "parsed_container": "Journal of the American Academy of Child and Adolescent Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4502,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.jaac.2015.12.005"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   }
+  ],
+  "stat_tests": [
+   {
+    "stat_test_id": 429,
+    "location": "Results",
+    "raw_string": "t (196.466) = -12.85, p < 0.001"
+   },
+   {
+    "stat_test_id": 430,
+    "location": "Results",
+    "raw_string": "t (202.100) = -10.63, p < 0.001"
+   },
+   {
+    "stat_test_id": 431,
+    "location": "Results",
+    "raw_string": "t (163.4632) = -10.09, p < 0.001"
+   },
+   {
+    "stat_test_id": 432,
+    "location": "Results",
+    "raw_string": "t (172.375) = 1.34, p = 0.18"
+   },
+   {
+    "stat_test_id": 433,
+    "location": "Results",
+    "raw_string": "t (168.810) = 0.018, p = 0.86"
+   },
+   {
+    "stat_test_id": 434,
+    "location": "Results",
+    "raw_string": "t (169.170) = 2.54, p = 0.012"
+   },
+   {
+    "stat_test_id": 435,
+    "location": "Results",
+    "raw_string": "t (150.8753) = 2.25, p = .026"
+   },
+   {
+    "stat_test_id": 436,
+    "location": "Results",
+    "raw_string": "F(1,74) = 0.876, p = 0.38"
+   },
+   {
+    "stat_test_id": 437,
+    "location": "Results",
+    "raw_string": "t (40) = 4.32, p < 0.001"
+   },
+   {
+    "stat_test_id": 438,
+    "location": "Results",
+    "raw_string": "t (38) = 5.21, p < 0.001"
+   },
+   {
+    "stat_test_id": 439,
+    "location": "Results",
+    "raw_string": "t (37) = 1.57, p = 0.126"
+   },
+   {
+    "stat_test_id": 440,
+    "location": "Results",
+    "raw_string": "t (35) = 5.78, p < 0.001"
+   },
+   {
+    "stat_test_id": 441,
+    "location": "Results",
+    "raw_string": "t (35) = 2.280, p = .029"
+   },
+   {
+    "stat_test_id": 442,
+    "location": "Results",
+    "raw_string": "t (35) = -1.250, p = 0.220"
+   },
+   {
+    "stat_test_id": 443,
+    "location": "Results",
+    "raw_string": "t (80.69) = -2.41, p = 0.02"
+   },
+   {
+    "stat_test_id": 444,
+    "location": "Results",
+    "raw_string": "t (124.34) = 0.50, p = 0.62"
+   },
+   {
+    "stat_test_id": 445,
+    "location": "Results",
+    "raw_string": "t (81.11) = -1.20, p = 0.23"
+   },
+   {
+    "stat_test_id": 446,
+    "location": "Results",
+    "raw_string": "t (70.692) = -0.47, p = 0.64"
+   },
+   {
+    "stat_test_id": 447,
+    "location": "Results",
+    "raw_string": "t (78.41) = 1.52, p = 0.13"
+   },
+   {
+    "stat_test_id": 448,
+    "location": "Results",
+    "raw_string": "t (158.70) = -1.07, p = 0.28"
+   },
+   {
+    "stat_test_id": 449,
+    "location": "Results",
+    "raw_string": "t (80.38) = 1.08, p = 0.28"
+   },
+   {
+    "stat_test_id": 450,
+    "location": "Results",
+    "raw_string": "t (75) = -0.68, p = 0.5"
+   },
+   {
+    "stat_test_id": 451,
+    "location": "Results",
+    "raw_string": "t (145.24) = -3.51, p < 0.001"
+   },
+   {
+    "stat_test_id": 452,
+    "location": "Results",
+    "raw_string": "t (145.92) = -5.35, p < 0.001"
+   },
+   {
+    "stat_test_id": 453,
+    "location": "Results",
+    "raw_string": "t (143.612) = -1.88, p = 0.06"
+   },
+   {
+    "stat_test_id": 454,
+    "location": "Results",
+    "raw_string": "t (125.45) = 1.72, p = 0.09"
+   },
+   {
+    "stat_test_id": 455,
+    "location": "Results",
+    "raw_string": "t (146.257) = -0.74, p = 0.46"
+   },
+   {
+    "stat_test_id": 456,
+    "location": "Results",
+    "raw_string": "t (143.240) = 2.25, p = 0.03"
+   },
+   {
+    "stat_test_id": 457,
+    "location": "Results",
+    "raw_string": "t (146.57) = 3.01, p < 0.01"
+   },
+   {
+    "stat_test_id": 458,
+    "location": "Results",
+    "raw_string": "t (40) = -4.87, p < 0.001"
+   },
+   {
+    "stat_test_id": 459,
+    "location": "Results",
+    "raw_string": "t (38) = -4.36, p < 0.001"
+   },
+   {
+    "stat_test_id": 460,
+    "location": "Results",
+    "raw_string": "t (37) = 1.34, p = 0.17"
+   },
+   {
+    "stat_test_id": 461,
+    "location": "Results",
+    "raw_string": "t (35) = -3.79, p < 0.001"
+   },
+   {
+    "stat_test_id": 462,
+    "location": "Results",
+    "raw_string": "t (35) = 0.83, p = 0.41"
+   },
+   {
+    "stat_test_id": 463,
+    "location": "Results",
+    "raw_string": "t (35) = -1.19, p = 0.24"
+   },
+   {
+    "stat_test_id": 464,
+    "location": "Results",
+    "raw_string": "F(1,74) = 1.39, p = 0.41"
+   }
+  ],
+  "means": [],
+  "trials": []
+ }
+}

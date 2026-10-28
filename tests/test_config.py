@@ -78,6 +78,22 @@ def test_config_hash_tracks_finding_settings(clean_env):
     assert Settings(_env_file=None).config_hash != base
 
 
+def test_other_tools_keys_in_env_file_are_ignored(clean_env, tmp_path):
+    env_file = tmp_path / ".env"
+    lines = [f"{k}={v}" for k, v in REQUIRED_ENV.items()]
+    lines += ["TEST_DATABASE_URL=postgresql+psycopg://u:p@localhost/sentinel_test", "OTHER_TOOL=x"]
+    env_file.write_text("\n".join(lines), encoding="utf-8")
+    assert Settings(_env_file=env_file).c05_grace_months == 12
+
+
+def test_misspelt_sentinel_key_in_env_file_still_fails(clean_env, tmp_path):
+    env_file = tmp_path / ".env"
+    lines = [f"{k}={v}" for k, v in REQUIRED_ENV.items()] + ["SENTINEL_LOG_LEVL=DEBUG"]
+    env_file.write_text("\n".join(lines), encoding="utf-8")
+    with pytest.raises(ValidationError, match="sentinel_log_levl"):
+        Settings(_env_file=env_file)
+
+
 def test_env_example_lists_exactly_the_settings_fields():
     text = (ROOT / ".env.example").read_text(encoding="utf-8")
     keys = set(re.findall(r"^SENTINEL_([A-Z0-9_]+)=", text, flags=re.MULTILINE))

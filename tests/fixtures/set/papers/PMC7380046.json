@@ -1,0 +1,811 @@
+{
+ "id": "PMC7380046",
+ "subject": "paper",
+ "categories": [
+  "c01_unverified_reference"
+ ],
+ "source": {
+  "corpus": "pmc-rct-2015-2024",
+  "paper_id": 350,
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "Ref 4 genuinely unverifiable.",
+ "expected": [
+  {
+   "check": "C01",
+   "status": "flagged",
+   "severity": "medium",
+   "item": "ref 4",
+   "why": "Driver 2008, J Manag Care Med. Searched by hand in Crossref (bibliographic) and OpenAlex on 2026-10-27: no record of this work. 'Could not be verified' is accurate; the work may exist outside both indexes."
+  },
+  {
+   "check": "C01",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C02",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C03",
+   "status": "not_applicable",
+   "severity": "info"
+  },
+  {
+   "check": "C04",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "paper_id": 350,
+  "publication_date": "2018-09-24",
+  "fulltext_status": "full",
+  "references": [
+   {
+    "reference_id": 13574,
+    "ordinal": 1,
+    "raw_string": "Centers for Disease Control and Prevention National Diabetes Statistics Report, 2017. Atlanta, GA: Centers for Disease Control and Prevention, U.S. Department of Health and Human Services; 2017. https://www.cdc.gov/diabetes/pdfs/data/statistics/national-diabetes-statistics-report.pdf. Accessed May 24, 2018.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "miscellaneous",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "centers for disease control and prevention",
+    "parsed_year": 2017,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13575,
+    "ordinal": 2,
+    "raw_string": "American Diabetes Association . Economic costs of diabetes in the US in 2012. Diabetes Care. 2013;36(4):1033‐1046.23468086 10.2337/dc12-2625 PMC3609540",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2337/dc12-2625",
+    "parsed_pmid": "23468086",
+    "parsed_title": "Economic costs of diabetes in the US in 2012",
+    "parsed_first_author": "american diabetes association",
+    "parsed_year": 2013,
+    "parsed_container": "Diabetes Care",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3606,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2337/dc12-2625"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.989
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13576,
+    "ordinal": 3,
+    "raw_string": "Driver VR , Fabbi M , Lavery LA , Gibbons G . The costs of diabetic foot: the economic case for the limb salvage team. J Vasc Surg. 2010;52(3):17S‐22S.20804928 10.1016/j.jvs.2010.06.003",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.jvs.2010.06.003",
+    "parsed_pmid": "20804928",
+    "parsed_title": "The costs of diabetic foot: the economic case for the limb salvage team",
+    "parsed_first_author": "driver",
+    "parsed_year": 2010,
+    "parsed_container": "J Vasc Surg",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3607,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.jvs.2010.06.003"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13577,
+    "ordinal": 4,
+    "raw_string": "Driver VR , de Leon JM . Health economic implications for wound care and limb preservation. J Manag Care Med. 2008;11(1):13‐19.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Health economic implications for wound care and limb preservation",
+    "parsed_first_author": "driver",
+    "parsed_year": 2008,
+    "parsed_container": "J Manag Care Med",
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13578,
+    "ordinal": 5,
+    "raw_string": "Kruse I , Edelman S . Evaluation and treatment of diabetic foot ulcers. Clin Diabetes. 2006 Apr;24(2):91‐93. 10.2337/diaclin.24.2.91.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2337/diaclin.24.2.91",
+    "parsed_pmid": null,
+    "parsed_title": "Evaluation and treatment of diabetic foot ulcers",
+    "parsed_first_author": "kruse",
+    "parsed_year": 2006,
+    "parsed_container": "Clin Diabetes",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3608,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2337/diaclin.24.2.91"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13579,
+    "ordinal": 6,
+    "raw_string": "Holzer SE , Camerota A , Martens L , Cuerdon T , Crystal‐Peters J , Zagari M . Costs and duration of care for lower extremity ulcers in patients with diabetes. Clin Ther. 1998;20(1):169‐181.9522113 10.1016/s0149-2918(98)80044-1",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s0149-2918(98)80044-1",
+    "parsed_pmid": "9522113",
+    "parsed_title": "Costs and duration of care for lower extremity ulcers in patients with diabetes",
+    "parsed_first_author": "holzer",
+    "parsed_year": 1998,
+    "parsed_container": "Clin Ther",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 2082,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0149-2918(98)80044-1"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13580,
+    "ordinal": 7,
+    "raw_string": "Lavery LA , Armstrong DG , Wunderlich RP , Mohler MJ , Wendel CS , Lipsky BA . Risk factors for foot infections in individuals with diabetes. Diabetes Care. 2006;29:1288‐1293.16732010 10.2337/dc05-2425",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2337/dc05-2425",
+    "parsed_pmid": "16732010",
+    "parsed_title": "Risk factors for foot infections in individuals with diabetes",
+    "parsed_first_author": "lavery",
+    "parsed_year": 2006,
+    "parsed_container": "Diabetes Care",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3609,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2337/dc05-2425"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13581,
+    "ordinal": 8,
+    "raw_string": "Joerger‐Messerli MS , Marx C , Oppliger B , Mueller M , Surbek DV , Schoeberlein A . Mesenchymal stem cells from wharton's jelly and amniotic fluid. Best Pract Res Clin Obstet Gynaecol. 2016 Feb;31:30‐44. 10.1016/j.bpobgyn.2015.07.006 Epub September 10, 2015.26482184",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.bpobgyn.2015.07.006",
+    "parsed_pmid": "26482184",
+    "parsed_title": "Mesenchymal stem cells from wharton's jelly and amniotic fluid",
+    "parsed_first_author": "joerger messerli",
+    "parsed_year": 2016,
+    "parsed_container": "Best Pract Res Clin Obstet Gynaecol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3610,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.bpobgyn.2015.07.006"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13582,
+    "ordinal": 9,
+    "raw_string": "Nagamura‐Inoue T , He H . Umbilical cord‐derived mesenchymal stem cells: their advantages and potential clinical utility. World J Stem Cells. 2014;6(2):195‐202. http://www.wjgnet.com/1948-0210/full/v6/i2/195.htm, 10.4252/wjsc.v6.i2.195. Accessed September 17, 2018.24772246 PMC3999777",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.4252/wjsc.v6.i2.195",
+    "parsed_pmid": "24772246",
+    "parsed_title": "Umbilical cord‐derived mesenchymal stem cells: their advantages and potential clinical utility",
+    "parsed_first_author": "nagamura inoue",
+    "parsed_year": 2014,
+    "parsed_container": "World J Stem Cells",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3611,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.4252/wjsc.v6.i2.195"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13583,
+    "ordinal": 10,
+    "raw_string": "Maslova O , Novak M , Kruzliak P . Umbilical cord tissue‐derived cells as therapeutic agents. Stem Cells Int. 2015;2015:150609. 10.1155/2015/150609 Epub July 12, 2015. Review.26246808 PMC4515303",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1155/2015/150609",
+    "parsed_pmid": "26246808",
+    "parsed_title": "Umbilical cord tissue‐derived cells as therapeutic agents",
+    "parsed_first_author": "maslova",
+    "parsed_year": 2015,
+    "parsed_container": "Stem Cells Int",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3612,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1155/2015/150609"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13584,
+    "ordinal": 11,
+    "raw_string": "El Omar R , Beroud J , Stoltz JF , Menu P , Velot E , Decot V . Umbilical cord mesenchymal stem cells: the new gold standard for mesenchymal stem cell‐based therapies? Tissue Eng Part B Rev. 2014 Oct;20(5):523‐544. 10.1089/ten.TEB.2013.0664 Epub April 22, 2014.24552279",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1089/ten.teb.2013.0664",
+    "parsed_pmid": "24552279",
+    "parsed_title": "Umbilical cord mesenchymal stem cells: the new gold standard for mesenchymal stem cell‐based therapies?",
+    "parsed_first_author": "el omar",
+    "parsed_year": 2014,
+    "parsed_container": "Tissue Eng Part B Rev",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3613,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1089/ten.teb.2013.0664"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13585,
+    "ordinal": 12,
+    "raw_string": "Kubo M , Sonoda Y , Muramatsu R , Usui M . Immunogenicity of human amniotic membrane in experimental xenotransplantation. Invest Ophthalmol Vis Sci. 2001 Jun;42(7):1539‐1546.11381058",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": "11381058",
+    "parsed_title": "Immunogenicity of human amniotic membrane in experimental xenotransplantation",
+    "parsed_first_author": "kubo",
+    "parsed_year": 2001,
+    "parsed_container": "Invest Ophthalmol Vis Sci",
+    "resolution_status": "resolved",
+    "resolution_method": "pmid",
+    "resolved_paper_id": 3614,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "pmid:11381058"
+      ],
+      "openalex_pmid": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13586,
+    "ordinal": 13,
+    "raw_string": "Batsali AK , Kastrinaki MC , Papadaki HA , Pontikoglou C . Mesenchymal stem cells derived from Wharton's Jelly of the umbilical cord: biological properties and emerging clinical applications. Curr Stem Cell Res Ther. 2013 Mar;8(2):144‐155. Review.23279098 10.2174/1574888x11308020005",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2174/1574888x11308020005",
+    "parsed_pmid": "23279098",
+    "parsed_title": "Mesenchymal stem cells derived from Wharton's Jelly of the umbilical cord: biological properties and emerging clinical applications",
+    "parsed_first_author": "batsali",
+    "parsed_year": 2013,
+    "parsed_container": "Curr Stem Cell Res Ther",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3615,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2174/1574888x11308020005"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.967
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13587,
+    "ordinal": 14,
+    "raw_string": "Zeddou M , Briquet A , Relic B , et al. The umbilical cord matrix is a better source of mesenchymal stem cells (MSC) than the umbilical cord blood. Cell Biol Int. 2010 Jul;34(7):693‐701. 10.1042/CBI20090414.20187873",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1042/cbi20090414",
+    "parsed_pmid": "20187873",
+    "parsed_title": "The umbilical cord matrix is a better source of mesenchymal stem cells (MSC) than the umbilical cord blood",
+    "parsed_first_author": "zeddou",
+    "parsed_year": 2010,
+    "parsed_container": "Cell Biol Int",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3616,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1042/cbi20090414"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13588,
+    "ordinal": 15,
+    "raw_string": "Chen Z , Wang Y , Shi C . Therapeutic implications of newly identified stem cell populations from the skin dermis. Cell Transplant. 2015;24(8):1405‐1422. 10.3727/096368914X682431 Epub Jun 26, 2014.24972091",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3727/096368914x682431",
+    "parsed_pmid": "24972091",
+    "parsed_title": "Therapeutic implications of newly identified stem cell populations from the skin dermis",
+    "parsed_first_author": "chen",
+    "parsed_year": 2015,
+    "parsed_container": "Cell Transplant",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3617,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3727/096368914x682431"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13589,
+    "ordinal": 16,
+    "raw_string": "Kokai LE , Marra K , Rubin JP . Adipose stem cells: biology and clinical applications for tissue repair and regeneration. Transl Res. 2014 Apr;163(4):399‐408.24361334 10.1016/j.trsl.2013.11.009",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.trsl.2013.11.009",
+    "parsed_pmid": "24361334",
+    "parsed_title": "Adipose stem cells: biology and clinical applications for tissue repair and regeneration",
+    "parsed_first_author": "kokai",
+    "parsed_year": 2014,
+    "parsed_container": "Transl Res",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3618,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.trsl.2013.11.009"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13590,
+    "ordinal": 17,
+    "raw_string": "Bullard JD , Lei J , Lim JJ , Massee M , Fallon AM , Koob TJ . Evaluation of dehydrated human umbilical cord biological properties for wound care and soft tissue healing. J Biomed Mater Res B Part B. 2018 Sep 10. 10.1002/jbm.b.34196. [Epub ahead of print].PMC6585686 30199609",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/jbm.b.34196",
+    "parsed_pmid": "30199609",
+    "parsed_title": "Evaluation of dehydrated human umbilical cord biological properties for wound care and soft tissue healing",
+    "parsed_first_author": "bullard",
+    "parsed_year": 2018,
+    "parsed_container": "J Biomed Mater Res B Part B",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3619,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/jbm.b.34196"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13591,
+    "ordinal": 18,
+    "raw_string": "Couture MA . Single‐center, retrospective study of cryopreserved umbilical cord for wound healing in patients suffering from chronic wounds of the foot and ankle. Wounds. 2016 Jul;28(7):217‐225.27428716",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": "27428716",
+    "parsed_title": "Single‐center, retrospective study of cryopreserved umbilical cord for wound healing in patients suffering from chronic wounds of the foot and ankle",
+    "parsed_first_author": "couture",
+    "parsed_year": 2016,
+    "parsed_container": "Wounds",
+    "resolution_status": "resolved",
+    "resolution_method": "pmid",
+    "resolved_paper_id": 3620,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "pmid:27428716"
+      ],
+      "openalex_pmid": 1
+     },
+     "title_agreement": 0.993
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13592,
+    "ordinal": 19,
+    "raw_string": "Tettelbach W , Cazzell S , Reyzelman AM , et al. A confirmatory study on the efficacy of dehydrated human amnion/chorion membrane (EpiFix®) allograft in the management of diabetic foot ulcers: a prospective, multicenter, randomized, controlled study of 110 patients from 14 wound clinics. Int Wound J. 2018 Aug 22. 10.1111/iwj.12976. [Epub ahead of print].PMC7379535 30136445",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/iwj.12976",
+    "parsed_pmid": "30136445",
+    "parsed_title": "A confirmatory study on the efficacy of dehydrated human amnion/chorion membrane (EpiFix®) allograft in the management of diabetic foot ulcers: a prospective, multicenter, randomized, controlled study of 110 patients from 14 wound clinics",
+    "parsed_first_author": "tettelbach",
+    "parsed_year": 2018,
+    "parsed_container": "Int Wound J",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3621,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/iwj.12976"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.677
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13593,
+    "ordinal": 20,
+    "raw_string": "Wilcox JR , Carter MJ , Covington S . Frequency of debridements and time to heal: a retrospective cohort study of 312 744 wounds. JAMA Dermatol. 2013 Sep;149(9):1050‐1058. 10.1001/jamadermatol.2013.4960.23884238",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1001/jamadermatol.2013.4960",
+    "parsed_pmid": "23884238",
+    "parsed_title": "Frequency of debridements and time to heal: a retrospective cohort study of 312 744 wounds",
+    "parsed_first_author": "wilcox",
+    "parsed_year": 2013,
+    "parsed_container": "JAMA Dermatol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3622,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1001/jamadermatol.2013.4960"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.641
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13594,
+    "ordinal": 21,
+    "raw_string": "Steed DL , Donohoe D , Webster MW , Lindsley L . Effect of extensive debridement and treatment on the healing of diabetic foot ulcers. Diabetic Ulcer Study Group. J Am Coll Surg. 1996 Jul;183(1):61‐64.8673309",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": "8673309",
+    "parsed_title": "Effect of extensive debridement and treatment on the healing of diabetic foot ulcers. Diabetic Ulcer Study Group",
+    "parsed_first_author": "steed",
+    "parsed_year": 1996,
+    "parsed_container": "J Am Coll Surg",
+    "resolution_status": "resolved",
+    "resolution_method": "pmid",
+    "resolved_paper_id": 3623,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "pmid:8673309"
+      ],
+      "openalex_pmid": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 13595,
+    "ordinal": 22,
+    "raw_string": "Margolis DJ , Kantor J , Berlin JA . Healing of diabetic neuropathic foot ulcers receiving standard treatment. A meta‐analysis. Diabetes Care. 1999 May;22(5):692‐695.10332667 10.2337/diacare.22.5.692",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2337/diacare.22.5.692",
+    "parsed_pmid": "10332667",
+    "parsed_title": "Healing of diabetic neuropathic foot ulcers receiving standard treatment. A meta‐analysis",
+    "parsed_first_author": "margolis",
+    "parsed_year": 1999,
+    "parsed_container": "Diabetes Care",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 1779,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2337/diacare.22.5.692"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   }
+  ],
+  "stat_tests": [],
+  "means": [],
+  "trials": []
+ }
+}

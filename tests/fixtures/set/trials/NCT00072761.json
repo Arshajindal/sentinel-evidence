@@ -1,0 +1,105 @@
+{
+ "id": "NCT00072761",
+ "subject": "trial",
+ "categories": [
+  "c05_results_posted"
+ ],
+ "source": {
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "Phase 3, completed, US site, results first posted 2016-02-08.",
+ "expected": [
+  {
+   "check": "C05",
+   "status": "clean",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "trial": {
+   "nct_id": "NCT00072761",
+   "brief_title": "Silent Cerebral Infarct Transfusion Multi-Center Clinical Trial",
+   "overall_status": "COMPLETED",
+   "study_type": "INTERVENTIONAL",
+   "phase": "PHASE3",
+   "enrollment": 196,
+   "start_date": "2004-12-31",
+   "primary_completion_date": "2013-12-31",
+   "completion_date": "2013-12-31",
+   "results_first_posted": "2016-02-08",
+   "lead_sponsor": "Washington University School of Medicine",
+   "sponsor_class": "OTHER",
+   "raw": {
+    "protocolSection": {
+     "identificationModule": {
+      "nctId": "NCT00072761",
+      "briefTitle": "Silent Cerebral Infarct Transfusion Multi-Center Clinical Trial"
+     },
+     "statusModule": {
+      "overallStatus": "COMPLETED",
+      "startDateStruct": {
+       "date": "2004-12"
+      },
+      "expandedAccessInfo": {
+       "hasExpandedAccess": false
+      },
+      "statusVerifiedDate": "2016-01",
+      "completionDateStruct": {
+       "date": "2013-12",
+       "type": "ACTUAL"
+      },
+      "lastUpdateSubmitDate": "2016-01-07",
+      "studyFirstSubmitDate": "2003-11-10",
+      "resultsFirstSubmitDate": "2015-05-04",
+      "studyFirstSubmitQcDate": "2003-11-12",
+      "lastUpdatePostDateStruct": {
+       "date": "2016-02-08",
+       "type": "ESTIMATED"
+      },
+      "resultsFirstSubmitQcDate": "2016-01-07",
+      "studyFirstPostDateStruct": {
+       "date": "2003-11-13",
+       "type": "ESTIMATED"
+      },
+      "resultsFirstPostDateStruct": {
+       "date": "2016-02-08",
+       "type": "ESTIMATED"
+      },
+      "primaryCompletionDateStruct": {
+       "date": "2013-12",
+       "type": "ACTUAL"
+      }
+     },
+     "oversightModule": {
+      "oversightHasDmc": true
+     },
+     "designModule": {
+      "studyType": "INTERVENTIONAL",
+      "phases": [
+       "PHASE3"
+      ]
+     },
+     "contactsLocationsModule": {
+      "locations": [
+       {
+        "country": "United States"
+       }
+      ]
+     }
+    },
+    "hasResults": true
+   },
+   "outcomes": [
+    {
+     "version_no": 0,
+     "version_date": "2016-02-08",
+     "outcome_type": "primary",
+     "measure": "Recurrence of an Infarct, Defined as a Stroke or a New or Enlarged Silent Cerebral Infarct",
+     "description": "The primary end point was the recurrence of infarct or hemorrhage as determined by neuroimaging, clinical evidence of permanent neurologic injury, or both. A new infarct had to meet the criteria for a silent cerebral infarction; an enlarged silent cerebral infarct was defined as a previously identified silent cerebral infarct that increased by at least 3 mm along any linear dimension in any plane on MRI.",
+     "time_frame": "From study entry to study exit"
+    }
+   ]
+  },
+  "fetched_on": "2026-10-24"
+ }
+}

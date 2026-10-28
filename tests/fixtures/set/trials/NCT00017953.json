@@ -1,0 +1,183 @@
+{
+ "id": "NCT00017953",
+ "subject": "trial",
+ "categories": [
+  "c05_results_posted"
+ ],
+ "source": {
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "Completed, US site, results first posted 2023-08-02.",
+ "expected": [
+  {
+   "check": "C05",
+   "status": "clean",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "trial": {
+   "nct_id": "NCT00017953",
+   "brief_title": "Look AHEAD: Action for Health in Diabetes",
+   "overall_status": "COMPLETED",
+   "study_type": "INTERVENTIONAL",
+   "phase": "NA",
+   "enrollment": 5145,
+   "start_date": "2001-06-30",
+   "primary_completion_date": "2012-09-30",
+   "completion_date": "2020-06-30",
+   "results_first_posted": "2023-08-02",
+   "lead_sponsor": "Wake Forest University Health Sciences",
+   "sponsor_class": "OTHER",
+   "raw": {
+    "protocolSection": {
+     "identificationModule": {
+      "nctId": "NCT00017953",
+      "briefTitle": "Look AHEAD: Action for Health in Diabetes"
+     },
+     "statusModule": {
+      "overallStatus": "COMPLETED",
+      "startDateStruct": {
+       "date": "2001-06",
+       "type": "ACTUAL"
+      },
+      "expandedAccessInfo": {
+       "hasExpandedAccess": false
+      },
+      "statusVerifiedDate": "2023-05",
+      "completionDateStruct": {
+       "date": "2020-06-30",
+       "type": "ACTUAL"
+      },
+      "lastUpdateSubmitDate": "2023-07-13",
+      "studyFirstSubmitDate": "2001-06-21",
+      "resultsFirstSubmitDate": "2023-04-03",
+      "studyFirstSubmitQcDate": "2001-06-20",
+      "lastUpdatePostDateStruct": {
+       "date": "2023-08-02",
+       "type": "ACTUAL"
+      },
+      "resultsFirstSubmitQcDate": "2023-07-13",
+      "studyFirstPostDateStruct": {
+       "date": "2001-06-21",
+       "type": "ESTIMATED"
+      },
+      "resultsFirstPostDateStruct": {
+       "date": "2023-08-02",
+       "type": "ACTUAL"
+      },
+      "primaryCompletionDateStruct": {
+       "date": "2012-09",
+       "type": "ACTUAL"
+      }
+     },
+     "oversightModule": {
+      "oversightHasDmc": true,
+      "isFdaRegulatedDrug": false,
+      "isFdaRegulatedDevice": false
+     },
+     "designModule": {
+      "studyType": "INTERVENTIONAL",
+      "phases": [
+       "NA"
+      ]
+     },
+     "contactsLocationsModule": {
+      "locations": [
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       }
+      ]
+     }
+    },
+    "hasResults": true
+   },
+   "outcomes": [
+    {
+     "version_no": 0,
+     "version_date": "2023-08-02",
+     "outcome_type": "primary",
+     "measure": "First Occurrence of a Severe Cardiovascular Event",
+     "description": "Number of participants with first on-study occurrence of one of the following major cardiovascular events: fatal and non-fatal myocardial infarctions and strokes, hospitalizations for angina, and cardiovascular deaths",
+     "time_frame": "up to 11 years"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2023-08-02",
+     "outcome_type": "secondary",
+     "measure": "First Occurrence of Cardiovascular Death, Myocardial Infarction, or Stroke",
+     "description": "Number of participants with first occurrence of one of the following: cardiovascular death, myocardial infarction (fatal or nonfatal), or stroke (fatal or non-fatal)",
+     "time_frame": "up to 11 years"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2023-08-02",
+     "outcome_type": "secondary",
+     "measure": "First Occurrence of Death, Myocardial Infarction, or Hospitalized Angina",
+     "description": "Number of participants with first occurrence of one of the following: death (all causes), myocardial infarction, stroke, or hospitalizations for angina",
+     "time_frame": "up to 11 years"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2023-08-02",
+     "outcome_type": "secondary",
+     "measure": "First Occurrence of Major Clinical Events",
+     "description": "Number of participants with first occurrence of one of the following: death (all causes), myocardial infarction, stroke, hospitalization for angina, coronary artery bypass grafting, percutaneous coronary angioplasty, hospitalization for congestive heart failure, carotid endarterectomy, or peripheral vascular procedures such as bypass or angioplasty",
+     "time_frame": "up to 11 years"
+    }
+   ]
+  },
+  "fetched_on": "2026-10-24"
+ }
+}

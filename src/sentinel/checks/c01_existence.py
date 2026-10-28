@@ -43,6 +43,10 @@ _NONJOURNAL = re.compile(
     r"|\bsymposium\b|\bmeeting\b|\babstracts?\b|\bposter\b|presented at|\bproceedings\b"
     r"|personal communication|\bunpublished\b|clinicaltrials\.gov|\bNCT\d{8}\b|\[internet\]"
     r"|available (?:from|at|online)|\baccessed\b|retrieved from|https?://|\bwww\.)")
+# The container is removed before the cues above are searched (a journal's own
+# name can't count), so a book named as the container is checked on its own:
+# "Handb. Neuropsychol." is a handbook even when the XML calls it a journal.
+_BOOK_CONTAINER = re.compile(r"(?i)\bhandb(?:ook)?\b|\bencyclop(?:a?edia)?\b")
 _ORG_WORDS = frozenset({
     "organization", "organisation", "association", "society", "group", "institute",
     "department", "ministry", "council", "committee", "foundation", "agency", "centre",
@@ -71,6 +75,9 @@ def classify(ref: ReferenceContext, *, near_match_min: float, same_title_min: fl
 
     if ref.publication_type and ref.publication_type.lower() not in JOURNAL_TYPES:
         return "nonjournal", f"publication type '{ref.publication_type}'"
+    book = _BOOK_CONTAINER.search(ref.parsed_container or "")
+    if book:
+        return "nonjournal", f"container looks like a book ('{book.group(0)}')"
     text = ref.raw_string or ""
     if ref.parsed_container:
         text = text.replace(ref.parsed_container, " ")  # a journal's own name can't count
@@ -103,7 +110,7 @@ def classify(ref: ReferenceContext, *, near_match_min: float, same_title_min: fl
 
 class C01ReferenceExistence(Check):
     check_id = "C01"
-    check_ver = "1.0.0"
+    check_ver = "1.0.1"  # 1.0.1: a handbook or encyclopedia container is non-journal
     subject = "paper"
 
     def __init__(self, *, near_match_min: float, same_title_min: float, year_tolerance: int) -> None:

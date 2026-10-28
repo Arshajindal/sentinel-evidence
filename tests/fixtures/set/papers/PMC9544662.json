@@ -1,0 +1,626 @@
+{
+ "id": "PMC9544662",
+ "subject": "paper",
+ "categories": [
+  "c01_non_journal_references"
+ ],
+ "source": {
+  "corpus": "pmc-rct-2015-2024",
+  "paper_id": 664,
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "5 non-journal references (USRDS reports, Kaiser Family Foundation pages; one journal article tagged as a book): none flagged.",
+ "expected": [
+  {
+   "check": "C01",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C02",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C03",
+   "status": "not_applicable",
+   "severity": "info"
+  },
+  {
+   "check": "C04",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "paper_id": 664,
+  "publication_date": "2022-04-19",
+  "fulltext_status": "full",
+  "references": [
+   {
+    "reference_id": 25869,
+    "ordinal": 1,
+    "raw_string": "United States Renal Data System . 2019 USRDS annual data report: epidemiology of kidney disease in the United States. Bethesda, MD: National Institutes of Health, National Institute of Diabetes and Digestive and Kidney Diseases; 2019.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "2019 USRDS annual data report: epidemiology of kidney disease in the United States",
+    "parsed_first_author": "united states renal data system",
+    "parsed_year": 2019,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": [
+      {
+       "year": 2020,
+       "paper_id": 4958,
+       "rejected": "similarity 0.844 below 0.85",
+       "similarity": 0.8444,
+       "first_author": null
+      },
+      {
+       "year": 2016,
+       "paper_id": 4959,
+       "rejected": "year 2016 vs 2019",
+       "similarity": 0.8043,
+       "first_author": null
+      },
+      {
+       "year": 2017,
+       "paper_id": 4960,
+       "rejected": "year 2017 vs 2019",
+       "similarity": 0.8043,
+       "first_author": null
+      }
+     ]
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25870,
+    "ordinal": 2,
+    "raw_string": "Kaiser Family Foundation . Medicare Beneficiaries With End‐Stage‐Renal Disease (ESRD). https://www.kff.org/medicare/state-indicator/enrollees-with-esrd/?currentTimeframe=0&sortModel=%7B%22colId%22:%22Location%22%22sort%22:%22asc%22%7D.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "miscellaneous",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Medicare Beneficiaries With End‐Stage‐Renal Disease (ESRD)",
+    "parsed_first_author": "kaiser family foundation",
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25871,
+    "ordinal": 3,
+    "raw_string": "Hutchison CA , Wolley M . The rationale for expanded hemodialysis therapy (HDx). Contrib Nephrol. 2017;191:142–52.28910797 10.1159/000479262",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1159/000479262",
+    "parsed_pmid": "28910797",
+    "parsed_title": "The rationale for expanded hemodialysis therapy (HDx)",
+    "parsed_first_author": "hutchison",
+    "parsed_year": 2017,
+    "parsed_container": "Contrib Nephrol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4968,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1159/000479262"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25872,
+    "ordinal": 4,
+    "raw_string": "Yamamoto S , Kazama JJ , Wakamatsu T , et al. Removal of uremic toxins by renal replacement therapies: a review of current progress and future perspectives. Ren Replace Ther. 2016;2:43.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Removal of uremic toxins by renal replacement therapies: a review of current progress and future perspectives",
+    "parsed_first_author": "yamamoto",
+    "parsed_year": 2016,
+    "parsed_container": "Ren Replace Ther",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4969,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25873,
+    "ordinal": 5,
+    "raw_string": "Weiner DE , Falzon L , Skoufos L , et al. Efficacy and safety of expanded hemodialysis with the Theranova 400 dialyzer: a randomized controlled trial. Clin J Am Soc Nephrol. 2020;15:1310–9.32843372 10.2215/CJN.01210120 PMC7480550",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2215/cjn.01210120",
+    "parsed_pmid": "32843372",
+    "parsed_title": "Efficacy and safety of expanded hemodialysis with the Theranova 400 dialyzer: a randomized controlled trial",
+    "parsed_first_author": "weiner",
+    "parsed_year": 2020,
+    "parsed_container": "Clin J Am Soc Nephrol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4974,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2215/cjn.01210120"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.835
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25874,
+    "ordinal": 6,
+    "raw_string": "Kaiser Family Foundation . Hospital Adjusted Expenses per Inpatient Day. https://www.kff.org/health‐costs/state‐indicator/expenses‐per‐inpatient‐day/.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "miscellaneous",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Hospital Adjusted Expenses per Inpatient Day",
+    "parsed_first_author": "kaiser family foundation",
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25875,
+    "ordinal": 7,
+    "raw_string": "Ariza JG , Walton SM , Suarez AM , et al. An initial evaluation of expanded hemodialysis on hospitalizations, drug utilization, costs, and patient utility in Colombia. Ther Apher Dial. 2021;25:621–7.33403817 10.1111/1744-9987.13620 PMC8451823",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/1744-9987.13620",
+    "parsed_pmid": "33403817",
+    "parsed_title": "An initial evaluation of expanded hemodialysis on hospitalizations, drug utilization, costs, and patient utility in Colombia",
+    "parsed_first_author": "ariza",
+    "parsed_year": 2021,
+    "parsed_container": "Ther Apher Dial",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4980,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/1744-9987.13620"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25876,
+    "ordinal": 8,
+    "raw_string": "Molano A , Sanchez R , Buitrago G , et al. Effectiveness of medium cut‐off vs high flux dialyzers: a propensity score matching cohort study. 58th ERA‐EDTA Congress. Berlin, Germany: Nephrology Dialysis Transplantation; 2021.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Effectiveness of medium cut‐off vs high flux dialyzers: a propensity score matching cohort study. 58th ERA‐EDTA Congress",
+    "parsed_first_author": "molano",
+    "parsed_year": 2021,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": [
+      {
+       "year": 2021,
+       "paper_id": 4981,
+       "rejected": "similarity 0.781 below 0.85",
+       "similarity": 0.7807,
+       "first_author": "molano trivino"
+      }
+     ]
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25877,
+    "ordinal": 9,
+    "raw_string": "United States Renal Data System . 2020 USRDS annual data report: epidemiology of kidney disease in the United States. Bethesda, MD: National Institutes of Health, National Institute of Diabetes and Digestive and Kidney Diseases; 2020.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "2020 USRDS annual data report: epidemiology of kidney disease in the United States",
+    "parsed_first_author": "united states renal data system",
+    "parsed_year": 2020,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": [
+      {
+       "year": 2020,
+       "paper_id": 4958,
+       "rejected": "similarity 0.785 below 0.85",
+       "similarity": 0.7849,
+       "first_author": null
+      },
+      {
+       "year": 2016,
+       "paper_id": 4959,
+       "rejected": "year 2016 vs 2020",
+       "similarity": 0.7849,
+       "first_author": null
+      },
+      {
+       "year": 2017,
+       "paper_id": 4960,
+       "rejected": "year 2017 vs 2020",
+       "similarity": 0.7849,
+       "first_author": null
+      }
+     ]
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25878,
+    "ordinal": 10,
+    "raw_string": "Eknoyan G , Beck GJ , Cheung AK , et al. Effect of dialysis dose and membrane flux in maintenance hemodialysis. N Engl J Med. 2002;347:2010–9.12490682 10.1056/NEJMoa021583",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1056/nejmoa021583",
+    "parsed_pmid": "12490682",
+    "parsed_title": "Effect of dialysis dose and membrane flux in maintenance hemodialysis",
+    "parsed_first_author": "eknoyan",
+    "parsed_year": 2002,
+    "parsed_container": "N Engl J Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4987,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1056/nejmoa021583"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25879,
+    "ordinal": 11,
+    "raw_string": "Locatelli F , Martin‐Malo A , Hannedouche T , et al. Effect of membrane permeability on survival of hemodialysis patients. J Am Soc Nephrol. 2009;20:645–54.19092122 10.1681/ASN.2008060590 PMC2653681",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1681/asn.2008060590",
+    "parsed_pmid": "19092122",
+    "parsed_title": "Effect of membrane permeability on survival of hemodialysis patients",
+    "parsed_first_author": "locatelli",
+    "parsed_year": 2009,
+    "parsed_container": "J Am Soc Nephrol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4988,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1681/asn.2008060590"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25880,
+    "ordinal": 12,
+    "raw_string": "Mendu ML , Weiner DE . Health policy and kidney Care in the United States: Core curriculum 2020. Am J Kidney Dis. 2020;76:720–30.32771281 10.1053/j.ajkd.2020.03.028",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1053/j.ajkd.2020.03.028",
+    "parsed_pmid": "32771281",
+    "parsed_title": "Health policy and kidney Care in the United States: Core curriculum 2020",
+    "parsed_first_author": "mendu",
+    "parsed_year": 2020,
+    "parsed_container": "Am J Kidney Dis",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4989,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1053/j.ajkd.2020.03.028"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25881,
+    "ordinal": 13,
+    "raw_string": "Marrufo G , Colligan EM , Negrusa B , et al. Association of the Comprehensive end‐Stage Renal Disease Care Model with Medicare Payments and Quality of Care for Beneficiaries with end‐Stage Renal Disease. JAMA Intern Med. 2020;180:852–60.32227133 10.1001/jamainternmed.2020.0562 PMC7105949",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1001/jamainternmed.2020.0562",
+    "parsed_pmid": "32227133",
+    "parsed_title": "Association of the Comprehensive end‐Stage Renal Disease Care Model with Medicare Payments and Quality of Care for Beneficiaries with end‐Stage Renal Disease",
+    "parsed_first_author": "marrufo",
+    "parsed_year": 2020,
+    "parsed_container": "JAMA Intern Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4990,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1001/jamainternmed.2020.0562"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   }
+  ],
+  "stat_tests": [],
+  "means": [],
+  "trials": []
+ }
+}

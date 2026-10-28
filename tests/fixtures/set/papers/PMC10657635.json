@@ -1,0 +1,2141 @@
+{
+ "id": "PMC10657635",
+ "subject": "paper",
+ "categories": [
+  "c02_cited_after_retraction",
+  "c01_false_positive_regression",
+  "c01_unverified_reference"
+ ],
+ "source": {
+  "corpus": "pmc-rct-2015-2024",
+  "paper_id": 526,
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "57 references. Ref 42 (Kannaiyan 2022) was a C01 false positive: Crossref lists it with the author's names swapped (family 'Vivek') and '&amp;' in the title. Since HTML entities are decoded in titles it is a probable match under a variant title (similarity 0.87), not flagged. Ref 11 is genuinely unverifiable.",
+ "expected": [
+  {
+   "check": "C01",
+   "status": "flagged",
+   "severity": "medium",
+   "item": "ref 11",
+   "why": "Puri 2020, IDA Lud J-le Dent. Searched by hand in Crossref (bibliographic) and OpenAlex on 2026-10-27: no record of this work. 'Could not be verified' is accurate; the work may exist outside both indexes."
+  },
+  {
+   "check": "C01",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C02",
+   "status": "flagged",
+   "severity": "high",
+   "item": "ref 41",
+   "band": "after_grace",
+   "why": "Sahana 2016 J Int Soc Prev Community Dent (DOI matches) retracted 2016-07-25 for plagiarism; paper published 2023-11-18 = 87 months later."
+  },
+  {
+   "check": "C02",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C03",
+   "status": "not_applicable",
+   "severity": "info"
+  },
+  {
+   "check": "C04",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "paper_id": 526,
+  "publication_date": "2023-11-18",
+  "fulltext_status": "full",
+  "references": [
+   {
+    "reference_id": 20587,
+    "ordinal": 1,
+    "raw_string": "Global strategy on oral health. In Seventy-fifth World Health Assembly. Provisional agenda item 14.1 2022 Geneva World Health Organization",
+    "citation_tag": "element-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Seventy-fifth World Health Assembly. Provisional agenda item 14.1",
+    "parsed_first_author": "global strategy on oral health in",
+    "parsed_year": 2022,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20588,
+    "ordinal": 2,
+    "raw_string": "Oral health. In Seventy-fourth World Health Assembly. Summary and verbatim records 2021 Geneva World Health Organization",
+    "citation_tag": "element-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Seventy-fourth World Health Assembly. Summary and verbatim records",
+    "parsed_first_author": "oral health in",
+    "parsed_year": 2021,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20589,
+    "ordinal": 3,
+    "raw_string": "Kathuria V Ankola AV Hebbal M Mocherla M Carisolv- an innovative method of caries removal J Clin Diagn Res 2013 7 3111 5 24551746 10.7860/JCDR/2013/6676.3873 PMC3919277",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.7860/jcdr/2013/6676.3873",
+    "parsed_pmid": "24551746",
+    "parsed_title": "Carisolv- an innovative method of caries removal",
+    "parsed_first_author": "kathuria",
+    "parsed_year": 2013,
+    "parsed_container": "J Clin Diagn Res",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4571,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.7860/jcdr/2013/6676.3873"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20590,
+    "ordinal": 4,
+    "raw_string": "Kotb RM Elkateb MA Ahmed AM Kawana KY El Meligy OA Dentin Topographic Features following chemomechanical caries removal in primary teeth J Clin Pediatr Dent 2016 40 472 9 10.17796/1053-4628-40.6.472 27805895",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.17796/1053-4628-40.6.472",
+    "parsed_pmid": "27805895",
+    "parsed_title": "Dentin Topographic Features following chemomechanical caries removal in primary teeth",
+    "parsed_first_author": "kotb",
+    "parsed_year": 2016,
+    "parsed_container": "J Clin Pediatr Dent",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4572,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.17796/1053-4628-40.6.472"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20591,
+    "ordinal": 5,
+    "raw_string": "Ganesh M Parikh D Chemomechanical caries removal (CMCR) agents: review and clinical application in primary teeth J Dent Oral Hyg 2011 3 34 45",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Chemomechanical caries removal (CMCR) agents: review and clinical application in primary teeth",
+    "parsed_first_author": "ganesh",
+    "parsed_year": 2011,
+    "parsed_container": "J Dent Oral Hyg",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 3301,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20592,
+    "ordinal": 6,
+    "raw_string": "Waggoner WF. Restorative dentistry for the primary dentition. In: Nowak AJ, Christensen JR, Mabry TR, Townsend JA, Wells MH, editors. Pediatric dentistry; Infancy through adolescence. 6th ed. Ch 22. Philadelphia, PA: Elsevier; 2019.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "other",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "waggoner",
+    "parsed_year": 2019,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20593,
+    "ordinal": 7,
+    "raw_string": "Pai VS Nadig RR Jagadeesh T Usha G Karthik J Sridhara K Chemical analysis of dentin surfaces after Carisolv treatment J Conserv Dent 2009 12 118 22 10.4103/0972-0707.57636 20543919 PMC2879719",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.4103/0972-0707.57636",
+    "parsed_pmid": "20543919",
+    "parsed_title": "Chemical analysis of dentin surfaces after Carisolv treatment",
+    "parsed_first_author": "pai",
+    "parsed_year": 2009,
+    "parsed_container": "J Conserv Dent",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 2912,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.4103/0972-0707.57636"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20594,
+    "ordinal": 8,
+    "raw_string": "Goldman M Kronman JH A preliminary report on a chemomechanical means of removing caries J Am Dent Assoc 1976 93 1149 53 10.14219/jada.archive.1976.0249 794090",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.14219/jada.archive.1976.0249",
+    "parsed_pmid": "794090",
+    "parsed_title": "A preliminary report on a chemomechanical means of removing caries",
+    "parsed_first_author": "goldman",
+    "parsed_year": 1976,
+    "parsed_container": "J Am Dent Assoc",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4573,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.14219/jada.archive.1976.0249"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20595,
+    "ordinal": 9,
+    "raw_string": "Chowdhry S Saha S Samadi F Jaiswal JN Garg A Chowdhry P Recent vs conventional methods of Caries removal: a comparative in vivo study in Pediatric patients Int J Clin Pediatr Dent 2015 8 6 11 10.5005/jp-journals-10005-1275 26124574 PMC4472864",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.5005/jp-journals-10005-1275",
+    "parsed_pmid": "26124574",
+    "parsed_title": "Recent vs conventional methods of Caries removal: a comparative in vivo study in Pediatric patients",
+    "parsed_first_author": "chowdhry",
+    "parsed_year": 2015,
+    "parsed_container": "Int J Clin Pediatr Dent",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4574,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.5005/jp-journals-10005-1275"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20596,
+    "ordinal": 10,
+    "raw_string": "Venkataraghavan K Kush A Lakshminarayana C Diwakar L Ravikumar P Patil S Chemomechanical caries removal: a Review & Study of an Indigen-ously developed Agent (Carie Care (TM) gel) in children J Int Oral Health 2013 5 84 90 24155626 PMC3780371",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": "24155626",
+    "parsed_title": "Chemomechanical caries removal: a Review & Study of an Indigen-ously developed Agent (Carie Care (TM) gel) in children",
+    "parsed_first_author": "venkataraghavan",
+    "parsed_year": 2013,
+    "parsed_container": "J Int Oral Health",
+    "resolution_status": "resolved",
+    "resolution_method": "pmid",
+    "resolved_paper_id": 4575,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "pmid:24155626"
+      ],
+      "openalex_pmid": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20597,
+    "ordinal": 11,
+    "raw_string": "Puri A Gaurav K Kaur J Sethi D Jindal L Jain S Chemomechanical caries removal: an overview IDA Lud J-le Dent 2020 4 27 38",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Chemomechanical caries removal: an overview",
+    "parsed_first_author": "puri",
+    "parsed_year": 2020,
+    "parsed_container": "IDA Lud J-le Dent",
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": [
+      {
+       "year": 2014,
+       "paper_id": 4578,
+       "rejected": "year 2014 vs 2020",
+       "similarity": 0.7,
+       "first_author": "marwah"
+      }
+     ]
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20598,
+    "ordinal": 12,
+    "raw_string": "Kumar K Prasad MG Sandeep RV Reddy SP Divya D Pratyusha K Chemomechanical caries removal method versus mechanical caries removal methods in clinical and community-based setting: a comparative in vivo study Eur J Dent 2016 10 386 91 10.4103/1305-7456.184151 27403059 PMC4926594",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.4103/1305-7456.184151",
+    "parsed_pmid": "27403059",
+    "parsed_title": "Chemomechanical caries removal method versus mechanical caries removal methods in clinical and community-based setting: a comparative in vivo study",
+    "parsed_first_author": "kumar",
+    "parsed_year": 2016,
+    "parsed_container": "Eur J Dent",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4580,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.4103/1305-7456.184151"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20599,
+    "ordinal": 13,
+    "raw_string": "Sontakke P Jain P Patil AD Biswas G Yadav P Makkar DK A comparative study of the clinical efficiency of chemomechanical caries removal using Carie-Care gel for permanent teeth of children of age group of 12–15 years with that of conventional drilling method: a randomized controlled trial Dent Res J (Isfahan) 2019 16 42 6 10.4103/1735-3327.249558 30745918 PMC6340223",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.4103/1735-3327.249558",
+    "parsed_pmid": "30745918",
+    "parsed_title": "A comparative study of the clinical efficiency of chemomechanical caries removal using Carie-Care gel for permanent teeth of children of age group of 12–15 years with that of conventional drilling method: a randomized controlled trial",
+    "parsed_first_author": "sontakke",
+    "parsed_year": 2019,
+    "parsed_container": "Dent Res J (Isfahan)",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3038,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.4103/1735-3327.249558"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20600,
+    "ordinal": 14,
+    "raw_string": "Prabhakar A Lokeshwari M Naik SV Yavagal C Efficacy of Caries removal by Carie-Care and Erbium-doped Yttrium Aluminum Garnet laser in primary molars: a scanning Electron microscope study Int J Clin Pediatr Dent 2018 11 323 9 10.5005/jp-journals-10005-1533 30397377 PMC6212662",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.5005/jp-journals-10005-1533",
+    "parsed_pmid": "30397377",
+    "parsed_title": "Efficacy of Caries removal by Carie-Care and Erbium-doped Yttrium Aluminum Garnet laser in primary molars: a scanning Electron microscope study",
+    "parsed_first_author": "prabhakar",
+    "parsed_year": 2018,
+    "parsed_container": "Int J Clin Pediatr Dent",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4581,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.5005/jp-journals-10005-1533"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.996
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20601,
+    "ordinal": 15,
+    "raw_string": "Ammar N El-Tekeya MM Essa S Essawy MM El Achy SN Talaat DM The antibacterial effect of nanosilver fluoride in relation to caries activity in primary teeth: a protocol for a randomized controlled clinical trial Trials 2022 23 558 10.1186/s13063-022-06477-5 35804457 PMC9264752",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1186/s13063-022-06477-5",
+    "parsed_pmid": "35804457",
+    "parsed_title": "The antibacterial effect of nanosilver fluoride in relation to caries activity in primary teeth: a protocol for a randomized controlled clinical trial",
+    "parsed_first_author": "ammar",
+    "parsed_year": 2022,
+    "parsed_container": "Trials",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4582,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/s13063-022-06477-5"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20602,
+    "ordinal": 16,
+    "raw_string": "Ammar N El-Tekeya MM Essa S Essawy MM Talaat DM Antibacterial effect and impact on caries activity of nanosilver fluoride and silver diamine fluoride in dentin caries of primary teeth: a randomized controlled clinical trial BMC Oral Health 2022 22 657 10.1186/s12903-022-02697-y 36585664 PMC9805097",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1186/s12903-022-02697-y",
+    "parsed_pmid": "36585664",
+    "parsed_title": "Antibacterial effect and impact on caries activity of nanosilver fluoride and silver diamine fluoride in dentin caries of primary teeth: a randomized controlled clinical trial",
+    "parsed_first_author": "ammar",
+    "parsed_year": 2022,
+    "parsed_container": "BMC Oral Health",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4583,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/s12903-022-02697-y"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20603,
+    "ordinal": 17,
+    "raw_string": "Schulz KF Altman DG Moher D CONSORT 2010 Statement: updated guidelines for reporting parallel group randomised trials BMC Med 2010 8 18 10.1186/1741-7015-8-18 20334633 PMC2860339",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1186/1741-7015-8-18",
+    "parsed_pmid": "20334633",
+    "parsed_title": "CONSORT 2010 Statement: updated guidelines for reporting parallel group randomised trials",
+    "parsed_first_author": "schulz",
+    "parsed_year": 2010,
+    "parsed_container": "BMC Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4584,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/1741-7015-8-18"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20604,
+    "ordinal": 18,
+    "raw_string": "Pascareli-Carlos AM Martins LF Silva Gonçalves MD Pettorossi Imparato JC Tedesco TK Pain perception of children after restorative treatments: atraumatic restorative treatment versus chemomechanical removal - A noninferiority randomized clinical trial J Indian Soc Pedod Prev Dent 2021 39 202 7 10.4103/jisppd.jisppd_426_20 34341242",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.4103/jisppd.jisppd_426_20",
+    "parsed_pmid": "34341242",
+    "parsed_title": "Pain perception of children after restorative treatments: atraumatic restorative treatment versus chemomechanical removal - A noninferiority randomized clinical trial",
+    "parsed_first_author": "pascareli carlos",
+    "parsed_year": 2021,
+    "parsed_container": "J Indian Soc Pedod Prev Dent",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4585,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.4103/jisppd.jisppd_426_20"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20605,
+    "ordinal": 19,
+    "raw_string": "Petrie A Sabin C Medical statistics at a glance 2009 3 West Sussex, UK John Wiley and Sons",
+    "citation_tag": "element-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Medical statistics at a glance",
+    "parsed_first_author": "petrie",
+    "parsed_year": 2009,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": [
+      {
+       "year": 2010,
+       "paper_id": 4591,
+       "rejected": "first author 'denyer' vs 'petrie'",
+       "similarity": 1.0,
+       "first_author": "denyer"
+      },
+      {
+       "year": 2020,
+       "paper_id": 4586,
+       "rejected": "year 2020 vs 2009",
+       "similarity": 0.6818,
+       "first_author": "petrie"
+      }
+     ]
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20606,
+    "ordinal": 20,
+    "raw_string": "Gugnani N Pandit IK Srivastava N Gupta M Sharma M International Caries Detection and Assessment System (ICDAS): a New Concept Int J Clin Pediatr Dent 2011 4 93 100 10.5005/jp-journals-10005-1089 27672245 PMC5030492",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.5005/jp-journals-10005-1089",
+    "parsed_pmid": "27672245",
+    "parsed_title": "International Caries Detection and Assessment System (ICDAS): a New Concept",
+    "parsed_first_author": "gugnani",
+    "parsed_year": 2011,
+    "parsed_container": "Int J Clin Pediatr Dent",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4545,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {},
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20607,
+    "ordinal": 21,
+    "raw_string": "Frankl S Should the parent remain with the child in the dental operatory? J Dent Child 1962 29 150 63",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Should the parent remain with the child in the dental operatory?",
+    "parsed_first_author": "frankl",
+    "parsed_year": 1962,
+    "parsed_container": "J Dent Child",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4597,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20608,
+    "ordinal": 22,
+    "raw_string": "Schulz KF Grimes DA Generation of allocation sequences in randomised trials: chance, not choice Lancet 2002 359 515 9 10.1016/S0140-6736(02)07683-3 11853818",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s0140-6736(02)07683-3",
+    "parsed_pmid": "11853818",
+    "parsed_title": "Generation of allocation sequences in randomised trials: chance, not choice",
+    "parsed_first_author": "schulz",
+    "parsed_year": 2002,
+    "parsed_container": "Lancet",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4598,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0140-6736(02)07683-3"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20609,
+    "ordinal": 23,
+    "raw_string": "Sealed Envelope Ltd. Simple randomisation service. 2021. Available at: https://www.sealedenvelope.com/simple-randomiser/v1/.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "other",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": 2021,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20610,
+    "ordinal": 24,
+    "raw_string": "Munshi AK Hegde AM Shetty PK Clinical evaluation of Carisolv in the chemico-mechanical removal of carious dentin J Clin Pediatr Dent 2001 26 49 54 10.17796/jcpd.26.1.lr48727276478461 11688813",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.17796/jcpd.26.1.lr48727276478461",
+    "parsed_pmid": "11688813",
+    "parsed_title": "Clinical evaluation of Carisolv in the chemico-mechanical removal of carious dentin",
+    "parsed_first_author": "munshi",
+    "parsed_year": 2001,
+    "parsed_container": "J Clin Pediatr Dent",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4599,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.17796/jcpd.26.1.lr48727276478461"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20611,
+    "ordinal": 25,
+    "raw_string": "Wright GZ Weinberger SJ Marti R Plotzke O The effectiveness of infiltration anesthesia in the mandibular primary molar region Pediatr Dent 1991 13 278 83 1815200",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": "1815200",
+    "parsed_title": "The effectiveness of infiltration anesthesia in the mandibular primary molar region",
+    "parsed_first_author": "wright",
+    "parsed_year": 1991,
+    "parsed_container": "Pediatr Dent",
+    "resolution_status": "resolved",
+    "resolution_method": "pmid",
+    "resolved_paper_id": 4600,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "pmid:1815200"
+      ],
+      "openalex_pmid": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20612,
+    "ordinal": 26,
+    "raw_string": "McHugh ML Interrater reliability: the kappa statistic Biochem Med (Zagreb) 2012 22 276 82 10.11613/BM.2012.031 23092060 PMC3900052",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.11613/bm.2012.031",
+    "parsed_pmid": "23092060",
+    "parsed_title": "Interrater reliability: the kappa statistic",
+    "parsed_first_author": "mchugh",
+    "parsed_year": 2012,
+    "parsed_container": "Biochem Med (Zagreb)",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3236,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.11613/bm.2012.031"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20613,
+    "ordinal": 27,
+    "raw_string": "Hegde S Kakti A Bolar DR Bhaskar SA Clinical efficiency of three caries removal systems: Rotary Excavation, Carisolv, and Papacarie J Dent Child (Chic) 2016 83 22 8 27098717",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": "27098717",
+    "parsed_title": "Clinical efficiency of three caries removal systems: Rotary Excavation, Carisolv, and Papacarie",
+    "parsed_first_author": "hegde",
+    "parsed_year": 2016,
+    "parsed_container": "J Dent Child (Chic)",
+    "resolution_status": "resolved",
+    "resolution_method": "pmid",
+    "resolved_paper_id": 4601,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "pmid:27098717"
+      ],
+      "openalex_pmid": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20614,
+    "ordinal": 28,
+    "raw_string": "Boob AR Manjula M Reddy ER Srilaxmi N Rani T Evaluation of the efficiency and effectiveness of three minimally invasive methods of Caries removal: an in vitro study Int J Clin Pediatr Dent 2014 7 11 8 10.5005/jp-journals-10005-1226 25206231 PMC4144065",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.5005/jp-journals-10005-1226",
+    "parsed_pmid": "25206231",
+    "parsed_title": "Evaluation of the efficiency and effectiveness of three minimally invasive methods of Caries removal: an in vitro study",
+    "parsed_first_author": "boob",
+    "parsed_year": 2014,
+    "parsed_container": "Int J Clin Pediatr Dent",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4602,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.5005/jp-journals-10005-1226"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20615,
+    "ordinal": 29,
+    "raw_string": "Statistics IS IBM SPSS statistics software version 22 2014 Chicago SPSS Inc",
+    "citation_tag": "element-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "IBM SPSS statistics software version 22",
+    "parsed_first_author": "statistics",
+    "parsed_year": 2014,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20616,
+    "ordinal": 30,
+    "raw_string": "Avinash A Grover SD Koul M Nayak MT Singhvi A Singh RK Comparison of mechanical and chemomechanical methods of caries removal in deciduous and permanent teeth: a SEM study J Indian Soc Pedod Prev Dent 2012 30 115 21 10.4103/0970-4388.99982 22918095",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.4103/0970-4388.99982",
+    "parsed_pmid": "22918095",
+    "parsed_title": "Comparison of mechanical and chemomechanical methods of caries removal in deciduous and permanent teeth: a SEM study",
+    "parsed_first_author": "avinash",
+    "parsed_year": 2012,
+    "parsed_container": "J Indian Soc Pedod Prev Dent",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4608,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.4103/0970-4388.99982"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20617,
+    "ordinal": 31,
+    "raw_string": "Katiyar A Gupta S Gupta K Sharma K Tripathi B Sharma N Comparative evaluation of chemo-mechanical and rotary-mechanical methods in removal of caries with respect to Time Consumption and Pain Perception in Pediatrc Dental patients Int J Clin Pediatr Dent 2021 14 115 9 10.5005/jp-journals-10005-1896 34326596 PMC8311777",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.5005/jp-journals-10005-1896",
+    "parsed_pmid": "34326596",
+    "parsed_title": "Comparative evaluation of chemo-mechanical and rotary-mechanical methods in removal of caries with respect to Time Consumption and Pain Perception in Pediatrc Dental patients",
+    "parsed_first_author": "katiyar",
+    "parsed_year": 2021,
+    "parsed_container": "Int J Clin Pediatr Dent",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3525,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.5005/jp-journals-10005-1896"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20618,
+    "ordinal": 32,
+    "raw_string": "Salem RG Fawzy MI Mostafa MH Comparative study of Erbium Laser Versus a chemo-mechanical caries removal method in primary teeth Al-Azhar D J 2021 8 673 80",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Comparative study of Erbium Laser Versus a chemo-mechanical caries removal method in primary teeth",
+    "parsed_first_author": "salem",
+    "parsed_year": 2021,
+    "parsed_container": "Al-Azhar D J",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4609,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20619,
+    "ordinal": 33,
+    "raw_string": "Aswathi KK Rani SP Athimuthu A Prasanna P Patil P Deepali KJ Comparison of efficacy of caries removal using polymer bur and chemomechanical caries removal agent: a clinical and microbiological assessment - an in vivo study J Indian Soc Pedod Prev Dent 2017 35 6 13 10.4103/0970-4388.199232 28139476",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.4103/0970-4388.199232",
+    "parsed_pmid": "28139476",
+    "parsed_title": "Comparison of efficacy of caries removal using polymer bur and chemomechanical caries removal agent: a clinical and microbiological assessment - an in vivo study",
+    "parsed_first_author": "aswathi",
+    "parsed_year": 2017,
+    "parsed_container": "J Indian Soc Pedod Prev Dent",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4614,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.4103/0970-4388.199232"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20620,
+    "ordinal": 34,
+    "raw_string": "Bohari MR Chunawalla YK Ahmed BM Clinical evaluation of caries removal in primary teeth using conventional, chemomechanical and laser technique: an in vivo study J Contemp Dent Pract 2012 13 40 7 10.5005/jp-journals-10024-1093 22430692",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.5005/jp-journals-10024-1093",
+    "parsed_pmid": "22430692",
+    "parsed_title": "Clinical evaluation of caries removal in primary teeth using conventional, chemomechanical and laser technique: an in vivo study",
+    "parsed_first_author": "bohari",
+    "parsed_year": 2012,
+    "parsed_container": "J Contemp Dent Pract",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4615,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.5005/jp-journals-10024-1093"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20621,
+    "ordinal": 35,
+    "raw_string": "Deng Y Feng G Hu B Kuang Y Song J Effects of Papacarie on children with dental caries in primary teeth: a systematic review and meta-analysis Int J Paediatr Dent 2018 28 361 72 10.1111/ipd.12364 29682851",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/ipd.12364",
+    "parsed_pmid": "29682851",
+    "parsed_title": "Effects of Papacarie on children with dental caries in primary teeth: a systematic review and meta-analysis",
+    "parsed_first_author": "deng",
+    "parsed_year": 2018,
+    "parsed_container": "Int J Paediatr Dent",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4616,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/ipd.12364"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20622,
+    "ordinal": 36,
+    "raw_string": "Jawa D Singh S Somani R Jaidka S Sirkar K Jaidka R Comparative evaluation of the efficacy of chemomechanical caries removal agent (papacarie) and conventional method of caries removal: an in vitro study J Indian Soc Pedod Prev Dent 2010 28 73 7 10.4103/0970-4388.66739 20660971",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.4103/0970-4388.66739",
+    "parsed_pmid": "20660971",
+    "parsed_title": "Comparative evaluation of the efficacy of chemomechanical caries removal agent (papacarie) and conventional method of caries removal: an in vitro study",
+    "parsed_first_author": "jawa",
+    "parsed_year": 2010,
+    "parsed_container": "J Indian Soc Pedod Prev Dent",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3364,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {},
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20623,
+    "ordinal": 37,
+    "raw_string": "Soni HK Sharma A Sood PB A comparative clinical study of various methods of caries removal in children Eur Arch Paediatr Dent 2015 16 19 26 10.1007/s40368-014-0140-1 25391222",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s40368-014-0140-1",
+    "parsed_pmid": "25391222",
+    "parsed_title": "A comparative clinical study of various methods of caries removal in children",
+    "parsed_first_author": "soni",
+    "parsed_year": 2015,
+    "parsed_container": "Eur Arch Paediatr Dent",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4617,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s40368-014-0140-1"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20624,
+    "ordinal": 38,
+    "raw_string": "Nagaveni N Radhika N Satisha T Ashwini K Neni S Gupta S Efficacy of new chemomechanical caries removal agent compared with conventional method in primary teeth: an in vivo study Int J of Oral Health Sci 2016 6 52 8 10.4103/2231-6027.199986",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.4103/2231-6027.199986",
+    "parsed_pmid": null,
+    "parsed_title": "Efficacy of new chemomechanical caries removal agent compared with conventional method in primary teeth: an in vivo study",
+    "parsed_first_author": "nagaveni",
+    "parsed_year": 2016,
+    "parsed_container": "Int J of Oral Health Sci",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3367,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {},
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20625,
+    "ordinal": 39,
+    "raw_string": "Pandit IK Srivastava N Gugnani N Gupta M Verma L Various methods of caries removal in children: a comparative clinical study J Indian Soc Pedod Prev Dent 2007 25 93 6 10.4103/0970-4388.33456 17660645",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.4103/0970-4388.33456",
+    "parsed_pmid": "17660645",
+    "parsed_title": "Various methods of caries removal in children: a comparative clinical study",
+    "parsed_first_author": "pandit",
+    "parsed_year": 2007,
+    "parsed_container": "J Indian Soc Pedod Prev Dent",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4618,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.4103/0970-4388.33456"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20626,
+    "ordinal": 40,
+    "raw_string": "Kochhar GK Srivastava N Pandit IK Gugnani N Gupta M An evaluation of different caries removal techniques in primary teeth: a comparitive clinical study J Clin Pediatr Dent 2011 36 5 9 10.17796/jcpd.36.1.u2421l4j68847215 22900437",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.17796/jcpd.36.1.u2421l4j68847215",
+    "parsed_pmid": "22900437",
+    "parsed_title": "An evaluation of different caries removal techniques in primary teeth: a comparitive clinical study",
+    "parsed_first_author": "kochhar",
+    "parsed_year": 2011,
+    "parsed_container": "J Clin Pediatr Dent",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4619,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.17796/jcpd.36.1.u2421l4j68847215"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20627,
+    "ordinal": 41,
+    "raw_string": "Sahana S Vasa AA Geddam D Reddy VK Nalluri S Velagapudi N Effectiveness of chemomechanical caries removal agents Papacarie(®) and Carie-Care™ in primary molars: an in vitro study J Int Soc Prev Community Dent 2016 6 17 22 10.4103/2231-0762.181162 PMC4863478 27195222",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.4103/2231-0762.181162",
+    "parsed_pmid": "27195222",
+    "parsed_title": "Effectiveness of chemomechanical caries removal agents Papacarie(®) and Carie-Care™ in primary molars: an in vitro study",
+    "parsed_first_author": "sahana",
+    "parsed_year": 2016,
+    "parsed_container": "J Int Soc Prev Community Dent",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4620,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.4103/2231-0762.181162"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": [
+     {
+      "notice_type": "retraction",
+      "notice_date": "2016-07-25",
+      "notice_doi": "10.4103/2231-0762.186808",
+      "reason": "Plagiarism of Data;Plagiarism of Image;",
+      "source": "retraction_watch",
+      "source_record_id": "5019",
+      "matched_on": "doi"
+     }
+    ]
+   },
+   {
+    "reference_id": 20628,
+    "ordinal": 42,
+    "raw_string": "Kannaiyan V Kumar P Thomas A Raaje P Guptha V Kumar M Comparative evaluation of caries removal efficacy between chemomechanical agents & conventional methods regarding time consumption: an in vivo study Int J Health Sci 2022 6 631 9",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Comparative evaluation of caries removal efficacy between chemomechanical agents & conventional methods regarding time consumption: an in vivo study",
+    "parsed_first_author": "kannaiyan",
+    "parsed_year": 2022,
+    "parsed_container": "Int J Health Sci",
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": [
+      {
+       "year": 2022,
+       "paper_id": 4621,
+       "rejected": "first author 'vivek' vs 'kannaiyan'",
+       "similarity": 0.8699,
+       "first_author": "vivek"
+      },
+      {
+       "year": 2010,
+       "paper_id": 3364,
+       "rejected": "year 2010 vs 2022",
+       "similarity": 0.6383,
+       "first_author": "jawa"
+      }
+     ]
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20629,
+    "ordinal": 43,
+    "raw_string": "Peters MC Flamenbaum MH Eboda NN Feigal RJ Inglehart MR Chemomechanical caries removal in children: efficacy and efficiency J Am Dent Assoc 2006 137 1658 66 10.14219/jada.archive.2006.0111 17138710",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.14219/jada.archive.2006.0111",
+    "parsed_pmid": "17138710",
+    "parsed_title": "Chemomechanical caries removal in children: efficacy and efficiency",
+    "parsed_first_author": "peters",
+    "parsed_year": 2006,
+    "parsed_container": "J Am Dent Assoc",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3119,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.14219/jada.archive.2006.0111"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.778
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20630,
+    "ordinal": 44,
+    "raw_string": "Sharma N Sisodia S Jain A Bhargava T Kumar P Rana KS Evaluation of the efficacy of recent caries removal techniques: an in Vitro Study Cureus 2023 15 e34432 36874665 10.7759/cureus.34432 PMC9979096",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.7759/cureus.34432",
+    "parsed_pmid": "36874665",
+    "parsed_title": "Evaluation of the efficacy of recent caries removal techniques: an in Vitro Study",
+    "parsed_first_author": "sharma",
+    "parsed_year": 2023,
+    "parsed_container": "Cureus",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4624,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.7759/cureus.34432"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20631,
+    "ordinal": 45,
+    "raw_string": "Kotb RM Abdella AA El Kateb MA Ahmed AM Clinical evaluation of Papacarie in primary teeth J Clin Pediatr Dent 2009 34 117 23 10.17796/jcpd.34.2.f312p36g18463716 20297701",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.17796/jcpd.34.2.f312p36g18463716",
+    "parsed_pmid": "20297701",
+    "parsed_title": "Clinical evaluation of Papacarie in primary teeth",
+    "parsed_first_author": "kotb",
+    "parsed_year": 2009,
+    "parsed_container": "J Clin Pediatr Dent",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4625,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.17796/jcpd.34.2.f312p36g18463716"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20632,
+    "ordinal": 46,
+    "raw_string": "Maashi MS Elkhodary HM Alamoudi NM Bamashmous NO Chemomechanical caries removal methods: a literature review Saudi Dent J 2023 35 233 43 10.1016/j.sdentj.2023.01.010 37091279 PMC10114597",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.sdentj.2023.01.010",
+    "parsed_pmid": "37091279",
+    "parsed_title": "Chemomechanical caries removal methods: a literature review",
+    "parsed_first_author": "maashi",
+    "parsed_year": 2023,
+    "parsed_container": "Saudi Dent J",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4626,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.sdentj.2023.01.010"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20633,
+    "ordinal": 47,
+    "raw_string": "Abdelaziz E Badran A Allam G Chemomechanical caries removal agents and their applications in pediatric dentistry J Adv Dent Res 2022 4 11 8 10.21608/adjc.2021.103368.1119",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.21608/adjc.2021.103368.1119",
+    "parsed_pmid": null,
+    "parsed_title": "Chemomechanical caries removal agents and their applications in pediatric dentistry",
+    "parsed_first_author": "abdelaziz",
+    "parsed_year": 2022,
+    "parsed_container": "J Adv Dent Res",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4627,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.21608/adjc.2021.103368.1119"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20634,
+    "ordinal": 48,
+    "raw_string": "Banerjee A Watson TF Kidd EA Dentine caries excavation: a review of current clinical techniques Br Dent J 2000 188 476 82 10.1038/sj.bdj.4800515a 10859846",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/sj.bdj.4800515a",
+    "parsed_pmid": "10859846",
+    "parsed_title": "Dentine caries excavation: a review of current clinical techniques",
+    "parsed_first_author": "banerjee",
+    "parsed_year": 2000,
+    "parsed_container": "Br Dent J",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4628,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1038/sj.bdj.4800515a"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20635,
+    "ordinal": 49,
+    "raw_string": "Celiberti P Francescut P Lussi A Performance of four dentine excavation methods in deciduous teeth Caries Res 2006 40 117 23 10.1159/000091057 16508268",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1159/000091057",
+    "parsed_pmid": "16508268",
+    "parsed_title": "Performance of four dentine excavation methods in deciduous teeth",
+    "parsed_first_author": "celiberti",
+    "parsed_year": 2006,
+    "parsed_container": "Caries Res",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4629,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1159/000091057"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20636,
+    "ordinal": 50,
+    "raw_string": "Nadanovsky P Cohen Carneiro F Souza de Mello F Removal of caries using only hand instruments: a comparison of mechanical and chemo-mechanical methods Caries Res 2001 35 384 9 10.1159/000047478 11641575",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1159/000047478",
+    "parsed_pmid": "11641575",
+    "parsed_title": "Removal of caries using only hand instruments: a comparison of mechanical and chemo-mechanical methods",
+    "parsed_first_author": "nadanovsky",
+    "parsed_year": 2001,
+    "parsed_container": "Caries Res",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4546,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {},
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20637,
+    "ordinal": 51,
+    "raw_string": "Cardoso M, Coelho A, Lima R, Amaro I, Paula A, Marto CM et al. Efficacy and Patient’s Acceptance of Alternative Methods for Caries Removal-a Systematic Review. J Clin Med 2020;9.10.3390/jcm9113407 PMC7690910 33114249",
+    "citation_tag": "mixed-citation",
+    "publication_type": "other",
+    "parsed_doi": "10.3390/jcm9113407",
+    "parsed_pmid": "33114249",
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4630,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3390/jcm9113407"
+      ],
+      "crossref_doi": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20638,
+    "ordinal": 52,
+    "raw_string": "Rajakumar S Mungara J Joseph E Philip J Shilpa Priya MP Evaluation of three different caries removal techniques in children: a comparative clinical study J Clin Pediatr Dent 2013 38 23 6 10.17796/jcpd.38.1.p3324121m66n1737 24579278",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.17796/jcpd.38.1.p3324121m66n1737",
+    "parsed_pmid": "24579278",
+    "parsed_title": "Evaluation of three different caries removal techniques in children: a comparative clinical study",
+    "parsed_first_author": "rajakumar",
+    "parsed_year": 2013,
+    "parsed_container": "J Clin Pediatr Dent",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 2094,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.17796/jcpd.38.1.p3324121m66n1737"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20639,
+    "ordinal": 53,
+    "raw_string": "Hegde AM Preethi V Shetty A Shetty S Clinical evaluation of chemo-bechanical caries removal using carie-care system among school children J Health Allied Sci NU 2014 4 080 4 10.1055/s-0040-1703807",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1055/s-0040-1703807",
+    "parsed_pmid": null,
+    "parsed_title": "Clinical evaluation of chemo-bechanical caries removal using carie-care system among school children",
+    "parsed_first_author": "hegde",
+    "parsed_year": 2014,
+    "parsed_container": "J Health Allied Sci NU",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4631,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1055/s-0040-1703807"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20640,
+    "ordinal": 54,
+    "raw_string": "Gaber AE Khalil AM Talaat DMTM The impact of gender on child dental anxiety in a sample of Egyptian children (a cross-sectional study) Alex Dent J 2018 43 1 5 10.21608/adjalexu.2018.57570",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.21608/adjalexu.2018.57570",
+    "parsed_pmid": null,
+    "parsed_title": "The impact of gender on child dental anxiety in a sample of Egyptian children (a cross-sectional study)",
+    "parsed_first_author": "gaber",
+    "parsed_year": 2018,
+    "parsed_container": "Alex Dent J",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4632,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.21608/adjalexu.2018.57570"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20641,
+    "ordinal": 55,
+    "raw_string": "Alshuaibi AF Aldarwish M Almulhim AN Lele GS Sanikommu S Raghunath RG Prevalence of Dental fear and anxiety and its triggering factors in the Dental Office among School-going children in Al Ahsa Int J Clin Pediatr Dent 2021 14 286 92 10.5005/jp-journals-10005-1925 34413608 PMC8343675",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.5005/jp-journals-10005-1925",
+    "parsed_pmid": "34413608",
+    "parsed_title": "Prevalence of Dental fear and anxiety and its triggering factors in the Dental Office among School-going children in Al Ahsa",
+    "parsed_first_author": "alshuaibi",
+    "parsed_year": 2021,
+    "parsed_container": "Int J Clin Pediatr Dent",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4633,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.5005/jp-journals-10005-1925"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20642,
+    "ordinal": 56,
+    "raw_string": "Sharma A Kumar D Anand A Mittal V Singh A Aggarwal N Factors predicting Behavior Management problems during initial Dental examination in children aged 2 to 8 years Int J Clin Pediatr Dent 2017 10 5 9 10.5005/jp-journals-10005-1397 28377646 PMC5360794",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.5005/jp-journals-10005-1397",
+    "parsed_pmid": "28377646",
+    "parsed_title": "Factors predicting Behavior Management problems during initial Dental examination in children aged 2 to 8 years",
+    "parsed_first_author": "sharma",
+    "parsed_year": 2017,
+    "parsed_container": "Int J Clin Pediatr Dent",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4634,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.5005/jp-journals-10005-1397"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20643,
+    "ordinal": 57,
+    "raw_string": "Dalal D, Khandelwal A, Tirupathi SP, Tirupathi SP, Kadam N. Identification and Assessment of factors Predicting Behaviour of the child in the First Dental visit. JSPS 2022:10950–4.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "other",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "dalal",
+    "parsed_year": 2022,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   }
+  ],
+  "stat_tests": [],
+  "means": [],
+  "trials": []
+ }
+}

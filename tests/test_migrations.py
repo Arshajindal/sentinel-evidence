@@ -41,6 +41,7 @@ def test_up_down_up(alembic_cfg):
     try:
         insp = inspect(engine)
         assert "paper_title_trgm" in {i["name"] for i in insp.get_indexes("paper")}
+        assert "stage_run_corpus" in {i["name"] for i in insp.get_indexes("stage_run")}
 
         cols = {c["name"]: c for c in insp.get_columns("finding")}
         assert cols["paper_id"]["nullable"] is True

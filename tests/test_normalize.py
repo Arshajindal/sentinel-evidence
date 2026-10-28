@@ -19,6 +19,9 @@ from sentinel.resolve.normalize import (
         ("Effect of <i>Lactobacillus</i> on IL-6", "effect of lactobacillus on il 6"),
         ("Café  Müller—Ångström", "cafe muller angstrom"),
         ("PEG-IFNα in hepatitis B", "peg ifnα in hepatitis b"),
+        # Crossref's title for a real fixture reference (PMC10657635 ref 42): no stray "amp".
+        ("chemomechanical agents &amp; conventional methods", "chemomechanical agents conventional methods"),
+        ("&lt;i&gt;In vitro&lt;/i&gt; study", "in vitro study"),
         ("", ""),
         (None, ""),
     ],

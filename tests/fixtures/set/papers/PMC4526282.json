@@ -1,0 +1,1029 @@
+{
+ "id": "PMC4526282",
+ "subject": "paper",
+ "categories": [
+  "edge_no_year"
+ ],
+ "source": {
+  "corpus": "pmc-rct-2015-2024",
+  "paper_id": 652,
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "Edge case, references without a year: ref 18 (Portuguese entry, no title or journal parsed) is too incomplete to check, not flagged. Cochrane reviews cited 'In:' count as non-journal. Ref 24 is genuinely unverifiable.",
+ "expected": [
+  {
+   "check": "C01",
+   "status": "flagged",
+   "severity": "medium",
+   "item": "ref 24",
+   "why": "Pearson 1992, Br J Hosp Med 48:47-51. Searched by hand in Crossref (bibliographic) and OpenAlex on 2026-10-27: no record of this work. 'Could not be verified' is accurate; the work may exist outside both indexes."
+  },
+  {
+   "check": "C01",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C02",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C03",
+   "status": "not_applicable",
+   "severity": "info"
+  },
+  {
+   "check": "C04",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "paper_id": 652,
+  "publication_date": "2015-08-05",
+  "fulltext_status": "full",
+  "references": [
+   {
+    "reference_id": 25302,
+    "ordinal": 1,
+    "raw_string": "Roberts CL, Ford JB, Algert CS, Antonsen S, Chalmers J, Cnattingius S, et al. Population-based trends in pregnancy hypertension and pre-eclampsia: an international comparative study. BMJ Open. 2011;1(1):e000101.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Population-based trends in pregnancy hypertension and pre-eclampsia: an international comparative study",
+    "parsed_first_author": "roberts",
+    "parsed_year": 2011,
+    "parsed_container": "BMJ Open",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4920,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25303,
+    "ordinal": 2,
+    "raw_string": "Hutcheon JA, Lisonkova S, Joseph KS. Epidemiology of preeclampsia and the other hypertensive disorders of pregnancy. Best Pract Res Clin Obstet Gynaecol. 2011;25(4):391–403. doi: 10.1016/j.bpobgyn.2011.01.006.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1016/j.bpobgyn.2011.01.006",
+    "parsed_pmid": null,
+    "parsed_title": "Epidemiology of preeclampsia and the other hypertensive disorders of pregnancy",
+    "parsed_first_author": "hutcheon",
+    "parsed_year": 2011,
+    "parsed_container": "Best Pract Res Clin Obstet Gynaecol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4925,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.bpobgyn.2011.01.006"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.994
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25304,
+    "ordinal": 3,
+    "raw_string": "Ronsmans C, on behalf of the Lancet Maternal Survival Series steering group. Graham WJ. Maternal mortality; who, when, where and why. Lancet. 2006;368(9542):1189–200. doi: 10.1016/S0140-6736(06)69380-X.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1016/s0140-6736(06)69380-x",
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "ronsmans",
+    "parsed_year": 2006,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4926,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0140-6736(06)69380-x"
+      ],
+      "crossref_doi": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25305,
+    "ordinal": 4,
+    "raw_string": "Zanette E, Parpinelli MA, Surita FG, Costa ML, Haddad SM, Sousa MH, et al. Brazilian Network for Surveillance of Severe Maternal Morbidity Group.Maternal near miss and death among women with severe hypertensive disorders: a Brazilian multicenter surveillance study. Reprod Health. 2014;11(1):4. doi: 10.1186/1742-4755-11-4.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1186/1742-4755-11-4",
+    "parsed_pmid": null,
+    "parsed_title": "Brazilian Network for Surveillance of Severe Maternal Morbidity Group.Maternal near miss and death among women with severe hypertensive disorders: a Brazilian multicenter surveillance study",
+    "parsed_first_author": "zanette",
+    "parsed_year": 2014,
+    "parsed_container": "Reprod Health",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4927,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/1742-4755-11-4"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.771
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25306,
+    "ordinal": 5,
+    "raw_string": "Ray JG, Vermeulen MJ, Schull MJ, Redelmeier DA. Cardiovascular health after maternal placental syndromes (CHAMPS): populationbased retrospective cohort study. Lancet. 2005;366(9499):1797–803. doi: 10.1016/S0140-6736(05)67726-4.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1016/s0140-6736(05)67726-4",
+    "parsed_pmid": null,
+    "parsed_title": "Cardiovascular health after maternal placental syndromes (CHAMPS): populationbased retrospective cohort study",
+    "parsed_first_author": "ray",
+    "parsed_year": 2005,
+    "parsed_container": "Lancet",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4928,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0140-6736(05)67726-4"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.995
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25307,
+    "ordinal": 6,
+    "raw_string": "Ray JG, Schull MJ, Kingdom JC, Vermeulen MJ. Heart failure and dysrhythmias after maternal placental syndromes: HAD MPS Study. Heart. 2012;98(15):1136–41. doi: 10.1136/heartjnl-2011-301548.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1136/heartjnl-2011-301548",
+    "parsed_pmid": null,
+    "parsed_title": "Heart failure and dysrhythmias after maternal placental syndromes: HAD MPS Study",
+    "parsed_first_author": "ray",
+    "parsed_year": 2012,
+    "parsed_container": "Heart",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4929,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1136/heartjnl-2011-301548"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25308,
+    "ordinal": 7,
+    "raw_string": "American College of Obstetricians and Gynecologists; Task Force on Hypertension in Pregnancy Hypertension in pregnancy. Report of the American College of Obstetricians and Gynecologists’ Task Force on Hypertension in Pregnancy. Obstet Gynecol. 2013;122(5):1122–31. doi: 10.1097/01.AOG.0000437382.03963.88.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1097/01.aog.0000437382.03963.88",
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": 2013,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4930,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/01.aog.0000437382.03963.88"
+      ],
+      "crossref_doi": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25309,
+    "ordinal": 8,
+    "raw_string": "Tranquilli AL, Dekker G, Magee L, Roberts J, Sibai BM, Steyn W, et al. The classification, diagnosis and management of the hypertensive disorders of pregnancy: a revised statement from the ISSHP. Pregnancy Hypertension. 2014;4(2):97–104. doi: 10.1016/j.preghy.2014.02.001.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1016/j.preghy.2014.02.001",
+    "parsed_pmid": null,
+    "parsed_title": "The classification, diagnosis and management of the hypertensive disorders of pregnancy: a revised statement from the ISSHP",
+    "parsed_first_author": "tranquilli",
+    "parsed_year": 2014,
+    "parsed_container": "Pregnancy Hypertension",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4931,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.preghy.2014.02.001"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25310,
+    "ordinal": 9,
+    "raw_string": "von Dadelszen P, Magee LA. Pre-eclampsia: an update. Curr Hypertens Rep. 2014;16(8):454. doi: 10.1007/s11906-014-0454-8.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1007/s11906-014-0454-8",
+    "parsed_pmid": null,
+    "parsed_title": "Pre-eclampsia: an update",
+    "parsed_first_author": "von dadelszen",
+    "parsed_year": 2014,
+    "parsed_container": "Curr Hypertens Rep",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4932,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s11906-014-0454-8"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25311,
+    "ordinal": 10,
+    "raw_string": "Duley Lelia, Gülmezoglu A Metin, Henderson-Smart David J, Chou Doris. Magnesium sulphate and other anticonvulsants for women with pre-eclampsia. Cochrane Database of Systematic Reviews. In: The Cochrane Library, Issue 11, Art. No. CD000025. doi:10.1002/14651858.CD000025.pub3",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1002/14651858.cd000025.pub3",
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "doi_not_found",
+       "doi_org_registered": false
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {
+      "doi_handle": 1,
+      "crossref_doi": 1,
+      "openalex_doi": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25312,
+    "ordinal": 11,
+    "raw_string": "Duley Lelia, Henderson-Smart David J, Walker Godfrey JA, Chou Doris. Magnesium sulphate versus diazepam for eclampsia. Cochrane Database of Systematic Reviews. In: The Cochrane Library, Issue 11, Art. No. CD000127. doi:10.1002/14651858.CD000127.pub2",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1002/14651858.cd000127.pub2",
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4933,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/14651858.cd000127.pub2"
+      ],
+      "crossref_doi": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25313,
+    "ordinal": 12,
+    "raw_string": "Duley Lelia, Henderson-Smart David J, Chou Doris. Magnesium sulphate versus phenytoin for eclampsia. Cochrane Database of Systematic Reviews. In: The Cochrane Library,Issue 11, Art. No. CD000128. doi:10.1002/14651858.CD000128.pub2",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1002/14651858.cd000128.pub2",
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4934,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/14651858.cd000128.pub2"
+      ],
+      "crossref_doi": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25314,
+    "ordinal": 13,
+    "raw_string": "Duley Lelia, Gülmezoglu A Metin, Chou Doris. Magnesium sulfate versus lytic cocktail for eclampsia. Cochrane Database of Systematic Reviews. In: The Cochrane Library, Issue 11, Art. No. CD002960. doi:10.1002/14651858.CD002960.pub1",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1002/14651858.cd002960.pub1",
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "doi_not_found",
+       "doi_org_registered": false
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {
+      "doi_handle": 1,
+      "crossref_doi": 1,
+      "openalex_doi": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25315,
+    "ordinal": 14,
+    "raw_string": "Duley Lelia, Matar Hosam E, Almerie Muhammad Qutayba, Hall David R. Alternative magnesium sulphate regimens for women with pre-eclampsia and eclampsia. Cochrane Database of Systematic Reviews. In: The Cochrane Library, Issue 11, Art. No. CD007388. doi:10.1002/14651858.CD007388.pub8",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1002/14651858.cd007388.pub8",
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "doi_not_found",
+       "doi_org_registered": false
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {
+      "doi_handle": 1,
+      "crossref_doi": 1,
+      "openalex_doi": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25316,
+    "ordinal": 15,
+    "raw_string": "Norwitz ER. Eclampsia. In: UpToDate 2015. Topic 1662 Version 27.0. www.uptodate.com ©2015 UpToDate®. http://www.uptodate.com/contents/eclampsia?source=search_result&search=Eclampsia&selectedTitle=1~150",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "norwitz",
+    "parsed_year": 2015,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25317,
+    "ordinal": 16,
+    "raw_string": "Churchill David, Duley Lelia, Thornton Jim G, Jones Leanne. Interventionist versus expectant care for severe pre-eclampsia between 24 and 34 weeks' gestation. Cochrane Database of Systematic Reviews. In: The Cochrane Library, Issue 11, Art. No. CD003106. doi:10.1002/14651858.CD003106.pub3",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1002/14651858.cd003106.pub3",
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4935,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/14651858.cd003106.pub3"
+      ],
+      "crossref_doi": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25318,
+    "ordinal": 17,
+    "raw_string": "Koopmans CM, Bijlenga D, Groen H, Vijgen SM, Aarnoudse JG, Bekedam DJ, et al. Induction of labour versus expectant monitoring for gestational hypertension or mild pre-eclampsia after 36 weeks' gestation (HYPITAT): a multicentre, open-label randomized controlled trial. Lancet. 2009;374(9694):979–88. doi: 10.1016/S0140-6736(09)60736-4.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1016/s0140-6736(09)60736-4",
+    "parsed_pmid": null,
+    "parsed_title": "Induction of labour versus expectant monitoring for gestational hypertension or mild pre-eclampsia after 36 weeks' gestation (HYPITAT): a multicentre, open-label randomized controlled trial",
+    "parsed_first_author": "koopmans",
+    "parsed_year": 2009,
+    "parsed_container": "Lancet",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4936,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0140-6736(09)60736-4"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.995
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25319,
+    "ordinal": 18,
+    "raw_string": "Sanctos M. Evolução dos níveis pressóricos no puerpério em mulheres com pré-eclâmpsia grave atendidas em um hospital terciário: estudo de coorte [dissertação] Recife: Instituto de Medicina Integral Professor Fernando Figueira-IMIP; 2004.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "sanctos",
+    "parsed_year": 2004,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25320,
+    "ordinal": 19,
+    "raw_string": "Chames MC, Livingston JC, Ivester TS, Barton JR, Sibai BM. Late postpartum eclampsia: a preventable disease? Am J Obstet Gynecol. 2002;186:1174–1177. doi: 10.1067/mob.2002.123824.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1067/mob.2002.123824",
+    "parsed_pmid": null,
+    "parsed_title": "Late postpartum eclampsia: a preventable disease?",
+    "parsed_first_author": "chames",
+    "parsed_year": 2002,
+    "parsed_container": "Am J Obstet Gynecol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4937,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1067/mob.2002.123824"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25321,
+    "ordinal": 20,
+    "raw_string": "Duley L. The global impact of pre-eclampsia and eclampsia. Semin Perinatol. 2009;33:130–137. doi: 10.1053/j.semperi.2009.02.010.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1053/j.semperi.2009.02.010",
+    "parsed_pmid": null,
+    "parsed_title": "The global impact of pre-eclampsia and eclampsia",
+    "parsed_first_author": "duley",
+    "parsed_year": 2009,
+    "parsed_container": "Semin Perinatol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4938,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1053/j.semperi.2009.02.010"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25322,
+    "ordinal": 21,
+    "raw_string": "Castro LC, Hobel CJ, Gornbein J. Plasma levels of atrial natriuretic peptide in normal and hypertensive pregnancies: a meta-analysis. Am J Obstet Gynecol. 1994;171:1642–1651. doi: 10.1016/0002-9378(94)90416-2.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1016/0002-9378(94)90416-2",
+    "parsed_pmid": null,
+    "parsed_title": "Plasma levels of atrial natriuretic peptide in normal and hypertensive pregnancies: a meta-analysis",
+    "parsed_first_author": "castro",
+    "parsed_year": 1994,
+    "parsed_container": "Am J Obstet Gynecol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4939,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/0002-9378(94)90416-2"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.995
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25323,
+    "ordinal": 22,
+    "raw_string": "Davison JM, Dunlop W. Changes in renal hemodynamics and tubular function induced by human normal pregnancy. Semin Nephrol. 1984;4:198–207.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Changes in renal hemodynamics and tubular function induced by human normal pregnancy",
+    "parsed_first_author": "davison",
+    "parsed_year": 1984,
+    "parsed_container": "Semin Nephrol",
+    "resolution_status": "resolved",
+    "resolution_method": "title_author_year",
+    "resolved_paper_id": 4945,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25324,
+    "ordinal": 23,
+    "raw_string": "Ascarelli MH, Johnson V, McCreary H, Cushman J, May WL, Martin JN Jr. Postpartum preeclampsia management with furosemide: a randomized clinical trial. Obstetrics and gynecology. 2005;105(1):29–33.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Postpartum preeclampsia management with furosemide: a randomized clinical trial",
+    "parsed_first_author": "ascarelli",
+    "parsed_year": 2005,
+    "parsed_container": "Obstetrics and gynecology",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4946,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25325,
+    "ordinal": 24,
+    "raw_string": "Pearson JF. Fluid balance in severe preeclampsia. Br J Hosp Med. 1992;48:47–51.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Fluid balance in severe preeclampsia",
+    "parsed_first_author": "pearson",
+    "parsed_year": 1992,
+    "parsed_container": "Br J Hosp Med",
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25326,
+    "ordinal": 25,
+    "raw_string": "Magee Laura, von Dadelszen Peter. Prevention and treatment of postpartum hypertension. Cochrane Database of Systematic Reviews. In: The Cochrane Library, Issue 11, Art. No. CD004351. doi:10.1002/14651858.CD004351.pub1",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1002/14651858.cd004351.pub1",
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "doi_not_found",
+       "doi_org_registered": false
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {
+      "doi_handle": 1,
+      "crossref_doi": 1,
+      "openalex_doi": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25327,
+    "ordinal": 26,
+    "raw_string": "Matthews G, Gornall R, Saunders N. A randomized placebo trial of loop diuretics in moderate/severe preeclampsia, following delivery. J Obstet Gynaecol. 1997;17:30–2. doi: 10.1080/01443619750114040.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1080/01443619750114040",
+    "parsed_pmid": null,
+    "parsed_title": "A randomized placebo trial of loop diuretics in moderate/severe preeclampsia, following delivery",
+    "parsed_first_author": "matthews",
+    "parsed_year": 1997,
+    "parsed_container": "J Obstet Gynaecol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4956,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1080/01443619750114040"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.931
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 25328,
+    "ordinal": 27,
+    "raw_string": "Schulz KF, Altman DG, Moher D, CONSORT Group CONSORT 2010 statement: updated guidelines for reporting parallel group randomized trials. BMJ. 2010;340:c332. doi: 10.1136/bmj.c332.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1136/bmj.c332",
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "schulz",
+    "parsed_year": 2010,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4957,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1136/bmj.c332"
+      ],
+      "crossref_doi": 1
+     }
+    },
+    "notices": []
+   }
+  ],
+  "stat_tests": [],
+  "means": [],
+  "trials": []
+ }
+}

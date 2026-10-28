@@ -1,0 +1,720 @@
+{
+ "id": "PMC6534260",
+ "subject": "paper",
+ "categories": [
+  "c01_non_journal_references"
+ ],
+ "source": {
+  "corpus": "pmc-rct-2015-2024",
+  "paper_id": 463,
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "1 non-journal reference (a registry annual report with an ISBN): not flagged.",
+ "expected": [
+  {
+   "check": "C01",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C02",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C03",
+   "status": "not_applicable",
+   "severity": "info"
+  },
+  {
+   "check": "C04",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "paper_id": 463,
+  "publication_date": "2019-02-11",
+  "fulltext_status": "full",
+  "references": [
+   {
+    "reference_id": 18115,
+    "ordinal": 1,
+    "raw_string": "Baad-Hansen T, Kold S, Olsen N, Christensen F, Soballe K Excessive distal migration of fiber-mesh coated femoral stems. Acta Orthop 2011; 82(3): 308–14.21504304 10.3109/17453674.2011.574562 PMC3235308",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3109/17453674.2011.574562",
+    "parsed_pmid": "21504304",
+    "parsed_title": "Excessive distal migration of fiber-mesh coated femoral stems",
+    "parsed_first_author": "baad hansen",
+    "parsed_year": 2011,
+    "parsed_container": "Acta Orthop",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4503,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3109/17453674.2011.574562"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 18116,
+    "ordinal": 2,
+    "raw_string": "Briem D, Schneider M, Bogner N, Botha N, Gebauer M, Gehrke T, Schwantes B Mid-term results of 155 patients treated with a Collum Femoris Preserving (CFP) short stem prosthesis. Int Orthop 2011; 35(5): 655–60.20437260 10.1007/s00264-010-1020-x PMC3080504",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s00264-010-1020-x",
+    "parsed_pmid": "20437260",
+    "parsed_title": "Mid-term results of 155 patients treated with a Collum Femoris Preserving (CFP) short stem prosthesis",
+    "parsed_first_author": "briem",
+    "parsed_year": 2011,
+    "parsed_container": "Int Orthop",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4504,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s00264-010-1020-x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 18117,
+    "ordinal": 3,
+    "raw_string": "Campbell D, Mercer G, Nilsson K G, Wells V, Field J R, Callary S A Early migration characteristics of a hydroxyapatite-coated femoral stem: an RSA study. Int Orthop 2011; 35(4): 483–8.20012862 10.1007/s00264-009-0913-z PMC3066322",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s00264-009-0913-z",
+    "parsed_pmid": "20012862",
+    "parsed_title": "Early migration characteristics of a hydroxyapatite-coated femoral stem: an RSA study",
+    "parsed_first_author": "campbell",
+    "parsed_year": 2011,
+    "parsed_container": "Int Orthop",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4505,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s00264-009-0913-z"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 18118,
+    "ordinal": 4,
+    "raw_string": "Hube R, Zaage M, Hein W, Reichel H [Early functional results with the Mayo hip, a short stem system with metaphyseal–intertrochanteric fixation]. Der Orthopade 2004; 33(11): 1249–58.15549249 10.1007/s00132-004-0711-7",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s00132-004-0711-7",
+    "parsed_pmid": "15549249",
+    "parsed_title": "[Early functional results with the Mayo hip, a short stem system with metaphyseal–intertrochanteric fixation]",
+    "parsed_first_author": "hube",
+    "parsed_year": 2004,
+    "parsed_container": "Der Orthopade",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4506,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s00132-004-0711-7"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.42
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 18119,
+    "ordinal": 5,
+    "raw_string": "Hutt J, Harb Z, Gill I, Kashif F, Miller J, Dodd M Ten year results of the Collum Femoris Preserving total hip replacement: a prospective cohort study of seventy five patients. Int Orthop 2014; 38(5): 917–22.24323351 10.1007/s00264-013-2212-y PMC3997789",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s00264-013-2212-y",
+    "parsed_pmid": "24323351",
+    "parsed_title": "Ten year results of the Collum Femoris Preserving total hip replacement: a prospective cohort study of seventy five patients",
+    "parsed_first_author": "hutt",
+    "parsed_year": 2014,
+    "parsed_container": "Int Orthop",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4507,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s00264-013-2212-y"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 18120,
+    "ordinal": 6,
+    "raw_string": "Kärrholm J, Borssen B, Lowenhielm G, Snorrason F Does early micromotion of femoral stem prostheses matter? 4-7-year stereoradiographic follow-up of 84 cemented prostheses. J Bone Joint Surg Br 1994; 76(6): 912–7.7983118",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": "7983118",
+    "parsed_title": "Does early micromotion of femoral stem prostheses matter? 4-7-year stereoradiographic follow-up of 84 cemented prostheses",
+    "parsed_first_author": "karrholm",
+    "parsed_year": 1994,
+    "parsed_container": "J Bone Joint Surg Br",
+    "resolution_status": "resolved",
+    "resolution_method": "pmid",
+    "resolved_paper_id": 4508,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "pmid:7983118"
+      ],
+      "openalex_pmid": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 18121,
+    "ordinal": 7,
+    "raw_string": "Kress A M, Schmidt R, Nowak T E, Nowak M, Haeberle L, Forst R, Mueller L A Stress-related femoral cortical and cancellous bone density loss after Collum Femoris Preserving uncemented total hip arthroplasty: a prospective 7-year follow-up with quantitative computed tomography. Arch Orthop Trauma Surg 2012; 132(8): 1111–19.22622793 10.1007/s00402-012-1537-0",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s00402-012-1537-0",
+    "parsed_pmid": "22622793",
+    "parsed_title": "Stress-related femoral cortical and cancellous bone density loss after Collum Femoris Preserving uncemented total hip arthroplasty: a prospective 7-year follow-up with quantitative computed tomography",
+    "parsed_first_author": "kress",
+    "parsed_year": 2012,
+    "parsed_container": "Arch Orthop Trauma Surg",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4509,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s00402-012-1537-0"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 18122,
+    "ordinal": 8,
+    "raw_string": "Lazarinis S, Mattsson P, Milbrink J, Mallmin H, Hailer N P A prospective cohort study on the short Collum Femoris-Preserving (CFP) stem using RSA and DXA: primary stability but no prevention of proximal bone loss in 27 patients followed for 2 years. Acta Orthop 2013; 84(1): 32–9.23343375 10.3109/17453674.2013.765623 PMC3584599",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3109/17453674.2013.765623",
+    "parsed_pmid": "23343375",
+    "parsed_title": "A prospective cohort study on the short Collum Femoris-Preserving (CFP) stem using RSA and DXA: primary stability but no prevention of proximal bone loss in 27 patients followed for 2 years",
+    "parsed_first_author": "lazarinis",
+    "parsed_year": 2013,
+    "parsed_container": "Acta Orthop",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4510,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3109/17453674.2013.765623"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.662
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 18123,
+    "ordinal": 9,
+    "raw_string": "Li M, Hu Y, Xie J Analysis of the complications of the Collum Femoris Preserving (CFP) prostheses. Acta Orthop Traumatol Turc 2014; 48(6): 623–7.25637725 10.3944/AOTT.2014.13.0060",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3944/aott.2014.13.0060",
+    "parsed_pmid": "25637725",
+    "parsed_title": "Analysis of the complications of the Collum Femoris Preserving (CFP) prostheses",
+    "parsed_first_author": "li",
+    "parsed_year": 2014,
+    "parsed_container": "Acta Orthop Traumatol Turc",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4511,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3944/aott.2014.13.0060"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 18124,
+    "ordinal": 10,
+    "raw_string": "Luites J W, Spruit M, Hellemondt G G, Horstmann W G, Valstar E R Failure of the uncoated titanium ProxiLock femoral hip prosthesis. Clin Orthop Relat Res 2006; 448: 79–86.16826100 10.1097/01.blo.0000224011.12175.83",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/01.blo.0000224011.12175.83",
+    "parsed_pmid": "16826100",
+    "parsed_title": "Failure of the uncoated titanium ProxiLock femoral hip prosthesis",
+    "parsed_first_author": "luites",
+    "parsed_year": 2006,
+    "parsed_container": "Clin Orthop Relat Res",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4512,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/01.blo.0000224011.12175.83"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 18125,
+    "ordinal": 11,
+    "raw_string": "Mjöberg B Loosening of the cemented hip prosthesis” the importance of heat injury. Acta Orthop 1986; (Suppl 221): 1–40.3468743",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": "3468743",
+    "parsed_title": "Loosening of the cemented hip prosthesis” the importance of heat injury",
+    "parsed_first_author": "mjoberg",
+    "parsed_year": 1986,
+    "parsed_container": "Acta Orthop",
+    "resolution_status": "resolved",
+    "resolution_method": "pmid",
+    "resolved_paper_id": 2091,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "pmid:3468743"
+      ],
+      "openalex_pmid": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 18126,
+    "ordinal": 12,
+    "raw_string": "Nowak M, Nowak T E, Schmidt R, Forst R, Kress A M, Mueller L A Prospective study of a cementless total hip arthroplasty with a Collum Femoris Preserving stem and a trabeculae oriented pressfit cup: minimun 6-year follow-up. Arch Orthop Trauma Surg 2011; 131(4): 549–55.20924764 10.1007/s00402-010-1189-x",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s00402-010-1189-x",
+    "parsed_pmid": "20924764",
+    "parsed_title": "Prospective study of a cementless total hip arthroplasty with a Collum Femoris Preserving stem and a trabeculae oriented pressfit cup: minimun 6-year follow-up",
+    "parsed_first_author": "nowak",
+    "parsed_year": 2011,
+    "parsed_container": "Arch Orthop Trauma Surg",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4513,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s00402-010-1189-x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 18127,
+    "ordinal": 13,
+    "raw_string": "Pipino F, Molfetta L Femoral neck preservation in total hip replacement. Ital J Orthop Traumatol 1993; 19(1): 5–12.8567257",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": "8567257",
+    "parsed_title": "Femoral neck preservation in total hip replacement",
+    "parsed_first_author": "pipino",
+    "parsed_year": 1993,
+    "parsed_container": "Ital J Orthop Traumatol",
+    "resolution_status": "resolved",
+    "resolution_method": "pmid",
+    "resolved_paper_id": 4514,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "pmid:8567257"
+      ],
+      "openalex_pmid": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 18128,
+    "ordinal": 14,
+    "raw_string": "Röhrl S M, Li M G, Pedersen E, Ullmark G, Nivbrant B Migration pattern of a short femoral neck preserving stem. Clin Orthop Relat Res 2006; 448:73–8.16826099 10.1097/01.blo.0000224000.87517.4c",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/01.blo.0000224000.87517.4c",
+    "parsed_pmid": "16826099",
+    "parsed_title": "Migration pattern of a short femoral neck preserving stem",
+    "parsed_first_author": "rohrl",
+    "parsed_year": 2006,
+    "parsed_container": "Clin Orthop Relat Res",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4515,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/01.blo.0000224000.87517.4c"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 18129,
+    "ordinal": 15,
+    "raw_string": "Salemyr M, Muren O, Ahl T, Boden H, Eisler T, Stark A, Skoldenberg O Lower periprosthetic bone loss and good fixation of an ultra-short stem compared to a conventional stem in uncemented total hip arthroplasty. Acta Orthop 2015; 86(6): 659–66.26134386 10.3109/17453674.2015.1067087 PMC4750763",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3109/17453674.2015.1067087",
+    "parsed_pmid": "26134386",
+    "parsed_title": "Lower periprosthetic bone loss and good fixation of an ultra-short stem compared to a conventional stem in uncemented total hip arthroplasty",
+    "parsed_first_author": "salemyr",
+    "parsed_year": 2015,
+    "parsed_container": "Acta Orthop",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4516,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3109/17453674.2015.1067087"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 18130,
+    "ordinal": 16,
+    "raw_string": "SHAR Swedish Hip Artroplasty Register annual report 2015, page 56 ISBN 978-91-980507-9-0. https://shpr.registercentrum.se/shar-in-english/annual-reports-from-the-swedish-hip-arthroplasty-register/p/rkeyyeElz",
+    "citation_tag": "mixed-citation",
+    "publication_type": "web",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "shar",
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 18131,
+    "ordinal": 17,
+    "raw_string": "Ström H, Nilsson O, Milbrink J, Mallmin H, Larsson S The effect of early weight bearing on migration pattern of the uncemented CLS stem in total hip arthroplasty. J Arthroplasty 2007; 22(8): 1122–9.18078880 10.1016/j.arth.2006.11.015",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.arth.2006.11.015",
+    "parsed_pmid": "18078880",
+    "parsed_title": "The effect of early weight bearing on migration pattern of the uncemented CLS stem in total hip arthroplasty",
+    "parsed_first_author": "strom",
+    "parsed_year": 2007,
+    "parsed_container": "J Arthroplasty",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4517,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.arth.2006.11.015"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 18132,
+    "ordinal": 18,
+    "raw_string": "Tomaszewski W, Kotela I, Kawik L, Bednarenko M, Lorkowski J, Kotela A Quality of life of patients in the evaluation of outcomes of short stem hip arthroplasty for hip osteoarthritis. Orthop Traumatol Rehabil 2013; 15(5): 439–57.10.5604/15093492.1084359 24431255",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.5604/15093492.1084359",
+    "parsed_pmid": "24431255",
+    "parsed_title": "Quality of life of patients in the evaluation of outcomes of short stem hip arthroplasty for hip osteoarthritis",
+    "parsed_first_author": "tomaszewski",
+    "parsed_year": 2013,
+    "parsed_container": "Orthop Traumatol Rehabil",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4518,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.5604/15093492.1084359"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.991
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 18133,
+    "ordinal": 19,
+    "raw_string": "Von Schewelov T, Ahlborg H, Sanzen L, Besjakov J, Carlsson A Fixation of the fully hydroxyapatite-coated Corail stem implanted due to femoral neck fracture: 38 patients followed for 2 years with RSA and DEXA. Acta Orthop 2012; 83(2): 153–8.22112154 10.3109/17453674.2011.641107 PMC3339529",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3109/17453674.2011.641107",
+    "parsed_pmid": "22112154",
+    "parsed_title": "Fixation of the fully hydroxyapatite-coated Corail stem implanted due to femoral neck fracture: 38 patients followed for 2 years with RSA and DEXA",
+    "parsed_first_author": "von schewelov",
+    "parsed_year": 2012,
+    "parsed_container": "Acta Orthop",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4519,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3109/17453674.2011.641107"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.787
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 18134,
+    "ordinal": 20,
+    "raw_string": "You R J, Zheng W Z, Chen K, Lv H S, Huang D F, Xiao Y Z, Yang D Y, Su Z Q Long-term effectiveness of total hip replacement with the Collum Femoris Preserving prosthesis. Cell Biochem Biophys 2015; 72(1): 43–7.25480429 10.1007/s12013-014-0401-y",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s12013-014-0401-y",
+    "parsed_pmid": "25480429",
+    "parsed_title": "Long-term effectiveness of total hip replacement with the Collum Femoris Preserving prosthesis",
+    "parsed_first_author": "you",
+    "parsed_year": 2015,
+    "parsed_container": "Cell Biochem Biophys",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4520,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s12013-014-0401-y"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   }
+  ],
+  "stat_tests": [],
+  "means": [],
+  "trials": []
+ }
+}
