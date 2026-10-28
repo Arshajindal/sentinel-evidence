@@ -331,3 +331,26 @@ ingest_watermark = Table(
     Column("last_run_at", DateTime(timezone=True)),
     Column("rows_seen", BigInteger, nullable=False, server_default=text("0")),
 )
+
+# One row per run of a pipeline stage, so `sentinel stats` can report wall
+# time per stage (§9.8, ADR-039). check_run keeps its own timing; this covers
+# the stages before it. Rows are never updated after the stage finishes.
+stage_run = Table(
+    "stage_run",
+    metadata,
+    Column("id", BigInteger, primary_key=True),
+    Column("stage", Text, nullable=False),  # ingest | resolve | extract
+    Column("source", Text),  # e.g. europepmc, retraction-watch, stats
+    Column("corpus_label", Text),
+    Column(
+        "started_at",
+        DateTime(timezone=True),
+        nullable=False,
+        server_default=func.now(),
+    ),
+    Column("finished_at", DateTime(timezone=True)),
+    Column("status", Text, nullable=False, server_default=text("'running'")),
+    Column("n_items", Integer),
+    Column("counts", JSONB),
+)
+Index("stage_run_corpus", stage_run.c.corpus_label, stage_run.c.stage)

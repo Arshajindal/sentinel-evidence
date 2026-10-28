@@ -1,0 +1,510 @@
+{
+ "id": "PMC6647057",
+ "subject": "paper",
+ "categories": [
+  "clean"
+ ],
+ "source": {
+  "corpus": "pmc-rct-2015-2024",
+  "paper_id": 679,
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "No flags from any check. All references resolved or non-journal; no statistics found in the body text, and no means (C04 never applies in Phase 1).",
+ "expected": [
+  {
+   "check": "C01",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C02",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C03",
+   "status": "not_applicable",
+   "severity": "info"
+  },
+  {
+   "check": "C04",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "paper_id": 679,
+  "publication_date": "2019-07-22",
+  "fulltext_status": "full",
+  "references": [
+   {
+    "reference_id": 26368,
+    "ordinal": 1,
+    "raw_string": "Hill LM Breckle R Thomas ML Fries JK Polyhydramnios: ultrasonically detected prevalence and neonatal outcome Obstet Gynecol 1987 69 1 21 25 3540761",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": "3540761",
+    "parsed_title": "Polyhydramnios: ultrasonically detected prevalence and neonatal outcome",
+    "parsed_first_author": "hill",
+    "parsed_year": 1987,
+    "parsed_container": "Obstet Gynecol",
+    "resolution_status": "resolved",
+    "resolution_method": "pmid",
+    "resolved_paper_id": 4991,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "pmid:3540761"
+      ],
+      "openalex_pmid": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 26369,
+    "ordinal": 2,
+    "raw_string": "Thompson O Brown R Gunnarson G Harrington K Prevalence of polyhydramnios in the third trimester in a population screened by first and second trimester ultrasonography J Perinat Med 1998 26 5 371 377 10.1515/jpme.1998.26.5.371 10027132",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1515/jpme.1998.26.5.371",
+    "parsed_pmid": "10027132",
+    "parsed_title": "Prevalence of polyhydramnios in the third trimester in a population screened by first and second trimester ultrasonography",
+    "parsed_first_author": "thompson",
+    "parsed_year": 1998,
+    "parsed_container": "J Perinat Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4992,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1515/jpme.1998.26.5.371"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 26370,
+    "ordinal": 3,
+    "raw_string": "Biggio JR Jr Wenstrom KD Dubard MB Cliver SP Hydramnios prediction of adverse perinatal outcome Obstet Gynecol 1999 94 5 773 777 10546727 10.1016/s0029-7844(99)00370-1",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s0029-7844(99)00370-1",
+    "parsed_pmid": "10546727",
+    "parsed_title": "Hydramnios prediction of adverse perinatal outcome",
+    "parsed_first_author": "biggio",
+    "parsed_year": 1999,
+    "parsed_container": "Obstet Gynecol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4993,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0029-7844(99)00370-1"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 26371,
+    "ordinal": 4,
+    "raw_string": "Pri-Paz S Khalek N Fuchs KM Simpson LL Maximal amniotic fluid index as a prognostic factor in pregnancies complicated by polyhydramnios Ultrasound Obstet Gynecol 2012 39 6 648 653 10.1002/uog.10093 21898637",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/uog.10093",
+    "parsed_pmid": "21898637",
+    "parsed_title": "Maximal amniotic fluid index as a prognostic factor in pregnancies complicated by polyhydramnios",
+    "parsed_first_author": "pri paz",
+    "parsed_year": 2012,
+    "parsed_container": "Ultrasound Obstet Gynecol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4994,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/uog.10093"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 26372,
+    "ordinal": 5,
+    "raw_string": "Aviram A Salzer L Hiersch L Ashwal E Golan G Pardo J Association of isolated polyhydramnios at or beyond 34 weeks of gestation and pregnancy outcome Obstet Gynecol 2015 125 4 825 832 10.1097/AOG.0000000000000740 25751210",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/aog.0000000000000740",
+    "parsed_pmid": "25751210",
+    "parsed_title": "Association of isolated polyhydramnios at or beyond 34 weeks of gestation and pregnancy outcome",
+    "parsed_first_author": "aviram",
+    "parsed_year": 2015,
+    "parsed_container": "Obstet Gynecol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4995,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/aog.0000000000000740"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 26373,
+    "ordinal": 6,
+    "raw_string": "McClure EM Nathan RO Saleem S Esamai F Garces A Chomba E First look: a cluster-randomized trial of ultrasound to improve pregnancy outcomes in low income country settings BMC Pregnancy Childbirth 2014 14 73 10.1186/1471-2393-14-73 24533878 PMC3996090",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1186/1471-2393-14-73",
+    "parsed_pmid": "24533878",
+    "parsed_title": "First look: a cluster-randomized trial of ultrasound to improve pregnancy outcomes in low income country settings",
+    "parsed_first_author": "mcclure",
+    "parsed_year": 2014,
+    "parsed_container": "BMC Pregnancy Childbirth",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4996,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/1471-2393-14-73"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 26374,
+    "ordinal": 7,
+    "raw_string": "Ozumba BC Obi SN Oli JM Diabetes mellitus in pregnancy in an African population Int J Gynaecol Obstet 2004 84 2 114 119 10.1016/S0020-7292(03)00210-8 14871512",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s0020-7292(03)00210-8",
+    "parsed_pmid": "14871512",
+    "parsed_title": "Diabetes mellitus in pregnancy in an African population",
+    "parsed_first_author": "ozumba",
+    "parsed_year": 2004,
+    "parsed_container": "Int J Gynaecol Obstet",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4997,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0020-7292(03)00210-8"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 26375,
+    "ordinal": 8,
+    "raw_string": "Daponte A Guidozzi F Moisuc D Marineanu A Management of diabetic pregnant patients in a tertiary center in the developing world Int J Gynaecol Obstet 1999 64 2 141 146 10.1016/S0020-7292(98)00216-1 10189022",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s0020-7292(98)00216-1",
+    "parsed_pmid": "10189022",
+    "parsed_title": "Management of diabetic pregnant patients in a tertiary center in the developing world",
+    "parsed_first_author": "daponte",
+    "parsed_year": 1999,
+    "parsed_container": "Int J Gynaecol Obstet",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4998,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0020-7292(98)00216-1"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 26376,
+    "ordinal": 9,
+    "raw_string": "Therrell BL Padilla CD Loeber JG Kneisser I Saadallah A Borrajo GJ Current status of newborn screening worldwide: 2015 Semin Perinatol 2015 39 3 171 187 10.1053/j.semperi.2015.03.002 25979780",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1053/j.semperi.2015.03.002",
+    "parsed_pmid": "25979780",
+    "parsed_title": "Current status of newborn screening worldwide: 2015",
+    "parsed_first_author": "therrell",
+    "parsed_year": 2015,
+    "parsed_container": "Semin Perinatol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4999,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1053/j.semperi.2015.03.002"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 26377,
+    "ordinal": 10,
+    "raw_string": "Seyoum B Kiros K Haileselase T Leole A Prevalence of gestational diabetes mellitus in rural pregnant mothers in northern Ethiopia Diabetes Res Clin Pract 1999 46 3 247 251 10.1016/S0168-8227(99)00101-1 10624791",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s0168-8227(99)00101-1",
+    "parsed_pmid": "10624791",
+    "parsed_title": "Prevalence of gestational diabetes mellitus in rural pregnant mothers in northern Ethiopia",
+    "parsed_first_author": "seyoum",
+    "parsed_year": 1999,
+    "parsed_container": "Diabetes Res Clin Pract",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5000,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0168-8227(99)00101-1"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 26378,
+    "ordinal": 11,
+    "raw_string": "Goldenberg RL, Nathan RO, Swanson D, Saleem S, Mirza W, Esamai F, et al. Routine antenatal ultrasound in low- and middle-income countries: first look - a cluster randomised trial. BJOG. 2018.10.1111/1471-0528.15287 PMC6390492 29782696",
+    "citation_tag": "mixed-citation",
+    "publication_type": "other",
+    "parsed_doi": "10.1111/1471-0528.15287",
+    "parsed_pmid": "29782696",
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5001,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/1471-0528.15287"
+      ],
+      "crossref_doi": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 26379,
+    "ordinal": 12,
+    "raw_string": "Nathan R Swanson JO Marks W Goldsmith N Vance C Sserwanga NB Screening obstetric ultrasound training for a 5-country cluster randomized controlled trial Ultrasound Q 2014 30 4 262 266 10.1097/RUQ.0000000000000096 25415862 PMC4439948",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/ruq.0000000000000096",
+    "parsed_pmid": "25415862",
+    "parsed_title": "Screening obstetric ultrasound training for a 5-country cluster randomized controlled trial",
+    "parsed_first_author": "nathan",
+    "parsed_year": 2014,
+    "parsed_container": "Ultrasound Q",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3549,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/ruq.0000000000000096"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 26380,
+    "ordinal": 13,
+    "raw_string": "Hamza A Herr D Solomayer EF Meyberg-Solomayer G Polyhydramnios: causes, diagnosis and therapy Geburtshilfe Frauenheilkd 2013 73 12 1241 1246 10.1055/s-0033-1360163 24771905 PMC3964358",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1055/s-0033-1360163",
+    "parsed_pmid": "24771905",
+    "parsed_title": "Polyhydramnios: causes, diagnosis and therapy",
+    "parsed_first_author": "hamza",
+    "parsed_year": 2013,
+    "parsed_container": "Geburtshilfe Frauenheilkd",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5002,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1055/s-0033-1360163"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 26381,
+    "ordinal": 14,
+    "raw_string": "Harrison MS Goldenberg RL Cesarean section in sub-Saharan Africa Maternal Health, Neonatol Perinatol 2016 2 6 10.1186/s40748-016-0033-x PMC4937522 27398224",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1186/s40748-016-0033-x",
+    "parsed_pmid": "27398224",
+    "parsed_title": "Cesarean section in sub-Saharan Africa",
+    "parsed_first_author": "harrison",
+    "parsed_year": 2016,
+    "parsed_container": "Maternal Health, Neonatol Perinatol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5003,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/s40748-016-0033-x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   }
+  ],
+  "stat_tests": [],
+  "means": [],
+  "trials": []
+ }
+}

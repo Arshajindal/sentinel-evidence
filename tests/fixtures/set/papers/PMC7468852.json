@@ -1,0 +1,3154 @@
+{
+ "id": "PMC7468852",
+ "subject": "paper",
+ "categories": [
+  "c01_unverified_reference"
+ ],
+ "source": {
+  "corpus": "pmc-rct-2015-2024",
+  "paper_id": 758,
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "Ref 80 genuinely unverifiable (garbled title 'WB_EMS').",
+ "expected": [
+  {
+   "check": "C01",
+   "status": "flagged",
+   "severity": "medium",
+   "item": "ref 80",
+   "why": "Teschler 2016, Int J Clin Exp Med; also searched with the title cleaned ('WB-EMS'). Searched by hand in Crossref (bibliographic) and OpenAlex on 2026-10-27: no record of this work. 'Could not be verified' is accurate; the work may exist outside both indexes."
+  },
+  {
+   "check": "C01",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C02",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C03",
+   "status": "not_applicable",
+   "severity": "info"
+  },
+  {
+   "check": "C04",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "paper_id": 758,
+  "publication_date": "2020-08-05",
+  "fulltext_status": "full",
+  "references": [
+   {
+    "reference_id": 29712,
+    "ordinal": 1,
+    "raw_string": "Zanker J. Duque G. Osteoporosis in Older Persons: Old and New Players J. Am. Geriatr. Soc. 2019 67 831 840 10.1111/jgs.15716 30570741",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/jgs.15716",
+    "parsed_pmid": "30570741",
+    "parsed_title": "Osteoporosis in Older Persons: Old and New Players",
+    "parsed_first_author": "zanker",
+    "parsed_year": 2019,
+    "parsed_container": "J. Am. Geriatr. Soc.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 1942,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/jgs.15716"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29713,
+    "ordinal": 2,
+    "raw_string": "Sánchez A. Vidal M. Vidal Neira L.F. Messina O.D. Sarcopenia, Osteoporosis and Frailty a Triad Comes of Age J. Ann. Arthritis Clin. Rheumatol. 2020 3 2017",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Sarcopenia, Osteoporosis and Frailty a Triad Comes of Age",
+    "parsed_first_author": "sanchez",
+    "parsed_year": 2020,
+    "parsed_container": "J. Ann. Arthritis Clin. Rheumatol.",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 3651,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29714,
+    "ordinal": 3,
+    "raw_string": "Hirschfeld H.P. Kinsella R. Duque G. Osteosarcopenia: Where bone, muscle, and fat collide Osteoporos. Int. 2017 28 2781 2790 10.1007/s00198-017-4151-8 28733716",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s00198-017-4151-8",
+    "parsed_pmid": "28733716",
+    "parsed_title": "Osteosarcopenia: Where bone, muscle, and fat collide",
+    "parsed_first_author": "hirschfeld",
+    "parsed_year": 2017,
+    "parsed_container": "Osteoporos. Int.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3652,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s00198-017-4151-8"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29715,
+    "ordinal": 4,
+    "raw_string": "Herrmann M. Engelke K. Ebert R. Muller-Deubert S. Rudert M. Ziouti F. Jundt F. Felsenberg D. Jakob F. Interactions between Muscle and Bone-Where Physics Meets Biology Biomolecules 2020 10 432 10.3390/biom10030432 PMC7175139 32164381",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3390/biom10030432",
+    "parsed_pmid": "32164381",
+    "parsed_title": "Interactions between Muscle and Bone-Where Physics Meets Biology",
+    "parsed_first_author": "herrmann",
+    "parsed_year": 2020,
+    "parsed_container": "Biomolecules",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3653,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3390/biom10030432"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29716,
+    "ordinal": 5,
+    "raw_string": "Pagnotti G.M. Styner M. Uzer G. Patel V.S. Wright L.E. Ness K.K. Guise T.A. Rubin J. Rubin C.T. Combating osteoporosis and obesity with exercise: Leveraging cell mechanosensitivity Nat. Rev. Endocrinol. 2019 15 339 355 10.1038/s41574-019-0170-1 30814687 PMC6520125",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/s41574-019-0170-1",
+    "parsed_pmid": "30814687",
+    "parsed_title": "Combating osteoporosis and obesity with exercise: Leveraging cell mechanosensitivity",
+    "parsed_first_author": "pagnotti",
+    "parsed_year": 2019,
+    "parsed_container": "Nat. Rev. Endocrinol.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3654,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1038/s41574-019-0170-1"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29717,
+    "ordinal": 6,
+    "raw_string": "Dent E. Morley J.E. Cruz-Jentoft A.J. Arai H. Kritchevsky S.B. Guralnik J. Bauer J.M. Pahor M. Clark B.C. Cesari M. International Clinical Practice Guidelines for Sarcopenia (ICFSR): Screening, Diagnosis and Management J. Nutr. Health Aging 2018 22 1148 1161 10.1007/s12603-018-1139-9 30498820",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s12603-018-1139-9",
+    "parsed_pmid": "30498820",
+    "parsed_title": "International Clinical Practice Guidelines for Sarcopenia (ICFSR): Screening, Diagnosis and Management",
+    "parsed_first_author": "dent",
+    "parsed_year": 2018,
+    "parsed_container": "J. Nutr. Health Aging",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3655,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s12603-018-1139-9"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29718,
+    "ordinal": 7,
+    "raw_string": "Benichou O. Lord S.R. Rationale for Strengthening Muscle to Prevent Falls and Fractures: A Review of the Evidence Calcif. Tissue Int. 2016 98 531 545 10.1007/s00223-016-0107-9 26847435",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s00223-016-0107-9",
+    "parsed_pmid": "26847435",
+    "parsed_title": "Rationale for Strengthening Muscle to Prevent Falls and Fractures: A Review of the Evidence",
+    "parsed_first_author": "benichou",
+    "parsed_year": 2016,
+    "parsed_container": "Calcif. Tissue Int.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3656,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s00223-016-0107-9"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29719,
+    "ordinal": 8,
+    "raw_string": "Shojaa M. von Stengel V. Kohl M. Schoene D. Kemmler W. Effects of dynamic resistance exercise on Bone Mineral Density in postmenopausal women- A systematic review and meta-analysis with special emphasis to exercise parameters Osteo. Int. 2020 31 1427 1444 10.1007/s00198-020-05441-w PMC7360540 32399891",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s00198-020-05441-w",
+    "parsed_pmid": "32399891",
+    "parsed_title": "Effects of dynamic resistance exercise on Bone Mineral Density in postmenopausal women- A systematic review and meta-analysis with special emphasis to exercise parameters",
+    "parsed_first_author": "shojaa",
+    "parsed_year": 2020,
+    "parsed_container": "Osteo. Int.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3657,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s00198-020-05441-w"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.994
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29720,
+    "ordinal": 9,
+    "raw_string": "Helge E.W. Andersen T.R. Schmidt J.F. Jorgensen N.R. Hornstrup T. Krustrup P. Bangsbo J. Recreational football improves bone mineral density and bone turnover marker profile in elderly men Scand. J. Med. Sci. Sports 2014 24 98 104 10.1111/sms.12239 24903207",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/sms.12239",
+    "parsed_pmid": "24903207",
+    "parsed_title": "Recreational football improves bone mineral density and bone turnover marker profile in elderly men",
+    "parsed_first_author": "helge",
+    "parsed_year": 2014,
+    "parsed_container": "Scand. J. Med. Sci. Sports",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3658,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/sms.12239"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29721,
+    "ordinal": 10,
+    "raw_string": "McCartney N. Hicks A.L. Martin J. Webber C.E. Long-term resistance training in the elderly: Effects on dynamic strength, exercise capacity, muscle, and bone J. Gerontol. 1995 50 B97 B104 10.1093/gerona/50A.2.B97 7874586",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/gerona/50a.2.b97",
+    "parsed_pmid": "7874586",
+    "parsed_title": "Long-term resistance training in the elderly: Effects on dynamic strength, exercise capacity, muscle, and bone",
+    "parsed_first_author": "mccartney",
+    "parsed_year": 1995,
+    "parsed_container": "J. Gerontol.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 2482,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/gerona/50a.2.b97"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29722,
+    "ordinal": 11,
+    "raw_string": "Whiteford J. Ackland T.R. Dhaliwal S.S. James A.P. Woodhouse J.J. Price R. Prince R.L. Kerr D.A. Effects of a 1-year randomized controlled trial of resistance training on lower limb bone and muscle structure and function in older men Osteoporos. Int. 2010 21 1529 1536 10.1007/s00198-009-1132-6 20091404",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s00198-009-1132-6",
+    "parsed_pmid": "20091404",
+    "parsed_title": "Effects of a 1-year randomized controlled trial of resistance training on lower limb bone and muscle structure and function in older men",
+    "parsed_first_author": "whiteford",
+    "parsed_year": 2010,
+    "parsed_container": "Osteoporos. Int.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3659,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s00198-009-1132-6"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29723,
+    "ordinal": 12,
+    "raw_string": "Woo J. Hong A. Lau E. Lynn H. A randomised controlled trial of Tai Chi and resistance exercise on bone health, muscle strength and balance in community-living elderly people Age Ageing 2007 36 262 268 10.1093/ageing/afm005 17356003",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/ageing/afm005",
+    "parsed_pmid": "17356003",
+    "parsed_title": "A randomised controlled trial of Tai Chi and resistance exercise on bone health, muscle strength and balance in community-living elderly people",
+    "parsed_first_author": "woo",
+    "parsed_year": 2007,
+    "parsed_container": "Age Ageing",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 2933,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/ageing/afm005"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29724,
+    "ordinal": 13,
+    "raw_string": "World_Medical_Association World Medical Association Declaration of Helsinki: Ethical principles for medical research involving human subjects JAMA 2013 310 2191 2194 10.1001/jama.2013.281053 24141714",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1001/jama.2013.281053",
+    "parsed_pmid": "24141714",
+    "parsed_title": "World Medical Association Declaration of Helsinki: Ethical principles for medical research involving human subjects",
+    "parsed_first_author": "world medical association",
+    "parsed_year": 2013,
+    "parsed_container": "JAMA",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3660,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1001/jama.2013.281053"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.601
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29725,
+    "ordinal": 14,
+    "raw_string": "Lichtenberg T. von Stengel S. Sieber C. Kemmler W. The favorable effects of a high-intensity resistance training on sarcopenia in older community-dwelling men with osteosarcopenia: The randomized controlled FrOST study Clin. Interv. Aging 2019 14 2173 2186 10.2147/CIA.S225618 31908428 PMC6924654",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2147/cia.s225618",
+    "parsed_pmid": "31908428",
+    "parsed_title": "The favorable effects of a high-intensity resistance training on sarcopenia in older community-dwelling men with osteosarcopenia: The randomized controlled FrOST study",
+    "parsed_first_author": "lichtenberg",
+    "parsed_year": 2019,
+    "parsed_container": "Clin. Interv. Aging",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3661,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2147/cia.s225618"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.954
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29726,
+    "ordinal": 15,
+    "raw_string": "Kemmler W. Weineck M. Kohl M. von Stengel S. Giessing J. Fröhlich M. Schoene D. High Intensity Resistance Exercise Training to Improve Body Composition and Strength in Older Men With Osteosarcopenia. Results of the Randomized Controlled Franconian Osteopenia and Sarcopenia Trial (FrOST) Front. Sports Active Living 2020 2 1 12 10.3389/fspor.2020.00004 PMC7739651 33344999",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3389/fspor.2020.00004",
+    "parsed_pmid": "33344999",
+    "parsed_title": "High Intensity Resistance Exercise Training to Improve Body Composition and Strength in Older Men With Osteosarcopenia. Results of the Randomized Controlled Franconian Osteopenia and Sarcopenia Trial (FrOST)",
+    "parsed_first_author": "kemmler",
+    "parsed_year": 2020,
+    "parsed_container": "Front. Sports Active Living",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3662,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3389/fspor.2020.00004"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29727,
+    "ordinal": 16,
+    "raw_string": "Kemmler W. Kohl M. Frohlich M. Jakob F. Engelke K. von Stengel S. Schoene D. Effects of High Intensity Resistance Training on Osteopenia and Sarcopenia parameters in Older Men with Osteosarcopenia-One-year results of the randomized controlled Franconian Osteopenia and Sarcopenia Trial (FrOST) J. Bone Miner. Res. 2020 10.1002/jbmr.4027 32270891",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/jbmr.4027",
+    "parsed_pmid": "32270891",
+    "parsed_title": "Effects of High Intensity Resistance Training on Osteopenia and Sarcopenia parameters in Older Men with Osteosarcopenia-One-year results of the randomized controlled Franconian Osteopenia and Sarcopenia Trial (FrOST)",
+    "parsed_first_author": "kemmler",
+    "parsed_year": 2020,
+    "parsed_container": "J. Bone Miner. Res.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3663,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/jbmr.4027"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29728,
+    "ordinal": 17,
+    "raw_string": "Kemmler W. von Stengel S. Schoene D. Longitudinal changes in muscle mass and function in older men at increased risk for sarcopenia–the FrOST-study JOFA 2019 8 57 61 10.14283/jfa.2019.9 30997916",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.14283/jfa.2019.9",
+    "parsed_pmid": "30997916",
+    "parsed_title": "Longitudinal changes in muscle mass and function in older men at increased risk for sarcopenia–the FrOST-study",
+    "parsed_first_author": "kemmler",
+    "parsed_year": 2019,
+    "parsed_container": "JOFA",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3664,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.14283/jfa.2019.9"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29729,
+    "ordinal": 18,
+    "raw_string": "Baumgartner R.N. Koehler K.M. Gallagher D. Romero L. Heymsfield S.B. Ross R.R. Garry P.J. Lindeman R.D. Epidemiology of sarcopenia among the elderly in New Mexico Am. J. Epidemiol. 1998 147 755 763 10.1093/oxfordjournals.aje.a009520 9554417",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/oxfordjournals.aje.a009520",
+    "parsed_pmid": "9554417",
+    "parsed_title": "Epidemiology of sarcopenia among the elderly in New Mexico",
+    "parsed_first_author": "baumgartner",
+    "parsed_year": 1998,
+    "parsed_container": "Am. J. Epidemiol.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3247,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/oxfordjournals.aje.a009520"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29730,
+    "ordinal": 19,
+    "raw_string": "Cruz-Jentoft A.J. Baeyens J.P. Bauer J.M. Boirie Y. Cederholm T. Landi F. Martin F.C. Michel J.P. Rolland Y. Schneider S.M. Sarcopenia: European consensus on definition and diagnosis: Report of the European Working Group on Sarcopenia in Older People Age Ageing 2010 39 412 423 10.1093/ageing/afq034 20392703 PMC2886201",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/ageing/afq034",
+    "parsed_pmid": "20392703",
+    "parsed_title": "Sarcopenia: European consensus on definition and diagnosis: Report of the European Working Group on Sarcopenia in Older People",
+    "parsed_first_author": "cruz jentoft",
+    "parsed_year": 2010,
+    "parsed_container": "Age Ageing",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3665,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/ageing/afq034"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.63
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29731,
+    "ordinal": 20,
+    "raw_string": "WHO Assessment of Osteoporotic Fracture Risk and Its Application to Screening for Postmenopausal Osteoporosis Technical Report Series no. 843 World Health Organization Geneva, Switzerland 1994 7941614",
+    "citation_tag": "element-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": "7941614",
+    "parsed_title": "Assessment of Osteoporotic Fracture Risk and Its Application to Screening for Postmenopausal Osteoporosis",
+    "parsed_first_author": "who",
+    "parsed_year": 1994,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "pmid",
+    "resolved_paper_id": 1236,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {},
+     "title_agreement": 0.818
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29732,
+    "ordinal": 21,
+    "raw_string": "DVO Prophylaxe, Diagnostik und Therapie der Osteoporse bei Postmenopausalen Frauen und bei Männern Schattauer Stuttgart, Germany 2017",
+    "citation_tag": "element-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Prophylaxe, Diagnostik und Therapie der Osteoporse bei Postmenopausalen Frauen und bei Männern",
+    "parsed_first_author": "dvo",
+    "parsed_year": 2017,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": [
+      {
+       "year": 2018,
+       "paper_id": 3666,
+       "rejected": "first author 'pfeil' vs 'dvo'",
+       "similarity": 0.7383,
+       "first_author": "pfeil"
+      }
+     ]
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29733,
+    "ordinal": 22,
+    "raw_string": "Bauer J. Biolo G. Cederholm T. Cesari M. Cruz-Jentoft A.J. Morley J.E. Phillips S. Sieber C. Stehle P. Teta D. Evidence-based recommendations for optimal dietary protein intake in older people: A position paper from the PROT-AGE Study Group J. Am. Med. Dir. Assoc. 2013 14 542 559 10.1016/j.jamda.2013.05.021 23867520",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.jamda.2013.05.021",
+    "parsed_pmid": "23867520",
+    "parsed_title": "Evidence-based recommendations for optimal dietary protein intake in older people: A position paper from the PROT-AGE Study Group",
+    "parsed_first_author": "bauer",
+    "parsed_year": 2013,
+    "parsed_container": "J. Am. Med. Dir. Assoc.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3671,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.jamda.2013.05.021"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29734,
+    "ordinal": 23,
+    "raw_string": "Schoenfeld B.J. Aragon A.A. Krieger J.W. The effect of protein timing on muscle strength and hypertrophy: A meta-analysis J. Int. Soc. Sports Nutr. 2013 10 53 10.1186/1550-2783-10-53 24299050 PMC3879660",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1186/1550-2783-10-53",
+    "parsed_pmid": "24299050",
+    "parsed_title": "The effect of protein timing on muscle strength and hypertrophy: A meta-analysis",
+    "parsed_first_author": "schoenfeld",
+    "parsed_year": 2013,
+    "parsed_container": "J. Int. Soc. Sports Nutr.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3672,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/1550-2783-10-53"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29735,
+    "ordinal": 24,
+    "raw_string": "Gießing J. HIT-Hochintensitätstraining Novagenics-Verlag Arnsberg, Germany 2008",
+    "citation_tag": "element-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "HIT-Hochintensitätstraining",
+    "parsed_first_author": "gießing",
+    "parsed_year": 2008,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29736,
+    "ordinal": 25,
+    "raw_string": "Steele J. Fisher J. Giessing J. Gentil P. Clarity in Reporting Terminology and Definitions of Set End Points in Resistance Training Muscle Nerve 2017 56 368 374 10.1002/mus.25557 28044366",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/mus.25557",
+    "parsed_pmid": "28044366",
+    "parsed_title": "Clarity in Reporting Terminology and Definitions of Set End Points in Resistance Training",
+    "parsed_first_author": "steele",
+    "parsed_year": 2017,
+    "parsed_container": "Muscle Nerve",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3678,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/mus.25557"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.994
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29737,
+    "ordinal": 26,
+    "raw_string": "Kemmler W. Wittke A. Bebenek M. Fröhlich M. von Stengel S. High intensity resistance training methods with and without protein supplementation to fight cardiometabolic risk in middle-aged males A randomized controlled trial BioMed Res. Int. 2016 10.1155/2016/9705287 PMC4739448 26885526",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1155/2016/9705287",
+    "parsed_pmid": "26885526",
+    "parsed_title": "High intensity resistance training methods with and without protein supplementation to fight cardiometabolic risk in middle-aged males A randomized controlled trial",
+    "parsed_first_author": "kemmler",
+    "parsed_year": 2016,
+    "parsed_container": "BioMed Res. Int.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3679,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1155/2016/9705287"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29738,
+    "ordinal": 27,
+    "raw_string": "Kemmler W. Teschler M. Weissenfels A. Fröhlich M. Kohl M. von Stengel S. Ganzkörper-Elektromyostimulationst versus HIT-Krafttraining-Effekte auf Körperzusammensetzung und Muskelkraft Dtsch. Z. Sportmed. 2015 66 321 327 10.5960/dzsm.2015.209",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.5960/dzsm.2015.209",
+    "parsed_pmid": null,
+    "parsed_title": "Ganzkörper-Elektromyostimulationst versus HIT-Krafttraining-Effekte auf Körperzusammensetzung und Muskelkraft",
+    "parsed_first_author": "kemmler",
+    "parsed_year": 2015,
+    "parsed_container": "Dtsch. Z. Sportmed.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3680,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.5960/dzsm.2015.209"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.94
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29739,
+    "ordinal": 28,
+    "raw_string": "Zourdos M.C. Klemp A. Dolan C. Quiles J.M. Schau K.A. Jo E. Helms E. Esgro B. Duncan S. Garcia Merino S. Novel Resistance Training-Specific Rating of Perceived Exertion Scale Measuring Repetitions in Reserve J. Strength Cond. Res. 2016 30 267 275 10.1519/JSC.0000000000001049 26049792",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1519/jsc.0000000000001049",
+    "parsed_pmid": "26049792",
+    "parsed_title": "Novel Resistance Training-Specific Rating of Perceived Exertion Scale Measuring Repetitions in Reserve",
+    "parsed_first_author": "zourdos",
+    "parsed_year": 2016,
+    "parsed_container": "J. Strength Cond. Res.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3681,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1519/jsc.0000000000001049"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29740,
+    "ordinal": 29,
+    "raw_string": "Kemmler W. Lauber D. Mayhew J. Wassermann F. Repetition to Fatigue to Predict 1RM Performance. Looking behind the Covariates Cuvillier Verlag Göttingen, Germany 2008 Volume 2 79 92",
+    "citation_tag": "element-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Repetition to Fatigue to Predict 1RM Performance. Looking behind the Covariates",
+    "parsed_first_author": "kemmler",
+    "parsed_year": 2008,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29741,
+    "ordinal": 30,
+    "raw_string": "Kanis J.A. McCloskey E.V. Johansson H. Oden A. Strom O. Borgstrom F. Development and use of FRAX in osteoporosis Osteoporos. Int. 2010 21 S407 S413 10.1007/s00198-010-1253-y 20464374",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s00198-010-1253-y",
+    "parsed_pmid": "20464374",
+    "parsed_title": "Development and use of FRAX in osteoporosis",
+    "parsed_first_author": "kanis",
+    "parsed_year": 2010,
+    "parsed_container": "Osteoporos. Int.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3687,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s00198-010-1253-y"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29742,
+    "ordinal": 31,
+    "raw_string": "Cruz-Jentoft A.J. Bahat G. Bauer J. Boirie Y. Bruyere O. Cederholm T. Cooper C. Landi F. Rolland Y. Sayer A.A. Writing Group for the European Working Group on Sarcopenia in Older, P.; the Extended Group for, E., Sarcopenia: Revised European consensus on definition and diagnosis Age Ageing 2019 48 16 31 10.1093/ageing/afy169 30312372 PMC6322506",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/ageing/afy169",
+    "parsed_pmid": "30312372",
+    "parsed_title": "Writing Group for the European Working Group on Sarcopenia in Older, P.; the Extended Group for, E., Sarcopenia: Revised European consensus on definition and diagnosis",
+    "parsed_first_author": "cruz jentoft",
+    "parsed_year": 2019,
+    "parsed_container": "Age Ageing",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3688,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/ageing/afy169"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.578
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29743,
+    "ordinal": 32,
+    "raw_string": "Kemmler W. Teschler M. Weissenfels A. Bebenek M. von Stengel S. Kohl M. Freiberger E. Goisser S. Jakob F. Sieber C. Whole-body Electromyostimulation to Fight Sarcopenic Obesity in Community-Dwelling Older Women at Risk. Results of the Randomized Controlled FORMOsA-Sarcopenic Obesity Study Osteo. Int. 2016 27 3261 3270 10.1007/s00198-016-3662-z 27289534",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s00198-016-3662-z",
+    "parsed_pmid": "27289534",
+    "parsed_title": "Whole-body Electromyostimulation to Fight Sarcopenic Obesity in Community-Dwelling Older Women at Risk. Results of the Randomized Controlled FORMOsA-Sarcopenic Obesity Study",
+    "parsed_first_author": "kemmler",
+    "parsed_year": 2016,
+    "parsed_container": "Osteo. Int.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3689,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s00198-016-3662-z"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.997
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29744,
+    "ordinal": 33,
+    "raw_string": "Kemmler W. Weissenfels A. Teschler M. Willert S. Bebenek M. Shojaa M. Kohl M. Freiberger E. Sieber C. von Stengel S. Whole-body Electromyostimulation and protein supplementation favorably affect Sarcopenic Obesity in community-dwelling older men at risk. The Randomized Controlled FranSO Study Clin. Interv. Aging 2017 12 1503 1513 10.2147/CIA.S137987 28989278 PMC5624743",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2147/cia.s137987",
+    "parsed_pmid": "28989278",
+    "parsed_title": "Whole-body Electromyostimulation and protein supplementation favorably affect Sarcopenic Obesity in community-dwelling older men at risk. The Randomized Controlled FranSO Study",
+    "parsed_first_author": "kemmler",
+    "parsed_year": 2017,
+    "parsed_container": "Clin. Interv. Aging",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3690,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2147/cia.s137987"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29745,
+    "ordinal": 34,
+    "raw_string": "Kressig R.W. Beauchet O. European G.N.G. Guidelines for clinical applications of spatio-temporal gait analysis in older adults Aging Clin. Exp. Res. 2006 18 174 176 10.1007/BF03327437 16702791",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/bf03327437",
+    "parsed_pmid": "16702791",
+    "parsed_title": "Guidelines for clinical applications of spatio-temporal gait analysis in older adults",
+    "parsed_first_author": "kressig",
+    "parsed_year": 2006,
+    "parsed_container": "Aging Clin. Exp. Res.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3691,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/bf03327437"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29746,
+    "ordinal": 35,
+    "raw_string": "Peters D.M. Fritz S.L. Krotish D.E. Assessing the reliability and validity of a shorter walk test compared with the 10-Meter Walk Test for measurements of gait speed in healthy, older adults J. Geriatr. Phys. Ther. 2013 36 24 30 10.1519/JPT.0b013e318248e20d 22415358",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1519/jpt.0b013e318248e20d",
+    "parsed_pmid": "22415358",
+    "parsed_title": "Assessing the reliability and validity of a shorter walk test compared with the 10-Meter Walk Test for measurements of gait speed in healthy, older adults",
+    "parsed_first_author": "peters",
+    "parsed_year": 2013,
+    "parsed_container": "J. Geriatr. Phys. Ther.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3692,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1519/jpt.0b013e318248e20d"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29747,
+    "ordinal": 36,
+    "raw_string": "Mathiowetz V. Weber K. Volland G. Kashman N. Reliability and validity of grip and pinch strength evaluations J. Hand Surg. 1984 9 222 226 10.1016/S0363-5023(84)80146-X 6715829",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s0363-5023(84)80146-x",
+    "parsed_pmid": "6715829",
+    "parsed_title": "Reliability and validity of grip and pinch strength evaluations",
+    "parsed_first_author": "mathiowetz",
+    "parsed_year": 1984,
+    "parsed_container": "J. Hand Surg.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3385,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0363-5023(84)80146-x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29748,
+    "ordinal": 37,
+    "raw_string": "Kemmler W. Lauber D. Weineck J. Hensen J. Kalender W. Engelke K. Benefits of 2 years of intense exercise on bone density, physical fitness, and blood lipids in early postmenopausal osteopenic women: Results of the Erlangen Fitness Osteoporosis Prevention Study (EFOPS) Arch. Intern. Med. 2004 164 1084 1091 10.1001/archinte.164.10.1084 15159265",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1001/archinte.164.10.1084",
+    "parsed_pmid": "15159265",
+    "parsed_title": "Benefits of 2 years of intense exercise on bone density, physical fitness, and blood lipids in early postmenopausal osteopenic women: Results of the Erlangen Fitness Osteoporosis Prevention Study (EFOPS)",
+    "parsed_first_author": "kemmler",
+    "parsed_year": 2004,
+    "parsed_container": "Arch. Intern. Med.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3693,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1001/archinte.164.10.1084"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.793
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29749,
+    "ordinal": 38,
+    "raw_string": "Kemmler W. Weineck J. Kalender W.A. Engelke K. The effect of habitual physical activity, non-athletic exercise, muscle strength, and VO2max on bone mineral density is rather low in early postmenopausal osteopenic women J. Musculoskelet. Neuronal Interact. 2004 4 325 334 15615501",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": "15615501",
+    "parsed_title": "The effect of habitual physical activity, non-athletic exercise, muscle strength, and VO2max on bone mineral density is rather low in early postmenopausal osteopenic women",
+    "parsed_first_author": "kemmler",
+    "parsed_year": 2004,
+    "parsed_container": "J. Musculoskelet. Neuronal Interact.",
+    "resolution_status": "resolved",
+    "resolution_method": "pmid",
+    "resolved_paper_id": 3694,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "pmid:15615501"
+      ],
+      "openalex_pmid": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29750,
+    "ordinal": 39,
+    "raw_string": "Holm S. A Simple Sequentially Rejective Multiple Test Procedure Scand. J. Stat. 1979 6 65 70",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "A Simple Sequentially Rejective Multiple Test Procedure",
+    "parsed_first_author": "holm",
+    "parsed_year": 1979,
+    "parsed_container": "Scand. J. Stat.",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 3700,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29751,
+    "ordinal": 40,
+    "raw_string": "Honaker J. King G. Blackwell M. Amelia II: A program for missing data JSS 2011 45 1 47",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Amelia II: A program for missing data",
+    "parsed_first_author": "honaker",
+    "parsed_year": 2011,
+    "parsed_container": "JSS",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 3701,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29752,
+    "ordinal": 41,
+    "raw_string": "Cohen J. Statistical Power Analysis for the Behavioral Sciences 2nd ed. Lawrence Earlbaum Associate Hillsdale, NJ, USA 1988 8 16",
+    "citation_tag": "element-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Statistical Power Analysis for the Behavioral Sciences",
+    "parsed_first_author": "cohen",
+    "parsed_year": 1988,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": [
+      {
+       "year": 2013,
+       "paper_id": 1578,
+       "rejected": "year 2013 vs 1988",
+       "similarity": 1.0,
+       "first_author": "cohen"
+      },
+      {
+       "year": 1989,
+       "paper_id": 1583,
+       "rejected": "first author 'muller' vs 'cohen'",
+       "similarity": 1.0,
+       "first_author": "muller"
+      },
+      {
+       "year": 1989,
+       "paper_id": 1584,
+       "rejected": "first author 'lachenbruch' vs 'cohen'",
+       "similarity": 0.8833,
+       "first_author": "lachenbruch"
+      }
+     ]
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29753,
+    "ordinal": 42,
+    "raw_string": "Li G. Taljaard M. Van den Heuvel E.R. Levine M.A. Cook D.J. Wells G.A. Devereaux P.J. Thabane L. An introduction to multiplicity issues in clinical trials: The what, why, when and how Int. J. Epidemiol. 2017 46 746 755 10.1093/ije/dyw320 28025257",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/ije/dyw320",
+    "parsed_pmid": "28025257",
+    "parsed_title": "An introduction to multiplicity issues in clinical trials: The what, why, when and how",
+    "parsed_first_author": "li",
+    "parsed_year": 2017,
+    "parsed_container": "Int. J. Epidemiol.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3706,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/ije/dyw320"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29754,
+    "ordinal": 43,
+    "raw_string": "Donini L.M. Busetto L. Bauer J.M. Bischoff S. Boirie Y. Cederholm T. Cruz-Jentoft A.J. Dicker D. Fruhbeck G. Giustina A. Critical appraisal of definitions and diagnostic criteria for sarcopenic obesity based on a systematic review Clin. Nutr. 2019 39 2368 2388 10.1016/j.clnu.2019.11.024 31813698",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.clnu.2019.11.024",
+    "parsed_pmid": "31813698",
+    "parsed_title": "Critical appraisal of definitions and diagnostic criteria for sarcopenic obesity based on a systematic review",
+    "parsed_first_author": "donini",
+    "parsed_year": 2019,
+    "parsed_container": "Clin. Nutr.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3707,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.clnu.2019.11.024"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29755,
+    "ordinal": 44,
+    "raw_string": "Bauer J.M. Cruz-Jentoft A.J. Fielding R.A. Kanis J.A. Reginster J.Y. Bruyere O. Cesari M. Chapurlat R. Al-Daghri N. Dennison E. Is There Enough Evidence for Osteosarcopenic Obesity as a Distinct Entity? A Critical Literature Review Calcif. Tissue Int. 2019 105 109 124 10.1007/s00223-019-00561-w 31098729",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s00223-019-00561-w",
+    "parsed_pmid": "31098729",
+    "parsed_title": "Is There Enough Evidence for Osteosarcopenic Obesity as a Distinct Entity? A Critical Literature Review",
+    "parsed_first_author": "bauer",
+    "parsed_year": 2019,
+    "parsed_container": "Calcif. Tissue Int.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3708,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s00223-019-00561-w"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29756,
+    "ordinal": 45,
+    "raw_string": "Schafer I. von Leitner E.C. Schon G. Koller D. Hansen H. Kolonko T. Kaduszkiewicz H. Wegscheider K. Glaeske G. van den Bussche H. Multimorbidity patterns in the elderly: A new approach of disease clustering identifies complex interrelations between chronic conditions PLoS ONE 2010 5 e15941 10.1371/journal.pone.0015941 21209965 PMC3012106",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1371/journal.pone.0015941",
+    "parsed_pmid": "21209965",
+    "parsed_title": "Multimorbidity patterns in the elderly: A new approach of disease clustering identifies complex interrelations between chronic conditions",
+    "parsed_first_author": "schafer",
+    "parsed_year": 2010,
+    "parsed_container": "PLoS ONE",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3709,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1371/journal.pone.0015941"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29757,
+    "ordinal": 46,
+    "raw_string": "Binkley N. Buehring B. Beyond FRAX: It’s time to consider “sarco-osteopenia” J. Clin. Densitom. 2009 12 413 416 10.1016/j.jocd.2009.06.004 19733110",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.jocd.2009.06.004",
+    "parsed_pmid": "19733110",
+    "parsed_title": "Beyond FRAX: It’s time to consider “sarco-osteopenia”",
+    "parsed_first_author": "binkley",
+    "parsed_year": 2009,
+    "parsed_container": "J. Clin. Densitom.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3710,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.jocd.2009.06.004"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29758,
+    "ordinal": 47,
+    "raw_string": "Stenholm S. Harris T.B. Rantanen T. Visser M. Kritchevsky S.B. Ferrucci L. Sarcopenic obesity: Definition, cause and consequences Curr. Opin. Clin. Nutr. Metab. Care 2008 11 693 700 10.1097/MCO.0b013e328312c37d 18827572 PMC2633408",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/mco.0b013e328312c37d",
+    "parsed_pmid": "18827572",
+    "parsed_title": "Sarcopenic obesity: Definition, cause and consequences",
+    "parsed_first_author": "stenholm",
+    "parsed_year": 2008,
+    "parsed_container": "Curr. Opin. Clin. Nutr. Metab. Care",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3711,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/mco.0b013e328312c37d"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29759,
+    "ordinal": 48,
+    "raw_string": "Howe T.E. Shea B. Dawson L.J. Downie F. Murray A. Ross C. Harbour R.T. Caldwell L.M. Creed G. Exercise for preventing and treating osteoporosis in postmenopausal women Cochrane Database Syst Rev. 2011 10.1002/14651858.CD000333.pub2 21735380 PMC12744941",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/14651858.cd000333.pub2",
+    "parsed_pmid": "21735380",
+    "parsed_title": "Exercise for preventing and treating osteoporosis in postmenopausal women",
+    "parsed_first_author": "howe",
+    "parsed_year": 2011,
+    "parsed_container": "Cochrane Database Syst Rev.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3712,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/14651858.cd000333.pub2"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29760,
+    "ordinal": 49,
+    "raw_string": "Hita-Contreras F. Bueno-Notivol J. Martinez-Amat A. Cruz-Diaz D. Hernandez A.V. Perez-Lopez F.R. Effect of exercise alone or combined with dietary supplements on anthropometric and physical performance measures in community-dwelling elderly people with sarcopenic obesity: A meta-analysis of randomized controlled trials Maturitas 2018 116 24 35 10.1016/j.maturitas.2018.07.007 30244776",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.maturitas.2018.07.007",
+    "parsed_pmid": "30244776",
+    "parsed_title": "Effect of exercise alone or combined with dietary supplements on anthropometric and physical performance measures in community-dwelling elderly people with sarcopenic obesity: A meta-analysis of randomized controlled trials",
+    "parsed_first_author": "hita contreras",
+    "parsed_year": 2018,
+    "parsed_container": "Maturitas",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3713,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.maturitas.2018.07.007"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29761,
+    "ordinal": 50,
+    "raw_string": "Kemmler W. Shojaa M. Kohl M. von Stengel S. Exercise effects on bone mineral density in older men: A systematic review with special emphasis on study interventions Osteoporos. Int. 2018 29 1493 1504 10.1007/s00198-018-4482-0 29623356",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s00198-018-4482-0",
+    "parsed_pmid": "29623356",
+    "parsed_title": "Exercise effects on bone mineral density in older men: A systematic review with special emphasis on study interventions",
+    "parsed_first_author": "kemmler",
+    "parsed_year": 2018,
+    "parsed_container": "Osteoporos. Int.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3714,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s00198-018-4482-0"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29762,
+    "ordinal": 51,
+    "raw_string": "Kelley G.A. Kelley K.S. Kohrt W.M. Exercise and bone mineral density in premenopausal women: A meta-analysis of randomized controlled trials Int. J. Endocrinol. 2013 2013 741639 23401684 10.1155/2013/741639 PMC3563173",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1155/2013/741639",
+    "parsed_pmid": "23401684",
+    "parsed_title": "Exercise and bone mineral density in premenopausal women: A meta-analysis of randomized controlled trials",
+    "parsed_first_author": "kelley",
+    "parsed_year": 2013,
+    "parsed_container": "Int. J. Endocrinol.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3715,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1155/2013/741639"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29763,
+    "ordinal": 52,
+    "raw_string": "DiGirolamo D.J. Kiel D.P. Esser K.A. Bone and skeletal muscle: Neighbors with close ties J. Bone Miner. Res. 2013 28 1509 1518 10.1002/jbmr.1969 23630111 PMC4892934",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/jbmr.1969",
+    "parsed_pmid": "23630111",
+    "parsed_title": "Bone and skeletal muscle: Neighbors with close ties",
+    "parsed_first_author": "digirolamo",
+    "parsed_year": 2013,
+    "parsed_container": "J. Bone Miner. Res.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3716,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/jbmr.1969"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29764,
+    "ordinal": 53,
+    "raw_string": "Laurent M.R. Dubois V. Claessens F. Verschueren S.M. Vanderschueren D. Gielen E. Jardi F. Muscle-bone interactions: From experimental models to the clinic? A critical update Mol. Cell Endocrinol. 2016 432 14 36 10.1016/j.mce.2015.10.017 26506009",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.mce.2015.10.017",
+    "parsed_pmid": "26506009",
+    "parsed_title": "Muscle-bone interactions: From experimental models to the clinic? A critical update",
+    "parsed_first_author": "laurent",
+    "parsed_year": 2016,
+    "parsed_container": "Mol. Cell Endocrinol.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3717,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.mce.2015.10.017"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29765,
+    "ordinal": 54,
+    "raw_string": "Beck B.R. Daly R.M. Singh M.A. Taaffe D.R. Exercise and Sports Science Australia (ESSA) position statement on exercise prescription for the prevention and management of osteoporosis J. Sci. Med. Sport 2016 20 438 445 10.1016/j.jsams.2016.10.001 27840033",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.jsams.2016.10.001",
+    "parsed_pmid": "27840033",
+    "parsed_title": "Exercise and Sports Science Australia (ESSA) position statement on exercise prescription for the prevention and management of osteoporosis",
+    "parsed_first_author": "beck",
+    "parsed_year": 2016,
+    "parsed_container": "J. Sci. Med. Sport",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3718,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.jsams.2016.10.001"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29766,
+    "ordinal": 55,
+    "raw_string": "Rubin C.T. Lanyon L.E. Regulation of bone mass by mechanical strain magnitude Calcif. Tissue Int. 1985 37 411 417 10.1007/BF02553711 3930039",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/bf02553711",
+    "parsed_pmid": "3930039",
+    "parsed_title": "Regulation of bone mass by mechanical strain magnitude",
+    "parsed_first_author": "rubin",
+    "parsed_year": 1985,
+    "parsed_container": "Calcif. Tissue Int.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3719,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/bf02553711"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29767,
+    "ordinal": 56,
+    "raw_string": "Turner C.H. Owan I. Takano Y. Mechanotransduction in bone: Role of strain rate Am. J. Physiol. Endocrinol. Metab. 1995 269 E438 E442 10.1152/ajpendo.1995.269.3.E438 7573420",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1152/ajpendo.1995.269.3.e438",
+    "parsed_pmid": "7573420",
+    "parsed_title": "Mechanotransduction in bone: Role of strain rate",
+    "parsed_first_author": "turner",
+    "parsed_year": 1995,
+    "parsed_container": "Am. J. Physiol. Endocrinol. Metab.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3720,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1152/ajpendo.1995.269.3.e438"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29768,
+    "ordinal": 57,
+    "raw_string": "Von Stengel S. Kemmler W. Lauber D. Weineck J. Kalender W.A. Engelke K. Power Training is more Effective than Strength Training to Maintain Bone Mineral Density in Postmenopausal Woman J. Appl. Physiol. 2005 99 181 188 10.1152/japplphysiol.01260.2004 15746294",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1152/japplphysiol.01260.2004",
+    "parsed_pmid": "15746294",
+    "parsed_title": "Power Training is more Effective than Strength Training to Maintain Bone Mineral Density in Postmenopausal Woman",
+    "parsed_first_author": "von stengel",
+    "parsed_year": 2005,
+    "parsed_container": "J. Appl. Physiol.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3721,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1152/japplphysiol.01260.2004"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.965
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29769,
+    "ordinal": 58,
+    "raw_string": "Turner C.H. Forwood M.R. Otter M.W. Mechanotransduction in bone: Do bone cells act as sensors of fluid flow? Faseb. J. 1994 8 875 878 10.1096/fasebj.8.11.8070637 8070637",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1096/fasebj.8.11.8070637",
+    "parsed_pmid": "8070637",
+    "parsed_title": "Mechanotransduction in bone: Do bone cells act as sensors of fluid flow?",
+    "parsed_first_author": "turner",
+    "parsed_year": 1994,
+    "parsed_container": "Faseb. J.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3722,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1096/fasebj.8.11.8070637"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29770,
+    "ordinal": 59,
+    "raw_string": "Turner C.H. Robling A.G. Exercise as an anabolic stimulus for bone Curr. Pharm. Des. 2004 10 2629 2641 10.2174/1381612043383755 15320750",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2174/1381612043383755",
+    "parsed_pmid": "15320750",
+    "parsed_title": "Exercise as an anabolic stimulus for bone",
+    "parsed_first_author": "turner",
+    "parsed_year": 2004,
+    "parsed_container": "Curr. Pharm. Des.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3723,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2174/1381612043383755"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29771,
+    "ordinal": 60,
+    "raw_string": "Schroeder E.T. Villanueva M. West D.D. Phillips S.M. Are acute post-resistance exercise increases in testosterone, growth hormone, and IGF-1 necessary to stimulate skeletal muscle anabolism and hypertrophy? Med. Sci. Sports Exerc. 2013 45 2044 2051 10.1249/MSS.0000000000000147 24136137",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1249/mss.0000000000000147",
+    "parsed_pmid": "24136137",
+    "parsed_title": "Are acute post-resistance exercise increases in testosterone, growth hormone, and IGF-1 necessary to stimulate skeletal muscle anabolism and hypertrophy?",
+    "parsed_first_author": "schroeder",
+    "parsed_year": 2013,
+    "parsed_container": "Med. Sci. Sports Exerc.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3724,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1249/mss.0000000000000147"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29772,
+    "ordinal": 61,
+    "raw_string": "Frost H.M. Bone’s mechanostat: A 2003 update Anat. Rec. 2003 275 1081 1101 10.1002/ar.a.10119 14613308",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/ar.a.10119",
+    "parsed_pmid": "14613308",
+    "parsed_title": "Bone’s mechanostat: A 2003 update",
+    "parsed_first_author": "frost",
+    "parsed_year": 2003,
+    "parsed_container": "Anat. Rec.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3725,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/ar.a.10119"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29773,
+    "ordinal": 62,
+    "raw_string": "Turner C.H. Homeostatic control of bone structure: An application of feedback theory Bone 1991 12 203 217 10.1016/8756-3282(91)90043-I 1910962",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/8756-3282(91)90043-i",
+    "parsed_pmid": "1910962",
+    "parsed_title": "Homeostatic control of bone structure: An application of feedback theory",
+    "parsed_first_author": "turner",
+    "parsed_year": 1991,
+    "parsed_container": "Bone",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3726,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/8756-3282(91)90043-i"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29774,
+    "ordinal": 63,
+    "raw_string": "Schoenfeld B.J. The mechanisms of muscle hypertrophy and their application to resistance training J. Strength Cond. Res. 2010 24 2857 2872 10.1519/JSC.0b013e3181e840f3 20847704",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1519/jsc.0b013e3181e840f3",
+    "parsed_pmid": "20847704",
+    "parsed_title": "The mechanisms of muscle hypertrophy and their application to resistance training",
+    "parsed_first_author": "schoenfeld",
+    "parsed_year": 2010,
+    "parsed_container": "J. Strength Cond. Res.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3727,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1519/jsc.0b013e3181e840f3"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29775,
+    "ordinal": 64,
+    "raw_string": "Marsh A.P. Miller M.E. Rejeski W.J. Hutton S.L. Kritchevsky S.B. Lower extremity muscle function after strength or power training in older adults J. Aging Phys. Act. 2009 17 416 443 10.1123/japa.17.4.416 19940322 PMC4318571",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1123/japa.17.4.416",
+    "parsed_pmid": "19940322",
+    "parsed_title": "Lower extremity muscle function after strength or power training in older adults",
+    "parsed_first_author": "marsh",
+    "parsed_year": 2009,
+    "parsed_container": "J. Aging Phys. Act.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3728,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1123/japa.17.4.416"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29776,
+    "ordinal": 65,
+    "raw_string": "Antoniak A.E. Greig C.A. The effect of combined resistance exercise training and vitamin D3 supplementation on musculoskeletal health and function in older adults: A systematic review and meta-analysis BMJ Open 2017 7 e014619 10.1136/bmjopen-2016-014619 PMC5541589 28729308",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1136/bmjopen-2016-014619",
+    "parsed_pmid": "28729308",
+    "parsed_title": "The effect of combined resistance exercise training and vitamin D3 supplementation on musculoskeletal health and function in older adults: A systematic review and meta-analysis",
+    "parsed_first_author": "antoniak",
+    "parsed_year": 2017,
+    "parsed_container": "BMJ Open",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3729,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1136/bmjopen-2016-014619"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.997
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29777,
+    "ordinal": 66,
+    "raw_string": "Borde R. Hortobagyi T. Granacher U. Dose-Response Relationships of Resistance Training in Healthy Old Adults: A Systematic Review and Meta-Analysis Sports Med. 2015 45 1693 1720 10.1007/s40279-015-0385-9 26420238 PMC4656698",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s40279-015-0385-9",
+    "parsed_pmid": "26420238",
+    "parsed_title": "Dose-Response Relationships of Resistance Training in Healthy Old Adults: A Systematic Review and Meta-Analysis",
+    "parsed_first_author": "borde",
+    "parsed_year": 2015,
+    "parsed_container": "Sports Med.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3730,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s40279-015-0385-9"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29778,
+    "ordinal": 67,
+    "raw_string": "Csapo R. Alegre L.M. Effects of resistance training with moderate vs heavy loads on muscle mass and strength in the elderly: A meta-analysis Scand. J. Med. Sci Sports 2016 26 995 1006 10.1111/sms.12536 26302881",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/sms.12536",
+    "parsed_pmid": "26302881",
+    "parsed_title": "Effects of resistance training with moderate vs heavy loads on muscle mass and strength in the elderly: A meta-analysis",
+    "parsed_first_author": "csapo",
+    "parsed_year": 2016,
+    "parsed_container": "Scand. J. Med. Sci Sports",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3731,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/sms.12536"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29779,
+    "ordinal": 68,
+    "raw_string": "Finger D. Goltz F.R. Umpierre D. Meyer E. Rosa L.H. Schneider C.D. Effects of protein supplementation in older adults undergoing resistance training: A systematic review and meta-analysis Sports Med. 2015 45 245 255 10.1007/s40279-014-0269-4 25355074",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s40279-014-0269-4",
+    "parsed_pmid": "25355074",
+    "parsed_title": "Effects of protein supplementation in older adults undergoing resistance training: A systematic review and meta-analysis",
+    "parsed_first_author": "finger",
+    "parsed_year": 2015,
+    "parsed_container": "Sports Med.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3732,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s40279-014-0269-4"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29780,
+    "ordinal": 69,
+    "raw_string": "Liao C.D. Tsauo J.Y. Wu Y.T. Cheng C.P. Chen H.C. Huang Y.C. Chen H.C. Liou T.H. Effects of protein supplementation combined with resistance exercise on body composition and physical function in older adults: A systematic review and meta-analysis Am. J. Clin. Nutr. 2017 106 1078 1091 10.3945/ajcn.116.143594 28814401",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3945/ajcn.116.143594",
+    "parsed_pmid": "28814401",
+    "parsed_title": "Effects of protein supplementation combined with resistance exercise on body composition and physical function in older adults: A systematic review and meta-analysis",
+    "parsed_first_author": "liao",
+    "parsed_year": 2017,
+    "parsed_container": "Am. J. Clin. Nutr.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3733,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3945/ajcn.116.143594"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29781,
+    "ordinal": 70,
+    "raw_string": "Vlietstra L. Hendrickx W. Waters D.L. Exercise interventions in healthy older adults with sarcopenia: A systematic review and meta-analysis Australas. J. Ageing 2018 37 169 183 10.1111/ajag.12521 29638028",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/ajag.12521",
+    "parsed_pmid": "29638028",
+    "parsed_title": "Exercise interventions in healthy older adults with sarcopenia: A systematic review and meta-analysis",
+    "parsed_first_author": "vlietstra",
+    "parsed_year": 2018,
+    "parsed_container": "Australas. J. Ageing",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3734,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/ajag.12521"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29782,
+    "ordinal": 71,
+    "raw_string": "Tieland M. Verdijk L.B. de Groot L.C. van Loon L.J. Handgrip strength does not represent an appropriate measure to evaluate changes in muscle strength during an exercise intervention program in frail older people Int. J. Sport Nutr. Exerc. Metab. 2015 25 27 36 10.1123/ijsnem.2013-0123 24903908",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1123/ijsnem.2013-0123",
+    "parsed_pmid": "24903908",
+    "parsed_title": "Handgrip strength does not represent an appropriate measure to evaluate changes in muscle strength during an exercise intervention program in frail older people",
+    "parsed_first_author": "tieland",
+    "parsed_year": 2015,
+    "parsed_container": "Int. J. Sport Nutr. Exerc. Metab.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3735,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1123/ijsnem.2013-0123"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29783,
+    "ordinal": 72,
+    "raw_string": "Clark D.J. Manini T.M. Fielding R.A. Patten C. Neuromuscular determinants of maximum walking speed in well-functioning older adults Exp. Gerontol. 2013 48 358 363 10.1016/j.exger.2013.01.010 23376102 PMC3594593",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.exger.2013.01.010",
+    "parsed_pmid": "23376102",
+    "parsed_title": "Neuromuscular determinants of maximum walking speed in well-functioning older adults",
+    "parsed_first_author": "clark",
+    "parsed_year": 2013,
+    "parsed_container": "Exp. Gerontol.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3736,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.exger.2013.01.010"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29784,
+    "ordinal": 73,
+    "raw_string": "Sakari R. Era P. Rantanen T. Leskinen E. Laukkanen P. Heikkinen E. Mobility performance and its sensory, psychomotor and musculoskeletal determinants from age 75 to age 80 Aging Clin. Exp. Res. 2010 22 47 53 10.1007/BF03324815 20305367",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/bf03324815",
+    "parsed_pmid": "20305367",
+    "parsed_title": "Mobility performance and its sensory, psychomotor and musculoskeletal determinants from age 75 to age 80",
+    "parsed_first_author": "sakari",
+    "parsed_year": 2010,
+    "parsed_container": "Aging Clin. Exp. Res.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3737,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/bf03324815"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29785,
+    "ordinal": 74,
+    "raw_string": "Smith-Ray R.L. Hughes S.L. Prohaska T.R. Little D.M. Jurivich D.A. Hedeker D. Impact of Cognitive Training on Balance and Gait in Older Adults J. Gerontol. B Psychol. Sci. Soc. Sci. 2015 70 357 366 10.1093/geronb/gbt097 24192586 PMC4542642",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/geronb/gbt097",
+    "parsed_pmid": "24192586",
+    "parsed_title": "Impact of Cognitive Training on Balance and Gait in Older Adults",
+    "parsed_first_author": "smith ray",
+    "parsed_year": 2015,
+    "parsed_container": "J. Gerontol. B Psychol. Sci. Soc. Sci.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 1719,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/geronb/gbt097"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29786,
+    "ordinal": 75,
+    "raw_string": "Lemke M.R. Wendorff T. Mieth B. Buhl K. Linnemann M. Spatiotemporal gait patterns during over ground locomotion in major depression compared with healthy controls J. Psychiatr. Res. 2000 34 277 283 10.1016/S0022-3956(00)00017-0 11104839",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s0022-3956(00)00017-0",
+    "parsed_pmid": "11104839",
+    "parsed_title": "Spatiotemporal gait patterns during over ground locomotion in major depression compared with healthy controls",
+    "parsed_first_author": "lemke",
+    "parsed_year": 2000,
+    "parsed_container": "J. Psychiatr. Res.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3738,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0022-3956(00)00017-0"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29787,
+    "ordinal": 76,
+    "raw_string": "Kukuljan S. Nowson C.A. Sanders K.M. Nicholson G.C. Seibel M.J. Salmon J. Daly R.M. Independent and combined effects of calcium-vitamin D3 and exercise on bone structure and strength in older men: An 18-month factorial design randomized controlled trial J. Clin. Endocrinol. Metab. 2011 96 955 963 10.1210/jc.2010-2284 21209030",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1210/jc.2010-2284",
+    "parsed_pmid": "21209030",
+    "parsed_title": "Independent and combined effects of calcium-vitamin D3 and exercise on bone structure and strength in older men: An 18-month factorial design randomized controlled trial",
+    "parsed_first_author": "kukuljan",
+    "parsed_year": 2011,
+    "parsed_container": "J. Clin. Endocrinol. Metab.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3739,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1210/jc.2010-2284"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29788,
+    "ordinal": 77,
+    "raw_string": "Kemmler W. Bebenek M. Kohl M. Von Stengel S. Exercise and fractures in postmenopausal women. Final results of the controlled Erlangen Fitness and Osteoporosis Prevention Study (EFOPS) Osteoporos. Int. 2015 26 2491 2499 10.1007/s00198-015-3165-3 25963237",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s00198-015-3165-3",
+    "parsed_pmid": "25963237",
+    "parsed_title": "Exercise and fractures in postmenopausal women. Final results of the controlled Erlangen Fitness and Osteoporosis Prevention Study (EFOPS)",
+    "parsed_first_author": "kemmler",
+    "parsed_year": 2015,
+    "parsed_container": "Osteoporos. Int.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3740,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s00198-015-3165-3"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29789,
+    "ordinal": 78,
+    "raw_string": "Liu C.J. Latham N.K. Progressive resistance strength training for improving physical function in older adults Cochrane Database Syst. Rev. 2009 3 CD002759 10.1002/14651858.CD002759.pub2 19588334 PMC4324332",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/14651858.cd002759.pub2",
+    "parsed_pmid": "19588334",
+    "parsed_title": "Progressive resistance strength training for improving physical function in older adults",
+    "parsed_first_author": "liu",
+    "parsed_year": 2009,
+    "parsed_container": "Cochrane Database Syst. Rev.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3741,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/14651858.cd002759.pub2"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29790,
+    "ordinal": 79,
+    "raw_string": "Mangione K.K. Miller A.H. Naughton I.V. Cochrane review: Improving physical function and performance with progressive resistance strength training in older adults Phys. Ther. 2010 90 1711 1715 10.2522/ptj.20100270 21123213",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2522/ptj.20100270",
+    "parsed_pmid": "21123213",
+    "parsed_title": "Cochrane review: Improving physical function and performance with progressive resistance strength training in older adults",
+    "parsed_first_author": "mangione",
+    "parsed_year": 2010,
+    "parsed_container": "Phys. Ther.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3742,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2522/ptj.20100270"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29791,
+    "ordinal": 80,
+    "raw_string": "Teschler M. Weissenfels A. Bebenek M. Frohlich M. Kohl M. von Stengel S. Kemmler W. Very high creatine kinase CK levels after WB_EMS. Are there implications for health Int. J. Clin. Exp. Med. 2016 9 22841 22850",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Very high creatine kinase CK levels after WB_EMS. Are there implications for health",
+    "parsed_first_author": "teschler",
+    "parsed_year": 2016,
+    "parsed_container": "Int. J. Clin. Exp. Med.",
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29792,
+    "ordinal": 81,
+    "raw_string": "Cuenca-Sanchez M. Navas-Carrillo D. Orenes-Pinero E. Controversies surrounding high-protein diet intake: Satiating effect and kidney and bone health Adv. Nutr. 2015 6 260 266 10.3945/an.114.007716 25979491 PMC4424780",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3945/an.114.007716",
+    "parsed_pmid": "25979491",
+    "parsed_title": "Controversies surrounding high-protein diet intake: Satiating effect and kidney and bone health",
+    "parsed_first_author": "cuenca sanchez",
+    "parsed_year": 2015,
+    "parsed_container": "Adv. Nutr.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3743,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3945/an.114.007716"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29793,
+    "ordinal": 82,
+    "raw_string": "Kemmler W. von Stengel S. Kohl M. Rohleder N. Bertsch T. Sieber C.C. Freiberger E. Kob R. Safety of a Combined WB-EMS and High-Protein Diet Intervention in Sarcopenic Obese Elderly Men Clin. Interv. Aging 2020 15 953 967 10.2147/CIA.S248868 32612355 PMC7322975",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2147/cia.s248868",
+    "parsed_pmid": "32612355",
+    "parsed_title": "Safety of a Combined WB-EMS and High-Protein Diet Intervention in Sarcopenic Obese Elderly Men",
+    "parsed_first_author": "kemmler",
+    "parsed_year": 2020,
+    "parsed_container": "Clin. Interv. Aging",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3744,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2147/cia.s248868"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.922
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29794,
+    "ordinal": 83,
+    "raw_string": "Shams-White M.M. Chung M. Du M. Fu Z. Insogna K.L. Karlsen M.C. LeBoff M.S. Shapses S.A. Sackey J. Wallace T.C. Dietary protein and bone health: A systematic review and meta-analysis from the National Osteoporosis Foundation Am. J. Clin. Nutr. 2017 105 1528 1543 10.3945/ajcn.116.145110 28404575",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3945/ajcn.116.145110",
+    "parsed_pmid": "28404575",
+    "parsed_title": "Dietary protein and bone health: A systematic review and meta-analysis from the National Osteoporosis Foundation",
+    "parsed_first_author": "shams white",
+    "parsed_year": 2017,
+    "parsed_container": "Am. J. Clin. Nutr.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3745,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3945/ajcn.116.145110"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29795,
+    "ordinal": 84,
+    "raw_string": "Beckwee D. Delaere A. Aelbrecht S. Baert V. Beaudart C. Bruyere O. de Saint-Hubert M. Bautmans I. Exercise Interventions for the Prevention and Treatment of Sarcopenia. A Systematic Umbrella Review J. Nutr. Health Aging 2019 23 494 502 10.1007/s12603-019-1196-8 31233069",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s12603-019-1196-8",
+    "parsed_pmid": "31233069",
+    "parsed_title": "Exercise Interventions for the Prevention and Treatment of Sarcopenia. A Systematic Umbrella Review",
+    "parsed_first_author": "beckwee",
+    "parsed_year": 2019,
+    "parsed_container": "J. Nutr. Health Aging",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3746,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s12603-019-1196-8"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29796,
+    "ordinal": 85,
+    "raw_string": "Gade J. Pedersen R. M B. Effect of protein or essential amino acid supplementation during prolonged exercise training in older adults on body composition, muscle strength, and physical performance parameters: A systematic review Rehabil. Process Outcome 2018 7 1 12 10.1177/1179572718765760",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1177/1179572718765760",
+    "parsed_pmid": null,
+    "parsed_title": "Effect of protein or essential amino acid supplementation during prolonged exercise training in older adults on body composition, muscle strength, and physical performance parameters: A systematic review",
+    "parsed_first_author": "gade",
+    "parsed_year": 2018,
+    "parsed_container": "Rehabil. Process Outcome",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3747,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1177/1179572718765760"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.973
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29797,
+    "ordinal": 86,
+    "raw_string": "Carlson S.A. Fulton J.E. Schoenborn C.A. Loustalot F. Trend and prevalence estimates based on the 2008 Physical Activity Guidelines for Americans Am. J. Prev. Med. 2010 39 305 313 10.1016/j.amepre.2010.06.006 20837280",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.amepre.2010.06.006",
+    "parsed_pmid": "20837280",
+    "parsed_title": "Trend and prevalence estimates based on the 2008 Physical Activity Guidelines for Americans",
+    "parsed_first_author": "carlson",
+    "parsed_year": 2010,
+    "parsed_container": "Am. J. Prev. Med.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3748,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.amepre.2010.06.006"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29798,
+    "ordinal": 87,
+    "raw_string": "Kob R. Bollheimer L.C. Bertsch T. Fellner C. Djukic M. Sieber C.C. Fischer B.E. Sarcopenic obesity: Molecular clues to a better understanding of its pathogenesis? Biogerontology 2015 16 15 29 10.1007/s10522-014-9539-7 25376109",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s10522-014-9539-7",
+    "parsed_pmid": "25376109",
+    "parsed_title": "Sarcopenic obesity: Molecular clues to a better understanding of its pathogenesis?",
+    "parsed_first_author": "kob",
+    "parsed_year": 2015,
+    "parsed_container": "Biogerontology",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3749,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s10522-014-9539-7"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29799,
+    "ordinal": 88,
+    "raw_string": "Calvani R. Joseph A.M. Adhihetty P.J. Miccheli A. Bossola M. Leeuwenburgh C. Bernabei R. Marzetti E. Mitochondrial pathways in sarcopenia of aging and disuse muscle atrophy Biol. Chem. 2013 394 393 414 10.1515/hsz-2012-0247 23154422 PMC3976204",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1515/hsz-2012-0247",
+    "parsed_pmid": "23154422",
+    "parsed_title": "Mitochondrial pathways in sarcopenia of aging and disuse muscle atrophy",
+    "parsed_first_author": "calvani",
+    "parsed_year": 2013,
+    "parsed_container": "Biol. Chem.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3750,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1515/hsz-2012-0247"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 29800,
+    "ordinal": 89,
+    "raw_string": "Sullivan-Gunn M.J. Lewandowski P.A. Elevated hydrogen peroxide and decreased catalase and glutathione peroxidase protection are associated with aging sarcopenia BMC Geriatr. 2013 13 104 10.1186/1471-2318-13-104 24093947 PMC3853025",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1186/1471-2318-13-104",
+    "parsed_pmid": "24093947",
+    "parsed_title": "Elevated hydrogen peroxide and decreased catalase and glutathione peroxidase protection are associated with aging sarcopenia",
+    "parsed_first_author": "sullivan gunn",
+    "parsed_year": 2013,
+    "parsed_container": "BMC Geriatr.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3751,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/1471-2318-13-104"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   }
+  ],
+  "stat_tests": [],
+  "means": [],
+  "trials": []
+ }
+}

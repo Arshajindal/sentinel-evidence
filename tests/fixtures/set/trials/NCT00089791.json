@@ -1,0 +1,124 @@
+{
+ "id": "NCT00089791",
+ "subject": "trial",
+ "categories": [
+  "c05_out_of_scope_fdaaa"
+ ],
+ "source": {
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "Phase 3, completed, but no site countries listed and not marked FDA-regulated: outside FDAAA's plausible reach.",
+ "expected": [
+  {
+   "check": "C05",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "trial": {
+   "nct_id": "NCT00089791",
+   "brief_title": "A Study to Evaluate Denosumab in the Treatment of Postmenopausal Osteoporosis",
+   "overall_status": "COMPLETED",
+   "study_type": "INTERVENTIONAL",
+   "phase": "PHASE3",
+   "enrollment": 7808,
+   "start_date": "2004-08-01",
+   "primary_completion_date": "2008-06-17",
+   "completion_date": "2008-06-17",
+   "results_first_posted": "2014-01-10",
+   "lead_sponsor": "Amgen",
+   "sponsor_class": "INDUSTRY",
+   "raw": {
+    "protocolSection": {
+     "identificationModule": {
+      "nctId": "NCT00089791",
+      "briefTitle": "A Study to Evaluate Denosumab in the Treatment of Postmenopausal Osteoporosis"
+     },
+     "statusModule": {
+      "overallStatus": "COMPLETED",
+      "startDateStruct": {
+       "date": "2004-08-01",
+       "type": "ACTUAL"
+      },
+      "expandedAccessInfo": {
+       "hasExpandedAccess": false
+      },
+      "statusVerifiedDate": "2022-11",
+      "dispFirstSubmitDate": "2009-11-23",
+      "completionDateStruct": {
+       "date": "2008-06-17",
+       "type": "ACTUAL"
+      },
+      "lastUpdateSubmitDate": "2022-11-04",
+      "studyFirstSubmitDate": "2004-08-13",
+      "dispFirstSubmitQcDate": "2009-11-23",
+      "resultsFirstSubmitDate": "2010-07-02",
+      "studyFirstSubmitQcDate": "2004-08-13",
+      "dispFirstPostDateStruct": {
+       "date": "2009-11-25",
+       "type": "ESTIMATED"
+      },
+      "lastUpdatePostDateStruct": {
+       "date": "2022-11-08",
+       "type": "ACTUAL"
+      },
+      "resultsFirstSubmitQcDate": "2013-11-22",
+      "studyFirstPostDateStruct": {
+       "date": "2004-08-16",
+       "type": "ESTIMATED"
+      },
+      "resultsFirstPostDateStruct": {
+       "date": "2014-01-10",
+       "type": "ESTIMATED"
+      },
+      "primaryCompletionDateStruct": {
+       "date": "2008-06-17",
+       "type": "ACTUAL"
+      }
+     },
+     "oversightModule": {
+      "oversightHasDmc": true
+     },
+     "designModule": {
+      "studyType": "INTERVENTIONAL",
+      "phases": [
+       "PHASE3"
+      ]
+     },
+     "contactsLocationsModule": {
+      "locations": []
+     }
+    },
+    "hasResults": true
+   },
+   "outcomes": [
+    {
+     "version_no": 0,
+     "version_date": "2022-11-08",
+     "outcome_type": "primary",
+     "measure": "Number of Participants With New Vertebral Fractures",
+     "description": "A new vertebral fracture, assessed by lateral spine X-ray using Genant semiquantitative scoring method, was identified as an ≥ 1 grade increase from the Baseline grade of 0 in any vertebra from T4 to L4. New vertebral fractures included morphometric vertebral fractures (assessed at scheduled visits and not associated with signs or symptoms \\[or both\\] indicative of a fracture) and clinical vertebral fractures (assessed at either a scheduled or unscheduled visit and associated with any signs and/or symptoms indicative of a fracture, excluding any fracture associated with high trauma severity or a pathologic fracture).",
+     "time_frame": "36 months"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2022-11-08",
+     "outcome_type": "secondary",
+     "measure": "Number of Participants With Nonvertebral Fractures",
+     "description": "Nonvertebral fractures (osteoporotic) were those occurring on study excluding those of the vertebrae (cervical, thoracic, and lumbar), skull, facial, mandible, metacarpus, finger phalanges, and toe phalanges. Fractures associated with high trauma severity (fractures that were the result of a fall from higher than the height of a stool, chair, first rung on a ladder or equivalent (\\> 20 inches) or was the result of severe trauma other than a fall) and pathologic fractures were excluded from this category. Nonvertebral fractures were required to be confirmed either by radiographs or other diagnostic images such as computerized tomography (CT) or magnetic resonance imaging (MRI), or by documentation in a radiology report, surgical report, or discharge summary.",
+     "time_frame": "36 months"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2022-11-08",
+     "outcome_type": "secondary",
+     "measure": "Number of Participants With a Hip Fracture",
+     "description": "Hip fractures are a subset of nonvertebral fractures including femur neck, femur intertrochanter, and femur subtrochanter.",
+     "time_frame": "36 months"
+    }
+   ]
+  },
+  "fetched_on": "2026-10-24"
+ }
+}

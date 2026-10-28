@@ -1,0 +1,995 @@
+{
+ "id": "PMC8018752",
+ "subject": "paper",
+ "categories": [
+  "c01_unverified_reference"
+ ],
+ "source": {
+  "corpus": "pmc-rct-2015-2024",
+  "paper_id": 708,
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "Ref 26 genuinely unverifiable (a 1985 meeting abstract).",
+ "expected": [
+  {
+   "check": "C01",
+   "status": "flagged",
+   "severity": "medium",
+   "item": "ref 26",
+   "why": "Ciancio 1985, J Dent Res 64:325, probably a meeting abstract in a special issue, which neither index lists. Searched by hand in Crossref (bibliographic) and OpenAlex on 2026-10-27: no record of this work. 'Could not be verified' is accurate; the work may exist outside both indexes."
+  },
+  {
+   "check": "C01",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C02",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C03",
+   "status": "not_applicable",
+   "severity": "info"
+  },
+  {
+   "check": "C04",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "paper_id": 708,
+  "publication_date": "2021-03-22",
+  "fulltext_status": "full",
+  "references": [
+   {
+    "reference_id": 27453,
+    "ordinal": 1,
+    "raw_string": "O'Reilly M Featherstone J Demineralization and remineralization around orthodontic appliances an in vivo study Am J Orthod Dentofacial Orthop 1987 92 1 33 40 3300270 10.1016/0889-5406(87)90293-9",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/0889-5406(87)90293-9",
+    "parsed_pmid": "3300270",
+    "parsed_title": "Demineralization and remineralization around orthodontic appliances an in vivo study",
+    "parsed_first_author": "o reilly",
+    "parsed_year": 1987,
+    "parsed_container": "Am J Orthod Dentofacial Orthop",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3624,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/0889-5406(87)90293-9"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 27454,
+    "ordinal": 2,
+    "raw_string": "Arends J Christoffersen J Invited review article the nature of early caries lesions in enamel J Dent Res 1986 65 1 2 11 3510230 10.1177/00220345860650010201",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1177/00220345860650010201",
+    "parsed_pmid": "3510230",
+    "parsed_title": "Invited review article the nature of early caries lesions in enamel",
+    "parsed_first_author": "arends",
+    "parsed_year": 1986,
+    "parsed_container": "J Dent Res",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3625,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1177/00220345860650010201"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.494
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 27455,
+    "ordinal": 3,
+    "raw_string": "Richter AE Arruda AO Peters MC Sohn W Incidence of caries lesions among patients treated with comprehensive orthodontics Am J Orthod Dentofacial Orthop 2011 139 5 657 664 21536209 10.1016/j.ajodo.2009.06.037",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.ajodo.2009.06.037",
+    "parsed_pmid": "21536209",
+    "parsed_title": "Incidence of caries lesions among patients treated with comprehensive orthodontics",
+    "parsed_first_author": "richter",
+    "parsed_year": 2011,
+    "parsed_container": "Am J Orthod Dentofacial Orthop",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3626,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.ajodo.2009.06.037"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 27456,
+    "ordinal": 4,
+    "raw_string": "Zachrisson BU Clinical experience with direct-bonded orthodontic retainers Am J Orthod 1977 71 4 440 448 322500 10.1016/0002-9416(77)90247-0",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/0002-9416(77)90247-0",
+    "parsed_pmid": "322500",
+    "parsed_title": "Clinical experience with direct-bonded orthodontic retainers",
+    "parsed_first_author": "zachrisson",
+    "parsed_year": 1977,
+    "parsed_container": "Am J Orthod",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 1938,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/0002-9416(77)90247-0"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 27457,
+    "ordinal": 5,
+    "raw_string": "Palomares NB Celeste RK Oliveira BH Miguel JAM How does orthodontic treatment affect young adults' oral health-related quality of life Am J Orthod Dentofacial Orthop 2012 141 6 751 758 22640677 10.1016/j.ajodo.2012.01.015",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.ajodo.2012.01.015",
+    "parsed_pmid": "22640677",
+    "parsed_title": "How does orthodontic treatment affect young adults' oral health-related quality of life",
+    "parsed_first_author": "palomares",
+    "parsed_year": 2012,
+    "parsed_container": "Am J Orthod Dentofacial Orthop",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3627,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.ajodo.2012.01.015"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 27458,
+    "ordinal": 6,
+    "raw_string": "Skidmore KJ Brook KJ Thomson WM Harding WJ Factors influencing treatment time in orthodontic patients Am J Orthod Dentofacial Orthop 2006 129 2 230 238 16473715 10.1016/j.ajodo.2005.10.003",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.ajodo.2005.10.003",
+    "parsed_pmid": "16473715",
+    "parsed_title": "Factors influencing treatment time in orthodontic patients",
+    "parsed_first_author": "skidmore",
+    "parsed_year": 2006,
+    "parsed_container": "Am J Orthod Dentofacial Orthop",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3628,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.ajodo.2005.10.003"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 27459,
+    "ordinal": 7,
+    "raw_string": "Mehra T Nanda R Sinha P Orthodontists' assessment and management of patient compliance Angle Orthod 1998 68 2 115 122 9564420 10.1043/0003-3219(1998)068<0115:OAAMOP>2.3.CO;2",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1043/0003-3219(1998)068<0115:oaamop>2.3.co;2",
+    "parsed_pmid": "9564420",
+    "parsed_title": "Orthodontists' assessment and management of patient compliance",
+    "parsed_first_author": "mehra",
+    "parsed_year": 1998,
+    "parsed_container": "Angle Orthod",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3629,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1043/0003-3219(1998)068<0115:oaamop>2.3.co;2"
+      ],
+      "crossref_doi": 1,
+      "openalex_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 27460,
+    "ordinal": 8,
+    "raw_string": "Thomson AM Cunningham SJ Hunt NP A comparison of information retention at an initial orthodontic consultation Eur J Orthod 2001 23 2 169 178 11398554 10.1093/ejo/23.2.169",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/ejo/23.2.169",
+    "parsed_pmid": "11398554",
+    "parsed_title": "A comparison of information retention at an initial orthodontic consultation",
+    "parsed_first_author": "thomson",
+    "parsed_year": 2001,
+    "parsed_container": "Eur J Orthod",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 2989,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {},
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 27461,
+    "ordinal": 9,
+    "raw_string": "Feil PH Grauer JS Gadbury-Amyot CC Kula K McCunniff MD Intentional use of the Hawthorne effect to improve oral hygiene compliance in orthodontic patients J Dent Educ 2002 66 10 1129 1135 12449206",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": "12449206",
+    "parsed_title": "Intentional use of the Hawthorne effect to improve oral hygiene compliance in orthodontic patients",
+    "parsed_first_author": "feil",
+    "parsed_year": 2002,
+    "parsed_container": "J Dent Educ",
+    "resolution_status": "resolved",
+    "resolution_method": "pmid",
+    "resolved_paper_id": 3192,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "pmid:12449206"
+      ],
+      "openalex_pmid": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 27462,
+    "ordinal": 10,
+    "raw_string": "Brent Bowen T Rinchuse DJ Zullo T DeMaria ME The influence of text messaging on oral hygiene effectiveness Angle Orthod 2014 85 4 543 548 25343689 10.2319/071514-495.1 PMC8611742",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2319/071514-495.1",
+    "parsed_pmid": "25343689",
+    "parsed_title": "The influence of text messaging on oral hygiene effectiveness",
+    "parsed_first_author": "brent bowen",
+    "parsed_year": 2014,
+    "parsed_container": "Angle Orthod",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3630,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2319/071514-495.1"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 27463,
+    "ordinal": 11,
+    "raw_string": "Acharya S Goyal A Utreja AK Mohanty U Effect of three different motivational techniques on oral hygiene and gingival health of patients undergoing multibracketed orthodontics Angle Orthod 2011 81 5 884 888 21612316 10.2319/112210-680.1 PMC8916188",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2319/112210-680.1",
+    "parsed_pmid": "21612316",
+    "parsed_title": "Effect of three different motivational techniques on oral hygiene and gingival health of patients undergoing multibracketed orthodontics",
+    "parsed_first_author": "acharya",
+    "parsed_year": 2011,
+    "parsed_container": "Angle Orthod",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3631,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2319/112210-680.1"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 27464,
+    "ordinal": 12,
+    "raw_string": "Peng Y Wu R Qu W Wu W Chen J Fang J Effect of visual method vs plaque disclosure in enhancing oral hygiene in adolescents and young adults a single-blind randomized controlled trial Am J Orthod Dentofacial Orthop 2014 145 3 280 286 24582019 10.1016/j.ajodo.2013.10.021",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.ajodo.2013.10.021",
+    "parsed_pmid": "24582019",
+    "parsed_title": "Effect of visual method vs plaque disclosure in enhancing oral hygiene in adolescents and young adults a single-blind randomized controlled trial",
+    "parsed_first_author": "peng",
+    "parsed_year": 2014,
+    "parsed_container": "Am J Orthod Dentofacial Orthop",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3632,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.ajodo.2013.10.021"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 27465,
+    "ordinal": 13,
+    "raw_string": "Marini I Bortolotti F Parenti SI Gatto MR Bonetti GA Combined effects of repeated oral hygiene motivation and type of toothbrush on orthodontic patients a blind randomized clinical trial Angle Orthod 2014 84 5 896 901 24641783 10.2319/112113-856.1 PMC8641274",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2319/112113-856.1",
+    "parsed_pmid": "24641783",
+    "parsed_title": "Combined effects of repeated oral hygiene motivation and type of toothbrush on orthodontic patients a blind randomized clinical trial",
+    "parsed_first_author": "marini",
+    "parsed_year": 2014,
+    "parsed_container": "Angle Orthod",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3633,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2319/112113-856.1"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 27466,
+    "ordinal": 14,
+    "raw_string": "Zotti F Dalessandri D Salgarello S Piancino M Bonetti S Visconti L Usefulness of an app in improving oral hygiene compliance in adolescent orthodontic patients Angle Orthod 2015 86 1 101 107 25799001 10.2319/010915-19.1 PMC8603968",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2319/010915-19.1",
+    "parsed_pmid": "25799001",
+    "parsed_title": "Usefulness of an app in improving oral hygiene compliance in adolescent orthodontic patients",
+    "parsed_first_author": "zotti",
+    "parsed_year": 2015,
+    "parsed_container": "Angle Orthod",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3634,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2319/010915-19.1"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 27467,
+    "ordinal": 15,
+    "raw_string": "Ay ZY Sayin M Özat Y Goster T Atilla AO Bozkurt FY Appropriate oral hygiene motivation method for patients with fixed appliances Angle Orthod 2007 77 6 1085 1089 18004923 10.2319/101806-428.1",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2319/101806-428.1",
+    "parsed_pmid": "18004923",
+    "parsed_title": "Appropriate oral hygiene motivation method for patients with fixed appliances",
+    "parsed_first_author": "ay",
+    "parsed_year": 2007,
+    "parsed_container": "Angle Orthod",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3635,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2319/101806-428.1"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 27468,
+    "ordinal": 16,
+    "raw_string": "Eppright M Shroff B Best AM Barcoma E Lindauer SJ Influence of active reminders on oral hygiene compliance in orthodontic patients Angle Orthod 2013 84 2 208 213 24028316 10.2319/062813-481.1 PMC8673795",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2319/062813-481.1",
+    "parsed_pmid": "24028316",
+    "parsed_title": "Influence of active reminders on oral hygiene compliance in orthodontic patients",
+    "parsed_first_author": "eppright",
+    "parsed_year": 2013,
+    "parsed_container": "Angle Orthod",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3636,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2319/062813-481.1"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 27469,
+    "ordinal": 17,
+    "raw_string": "Lees A Rock W A comparison between written, verbal, and videotape oral hygiene instruction for patients with fixed appliances Br J Orthod 2000 27 4 323 328 10.1093/ortho/27.4.323 11099571",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/ortho/27.4.323",
+    "parsed_pmid": "11099571",
+    "parsed_title": "A comparison between written, verbal, and videotape oral hygiene instruction for patients with fixed appliances",
+    "parsed_first_author": "lees",
+    "parsed_year": 2000,
+    "parsed_container": "Br J Orthod",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3637,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/ortho/27.4.323"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 27470,
+    "ordinal": 18,
+    "raw_string": "Gao X Lo ECM Kot SCC Chan KCW Motivational interviewing in improving oral health a systematic review of randomized controlled trials J Periodontol 2014 85 3 426 437 23805818 10.1902/jop.2013.130205",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1902/jop.2013.130205",
+    "parsed_pmid": "23805818",
+    "parsed_title": "Motivational interviewing in improving oral health a systematic review of randomized controlled trials",
+    "parsed_first_author": "gao",
+    "parsed_year": 2014,
+    "parsed_container": "J Periodontol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3638,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1902/jop.2013.130205"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 27471,
+    "ordinal": 19,
+    "raw_string": "Huang J Yao Y Jiang J Li C Effects of motivational methods on oral hygiene of orthodontic patients A systematic review and meta-analysis Medicine 2018 97 47 e13182 30461616 10.1097/MD.0000000000013182 PMC6392669",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/md.0000000000013182",
+    "parsed_pmid": "30461616",
+    "parsed_title": "Effects of motivational methods on oral hygiene of orthodontic patients A systematic review and meta-analysis",
+    "parsed_first_author": "huang",
+    "parsed_year": 2018,
+    "parsed_container": "Medicine",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3639,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/md.0000000000013182"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.789
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 27472,
+    "ordinal": 20,
+    "raw_string": "Thickett E Newton JT Using written material to support recall of orthodontic information a comparison of three methods Angle Orthod 2006 76 2 243 250 16539548 10.1043/0003-3219(2006)076[0243:UWMTSR]2.0.CO;2",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1043/0003-3219(2006)076[0243:uwmtsr]2.0.co;2",
+    "parsed_pmid": "16539548",
+    "parsed_title": "Using written material to support recall of orthodontic information a comparison of three methods",
+    "parsed_first_author": "thickett",
+    "parsed_year": 2006,
+    "parsed_container": "Angle Orthod",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3640,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1043/0003-3219(2006)076[0243:uwmtsr]2.0.co;2"
+      ],
+      "crossref_doi": 1,
+      "openalex_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 27473,
+    "ordinal": 21,
+    "raw_string": "Löe H Silness J Periodontal disease in pregnancy I Prevalence and severity Acta Odontol Scand 1963 21 6 533 551 14121956 10.3109/00016356309011240",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3109/00016356309011240",
+    "parsed_pmid": "14121956",
+    "parsed_title": "Periodontal disease in pregnancy I Prevalence and severity",
+    "parsed_first_author": "loe",
+    "parsed_year": 1963,
+    "parsed_container": "Acta Odontol Scand",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3641,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3109/00016356309011240"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 27474,
+    "ordinal": 22,
+    "raw_string": "Mitchell L Decalcification during orthodontic treatment with fixed appliances-an overview Br J Orthod 1992 19 3 199 205 1390575 10.1179/bjo.19.3.199",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1179/bjo.19.3.199",
+    "parsed_pmid": "1390575",
+    "parsed_title": "Decalcification during orthodontic treatment with fixed appliances-an overview",
+    "parsed_first_author": "mitchell",
+    "parsed_year": 1992,
+    "parsed_container": "Br J Orthod",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3642,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1179/bjo.19.3.199"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 27475,
+    "ordinal": 23,
+    "raw_string": "Zaghrisson BU Zachrisson S Caries incidence and oral hygiene during orthodontic treatment Eur J Oral Sci 1971 79 4 394 401 10.1111/j.1600-0722.1971.tb02028.x 5288673",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1600-0722.1971.tb02028.x",
+    "parsed_pmid": "5288673",
+    "parsed_title": "Caries incidence and oral hygiene during orthodontic treatment",
+    "parsed_first_author": "zaghrisson",
+    "parsed_year": 1971,
+    "parsed_container": "Eur J Oral Sci",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 2746,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1600-0722.1971.tb02028.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 27476,
+    "ordinal": 24,
+    "raw_string": "Alexander SA Effects of orthodontic attachments on the gingival health of permanent second molars Am J Orthod Dentofacial Orthop 1991 100 4 337 340 1927984 10.1016/0889-5406(91)70071-4",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/0889-5406(91)70071-4",
+    "parsed_pmid": "1927984",
+    "parsed_title": "Effects of orthodontic attachments on the gingival health of permanent second molars",
+    "parsed_first_author": "alexander",
+    "parsed_year": 1991,
+    "parsed_container": "Am J Orthod Dentofacial Orthop",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3643,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/0889-5406(91)70071-4"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 27477,
+    "ordinal": 25,
+    "raw_string": "Gorelick L Geiger AM Gwinnett AJ Incidence of white spot formation after bonding and banding Am J Orthod 1982 81 2 93 98 6758594 10.1016/0002-9416(82)90032-x",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/0002-9416(82)90032-x",
+    "parsed_pmid": "6758594",
+    "parsed_title": "Incidence of white spot formation after bonding and banding",
+    "parsed_first_author": "gorelick",
+    "parsed_year": 1982,
+    "parsed_container": "Am J Orthod",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3644,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/0002-9416(82)90032-x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 27478,
+    "ordinal": 26,
+    "raw_string": "Ciancio D A comparison of plaque accumulation in bonded versus banded teeth J Dent Res 1985 64 325 325",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "A comparison of plaque accumulation in bonded versus banded teeth",
+    "parsed_first_author": "ciancio",
+    "parsed_year": 1985,
+    "parsed_container": "J Dent Res",
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 27479,
+    "ordinal": 27,
+    "raw_string": "Li X Xu Z-R Tang N Ye C Zhu X-L Zhou T Effect of intervention using a messaging app on compliance and duration of treatment in orthodontic patients Clin Oral Investig 2016 20 8 1849 1859 10.1007/s00784-015-1662-6 26631059",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s00784-015-1662-6",
+    "parsed_pmid": "26631059",
+    "parsed_title": "Effect of intervention using a messaging app on compliance and duration of treatment in orthodontic patients",
+    "parsed_first_author": "li",
+    "parsed_year": 2016,
+    "parsed_container": "Clin Oral Investig",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 2802,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s00784-015-1662-6"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 27480,
+    "ordinal": 28,
+    "raw_string": "Clark JR Oral hygiene in the orthodontic practice Motivation, responsibilities, and concepts Am J Orthod Dentofacial Orthop 1976 69 1 72 82 10.1016/0002-9416(76)90099-3 1061502",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/0002-9416(76)90099-3",
+    "parsed_pmid": "1061502",
+    "parsed_title": "Oral hygiene in the orthodontic practice Motivation, responsibilities, and concepts",
+    "parsed_first_author": "clark",
+    "parsed_year": 1976,
+    "parsed_container": "Am J Orthod Dentofacial Orthop",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3645,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/0002-9416(76)90099-3"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   }
+  ],
+  "stat_tests": [],
+  "means": [],
+  "trials": []
+ }
+}

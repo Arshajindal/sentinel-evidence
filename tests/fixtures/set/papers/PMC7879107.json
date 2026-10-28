@@ -1,0 +1,707 @@
+{
+ "id": "PMC7879107",
+ "subject": "paper",
+ "categories": [
+  "edge_no_year"
+ ],
+ "source": {
+  "corpus": "pmc-rct-2015-2024",
+  "paper_id": 308,
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "Edge case, references without a year: 8 of 19 too incomplete to check and 5 non-journal, so only 6 resolved, and nothing flagged.",
+ "expected": [
+  {
+   "check": "C01",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C02",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C03",
+   "status": "not_applicable",
+   "severity": "info"
+  },
+  {
+   "check": "C04",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "paper_id": 308,
+  "publication_date": "2021-02-12",
+  "fulltext_status": "full",
+  "references": [
+   {
+    "reference_id": 12110,
+    "ordinal": 1,
+    "raw_string": "Organization W.H. World Health Organization; 2020. Rolling Updates on Coronavirus Disease (COVID – 19) - Coronavirus Disease (COVID-19) Situation Report.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": 2020,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 12111,
+    "ordinal": 2,
+    "raw_string": "Control CfD. Recommended Preparedness and Response Activities in Healthcare. Supplement C: Preparedness and Response in Healthcare Facilities. Public Health Guidance for Community-Level Preparedness and Response to Severe Acute Respiratory Syndrome (SARS) Version 2/3.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 12112,
+    "ordinal": 3,
+    "raw_string": "Richardson S.H.J., Narasimhan M., et al. Presenting Characteristics, comorbidities, and outcomes among 5700 patients hospitalized with COVID-19 in the New York City area. J. Am. Med. Assoc. 2020 doi: 10.1001/jama.2020.6775.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1001/jama.2020.6775",
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "richardson",
+    "parsed_year": 2020,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4349,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1001/jama.2020.6775"
+      ],
+      "crossref_doi": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 12113,
+    "ordinal": 4,
+    "raw_string": "Berlin D.A., Gulick R.G., FJ M Severe Covid-19. N. Engl. J. Med. 2020 doi: 10.1056/NEJMcp2009575.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1056/nejmcp2009575",
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "berlin",
+    "parsed_year": 2020,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4350,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1056/nejmcp2009575"
+      ],
+      "crossref_doi": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 12114,
+    "ordinal": 5,
+    "raw_string": "Health. NDo. Amid Ongoing COVID-19 Pandemic, Governor Cuomo Announces State Department of Health Has Approved New Protocol to Allow BiPAP Machines to Be Converted into Ventilators.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 12115,
+    "ordinal": 6,
+    "raw_string": "L W., He W., Yu X., et al. Coronavirus disease 2019 in elderly patients: Characteristics and prognostic factors based on 4-week follow-up. J. Infect. 2020;80(6):639–645. doi: 10.1016/j.jinf.2020.03.019.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1016/j.jinf.2020.03.019",
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": 2020,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4351,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.jinf.2020.03.019"
+      ],
+      "crossref_doi": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 12116,
+    "ordinal": 7,
+    "raw_string": "Patel B.K., Wolfe K.S., MacKenzie E., et al. Effect of noninvasive ventilation delivered by helmet vs face mask on the rate of endotracheal intubation in patients with acute respiratory distress Syndrome. A randomized clinical trial. J. Am. Med. Assoc. 2016;315(22):2435–2441. doi: 10.1001/jama.2016.6338.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1001/jama.2016.6338",
+    "parsed_pmid": null,
+    "parsed_title": "Effect of noninvasive ventilation delivered by helmet vs face mask on the rate of endotracheal intubation in patients with acute respiratory distress Syndrome. A randomized clinical trial",
+    "parsed_first_author": "patel",
+    "parsed_year": 2016,
+    "parsed_container": "J. Am. Med. Assoc",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4352,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1001/jama.2016.6338"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.919
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 12117,
+    "ordinal": 8,
+    "raw_string": "Patel B.K., Wolfe K.S., MacKenzie E., et al. One year outcomes in patients with acute respiratory distress Syndrome enrolled in a randomized clinical trial of helmet versus facemask noninvasive ventilation. Crit. Care Med. July 4, 2018;(7):1078–1084. doi: 10.1097/CCM.0000000000003124.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1097/ccm.0000000000003124",
+    "parsed_pmid": null,
+    "parsed_title": "One year outcomes in patients with acute respiratory distress Syndrome enrolled in a randomized clinical trial of helmet versus facemask noninvasive ventilation",
+    "parsed_first_author": "patel",
+    "parsed_year": 2018,
+    "parsed_container": "Crit. Care Med. July",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4353,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/ccm.0000000000003124"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 12118,
+    "ordinal": 9,
+    "raw_string": "K M Oxygen administration: what is the best choice? Respir. Ther. 2015",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": 2015,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 12119,
+    "ordinal": 10,
+    "raw_string": "Department of Health and Human Services - Food and drug Administration - Concwence of CDRH OoDEO . 2002. Device Evaluation and Approval.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": 2002,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 12120,
+    "ordinal": 11,
+    "raw_string": "UN-TBftLDC . 2020. Local Production Could Solve Shortages of Essential Pandemic-Fighting Equipment.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": 2020,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 12121,
+    "ordinal": 12,
+    "raw_string": "Medicine. ECFH. ECHM Position on Hyperbaric Oxygen Therapy (HBOT) in Multiplace Hyperbaric Chambers during Coronavirus Disease (COVID-19) Outbreak.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 12122,
+    "ordinal": 13,
+    "raw_string": "B L, A C, Z B, et al. COVID-19: oxygen escalation therapy and noninvasive ventilation. EmDocs. 2020 http://www.emdocs.net/covid-19-oxygen-escalation-therapy-and-noninvasive-ventilation/",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": 2020,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 12123,
+    "ordinal": 14,
+    "raw_string": "Prevention CfDCa . 2020. Evaluating and Testing Persons for Coronavirus Disease 2019 (COVID-19)",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 12124,
+    "ordinal": 15,
+    "raw_string": "Prevention CfDCa . 2020. Interim Clinical Guidance for Management of Patients with Confirmed Coronavirus Disease (COVID-19)",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": 2020,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 12125,
+    "ordinal": 16,
+    "raw_string": "Ashraf-Kashani N, R K. High-flow nasal oxygen therapy. BJA Education;17(2):57–62.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "ashraf kashani",
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 12126,
+    "ordinal": 17,
+    "raw_string": "S R, R S, B W, et al. A comparison of facemask and respirator filtration test methods. J. Occup. Environ. Hyg. 2017;14(2):92–103. doi: 10.1080/15459624.2016.1225157.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1080/15459624.2016.1225157",
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": 2017,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4354,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1080/15459624.2016.1225157"
+      ],
+      "crossref_doi": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 12127,
+    "ordinal": 18,
+    "raw_string": "JJ M, L G Management of COVID-19 respiratory distress. J. Am. Med. Assoc. 2020",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": 2020,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 12128,
+    "ordinal": 19,
+    "raw_string": "IBM SPSS Statistics for Windows [program]. 25.0 Version. IBM Corp.; Armonk, NY: 2017. Released.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": 2017,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   }
+  ],
+  "stat_tests": [],
+  "means": [],
+  "trials": []
+ }
+}

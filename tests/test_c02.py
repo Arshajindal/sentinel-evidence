@@ -105,6 +105,14 @@ def test_in_press_wording_and_gap():
     assert f.evidence["gap_months"] == 3
 
 
+@pytest.mark.parametrize(("notice_date", "words"), [
+    (date(2021, 5, 15), "1 month"),               # PMC7052980's real case printed "1 months"
+    (date(2021, 6, 1), "less than a month"),
+])
+def test_in_press_gap_wording_is_grammatical(notice_date, words):
+    assert f"in press ({words} before publication)." in _one(_ctx(_notice(d=notice_date))).summary
+
+
 def test_grace_comes_from_config():
     ctx = _ctx(_notice(d=date(2020, 11, 15)))  # 7 months
     assert C02Retraction(grace_months=12).run(ctx)[0].evidence["band"] == "in_press"

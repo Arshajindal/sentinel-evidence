@@ -1,0 +1,444 @@
+{
+ "id": "PMC5063175",
+ "subject": "paper",
+ "categories": [
+  "clean"
+ ],
+ "source": {
+  "corpus": "pmc-rct-2015-2024",
+  "paper_id": 159,
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "No flags from any check. All references resolved or non-journal; no statistics found in the body text, and no means (C04 never applies in Phase 1).",
+ "expected": [
+  {
+   "check": "C01",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C02",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C03",
+   "status": "not_applicable",
+   "severity": "info"
+  },
+  {
+   "check": "C04",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "paper_id": 159,
+  "publication_date": "2015-12-04",
+  "fulltext_status": "full",
+  "references": [
+   {
+    "reference_id": 6621,
+    "ordinal": 1,
+    "raw_string": "Rahman A , Isenberg DA. Systemic lupus erythematosus. N Engl J Med. 2008; 358:929–939. 18305268 10.1056/NEJMra071297",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1056/nejmra071297",
+    "parsed_pmid": "18305268",
+    "parsed_title": "Systemic lupus erythematosus",
+    "parsed_first_author": "rahman",
+    "parsed_year": 2008,
+    "parsed_container": "N Engl J Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3906,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1056/nejmra071297"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6622,
+    "ordinal": 2,
+    "raw_string": "Baker KP , Edwards BM , Main SH , et al. Generation and characterization of LymphoStat‐B, a human monoclonal antibody that antagonizes the bioactivities of B lymphocyte stimulator. Arthritis Rheum. 2003; 48:3253–3565. 14613291 10.1002/art.11299",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/art.11299",
+    "parsed_pmid": "14613291",
+    "parsed_title": "Generation and characterization of LymphoStat‐B, a human monoclonal antibody that antagonizes the bioactivities of B lymphocyte stimulator",
+    "parsed_first_author": "baker",
+    "parsed_year": 2003,
+    "parsed_container": "Arthritis Rheum",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3907,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/art.11299"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6623,
+    "ordinal": 3,
+    "raw_string": "Furie R , Petri M , Zamani O , et al. A phase III, randomized, placebo‐controlled study of belimumab, a monoclonal antibody that inhibits B lymphocyte stimulator, in patients with systemic lupus erythematosus. Arthritis Rheum. 2011; 63:3918–3930. 22127708 10.1002/art.30613 PMC5007058",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/art.30613",
+    "parsed_pmid": "22127708",
+    "parsed_title": "A phase III, randomized, placebo‐controlled study of belimumab, a monoclonal antibody that inhibits B lymphocyte stimulator, in patients with systemic lupus erythematosus",
+    "parsed_first_author": "furie",
+    "parsed_year": 2011,
+    "parsed_container": "Arthritis Rheum",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3908,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/art.30613"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6624,
+    "ordinal": 4,
+    "raw_string": "Navarra SV , Guzmán RM , Gallacher AE , et al. Efficacy and safety of belimumab in patients with active systemic lupus erythematosus: a randomised, placebo‐controlled, phase 3 trial. Lancet. 2011; 377:721–731. 21296403 10.1016/S0140-6736(10)61354-2",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s0140-6736(10)61354-2",
+    "parsed_pmid": "21296403",
+    "parsed_title": "Efficacy and safety of belimumab in patients with active systemic lupus erythematosus: a randomised, placebo‐controlled, phase 3 trial",
+    "parsed_first_author": "navarra",
+    "parsed_year": 2011,
+    "parsed_container": "Lancet",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3909,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0140-6736(10)61354-2"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6625,
+    "ordinal": 5,
+    "raw_string": "Benlysta (belimumab) prescribing information. GlaxoSmithKline. 2014 http://www.accessdata.fda.gov/drugsatfda_docs/label/2012/125370s016lbl.pdf",
+    "citation_tag": "mixed-citation",
+    "publication_type": "miscellaneous",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": 2014,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6626,
+    "ordinal": 6,
+    "raw_string": "Cai WW , Fiscella M , Chen C , Zhong ZJ , Freimuth WW , Subich DC. Bioavailability, pharmacokinetics, and safety of belimumab administered subcutaneously in healthy subjects. Clin Pharmacol Drug Develop. 2013; 2:349–357. 10.1002/cpdd.54 27121939",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/cpdd.54",
+    "parsed_pmid": "27121939",
+    "parsed_title": "Bioavailability, pharmacokinetics, and safety of belimumab administered subcutaneously in healthy subjects",
+    "parsed_first_author": "cai",
+    "parsed_year": 2013,
+    "parsed_container": "Clin Pharmacol Drug Develop",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3910,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/cpdd.54"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6627,
+    "ordinal": 7,
+    "raw_string": "Shida Y , Takahashi N , Sakamoto T , Ino H , Endo A , Hirama T. The pharmacokinetics and safety profiles of belimumab after single subcutaneous and intravenous doses in healthy Japanese volunteers. J Clin Pharm Ther. 2014; 39:97–101. 24117862 10.1111/jcpt.12101",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/jcpt.12101",
+    "parsed_pmid": "24117862",
+    "parsed_title": "The pharmacokinetics and safety profiles of belimumab after single subcutaneous and intravenous doses in healthy Japanese volunteers",
+    "parsed_first_author": "shida",
+    "parsed_year": 2014,
+    "parsed_container": "J Clin Pharm Ther",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3911,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/jcpt.12101"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6628,
+    "ordinal": 8,
+    "raw_string": "Struemper H , Chen C , Cai W. Population pharmacokinetics of belimumab following intravenous administration in patients with systemic lupus erythematosus. J Clin Pharmacol. 2013; 53:711–720. 23681782 10.1002/jcph.104",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/jcph.104",
+    "parsed_pmid": "23681782",
+    "parsed_title": "Population pharmacokinetics of belimumab following intravenous administration in patients with systemic lupus erythematosus",
+    "parsed_first_author": "struemper",
+    "parsed_year": 2013,
+    "parsed_container": "J Clin Pharmacol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3912,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/jcph.104"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6629,
+    "ordinal": 9,
+    "raw_string": "Williamson A , Hoggart B . Pain: a review of three commonly used pain rating scales. J Clin Nurs. 2005; 14:798–804 16000093 10.1111/j.1365-2702.2005.01121.x",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1365-2702.2005.01121.x",
+    "parsed_pmid": "16000093",
+    "parsed_title": "Pain: a review of three commonly used pain rating scales",
+    "parsed_first_author": "williamson",
+    "parsed_year": 2005,
+    "parsed_container": "J Clin Nurs",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3913,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1365-2702.2005.01121.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6630,
+    "ordinal": 10,
+    "raw_string": "Xu Z , Wang Q , Zhuang Y , et al. Subcutaneous bioavailability of golimumab at 3 different injection sites in healthy subjects. J Clin Pharmacol. 2010; 50:276–284. 19940229 10.1177/0091270009340782",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1177/0091270009340782",
+    "parsed_pmid": "19940229",
+    "parsed_title": "Subcutaneous bioavailability of golimumab at 3 different injection sites in healthy subjects",
+    "parsed_first_author": "xu",
+    "parsed_year": 2010,
+    "parsed_container": "J Clin Pharmacol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3914,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1177/0091270009340782"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6631,
+    "ordinal": 11,
+    "raw_string": "Wang W , Wang EQ , Balthasar JP. Monoclonal antibody pharmacokinetics and pharmacodynamics. Clin Pharmacol Ther. 2008; 84:548–558. 18784655 10.1038/clpt.2008.170",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/clpt.2008.170",
+    "parsed_pmid": "18784655",
+    "parsed_title": "Monoclonal antibody pharmacokinetics and pharmacodynamics",
+    "parsed_first_author": "wang",
+    "parsed_year": 2008,
+    "parsed_container": "Clin Pharmacol Ther",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 2370,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1038/clpt.2008.170"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6632,
+    "ordinal": 12,
+    "raw_string": "Richter WF , Jacobsen B . Subcutaneous absorption of biotherapeutics: knowns and unknowns. Drug Metab Dispos. 2014; 42:1881–1889. 25100673 10.1124/dmd.114.059238",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1124/dmd.114.059238",
+    "parsed_pmid": "25100673",
+    "parsed_title": "Subcutaneous absorption of biotherapeutics: knowns and unknowns",
+    "parsed_first_author": "richter",
+    "parsed_year": 2014,
+    "parsed_container": "Drug Metab Dispos",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3915,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1124/dmd.114.059238"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   }
+  ],
+  "stat_tests": [],
+  "means": [],
+  "trials": []
+ }
+}

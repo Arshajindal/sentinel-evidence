@@ -1,0 +1,1460 @@
+{
+ "id": "PMC11654723",
+ "subject": "paper",
+ "categories": [
+  "c03_inconsistent"
+ ],
+ "source": {
+  "corpus": "pmc-rct-2015-2024",
+  "paper_id": 946,
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "16 tests, 2 inconsistent.",
+ "expected": [
+  {
+   "check": "C01",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C02",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C03",
+   "status": "flagged",
+   "severity": "low",
+   "item": "stat 2",
+   "why": "F(1,112) = 0.64 gives p 0.424-0.427, reported 0.524. Recomputed with scipy over every statistic value that rounds to the printed one: the reported p is outside the range, and it doesn't cross alpha = 0.05, so low. Sentence read in the full text: the extraction is faithful."
+  },
+  {
+   "check": "C03",
+   "status": "flagged",
+   "severity": "low",
+   "item": "stat 16",
+   "why": "F(1,59) = 5.805 gives p 0.0191, reported 0.0192. Recomputed with scipy over every statistic value that rounds to the printed one: the reported p is outside the range, and it doesn't cross alpha = 0.05, so low. Sentence read in the full text: the extraction is faithful."
+  },
+  {
+   "check": "C03",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C04",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "paper_id": 946,
+  "publication_date": "2024-04-27",
+  "fulltext_status": "full",
+  "references": [
+   {
+    "reference_id": 36644,
+    "ordinal": 1,
+    "raw_string": "Adamson LB, Bakeman R, Deckner DF, & Romski M (2009). Joint engagement and the emergence of language in children with autism and Down syndrome. Journal of Autism and Developmental Disorders, 39(1), 84–96. 10.1007/s10803-008-0601-7 18581223 PMC2640949",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s10803-008-0601-7",
+    "parsed_pmid": "18581223",
+    "parsed_title": "Joint engagement and the emergence of language in children with autism and Down syndrome",
+    "parsed_first_author": "adamson",
+    "parsed_year": 2009,
+    "parsed_container": "Journal of Autism and Developmental Disorders",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5217,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s10803-008-0601-7"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36645,
+    "ordinal": 2,
+    "raw_string": "Botteron KN (2019). 16.2 Structural brain development in the first 2 years in ASD. Journal of the American Academy of Child and Adolescent Psychiatry, 58(10), S323. 10.1016/j.jaac.2019.07.754",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.jaac.2019.07.754",
+    "parsed_pmid": null,
+    "parsed_title": "16.2 Structural brain development in the first 2 years in ASD",
+    "parsed_first_author": "botteron",
+    "parsed_year": 2019,
+    "parsed_container": "Journal of the American Academy of Child and Adolescent Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 2496,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.jaac.2019.07.754"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36646,
+    "ordinal": 3,
+    "raw_string": "Bradshaw J, Trumbull A, Stapel-Wax J, Gillespie S, George N, Saulnier C, Klaiman C, Woods J, Call N, Klin A, & Wetherby A (2020). Factors associated with enrollment into a clinical trial of caregiver-implemented intervention for infants at risk for autism spectrum disorder. Autism: The International Journal of Research and Practice, 24(7), 1874–1884. 10.1177/1362361320928829 32594763 PMC8118238",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1177/1362361320928829",
+    "parsed_pmid": "32594763",
+    "parsed_title": "Factors associated with enrollment into a clinical trial of caregiver-implemented intervention for infants at risk for autism spectrum disorder",
+    "parsed_first_author": "bradshaw",
+    "parsed_year": 2020,
+    "parsed_container": "Autism: The International Journal of Research and Practice",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5218,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1177/1362361320928829"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36647,
+    "ordinal": 4,
+    "raw_string": "Brereton AV, & Tonge BJ (2005). Pre-schoolers with autism An education and skills training programme for parents: Manual for clinicians. Jessica Kingsley Publishers.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Pre-schoolers with autism An education and skills training programme for parents: Manual for clinicians",
+    "parsed_first_author": "brereton",
+    "parsed_year": 2005,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": [
+      {
+       "year": 2007,
+       "paper_id": 5219,
+       "rejected": "year 2007 vs 2005",
+       "similarity": 0.8058,
+       "first_author": "newton"
+      }
+     ]
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36648,
+    "ordinal": 5,
+    "raw_string": "Brian J, Solish A, Dowds E, Roth I, Bernardi K, Perry K, … Bryson S (2022). Going Mobile”-increasing the reach of parent-mediated intervention for toddlers with ASD via group-based and virtual delivery. Journal of Autism and Developmental Disorders, 52(12), 5207–5220. 10.1007/s10803-022-05554-7 35608785 PMC9128315",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s10803-022-05554-7",
+    "parsed_pmid": "35608785",
+    "parsed_title": "Going Mobile”-increasing the reach of parent-mediated intervention for toddlers with ASD via group-based and virtual delivery",
+    "parsed_first_author": "brian",
+    "parsed_year": 2022,
+    "parsed_container": "Journal of Autism and Developmental Disorders",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5224,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s10803-022-05554-7"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36649,
+    "ordinal": 6,
+    "raw_string": "Brian JA, Smith IM, Zwaigenbaum L, & Bryson SE (2017). Cross-site randomized control trial of the Social ABCs caregiver-mediated intervention for toddlers with autism spectrum disorder. Autism Research, 10(10), 1700–1711. 10.1002/aur.1818 28574669",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/aur.1818",
+    "parsed_pmid": "28574669",
+    "parsed_title": "Cross-site randomized control trial of the Social ABCs caregiver-mediated intervention for toddlers with autism spectrum disorder",
+    "parsed_first_author": "brian",
+    "parsed_year": 2017,
+    "parsed_container": "Autism Research",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5225,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/aur.1818"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36650,
+    "ordinal": 7,
+    "raw_string": "Bricker DD, & Waddell M (2002). Curriculum for Three to Six Years. Assessment, Evaluation, and Programming System for Infants and Children (AEPS) (second ed.). Brookes,.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Curriculum for Three to Six Years. Assessment, Evaluation, and Programming System for Infants and Children (AEPS)",
+    "parsed_first_author": "bricker",
+    "parsed_year": 2002,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": [
+      {
+       "year": 1995,
+       "paper_id": 5230,
+       "rejected": "year 1995 vs 2002",
+       "similarity": 0.7686,
+       "first_author": "weitzner lin"
+      },
+      {
+       "year": 1993,
+       "paper_id": 5227,
+       "rejected": "year 1993 vs 2002",
+       "similarity": 0.7045,
+       "first_author": "mcevoy"
+      },
+      {
+       "year": 1994,
+       "paper_id": 5226,
+       "rejected": "year 1994 vs 2002",
+       "similarity": 0.6731,
+       "first_author": "bricker"
+      }
+     ]
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36651,
+    "ordinal": 8,
+    "raw_string": "Carr T, Shih W, Lawton K, Lord C, King B, & Kasari C (2016). The relationship between treatment attendance, adherence, and outcome in a caregiver-mediated intervention for low-resourced families of young children with autism spectrum disorder. Autism The International Journal of Research and Practice, 20(6), 643–652. 10.1177/1362361315598634 26290524",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1177/1362361315598634",
+    "parsed_pmid": "26290524",
+    "parsed_title": "The relationship between treatment attendance, adherence, and outcome in a caregiver-mediated intervention for low-resourced families of young children with autism spectrum disorder",
+    "parsed_first_author": "carr",
+    "parsed_year": 2016,
+    "parsed_container": "Autism The International Journal of Research and Practice",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5231,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1177/1362361315598634"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36652,
+    "ordinal": 9,
+    "raw_string": "Carter AS, Messinger DS, Stone WL, Celimli S, Nahmias AS, & Yoder P (2011). A randomized controlled trial of Hanen’s ‘More Than Words’ in toddlers with early autism symptoms. Journal of Child Psychology and Psychiatry, and Allied Disciplines, 52(7), 741–752. 10.1111/j.1469-7610.2011.02395.x 21418212 PMC4783130",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1469-7610.2011.02395.x",
+    "parsed_pmid": "21418212",
+    "parsed_title": "A randomized controlled trial of Hanen’s ‘More Than Words’ in toddlers with early autism symptoms",
+    "parsed_first_author": "carter",
+    "parsed_year": 2011,
+    "parsed_container": "Journal of Child Psychology and Psychiatry, and Allied Disciplines",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5232,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1469-7610.2011.02395.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36653,
+    "ordinal": 10,
+    "raw_string": "Cohenour T, Gulsrud A, Kasari C (Under Review). Heterogeneity of Autism Symptoms in Community-Referred Infants and Toddlers with Elevated or Low Familial Likelihood of Autism. Journal of the American Academy of Child & Adolescent Psychiatry, 10.1002/aur.2973.PMC10527623 37408377",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/aur.2973",
+    "parsed_pmid": "37408377",
+    "parsed_title": "Under Review). Heterogeneity of Autism Symptoms in Community-Referred Infants and Toddlers with Elevated or Low Familial Likelihood of Autism",
+    "parsed_first_author": "cohenour",
+    "parsed_year": null,
+    "parsed_container": "Journal of the American Academy of Child & Adolescent Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5233,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/aur.2973"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.935
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36654,
+    "ordinal": 11,
+    "raw_string": "Chang YC, & Locke J (2016). A systematic review of peer-mediated interventions for children with autism spectrum disorder. Research in Autism Spectrum Disorders, 27, 1–10. 10.1016/j.rasd.2016.03.010 27807466 PMC5087797",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.rasd.2016.03.010",
+    "parsed_pmid": "27807466",
+    "parsed_title": "A systematic review of peer-mediated interventions for children with autism spectrum disorder",
+    "parsed_first_author": "chang",
+    "parsed_year": 2016,
+    "parsed_container": "Research in Autism Spectrum Disorders",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5234,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.rasd.2016.03.010"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36655,
+    "ordinal": 12,
+    "raw_string": "Chawarska K, Macari S, & Shic F (2013). Decreased spontaneous attention to social scenes in 6-month-old infants later diagnosed with autism spectrum disorders. Biological Psychiatry, 74(3), 195–203. 10.1016/j.biopsych.2012.11.022 23313640 PMC3646074",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.biopsych.2012.11.022",
+    "parsed_pmid": "23313640",
+    "parsed_title": "Decreased spontaneous attention to social scenes in 6-month-old infants later diagnosed with autism spectrum disorders",
+    "parsed_first_author": "chawarska",
+    "parsed_year": 2013,
+    "parsed_container": "Biological Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5235,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.biopsych.2012.11.022"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36656,
+    "ordinal": 13,
+    "raw_string": "Dawson G, Rogers S, Munson J, Smith M, Winter J, Greenson J, Donaldson A, & Varley J (2010). Randomized, controlled trial of an intervention for toddlers with autism: the Early Start Denver Model. Pediatrics, 125(1), e17–e23. 10.1542/peds.2009-0958 19948568 PMC4951085",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1542/peds.2009-0958",
+    "parsed_pmid": "19948568",
+    "parsed_title": "Randomized, controlled trial of an intervention for toddlers with autism: the Early Start Denver Model",
+    "parsed_first_author": "dawson",
+    "parsed_year": 2010,
+    "parsed_container": "Pediatrics",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5236,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1542/peds.2009-0958"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36657,
+    "ordinal": 14,
+    "raw_string": "Green J, Charman T, Pickles A, Wan MW, Elsabbagh M, Slonims V, Taylor C, McNally J, Booth R, Gliga T, Jones EJH, Harrop C, Bedford R, & Johnson MH (2015). Parent-mediated intervention versus no intervention for infants at high risk of autism: A parallel, single-blind, randomised trial. The Lancet Psychiatry, 2(2), 133–140. 10.1016/S2215-0366(14)00091-1 26359749 PMC4722333",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s2215-0366(14)00091-1",
+    "parsed_pmid": "26359749",
+    "parsed_title": "Parent-mediated intervention versus no intervention for infants at high risk of autism: A parallel, single-blind, randomised trial",
+    "parsed_first_author": "green",
+    "parsed_year": 2015,
+    "parsed_container": "The Lancet Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5237,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s2215-0366(14)00091-1"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36658,
+    "ordinal": 15,
+    "raw_string": "Guthrie W, Swineford LB, Nottke C, & Wetherby AM (2013). Early diagnosis of autism spectrum disorder: Stability and change in clinical diagnosis and symptom presentation. Journal of Child Psychology and Psychiatry, 54(5), 582–590. 10.1111/jcpp.12008 23078094 PMC3556369",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/jcpp.12008",
+    "parsed_pmid": "23078094",
+    "parsed_title": "Early diagnosis of autism spectrum disorder: Stability and change in clinical diagnosis and symptom presentation",
+    "parsed_first_author": "guthrie",
+    "parsed_year": 2013,
+    "parsed_container": "Journal of Child Psychology and Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5238,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/jcpp.12008"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36659,
+    "ordinal": 16,
+    "raw_string": "Jones W, & Klin A (2013). Attention to eyes is present but in decline in 2-6-month-old infants later diagnosed with autism. Nature, 504(7480), 427–431. 10.1038/nature12715 24196715 PMC4035120",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/nature12715",
+    "parsed_pmid": "24196715",
+    "parsed_title": "Attention to eyes is present but in decline in 2-6-month-old infants later diagnosed with autism",
+    "parsed_first_author": "jones",
+    "parsed_year": 2013,
+    "parsed_container": "Nature",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5239,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1038/nature12715"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36660,
+    "ordinal": 17,
+    "raw_string": "Kasari C, Gulsrud A, Paparella T, Hellemann G, & Berry K (2015). Randomized comparative efficacy study of parent-mediated interventions for toddlers with autism. Journal of Consulting and Clinical Psychology, 83(3), 554–563. 10.1037/a0039080 25822242 PMC4755315",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1037/a0039080",
+    "parsed_pmid": "25822242",
+    "parsed_title": "Randomized comparative efficacy study of parent-mediated interventions for toddlers with autism",
+    "parsed_first_author": "kasari",
+    "parsed_year": 2015,
+    "parsed_container": "Journal of Consulting and Clinical Psychology",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5240,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1037/a0039080"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36661,
+    "ordinal": 18,
+    "raw_string": "Kasari C, Gulsrud AC, Shire SY, & Strawbridge C (2021). The JASPER Model for Children with Autism Promoting Joint Attention, Symbolic Play, Engagement, and Regulation. The Guilford Press.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "The JASPER Model for Children with Autism Promoting Joint Attention, Symbolic Play, Engagement, and Regulation",
+    "parsed_first_author": "kasari",
+    "parsed_year": 2021,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": [
+      {
+       "year": 2022,
+       "paper_id": 5241,
+       "rejected": "first author 'vivanti' vs 'kasari'",
+       "similarity": 0.7857,
+       "first_author": "vivanti"
+      }
+     ]
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36662,
+    "ordinal": 19,
+    "raw_string": "Kasari C, Gulsrud AC, Wong C, Kwon S, & Locke J (2010). Randomized controlled caregiver mediated joint engagement intervention for toddlers with autism. Journal of Autism and Developmental Disorders, 40(9), 1045–1056. 10.1007/s10803-010-0955-5 20145986 PMC2922697",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s10803-010-0955-5",
+    "parsed_pmid": "20145986",
+    "parsed_title": "Randomized controlled caregiver mediated joint engagement intervention for toddlers with autism",
+    "parsed_first_author": "kasari",
+    "parsed_year": 2010,
+    "parsed_container": "Journal of Autism and Developmental Disorders",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5246,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s10803-010-0955-5"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36663,
+    "ordinal": 20,
+    "raw_string": "Kasari C, Kaiser A, Goods K, Nietfeld J, Mathy P, Landa R, Murphy S, & Almirall D (2014b). Communication interventions for minimally verbal children with autism: a sequential multiple assignment randomized trial. Journal of the American Academy of Child and Adolescent Psychiatry, 53(6), 635–646. 10.1016/j.jaac.2014.01.019 24839882 PMC4030683",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.jaac.2014.01.019",
+    "parsed_pmid": "24839882",
+    "parsed_title": "Communication interventions for minimally verbal children with autism: a sequential multiple assignment randomized trial",
+    "parsed_first_author": "kasari",
+    "parsed_year": null,
+    "parsed_container": "Journal of the American Academy of Child and Adolescent Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5247,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.jaac.2014.01.019"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36664,
+    "ordinal": 21,
+    "raw_string": "Kasari C, Lawton K, Shih W, Barker TV, Landa R, Lord C, Orlich F, King B, Wetherby A, & Senturk D (2014a). Caregiver-mediated intervention for low-resourced preschoolers with autism: an RCT. Pediatrics, 134(1), e72–e79. 10.1542/peds.2013-3229 24958585 PMC4531276",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1542/peds.2013-3229",
+    "parsed_pmid": "24958585",
+    "parsed_title": "Caregiver-mediated intervention for low-resourced preschoolers with autism: an RCT",
+    "parsed_first_author": "kasari",
+    "parsed_year": null,
+    "parsed_container": "Pediatrics",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5248,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1542/peds.2013-3229"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36665,
+    "ordinal": 22,
+    "raw_string": "Landa RJ (2018). Efficacy of early interventions for infants and young children with, and at risk for, autism spectrum disorders. International Review of Psychiatry, 30 (1), 25–39. 10.1080/09540261.2018.1432574 29537331 PMC6034700",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1080/09540261.2018.1432574",
+    "parsed_pmid": "29537331",
+    "parsed_title": "Efficacy of early interventions for infants and young children with, and at risk for, autism spectrum disorders",
+    "parsed_first_author": "landa",
+    "parsed_year": 2018,
+    "parsed_container": "International Review of Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5249,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1080/09540261.2018.1432574"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36666,
+    "ordinal": 23,
+    "raw_string": "Law ML, Singh J, Mastroianni M, & Santosh P (2022). Parent-mediated interventions for infants under 24 months at risk for autism spectrum disorder: A systematic review of randomized controlled trials. Journal of Autism and Developmental Disorders, 52(6), 2553–2574. 10.1007/s10803-021-05148-9 34236590 PMC9114042",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s10803-021-05148-9",
+    "parsed_pmid": "34236590",
+    "parsed_title": "Parent-mediated interventions for infants under 24 months at risk for autism spectrum disorder: A systematic review of randomized controlled trials",
+    "parsed_first_author": "law",
+    "parsed_year": 2022,
+    "parsed_container": "Journal of Autism and Developmental Disorders",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5250,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s10803-021-05148-9"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36667,
+    "ordinal": 24,
+    "raw_string": "Lifter K, Sulzer-Azaroff B, Anderson SR, & Cowdery GE (1993). Teaching play activities to preschool children with disabilities: The importance of developmental considerations. Journal of Early Intervention, 17(2), 139–159. 10.1177/105381519301700206",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1177/105381519301700206",
+    "parsed_pmid": null,
+    "parsed_title": "Teaching play activities to preschool children with disabilities: The importance of developmental considerations",
+    "parsed_first_author": "lifter",
+    "parsed_year": 1993,
+    "parsed_container": "Journal of Early Intervention",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5251,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1177/105381519301700206"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.731
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36668,
+    "ordinal": 25,
+    "raw_string": "Luyster R, Gotham K, Guthrie W, Coffing M, Petrak R, Pierce K, & Lord C (2009). The Autism Diagnostic Observation Schedule—Toddler Module: A new module of a standardized diagnostic measure for autism spectrum disorders. Journal of Autism and Developmental Disorders, 39(9), 1305–1320. 10.1007/s10803-009-0746-z 19415479 PMC2893552",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s10803-009-0746-z",
+    "parsed_pmid": "19415479",
+    "parsed_title": "The Autism Diagnostic Observation Schedule—Toddler Module: A new module of a standardized diagnostic measure for autism spectrum disorders",
+    "parsed_first_author": "luyster",
+    "parsed_year": 2009,
+    "parsed_container": "Journal of Autism and Developmental Disorders",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5252,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s10803-009-0746-z"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36669,
+    "ordinal": 26,
+    "raw_string": "Mullen EM (1995). Mullen scales of early learning (pp. 58–64). Circle Pines, MN: AGS,.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Mullen scales of early learning",
+    "parsed_first_author": "mullen",
+    "parsed_year": 1995,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": [
+      {
+       "year": 2012,
+       "paper_id": 5253,
+       "rejected": "year 2012 vs 1995",
+       "similarity": 1.0,
+       "first_author": null
+      },
+      {
+       "year": 2018,
+       "paper_id": 5254,
+       "rejected": "year 2018 vs 1995",
+       "similarity": 1.0,
+       "first_author": null
+      },
+      {
+       "year": 2017,
+       "paper_id": 5256,
+       "rejected": "year 2017 vs 1995",
+       "similarity": 1.0,
+       "first_author": "shank"
+      }
+     ]
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36670,
+    "ordinal": 27,
+    "raw_string": "Rahman A, Divan G, Hamdani SU, Vajaratkar V, Taylor C, Leadbitter K, & Green J (2016). Effectiveness of the parent-mediated intervention for children with autism spectrum disorder in south Asia in India and Pakistan (PASS): A randomised controlled trial. The Lancet Psychiatry, 3(2), 128–136. 10.1016/S2215-0366(15)00388-0 26704571",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s2215-0366(15)00388-0",
+    "parsed_pmid": "26704571",
+    "parsed_title": "Effectiveness of the parent-mediated intervention for children with autism spectrum disorder in south Asia in India and Pakistan (PASS): A randomised controlled trial",
+    "parsed_first_author": "rahman",
+    "parsed_year": 2016,
+    "parsed_container": "The Lancet Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5258,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s2215-0366(15)00388-0"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36671,
+    "ordinal": 28,
+    "raw_string": "Rogers SJ, Estes A, Lord C, Vismara L, Winter J, Fitzpatrick A, Guo M, & Dawson G (2012). Effects of a brief Early Start Denver model (ESDM)-based parent intervention on toddlers at risk for autism spectrum disorders: a randomized controlled trial. Journal of the American Academy of Child and Adolescent Psychiatry, 51 (10), 1052–1065. 10.1016/j.jaac.2012.08.003 23021480 PMC3487718",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.jaac.2012.08.003",
+    "parsed_pmid": "23021480",
+    "parsed_title": "Effects of a brief Early Start Denver model (ESDM)-based parent intervention on toddlers at risk for autism spectrum disorders: a randomized controlled trial",
+    "parsed_first_author": "rogers",
+    "parsed_year": 2012,
+    "parsed_container": "Journal of the American Academy of Child and Adolescent Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5259,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.jaac.2012.08.003"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36672,
+    "ordinal": 29,
+    "raw_string": "Schertz HH, Odom SL, Baggett KM, & Sideris JH (2018). Mediating parent learning to promote social communication for toddlers with autism: Effects from a randomized controlled trial. Journal of Autism and developmental Disorders, 48, 853–867. 10.1007/s10803-017-3386-8 29168087",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s10803-017-3386-8",
+    "parsed_pmid": "29168087",
+    "parsed_title": "Mediating parent learning to promote social communication for toddlers with autism: Effects from a randomized controlled trial",
+    "parsed_first_author": "schertz",
+    "parsed_year": 2018,
+    "parsed_container": "Journal of Autism and developmental Disorders",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5260,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s10803-017-3386-8"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36673,
+    "ordinal": 30,
+    "raw_string": "Seibert JM, Hogan AE, & Mundy PC (1982). Assessing interactional competencies: The early social-communication scales. Infant Mental Health Journal, 3(4), 244–258. 10.1002/1097-0355(198224)3:4<244::AID-IMHJ2280030406>3.0.CO;2-R",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/1097-0355(198224)3:4<244::aid-imhj2280030406>3.0.co;2-r",
+    "parsed_pmid": null,
+    "parsed_title": "Assessing interactional competencies: The early social-communication scales",
+    "parsed_first_author": "seibert",
+    "parsed_year": 1982,
+    "parsed_container": "Infant Mental Health Journal",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5261,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/1097-0355(198224)3:4<244::aid-imhj2280030406>3.0.co;2-r"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36674,
+    "ordinal": 31,
+    "raw_string": "Shic F, Macari S, & Chawarska K (2014). Speech disturbs face scanning in 6-month-old infants who develop autism spectrum disorder. Biological Psychiatry, 75(3), 231–237. 10.1016/j.biopsych.2013.07.009 23954107 PMC3864607",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.biopsych.2013.07.009",
+    "parsed_pmid": "23954107",
+    "parsed_title": "Speech disturbs face scanning in 6-month-old infants who develop autism spectrum disorder",
+    "parsed_first_author": "shic",
+    "parsed_year": 2014,
+    "parsed_container": "Biological Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5262,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.biopsych.2013.07.009"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36675,
+    "ordinal": 32,
+    "raw_string": "Shire SY, Chang YC, Shih W, Bracaglia S, Kodjoe M, & Kasari C (2017). Hybrid implementation model of community-partnered early intervention for toddlers with autism: a randomized trial. Journal of Child Psychology and Psychiatry, and Allied Disciplines, 58(5), 612–622. 10.1111/jcpp.12672 27966784",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/jcpp.12672",
+    "parsed_pmid": "27966784",
+    "parsed_title": "Hybrid implementation model of community-partnered early intervention for toddlers with autism: a randomized trial",
+    "parsed_first_author": "shire",
+    "parsed_year": 2017,
+    "parsed_container": "Journal of Child Psychology and Psychiatry, and Allied Disciplines",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5263,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/jcpp.12672"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36676,
+    "ordinal": 33,
+    "raw_string": "Sterrett K, Magaña MT, Gulsrud A, Paparella T, & Kasari C (2022). Predictors of attrition in a randomized trial of a social communication intervention for infant-toddlers at risk for autism, 10.1007/s10803-022-05616-w. Advance online publication Journal of Autism and Developmental Disorders 35678946",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s10803-022-05616-w",
+    "parsed_pmid": "35678946",
+    "parsed_title": "Predictors of attrition in a randomized trial of a social communication intervention for infant-toddlers at risk for autism",
+    "parsed_first_author": "sterrett",
+    "parsed_year": 2022,
+    "parsed_container": "Advance online publication Journal of Autism and Developmental Disorders",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5264,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s10803-022-05616-w"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36677,
+    "ordinal": 34,
+    "raw_string": "Ungerer JA, & Sigman M (1981). Symbolic play and language comprehension in autistic children. Journal of the American Academy of Child Psychiatry, 20(2), 318–337. 10.1016/S0002-7138(09)60992-4 6167603",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s0002-7138(09)60992-4",
+    "parsed_pmid": "6167603",
+    "parsed_title": "Symbolic play and language comprehension in autistic children",
+    "parsed_first_author": "ungerer",
+    "parsed_year": 1981,
+    "parsed_container": "Journal of the American Academy of Child Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5265,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0002-7138(09)60992-4"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36678,
+    "ordinal": 35,
+    "raw_string": "Webb SJ, Jones EJ, Kelly J, & Dawson G (2014). The motivation for very early intervention for infants at high risk for autism spectrum disorders. International Journal of Speech-Language Pathology, 16(1), 36–42. 10.3109/17549507.2013.861018 24410019 PMC4141560",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3109/17549507.2013.861018",
+    "parsed_pmid": "24410019",
+    "parsed_title": "The motivation for very early intervention for infants at high risk for autism spectrum disorders",
+    "parsed_first_author": "webb",
+    "parsed_year": 2014,
+    "parsed_container": "International Journal of Speech-Language Pathology",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5266,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3109/17549507.2013.861018"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 36679,
+    "ordinal": 36,
+    "raw_string": "Wetherby AM, Guthrie W, Woods J, Schatschneider C, Holland RD, Morgan L, & Lord C (2014). Parent-implemented social intervention for toddlers with autism: an RCT. Pediatrics, 134(6), 1084–1093. 10.1542/peds.2014-0757 25367544 PMC4243066",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1542/peds.2014-0757",
+    "parsed_pmid": "25367544",
+    "parsed_title": "Parent-implemented social intervention for toddlers with autism: an RCT",
+    "parsed_first_author": "wetherby",
+    "parsed_year": 2014,
+    "parsed_container": "Pediatrics",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5267,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1542/peds.2014-0757"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   }
+  ],
+  "stat_tests": [
+   {
+    "stat_test_id": 662,
+    "location": "Results",
+    "raw_string": "F(1, 112) = 4.86, p = 0.0295"
+   },
+   {
+    "stat_test_id": 663,
+    "location": "Results",
+    "raw_string": "F(1, 112) = 0.64, p = 0.524"
+   },
+   {
+    "stat_test_id": 664,
+    "location": "Results",
+    "raw_string": "F(1,59) = 67.40, p < 0.001"
+   },
+   {
+    "stat_test_id": 665,
+    "location": "Results",
+    "raw_string": "F(1,59) = 68.33, p < 0.001"
+   },
+   {
+    "stat_test_id": 666,
+    "location": "Results",
+    "raw_string": "F(1,58) = 73.04, p < 0.001"
+   },
+   {
+    "stat_test_id": 667,
+    "location": "Results",
+    "raw_string": "F(1,59) = 150.35, p < 0.001"
+   },
+   {
+    "stat_test_id": 668,
+    "location": "Results",
+    "raw_string": "F(1,59) = 82.13, p < 0.001"
+   },
+   {
+    "stat_test_id": 669,
+    "location": "Results",
+    "raw_string": "F(1,59) = 41.88, p < 0.001"
+   },
+   {
+    "stat_test_id": 670,
+    "location": "Results",
+    "raw_string": "F(1,59) = 0.89, p = 0.349"
+   },
+   {
+    "stat_test_id": 671,
+    "location": "Results",
+    "raw_string": "F(1,59) = 0.01, p = 0.937"
+   },
+   {
+    "stat_test_id": 672,
+    "location": "Results",
+    "raw_string": "F(1,58) = 1.11, p = 0.297"
+   },
+   {
+    "stat_test_id": 673,
+    "location": "Results",
+    "raw_string": "F(1,59) = 0.75, p = 0.389"
+   },
+   {
+    "stat_test_id": 674,
+    "location": "Results",
+    "raw_string": "F(1,59) = 0.30, p = 0.584"
+   },
+   {
+    "stat_test_id": 675,
+    "location": "Results",
+    "raw_string": "F(1,59) = 1.80, p = 0.185"
+   },
+   {
+    "stat_test_id": 676,
+    "location": "Results",
+    "raw_string": "F(1,59) = 6.5, p = 0.0134"
+   },
+   {
+    "stat_test_id": 677,
+    "location": "Results",
+    "raw_string": "F(1,59) = 5.805, p = 0.0192"
+   }
+  ],
+  "means": [],
+  "trials": []
+ }
+}

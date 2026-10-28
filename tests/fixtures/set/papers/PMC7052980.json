@@ -1,0 +1,1695 @@
+{
+ "id": "PMC7052980",
+ "subject": "paper",
+ "categories": [
+  "c02_retracted_in_press"
+ ],
+ "source": {
+  "corpus": "fixtures-in-press",
+  "paper_id": 3900,
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "From corpus fixtures-in-press, chosen (Europe PMC CITES search) as a real citation of a work retracted shortly before publication. All 49 references resolved. It also cites a work retracted two years after it appeared.",
+ "expected": [
+  {
+   "check": "C01",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C02",
+   "status": "flagged",
+   "severity": "low",
+   "item": "ref 43",
+   "band": "in_press",
+   "why": "Kim 2010 J Biol Chem (DOI and PMID match) retracted 2020-01-10 for image duplication; paper first published 2020-03-02 = 1 whole month later, within the 6-month in-press band."
+  },
+  {
+   "check": "C02",
+   "status": "flagged",
+   "severity": "low",
+   "item": "ref 44",
+   "band": "before",
+   "why": "Cited work retracted 2022-10-27, after this 2020 paper: cited before retraction."
+  },
+  {
+   "check": "C02",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C03",
+   "status": "not_applicable",
+   "severity": "info"
+  },
+  {
+   "check": "C04",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "paper_id": 3900,
+  "publication_date": "2020-03-02",
+  "fulltext_status": "full",
+  "references": [
+   {
+    "reference_id": 39326,
+    "ordinal": 1,
+    "raw_string": "Wakitani S Imoto K Yamamoto T Human autologous culture expanded bone marrow mesenchymal cell transplantation for repair of cartilage defects in osteoarthritic knees Osteoarthr Cartil 2002 10 199 206 10.1053/joca.2001.0504 11869080",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1053/joca.2001.0504",
+    "parsed_pmid": "11869080",
+    "parsed_title": "Human autologous culture expanded bone marrow mesenchymal cell transplantation for repair of cartilage defects in osteoarthritic knees",
+    "parsed_first_author": "wakitani",
+    "parsed_year": 2002,
+    "parsed_container": "Osteoarthr Cartil",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5301,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1053/joca.2001.0504"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39327,
+    "ordinal": 2,
+    "raw_string": "Orozco L Munar A Soler R Treatment of knee osteoarthritis with autologous mesenchymal stem cells: a pilot study Transplantation. 2013 95 1535 1541 10.1097/TP.0b013e318291a2da 23680930",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/tp.0b013e318291a2da",
+    "parsed_pmid": "23680930",
+    "parsed_title": "Treatment of knee osteoarthritis with autologous mesenchymal stem cells: a pilot study",
+    "parsed_first_author": "orozco",
+    "parsed_year": 2013,
+    "parsed_container": "Transplantation.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5302,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/tp.0b013e318291a2da"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.91
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39328,
+    "ordinal": 3,
+    "raw_string": "ter Huurne M Schelbergen R Blattes R Antiinflammatory and chondroprotective effects of intraarticular injection of adipose-derived stem cells in experimental osteoarthritis Arthritis Rheum 2012 64 3604 3613 10.1002/art.34626 22961401",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/art.34626",
+    "parsed_pmid": "22961401",
+    "parsed_title": "Antiinflammatory and chondroprotective effects of intraarticular injection of adipose-derived stem cells in experimental osteoarthritis",
+    "parsed_first_author": "ter huurne",
+    "parsed_year": 2012,
+    "parsed_container": "Arthritis Rheum",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5303,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/art.34626"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39329,
+    "ordinal": 4,
+    "raw_string": "Koh YG Choi YJ Kwon SK Clinical results and second-look arthroscopic findings after treatment with adipose-derived stem cells for knee osteoarthritis Knee Surgery Sports Traumatol Arthroscopy 2015 23 1308 1316 10.1007/s00167-013-2807-2 24326779",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s00167-013-2807-2",
+    "parsed_pmid": "24326779",
+    "parsed_title": "Clinical results and second-look arthroscopic findings after treatment with adipose-derived stem cells for knee osteoarthritis",
+    "parsed_first_author": "koh",
+    "parsed_year": 2015,
+    "parsed_container": "Knee Surgery Sports Traumatol Arthroscopy",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5304,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s00167-013-2807-2"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39330,
+    "ordinal": 5,
+    "raw_string": "Alsalameh S Amin R Gemba T Identification of mesenchymal progenitor cells in normal and osteoarthritic human articular cartilage Arthritis Rheum 2004 50 1522 1532 10.1002/art.20269 15146422",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/art.20269",
+    "parsed_pmid": "15146422",
+    "parsed_title": "Identification of mesenchymal progenitor cells in normal and osteoarthritic human articular cartilage",
+    "parsed_first_author": "alsalameh",
+    "parsed_year": 2004,
+    "parsed_container": "Arthritis Rheum",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5305,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/art.20269"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39331,
+    "ordinal": 6,
+    "raw_string": "Koelling S Kruegel J Irmer M Migratory chondrogenic progenitor cells from repair tissue during the later stages of human osteoarthritis Cell Stem Cell 2009 4 324 335 10.1016/j.stem.2009.01.015 19341622",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.stem.2009.01.015",
+    "parsed_pmid": "19341622",
+    "parsed_title": "Migratory chondrogenic progenitor cells from repair tissue during the later stages of human osteoarthritis",
+    "parsed_first_author": "koelling",
+    "parsed_year": 2009,
+    "parsed_container": "Cell Stem Cell",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5306,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.stem.2009.01.015"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39332,
+    "ordinal": 7,
+    "raw_string": "Yamasaki K Nakasa T Miyaki S Expression of MicroRNA-146a in osteoarthritis cartilage Arthritis Rheum 2009 60 1035 1041 10.1002/art.24404 19333945 PMC2670476",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/art.24404",
+    "parsed_pmid": "19333945",
+    "parsed_title": "Expression of MicroRNA-146a in osteoarthritis cartilage",
+    "parsed_first_author": "yamasaki",
+    "parsed_year": 2009,
+    "parsed_container": "Arthritis Rheum",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5307,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/art.24404"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39333,
+    "ordinal": 8,
+    "raw_string": "Herberts CA Kwa MS Hermsen HP Risk factors in the development of stem cell therapy J Transl Med 2011 9 29 10.1186/1479-5876-9-29 21418664 PMC3070641",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1186/1479-5876-9-29",
+    "parsed_pmid": "21418664",
+    "parsed_title": "Risk factors in the development of stem cell therapy",
+    "parsed_first_author": "herberts",
+    "parsed_year": 2011,
+    "parsed_container": "J Transl Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5308,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/1479-5876-9-29"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39334,
+    "ordinal": 9,
+    "raw_string": "Zhang S Jiang YZ Zhang W Neonatal desensitization supports long-term survival and functional integration of human embryonic stem cell-derived mesenchymal stem cells in rat joint cartilage without immunosuppression Stem Cells Dev 2013 22 90 101 10.1089/scd.2012.0116 22788986 PMC3528094",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1089/scd.2012.0116",
+    "parsed_pmid": "22788986",
+    "parsed_title": "Neonatal desensitization supports long-term survival and functional integration of human embryonic stem cell-derived mesenchymal stem cells in rat joint cartilage without immunosuppression",
+    "parsed_first_author": "zhang",
+    "parsed_year": 2013,
+    "parsed_container": "Stem Cells Dev",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5309,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1089/scd.2012.0116"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39335,
+    "ordinal": 10,
+    "raw_string": "Lee JH Hah YS Cho HY Human umbilical cord blood-derived CD34-positive endothelial progenitor cells stimulate osteoblastic differentiation of cultured human periosteal-derived osteoblasts Tissue Eng A 2014 20 940 953 10.1089/ten.tea.2013.0329 24168264",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1089/ten.tea.2013.0329",
+    "parsed_pmid": "24168264",
+    "parsed_title": "Human umbilical cord blood-derived CD34-positive endothelial progenitor cells stimulate osteoblastic differentiation of cultured human periosteal-derived osteoblasts",
+    "parsed_first_author": "lee",
+    "parsed_year": 2014,
+    "parsed_container": "Tissue Eng A",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5310,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1089/ten.tea.2013.0329"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39336,
+    "ordinal": 11,
+    "raw_string": "Zhang M Malik AB Rehman J Endothelial progenitor cells and vascular repair Curr Opin Hematol 2014 21 224 228 10.1097/MOH.0000000000000041 24637956 PMC4090051",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/moh.0000000000000041",
+    "parsed_pmid": "24637956",
+    "parsed_title": "Endothelial progenitor cells and vascular repair",
+    "parsed_first_author": "zhang",
+    "parsed_year": 2014,
+    "parsed_container": "Curr Opin Hematol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5311,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/moh.0000000000000041"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39337,
+    "ordinal": 12,
+    "raw_string": "Xin H Li Y Chopp M Exosomes/miRNAs as mediating cell-based therapy of stroke Front Cell Neurosci 2014 8 377 10.3389/fncel.2014.00377 25426026 PMC4226157",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3389/fncel.2014.00377",
+    "parsed_pmid": "25426026",
+    "parsed_title": "Exosomes/miRNAs as mediating cell-based therapy of stroke",
+    "parsed_first_author": "xin",
+    "parsed_year": 2014,
+    "parsed_container": "Front Cell Neurosci",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5312,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3389/fncel.2014.00377"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39338,
+    "ordinal": 13,
+    "raw_string": "Deng L Wang Y Peng Y Osteoblast-derived microvesicles: a novel mechanism for communication between osteoblasts and osteoclasts Bone. 2015 79 37 42 10.1016/j.bone.2015.05.022 26013558",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.bone.2015.05.022",
+    "parsed_pmid": "26013558",
+    "parsed_title": "Osteoblast-derived microvesicles: a novel mechanism for communication between osteoblasts and osteoclasts",
+    "parsed_first_author": "deng",
+    "parsed_year": 2015,
+    "parsed_container": "Bone.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5313,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.bone.2015.05.022"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39339,
+    "ordinal": 14,
+    "raw_string": "Zhang S Chu WC Lai RC Exosomes derived from human embryonic mesenchymal stem cells promote osteochondral regeneration Osteoarthr Cartil 2016 24 2135 2140 10.1016/j.joca.2016.06.022 27390028",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.joca.2016.06.022",
+    "parsed_pmid": "27390028",
+    "parsed_title": "Exosomes derived from human embryonic mesenchymal stem cells promote osteochondral regeneration",
+    "parsed_first_author": "zhang",
+    "parsed_year": 2016,
+    "parsed_container": "Osteoarthr Cartil",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5314,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.joca.2016.06.022"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39340,
+    "ordinal": 15,
+    "raw_string": "Tao SC Yuan T Zhang YL Exosomes derived from miR-140-5p-overexpressing human synovial mesenchymal stem cells enhance cartilage tissue regeneration and prevent osteoarthritis of the knee in a rat model Theranostics. 2017 7 180 195 10.7150/thno.17133 28042326 PMC5196895",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.7150/thno.17133",
+    "parsed_pmid": "28042326",
+    "parsed_title": "Exosomes derived from miR-140-5p-overexpressing human synovial mesenchymal stem cells enhance cartilage tissue regeneration and prevent osteoarthritis of the knee in a rat model",
+    "parsed_first_author": "tao",
+    "parsed_year": 2017,
+    "parsed_container": "Theranostics.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5315,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.7150/thno.17133"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39341,
+    "ordinal": 16,
+    "raw_string": "Zhu Y Wang Y Zhao B Comparison of exosomes secreted by induced pluripotent stem cell-derived mesenchymal stem cells and synovial membrane-derived mesenchymal stem cells for the treatment of osteoarthritis Stem Cell Res Ther 2017 8 64 10.1186/s13287-017-0510-9 28279188 PMC5345222",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1186/s13287-017-0510-9",
+    "parsed_pmid": "28279188",
+    "parsed_title": "Comparison of exosomes secreted by induced pluripotent stem cell-derived mesenchymal stem cells and synovial membrane-derived mesenchymal stem cells for the treatment of osteoarthritis",
+    "parsed_first_author": "zhu",
+    "parsed_year": 2017,
+    "parsed_container": "Stem Cell Res Ther",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5316,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/s13287-017-0510-9"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39342,
+    "ordinal": 17,
+    "raw_string": "Fitzgerald J Rich C Burkhardt D Evidence for articular cartilage regeneration in MRL/MpJ mice Osteoarthr Cartil 2008 16 1319 1326 10.1016/j.joca.2008.03.014 18455447",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.joca.2008.03.014",
+    "parsed_pmid": "18455447",
+    "parsed_title": "Evidence for articular cartilage regeneration in MRL/MpJ mice",
+    "parsed_first_author": "fitzgerald",
+    "parsed_year": 2008,
+    "parsed_container": "Osteoarthr Cartil",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5317,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.joca.2008.03.014"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39343,
+    "ordinal": 18,
+    "raw_string": "Diekman BO Wu CL Louer CR Intra-articular delivery of purified mesenchymal stem cells from C57BL/6 or MRL/MpJ superhealer mice prevents posttraumatic arthritis Cell Transplant 2013 22 1395 1408 10.3727/096368912X653264 22889498 PMC3891895",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3727/096368912x653264",
+    "parsed_pmid": "22889498",
+    "parsed_title": "Intra-articular delivery of purified mesenchymal stem cells from C57BL/6 or MRL/MpJ superhealer mice prevents posttraumatic arthritis",
+    "parsed_first_author": "diekman",
+    "parsed_year": 2013,
+    "parsed_container": "Cell Transplant",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5318,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3727/096368912x653264"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39344,
+    "ordinal": 19,
+    "raw_string": "Li Y Zhou J Yang X Intermittent hydrostatic pressure maintains and enhances the chondrogenic differentiation of cartilage progenitor cells cultivated in alginate beads Develop Growth Differ 2016 58 180 193 10.1111/dgd.12261 26771816",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/dgd.12261",
+    "parsed_pmid": "26771816",
+    "parsed_title": "Intermittent hydrostatic pressure maintains and enhances the chondrogenic differentiation of cartilage progenitor cells cultivated in alginate beads",
+    "parsed_first_author": "li",
+    "parsed_year": 2016,
+    "parsed_container": "Develop Growth Differ",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5319,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/dgd.12261"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39345,
+    "ordinal": 20,
+    "raw_string": "Dowthwaite GP Bishop JC Redman SN The surface of articular cartilage contains a progenitor cell population J Cell Sci 2004 117 889 897 10.1242/jcs.00912 14762107",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1242/jcs.00912",
+    "parsed_pmid": "14762107",
+    "parsed_title": "The surface of articular cartilage contains a progenitor cell population",
+    "parsed_first_author": "dowthwaite",
+    "parsed_year": 2004,
+    "parsed_container": "J Cell Sci",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5320,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1242/jcs.00912"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39346,
+    "ordinal": 21,
+    "raw_string": "Tamura R Uemoto S Tabata Y Immunosuppressive effect of mesenchymal stem cell-derived exosomes on a concanavalin A-induced liver injury model Inflammation Regeneration 2016 36 26 10.1186/s41232-016-0030-5 29259699 PMC5725906",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1186/s41232-016-0030-5",
+    "parsed_pmid": "29259699",
+    "parsed_title": "Immunosuppressive effect of mesenchymal stem cell-derived exosomes on a concanavalin A-induced liver injury model",
+    "parsed_first_author": "tamura",
+    "parsed_year": 2016,
+    "parsed_container": "Inflammation Regeneration",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5321,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/s41232-016-0030-5"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39347,
+    "ordinal": 22,
+    "raw_string": "Zhao Y, Liu B, Liu CJ. Establishment of a surgically-induced model in mice to investigate the protective role of progranulin in osteoarthritis. J Visualized Experiments JoVE. 2014;84:e50924.10.3791/50924 PMC4131755 24638128",
+    "citation_tag": "mixed-citation",
+    "publication_type": "other",
+    "parsed_doi": "10.3791/50924",
+    "parsed_pmid": "24638128",
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5322,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3791/50924"
+      ],
+      "crossref_doi": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39348,
+    "ordinal": 23,
+    "raw_string": "Pritzker KP Gay S Jimenez SA Osteoarthritis cartilage histopathology: grading and staging Osteoarthr Cartil 2006 14 13 29 10.1016/j.joca.2005.07.014 16242352",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.joca.2005.07.014",
+    "parsed_pmid": "16242352",
+    "parsed_title": "Osteoarthritis cartilage histopathology: grading and staging",
+    "parsed_first_author": "pritzker",
+    "parsed_year": 2006,
+    "parsed_container": "Osteoarthr Cartil",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5323,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.joca.2005.07.014"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39349,
+    "ordinal": 24,
+    "raw_string": "Bi Y Ehirchiou D Kilts TM Identification of tendon stem/progenitor cells and the role of the extracellular matrix in their niche Nat Med 2007 13 1219 1227 10.1038/nm1630 17828274",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/nm1630",
+    "parsed_pmid": "17828274",
+    "parsed_title": "Identification of tendon stem/progenitor cells and the role of the extracellular matrix in their niche",
+    "parsed_first_author": "bi",
+    "parsed_year": 2007,
+    "parsed_container": "Nat Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5324,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1038/nm1630"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39350,
+    "ordinal": 25,
+    "raw_string": "Tormin A Li O Brune JC CD146 expression on primary nonhematopoietic bone marrow stem cells is correlated with in situ localization Blood. 2011 117 5067 5077 10.1182/blood-2010-08-304287 21415267 PMC3109533",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1182/blood-2010-08-304287",
+    "parsed_pmid": "21415267",
+    "parsed_title": "CD146 expression on primary nonhematopoietic bone marrow stem cells is correlated with in situ localization",
+    "parsed_first_author": "tormin",
+    "parsed_year": 2011,
+    "parsed_container": "Blood.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5325,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1182/blood-2010-08-304287"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39351,
+    "ordinal": 26,
+    "raw_string": "Zhang S An Q Hu P Core regulatory RNA molecules identified in articular cartilage stem/progenitor cells during osteoarthritis progression Epigenomics. 2019 11 669 684 10.2217/epi-2018-0212 30775942",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2217/epi-2018-0212",
+    "parsed_pmid": "30775942",
+    "parsed_title": "Core regulatory RNA molecules identified in articular cartilage stem/progenitor cells during osteoarthritis progression",
+    "parsed_first_author": "zhang",
+    "parsed_year": 2019,
+    "parsed_container": "Epigenomics.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5326,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2217/epi-2018-0212"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39352,
+    "ordinal": 27,
+    "raw_string": "Sagar DR Ashraf S Xu L Osteoprotegerin reduces the development of pain behaviour and joint pathology in a model of osteoarthritis Ann Rheum Dis 2014 73 1558 1565 10.1136/annrheumdis-2013-203260 23723320 PMC4112443",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1136/annrheumdis-2013-203260",
+    "parsed_pmid": "23723320",
+    "parsed_title": "Osteoprotegerin reduces the development of pain behaviour and joint pathology in a model of osteoarthritis",
+    "parsed_first_author": "sagar",
+    "parsed_year": 2014,
+    "parsed_container": "Ann Rheum Dis",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5327,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1136/annrheumdis-2013-203260"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39353,
+    "ordinal": 28,
+    "raw_string": "Jiang Y Tuan RS Origin and function of cartilage stem/progenitor cells in osteoarthritis Nat Rev Rheumatol 2015 11 206 212 10.1038/nrrheum.2014.200 25536487 PMC5413931",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/nrrheum.2014.200",
+    "parsed_pmid": "25536487",
+    "parsed_title": "Origin and function of cartilage stem/progenitor cells in osteoarthritis",
+    "parsed_first_author": "jiang",
+    "parsed_year": 2015,
+    "parsed_container": "Nat Rev Rheumatol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5328,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1038/nrrheum.2014.200"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39354,
+    "ordinal": 29,
+    "raw_string": "Xue K Xia W Zhang X Isolation and identification of stem cells in different subtype of cartilage tissue Expert Opin Biol Ther 2015 15 623 632 10.1517/14712598.2015.989207 25556915",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1517/14712598.2015.989207",
+    "parsed_pmid": "25556915",
+    "parsed_title": "Isolation and identification of stem cells in different subtype of cartilage tissue",
+    "parsed_first_author": "xue",
+    "parsed_year": 2015,
+    "parsed_container": "Expert Opin Biol Ther",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5329,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1517/14712598.2015.989207"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39355,
+    "ordinal": 30,
+    "raw_string": "Togo T Utani A Naitoh M Identification of cartilage progenitor cells in the adult ear perichondrium: utilization for cartilage reconstruction Laboratory Investigation 2006 86 445 457 10.1038/labinvest.3700409 16625212",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/labinvest.3700409",
+    "parsed_pmid": "16625212",
+    "parsed_title": "Identification of cartilage progenitor cells in the adult ear perichondrium: utilization for cartilage reconstruction",
+    "parsed_first_author": "togo",
+    "parsed_year": 2006,
+    "parsed_container": "Laboratory Investigation",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5330,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1038/labinvest.3700409"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39356,
+    "ordinal": 31,
+    "raw_string": "Lewis JS Jr Furman BD Zeitler E Genetic and cellular evidence of decreased inflammation associated with reduced incidence of posttraumatic arthritis in MRL/MpJ mice Arthritis Rheum 2013 65 660 670 10.1002/art.37796 23203659 PMC3721663",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/art.37796",
+    "parsed_pmid": "23203659",
+    "parsed_title": "Genetic and cellular evidence of decreased inflammation associated with reduced incidence of posttraumatic arthritis in MRL/MpJ mice",
+    "parsed_first_author": "lewis",
+    "parsed_year": 2013,
+    "parsed_container": "Arthritis Rheum",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5331,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/art.37796"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39357,
+    "ordinal": 32,
+    "raw_string": "Mak J Jablonski CL Leonard CA Intra-articular injection of synovial mesenchymal stem cells improves cartilage repair in a mouse injury model Sci Rep 2016 6 23076 10.1038/srep23076 26983696 PMC4794799",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/srep23076",
+    "parsed_pmid": "26983696",
+    "parsed_title": "Intra-articular injection of synovial mesenchymal stem cells improves cartilage repair in a mouse injury model",
+    "parsed_first_author": "mak",
+    "parsed_year": 2016,
+    "parsed_container": "Sci Rep",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5332,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1038/srep23076"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39358,
+    "ordinal": 33,
+    "raw_string": "Horie M Sekiya I Muneta T Intra-articular injected synovial stem cells differentiate into meniscal cells directly and promote meniscal regeneration without mobilization to distant organs in rat massive meniscal defect Stem Cells 2009 27 878 887 10.1634/stemcells.2008-0616 19350690",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1634/stemcells.2008-0616",
+    "parsed_pmid": "19350690",
+    "parsed_title": "Intra-articular injected synovial stem cells differentiate into meniscal cells directly and promote meniscal regeneration without mobilization to distant organs in rat massive meniscal defect",
+    "parsed_first_author": "horie",
+    "parsed_year": 2009,
+    "parsed_container": "Stem Cells",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5333,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1634/stemcells.2008-0616"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39359,
+    "ordinal": 34,
+    "raw_string": "Lee KB Hui JH Song IC Injectable mesenchymal stem cell therapy for large cartilage defects--a porcine model Stem Cells 2007 25 2964 2971 10.1634/stemcells.2006-0311 17656639",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1634/stemcells.2006-0311",
+    "parsed_pmid": "17656639",
+    "parsed_title": "Injectable mesenchymal stem cell therapy for large cartilage defects--a porcine model",
+    "parsed_first_author": "lee",
+    "parsed_year": 2007,
+    "parsed_container": "Stem Cells",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5334,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1634/stemcells.2006-0311"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39360,
+    "ordinal": 35,
+    "raw_string": "Lo Cicero A Stahl PD Raposo G Extracellular vesicles shuffling intercellular messages: for good or for bad Curr Opin Cell Biol 2015 35 69 77 10.1016/j.ceb.2015.04.013 26001269",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.ceb.2015.04.013",
+    "parsed_pmid": "26001269",
+    "parsed_title": "Extracellular vesicles shuffling intercellular messages: for good or for bad",
+    "parsed_first_author": "lo cicero",
+    "parsed_year": 2015,
+    "parsed_container": "Curr Opin Cell Biol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5335,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.ceb.2015.04.013"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39361,
+    "ordinal": 36,
+    "raw_string": "Ibrahim AG Cheng K Marban E Exosomes as critical agents of cardiac regeneration triggered by cell therapy Stem Cell Reports 2014 2 606 619 10.1016/j.stemcr.2014.04.006 24936449 PMC4050492",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.stemcr.2014.04.006",
+    "parsed_pmid": "24936449",
+    "parsed_title": "Exosomes as critical agents of cardiac regeneration triggered by cell therapy",
+    "parsed_first_author": "ibrahim",
+    "parsed_year": 2014,
+    "parsed_container": "Stem Cell Reports",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5336,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.stemcr.2014.04.006"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39362,
+    "ordinal": 37,
+    "raw_string": "Wei ST Lai RC Hui JHP MSC exosome as a cell-free MSC therapy for cartilage regeneration: implications for osteoarthritis treatment Semin Cell Dev Biol 2016 67 56 27871993 10.1016/j.semcdb.2016.11.008",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.semcdb.2016.11.008",
+    "parsed_pmid": "27871993",
+    "parsed_title": "MSC exosome as a cell-free MSC therapy for cartilage regeneration: implications for osteoarthritis treatment",
+    "parsed_first_author": "wei",
+    "parsed_year": 2016,
+    "parsed_container": "Semin Cell Dev Biol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5337,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.semcdb.2016.11.008"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39363,
+    "ordinal": 38,
+    "raw_string": "Xie Y Chen Y Zhang L The roles of bone-derived exosomes and exosomal microRNAs in regulating bone remodelling J Cell Mol Med 2017 21 1033 1041 10.1111/jcmm.13039 27878944 PMC5387131",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/jcmm.13039",
+    "parsed_pmid": "27878944",
+    "parsed_title": "The roles of bone-derived exosomes and exosomal microRNAs in regulating bone remodelling",
+    "parsed_first_author": "xie",
+    "parsed_year": 2017,
+    "parsed_container": "J Cell Mol Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5338,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/jcmm.13039"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.989
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39364,
+    "ordinal": 39,
+    "raw_string": "Zanotti S, Gibertini S, Blasevich F, et al. Exosomes and exosomal miRNAs from muscle-derived fibroblasts promote skeletal muscle fibrosis. Matrix Biol. 2018;74:77–10010.1016/j.matbio.2018.07.003 29981373",
+    "citation_tag": "mixed-citation",
+    "publication_type": "other",
+    "parsed_doi": "10.1016/j.matbio.2018.07.003",
+    "parsed_pmid": "29981373",
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5339,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.matbio.2018.07.003"
+      ],
+      "crossref_doi": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39365,
+    "ordinal": 40,
+    "raw_string": "Kench JA Russell DM Fadok VA Aberrant wound healing and TGF-beta production in the autoimmune-prone MRL/+ mouse Clin Immunol 1999 92 300 310 10.1006/clim.1999.4754 10479535",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1006/clim.1999.4754",
+    "parsed_pmid": "10479535",
+    "parsed_title": "Aberrant wound healing and TGF-beta production in the autoimmune-prone MRL/+ mouse",
+    "parsed_first_author": "kench",
+    "parsed_year": 1999,
+    "parsed_container": "Clin Immunol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5340,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1006/clim.1999.4754"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.968
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39366,
+    "ordinal": 41,
+    "raw_string": "Wang R, Zhang S, Previn R, et al. Role of Forkhead box O transcription factors in oxidative stress-induced chondrocyte dysfunction: possible therapeutic target for osteoarthritis? Int J Mol Sci. 2018;19.10.3390/ijms19123794 PMC6321605 30487470",
+    "citation_tag": "mixed-citation",
+    "publication_type": "other",
+    "parsed_doi": "10.3390/ijms19123794",
+    "parsed_pmid": "30487470",
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5341,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3390/ijms19123794"
+      ],
+      "crossref_doi": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39367,
+    "ordinal": 42,
+    "raw_string": "Zhao YH Lv X Liu YL Hydrostatic pressure promotes the proliferation and osteogenic/chondrogenic differentiation of mesenchymal stem cells: the roles of RhoA and Rac1 Stem Cell Res 2015 14 283 296 10.1016/j.scr.2015.02.006 25794483",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.scr.2015.02.006",
+    "parsed_pmid": "25794483",
+    "parsed_title": "Hydrostatic pressure promotes the proliferation and osteogenic/chondrogenic differentiation of mesenchymal stem cells: the roles of RhoA and Rac1",
+    "parsed_first_author": "zhao",
+    "parsed_year": 2015,
+    "parsed_container": "Stem Cell Res",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5342,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.scr.2015.02.006"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39368,
+    "ordinal": 43,
+    "raw_string": "Kim D Song J Jin EJ MicroRNA-221 regulates chondrogenic differentiation through promoting proteosomal degradation of slug by targeting Mdm2 J Biol Chem 2010 285 26900 26907 10.1074/jbc.M110.115105 20576614 PMC2930689",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1074/jbc.m110.115105",
+    "parsed_pmid": "20576614",
+    "parsed_title": "MicroRNA-221 regulates chondrogenic differentiation through promoting proteosomal degradation of slug by targeting Mdm2",
+    "parsed_first_author": "kim",
+    "parsed_year": 2010,
+    "parsed_container": "J Biol Chem",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5343,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1074/jbc.m110.115105"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": [
+     {
+      "notice_type": "retraction",
+      "notice_date": "2020-01-10",
+      "notice_doi": "10.1074/jbc.w119.012220",
+      "reason": "Duplication of/in Image;",
+      "source": "retraction_watch",
+      "source_record_id": "21959",
+      "matched_on": "doi"
+     }
+    ]
+   },
+   {
+    "reference_id": 39369,
+    "ordinal": 44,
+    "raw_string": "Garofalo M Di Leva G Romano G miR-221&222 regulate TRAIL resistance and enhance tumorigenicity through PTEN and TIMP3 downregulation Cancer Cell 2009 16 498 509 10.1016/j.ccr.2009.10.014 19962668 PMC2796583",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.ccr.2009.10.014",
+    "parsed_pmid": "19962668",
+    "parsed_title": "miR-221&222 regulate TRAIL resistance and enhance tumorigenicity through PTEN and TIMP3 downregulation",
+    "parsed_first_author": "garofalo",
+    "parsed_year": 2009,
+    "parsed_container": "Cancer Cell",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5344,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.ccr.2009.10.014"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.936
+    },
+    "notices": [
+     {
+      "notice_type": "retraction",
+      "notice_date": "2022-10-27",
+      "notice_doi": "10.1016/j.ccell.2022.10.005",
+      "reason": "Investigation by Company/Institution;Plagiarism of/in Article;",
+      "source": "retraction_watch",
+      "source_record_id": "40107",
+      "matched_on": "doi"
+     }
+    ]
+   },
+   {
+    "reference_id": 39370,
+    "ordinal": 45,
+    "raw_string": "Zhang C Zhang J Hao J High level of miR-221/222 confers increased cell invasion and poor prognosis in glioma J Transl Med 2012 10 119 10.1186/1479-5876-10-119 22681957 PMC3403924",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1186/1479-5876-10-119",
+    "parsed_pmid": "22681957",
+    "parsed_title": "High level of miR-221/222 confers increased cell invasion and poor prognosis in glioma",
+    "parsed_first_author": "zhang",
+    "parsed_year": 2012,
+    "parsed_container": "J Transl Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5345,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/1479-5876-10-119"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39371,
+    "ordinal": 46,
+    "raw_string": "Fu F Wang T Wu Z HMGA1 exacerbates tumor growth through regulating the cell cycle and accelerates migration/invasion via targeting miR-221/222 in cervical cancer Cell Death Dis 2018 9 594 10.1038/s41419-018-0683-x 29789601 PMC5964147",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/s41419-018-0683-x",
+    "parsed_pmid": "29789601",
+    "parsed_title": "HMGA1 exacerbates tumor growth through regulating the cell cycle and accelerates migration/invasion via targeting miR-221/222 in cervical cancer",
+    "parsed_first_author": "fu",
+    "parsed_year": 2018,
+    "parsed_container": "Cell Death Dis",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5346,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1038/s41419-018-0683-x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.941
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39372,
+    "ordinal": 47,
+    "raw_string": "Iliopoulos D Malizos KN Oikonomou P Integrative microRNA and proteomic approaches identify novel osteoarthritis genes and their collaborative metabolic and inflammatory networks PLoS One 2008 3 e3740 10.1371/journal.pone.0003740 19011694 PMC2582945",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1371/journal.pone.0003740",
+    "parsed_pmid": "19011694",
+    "parsed_title": "Integrative microRNA and proteomic approaches identify novel osteoarthritis genes and their collaborative metabolic and inflammatory networks",
+    "parsed_first_author": "iliopoulos",
+    "parsed_year": 2008,
+    "parsed_container": "PLoS One",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5347,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1371/journal.pone.0003740"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39373,
+    "ordinal": 48,
+    "raw_string": "Matsukawa T Sakai T Yonezawa T MicroRNA-125b regulates the expression of aggrecanase-1 (ADAMTS-4) in human osteoarthritic chondrocytes Arthritis Res Ther 2013 15 R28 10.1186/ar4164 23406982 PMC3672767",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1186/ar4164",
+    "parsed_pmid": "23406982",
+    "parsed_title": "MicroRNA-125b regulates the expression of aggrecanase-1 (ADAMTS-4) in human osteoarthritic chondrocytes",
+    "parsed_first_author": "matsukawa",
+    "parsed_year": 2013,
+    "parsed_container": "Arthritis Res Ther",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5348,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/ar4164"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39374,
+    "ordinal": 49,
+    "raw_string": "Gao M Gao W Papadimitriou JM Exosomes-the enigmatic regulators of bone homeostasis Bone research 2018 6 36 10.1038/s41413-018-0039-2 30534458 PMC6286319",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/s41413-018-0039-2",
+    "parsed_pmid": "30534458",
+    "parsed_title": "Exosomes-the enigmatic regulators of bone homeostasis",
+    "parsed_first_author": "gao",
+    "parsed_year": 2018,
+    "parsed_container": "Bone research",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5349,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1038/s41413-018-0039-2"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   }
+  ],
+  "stat_tests": [],
+  "means": [],
+  "trials": []
+ }
+}

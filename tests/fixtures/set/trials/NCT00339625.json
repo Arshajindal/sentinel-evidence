@@ -1,0 +1,99 @@
+{
+ "id": "NCT00339625",
+ "subject": "trial",
+ "categories": [
+  "c05_overdue"
+ ],
+ "source": {
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "Phase 3, completed 2020-05-11, US site. 2020-05-11 to 2026-10-24 = 77 whole months; no results posted.",
+ "expected": [
+  {
+   "check": "C05",
+   "status": "flagged",
+   "severity": "medium",
+   "why": "77 months since primary completion, results_first_posted null"
+  }
+ ],
+ "context": {
+  "trial": {
+   "nct_id": "NCT00339625",
+   "brief_title": "Polyp Prevention Trial",
+   "overall_status": "COMPLETED",
+   "study_type": "INTERVENTIONAL",
+   "phase": "PHASE3",
+   "enrollment": 2079,
+   "start_date": "1991-06-19",
+   "primary_completion_date": "2020-05-11",
+   "completion_date": "2020-05-11",
+   "results_first_posted": null,
+   "lead_sponsor": "National Cancer Institute (NCI)",
+   "sponsor_class": "NIH",
+   "raw": {
+    "protocolSection": {
+     "identificationModule": {
+      "nctId": "NCT00339625",
+      "briefTitle": "Polyp Prevention Trial"
+     },
+     "statusModule": {
+      "overallStatus": "COMPLETED",
+      "startDateStruct": {
+       "date": "1991-06-19",
+       "type": "ACTUAL"
+      },
+      "expandedAccessInfo": {
+       "hasExpandedAccess": false
+      },
+      "statusVerifiedDate": "2020-04",
+      "completionDateStruct": {
+       "date": "2020-05-11",
+       "type": "ACTUAL"
+      },
+      "lastUpdateSubmitDate": "2020-05-14",
+      "studyFirstSubmitDate": "2006-06-19",
+      "studyFirstSubmitQcDate": "2006-06-19",
+      "lastUpdatePostDateStruct": {
+       "date": "2020-05-15",
+       "type": "ACTUAL"
+      },
+      "studyFirstPostDateStruct": {
+       "date": "2006-06-21",
+       "type": "ESTIMATED"
+      },
+      "primaryCompletionDateStruct": {
+       "date": "2020-05-11",
+       "type": "ACTUAL"
+      }
+     },
+     "oversightModule": {},
+     "designModule": {
+      "studyType": "INTERVENTIONAL",
+      "phases": [
+       "PHASE3"
+      ]
+     },
+     "contactsLocationsModule": {
+      "locations": [
+       {
+        "country": "United States"
+       }
+      ]
+     }
+    },
+    "hasResults": false
+   },
+   "outcomes": [
+    {
+     "version_no": 0,
+     "version_date": "2020-05-15",
+     "outcome_type": "primary",
+     "measure": "Incidence of polyps in the colon",
+     "description": "Adenoma recurrence",
+     "time_frame": "Yearly for 4 years"
+    }
+   ]
+  },
+  "fetched_on": "2026-10-24"
+ }
+}

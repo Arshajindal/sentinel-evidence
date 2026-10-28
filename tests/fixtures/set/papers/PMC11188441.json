@@ -1,0 +1,1865 @@
+{
+ "id": "PMC11188441",
+ "subject": "paper",
+ "categories": [
+  "c03_inconsistent"
+ ],
+ "source": {
+  "corpus": "pmc-rct-2015-2024",
+  "paper_id": 728,
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "21 tests, 1 inconsistent (truncated rather than rounded p).",
+ "expected": [
+  {
+   "check": "C01",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C02",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C03",
+   "status": "flagged",
+   "severity": "low",
+   "item": "stat 20",
+   "why": "t(102) = 2.410 gives p 0.0177 (rounds to 0.018), reported 0.017: truncated rather than rounded, which ADR-037 doesn't accept. Recomputed with scipy over every statistic value that rounds to the printed one: the reported p is outside the range, and it doesn't cross alpha = 0.05, so low. Sentence read in the full text: the extraction is faithful."
+  },
+  {
+   "check": "C03",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C04",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "paper_id": 728,
+  "publication_date": "2024-06-05",
+  "fulltext_status": "full",
+  "references": [
+   {
+    "reference_id": 28374,
+    "ordinal": 1,
+    "raw_string": "Zivin K Eisenberg D Gollust SE Golberstein E. Persistence of mental health problems and needs in a college student population. J Affect Disord. (2009) 117:180–5. doi: 10.1016/j.jad.2009.01.001, PMID: 19178949",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.jad.2009.01.001",
+    "parsed_pmid": "19178949",
+    "parsed_title": "Persistence of mental health problems and needs in a college student population",
+    "parsed_first_author": "zivin",
+    "parsed_year": 2009,
+    "parsed_container": "J Affect Disord",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5004,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.jad.2009.01.001"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28375,
+    "ordinal": 2,
+    "raw_string": "Eisenberg D Hunt J Speer N Zivin K. Mental health service utilization among college students in the United States. J Nerv Ment Dis. (2011) 199:301–8. doi: 10.1097/nmd.0b013e3182175123 21543948",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/nmd.0b013e3182175123",
+    "parsed_pmid": "21543948",
+    "parsed_title": "Mental health service utilization among college students in the United States",
+    "parsed_first_author": "eisenberg",
+    "parsed_year": 2011,
+    "parsed_container": "J Nerv Ment Dis",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5005,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/nmd.0b013e3182175123"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28376,
+    "ordinal": 3,
+    "raw_string": "Kessler RC Berglund P Demler O Jin R Merikangas KR Walters EE. Lifetime prevalence and age-of-onset distributions of DSM-IV disorders in the National Comorbidity Survey Replication. Arch Gen Psychiatry. (2005) 62:593–602. doi: 10.1001/archpsyc.62.6.593, PMID: 15939837",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1001/archpsyc.62.6.593",
+    "parsed_pmid": "15939837",
+    "parsed_title": "Lifetime prevalence and age-of-onset distributions of DSM-IV disorders in the National Comorbidity Survey Replication",
+    "parsed_first_author": "kessler",
+    "parsed_year": 2005,
+    "parsed_container": "Arch Gen Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4481,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {},
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28377,
+    "ordinal": 4,
+    "raw_string": "Eisenberg D Hunt J Speer N. Mental health in American colleges and universities: variation across student subgroups and across campuses. J Nerv Ment Dis. (2013) 201:60–7. doi: 10.1097/nmd.0b013e31827ab077 23274298",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/nmd.0b013e31827ab077",
+    "parsed_pmid": "23274298",
+    "parsed_title": "Mental health in American colleges and universities: variation across student subgroups and across campuses",
+    "parsed_first_author": "eisenberg",
+    "parsed_year": 2013,
+    "parsed_container": "J Nerv Ment Dis",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5006,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/nmd.0b013e31827ab077"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.65
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28378,
+    "ordinal": 5,
+    "raw_string": "Ballester L Alayo I Vilagut G Almenara J Cebrià AI Echeburúa E. Mental disorders in Spanish university students: prevalence, age-of-onset, severe role impairment and mental health treatment. J Affect Disord. (2020) 273:604–13. doi: 10.1016/j.jad.2020.04.050, PMID: 32560960",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.jad.2020.04.050",
+    "parsed_pmid": "32560960",
+    "parsed_title": "Mental disorders in Spanish university students: prevalence, age-of-onset, severe role impairment and mental health treatment",
+    "parsed_first_author": "ballester",
+    "parsed_year": 2020,
+    "parsed_container": "J Affect Disord",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5007,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.jad.2020.04.050"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28379,
+    "ordinal": 6,
+    "raw_string": "Cheung DK Tam DKY Tsang MH Zhang DLW Lit DSW. Depression, anxiety, and stress in different subgroups of first-year university students from 4-year cohort data. J Affect Disord. (2020) 274:305–14. doi: 10.1016/j.jad.2020.05.041 32469820",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.jad.2020.05.041",
+    "parsed_pmid": "32469820",
+    "parsed_title": "Depression, anxiety, and stress in different subgroups of first-year university students from 4-year cohort data",
+    "parsed_first_author": "cheung",
+    "parsed_year": 2020,
+    "parsed_container": "J Affect Disord",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5008,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.jad.2020.05.041"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28380,
+    "ordinal": 7,
+    "raw_string": "Storrie K Ahern K Tuckett A. A systematic review: students with mental health problems--a growing problem. Int J Nurs Pract. (2010) 16:1–6. doi: 10.1111/j.1440-172x.2009.01813.x 20158541",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1440-172x.2009.01813.x",
+    "parsed_pmid": "20158541",
+    "parsed_title": "A systematic review: students with mental health problems--a growing problem",
+    "parsed_first_author": "storrie",
+    "parsed_year": 2010,
+    "parsed_container": "Int J Nurs Pract",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5009,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1440-172x.2009.01813.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28381,
+    "ordinal": 8,
+    "raw_string": "Brougham RR Zail CM Mendoza CM Miller JR. Stress, sex differences, and coping strategies among college students. Curr Psychol. (2009) 28:85–97. doi: 10.1007/s12144-009-9047-0",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s12144-009-9047-0",
+    "parsed_pmid": null,
+    "parsed_title": "Stress, sex differences, and coping strategies among college students",
+    "parsed_first_author": "brougham",
+    "parsed_year": 2009,
+    "parsed_container": "Curr Psychol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5010,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s12144-009-9047-0"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28382,
+    "ordinal": 9,
+    "raw_string": "Böke BN Mills DJ Mettler J Heath NL. Patterns of stress and coping among college students. J Coll Stud Dev. (2019) 60:85–103. doi: 10.1353/csd.2019.0005",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1353/csd.2019.0005",
+    "parsed_pmid": null,
+    "parsed_title": "Patterns of stress and coping among college students",
+    "parsed_first_author": "boke",
+    "parsed_year": 2019,
+    "parsed_container": "J Coll Stud Dev",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5011,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1353/csd.2019.0005"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.614
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28383,
+    "ordinal": 10,
+    "raw_string": "Agudelo DM Casadiegos CP Sánchez DL. Características de ansiedad y depresión en estudiantes universitarios. Int J Psychol Res. (2008) 1:34–9.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Características de ansiedad y depresión en estudiantes universitarios",
+    "parsed_first_author": "agudelo",
+    "parsed_year": 2008,
+    "parsed_container": "Int J Psychol Res",
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": [
+      {
+       "year": 2008,
+       "paper_id": 5017,
+       "rejected": "first author 'velez' vs 'agudelo'",
+       "similarity": 1.0,
+       "first_author": "velez"
+      },
+      {
+       "year": 2009,
+       "paper_id": 5018,
+       "rejected": "first author 'velez' vs 'agudelo'",
+       "similarity": 0.6262,
+       "first_author": "velez"
+      }
+     ]
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28384,
+    "ordinal": 11,
+    "raw_string": "Spielberger CD Gorsuch RL Lushene RE. STAI. Cuestionario de Ansiedad Estado/Rasgo. Madrid: TEA, Ediciones (2009).",
+    "citation_tag": "mixed-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "STAI. Cuestionario de Ansiedad Estado/Rasgo",
+    "parsed_first_author": "spielberger",
+    "parsed_year": 2009,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28385,
+    "ordinal": 12,
+    "raw_string": "Hicdurmaz D İnci F Karahan S. Predictors of mental health symptoms, automatic thoughts, and self-esteem among university students. Psychol For Rep. (2017) 120:650–69. doi: 10.1177/0033294117707945 28558541",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1177/0033294117707945",
+    "parsed_pmid": "28558541",
+    "parsed_title": "Predictors of mental health symptoms, automatic thoughts, and self-esteem among university students",
+    "parsed_first_author": "hicdurmaz",
+    "parsed_year": 2017,
+    "parsed_container": "Psychol For Rep",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5025,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1177/0033294117707945"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28386,
+    "ordinal": 13,
+    "raw_string": "Arco JL López S Heilborn V Fernández F. Terapia breve en estudiantes universitarios con problemas de rendimiento académico y ansiedad: eficacia del modelo “La Cartuja”. Int J Clin Health Psychol. (2005) 5:589–608.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Terapia breve en estudiantes universitarios con problemas de rendimiento académico y ansiedad: eficacia del modelo “La Cartuja”",
+    "parsed_first_author": "arco",
+    "parsed_year": 2005,
+    "parsed_container": "Int J Clin Health Psychol",
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": [
+      {
+       "year": 2005,
+       "paper_id": 5031,
+       "rejected": "first author 'tirado' vs 'arco'",
+       "similarity": 1.0,
+       "first_author": "tirado"
+      }
+     ]
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28387,
+    "ordinal": 14,
+    "raw_string": "Álvarez J Aguilar JM Lorenzo JJ. Test anxiety in university student: relationships with personal and academic variables. Electron J Res Educ Psychol. (2012) 10:333–54. doi: 10.25115/ejrep.v10i26.1497",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.25115/ejrep.v10i26.1497",
+    "parsed_pmid": null,
+    "parsed_title": "Test anxiety in university student: relationships with personal and academic variables",
+    "parsed_first_author": "alvarez",
+    "parsed_year": 2012,
+    "parsed_container": "Electron J Res Educ Psychol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5032,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.25115/ejrep.v10i26.1497"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.373
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28388,
+    "ordinal": 15,
+    "raw_string": "Kumar AP Dhamodhini KS Venugopal V Silambanan S Shah P. Role of yoga in stress management and implications in major depression disorder. J Ayurveda Integr Med. (2023) 14:100767. doi: 10.1016/j.jaim.2023.100767, PMID: 37741161 PMC10520539",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.jaim.2023.100767",
+    "parsed_pmid": "37741161",
+    "parsed_title": "Role of yoga in stress management and implications in major depression disorder",
+    "parsed_first_author": "kumar",
+    "parsed_year": 2023,
+    "parsed_container": "J Ayurveda Integr Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5033,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.jaim.2023.100767"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28389,
+    "ordinal": 16,
+    "raw_string": "Riley KE Park CL. How does yoga reduce stress? A systematic review of mechanisms of change and guide to future inquiry. Health Psychol Rev. (2015) 9:379–96. doi: 10.1080/17437199.2014.981778 25559560",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1080/17437199.2014.981778",
+    "parsed_pmid": "25559560",
+    "parsed_title": "How does yoga reduce stress? A systematic review of mechanisms of change and guide to future inquiry",
+    "parsed_first_author": "riley",
+    "parsed_year": 2015,
+    "parsed_container": "Health Psychol Rev",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5034,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1080/17437199.2014.981778"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28390,
+    "ordinal": 17,
+    "raw_string": "Cramer H Lauche R Langhorst J Dobos G. Yoga for depression: a systematic review and meta-analysis. Depress Anxiety. (2013) 30:1068–83. doi: 10.1002/da.22166 23922209",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/da.22166",
+    "parsed_pmid": "23922209",
+    "parsed_title": "Yoga for depression: a systematic review and meta-analysis",
+    "parsed_first_author": "cramer",
+    "parsed_year": 2013,
+    "parsed_container": "Depress Anxiety",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 1096,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/da.22166"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28391,
+    "ordinal": 18,
+    "raw_string": "Jensen PS Stevens PJ Kenny DT. Respiratory patterns in students enrolled in schools for disruptive behaviour before, during, and after yoga nidra relaxation. Child Fam Stud. (2012) 21:667–81. doi: 10.1007/s10826-011-9519-3",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s10826-011-9519-3",
+    "parsed_pmid": null,
+    "parsed_title": "Respiratory patterns in students enrolled in schools for disruptive behaviour before, during, and after yoga nidra relaxation",
+    "parsed_first_author": "jensen",
+    "parsed_year": 2012,
+    "parsed_container": "Child Fam Stud",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5035,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s10826-011-9519-3"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28392,
+    "ordinal": 19,
+    "raw_string": "Dol KS. Effects of a yoga nidra on the life stress and self-esteem in university students. Complement Ther Clin Pract. (2019) 35:232–6. doi: 10.1016/j.ctcp.2019.03.004, PMID: 31003664",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.ctcp.2019.03.004",
+    "parsed_pmid": "31003664",
+    "parsed_title": "Effects of a yoga nidra on the life stress and self-esteem in university students",
+    "parsed_first_author": "dol",
+    "parsed_year": 2019,
+    "parsed_container": "Complement Ther Clin Pract",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5036,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.ctcp.2019.03.004"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28393,
+    "ordinal": 20,
+    "raw_string": "Tooley GA Armstrong SM Norman TR Sali A. Acute increases in night-time plasma melatonin levels following a period of meditation. Biol Psychol. (2000) 53:69–78. doi: 10.1016/S0301-0511(00)00035-1, PMID: 10876066",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s0301-0511(00)00035-1",
+    "parsed_pmid": "10876066",
+    "parsed_title": "Acute increases in night-time plasma melatonin levels following a period of meditation",
+    "parsed_first_author": "tooley",
+    "parsed_year": 2000,
+    "parsed_container": "Biol Psychol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5037,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0301-0511(00)00035-1"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28394,
+    "ordinal": 21,
+    "raw_string": "Saoji AA Raghavendra BR Manjunath NK. Immediate effects of yoga breathing with intermittent breath retention on the autonomic and cardiovascular variables amongst healthy volunteers. Indian J Physiol Pharmacol. (2018) 11:99–50. doi: 10.4103/ijoy.ijoy_65_16 PMC5934957 29755217",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.4103/ijoy.ijoy_65_16",
+    "parsed_pmid": "29755217",
+    "parsed_title": "Immediate effects of yoga breathing with intermittent breath retention on the autonomic and cardiovascular variables amongst healthy volunteers",
+    "parsed_first_author": "saoji",
+    "parsed_year": 2018,
+    "parsed_container": "Indian J Physiol Pharmacol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5038,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.4103/ijoy.ijoy_65_16"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.726
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28395,
+    "ordinal": 22,
+    "raw_string": "Lim SA Cheong KJ. Regular yoga practice improves antioxidant status, immune function, and stress hormone releases in young healthy people: a randomized, double-blind, controlled pilot study. J Alternative Compl Med. (2015) 21:530–8. doi: 10.1089/acm.2014.0044, PMID: 26181573",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1089/acm.2014.0044",
+    "parsed_pmid": "26181573",
+    "parsed_title": "Regular yoga practice improves antioxidant status, immune function, and stress hormone releases in young healthy people: a randomized, double-blind, controlled pilot study",
+    "parsed_first_author": "lim",
+    "parsed_year": 2015,
+    "parsed_container": "J Alternative Compl Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5039,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1089/acm.2014.0044"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28396,
+    "ordinal": 23,
+    "raw_string": "Kjaer TW Bertelsen C Piccini P Brooks D Alving J Lou HC. Increased dopamine tone during meditation-induced change of consciousness. Cognit Brain Res. (2002) 13:255–9. doi: 10.1016/s0926-6410(01)00106-9, PMID: 11958969",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s0926-6410(01)00106-9",
+    "parsed_pmid": "11958969",
+    "parsed_title": "Increased dopamine tone during meditation-induced change of consciousness",
+    "parsed_first_author": "kjaer",
+    "parsed_year": 2002,
+    "parsed_container": "Cognit Brain Res",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5040,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0926-6410(01)00106-9"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28397,
+    "ordinal": 24,
+    "raw_string": "World Health Organization. Obesity: preventing and management of the global epidemic. Geneva: World Health Organization (2000).",
+    "citation_tag": "mixed-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Obesity: preventing and management of the global epidemic",
+    "parsed_first_author": "world health organization",
+    "parsed_year": 2000,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28398,
+    "ordinal": 25,
+    "raw_string": "Cohen S Kamarck T Mermelstein R. A global measure of perceived stress. J Health Soc Behav. (1983) 24:385–96. doi: 10.2307/2136404 6668417",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2307/2136404",
+    "parsed_pmid": "6668417",
+    "parsed_title": "A global measure of perceived stress",
+    "parsed_first_author": "cohen",
+    "parsed_year": 1983,
+    "parsed_container": "J Health Soc Behav",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5046,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2307/2136404"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28399,
+    "ordinal": 26,
+    "raw_string": "Remor E. Psychometric properties of a European Spanish version of the perceived stress scale (PSS). Span J Psychol. (2006) 9:86–93. doi: 10.1017/S1138741600006004, PMID: 16673626",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1017/s1138741600006004",
+    "parsed_pmid": "16673626",
+    "parsed_title": "Psychometric properties of a European Spanish version of the perceived stress scale (PSS)",
+    "parsed_first_author": "remor",
+    "parsed_year": 2006,
+    "parsed_container": "Span J Psychol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5047,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1017/s1138741600006004"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28400,
+    "ordinal": 27,
+    "raw_string": "Tennant R Hiller L Fishwick R Platt S Joseph S Weich S. The Warwick-Dinburgh mental well-being scale (WEMWBS): development and UK validation. Health Qual Life Outcomes. (2007) 5:63. doi: 10.1186/1477-7525-5-63, PMID: 18042300 PMC2222612",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1186/1477-7525-5-63",
+    "parsed_pmid": "18042300",
+    "parsed_title": "The Warwick-Dinburgh mental well-being scale (WEMWBS): development and UK validation",
+    "parsed_first_author": "tennant",
+    "parsed_year": 2007,
+    "parsed_container": "Health Qual Life Outcomes",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5048,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/1477-7525-5-63"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.994
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28401,
+    "ordinal": 28,
+    "raw_string": "Castellví P Forero CG Codony M Vilagut G Brugulat P Medina A. The Spanish version of the Warwick-Edinburgh mental well-being scale (WEMWBS) is valid for use in the general population. Qual Life Res Int J Qual Life Asp Treat Care Rehab. (2014) 23:857–68. doi: 10.1007/s11136-013-0513-7, PMID: 24005886",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s11136-013-0513-7",
+    "parsed_pmid": "24005886",
+    "parsed_title": "The Spanish version of the Warwick-Edinburgh mental well-being scale (WEMWBS) is valid for use in the general population",
+    "parsed_first_author": "castellvi",
+    "parsed_year": 2014,
+    "parsed_container": "Qual Life Res Int J Qual Life Asp Treat Care Rehab",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5049,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s11136-013-0513-7"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28402,
+    "ordinal": 29,
+    "raw_string": "Spielberger CD. Manual for the state-trait anxietry, inventory. Consult Psychol. (1970)",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Manual for the state-trait anxietry, inventory",
+    "parsed_first_author": "spielberger",
+    "parsed_year": 1970,
+    "parsed_container": "Consult Psychol",
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": [
+      {
+       "year": 1983,
+       "paper_id": 5052,
+       "rejected": "year 1983 vs 1970",
+       "similarity": 0.6154,
+       "first_author": "spielberger"
+      }
+     ]
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28403,
+    "ordinal": 30,
+    "raw_string": "Buela-Casal G Guillén-Riquelme A. Short form of the Spanish adaptation of the state-trait anxiety inventory. Int J Clin Health Psychol. (2017) 17:261–8. doi: 10.1016/j.ijchp.2017.07.003, PMID: 30487901 PMC6220914",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.ijchp.2017.07.003",
+    "parsed_pmid": "30487901",
+    "parsed_title": "Short form of the Spanish adaptation of the state-trait anxiety inventory",
+    "parsed_first_author": "buela casal",
+    "parsed_year": 2017,
+    "parsed_container": "Int J Clin Health Psychol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5055,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.ijchp.2017.07.003"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28404,
+    "ordinal": 31,
+    "raw_string": "Brisbon NM Lowery GA. Mindfulness and levels of stress: a comparison of beginner and advanced hatha yoga practitioners. J Relig Health. (2011) 50:931–41. doi: 10.1007/s10943-009-9305-3, PMID: 19949871",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s10943-009-9305-3",
+    "parsed_pmid": "19949871",
+    "parsed_title": "Mindfulness and levels of stress: a comparison of beginner and advanced hatha yoga practitioners",
+    "parsed_first_author": "brisbon",
+    "parsed_year": 2011,
+    "parsed_container": "J Relig Health",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5056,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s10943-009-9305-3"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28405,
+    "ordinal": 32,
+    "raw_string": "Regehr C Glancy D Pitts A. Interventions to reduce stress in university students: a review and meta-analysis. J Affect Disord. (2013) 148:1–11. doi: 10.1016/j.jad.2012.11.026, PMID: 23246209",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.jad.2012.11.026",
+    "parsed_pmid": "23246209",
+    "parsed_title": "Interventions to reduce stress in university students: a review and meta-analysis",
+    "parsed_first_author": "regehr",
+    "parsed_year": 2013,
+    "parsed_container": "J Affect Disord",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5057,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.jad.2012.11.026"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28406,
+    "ordinal": 33,
+    "raw_string": "Kaushik M Jain A Agarwal P Joshi SD Parvez S. Role of yoga and meditation as complimentary therapeutic regime for stress-related neuropsychiatric disorders: utilization of brain waves activity as novel tool. J Evid Based Integr Med. (2020) 25:2515690X20949451. doi: 10.1177/2515690x20949451, PMID: 32985243 PMC7545749",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1177/2515690x20949451",
+    "parsed_pmid": "32985243",
+    "parsed_title": "Role of yoga and meditation as complimentary therapeutic regime for stress-related neuropsychiatric disorders: utilization of brain waves activity as novel tool",
+    "parsed_first_author": "kaushik",
+    "parsed_year": 2020,
+    "parsed_container": "J Evid Based Integr Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5058,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1177/2515690x20949451"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28407,
+    "ordinal": 34,
+    "raw_string": "Sousa GM Lima-Araújo GL Araújo DB Sousa MBC. Brief mindfulness-based training and mindfulness trait attenuate psychological stress in university students: a randomized controlled trial. BMC Psychol. (2021) 9:21. doi: 10.1186/s40359-021-00520-x, PMID: 33526085 PMC7852130",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1186/s40359-021-00520-x",
+    "parsed_pmid": "33526085",
+    "parsed_title": "Brief mindfulness-based training and mindfulness trait attenuate psychological stress in university students: a randomized controlled trial",
+    "parsed_first_author": "sousa",
+    "parsed_year": 2021,
+    "parsed_container": "BMC Psychol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5059,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/s40359-021-00520-x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28408,
+    "ordinal": 35,
+    "raw_string": "Galante J Dufour G Vainre M Wagner AP Stochl J Benton A. A mindfulness-based intervention to increase resilience to stress in university students (the mindful student study): a pragmatic randomised controlled trial. Lancet Public Heal. (2018) 3:e72–81. doi: 10.1016/s2468-2667(17)30231-1, PMID: 29422189 PMC5813792",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s2468-2667(17)30231-1",
+    "parsed_pmid": "29422189",
+    "parsed_title": "A mindfulness-based intervention to increase resilience to stress in university students (the mindful student study): a pragmatic randomised controlled trial",
+    "parsed_first_author": "galante",
+    "parsed_year": 2018,
+    "parsed_container": "Lancet Public Heal",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5060,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s2468-2667(17)30231-1"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28409,
+    "ordinal": 36,
+    "raw_string": "Saoji AA Raghavendra BR Madle K Manjunath NK. Additional practice of yoga breathing with intermittent breath holding enhances psychological functions in yoga practitioners: a randomized controlled trial. Explore (NY). (2018) 14:379–84. doi: 10.1016/j.explore.2018.02.005 30122326",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.explore.2018.02.005",
+    "parsed_pmid": "30122326",
+    "parsed_title": "Additional practice of yoga breathing with intermittent breath holding enhances psychological functions in yoga practitioners: a randomized controlled trial",
+    "parsed_first_author": "saoji",
+    "parsed_year": 2018,
+    "parsed_container": "Explore (NY)",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5061,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.explore.2018.02.005"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28410,
+    "ordinal": 37,
+    "raw_string": "Vinay AV Venkatesh D Ambarish V. Impact of short-term practice of yoga on heart rate variability. Int J Yoga. (2016) 9:62–6. doi: 10.4103/0973-6131.171714, PMID: 26865773 PMC4728961",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.4103/0973-6131.171714",
+    "parsed_pmid": "26865773",
+    "parsed_title": "Impact of short-term practice of yoga on heart rate variability",
+    "parsed_first_author": "vinay",
+    "parsed_year": 2016,
+    "parsed_container": "Int J Yoga",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5062,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.4103/0973-6131.171714"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28411,
+    "ordinal": 38,
+    "raw_string": "Anasuya B Deepak KK Jaryal AK Narang R. Effect of slow breathing on autonomic tone & baroreflex sensitivity in yoga practitioners. Indian J Med Res. (2020) 152:638–47. doi: 10.4103/ijmr.IJMR_559_19, PMID: 34145104 PMC8224157",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.4103/ijmr.ijmr_559_19",
+    "parsed_pmid": "34145104",
+    "parsed_title": "Effect of slow breathing on autonomic tone & baroreflex sensitivity in yoga practitioners",
+    "parsed_first_author": "anasuya",
+    "parsed_year": 2020,
+    "parsed_container": "Indian J Med Res",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5063,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.4103/ijmr.ijmr_559_19"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.978
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28412,
+    "ordinal": 39,
+    "raw_string": "Greeson JM Juberg MK Maytan M James K Rogers H. A randomized controlled trial of koru: a mindfulness program for college students and other emerging adults. J Am Coll Heal. (2014) 62:222–33. doi: 10.1080/07448481.2014.887571, PMID: 24499130 PMC4016159",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1080/07448481.2014.887571",
+    "parsed_pmid": "24499130",
+    "parsed_title": "A randomized controlled trial of koru: a mindfulness program for college students and other emerging adults",
+    "parsed_first_author": "greeson",
+    "parsed_year": 2014,
+    "parsed_container": "J Am Coll Heal",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5064,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1080/07448481.2014.887571"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28413,
+    "ordinal": 40,
+    "raw_string": "O'Driscoll M Byrne S McGillicuddy A Lambert S Sahm LJ. The effects of mindfulness-based interventions for health and social care undergraduate students—a systematic review of the literature. Psychol Health Med. (2017) 22:851–65. doi: 10.1080/13548506.2017.1280178, PMID: 28103700",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1080/13548506.2017.1280178",
+    "parsed_pmid": "28103700",
+    "parsed_title": "The effects of mindfulness-based interventions for health and social care undergraduate students—a systematic review of the literature",
+    "parsed_first_author": "o driscoll",
+    "parsed_year": 2017,
+    "parsed_container": "Psychol Health Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5065,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1080/13548506.2017.1280178"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28414,
+    "ordinal": 41,
+    "raw_string": "McConville J McAleer R Hahne A. Mindfulness training for health profession students—the effect of mindfulness training on psychological well-being, learning and clinical performance of health professional students: a systematic review of randomized and non-randomized controlled trials. Explore. (2017) 13:26–45. doi: 10.1016/j.explore.2016.10.002 27889445",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.explore.2016.10.002",
+    "parsed_pmid": "27889445",
+    "parsed_title": "Mindfulness training for health profession students—the effect of mindfulness training on psychological well-being, learning and clinical performance of health professional students: a systematic review of randomized and non-randomized controlled trials",
+    "parsed_first_author": "mcconville",
+    "parsed_year": 2017,
+    "parsed_container": "Explore",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5066,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.explore.2016.10.002"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28415,
+    "ordinal": 42,
+    "raw_string": "Begasse de Dhaem O Bernstein C. Yoga for migraine prevention: an ancient practice with evidence for current use. Curr Pain Headache Rep. (2024). doi: 10.1007/s11916-024-01234-6, PMID: 38502436",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s11916-024-01234-6",
+    "parsed_pmid": "38502436",
+    "parsed_title": "Yoga for migraine prevention: an ancient practice with evidence for current use",
+    "parsed_first_author": "begasse de dhaem",
+    "parsed_year": 2024,
+    "parsed_container": "Curr Pain Headache Rep",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5067,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s11916-024-01234-6"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28416,
+    "ordinal": 43,
+    "raw_string": "Falsafi N. A randomized controlled trial of mindfulness versus yoga: effects on depression and/or anxiety in college students. J Am Psychiatr Nurses Assoc. (2016) 22:483–97. doi: 10.1177/1078390316663307 27566622",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1177/1078390316663307",
+    "parsed_pmid": "27566622",
+    "parsed_title": "A randomized controlled trial of mindfulness versus yoga: effects on depression and/or anxiety in college students",
+    "parsed_first_author": "falsafi",
+    "parsed_year": 2016,
+    "parsed_container": "J Am Psychiatr Nurses Assoc",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5068,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1177/1078390316663307"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.663
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28417,
+    "ordinal": 44,
+    "raw_string": "Gallego J Aguilar-Parra JM Cangas AJ Langer AI Manas I. Effect of a mindfulness program on stress, anxiety and depression in university students. Span J Psychol. (2014) 17:E109. doi: 10.1017/sjp.2014.102 26055051",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1017/sjp.2014.102",
+    "parsed_pmid": "26055051",
+    "parsed_title": "Effect of a mindfulness program on stress, anxiety and depression in university students",
+    "parsed_first_author": "gallego",
+    "parsed_year": 2014,
+    "parsed_container": "Span J Psychol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5069,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1017/sjp.2014.102"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28418,
+    "ordinal": 45,
+    "raw_string": "Saeed SA Antonacci DJ Bloch RM. Exercise, yoga, and meditation for depressive and anxiety disorders. Am Fam Physician. (2010) 81:981–6. PMID: 20387774",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": "20387774",
+    "parsed_title": "Exercise, yoga, and meditation for depressive and anxiety disorders",
+    "parsed_first_author": "saeed",
+    "parsed_year": 2010,
+    "parsed_container": "Am Fam Physician",
+    "resolution_status": "resolved",
+    "resolution_method": "pmid",
+    "resolved_paper_id": 5070,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "pmid:20387774"
+      ],
+      "openalex_pmid": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28419,
+    "ordinal": 46,
+    "raw_string": "Streeter CC Whitfield TH Owen L Rein T Karri SK Yakhkind A. Effects of yoga versus walking on mood, anxiety, and brain GABA levels: a randomized controlled MRS study. J Altern Complement Med. (2010) 16:1145–52. doi: 10.1089/acm.2010.0007, PMID: 20722471 PMC3111147",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1089/acm.2010.0007",
+    "parsed_pmid": "20722471",
+    "parsed_title": "Effects of yoga versus walking on mood, anxiety, and brain GABA levels: a randomized controlled MRS study",
+    "parsed_first_author": "streeter",
+    "parsed_year": 2010,
+    "parsed_container": "J Altern Complement Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5071,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1089/acm.2010.0007"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28420,
+    "ordinal": 47,
+    "raw_string": "Goyal M Singh S Sibinga EMS. Meditation programs for psychological stress and well-being: a systematic review and meta-analysis. JAMA Intern Med. (2014) 174:357–68. doi: 10.1001/jamainternmed.2013.13018, PMID: 24395196 PMC4142584",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1001/jamainternmed.2013.13018",
+    "parsed_pmid": "24395196",
+    "parsed_title": "Meditation programs for psychological stress and well-being: a systematic review and meta-analysis",
+    "parsed_first_author": "goyal",
+    "parsed_year": 2014,
+    "parsed_container": "JAMA Intern Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5072,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1001/jamainternmed.2013.13018"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.756
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 28421,
+    "ordinal": 48,
+    "raw_string": "Mental Health Foundation. Better mental health for all: a public health approach to mental health improvement. (2016). Available at: http://www.fph.org.uk/uploads/Better%20Mental%20Health%20For%20All%20FINAL%20low%20res.pdf",
+    "citation_tag": "mixed-citation",
+    "publication_type": "other",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "mental health foundation",
+    "parsed_year": 2016,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   }
+  ],
+  "stat_tests": [
+   {
+    "stat_test_id": 570,
+    "location": "Results",
+    "raw_string": "F(1, 127) = 16.853, p = 0.001"
+   },
+   {
+    "stat_test_id": 571,
+    "location": "Results",
+    "raw_string": "F(1, 127) = 11.880, p = 0.001"
+   },
+   {
+    "stat_test_id": 572,
+    "location": "Results",
+    "raw_string": "F(1, 127) = 0.376, p = 0.541"
+   },
+   {
+    "stat_test_id": 573,
+    "location": "Results",
+    "raw_string": "t(127) = 2.053, p = 0.042"
+   },
+   {
+    "stat_test_id": 574,
+    "location": "Results",
+    "raw_string": "t(64) = 3.921, p = 0.001"
+   },
+   {
+    "stat_test_id": 575,
+    "location": "Results",
+    "raw_string": "t(127) = 2.053, p = 0.042"
+   },
+   {
+    "stat_test_id": 576,
+    "location": "Results",
+    "raw_string": "t(64) = 3.921, p = 0.001"
+   },
+   {
+    "stat_test_id": 577,
+    "location": "Results",
+    "raw_string": "F(1, 127) = 11.383, p = 0.001"
+   },
+   {
+    "stat_test_id": 578,
+    "location": "Results",
+    "raw_string": "F(1, 127) = 9.232, p = 0.003"
+   },
+   {
+    "stat_test_id": 579,
+    "location": "Results",
+    "raw_string": "F(1, 127) = 0.751, p = 0.388"
+   },
+   {
+    "stat_test_id": 580,
+    "location": "Results",
+    "raw_string": "t(127) = -2.277, p = 0.024"
+   },
+   {
+    "stat_test_id": 581,
+    "location": "Results",
+    "raw_string": "t(64) = -3.405, p = 0.001"
+   },
+   {
+    "stat_test_id": 582,
+    "location": "Results",
+    "raw_string": "F(1, 127) = 8.008, p = 0.005"
+   },
+   {
+    "stat_test_id": 583,
+    "location": "Results",
+    "raw_string": "F(1, 127) = 11.053, p = 0.001"
+   },
+   {
+    "stat_test_id": 584,
+    "location": "Results",
+    "raw_string": "F(1,127) = 11.246, p = 0.001"
+   },
+   {
+    "stat_test_id": 585,
+    "location": "Results",
+    "raw_string": "t(127) = 4.240, p = 0.001"
+   },
+   {
+    "stat_test_id": 586,
+    "location": "Results",
+    "raw_string": "t(64) = 3.148, p = 0.002"
+   },
+   {
+    "stat_test_id": 587,
+    "location": "Results",
+    "raw_string": "F(1,127) = 24.248, p = 0.000"
+   },
+   {
+    "stat_test_id": 588,
+    "location": "Results",
+    "raw_string": "F(1, 127) = 0.066, p = 0.798"
+   },
+   {
+    "stat_test_id": 589,
+    "location": "Results",
+    "raw_string": "t(102) = 2.410, p = 0.017"
+   },
+   {
+    "stat_test_id": 590,
+    "location": "Results",
+    "raw_string": "t(51) = 6.406, p = 0.001"
+   }
+  ],
+  "means": [],
+  "trials": []
+ }
+}

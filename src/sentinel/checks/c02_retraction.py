@@ -34,13 +34,17 @@ def _replaced(notice: NoticeContext) -> bool:
     return any(r in reason for r in REPLACED_REASONS)
 
 
+def _gap(months: int) -> str:
+    return "less than a month" if months == 0 else "1 month" if months == 1 else f"{months} months"
+
+
 def _iso(d: date | None) -> str | None:
     return d.isoformat() if d else None
 
 
 class C02Retraction(Check):
     check_id = "C02"
-    check_ver = "1.0.0"
+    check_ver = "1.0.1"  # 1.0.1: in-press gap wording ("1 month", "less than a month")
     subject = "paper"
 
     def __init__(self, grace_months: int) -> None:
@@ -114,10 +118,10 @@ class C02Retraction(Check):
             if gap > self.grace_months:
                 return finding("after_grace", "flagged", "high",
                                f"{label} cites a work retracted on {_iso(notice_date)}, "
-                               f"{gap} months before this paper was published.", gap_months=gap)
+                               f"{_gap(gap)} before this paper was published.", gap_months=gap)
             return finding("in_press", "flagged", "low",
                            f"{label} cites a work retracted on {_iso(notice_date)}, while this "
-                           f"paper was in press ({gap} months before publication).", gap_months=gap)
+                           f"paper was in press ({_gap(gap)} before publication).", gap_months=gap)
 
         if concerns:
             first = min(concerns, key=lambda n: n.notice_date or date.max)

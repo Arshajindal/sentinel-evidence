@@ -1,0 +1,263 @@
+{
+ "id": "NCT00027300",
+ "subject": "trial",
+ "categories": [
+  "c05_before_fdaaa"
+ ],
+ "source": {
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "Started 2001-11 and completed 2005-01, before FDAAA results reporting.",
+ "expected": [
+  {
+   "check": "C05",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "trial": {
+   "nct_id": "NCT00027300",
+   "brief_title": "Safety and Efficacy of Natalizumab in the Treatment of Multiple Sclerosis",
+   "overall_status": "COMPLETED",
+   "study_type": "INTERVENTIONAL",
+   "phase": "PHASE3",
+   "enrollment": 900,
+   "start_date": "2001-11-30",
+   "primary_completion_date": "2004-11-30",
+   "completion_date": "2005-01-31",
+   "results_first_posted": null,
+   "lead_sponsor": "Biogen",
+   "sponsor_class": "INDUSTRY",
+   "raw": {
+    "protocolSection": {
+     "identificationModule": {
+      "nctId": "NCT00027300",
+      "briefTitle": "Safety and Efficacy of Natalizumab in the Treatment of Multiple Sclerosis"
+     },
+     "statusModule": {
+      "overallStatus": "COMPLETED",
+      "startDateStruct": {
+       "date": "2001-11"
+      },
+      "expandedAccessInfo": {
+       "hasExpandedAccess": false
+      },
+      "statusVerifiedDate": "2017-01",
+      "completionDateStruct": {
+       "date": "2005-01",
+       "type": "ACTUAL"
+      },
+      "lastUpdateSubmitDate": "2017-01-05",
+      "studyFirstSubmitDate": "2001-11-30",
+      "studyFirstSubmitQcDate": "2001-11-30",
+      "lastUpdatePostDateStruct": {
+       "date": "2017-01-09",
+       "type": "ESTIMATED"
+      },
+      "studyFirstPostDateStruct": {
+       "date": "2001-12-03",
+       "type": "ESTIMATED"
+      },
+      "primaryCompletionDateStruct": {
+       "date": "2004-11",
+       "type": "ACTUAL"
+      }
+     },
+     "oversightModule": {
+      "oversightHasDmc": true
+     },
+     "designModule": {
+      "studyType": "INTERVENTIONAL",
+      "phases": [
+       "PHASE3"
+      ]
+     },
+     "contactsLocationsModule": {
+      "locations": [
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "Belgium"
+       },
+       {
+        "country": "Belgium"
+       },
+       {
+        "country": "Belgium"
+       },
+       {
+        "country": "Canada"
+       },
+       {
+        "country": "Canada"
+       },
+       {
+        "country": "Canada"
+       },
+       {
+        "country": "Canada"
+       },
+       {
+        "country": "Canada"
+       },
+       {
+        "country": "Canada"
+       },
+       {
+        "country": "Canada"
+       },
+       {
+        "country": "Canada"
+       },
+       {
+        "country": "Canada"
+       },
+       {
+        "country": "Czechia"
+       },
+       {
+        "country": "Czechia"
+       },
+       {
+        "country": "Czechia"
+       },
+       {
+        "country": "Czechia"
+       },
+       {
+        "country": "Czechia"
+       },
+       {
+        "country": "Czechia"
+       },
+       {
+        "country": "Czechia"
+       },
+       {
+        "country": "Czechia"
+       },
+       {
+        "country": "Czechia"
+       },
+       {
+        "country": "France"
+       },
+       {
+        "country": "France"
+       },
+       {
+        "country": "Germany"
+       },
+       {
+        "country": "Germany"
+       },
+       {
+        "country": "Netherlands"
+       },
+       {
+        "country": "United Kingdom"
+       },
+       {
+        "country": "United Kingdom"
+       },
+       {
+        "country": "United Kingdom"
+       },
+       {
+        "country": "United Kingdom"
+       },
+       {
+        "country": "United Kingdom"
+       },
+       {
+        "country": "United Kingdom"
+       },
+       {
+        "country": "United Kingdom"
+       },
+       {
+        "country": "United Kingdom"
+       },
+       {
+        "country": "United Kingdom"
+       },
+       {
+        "country": "United Kingdom"
+       },
+       {
+        "country": "United Kingdom"
+       },
+       {
+        "country": "United Kingdom"
+       },
+       {
+        "country": "United Kingdom"
+       }
+      ]
+     }
+    },
+    "hasResults": false
+   },
+   "outcomes": [
+    {
+     "version_no": 0,
+     "version_date": "2017-01-09",
+     "outcome_type": "primary",
+     "measure": "The primary objectives of this study are to determine whether natalizumab, when compared with placebo, is effective in reducing the rate of clinical relapses at 1 year and, in slowing the progression of disability at 2 years.",
+     "description": null,
+     "time_frame": "1 year and 2 years"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-01-09",
+     "outcome_type": "secondary",
+     "measure": "Reduction in MRI changes and clinical relapses",
+     "description": null,
+     "time_frame": "1 year"
+    }
+   ]
+  },
+  "fetched_on": "2026-10-24"
+ }
+}

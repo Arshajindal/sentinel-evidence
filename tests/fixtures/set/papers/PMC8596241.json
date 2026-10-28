@@ -1,0 +1,1733 @@
+{
+ "id": "PMC8596241",
+ "subject": "paper",
+ "categories": [
+  "c02_cited_after_retraction",
+  "c01_false_positive_regression"
+ ],
+ "source": {
+  "corpus": "pmc-rct-2015-2024",
+  "paper_id": 164,
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "44 references. Ref 9 (Proulx 2017, Constructivist Foundations) was flagged when it was resolved on 2026-10-25, before the glued-text fix; re-resolved 2026-10-27 it matches OpenAlex by exact title. One ambiguous reference (more than one record), not flagged.",
+ "expected": [
+  {
+   "check": "C01",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C02",
+   "status": "flagged",
+   "severity": "high",
+   "item": "ref 25",
+   "band": "after_grace",
+   "why": "Same Suresh 2011 retraction (2017-01-01, approximate); paper published 2021-11-02 = 58 months later."
+  },
+  {
+   "check": "C02",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C03",
+   "status": "not_applicable",
+   "severity": "info"
+  },
+  {
+   "check": "C04",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "paper_id": 164,
+  "publication_date": "2021-11-02",
+  "fulltext_status": "full",
+  "references": [
+   {
+    "reference_id": 6765,
+    "ordinal": 1,
+    "raw_string": "Silveri MM Dager AD Cohen-Gilbert JE Sneider JT Neurobiological signatures associated with alcohol and drug use in the human adolescent brain Neurosci Biobehav Rev 2016 11 70 244 259 10.1016/j.neubiorev.2016.06.042 27377691 S0149-7634(16)30151-8 27377691 PMC5494836",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.neubiorev.2016.06.042",
+    "parsed_pmid": "27377691",
+    "parsed_title": "Neurobiological signatures associated with alcohol and drug use in the human adolescent brain",
+    "parsed_first_author": "silveri",
+    "parsed_year": 2016,
+    "parsed_container": "Neurosci Biobehav Rev",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3916,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.neubiorev.2016.06.042"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6766,
+    "ordinal": 2,
+    "raw_string": "Camchong J Lim KO Kumra S Adverse effects of cannabis on adolescent brain development: a longitudinal study Cereb Cortex 2017 03 27 3 1922 1930 10.1093/cercor/bhw015 26912785 3056289 26912785 PMC5963818",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/cercor/bhw015",
+    "parsed_pmid": "26912785",
+    "parsed_title": "Adverse effects of cannabis on adolescent brain development: a longitudinal study",
+    "parsed_first_author": "camchong",
+    "parsed_year": 2017,
+    "parsed_container": "Cereb Cortex",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3917,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/cercor/bhw015"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6767,
+    "ordinal": 3,
+    "raw_string": "Shanks RA Ross JM Doyle HH Helton AK Picou BN Schulz J Tavares C Bryant S Dawson BL Lloyd SA Adolescent exposure to cocaine, amphetamine, and methylphenidate cross-sensitizes adults to methamphetamine with drug- and sex-specific effects Behav Brain Res 2015 03 281 116 124 10.1016/j.bbr.2014.12.002 25496784 S0166-4328(14)00787-6 25496784",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.bbr.2014.12.002",
+    "parsed_pmid": "25496784",
+    "parsed_title": "Adolescent exposure to cocaine, amphetamine, and methylphenidate cross-sensitizes adults to methamphetamine with drug- and sex-specific effects",
+    "parsed_first_author": "shanks",
+    "parsed_year": 2015,
+    "parsed_container": "Behav Brain Res",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3918,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.bbr.2014.12.002"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6768,
+    "ordinal": 4,
+    "raw_string": "Helander A Bäckberg M New psychoactive substances (NPS) - the Hydra monster of recreational drugs Clin Toxicol (Phila) 2017 01 55 1 1 3 10.1080/15563650.2016.1217003 27549399 27549399",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1080/15563650.2016.1217003",
+    "parsed_pmid": "27549399",
+    "parsed_title": "New psychoactive substances (NPS) - the Hydra monster of recreational drugs",
+    "parsed_first_author": "helander",
+    "parsed_year": 2017,
+    "parsed_container": "Clin Toxicol (Phila)",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3919,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1080/15563650.2016.1217003"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6769,
+    "ordinal": 5,
+    "raw_string": "Chang C Liao J Huang C Hsu H Chen C Guo J Evaluation of the effects of a designated program on illegal drug cessation among adolescents who experiment with drugs Subst Abuse Treat Prev Policy 2018 01 13 1 2 12 10.1186/s13011-017-0139-9 29338751 10.1186/s13011-017-0139-9 29338751 PMC5771158",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1186/s13011-017-0139-9",
+    "parsed_pmid": "29338751",
+    "parsed_title": "Evaluation of the effects of a designated program on illegal drug cessation among adolescents who experiment with drugs",
+    "parsed_first_author": "chang",
+    "parsed_year": 2018,
+    "parsed_container": "Subst Abuse Treat Prev Policy",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3920,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/s13011-017-0139-9"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6770,
+    "ordinal": 6,
+    "raw_string": "Key points for the implementation of Sunshine volunteer service of the Ministry of Education Ministry of Education 2018 2020-12-24 https://edu.law.moe.gov.tw/LawContent.aspx?id=GL000333",
+    "citation_tag": "element-citation",
+    "publication_type": "webpage",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Key points for the implementation of Sunshine volunteer service of the Ministry of Education",
+    "parsed_first_author": null,
+    "parsed_year": 2018,
+    "parsed_container": "Ministry of Education",
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6771,
+    "ordinal": 7,
+    "raw_string": "Merchant RM Leigh JE Lurie N Health care volunteers and disaster response — first, be prepared N Engl J Med 2010 03 362 10 872 873 10.1056/nejmp1001737 20181966",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1056/nejmp1001737",
+    "parsed_pmid": "20181966",
+    "parsed_title": "Health care volunteers and disaster response — first, be prepared",
+    "parsed_first_author": "merchant",
+    "parsed_year": 2010,
+    "parsed_container": "N Engl J Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3926,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1056/nejmp1001737"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6772,
+    "ordinal": 8,
+    "raw_string": "Häkkinen P Järvelä S Mäkitalo-Siegl K Ahonen A Näykki P Valtonen T Preparing teacher-students for twenty-first-century learning practices (PREP 21): a framework for enhancing collaborative problem-solving and strategic learning skills Teachers and Teaching 2016 07 23 1 25 41 10.1080/13540602.2016.1203772",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1080/13540602.2016.1203772",
+    "parsed_pmid": null,
+    "parsed_title": "Preparing teacher-students for twenty-first-century learning practices (PREP 21): a framework for enhancing collaborative problem-solving and strategic learning skills",
+    "parsed_first_author": "hakkinen",
+    "parsed_year": 2016,
+    "parsed_container": "Teachers and Teaching",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 1913,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1080/13540602.2016.1203772"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6773,
+    "ordinal": 9,
+    "raw_string": "Proulx J Maheux JF From problem solving to problem posing, and from strategies to laying down a path in solving: taking Varela’s ideas to mathematics education research Constr Found 2017 13 1 160 167",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "From problem solving to problem posing, and from strategies to laying down a path in solving: taking Varela’s ideas to mathematics education research",
+    "parsed_first_author": "proulx",
+    "parsed_year": 2017,
+    "parsed_container": "Constr Found",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 5350,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6774,
+    "ordinal": 10,
+    "raw_string": "van Velzen JH Complex problem solving in L1 education: senior high school students' knowledge of the language problem-solving process J Educ Res 2016 09 110 6 634 641 10.1080/00220671.2016.1171198",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1080/00220671.2016.1171198",
+    "parsed_pmid": null,
+    "parsed_title": "Complex problem solving in L1 education: senior high school students' knowledge of the language problem-solving process",
+    "parsed_first_author": "van velzen",
+    "parsed_year": 2016,
+    "parsed_container": "J Educ Res",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3927,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1080/00220671.2016.1171198"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6775,
+    "ordinal": 11,
+    "raw_string": "Bandura A Cliffs E Social Foundations of Thought and Action: A Social Cognitive Theory 1986 New Jersey Prentice Hall",
+    "citation_tag": "element-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Social Foundations of Thought and Action: A Social Cognitive Theory",
+    "parsed_first_author": "bandura",
+    "parsed_year": 1986,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 3933,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6776,
+    "ordinal": 12,
+    "raw_string": "American Psychological Association Teaching tip sheet: self-efficacy 2009 2020-11-02 https://www.apa.org/pi/aids/resources/education/self-efficacy",
+    "citation_tag": "element-citation",
+    "publication_type": "webpage",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "American Psychological Association",
+    "parsed_first_author": null,
+    "parsed_year": 2009,
+    "parsed_container": "Teaching tip sheet: self-efficacy",
+    "resolution_status": "ambiguous",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "tied": [
+      2702,
+      2703
+     ],
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "ambiguous"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6777,
+    "ordinal": 13,
+    "raw_string": "Bennett JB Lehman WE Workplace drinking climate, stress, and problem indicators: assessing the influence of teamwork (group cohesion) J Stud Alcohol 1998 09 59 5 608 618 10.15288/jsa.1998.59.608 9718114",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.15288/jsa.1998.59.608",
+    "parsed_pmid": "9718114",
+    "parsed_title": "Workplace drinking climate, stress, and problem indicators: assessing the influence of teamwork (group cohesion)",
+    "parsed_first_author": "bennett",
+    "parsed_year": 1998,
+    "parsed_container": "J Stud Alcohol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3934,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.15288/jsa.1998.59.608"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6778,
+    "ordinal": 14,
+    "raw_string": "Graham K Osgood DW Zibrowski E Purcell J Gliksman L Leonard K Pernanen K Saltz RF Toomey TL The effect of the Safer Bars programme on physical aggression in bars: results of a randomized controlled trial Drug Alcohol Rev 2004 03 23 1 31 41 10.1080/09595230410001645538 14965885 YHKPD8PCQCQF0VNW 14965885",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1080/09595230410001645538",
+    "parsed_pmid": "14965885",
+    "parsed_title": "The effect of the Safer Bars programme on physical aggression in bars: results of a randomized controlled trial",
+    "parsed_first_author": "graham",
+    "parsed_year": 2004,
+    "parsed_container": "Drug Alcohol Rev",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3935,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1080/09595230410001645538"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6779,
+    "ordinal": 15,
+    "raw_string": "Sanders MR Community-based parenting and family support interventions and the prevention of drug abuse Addict Behav 2000 11 25 6 929 942 10.1016/s0306-4603(00)00128-3 11125780",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s0306-4603(00)00128-3",
+    "parsed_pmid": "11125780",
+    "parsed_title": "Community-based parenting and family support interventions and the prevention of drug abuse",
+    "parsed_first_author": "sanders",
+    "parsed_year": 2000,
+    "parsed_container": "Addict Behav",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3936,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0306-4603(00)00128-3"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6780,
+    "ordinal": 16,
+    "raw_string": "Mikropoulos TA Natsis A Educational virtual environments: a ten-year review of empirical research (1999–2009) Comput Educ 2011 4 56 3 769 780 10.1016/j.compedu.2010.10.020",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.compedu.2010.10.020",
+    "parsed_pmid": null,
+    "parsed_title": "Educational virtual environments: a ten-year review of empirical research (1999–2009)",
+    "parsed_first_author": "mikropoulos",
+    "parsed_year": 2011,
+    "parsed_container": "Comput Educ",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3937,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.compedu.2010.10.020"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6781,
+    "ordinal": 17,
+    "raw_string": "Mantovani F Riva G Galimberti C VR learning: potential challenges for the use of 3D environments in education training Towards Cyberpschychology: Mind, Cognition and Society in the Internet Age 2001 Amsterdam IOS Press 207",
+    "citation_tag": "element-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "VR learning: potential challenges for the use of 3D environments in education training",
+    "parsed_first_author": "mantovani",
+    "parsed_year": 2001,
+    "parsed_container": "Towards Cyberpschychology: Mind, Cognition and Society in the Internet Age",
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6782,
+    "ordinal": 18,
+    "raw_string": "Lin T Huang C Hsu H Liao J Cheng VY Wang S Guo J Effects of a combination of three-dimensional virtual reality and hands-on horticultural therapy on institutionalized older adults' physical and mental health: quasi-experimental design J Med Internet Res 2020 11 22 11 e19002 10.2196/19002 33135666 v22i11e19002 33135666 PMC7669444",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2196/19002",
+    "parsed_pmid": "33135666",
+    "parsed_title": "Effects of a combination of three-dimensional virtual reality and hands-on horticultural therapy on institutionalized older adults' physical and mental health: quasi-experimental design",
+    "parsed_first_author": "lin",
+    "parsed_year": 2020,
+    "parsed_container": "J Med Internet Res",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3938,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2196/19002"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6783,
+    "ordinal": 19,
+    "raw_string": "Cheng VY Huang C Liao J Hsu H Wang S Huang S Guo J Combination of 3-dimensional virtual reality and hands-on aromatherapy in improving institutionalized older adults' psychological health: quasi-experimental study J Med Internet Res 2020 07 22 7 e17096 10.2196/17096 32706660 v22i7e17096 32706660 PMC7428146",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2196/17096",
+    "parsed_pmid": "32706660",
+    "parsed_title": "Combination of 3-dimensional virtual reality and hands-on aromatherapy in improving institutionalized older adults' psychological health: quasi-experimental study",
+    "parsed_first_author": "cheng",
+    "parsed_year": 2020,
+    "parsed_container": "J Med Internet Res",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3939,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2196/17096"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6784,
+    "ordinal": 20,
+    "raw_string": "Stupar-Rutenfrans S Ketelaars LEH van Gisbergen MS Beat the fear of public speaking: mobile 360° video virtual reality exposure training in home environment reduces public speaking anxiety Cyberpsychol Behav Soc Netw 2017 10 20 10 624 633 10.1089/cyber.2017.0174 29039704 29039704",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1089/cyber.2017.0174",
+    "parsed_pmid": "29039704",
+    "parsed_title": "Beat the fear of public speaking: mobile 360° video virtual reality exposure training in home environment reduces public speaking anxiety",
+    "parsed_first_author": "stupar rutenfrans",
+    "parsed_year": 2017,
+    "parsed_container": "Cyberpsychol Behav Soc Netw",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3940,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1089/cyber.2017.0174"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6785,
+    "ordinal": 21,
+    "raw_string": "Chang C Sung H Guo J Chang B Kuo F Effects of spherical video-based virtual reality on nursing students’ learning performance in childbirth education training Interact Learn Environ 2019 09 1 17 10.1080/10494820.2019.1661854",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1080/10494820.2019.1661854",
+    "parsed_pmid": null,
+    "parsed_title": "Effects of spherical video-based virtual reality on nursing students’ learning performance in childbirth education training",
+    "parsed_first_author": "chang",
+    "parsed_year": 2019,
+    "parsed_container": "Interact Learn Environ",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3941,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1080/10494820.2019.1661854"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6786,
+    "ordinal": 22,
+    "raw_string": "Bordnick PS Graap KM Copp H Brooks J Ferrer M Logue B Utilizing virtual reality to standardize nicotine craving research: a pilot study Addict Behav 2004 12 29 9 1889 1894 10.1016/j.addbeh.2004.06.008 15530734 S0306460304002151 15530734",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.addbeh.2004.06.008",
+    "parsed_pmid": "15530734",
+    "parsed_title": "Utilizing virtual reality to standardize nicotine craving research: a pilot study",
+    "parsed_first_author": "bordnick",
+    "parsed_year": 2004,
+    "parsed_container": "Addict Behav",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3942,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.addbeh.2004.06.008"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6787,
+    "ordinal": 23,
+    "raw_string": "Saladin ME Brady KT Graap K Rothbaum BO A preliminary report on the use of virtual reality technology to elicit craving and cue reactivity in cocaine dependent individuals Addict Behav 2006 10 31 10 1881 1894 10.1016/j.addbeh.2006.01.004 16516397 S0306-4603(06)00015-3 16516397",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.addbeh.2006.01.004",
+    "parsed_pmid": "16516397",
+    "parsed_title": "A preliminary report on the use of virtual reality technology to elicit craving and cue reactivity in cocaine dependent individuals",
+    "parsed_first_author": "saladin",
+    "parsed_year": 2006,
+    "parsed_container": "Addict Behav",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3224,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.addbeh.2006.01.004"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6788,
+    "ordinal": 24,
+    "raw_string": "Girard B Turcotte V Bouchard S Girard B Crushing virtual cigarettes reduces tobacco addiction and treatment discontinuation Cyberpsychol Behav 2009 10 12 5 477 483 10.1089/cpb.2009.0118 19817561 19817561",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1089/cpb.2009.0118",
+    "parsed_pmid": "19817561",
+    "parsed_title": "Crushing virtual cigarettes reduces tobacco addiction and treatment discontinuation",
+    "parsed_first_author": "girard",
+    "parsed_year": 2009,
+    "parsed_container": "Cyberpsychol Behav",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3943,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1089/cpb.2009.0118"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6789,
+    "ordinal": 25,
+    "raw_string": "Suresh K An overview of randomization techniques: an unbiased assessment of outcome in clinical research J Hum Reprod Sci 2011 01 4 1 8 11 10.4103/0974-1208.82352 21772732 JHRS-4-8 21772732 PMC3136079",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.4103/0974-1208.82352",
+    "parsed_pmid": "21772732",
+    "parsed_title": "An overview of randomization techniques: an unbiased assessment of outcome in clinical research",
+    "parsed_first_author": "suresh",
+    "parsed_year": 2011,
+    "parsed_container": "J Hum Reprod Sci",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3944,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.4103/0974-1208.82352"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": [
+     {
+      "notice_type": "retraction",
+      "notice_date": "2017-01-01",
+      "notice_doi": "10.4103/0974-1208.170593",
+      "reason": "Date of Article and/or Notice Unknown;Duplication of/in Article;Euphemisms for Duplication;",
+      "source": "retraction_watch",
+      "source_record_id": "8343",
+      "matched_on": "doi"
+     }
+    ]
+   },
+   {
+    "reference_id": 6790,
+    "ordinal": 26,
+    "raw_string": "Kirk RE Statistics: An Introduction 2005 Boston Cengage Learning",
+    "citation_tag": "element-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Statistics: An Introduction",
+    "parsed_first_author": "kirk",
+    "parsed_year": 2005,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": [
+      {
+       "year": 2005,
+       "paper_id": 3950,
+       "rejected": "first author 'crawley' vs 'kirk'",
+       "similarity": 0.7714,
+       "first_author": "crawley"
+      },
+      {
+       "year": 2006,
+       "paper_id": 3951,
+       "rejected": "first author 'ng' vs 'kirk'",
+       "similarity": 0.7714,
+       "first_author": "ng"
+      }
+     ]
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6791,
+    "ordinal": 27,
+    "raw_string": "5-steps to problem solving Information Children 2012 2020-10-16 http://www.informationchildren.com/5-steps-to-problem-solving/",
+    "citation_tag": "element-citation",
+    "publication_type": "webpage",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "5-steps to problem solving",
+    "parsed_first_author": null,
+    "parsed_year": 2012,
+    "parsed_container": "Information Children",
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": [
+      {
+       "year": 2008,
+       "paper_id": 3958,
+       "rejected": "year 2008 vs 2012",
+       "similarity": 0.6,
+       "first_author": null
+      }
+     ]
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6792,
+    "ordinal": 28,
+    "raw_string": "Docktor J Heller K Robust assessment instrument for student problem solving Proceedings of the NARST 2009 Annual Meeting 2009 NARST 2009 Annual Meeting April 17-20, 2009 Garden Grove, California 1 19",
+    "citation_tag": "element-citation",
+    "publication_type": "confproc",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Robust assessment instrument for student problem solving",
+    "parsed_first_author": "docktor",
+    "parsed_year": 2009,
+    "parsed_container": "Proceedings of the NARST 2009 Annual Meeting",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 3966,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6793,
+    "ordinal": 29,
+    "raw_string": "Teamwork value rubric Association of American Colleges and Universities 2009 2020-12-22 https://www.aacu.org/sites/default/files/files/VALUE/Teamwork.pdf",
+    "citation_tag": "element-citation",
+    "publication_type": "webpage",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Teamwork value rubric",
+    "parsed_first_author": null,
+    "parsed_year": 2009,
+    "parsed_container": "Association of American Colleges and Universities",
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6794,
+    "ordinal": 30,
+    "raw_string": "Schwarzer R Bäßler J Kwiatek P Schröder K Zhang JX The assessment of optimistic self-beliefs: comparison of the German, Spanish, and Chinese versions of the General Self-efficacy Scale Appl Psychol 1997 01 46 1 69 88 10.1111/j.1464-0597.1997.tb01096.x",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1464-0597.1997.tb01096.x",
+    "parsed_pmid": null,
+    "parsed_title": "The assessment of optimistic self-beliefs: comparison of the German, Spanish, and Chinese versions of the General Self-efficacy Scale",
+    "parsed_first_author": "schwarzer",
+    "parsed_year": 1997,
+    "parsed_container": "Appl Psychol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3972,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1464-0597.1997.tb01096.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6795,
+    "ordinal": 31,
+    "raw_string": "Hughes RL Jones SK Developing and assessing college student teamwork skills New Directions for Institutional Research 2011 04 2011 149 53 64 10.1002/ir.380",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/ir.380",
+    "parsed_pmid": null,
+    "parsed_title": "Developing and assessing college student teamwork skills",
+    "parsed_first_author": "hughes",
+    "parsed_year": 2011,
+    "parsed_container": "New Directions for Institutional Research",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3973,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/ir.380"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6796,
+    "ordinal": 32,
+    "raw_string": "Liang K Zeger SL Longitudinal data analysis using generalized linear models Biometrika 1986 73 1 13 22 10.1093/biomet/73.1.13",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/biomet/73.1.13",
+    "parsed_pmid": null,
+    "parsed_title": "Longitudinal data analysis using generalized linear models",
+    "parsed_first_author": "liang",
+    "parsed_year": 1986,
+    "parsed_container": "Biometrika",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3974,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/biomet/73.1.13"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6797,
+    "ordinal": 33,
+    "raw_string": "Skills for health: skills-based health education including life skills: an important component of a child-friendly/health-promoting school World Health Organization 2003 2020-11-02 http://apps.who.int/iris/bitstream/handle/10665/42818/924159103X.pdf?sequence=1",
+    "citation_tag": "element-citation",
+    "publication_type": "webpage",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Skills for health: skills-based health education including life skills: an important component of a child-friendly/health-promoting school",
+    "parsed_first_author": null,
+    "parsed_year": 2003,
+    "parsed_container": "World Health Organization",
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6798,
+    "ordinal": 34,
+    "raw_string": "What does problem solving look like? Introduction to Problem Solving Skills 2020-11-02 https://ccmit.mit.edu/problem-solving/",
+    "citation_tag": "element-citation",
+    "publication_type": "webpage",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "What does problem solving look like?",
+    "parsed_first_author": null,
+    "parsed_year": null,
+    "parsed_container": "Introduction to Problem Solving Skills",
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6799,
+    "ordinal": 35,
+    "raw_string": "Araiza-Alba P Keane T Chen WS Kaufman J Immersive virtual reality as a tool to learn problem-solving skills Comput Educ 2021 164 104121 10.1016/j.compedu.2020.104121",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.compedu.2020.104121",
+    "parsed_pmid": null,
+    "parsed_title": "Immersive virtual reality as a tool to learn problem-solving skills",
+    "parsed_first_author": "araiza alba",
+    "parsed_year": 2021,
+    "parsed_container": "Comput Educ",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3986,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.compedu.2020.104121"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6800,
+    "ordinal": 36,
+    "raw_string": "Sheeran P Maki A Montanaro E Avishai-Yitshak A Bryan A Klein WMP Miles E Rothman AJ The impact of changing attitudes, norms, and self-efficacy on health-related intentions and behavior: a meta-analysis Health Psychol 2016 11 35 11 1178 1188 10.1037/hea0000387 27280365 2016-28683-001 27280365",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1037/hea0000387",
+    "parsed_pmid": "27280365",
+    "parsed_title": "The impact of changing attitudes, norms, and self-efficacy on health-related intentions and behavior: a meta-analysis",
+    "parsed_first_author": "sheeran",
+    "parsed_year": 2016,
+    "parsed_container": "Health Psychol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3987,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1037/hea0000387"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6801,
+    "ordinal": 37,
+    "raw_string": "Martinelli AM Testing a model of avoiding environmental tobacco smoke in young adults Image J Nurs Sch 1999 31 3 237 242 10.1111/j.1547-5069.1999.tb00487.x 10528453 10528453",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1547-5069.1999.tb00487.x",
+    "parsed_pmid": "10528453",
+    "parsed_title": "Testing a model of avoiding environmental tobacco smoke in young adults",
+    "parsed_first_author": "martinelli",
+    "parsed_year": 1999,
+    "parsed_container": "Image J Nurs Sch",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3988,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1547-5069.1999.tb00487.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6802,
+    "ordinal": 38,
+    "raw_string": "Ormrod JE Human Learning (7th edition) 2016 Harlow, England Pearson",
+    "citation_tag": "element-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Human Learning (7th edition)",
+    "parsed_first_author": "ormrod",
+    "parsed_year": 2016,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6803,
+    "ordinal": 39,
+    "raw_string": "Botella C Baños R Perpiñá C Villa H Alcañiz M Rey A Virtual reality treatment of claustrophobia: a case report Behav Res Ther 1998 02 36 2 239 246 10.1016/s0005-7967(97)10006-7 9613029",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s0005-7967(97)10006-7",
+    "parsed_pmid": "9613029",
+    "parsed_title": "Virtual reality treatment of claustrophobia: a case report",
+    "parsed_first_author": "botella",
+    "parsed_year": 1998,
+    "parsed_container": "Behav Res Ther",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3994,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0005-7967(97)10006-7"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6804,
+    "ordinal": 40,
+    "raw_string": "Shu Y Huang Y Chang S Chen M Do virtual reality head-mounted displays make a difference? a comparison of presence and self-efficacy between head-mounted displays and desktop computer-facilitated virtual environments Virtual Reality 2018 11 23 4 437 446 10.1007/s10055-018-0376-x",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s10055-018-0376-x",
+    "parsed_pmid": null,
+    "parsed_title": "Do virtual reality head-mounted displays make a difference? a comparison of presence and self-efficacy between head-mounted displays and desktop computer-facilitated virtual environments",
+    "parsed_first_author": "shu",
+    "parsed_year": 2018,
+    "parsed_container": "Virtual Reality",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3995,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s10055-018-0376-x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6805,
+    "ordinal": 41,
+    "raw_string": "Nissim Y Weissblueth E Virtual Reality (VR) as a source for self-efficacy in teacher training Int Educ Stud 2017 07 10 8 52 59 10.5539/ies.v10n8p52",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.5539/ies.v10n8p52",
+    "parsed_pmid": null,
+    "parsed_title": "Virtual Reality (VR) as a source for self-efficacy in teacher training",
+    "parsed_first_author": "nissim",
+    "parsed_year": 2017,
+    "parsed_container": "Int Educ Stud",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3996,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.5539/ies.v10n8p52"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6806,
+    "ordinal": 42,
+    "raw_string": "Liaw SY Ooi SW Rusli KDB Lau TC Tam WWS Chua WL Nurse-physician communication team training in virtual reality versus live simulations: randomized controlled trial on team communication and teamwork attitudes J Med Internet Res 2020 04 22 4 e17279 10.2196/17279 32267235 v22i4e17279 32267235 PMC7177432",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2196/17279",
+    "parsed_pmid": "32267235",
+    "parsed_title": "Nurse-physician communication team training in virtual reality versus live simulations: randomized controlled trial on team communication and teamwork attitudes",
+    "parsed_first_author": "liaw",
+    "parsed_year": 2020,
+    "parsed_container": "J Med Internet Res",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3997,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2196/17279"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6807,
+    "ordinal": 43,
+    "raw_string": "Bracq M Michinov E Jannin P Virtual reality simulation in nontechnical skills training for healthcare professionals Sim Healthcare 2019 1 14 3 188 194 10.1097/sih.0000000000000347 30601464",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/sih.0000000000000347",
+    "parsed_pmid": "30601464",
+    "parsed_title": "Virtual reality simulation in nontechnical skills training for healthcare professionals",
+    "parsed_first_author": "bracq",
+    "parsed_year": 2019,
+    "parsed_container": "Sim Healthcare",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3998,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/sih.0000000000000347"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 6808,
+    "ordinal": 44,
+    "raw_string": "Weinstock P Halamek LP Teamwork during resuscitation Pediatr Clin North Am 2008 08 55 4 1011 1024 10.1016/j.pcl.2008.04.001 18675031 S0031-3955(08)00114-4 18675031",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.pcl.2008.04.001",
+    "parsed_pmid": "18675031",
+    "parsed_title": "Teamwork during resuscitation",
+    "parsed_first_author": "weinstock",
+    "parsed_year": 2008,
+    "parsed_container": "Pediatr Clin North Am",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 2961,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {},
+     "title_agreement": 1.0
+    },
+    "notices": []
+   }
+  ],
+  "stat_tests": [],
+  "means": [],
+  "trials": []
+ }
+}

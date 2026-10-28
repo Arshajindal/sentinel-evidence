@@ -1,0 +1,1367 @@
+{
+ "id": "PMC8339250",
+ "subject": "paper",
+ "categories": [
+  "c02_cited_before_retraction"
+ ],
+ "source": {
+  "corpus": "pmc-rct-2015-2024",
+  "paper_id": 137,
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "38 references: 35 resolved, 2 non-journal (software, and a journal article tagged as a book: not checked, never flagged), 1 probable match under a variant title. Ref 21's text carries literal '<number>' markup from the source XML.",
+ "expected": [
+  {
+   "check": "C01",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C02",
+   "status": "flagged",
+   "severity": "low",
+   "item": "ref 27",
+   "band": "before",
+   "why": "Sci Rep paper retracted 2024-02-14, after this 2021 paper: cited before retraction."
+  },
+  {
+   "check": "C02",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C03",
+   "status": "not_applicable",
+   "severity": "info"
+  },
+  {
+   "check": "C04",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "paper_id": 137,
+  "publication_date": "2021-07-28",
+  "fulltext_status": "full",
+  "references": [
+   {
+    "reference_id": 5694,
+    "ordinal": 1,
+    "raw_string": "Doenst T Nguyen TD Abel ED. Cardiac metabolism in heart failure: implications beyond ATP production Circ Res 113 6 2013 709–24 10.1161/CIRCRESAHA.113.300376 PMC3896379 23989714",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1161/circresaha.113.300376",
+    "parsed_pmid": "23989714",
+    "parsed_title": "Cardiac metabolism in heart failure: implications beyond ATP production",
+    "parsed_first_author": "doenst",
+    "parsed_year": 2013,
+    "parsed_container": "Circ Res",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3869,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1161/circresaha.113.300376"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.667
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5695,
+    "ordinal": 2,
+    "raw_string": "Dick SA Epelman S. Chronic heart failure and inflammation: what do we really know? Circ Res 119 1 2016 159–76 10.1161/CIRCRESAHA.116.308030 27340274",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1161/circresaha.116.308030",
+    "parsed_pmid": "27340274",
+    "parsed_title": "Chronic heart failure and inflammation: what do we really know?",
+    "parsed_first_author": "dick",
+    "parsed_year": 2016,
+    "parsed_container": "Circ Res",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3870,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1161/circresaha.116.308030"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.768
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5696,
+    "ordinal": 3,
+    "raw_string": "Tang WHW Li DY Hazen SL. Dietary metabolism, the gut microbiome, and heart failure Nat Rev Cardiol 16 3 2019 137–54 10.1038/s41569-018-0108-7 PMC6377322 30410105",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/s41569-018-0108-7",
+    "parsed_pmid": "30410105",
+    "parsed_title": "Dietary metabolism, the gut microbiome, and heart failure",
+    "parsed_first_author": "tang",
+    "parsed_year": 2019,
+    "parsed_container": "Nat Rev Cardiol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3871,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1038/s41569-018-0108-7"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5697,
+    "ordinal": 4,
+    "raw_string": "Pasini E Aquilani R Testa C Baiardi P Angioletti S Boschi F Pathogenic gut flora in patients with chronic heart failure JACC Heart Fail 4 3 2016 220–7 10.1016/j.jchf.2015.10.009 26682791",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.jchf.2015.10.009",
+    "parsed_pmid": "26682791",
+    "parsed_title": "Pathogenic gut flora in patients with chronic heart failure",
+    "parsed_first_author": "pasini",
+    "parsed_year": 2016,
+    "parsed_container": "JACC Heart Fail",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3872,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.jchf.2015.10.009"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5698,
+    "ordinal": 5,
+    "raw_string": "Kummen M Mayerhofer CCK Vestad B Broch K Awoyemi A Storm-Larsen C Gut microbiota signature in heart failure defined from profiling of 2 independent cohorts J Am Coll Cardiol 71 10 2018 1184–6 10.1016/j.jacc.2017.12.057 29519360",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.jacc.2017.12.057",
+    "parsed_pmid": "29519360",
+    "parsed_title": "Gut microbiota signature in heart failure defined from profiling of 2 independent cohorts",
+    "parsed_first_author": "kummen",
+    "parsed_year": 2018,
+    "parsed_container": "J Am Coll Cardiol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3873,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.jacc.2017.12.057"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5699,
+    "ordinal": 6,
+    "raw_string": "Li XS Obeid S Klingenberg R Gencer B Mach F Raber L Gut microbiota-dependent trimethylamine N-oxide in acute coronary syndromes: a prognostic marker for incident cardiovascular events beyond traditional risk factors Eur Heart J 38 11 2017 814–24 10.1093/eurheartj/ehw582 PMC5837488 28077467",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/eurheartj/ehw582",
+    "parsed_pmid": "28077467",
+    "parsed_title": "Gut microbiota-dependent trimethylamine N-oxide in acute coronary syndromes: a prognostic marker for incident cardiovascular events beyond traditional risk factors",
+    "parsed_first_author": "li",
+    "parsed_year": 2017,
+    "parsed_container": "Eur Heart J",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3453,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/eurheartj/ehw582"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5700,
+    "ordinal": 7,
+    "raw_string": "Schiattarella GG Sannino A Toscano E Giugliano G Gargiulo G Franzone A Gut microbe-generated metabolite trimethylamine-N-oxide as cardiovascular risk biomarker: a systematic review and dose-response meta-analysis Eur Heart J 38 39 2017 2948–56 10.1093/eurheartj/ehx342 29020409",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/eurheartj/ehx342",
+    "parsed_pmid": "29020409",
+    "parsed_title": "Gut microbe-generated metabolite trimethylamine-N-oxide as cardiovascular risk biomarker: a systematic review and dose-response meta-analysis",
+    "parsed_first_author": "schiattarella",
+    "parsed_year": 2017,
+    "parsed_container": "Eur Heart J",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3874,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/eurheartj/ehx342"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5701,
+    "ordinal": 8,
+    "raw_string": "Troseid M Andersen GO Broch K Hov JR. The gut microbiome in coronary artery disease and heart failure: current knowledge and future directions EBioMedicine 52 2020 102649 10.1016/j.ebiom.2020.102649 PMC7016372 32062353",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.ebiom.2020.102649",
+    "parsed_pmid": "32062353",
+    "parsed_title": "The gut microbiome in coronary artery disease and heart failure: current knowledge and future directions",
+    "parsed_first_author": "troseid",
+    "parsed_year": 2020,
+    "parsed_container": "EBioMedicine",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3875,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.ebiom.2020.102649"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5702,
+    "ordinal": 9,
+    "raw_string": "Peng L Li ZR Green RS Holzman IR Lin J. Butyrate enhances the intestinal barrier by facilitating tight junction assembly via activation of AMP-activated protein kinase in Caco-2 cell monolayers J Nutr 139 9 2009 1619–25 10.3945/jn.109.104638 PMC2728689 19625695",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3945/jn.109.104638",
+    "parsed_pmid": "19625695",
+    "parsed_title": "Butyrate enhances the intestinal barrier by facilitating tight junction assembly via activation of AMP-activated protein kinase in Caco-2 cell monolayers",
+    "parsed_first_author": "peng",
+    "parsed_year": 2009,
+    "parsed_container": "J Nutr",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3876,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3945/jn.109.104638"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5703,
+    "ordinal": 10,
+    "raw_string": "Frantz S Falcao-Pires I Balligand J-L Bauersachs J Brutsaert D Ciccarelli M The innate immune system in chronic cardiomyopathy: a European Society of Cardiology (ESC) scientific statement from the Working Group on Myocardial Function of the ESC Eur J Heart Fail 20 3 2018 445–59 10.1002/ejhf.1138 PMC5993315 29333691",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/ejhf.1138",
+    "parsed_pmid": "29333691",
+    "parsed_title": "The innate immune system in chronic cardiomyopathy: a European Society of Cardiology (ESC) scientific statement from the Working Group on Myocardial Function of the ESC",
+    "parsed_first_author": "frantz",
+    "parsed_year": 2018,
+    "parsed_container": "Eur J Heart Fail",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3877,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/ejhf.1138"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5704,
+    "ordinal": 11,
+    "raw_string": "Sandek A Bauditz J Swidsinski A Buhner S Weber-Eibel J von Haehling S Altered intestinal function in patients with chronic heart failure J Am Coll Cardiol 50 16 2007 1561–9 10.1016/j.jacc.2007.07.016 17936155",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.jacc.2007.07.016",
+    "parsed_pmid": "17936155",
+    "parsed_title": "Altered intestinal function in patients with chronic heart failure",
+    "parsed_first_author": "sandek",
+    "parsed_year": 2007,
+    "parsed_container": "J Am Coll Cardiol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3878,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.jacc.2007.07.016"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5705,
+    "ordinal": 12,
+    "raw_string": "Niebauer J Volk H-D Kemp M Dominguez M Schumann RR Rauchhaus M Endotoxin and immune activation in chronic heart failure: a prospective cohort study Lancet 353 9167 1999 1838–42 10.1016/S0140-6736(98)09286-1 10359409",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s0140-6736(98)09286-1",
+    "parsed_pmid": "10359409",
+    "parsed_title": "Endotoxin and immune activation in chronic heart failure: a prospective cohort study",
+    "parsed_first_author": "niebauer",
+    "parsed_year": 1999,
+    "parsed_container": "Lancet",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3879,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0140-6736(98)09286-1"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5706,
+    "ordinal": 13,
+    "raw_string": "Pluznick JL Protzko RJ Gevorgyan H Peterlin Z Sipos A Han J Olfactory receptor responding to gut microbiota-derived signals plays a role in renin secretion and blood pressure regulation Proc Natl Acad Sci USA 110 11 2013 4410–5 10.1073/pnas.1215927110 PMC3600440 23401498",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1073/pnas.1215927110",
+    "parsed_pmid": "23401498",
+    "parsed_title": "Olfactory receptor responding to gut microbiota-derived signals plays a role in renin secretion and blood pressure regulation",
+    "parsed_first_author": "pluznick",
+    "parsed_year": 2013,
+    "parsed_container": "Proc Natl Acad Sci USA",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3880,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1073/pnas.1215927110"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5707,
+    "ordinal": 14,
+    "raw_string": "Marques FZ Nelson E Chu PY Horlock D Fiedler A Ziemann M High-fiber diet and acetate supplementation change the gut microbiota and prevent the development of hypertension and heart failure in hypertensive mice Circulation 135 10 2017 964–77 10.1161/CIRCULATIONAHA.116.024545 27927713",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1161/circulationaha.116.024545",
+    "parsed_pmid": "27927713",
+    "parsed_title": "High-fiber diet and acetate supplementation change the gut microbiota and prevent the development of hypertension and heart failure in hypertensive mice",
+    "parsed_first_author": "marques",
+    "parsed_year": 2017,
+    "parsed_container": "Circulation",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3881,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1161/circulationaha.116.024545"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5708,
+    "ordinal": 15,
+    "raw_string": "Costanza AC Moscavitch SD Faria Neto HC Mesquita ET Probiotic therapy with Saccharomyces boulardii for heart failure patients: a randomized, double-blind, placebo-controlled pilot trial Int J Cardiol 179 2015 348–50 10.1016/j.ijcard.2014.11.034 25464484",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.ijcard.2014.11.034",
+    "parsed_pmid": "25464484",
+    "parsed_title": "Probiotic therapy with Saccharomyces boulardii for heart failure patients: a randomized, double-blind, placebo-controlled pilot trial",
+    "parsed_first_author": "costanza",
+    "parsed_year": 2015,
+    "parsed_container": "Int J Cardiol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3882,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.ijcard.2014.11.034"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5709,
+    "ordinal": 16,
+    "raw_string": "Mayerhofer CCK Awoyemi AO Moscavitch SD Lappegard KT Hov JR Aukrust P Design of the GutHeart-targeting gut microbiota to treat heart failure-trial: a Phase II, randomized clinical trial ESC Heart Fail 5 5 2018 977–84 10.1002/ehf2.12332 PMC6165929 30088346",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/ehf2.12332",
+    "parsed_pmid": "30088346",
+    "parsed_title": "Design of the GutHeart-targeting gut microbiota to treat heart failure-trial: a Phase II, randomized clinical trial",
+    "parsed_first_author": "mayerhofer",
+    "parsed_year": 2018,
+    "parsed_container": "ESC Heart Fail",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3454,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/ehf2.12332"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5710,
+    "ordinal": 17,
+    "raw_string": "Ponikowski P Voors AA Anker SD Bueno H Cleland JGF Coats AJS ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure: The Task Force for the diagnosis and treatment of acute and chronic heart failure of the European Society of Cardiology (ESC)Developed with the special contribution of the Heart Failure Association (HFA) of the ESC Eur Heart J 37 27 2016 20162129–200 10.1093/eurheartj/ehw128 27206819",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/eurheartj/ehw128",
+    "parsed_pmid": "27206819",
+    "parsed_title": "ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure: The Task Force for the diagnosis and treatment of acute and chronic heart failure of the European Society of Cardiology (ESC)Developed with the special contribution of the Heart Failure Association (HFA) of the ESC",
+    "parsed_first_author": "ponikowski",
+    "parsed_year": 2016,
+    "parsed_container": "Eur Heart J",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3883,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/eurheartj/ehw128"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.427
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5711,
+    "ordinal": 18,
+    "raw_string": "Galderisi M Henein MY D'Hooge J Sicari R Badano LP Zamorano JL Recommendations of the European Association of Echocardiography: how to use echo-Doppler in clinical trials: different modalities for different purposes Eur J Echocardiogr 12 5 2011 339–53 10.1093/ejechocard/jer051 21555455",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/ejechocard/jer051",
+    "parsed_pmid": "21555455",
+    "parsed_title": "Recommendations of the European Association of Echocardiography: how to use echo-Doppler in clinical trials: different modalities for different purposes",
+    "parsed_first_author": "galderisi",
+    "parsed_year": 2011,
+    "parsed_container": "Eur J Echocardiogr",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3884,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/ejechocard/jer051"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5712,
+    "ordinal": 19,
+    "raw_string": "Lang RM Badano LP Mor-Avi V Afilalo J Armstrong A Ernande L Recommendations for cardiac chamber quantification by echocardiography in adults: an update from the American Society of Echocardiography and the European Association of Cardiovascular Imaging Eur Heart J Cardiovasc Imaging 16 3 2015 233–70 10.1093/ehjci/jev014 25712077",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/ehjci/jev014",
+    "parsed_pmid": "25712077",
+    "parsed_title": "Recommendations for cardiac chamber quantification by echocardiography in adults: an update from the American Society of Echocardiography and the European Association of Cardiovascular Imaging",
+    "parsed_first_author": "lang",
+    "parsed_year": 2015,
+    "parsed_container": "Eur Heart J Cardiovasc Imaging",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3885,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/ehjci/jev014"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5713,
+    "ordinal": 20,
+    "raw_string": "Costea PI Zeller G Sunagawa S Pelletier E Alberti A Levenez F Towards standards for human fecal sample processing in metagenomic studies Nat Biotechnol 35 11 2017 1069–76 10.1038/nbt.3960 28967887",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/nbt.3960",
+    "parsed_pmid": "28967887",
+    "parsed_title": "Towards standards for human fecal sample processing in metagenomic studies",
+    "parsed_first_author": "costea",
+    "parsed_year": 2017,
+    "parsed_container": "Nat Biotechnol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3886,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1038/nbt.3960"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5714,
+    "ordinal": 21,
+    "raw_string": "<number>[21]</number>BBtools. BBDuk version 38.25 [Available from: https://sourceforge.net/projects/bbmap/.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "other",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5715,
+    "ordinal": 22,
+    "raw_string": "Martin M. Cutadapt removes adapter sequences from high-throughput sequencing reads. EMBnetjournal; Vol 17 2011 No 1: Next Generation Sequencing Data Analysis",
+    "citation_tag": "element-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Cutadapt removes adapter sequences from high-throughput sequencing reads. EMBnetjournal; Vol 17",
+    "parsed_first_author": "martin",
+    "parsed_year": 2011,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": [
+      {
+       "year": 2011,
+       "paper_id": 3887,
+       "rejected": "similarity 0.741 below 0.85",
+       "similarity": 0.7407,
+       "first_author": "martin"
+      }
+     ]
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5716,
+    "ordinal": 23,
+    "raw_string": "Bushnell B Rood J Singer E. BBMerge – accurate paired shotgun read merging via overlap PLOS ONE 12 10 2017 e0185056 10.1371/journal.pone.0185056 PMC5657622 29073143",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1371/journal.pone.0185056",
+    "parsed_pmid": "29073143",
+    "parsed_title": "BBMerge – accurate paired shotgun read merging via overlap",
+    "parsed_first_author": "bushnell",
+    "parsed_year": 2017,
+    "parsed_container": "PLOS ONE",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3892,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1371/journal.pone.0185056"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5717,
+    "ordinal": 24,
+    "raw_string": "Bolyen E Rideout JR Dillon MR Bokulich NA Abnet CC Al-Ghalith GA Reproducible, interactive, scalable and extensible microbiome data science using QIIME 2 Nature Biotechnology 37 8 2019 852–7 10.1038/s41587-019-0209-9 PMC7015180 31341288",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/s41587-019-0209-9",
+    "parsed_pmid": "31341288",
+    "parsed_title": "Reproducible, interactive, scalable and extensible microbiome data science using QIIME 2",
+    "parsed_first_author": "bolyen",
+    "parsed_year": 2019,
+    "parsed_container": "Nature Biotechnology",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 2490,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {},
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5718,
+    "ordinal": 25,
+    "raw_string": "Douglas GM Maffei VJ Zaneveld J Yurgel SN Brown JR Taylor CM PICRUSt2: an improved and extensible approach for metagenome inference bioRxiv 2019 672295",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "PICRUSt2: an improved and extensible approach for metagenome inference",
+    "parsed_first_author": "douglas",
+    "parsed_year": 2019,
+    "parsed_container": "bioRxiv",
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": [
+      {
+       "year": 2019,
+       "paper_id": 2050,
+       "rejected": "similarity 0.747 below 0.85",
+       "similarity": 0.7467,
+       "first_author": "douglas"
+      }
+     ]
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5719,
+    "ordinal": 26,
+    "raw_string": "Troseid M Ueland T Hov JR Svardal A Gregersen I Dahl CP Microbiota-dependent metabolite trimethylamine-N-oxide is associated with disease severity and survival of patients with chronic heart failure J Intern Med 277 6 2015 717–26 10.1111/joim.12328 25382824",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/joim.12328",
+    "parsed_pmid": "25382824",
+    "parsed_title": "Microbiota-dependent metabolite trimethylamine-N-oxide is associated with disease severity and survival of patients with chronic heart failure",
+    "parsed_first_author": "troseid",
+    "parsed_year": 2015,
+    "parsed_container": "J Intern Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3893,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/joim.12328"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5720,
+    "ordinal": 27,
+    "raw_string": "Jørgensen SF Macpherson ME Bjørnetrø T Holm K Kummen M Rashidi A Rifaximin alters gut microbiota profile, but does not affect systemic inflammation - a randomized controlled trial in common variable immunodeficiency Sci Rep 9 1 2019 167 30655568 10.1038/s41598-018-35367-7 PMC6336782",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/s41598-018-35367-7",
+    "parsed_pmid": "30655568",
+    "parsed_title": "Rifaximin alters gut microbiota profile, but does not affect systemic inflammation - a randomized controlled trial in common variable immunodeficiency",
+    "parsed_first_author": "jørgensen",
+    "parsed_year": 2019,
+    "parsed_container": "Sci Rep",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3894,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1038/s41598-018-35367-7"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.942
+    },
+    "notices": [
+     {
+      "notice_type": "retraction",
+      "notice_date": "2024-02-14",
+      "notice_doi": "10.1038/s41598-024-54117-6",
+      "reason": "Concerns/Issues about Data;Error in Data;",
+      "source": "retraction_watch",
+      "source_record_id": "51891",
+      "matched_on": "doi"
+     }
+    ]
+   },
+   {
+    "reference_id": 5721,
+    "ordinal": 28,
+    "raw_string": "Wang Z Klipfell E Bennett BJ Koeth R Levison BS Dugar B Gut flora metabolism of phosphatidylcholine promotes cardiovascular disease Nature 472 7341 2011 57–63 10.1038/nature09922 PMC3086762 21475195",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/nature09922",
+    "parsed_pmid": "21475195",
+    "parsed_title": "Gut flora metabolism of phosphatidylcholine promotes cardiovascular disease",
+    "parsed_first_author": "wang",
+    "parsed_year": 2011,
+    "parsed_container": "Nature",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3895,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1038/nature09922"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5722,
+    "ordinal": 29,
+    "raw_string": "Ponziani FR Zocco MA D’Aversa F Pompili M Gasbarrini A Eubiotic properties of rifaximin: disruption of the traditional concepts in gut microbiota modulation World J Gastroenterol 23 25 2017 4491–9 10.3748/wjg.v23.i25.4491 PMC5504364 28740337",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3748/wjg.v23.i25.4491",
+    "parsed_pmid": "28740337",
+    "parsed_title": "Eubiotic properties of rifaximin: disruption of the traditional concepts in gut microbiota modulation",
+    "parsed_first_author": "ponziani",
+    "parsed_year": 2017,
+    "parsed_container": "World J Gastroenterol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3217,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3748/wjg.v23.i25.4491"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5723,
+    "ordinal": 30,
+    "raw_string": "McFarland LV. Systematic review and meta-analysis of Saccharomyces boulardii in adult patients World J Gastroenterol 16 18 2010 2202–22 10.3748/wjg.v16.i18.2202 PMC2868213 20458757",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3748/wjg.v16.i18.2202",
+    "parsed_pmid": "20458757",
+    "parsed_title": "Systematic review and meta-analysis of Saccharomyces boulardii in adult patients",
+    "parsed_first_author": "mcfarland",
+    "parsed_year": 2010,
+    "parsed_container": "World J Gastroenterol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3896,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3748/wjg.v16.i18.2202"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5724,
+    "ordinal": 31,
+    "raw_string": "More MI Swidsinski A. Saccharomyces boulardii CNCM I-745 supports regeneration of the intestinal microbiota after diarrheic dysbiosis - a review Clin Exp Gastroenterol 8 2015 237–55 10.2147/CEG.S85574 PMC4542552 26316791",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2147/ceg.s85574",
+    "parsed_pmid": "26316791",
+    "parsed_title": "Saccharomyces boulardii CNCM I-745 supports regeneration of the intestinal microbiota after diarrheic dysbiosis - a review",
+    "parsed_first_author": "more",
+    "parsed_year": 2015,
+    "parsed_container": "Clin Exp Gastroenterol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3897,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2147/ceg.s85574"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.96
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5725,
+    "ordinal": 32,
+    "raw_string": "Luedde M Winkler T Heinsen FA Ruhlemann MC Spehlmann ME Bajrovic A Heart failure is associated with depletion of core intestinal microbiota ESC Heart Fail 4 3 2017 282–90 10.1002/ehf2.12155 PMC5542738 28772054",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/ehf2.12155",
+    "parsed_pmid": "28772054",
+    "parsed_title": "Heart failure is associated with depletion of core intestinal microbiota",
+    "parsed_first_author": "luedde",
+    "parsed_year": 2017,
+    "parsed_container": "ESC Heart Fail",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3898,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/ehf2.12155"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5726,
+    "ordinal": 33,
+    "raw_string": "Cui X Ye L Li J Jin L Wang W Li S Metagenomic and metabolomic analyses unveil dysbiosis of gut microbiota in chronic heart failure patients Sci Rep 8 1 2018 635 29330424 10.1038/s41598-017-18756-2 PMC5766622",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/s41598-017-18756-2",
+    "parsed_pmid": "29330424",
+    "parsed_title": "Metagenomic and metabolomic analyses unveil dysbiosis of gut microbiota in chronic heart failure patients",
+    "parsed_first_author": "cui",
+    "parsed_year": 2018,
+    "parsed_container": "Sci Rep",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3899,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1038/s41598-017-18756-2"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5727,
+    "ordinal": 34,
+    "raw_string": "Cui L Zhao T Hu H Zhang W Hua X. Association study of gut flora in coronary heart disease through high-throughput sequencing Biomed Res Int 2017 2017 3796359 10.1155/2017/3796359 PMC5401719 28497047",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1155/2017/3796359",
+    "parsed_pmid": "28497047",
+    "parsed_title": "Association study of gut flora in coronary heart disease through high-throughput sequencing",
+    "parsed_first_author": "cui",
+    "parsed_year": 2017,
+    "parsed_container": "Biomed Res Int",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3901,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1155/2017/3796359"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5728,
+    "ordinal": 35,
+    "raw_string": "Mayerhofer CCK Kummen M Holm K Broch K Awoyemi A Vestad B Low fibre intake is associated with gut microbiota alterations in chronic heart failure ESC Heart Fail 2020 10.1002/ehf2.12596 PMC7160496 31978943",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/ehf2.12596",
+    "parsed_pmid": "31978943",
+    "parsed_title": "Low fibre intake is associated with gut microbiota alterations in chronic heart failure",
+    "parsed_first_author": "mayerhofer",
+    "parsed_year": 2020,
+    "parsed_container": "ESC Heart Fail",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3902,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/ehf2.12596"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5729,
+    "ordinal": 36,
+    "raw_string": "Vich Vila A Collij V Sanna S Sinha T Imhann F Bourgonje AR Impact of commonly used drugs on the composition and metabolic function of the gut microbiota Nat Commun 11 1 2020 362 31953381 10.1038/s41467-019-14177-z PMC6969170",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/s41467-019-14177-z",
+    "parsed_pmid": "31953381",
+    "parsed_title": "Impact of commonly used drugs on the composition and metabolic function of the gut microbiota",
+    "parsed_first_author": "vich vila",
+    "parsed_year": 2020,
+    "parsed_container": "Nat Commun",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3903,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1038/s41467-019-14177-z"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5730,
+    "ordinal": 37,
+    "raw_string": "He Z Wang J Chen Y Cong X Li N Ding R Potential risk associated with direct modulation of the gut flora in patients with heart failure ESC Heart Fail 6 3 2019 555–6 10.1002/ehf2.12403 PMC6487722 30672665",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/ehf2.12403",
+    "parsed_pmid": "30672665",
+    "parsed_title": "Potential risk associated with direct modulation of the gut flora in patients with heart failure",
+    "parsed_first_author": "he",
+    "parsed_year": 2019,
+    "parsed_container": "ESC Heart Fail",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3904,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/ehf2.12403"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 5731,
+    "ordinal": 38,
+    "raw_string": "Mayerhofer CCK Awoyemi A Hov JR Troseid M Broch K. Reply: potential risk associated with direct modulation of the gut flora in patients with heart failure ESC Heart Fail 6 3 2019 557–8 10.1002/ehf2.12437 PMC6487724 31034162",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/ehf2.12437",
+    "parsed_pmid": "31034162",
+    "parsed_title": "Reply: potential risk associated with direct modulation of the gut flora in patients with heart failure",
+    "parsed_first_author": "mayerhofer",
+    "parsed_year": 2019,
+    "parsed_container": "ESC Heart Fail",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3905,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/ehf2.12437"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   }
+  ],
+  "stat_tests": [],
+  "means": [],
+  "trials": []
+ }
+}

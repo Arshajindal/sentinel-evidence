@@ -1,0 +1,538 @@
+{
+ "id": "NCT00235495",
+ "subject": "trial",
+ "categories": [
+  "c05_not_completed"
+ ],
+ "source": {
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "Terminated, not completed: C05 covers completed trials only.",
+ "expected": [
+  {
+   "check": "C05",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "trial": {
+   "nct_id": "NCT00235495",
+   "brief_title": "Albumin in Acute Ischemic Stroke Trial",
+   "overall_status": "TERMINATED",
+   "study_type": "INTERVENTIONAL",
+   "phase": "PHASE3",
+   "enrollment": 841,
+   "start_date": "2006-06-30",
+   "primary_completion_date": "2013-02-28",
+   "completion_date": "2013-02-28",
+   "results_first_posted": "2019-09-11",
+   "lead_sponsor": "University of Miami",
+   "sponsor_class": "OTHER",
+   "raw": {
+    "protocolSection": {
+     "identificationModule": {
+      "nctId": "NCT00235495",
+      "briefTitle": "Albumin in Acute Ischemic Stroke Trial"
+     },
+     "statusModule": {
+      "whyStopped": "Recruitment halted by DSMB following interim analysis.",
+      "overallStatus": "TERMINATED",
+      "startDateStruct": {
+       "date": "2006-06"
+      },
+      "expandedAccessInfo": {
+       "hasExpandedAccess": false
+      },
+      "statusVerifiedDate": "2019-12",
+      "completionDateStruct": {
+       "date": "2013-02",
+       "type": "ACTUAL"
+      },
+      "lastUpdateSubmitDate": "2019-12-03",
+      "studyFirstSubmitDate": "2005-09-14",
+      "resultsFirstSubmitDate": "2017-12-12",
+      "studyFirstSubmitQcDate": "2005-10-05",
+      "lastUpdatePostDateStruct": {
+       "date": "2019-12-17",
+       "type": "ACTUAL"
+      },
+      "resultsFirstSubmitQcDate": "2019-08-16",
+      "studyFirstPostDateStruct": {
+       "date": "2005-10-10",
+       "type": "ESTIMATED"
+      },
+      "resultsFirstPostDateStruct": {
+       "date": "2019-09-11",
+       "type": "ACTUAL"
+      },
+      "primaryCompletionDateStruct": {
+       "date": "2013-02",
+       "type": "ACTUAL"
+      }
+     },
+     "oversightModule": {
+      "oversightHasDmc": true
+     },
+     "designModule": {
+      "studyType": "INTERVENTIONAL",
+      "phases": [
+       "PHASE3"
+      ]
+     },
+     "contactsLocationsModule": {
+      "locations": [
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "Canada"
+       },
+       {
+        "country": "Canada"
+       },
+       {
+        "country": "Canada"
+       },
+       {
+        "country": "Canada"
+       },
+       {
+        "country": "Canada"
+       },
+       {
+        "country": "Canada"
+       },
+       {
+        "country": "Canada"
+       },
+       {
+        "country": "Canada"
+       },
+       {
+        "country": "Canada"
+       },
+       {
+        "country": "Canada"
+       },
+       {
+        "country": "Canada"
+       },
+       {
+        "country": "Canada"
+       },
+       {
+        "country": "Canada"
+       },
+       {
+        "country": "Finland"
+       },
+       {
+        "country": "Finland"
+       },
+       {
+        "country": "Israel"
+       },
+       {
+        "country": "Israel"
+       },
+       {
+        "country": "Israel"
+       },
+       {
+        "country": "Israel"
+       },
+       {
+        "country": "Israel"
+       }
+      ]
+     }
+    },
+    "hasResults": true
+   },
+   "outcomes": [
+    {
+     "version_no": 0,
+     "version_date": "2019-12-17",
+     "outcome_type": "primary",
+     "measure": "The Number of Participants With Favorable Outcome Defined as National Institute of Health Stroke Scale (NIHSS) Score of 0-1 and/or Modified Rankin Scale (mRS) of 0-1.",
+     "description": "The National Institutes of Health Stroke Scale (NIHSS) is a systematic assessment tool that provides a quantitative measure of stroke-related neurologic deficit. The scores range from 0 to 42 with a score of greater than 20 indicating severe neurologic deficit. The mRS ranges from 0-6 representing perfect health without symptoms to death. A score of 0 is no symptoms at all and a score of 1 is no significant disability. Able to carry out all usual duties and activities.",
+     "time_frame": "at 3 months"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2019-12-17",
+     "outcome_type": "secondary",
+     "measure": "Number of Participants With a Composite Outcome of mRS 0-1 and/or NIHSS 0-1 and/or Decrease in NIHSS From Baseline by 10 or More Points",
+     "description": null,
+     "time_frame": "at 3 months"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2019-12-17",
+     "outcome_type": "secondary",
+     "measure": "Number of Participants With a NIHSS of 0-1 at 24 Hours",
+     "description": "The National Institutes of Health Stroke Scale (NIHSS) is a systematic assessment tool that provides a quantitative measure of stroke-related neurologic deficit. The scores range from 0 to 42 with a score of greater than 20 indicating severe neurologic deficit.",
+     "time_frame": "at 24 hours"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2019-12-17",
+     "outcome_type": "secondary",
+     "measure": "Number of Participants With a NIHSS 0-1 at 90 Days.",
+     "description": "The National Institutes of Health Stroke Scale (NIHSS) is a systematic assessment tool that provides a quantitative measure of stroke-related neurologic deficit. The scores range from 0 to 42 with a score of greater than 20 indicating severe neurologic deficit.",
+     "time_frame": "at 90 days"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2019-12-17",
+     "outcome_type": "secondary",
+     "measure": "The Number of Participants With a Score on the mRS 0-1 at 90 Days.",
+     "description": "The mRS ranges from 0-6 representing perfect health without symptoms to death. 0 = No symptoms at all. 1 = No significant disability. Able to carry out all usual duties and activities. 2 = Slight disability. Unable to carry out all previous activities but able to look after own affairs without assistance. 3 = Moderate disability. Requires some help, but able to walk unassisted. 4 = Moderately severe disability. Unable to walk unassisted and unable to attend to own bodily needs without assistance. 5 = Severe disability. Bedridden, incontinent, and requires constant nursing care and attention. 6 = Dead.",
+     "time_frame": "at 90 days"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2019-12-17",
+     "outcome_type": "secondary",
+     "measure": "The Number of Participants With a Score on the mRS of 0-2 at 90 Days.",
+     "description": "The mRS ranges from 0-6 representing perfect health without symptoms to death. 0 = No symptoms at all. 1 = No significant disability. Able to carry out all usual duties and activities. 2 = Slight disability. Unable to carry out all previous activities but able to look after own affairs without assistance. 3 = Moderate disability. Requires some help, but able to walk unassisted. 4 = Moderately severe disability. Unable to walk unassisted and unable to attend to own bodily needs without assistance. 5 = Severe disability. Bedridden, incontinent, and requires constant nursing care and attention. 6 = Dead.",
+     "time_frame": "at 90 days"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2019-12-17",
+     "outcome_type": "secondary",
+     "measure": "Number of Participants With a Favorable Outcome Per Modified Rankin Scare (mRS)",
+     "description": "Assessed as the final global disability level on the modified Rankin scale (mRS) at 90 days better than expectation (sliding dichotomy analysis) ) assessed in the intention to treat population.\n\nmRS Scale:\n\n0 - No symptoms.\n\n1. \\- No significant disability. Able to carry out all usual activities, despite some symptoms.\n2. \\- Slight disability. Able to look after own affairs without assistance, but unable to carry out all previous activities.\n3. \\- Moderate disability. Requires some help, but able to walk unassisted.\n4. \\- Moderately severe disability. Unable to attend to own bodily needs without assistance, and unable to walk unassisted.\n5. \\- Severe disability. Requires constant nursing care and attention, bedridden, incontinent.\n6. \\- Dead.",
+     "time_frame": "90 days"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2019-12-17",
+     "outcome_type": "secondary",
+     "measure": "Barthel Index (BI) 95-100",
+     "description": "The Barthel Index (BI) is an ordinal scale used to measure a subject's performance in activities of daily living (ADL) in ten variables - feeding, transfer (bed to chair), grooming, toilet use, bathing, mobility on a level surface, stair use, dressing, bowels and bladder. It is an assessment of independence in ADL and is scored in increments of 5 points. the highest total score for fully independent subjects equals 100. A higher number is associated with a greater likelihood of being able to live at home with a degree of independence.",
+     "time_frame": "at 90 days"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2019-12-17",
+     "outcome_type": "secondary",
+     "measure": "Number of Participants With an EuroQol (EQ-5D) Favorable Score < 0.78",
+     "description": "The EQ-5D measures the subject's overall health state in a descriptive system of health-related quality of life (QoL) states consisting of five dimensions (mobility, self-care, usual activities, pain/discomfort, and anxiety/depression) each of which can take one of three responses. The responses record three levels of severity ('no problems', 'some problems', and 'extreme problems) within a particular EQ-5D dimension. The EQ-5D results can be converted to health utility scores.",
+     "time_frame": "at 90 days"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2019-12-17",
+     "outcome_type": "secondary",
+     "measure": "Number of Participants With a Stroke Specific Quality of Life Scale (SSQOL) Score of >=3",
+     "description": "Stroke, specific, health-related quality of life (SSQoL) is a self-reported survey that includes 12 domains and 49 items which are scored on a 5pt Likert response format with a lower score indicating worse function/lower ability on that item or domain. Domain scores were calculated as an unweighted average of item scores in that domain. Overall Total Score was calculated as an unweighted average of domain scores. Each Domain Score and the Overall Total Score all range from 1-5 with 1 being worst and 5 being the best. We have presented data here for the number of participants that have an unweighted average of domain scores of 3 or greater.",
+     "time_frame": "at 90 days"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2019-12-17",
+     "outcome_type": "secondary",
+     "measure": "Trailmaking A",
+     "description": "The Trail Making Test is a neuropsychological test of visual attention and task switching that is thought to be sensitive to the presence of cerebral dysfunction. It is a timed test consisting of two parts where the subject is asked to draw a \"trail\" made by connecting numbers in sequential order (part A) and then in part B the combination of numbers and letters. Scoring is calculated separately for Parts A and B but both scores are provided as the minutes and seconds it takes for the subject to complete ach part. Normally, the entire test (A and B) can be completed in 5-10 minutes.",
+     "time_frame": "at 90 days"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2019-12-17",
+     "outcome_type": "secondary",
+     "measure": "Trailmaking B",
+     "description": "The Trail Making Test is a neuropsychological test of visual attention and task switching that is thought to be sensitive to the presence of cerebral dysfunction. It is a timed test consisting of two parts where the subject is asked to draw a \"trail\" made by connecting numbers in sequential order (part A) and then in part B the combination of numbers and letters. Scoring is calculated separately for Parts A and B but both scores are provided as the minutes and seconds it takes for the subject to complete ach part. Normally, the entire test (A and B) can be completed in 5-10 minutes.",
+     "time_frame": "at 90 days"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2019-12-17",
+     "outcome_type": "secondary",
+     "measure": "Number of Participants With Neurological Deterioration Within 48 Hours",
+     "description": "This is assessed as the number of participants with a neurological adverse event.",
+     "time_frame": "within 48 hours"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2019-12-17",
+     "outcome_type": "secondary",
+     "measure": "Neurological Death Within 7 Days",
+     "description": null,
+     "time_frame": "within 7 days"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2019-12-17",
+     "outcome_type": "secondary",
+     "measure": "Recurrent Ischemic Stroke Within 30 Days",
+     "description": null,
+     "time_frame": "within 30 days"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2019-12-17",
+     "outcome_type": "secondary",
+     "measure": "Atrial Fibrillation Within 48 Hours",
+     "description": null,
+     "time_frame": "within 48 hours"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2019-12-17",
+     "outcome_type": "secondary",
+     "measure": "Pulmonary Edema Within 48 Hours",
+     "description": null,
+     "time_frame": "within 48 hours"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2019-12-17",
+     "outcome_type": "secondary",
+     "measure": "Shortness of Breath Within 48 Hours",
+     "description": null,
+     "time_frame": "within 48 hours"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2019-12-17",
+     "outcome_type": "secondary",
+     "measure": "Symptomatic Intracerebral Hemorrhage (ICH) Within 24 Hours",
+     "description": null,
+     "time_frame": "within 24 hours"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2019-12-17",
+     "outcome_type": "secondary",
+     "measure": "Asymptomatic ICH Within 24 Hours",
+     "description": null,
+     "time_frame": "within 24 hours"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2019-12-17",
+     "outcome_type": "secondary",
+     "measure": "Death Within 30 Days",
+     "description": null,
+     "time_frame": "within 30 days"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2019-12-17",
+     "outcome_type": "secondary",
+     "measure": "Death Within 90 Days",
+     "description": null,
+     "time_frame": "within 90 days"
+    }
+   ]
+  },
+  "fetched_on": "2026-10-24"
+ }
+}

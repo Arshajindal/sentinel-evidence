@@ -6,6 +6,7 @@ wrong match downstream.
 
 from __future__ import annotations
 
+import html
 import re
 import unicodedata
 
@@ -46,12 +47,13 @@ def _fold(text: str) -> str:
 def normalize_title(value: str | None) -> str:
     """Title for exact and trigram matching (§9.5 stage 3).
 
-    Markup removed, NFKD-folded, lowercased, punctuation replaced by spaces
-    and whitespace collapsed. Words stay separated so trigrams stay meaningful.
+    HTML entities decoded (Crossref titles carry "&amp;"), markup removed,
+    NFKD-folded, lowercased, punctuation replaced by spaces and whitespace
+    collapsed. Words stay separated so trigrams stay meaningful.
     """
     if not value:
         return ""
-    text = _fold(_TAG_RE.sub(" ", value))
+    text = _fold(_TAG_RE.sub(" ", html.unescape(value)))
     return " ".join(_NON_WORD_RE.sub(" ", text).split())
 
 
