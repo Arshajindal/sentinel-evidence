@@ -1,0 +1,43 @@
+{
+ "status": 200,
+ "body": {
+  "responseCode": 1,
+  "handle": "10.1093/aje/kwj325",
+  "values": [
+   {
+    "index": 1,
+    "type": "URL",
+    "data": {
+     "format": "string",
+     "value": "https://academic.oup.com/aje/article-lookup/doi/10.1093/aje/kwj325"
+    },
+    "ttl": 86400,
+    "timestamp": "2017-01-13T16:28:32Z"
+   },
+   {
+    "index": 700050,
+    "type": "700050",
+    "data": {
+     "format": "string",
+     "value": "200611171138"
+    },
+    "ttl": 86400,
+    "timestamp": "2016-12-18T01:31:05Z"
+   },
+   {
+    "index": 100,
+    "type": "HS_ADMIN",
+    "data": {
+     "format": "admin",
+     "value": {
+      "handle": "0.na/10.1093",
+      "index": 200,
+      "permissions": "111111110010"
+     }
+    },
+    "ttl": 86400,
+    "timestamp": "2017-01-13T16:28:32Z"
+   }
+  ]
+ }
+}

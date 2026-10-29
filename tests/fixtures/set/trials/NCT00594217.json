@@ -1,0 +1,132 @@
+{
+ "id": "NCT00594217",
+ "subject": "trial",
+ "categories": [
+  "c05_out_of_scope_phase"
+ ],
+ "source": {
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "Phase 1: outside C05's scope even though it is completed and FDA-regulated.",
+ "expected": [
+  {
+   "check": "C05",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "trial": {
+   "nct_id": "NCT00594217",
+   "brief_title": "Determining How Quickly Progesterone Slows LH Pulse Frequency",
+   "overall_status": "COMPLETED",
+   "study_type": "INTERVENTIONAL",
+   "phase": "PHASE1",
+   "enrollment": 85,
+   "start_date": "2007-11-29",
+   "primary_completion_date": "2020-01-18",
+   "completion_date": "2020-01-18",
+   "results_first_posted": "2025-03-28",
+   "lead_sponsor": "University of Virginia",
+   "sponsor_class": "OTHER",
+   "raw": {
+    "protocolSection": {
+     "identificationModule": {
+      "nctId": "NCT00594217",
+      "briefTitle": "Determining How Quickly Progesterone Slows LH Pulse Frequency"
+     },
+     "statusModule": {
+      "overallStatus": "COMPLETED",
+      "startDateStruct": {
+       "date": "2007-11-29",
+       "type": "ACTUAL"
+      },
+      "expandedAccessInfo": {
+       "hasExpandedAccess": false
+      },
+      "statusVerifiedDate": "2025-03",
+      "completionDateStruct": {
+       "date": "2020-01-18",
+       "type": "ACTUAL"
+      },
+      "lastUpdateSubmitDate": "2025-03-26",
+      "studyFirstSubmitDate": "2008-01-04",
+      "resultsFirstSubmitDate": "2024-12-12",
+      "studyFirstSubmitQcDate": "2008-01-04",
+      "lastUpdatePostDateStruct": {
+       "date": "2025-03-28",
+       "type": "ACTUAL"
+      },
+      "resultsFirstSubmitQcDate": "2025-03-26",
+      "studyFirstPostDateStruct": {
+       "date": "2008-01-15",
+       "type": "ESTIMATED"
+      },
+      "resultsFirstPostDateStruct": {
+       "date": "2025-03-28",
+       "type": "ACTUAL"
+      },
+      "primaryCompletionDateStruct": {
+       "date": "2020-01-18",
+       "type": "ACTUAL"
+      }
+     },
+     "oversightModule": {
+      "oversightHasDmc": true,
+      "isFdaRegulatedDrug": true,
+      "isFdaRegulatedDevice": false
+     },
+     "designModule": {
+      "studyType": "INTERVENTIONAL",
+      "phases": [
+       "PHASE1"
+      ]
+     },
+     "contactsLocationsModule": {
+      "locations": [
+       {
+        "country": "United States"
+       }
+      ]
+     }
+    },
+    "hasResults": true
+   },
+   "outcomes": [
+    {
+     "version_no": 0,
+     "version_date": "2025-03-28",
+     "outcome_type": "primary",
+     "measure": "LH Pulse Frequency",
+     "description": "The primary endpoint is the change in the number of LH pulses (over 10 hours) attributable to progesterone.",
+     "time_frame": "10 hours before and after administration of micronized progesterone and placebo"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2025-03-28",
+     "outcome_type": "secondary",
+     "measure": "Mean LH",
+     "description": "A secondary endpoint is the change in mean LH concentration (over 10 hours) attributable to progesterone.",
+     "time_frame": "10 hours before and after administration of micronized progesterone and placebo"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2025-03-28",
+     "outcome_type": "secondary",
+     "measure": "LH Pulse Mass",
+     "description": "A secondary endpoint is the change in LH pulse mass (a correlate of LH pulse amplitude) attributable to progesterone.",
+     "time_frame": "10 hours before and after administration of micronized progesterone and placebo"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2025-03-28",
+     "outcome_type": "secondary",
+     "measure": "Mean FSH",
+     "description": "A secondary endpoint is the change in mean FSH concentration (over 10 hours) attributable to progesterone.",
+     "time_frame": "10 hours before and after administration of micronized progesterone and placebo"
+    }
+   ]
+  },
+  "fetched_on": "2026-10-24"
+ }
+}

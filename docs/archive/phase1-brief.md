@@ -307,7 +307,25 @@ Requirements for all harvesters:
 
 ### Prefer bulk over API
 
-For OpenAlex and Crossref, ingest the bulk snapshot rather than paginating the API. Once the data is local, existence checking becomes a table join rather than a network call, and throughput stops being governed by someone else's rate limiter. This is the single highest-leverage decision in Phase 1 — do it now, not later.
+For OpenAlex, Crossref, and ClinicalTrials.gov, ingest the bulk distribution rather than paginating the API. Once the data is local, existence checking becomes a table join rather than a network call, and throughput stops being governed by someone else's rate limiter. This is the single highest-leverage decision in Phase 1 — do it now, not later.
+
+ClinicalTrials.gov publishes every study as one zip at `/api/v2/studies/download?format=json.zip`, same schema as the per-study endpoint (ADR-019). Use it for the initial load. Keep the paginated `/studies` endpoint for refreshes; it uses a `pageToken` cursor with a 1,000-row page cap, which maps onto the watermark design directly. `/api/v2/version` returns a `dataTimestamp` — check it before a refresh to confirm the daily rebuild finished.
+
+### Strip personal data during normalisation
+
+**This is a hard requirement, not a preference.** ClinicalTrials.gov records contain named individuals and their contact details. Sentinel stores none of it.
+
+Drop these paths inside `normalise()`, before anything reaches the database:
+
+```
+protocolSection.contactsLocationsModule.centralContacts
+protocolSection.contactsLocationsModule.overallOfficials
+protocolSection.contactsLocationsModule.locations[].contacts
+```
+
+Retain institutional fields only: sponsor name and class, country-level locations, dates, status, enrolment, outcomes.
+
+`trial.raw` is JSONB, so the default behaviour is to store the entire payload. Dropping at normalise time — not at query time, not at export time — is what makes the guarantee real. Write a fixture asserting no dropped path survives into `trial.raw`, and run it on every ingest change. See ADR-018.
 
 ---
 

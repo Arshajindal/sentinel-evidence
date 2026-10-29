@@ -1,0 +1,408 @@
+{
+ "status": 200,
+ "body": {
+  "status": "ok",
+  "message-type": "work-list",
+  "message-version": "1.0.0",
+  "message": {
+   "facets": {},
+   "total-results": 3580090,
+   "items": [
+    {
+     "indexed": {
+      "date-parts": [
+       [
+        2026,
+        10,
+        24
+       ]
+      ],
+      "date-time": "2026-10-24T05:12:58Z",
+      "timestamp": 1792818778013,
+      "version": "4.5.0"
+     },
+     "reference-count": 0,
+     "publisher": "Oxford University Press (OUP)",
+     "issue": "11",
+     "content-domain": {
+      "domain": [],
+      "crossmark-restriction": false
+     },
+     "short-container-title": [
+      "American Journal of Epidemiology"
+     ],
+     "DOI": "10.1093/aje/kwj325",
+     "type": "journal-article",
+     "created": {
+      "date-parts": [
+       [
+        2006,
+        9,
+        12
+       ]
+      ],
+      "date-time": "2006-09-12T22:35:29Z",
+      "timestamp": 1158100529000
+     },
+     "page": "1065-1074",
+     "source": "Crossref",
+     "is-referenced-by-count": 603,
+     "title": [
+      "Prevalence and Determinants of Lateral and Medial Epicondylitis: A Population Study"
+     ],
+     "prefix": "10.1093",
+     "volume": "164",
+     "author": [
+      {
+       "given": "R.",
+       "family": "Shiri",
+       "sequence": "first",
+       "affiliation": [],
+       "role": [
+        {
+         "vocabulary": "crossref",
+         "role": "author"
+        }
+       ]
+      },
+      {
+       "given": "E.",
+       "family": "Viikari-Juntura",
+       "sequence": "additional",
+       "affiliation": [],
+       "role": [
+        {
+         "vocabulary": "crossref",
+         "role": "author"
+        }
+       ]
+      },
+      {
+       "given": "H.",
+       "family": "Varonen",
+       "sequence": "additional",
+       "affiliation": [],
+       "role": [
+        {
+         "vocabulary": "crossref",
+         "role": "author"
+        }
+       ]
+      },
+      {
+       "given": "M.",
+       "family": "Heliovaara",
+       "sequence": "additional",
+       "affiliation": [],
+       "role": [
+        {
+         "vocabulary": "crossref",
+         "role": "author"
+        }
+       ]
+      }
+     ],
+     "member": "286",
+     "published-online": {
+      "date-parts": [
+       [
+        2006,
+        9,
+        12
+       ]
+      ]
+     },
+     "container-title": [
+      "American Journal of Epidemiology"
+     ],
+     "language": "en",
+     "link": [
+      {
+       "URL": "http://academic.oup.com/aje/article-pdf/164/11/1065/135427/kwj325.pdf",
+       "content-type": "unspecified",
+       "content-version": "vor",
+       "intended-application": "similarity-checking"
+      }
+     ],
+     "deposited": {
+      "date-parts": [
+       [
+        2017,
+        8,
+        22
+       ]
+      ],
+      "date-time": "2017-08-22T11:55:49Z",
+      "timestamp": 1503402949000
+     },
+     "score": 51.740143,
+     "resource": {
+      "primary": {
+       "URL": "https://academic.oup.com/aje/article-lookup/doi/10.1093/aje/kwj325"
+      }
+     },
+     "issued": {
+      "date-parts": [
+       [
+        2006,
+        9,
+        12
+       ]
+      ]
+     },
+     "references-count": 0,
+     "journal-issue": {
+      "issue": "11",
+      "published-online": {
+       "date-parts": [
+        [
+         2006,
+         9,
+         12
+        ]
+       ]
+      }
+     },
+     "URL": "https://doi.org/10.1093/aje/kwj325",
+     "ISSN": [
+      "0002-9262",
+      "1476-6256"
+     ],
+     "issn-type": [
+      {
+       "value": "0002-9262",
+       "type": "print"
+      },
+      {
+       "value": "1476-6256",
+       "type": "electronic"
+      }
+     ],
+     "published": {
+      "date-parts": [
+       [
+        2006,
+        9,
+        12
+       ]
+      ]
+     }
+    },
+    {
+     "indexed": {
+      "date-parts": [
+       [
+        2022,
+        8,
+        3
+       ]
+      ],
+      "date-time": "2022-08-03T01:43:02Z",
+      "timestamp": 1659490982400
+     },
+     "reference-count": 0,
+     "publisher": "Oxford University Press",
+     "content-domain": {
+      "domain": [],
+      "crossmark-restriction": false
+     },
+     "published-print": {
+      "date-parts": [
+       [
+        2011,
+        4
+       ]
+      ]
+     },
+     "DOI": "10.1093/med/9780199550647.003.05.02",
+     "type": "book",
+     "created": {
+      "date-parts": [
+       [
+        2012,
+        4,
+        7
+       ]
+      ],
+      "date-time": "2012-04-07T21:08:44Z",
+      "timestamp": 1333832924000
+     },
+     "source": "Crossref",
+     "is-referenced-by-count": 0,
+     "title": [
+      "Lateral and medial epicondylitis"
+     ],
+     "prefix": "10.1093",
+     "author": [
+      {
+       "given": "Nick",
+       "family": "Phillips",
+       "sequence": "first",
+       "affiliation": [],
+       "role": [
+        {
+         "role": "author",
+         "vocabulary": "crossref"
+        }
+       ]
+      }
+     ],
+     "member": "286",
+     "container-title": [
+      "Oxford Medicine Online"
+     ],
+     "original-title": [
+      "Lateral and medial epicondylitis"
+     ],
+     "deposited": {
+      "date-parts": [
+       [
+        2022,
+        8,
+        3
+       ]
+      ],
+      "date-time": "2022-08-03T01:12:41Z",
+      "timestamp": 1659489161000
+     },
+     "score": 41.968803,
+     "resource": {
+      "primary": {
+       "URL": "https://academic.oup.com/book/24558/chapter/187786385"
+      }
+     },
+     "issued": {
+      "date-parts": [
+       [
+        2011,
+        4
+       ]
+      ]
+     },
+     "references-count": 0,
+     "URL": "https://doi.org/10.1093/med/9780199550647.003.05.02",
+     "published": {
+      "date-parts": [
+       [
+        2011,
+        4
+       ]
+      ]
+     }
+    },
+    {
+     "indexed": {
+      "date-parts": [
+       [
+        2024,
+        4,
+        29
+       ]
+      ],
+      "date-time": "2024-04-29T12:25:22Z",
+      "timestamp": 1714393522012
+     },
+     "reference-count": 0,
+     "publisher": "Jaypee Brothers Medical Publishers (P) Ltd.",
+     "isbn-type": [
+      {
+       "value": "9788180618611",
+       "type": "print"
+      }
+     ],
+     "content-domain": {
+      "domain": [],
+      "crossmark-restriction": false
+     },
+     "DOI": "10.5005/jp/books/10956_36",
+     "type": "book-chapter",
+     "created": {
+      "date-parts": [
+       [
+        2019,
+        7,
+        31
+       ]
+      ],
+      "date-time": "2019-07-31T19:22:05Z",
+      "timestamp": 1564600925000
+     },
+     "page": "201-201",
+     "source": "Crossref",
+     "is-referenced-by-count": 0,
+     "title": [
+      "Tennis Elbow (Lateral and Medial Epicondylitis)"
+     ],
+     "prefix": "10.5005",
+     "author": [
+      {
+       "given": "Laila",
+       "family": "Das",
+       "sequence": "first",
+       "affiliation": [],
+       "role": [
+        {
+         "role": "author",
+         "vocabulary": "crossref"
+        }
+       ]
+      }
+     ],
+     "member": "2914",
+     "published-online": {
+      "date-parts": [
+       [
+        2006
+       ]
+      ]
+     },
+     "container-title": [
+      "Textbook of Sports Medicine"
+     ],
+     "language": "en",
+     "deposited": {
+      "date-parts": [
+       [
+        2019,
+        8,
+        13
+       ]
+      ],
+      "date-time": "2019-08-13T23:08:26Z",
+      "timestamp": 1565737706000
+     },
+     "score": 38.779854,
+     "resource": {
+      "primary": {
+       "URL": "https://www.jaypeedigital.com/book/9788180618611/chapter/ch36"
+      }
+     },
+     "issued": {
+      "date-parts": [
+       [
+        2006
+       ]
+      ]
+     },
+     "ISBN": [
+      "9788180618611"
+     ],
+     "references-count": 0,
+     "URL": "https://doi.org/10.5005/jp/books/10956_36",
+     "published": {
+      "date-parts": [
+       [
+        2006
+       ]
+      ]
+     }
+    }
+   ],
+   "items-per-page": 3,
+   "query": {
+    "start-index": 0,
+    "search-terms": null
+   }
+  }
+ }
+}

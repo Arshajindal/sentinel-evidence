@@ -1,0 +1,993 @@
+{
+ "id": "PMC8693692",
+ "subject": "paper",
+ "categories": [
+  "c01_non_journal_references"
+ ],
+ "source": {
+  "corpus": "pmc-rct-2015-2024",
+  "paper_id": 533,
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "7 non-journal references (CDC and FDA guidance, a New York Times page, Nextstrain): none flagged.",
+ "expected": [
+  {
+   "check": "C01",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C02",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C03",
+   "status": "not_applicable",
+   "severity": "info"
+  },
+  {
+   "check": "C04",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "paper_id": 533,
+  "publication_date": "2021-12-15",
+  "fulltext_status": "full",
+  "references": [
+   {
+    "reference_id": 20882,
+    "ordinal": 1,
+    "raw_string": "Slaoui M, Hepburn M. Developing safe and effective Covid vaccines — Operation Warp Speed’s strategy and approach. N Engl J Med 2020;383:1701-1703.32846056 10.1056/NEJMp2027405",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1056/nejmp2027405",
+    "parsed_pmid": "32846056",
+    "parsed_title": "Developing safe and effective Covid vaccines — Operation Warp Speed’s strategy and approach.",
+    "parsed_first_author": "slaoui",
+    "parsed_year": 2020,
+    "parsed_container": "N Engl J Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4772,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1056/nejmp2027405"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20883,
+    "ordinal": 2,
+    "raw_string": "Baden LR, El Sahly HM, Essink B, et al. Efficacy and safety of the mRNA-1273 SARS-CoV-2 vaccine. N Engl J Med 2021;384:403-416.33378609 10.1056/NEJMoa2035389 PMC7787219",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1056/nejmoa2035389",
+    "parsed_pmid": "33378609",
+    "parsed_title": "Efficacy and safety of the mRNA-1273 SARS-CoV-2 vaccine.",
+    "parsed_first_author": "baden",
+    "parsed_year": 2021,
+    "parsed_container": "N Engl J Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4773,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1056/nejmoa2035389"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20884,
+    "ordinal": 3,
+    "raw_string": "Polack FP, Thomas SJ, Kitchin N, et al. Safety and efficacy of the BNT162b2 mRNA Covid-19 vaccine. N Engl J Med 2020;383:2603-2615.33301246 10.1056/NEJMoa2034577 PMC7745181",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1056/nejmoa2034577",
+    "parsed_pmid": "33301246",
+    "parsed_title": "Safety and efficacy of the BNT162b2 mRNA Covid-19 vaccine.",
+    "parsed_first_author": "polack",
+    "parsed_year": 2020,
+    "parsed_container": "N Engl J Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 2692,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {},
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20885,
+    "ordinal": 4,
+    "raw_string": "Logunov DY, Dolzhikova IV, Shcheblyakov DV, et al. Safety and efficacy of an rAd26 and rAd5 vector-based heterologous prime-boost COVID-19 vaccine: an interim analysis of a randomised controlled phase 3 trial in Russia. Lancet 2021;397:671-681.33545094 10.1016/S0140-6736(21)00234-8 PMC7852454",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s0140-6736(21)00234-8",
+    "parsed_pmid": "33545094",
+    "parsed_title": "Safety and efficacy of an rAd26 and rAd5 vector-based heterologous prime-boost COVID-19 vaccine: an interim analysis of a randomised controlled phase 3 trial in Russia.",
+    "parsed_first_author": "logunov",
+    "parsed_year": 2021,
+    "parsed_container": "Lancet",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4774,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0140-6736(21)00234-8"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20886,
+    "ordinal": 5,
+    "raw_string": "Voysey M, Clemens SAC, Madhi SA, et al. Safety and efficacy of the ChAdOx1 nCoV-19 vaccine (AZD1222) against SARS-CoV-2: an interim analysis of four randomised controlled trials in Brazil, South Africa, and the UK. Lancet 2021;397:99-111.33306989 10.1016/S0140-6736(20)32661-1 PMC7723445",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s0140-6736(20)32661-1",
+    "parsed_pmid": "33306989",
+    "parsed_title": "Safety and efficacy of the ChAdOx1 nCoV-19 vaccine (AZD1222) against SARS-CoV-2: an interim analysis of four randomised controlled trials in Brazil, South Africa, and the UK.",
+    "parsed_first_author": "voysey",
+    "parsed_year": 2021,
+    "parsed_container": "Lancet",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4775,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0140-6736(20)32661-1"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20887,
+    "ordinal": 6,
+    "raw_string": "SARS-CoV-2 variant classifications and definitions. Atlanta: Centers for Disease Control and Prevention, 2021 (https://www.cdc.gov/coronavirus/2019-ncov/variants/variant-info.html).",
+    "citation_tag": "mixed-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "SARS-CoV-2 variant classifications and definitions",
+    "parsed_first_author": null,
+    "parsed_year": 2021,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20888,
+    "ordinal": 7,
+    "raw_string": "Harvey WT, Carabelli AM, Jackson B, et al. SARS-CoV-2 variants, spike mutations and immune escape. Nat Rev Microbiol 2021;19:409-424.34075212 10.1038/s41579-021-00573-0 PMC8167834",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/s41579-021-00573-0",
+    "parsed_pmid": "34075212",
+    "parsed_title": "SARS-CoV-2 variants, spike mutations and immune escape.",
+    "parsed_first_author": "harvey",
+    "parsed_year": 2021,
+    "parsed_container": "Nat Rev Microbiol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 1465,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {},
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20889,
+    "ordinal": 8,
+    "raw_string": "Krause PR, Fleming TR, Longini IM, et al. SARS-CoV-2 variants and vaccines. N Engl J Med 2021;385:179-186.34161052 10.1056/NEJMsr2105280 PMC8262623",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1056/nejmsr2105280",
+    "parsed_pmid": "34161052",
+    "parsed_title": "SARS-CoV-2 variants and vaccines.",
+    "parsed_first_author": "krause",
+    "parsed_year": 2021,
+    "parsed_container": "N Engl J Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4781,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1056/nejmsr2105280"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20890,
+    "ordinal": 9,
+    "raw_string": "Holder J. Tracking coronavirus vaccinations around the world. New York Times. 2021 (https://www.nytimes.com/interactive/2021/world/covid-vaccinations-tracker.html).",
+    "citation_tag": "mixed-citation",
+    "publication_type": "eref",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Tracking coronavirus vaccinations around the world.",
+    "parsed_first_author": "holder",
+    "parsed_year": 2021,
+    "parsed_container": "New York Times",
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20891,
+    "ordinal": 10,
+    "raw_string": "Keech C, Albert G, Cho I, et al. Phase 1–2 trial of a SARS-CoV-2 recombinant spike protein nanoparticle vaccine. N Engl J Med 2020;383:2320-2332.32877576 10.1056/NEJMoa2026920 PMC7494251",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1056/nejmoa2026920",
+    "parsed_pmid": "32877576",
+    "parsed_title": "Phase 1–2 trial of a SARS-CoV-2 recombinant spike protein nanoparticle vaccine.",
+    "parsed_first_author": "keech",
+    "parsed_year": 2020,
+    "parsed_container": "N Engl J Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4787,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1056/nejmoa2026920"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20892,
+    "ordinal": 11,
+    "raw_string": "Formica N, Mallory R, Albert G, et al. Different dose regimens of a SARS-CoV-2 recombinant spike protein vaccine (NVX-CoV2373) in younger and older adults: a phase 2 randomized placebo-controlled trial. PLoS Med 2021;18(10):e1003769-e1003769.34597298 10.1371/journal.pmed.1003769 PMC8486115",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1371/journal.pmed.1003769",
+    "parsed_pmid": "34597298",
+    "parsed_title": "Different dose regimens of a SARS-CoV-2 recombinant spike protein vaccine (NVX-CoV2373) in younger and older adults: a phase 2 randomized placebo-controlled trial.",
+    "parsed_first_author": "formica",
+    "parsed_year": 2021,
+    "parsed_container": "PLoS Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4788,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1371/journal.pmed.1003769"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20893,
+    "ordinal": 12,
+    "raw_string": "Shinde V, Bhikha S, Hoosain Z, et al. Efficacy of NVX-CoV2373 Covid-19 vaccine against the B.1.351 variant. N Engl J Med 2021;384:1899-1909.33951374 10.1056/NEJMoa2103055 PMC8091623",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1056/nejmoa2103055",
+    "parsed_pmid": "33951374",
+    "parsed_title": "Efficacy of NVX-CoV2373 Covid-19 vaccine against the B.1.351 variant.",
+    "parsed_first_author": "shinde",
+    "parsed_year": 2021,
+    "parsed_container": "N Engl J Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4789,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1056/nejmoa2103055"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20894,
+    "ordinal": 13,
+    "raw_string": "Heath PT, Galiza EP, Baxter DN, et al. Safety and efficacy of the NVX-CoV2373 Covid-19 vaccine. N Engl J Med 2021;385:1172-1183.34192426 10.1056/NEJMoa2107659 PMC8262625",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1056/nejmoa2107659",
+    "parsed_pmid": "34192426",
+    "parsed_title": "Safety and efficacy of the NVX-CoV2373 Covid-19 vaccine.",
+    "parsed_first_author": "heath",
+    "parsed_year": 2021,
+    "parsed_container": "N Engl J Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4790,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1056/nejmoa2107659"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.962
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20895,
+    "ordinal": 14,
+    "raw_string": "Nexstrain. Genomic epidemiology of novel coronavirus — global subsampling. 2021 (https://nextstrain.org/ncov/gisaid/global).",
+    "citation_tag": "mixed-citation",
+    "publication_type": "eref",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Genomic epidemiology of novel coronavirus — global subsampling",
+    "parsed_first_author": "nexstrain",
+    "parsed_year": 2021,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20896,
+    "ordinal": 15,
+    "raw_string": "Guidance for industry: development and licensure of vaccines to prevent COVID-19. Silver Spring, MD: Food and Drug Administration, June 2020 (https://www.fda.gov/media/139638/download).",
+    "citation_tag": "mixed-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Guidance for industry: development and licensure of vaccines to prevent COVID-19",
+    "parsed_first_author": null,
+    "parsed_year": 2020,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20897,
+    "ordinal": 16,
+    "raw_string": "Corey L, Mascola JR, Fauci AS, Collins FS. A strategic approach to COVID-19 vaccine R&D. Science 2020;368:948-950.32393526 10.1126/science.abc5312",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1126/science.abc5312",
+    "parsed_pmid": "32393526",
+    "parsed_title": "A strategic approach to COVID-19 vaccine R&D.",
+    "parsed_first_author": "corey",
+    "parsed_year": 2020,
+    "parsed_container": "Science",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4800,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1126/science.abc5312"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.957
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20898,
+    "ordinal": 17,
+    "raw_string": "Joffe S, Babiker A, Ellenberg SS, et al. Data and safety monitoring of COVID-19 vaccine clinical trials. J Infect Dis 2021 May 19 (Epub ahead of print).34008027 10.1093/infdis/jiab263 PMC8240876",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/infdis/jiab263",
+    "parsed_pmid": "34008027",
+    "parsed_title": "Data and safety monitoring of COVID-19 vaccine clinical trials.",
+    "parsed_first_author": "joffe",
+    "parsed_year": 2021,
+    "parsed_container": "J Infect Dis",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4801,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/infdis/jiab263"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20899,
+    "ordinal": 18,
+    "raw_string": "People with certain medical conditions. Atlanta: Centers for Disease Control and Prevention, 2021 (https://www.cdc.gov/coronavirus/2019-ncov/need-extra-precautions/people-with-medical-conditions.html).",
+    "citation_tag": "mixed-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "People with certain medical conditions",
+    "parsed_first_author": null,
+    "parsed_year": 2021,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20900,
+    "ordinal": 19,
+    "raw_string": "Center for Biologics Evaluation and Research. Guidance for industry: toxicity grading scale for healthy adult and adolescent volunteers enrolled in preventive vaccine clinical trials. Silver Spring, MD: Food and Drug Administration, September 2007 (https://www.fda.gov/media/73679/download).",
+    "citation_tag": "mixed-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Guidance for industry: toxicity grading scale for healthy adult and adolescent volunteers enrolled in preventive vaccine clinical trials",
+    "parsed_first_author": "center for biologics evaluation and research",
+    "parsed_year": 2007,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": [
+      {
+       "year": 2023,
+       "paper_id": 4807,
+       "rejected": "year 2023 vs 2007",
+       "similarity": 0.7347,
+       "first_author": "amai"
+      }
+     ]
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20901,
+    "ordinal": 20,
+    "raw_string": "Coronavirus (COVID-19) update. Silver Spring, MD: Food and Drug Administration, July 13, 2021 (https://www.fda.gov/news-events/press-announcements/coronavirus-covid-19-update-july-13-2021).",
+    "citation_tag": "mixed-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Coronavirus (COVID-19) update",
+    "parsed_first_author": null,
+    "parsed_year": 2021,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": [
+      {
+       "year": 2020,
+       "paper_id": 4817,
+       "rejected": "author or year missing or not matching",
+       "similarity": 0.8929,
+       "first_author": "pack"
+      },
+      {
+       "year": 2020,
+       "paper_id": 4818,
+       "rejected": "similarity 0.722 below 0.85",
+       "similarity": 0.7222,
+       "first_author": "hurd"
+      },
+      {
+       "year": 2020,
+       "paper_id": 4820,
+       "rejected": "similarity 0.634 below 0.85",
+       "similarity": 0.6341,
+       "first_author": "quinn"
+      }
+     ]
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20902,
+    "ordinal": 21,
+    "raw_string": "Myocarditis and pericarditis after mRNA COVID-19 vaccination. Atlanta: Centers for Disease Control and Prevention, 2021 (https://www.cdc.gov/coronavirus/2019-ncov/vaccines/safety/myocarditis.html).",
+    "citation_tag": "mixed-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Myocarditis and pericarditis after mRNA COVID-19 vaccination",
+    "parsed_first_author": null,
+    "parsed_year": 2021,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "title_only",
+    "resolved_paper_id": 4825,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20903,
+    "ordinal": 22,
+    "raw_string": "Hunter PR. Thrombosis after covid-19 vaccination. BMJ 2021;373:n958-n958.33853865 10.1136/bmj.n958",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1136/bmj.n958",
+    "parsed_pmid": "33853865",
+    "parsed_title": "Thrombosis after covid-19 vaccination.",
+    "parsed_first_author": "hunter",
+    "parsed_year": 2021,
+    "parsed_container": "BMJ",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4827,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1136/bmj.n958"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20904,
+    "ordinal": 23,
+    "raw_string": "Falsey AR, Sobieszczyk ME, Hirsch I, et al. Phase 3 safety and efficacy of AZD1222 (ChAdOx1 nCoV-19) Covid-19 vaccine. N Engl J Med 2021;385:2348-2360. 34587382 10.1056/NEJMoa2105290 PMC8522798",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1056/nejmoa2105290",
+    "parsed_pmid": "34587382",
+    "parsed_title": "Phase 3 safety and efficacy of AZD1222 (ChAdOx1 nCoV-19) Covid-19 vaccine.",
+    "parsed_first_author": "falsey",
+    "parsed_year": 2021,
+    "parsed_container": "N Engl J Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4828,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1056/nejmoa2105290"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 20905,
+    "ordinal": 24,
+    "raw_string": "Follmann D, Fintzi J, Fay MP, et al. A deferred-vaccination design to assess durability of COVID-19 vaccine effect after the placebo group is vaccinated. Ann Intern Med 2021;174:1118-1125.33844575 10.7326/M20-8149 PMC8099035",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.7326/m20-8149",
+    "parsed_pmid": "33844575",
+    "parsed_title": "A deferred-vaccination design to assess durability of COVID-19 vaccine effect after the placebo group is vaccinated.",
+    "parsed_first_author": "follmann",
+    "parsed_year": 2021,
+    "parsed_container": "Ann Intern Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4829,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.7326/m20-8149"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   }
+  ],
+  "stat_tests": [],
+  "means": [],
+  "trials": []
+ }
+}

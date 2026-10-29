@@ -1,0 +1,1006 @@
+{
+ "version": "6.9",
+ "hitCount": 3,
+ "request": {
+  "queryString": "PMCID:PMC11662519 OR PMCID:PMC11667321 OR PMCID:PMC11634091",
+  "resultType": "core",
+  "cursorMark": "*",
+  "pageSize": 3,
+  "sort": "",
+  "synonym": false
+ },
+ "resultList": {
+  "result": [
+   {
+    "id": "39709421",
+    "source": "MED",
+    "pmid": "39709421",
+    "pmcid": "PMC11662519",
+    "fullTextIdList": {
+     "fullTextId": [
+      "PMC11662519"
+     ]
+    },
+    "doi": "10.1186/s12938-024-01323-y",
+    "title": "Specifications and functional impact of a self-triggered grasp neuroprosthesis developed to restore prehension in hemiparetic post-stroke subjects.",
+    "authorString": "Le Guillou R, Froger J, Morin M, Couderc M, Cormier C, Azevedo-Coste C, Gasq D.",
+    "authorList": {
+     "author": [
+      {
+       "fullName": "Le Guillou R",
+       "lastName": "Le Guillou",
+       "firstName": "R",
+       "initials": "R",
+       "authorId": {
+        "type": "ORCID",
+        "value": "REDACTED"
+       },
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "REDACTED"
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Froger J",
+       "lastName": "Froger",
+       "firstName": "J",
+       "initials": "J",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "REDACTED"
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Morin M",
+       "lastName": "Morin",
+       "firstName": "M",
+       "initials": "M",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "REDACTED"
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Couderc M",
+       "lastName": "Couderc",
+       "firstName": "M",
+       "initials": "M",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "REDACTED"
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Cormier C",
+       "lastName": "Cormier",
+       "firstName": "C",
+       "initials": "C",
+       "authorId": {
+        "type": "ORCID",
+        "value": "REDACTED"
+       },
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "REDACTED"
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Azevedo-Coste C",
+       "lastName": "Azevedo-Coste",
+       "firstName": "C",
+       "initials": "C",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "REDACTED"
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Gasq D",
+       "lastName": "Gasq",
+       "firstName": "D",
+       "initials": "D",
+       "authorId": {
+        "type": "ORCID",
+        "value": "REDACTED"
+       },
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "REDACTED"
+         }
+        ]
+       }
+      }
+     ]
+    },
+    "authorIdList": {
+     "authorId": [
+      {
+       "type": "ORCID",
+       "value": "REDACTED"
+      }
+     ]
+    },
+    "dataLinksTagsList": {
+     "dataLinkstag": [
+      "supporting_data"
+     ]
+    },
+    "journalInfo": {
+     "issue": "1",
+     "volume": "23",
+     "journalIssueId": 3873437,
+     "dateOfPublication": "2024 Dec",
+     "monthOfPublication": 12,
+     "yearOfPublication": 2024,
+     "journal": {
+      "medlineAbbreviation": "Biomed Eng Online",
+      "title": "Biomedical engineering online",
+      "essn": "1475-925X",
+      "issn": "1475-925X",
+      "isoabbreviation": "Biomed Eng Online",
+      "nlmid": "101147518"
+     },
+     "printPublicationDate": "2024-12-01"
+    },
+    "pubYear": "2024",
+    "pageInfo": "129",
+    "abstractText": "<h4>Background</h4>Stroke is the leading cause of acquired motor deficiencies in adults. Restoring prehension abilities is challenging for individuals who have not recovered active hand opening capacities after their rehabilitation. Self-triggered functional electrical stimulation applied to finger extensor muscles to restore grasping abilities in daily life is called grasp neuroprosthesis (GNP) and remains poorly accessible to the post-stroke population. Thus, we developed a GNP prototype with self-triggering control modalities adapted to the characteristics of the post-stroke population and assessed its impact on abilities.<h4>Methods</h4>Through two clinical research protocols, 22 stroke participants used the GNP and its control modalities (EMG activity of a pre-defined muscle, IMU motion detection, foot switches and voice commands) for 3 to 5 sessions over a week. The NeuroPrehens software interpreted user commands through input signals from electromyographic, inertial, foot switches or microphone sensors to trigger an external electrical stimulator using two bipolar channels with surface electrodes. Users tested a panel of 9 control modalities, subjectively evaluated in ease-of-use and reliability with scores out of 10 and selected a preferred one before training with the GNP to perform functional unimanual standardized prehension tasks in a seated position. The responsiveness and functional impact of the GNP were assessed through a posteriori analysis of video recordings of these tasks across the two blinded evaluation multi-crossover N-of-1 randomized controlled trials.<h4>Results</h4>Non-paretic foot triggering, whether from EMG or IMU, received the highest scores in both ease-of-use (median scores out of 10: EMG 10, IMU 9) and reliability (EMG 9, IMU 9) and were found viable and appreciated by users, like voice control and head lateral inclination modalities. The assessment of the system's general responsiveness combined with the control modalities latencies revealed median (95% confidence interval) durations between user intent and FES triggering of 333 ms (211 to 561), 217 ms (167 to 355) and 467 ms (147 to 728) for the IMU, EMG and voice control types of modalities, respectively. The functional improvement with the use of the GNP was significant in the two prehension tasks evaluated, with a median (95% confidence interval) improvement of 3 (- 1 to 5) points out of 5.<h4>Conclusions</h4>The GNP prototype and its control modalities were well suited to the post-stroke population in terms of self-triggering, responsiveness and restoration of functional grasping abilities. A wearable version of this device is being developed to improve prehension abilities at home.<h4>Trial registration</h4>Both studies are registered on clinicaltrials.gov: NCT03946488, registered May 10, 2019 and NCT04804384, registered March 18, 2021.",
+    "affiliation": "REDACTED",
+    "publicationStatus": "epublish",
+    "language": "eng",
+    "pubModel": "Electronic",
+    "pubTypeList": {
+     "pubType": [
+      "research-article",
+      "Randomized Controlled Trial",
+      "Journal Article"
+     ]
+    },
+    "meshHeadingList": {
+     "meshHeading": [
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Humans"
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Paresis",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "majorTopic_YN": "N",
+          "abbreviation": "PP",
+          "qualifierName": "physiopathology"
+         },
+         {
+          "majorTopic_YN": "N",
+          "abbreviation": "RH",
+          "qualifierName": "rehabilitation"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Electromyography"
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Hand Strength"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Electric Stimulation",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "majorTopic_YN": "N",
+          "abbreviation": "IS",
+          "qualifierName": "instrumentation"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Adult"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Aged"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Middle Aged"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Female"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Male"
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Stroke",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "majorTopic_YN": "N",
+          "abbreviation": "CO",
+          "qualifierName": "complications"
+         },
+         {
+          "majorTopic_YN": "N",
+          "abbreviation": "PP",
+          "qualifierName": "physiopathology"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Stroke Rehabilitation",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "majorTopic_YN": "N",
+          "abbreviation": "IS",
+          "qualifierName": "instrumentation"
+         },
+         {
+          "majorTopic_YN": "N",
+          "abbreviation": "MT",
+          "qualifierName": "methods"
+         }
+        ]
+       }
+      }
+     ]
+    },
+    "subsetList": {
+     "subset": [
+      {
+       "code": "IM",
+       "name": "Index Medicus"
+      }
+     ]
+    },
+    "fullTextUrlList": {
+     "fullTextUrl": [
+      {
+       "availability": "Subscription required",
+       "availabilityCode": "S",
+       "documentStyle": "doi",
+       "site": "DOI",
+       "url": "https://doi.org/10.1186/s12938-024-01323-y"
+      },
+      {
+       "availability": "Open access",
+       "availabilityCode": "OA",
+       "documentStyle": "html",
+       "site": "Europe_PMC",
+       "url": "https://europepmc.org/articles/PMC11662519"
+      },
+      {
+       "availability": "Open access",
+       "availabilityCode": "OA",
+       "documentStyle": "pdf",
+       "site": "Europe_PMC",
+       "url": "https://europepmc.org/articles/PMC11662519?pdf=render"
+      }
+     ]
+    },
+    "isOpenAccess": "Y",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "citedByCount": 1,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "Y",
+    "hasLabsLinks": "Y",
+    "hasData": "Y",
+    "license": "cc by-nc-nd",
+    "authMan": "N",
+    "epmcAuthMan": "N",
+    "nihAuthMan": "N",
+    "hasTMAccessionNumbers": "Y",
+    "tmAccessionTypeList": {
+     "accessionType": [
+      "nct"
+     ]
+    },
+    "dateOfCompletion": "2024-12-21",
+    "dateOfCreation": "2024-12-21",
+    "dateOfRevision": "2025-07-28",
+    "electronicPublicationDate": "2024-12-21",
+    "firstPublicationDate": "2024-12-21",
+    "firstIndexDate": "2024-12-22",
+    "fullTextReceivedDate": "2025-11-29",
+    "hasEvaluations": "N"
+   },
+   {
+    "id": "39806585",
+    "source": "MED",
+    "pmid": "39806585",
+    "pmcid": "PMC11667321",
+    "fullTextIdList": {
+     "fullTextId": [
+      "PMC11667321"
+     ]
+    },
+    "doi": "10.1136/bmjopen-2024-085916",
+    "title": "Heavy slow resistance training, radial extracorporeal shock wave therapy or advice for patients with tennis elbow in the Norwegian secondary care: a randomised controlled feasibility trial.",
+    "authorString": "Sveinall H, Brox JI, Engebretsen KB, Hoksrud AF, Røe C, Johnsen MB.",
+    "authorList": {
+     "author": [
+      {
+       "fullName": "Sveinall H",
+       "lastName": "Sveinall",
+       "firstName": "Håkon",
+       "initials": "H",
+       "authorId": {
+        "type": "ORCID",
+        "value": "REDACTED"
+       },
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "REDACTED"
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Brox JI",
+       "lastName": "Brox",
+       "firstName": "Jens Ivar",
+       "initials": "JI",
+       "authorId": {
+        "type": "ORCID",
+        "value": "REDACTED"
+       },
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "REDACTED"
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Engebretsen KB",
+       "lastName": "Engebretsen",
+       "firstName": "Kaia B",
+       "initials": "KB",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "REDACTED"
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Hoksrud AF",
+       "lastName": "Hoksrud",
+       "firstName": "Aasne Fenne",
+       "initials": "AF",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "REDACTED"
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Røe C",
+       "lastName": "Røe",
+       "firstName": "Cecilie",
+       "initials": "C",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "REDACTED"
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Johnsen MB",
+       "lastName": "Johnsen",
+       "firstName": "Marianne Bakke",
+       "initials": "MB",
+       "authorId": {
+        "type": "ORCID",
+        "value": "REDACTED"
+       },
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "REDACTED"
+         }
+        ]
+       }
+      }
+     ]
+    },
+    "authorIdList": {
+     "authorId": [
+      {
+       "type": "ORCID",
+       "value": "REDACTED"
+      }
+     ]
+    },
+    "dataLinksTagsList": {
+     "dataLinkstag": [
+      "supporting_data"
+     ]
+    },
+    "journalInfo": {
+     "issue": "12",
+     "volume": "14",
+     "journalIssueId": 3863099,
+     "dateOfPublication": "2024 Dec",
+     "monthOfPublication": 12,
+     "yearOfPublication": 2024,
+     "journal": {
+      "medlineAbbreviation": "BMJ Open",
+      "title": "BMJ open",
+      "essn": "2044-6055",
+      "issn": "2044-6055",
+      "isoabbreviation": "BMJ Open",
+      "nlmid": "101552874"
+     },
+     "printPublicationDate": "2024-12-01"
+    },
+    "pubYear": "2024",
+    "pageInfo": "e085916",
+    "abstractText": "<h4>Objectives</h4>To evaluate the feasibility of recruitment, appointment adherence, intervention compliance, acceptance and comprehensibility, in addition to retention rate and data completeness. An ancillary aim was to describe within-group changes in the secondary outcome measures (patient-reported and performance-based).<h4>Design</h4>A single-centre, three-armed, randomised controlled feasibility trial with a parallel design, with follow-up after 3 and 6 months.<h4>Setting</h4>Participants were recruited from the outpatient clinic at Oslo University Hospital.<h4>Participants</h4>Patients with lateral epicondylalgia, commonly known as tennis elbow.<h4>Interventions</h4>Participants were randomised in a 1:1:1 ratio to heavy slow resistance training, radial extracorporeal shock wave therapy or information and advice.<h4>Main outcome measures</h4>Feasibility was assessed according to a priori criteria for success.<h4>Results</h4>In total, 89 patients were screened for eligibility, and 69 (78%) patients were eligible for randomisation. 60 (92%) participants were randomised which gave a recruitment rate of 3.4 per month (against an a priori success cut-off of 3.75). The participants rated all the interventions as acceptable and comprehensive. Only 6 of 19 (32%) did comply with heavy slow resistance training. Retention rate and completeness of data were successful at 3 months. At 6 months, the retention rate was below the criteria for success. Patient-reported and performance-based outcomes improved in all groups.<h4>Conclusion</h4>The current study shows that the process of recruitment and the retention rate at follow-up can be feasible with minor amendments. Participants had low compliance with heavy slow resistance training mainly due to pain aggravation, which suggests that this intervention was not suitable for patients with tennis elbow. Shock wave therapy and information and advice should be investigated further in a full-scale randomised controlled trial including sham shock wave therapy.<h4>Trial registration number</h4>NCT04803825.",
+    "affiliation": "REDACTED",
+    "publicationStatus": "epublish",
+    "language": "eng",
+    "pubModel": "Electronic",
+    "pubTypeList": {
+     "pubType": [
+      "research-article",
+      "Randomized Controlled Trial",
+      "Journal Article"
+     ]
+    },
+    "grantsList": {
+     "grant": [
+      {
+       "agency": "Sophies Minde Ortopedi",
+       "orderIn": 0
+      }
+     ]
+    },
+    "meshHeadingList": {
+     "meshHeading": [
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Humans"
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Tennis Elbow",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "majorTopic_YN": "N",
+          "abbreviation": "TH",
+          "qualifierName": "therapy"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Treatment Outcome"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Feasibility Studies"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Patient Compliance"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Adult"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Middle Aged"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Norway"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Female"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Male"
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Patient Education as Topic"
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Resistance Training",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "majorTopic_YN": "N",
+          "abbreviation": "MT",
+          "qualifierName": "methods"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Extracorporeal Shockwave Therapy",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "majorTopic_YN": "N",
+          "abbreviation": "MT",
+          "qualifierName": "methods"
+         }
+        ]
+       }
+      }
+     ]
+    },
+    "keywordList": {
+     "keyword": [
+      "Randomized controlled trial",
+      "Tennis Elbow",
+      "Sports Medicine",
+      "Feasibility Studies",
+      "Physical Therapy Modalities",
+      "Elbow Tendinopathy"
+     ]
+    },
+    "subsetList": {
+     "subset": [
+      {
+       "code": "IM",
+       "name": "Index Medicus"
+      }
+     ]
+    },
+    "fullTextUrlList": {
+     "fullTextUrl": [
+      {
+       "availability": "Subscription required",
+       "availabilityCode": "S",
+       "documentStyle": "doi",
+       "site": "DOI",
+       "url": "https://doi.org/10.1136/bmjopen-2024-085916"
+      },
+      {
+       "availability": "Open access",
+       "availabilityCode": "OA",
+       "documentStyle": "html",
+       "site": "Europe_PMC",
+       "url": "https://europepmc.org/articles/PMC11667321"
+      },
+      {
+       "availability": "Open access",
+       "availabilityCode": "OA",
+       "documentStyle": "pdf",
+       "site": "Europe_PMC",
+       "url": "https://europepmc.org/articles/PMC11667321?pdf=render"
+      }
+     ]
+    },
+    "isOpenAccess": "Y",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "citedByCount": 4,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "Y",
+    "hasLabsLinks": "Y",
+    "hasData": "Y",
+    "license": "cc by-nc",
+    "authMan": "N",
+    "epmcAuthMan": "N",
+    "nihAuthMan": "N",
+    "hasTMAccessionNumbers": "Y",
+    "tmAccessionTypeList": {
+     "accessionType": [
+      "nct"
+     ]
+    },
+    "dateOfCompletion": "2025-01-14",
+    "dateOfCreation": "2025-01-14",
+    "dateOfRevision": "2025-06-17",
+    "electronicPublicationDate": "2024-12-20",
+    "firstPublicationDate": "2024-12-20",
+    "firstIndexDate": "2025-01-15",
+    "fullTextReceivedDate": "2025-12-03",
+    "hasEvaluations": "N"
+   },
+   {
+    "id": "39172722",
+    "source": "MED",
+    "pmid": "39172722",
+    "pmcid": "PMC11634091",
+    "fullTextIdList": {
+     "fullTextId": [
+      "PMC11634091"
+     ]
+    },
+    "doi": "10.1097/js9.0000000000002063",
+    "title": "Effects of supplementing extracorporeal shockwave therapy to hyaluronic acid injection among patients with rotator cuff lesions without complete tear: a prospective double-blinded randomized study.",
+    "authorString": "Ko JY, Huang CC, Huang PH, Chen JW, Liao CY, Kuo SJ.",
+    "authorList": {
+     "author": [
+      {
+       "fullName": "Ko JY",
+       "lastName": "Ko",
+       "firstName": "Jih-Yang",
+       "initials": "JY",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "REDACTED"
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Huang CC",
+       "lastName": "Huang",
+       "firstName": "Chung-Cheng",
+       "initials": "CC",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "REDACTED"
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Huang PH",
+       "lastName": "Huang",
+       "firstName": "Po-Hua",
+       "initials": "PH",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "REDACTED"
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Chen JW",
+       "lastName": "Chen",
+       "firstName": "Jeng-Wei",
+       "initials": "JW",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "REDACTED"
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Liao CY",
+       "lastName": "Liao",
+       "firstName": "Chin-Yi",
+       "initials": "CY",
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "REDACTED"
+         }
+        ]
+       }
+      },
+      {
+       "fullName": "Kuo SJ",
+       "lastName": "Kuo",
+       "firstName": "Shu-Jui",
+       "initials": "SJ",
+       "authorId": {
+        "type": "ORCID",
+        "value": "REDACTED"
+       },
+       "authorAffiliationDetailsList": {
+        "authorAffiliation": [
+         {
+          "affiliation": "REDACTED"
+         }
+        ]
+       }
+      }
+     ]
+    },
+    "authorIdList": {
+     "authorId": [
+      {
+       "type": "ORCID",
+       "value": "REDACTED"
+      }
+     ]
+    },
+    "dataLinksTagsList": {
+     "dataLinkstag": [
+      "supporting_data"
+     ]
+    },
+    "journalInfo": {
+     "issue": "12",
+     "volume": "110",
+     "journalIssueId": 3872458,
+     "dateOfPublication": "2024 Dec",
+     "monthOfPublication": 12,
+     "yearOfPublication": 2024,
+     "journal": {
+      "medlineAbbreviation": "Int J Surg",
+      "title": "International journal of surgery (London, England)",
+      "essn": "1743-9159",
+      "issn": "1743-9191",
+      "isoabbreviation": "Int J Surg",
+      "nlmid": "101228232"
+     },
+     "printPublicationDate": "2024-12-01"
+    },
+    "pubYear": "2024",
+    "pageInfo": "7421-7433",
+    "abstractText": "<h4>Background</h4>The study investigates the combined efficacy of subacromial hyaluronic acid (HA) injections and extracorporeal shockwave therapy (ESWT) in managing rotator cuff lesions without complete tears.<h4>Materials and methods</h4>Eligible patients were randomized into three groups: three HA injections combined with two sham ESWT (HA), three HA injections combined with one ESWT and one sham ESWT (HA + 1 ESWT), or three HA injections combined with two ESWT (HA + 2 ESWT) with an allocation ratio of 1:1:1. Visual Analogue Scale (VAS), Constant-Murley Score (CMS), range of motion (ROM), and muscle power of shoulder abduction (MP) were assessed preintervention and at 1, 3, 6, and 12 months postinitial HA injection. Shoulder MRI was conducted before and 12 months after the intervention.<h4>Results</h4>All pertinent parameters showed no significant between-group differences at baseline but demonstrated significant within-group improvement throughout the study. The HA + 1 ESWT group demonstrated superior improvements in MP ( P =0.011) and CMS ( P =0.018) at 1 month, and in MP ( P =0.014) and CMS ( P =0.005) at 6 months, compared to the HA group. The HA + 2 ESWT group showed greater improvements in FF ( P =0.027), IR ( P =0.019), and SROM ( P =0.025) at 1 month, and in ABD ( P =0.022) at 6 months, compared to the HA group. Notably, the HA + 2 ESWT group exhibited greater improvements in FF ( P =0.013), IR ( P =0.019), and SROM ( P =0.025) at 1 month, and in FF ( P =0.007) at 3 months, than the HA + 1 ESWT group. Moreover, no deterioration in tendinopathy grading or tear status occurred in the HA + 1 ESWT group on MRI scans.<h4>Conclusion</h4>ESWT provides additional benefits when combined with HA injections for patients with rotator cuff lesions lacking complete tears.",
+    "affiliation": "REDACTED",
+    "publicationStatus": "epublish",
+    "language": "eng",
+    "pubModel": "Electronic",
+    "pubTypeList": {
+     "pubType": [
+      "research-article",
+      "Randomized Controlled Trial",
+      "Journal Article"
+     ]
+    },
+    "meshHeadingList": {
+     "meshHeading": [
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Rotator Cuff"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Humans"
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Hyaluronic Acid",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "majorTopic_YN": "N",
+          "abbreviation": "AD",
+          "qualifierName": "administration & dosage"
+         },
+         {
+          "majorTopic_YN": "N",
+          "abbreviation": "TU",
+          "qualifierName": "therapeutic use"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Magnetic Resonance Imaging"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Range of Motion, Articular"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Treatment Outcome"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Combined Modality Therapy"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Injections, Intra-Articular"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Prospective Studies"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Double-Blind Method"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Adult"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Aged"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Middle Aged"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Female"
+      },
+      {
+       "majorTopic_YN": "N",
+       "descriptorName": "Male"
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Viscosupplements",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "majorTopic_YN": "N",
+          "abbreviation": "AD",
+          "qualifierName": "administration & dosage"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Rotator Cuff Injuries",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "majorTopic_YN": "N",
+          "abbreviation": "TH",
+          "qualifierName": "therapy"
+         }
+        ]
+       }
+      },
+      {
+       "majorTopic_YN": "Y",
+       "descriptorName": "Extracorporeal Shockwave Therapy",
+       "meshQualifierList": {
+        "meshQualifier": [
+         {
+          "majorTopic_YN": "N",
+          "abbreviation": "MT",
+          "qualifierName": "methods"
+         }
+        ]
+       }
+      }
+     ]
+    },
+    "chemicalList": {
+     "chemical": [
+      {
+       "name": "Hyaluronic Acid",
+       "registryNumber": "9004-61-9"
+      },
+      {
+       "name": "Viscosupplements",
+       "registryNumber": "0"
+      }
+     ]
+    },
+    "subsetList": {
+     "subset": [
+      {
+       "code": "IM",
+       "name": "Index Medicus"
+      }
+     ]
+    },
+    "fullTextUrlList": {
+     "fullTextUrl": [
+      {
+       "availability": "Open access",
+       "availabilityCode": "OA",
+       "documentStyle": "doi",
+       "site": "Unpaywall",
+       "url": "https://doi.org/10.1097/js9.0000000000002063"
+      },
+      {
+       "availability": "Subscription required",
+       "availabilityCode": "S",
+       "documentStyle": "doi",
+       "site": "DOI",
+       "url": "https://doi.org/10.1097/JS9.0000000000002063"
+      },
+      {
+       "availability": "Open access",
+       "availabilityCode": "OA",
+       "documentStyle": "html",
+       "site": "Europe_PMC",
+       "url": "https://europepmc.org/articles/PMC11634091"
+      },
+      {
+       "availability": "Open access",
+       "availabilityCode": "OA",
+       "documentStyle": "pdf",
+       "site": "Europe_PMC",
+       "url": "https://europepmc.org/articles/PMC11634091?pdf=render"
+      }
+     ]
+    },
+    "isOpenAccess": "Y",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "citedByCount": 5,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "N",
+    "hasData": "Y",
+    "license": "cc by-nd",
+    "authMan": "N",
+    "epmcAuthMan": "N",
+    "nihAuthMan": "N",
+    "hasTMAccessionNumbers": "Y",
+    "tmAccessionTypeList": {
+     "accessionType": [
+      "nct"
+     ]
+    },
+    "dateOfCompletion": "2025-01-14",
+    "dateOfCreation": "2024-08-22",
+    "dateOfRevision": "2025-08-26",
+    "electronicPublicationDate": "2024-12-01",
+    "firstPublicationDate": "2024-12-01",
+    "firstIndexDate": "2024-08-25",
+    "fullTextReceivedDate": "2024-12-14",
+    "hasEvaluations": "N"
+   }
+  ]
+ }
+}

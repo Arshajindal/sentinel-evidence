@@ -1,0 +1,1211 @@
+{
+ "id": "PMC4452367",
+ "subject": "paper",
+ "categories": [
+  "c02_retract_and_replace"
+ ],
+ "source": {
+  "corpus": "pmc-rct-2015-2024",
+  "paper_id": 85,
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "33 references. A Cochrane review later withdrawn and replaced: low.",
+ "expected": [
+  {
+   "check": "C01",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C02",
+   "status": "flagged",
+   "severity": "low",
+   "item": "ref 18",
+   "band": "replaced",
+   "why": "Cochrane CD003818.pub2, marked 'Retract and Replace; Withdrawn as Out of Date' (2014-05-06): a current version exists, so low whatever the timing (ADR-036)."
+  },
+  {
+   "check": "C02",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C03",
+   "status": "not_applicable",
+   "severity": "info"
+  },
+  {
+   "check": "C04",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "paper_id": 85,
+  "publication_date": "2015-06-01",
+  "fulltext_status": "full",
+  "references": [
+   {
+    "reference_id": 3351,
+    "ordinal": 1,
+    "raw_string": "Ng M, Fleming T, Robinson M, Thomson B, Graetz N, Margono C et al. Global, regional, and national prevalence of overweight and obesity in children and adults during 1980–2013: a systematic analysis for the Global Burden of Disease Study 2013. Lancet. 2014.10.1016/S0140-6736(14)60460-8 PMC4624264 24880830",
+    "citation_tag": "mixed-citation",
+    "publication_type": "other",
+    "parsed_doi": "10.1016/s0140-6736(14)60460-8",
+    "parsed_pmid": "24880830",
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3828,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0140-6736(14)60460-8"
+      ],
+      "crossref_doi": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 3352,
+    "ordinal": 2,
+    "raw_string": "World Health Organization. Fact sheet on obesity and overweight. 2013. Available: http://www.who.int/topics/obesity/en.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "other",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": 2013,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 3353,
+    "ordinal": 3,
+    "raw_string": "Fontaine KR, Barofsky I. Obesity and health-related quality of life. Obes Rev. 2001; 2: 173–182. 12120102 10.1046/j.1467-789x.2001.00032.x",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1046/j.1467-789x.2001.00032.x",
+    "parsed_pmid": "12120102",
+    "parsed_title": "Obesity and health-related quality of life",
+    "parsed_first_author": "fontaine",
+    "parsed_year": 2001,
+    "parsed_container": "Obes Rev",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3829,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1046/j.1467-789x.2001.00032.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 3354,
+    "ordinal": 4,
+    "raw_string": "Muennig P, Lubetkin E, Jia H, Franks P. Gender and the burden of disease attributable to obesity. Am J Public Health. 2006; 96: 1662–1668. 16873748 10.2105/AJPH.2005.068874 PMC1551950",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2105/ajph.2005.068874",
+    "parsed_pmid": "16873748",
+    "parsed_title": "Gender and the burden of disease attributable to obesity",
+    "parsed_first_author": "muennig",
+    "parsed_year": 2006,
+    "parsed_container": "Am J Public Health",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3830,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2105/ajph.2005.068874"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 3355,
+    "ordinal": 5,
+    "raw_string": "World Cancer Research Fund, American Institute for Cancer Research. Food, Nutrition, Physical Activity, and the Prevention of Cancer: a Global Perspective. Washington DC; 2007.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "other",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": 2007,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 3356,
+    "ordinal": 6,
+    "raw_string": "Ferlay J, Soerjomataram I, Ervik M, Dikshit R, Eser S, Mathers C et al GLOBOCAN 2012 v1.0, Cancer Incidence and Mortality Worldwide: IARC CancerBase No. 11. 2014. Lyon, France: International Agency for Research on Cancer; 2013 Available: http://globocan.iarc.fr.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "GLOBOCAN 2012 v1.0",
+    "parsed_first_author": "ferlay",
+    "parsed_year": 2013,
+    "parsed_container": "Cancer Incidence and Mortality Worldwide: IARC CancerBase No. 11",
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 3357,
+    "ordinal": 7,
+    "raw_string": "Jones GL, Sutton A. Quality of life in obese postmenopausal women. Menopause Int. 2008; 14: 26–32. 10.1258/mi.2007.007034 18380958",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1258/mi.2007.007034",
+    "parsed_pmid": "18380958",
+    "parsed_title": "Quality of life in obese postmenopausal women",
+    "parsed_first_author": "jones",
+    "parsed_year": 2008,
+    "parsed_container": "Menopause Int",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3836,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1258/mi.2007.007034"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 3358,
+    "ordinal": 8,
+    "raw_string": "Warkentin LM, Das D, Majumdar SR, Johnson JA, Padwal RS. The effect of weight loss on health-related quality of life: systematic review and meta-analysis of randomized trials. Obes Rev. 2014; 15: 169–182. 10.1111/obr.12113 24118750",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/obr.12113",
+    "parsed_pmid": "24118750",
+    "parsed_title": "The effect of weight loss on health-related quality of life: systematic review and meta-analysis of randomized trials",
+    "parsed_first_author": "warkentin",
+    "parsed_year": 2014,
+    "parsed_container": "Obes Rev",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3837,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/obr.12113"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 3359,
+    "ordinal": 9,
+    "raw_string": "Maciejewski ML, Patrick DL, Williamson DF. A structured review of randomized controlled trials of weight loss showed little improvement in health-related quality of life. J Clin Epidemiol. 2005; 58: 568–578. 15878470 10.1016/j.jclinepi.2004.10.015",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.jclinepi.2004.10.015",
+    "parsed_pmid": "15878470",
+    "parsed_title": "A structured review of randomized controlled trials of weight loss showed little improvement in health-related quality of life",
+    "parsed_first_author": "maciejewski",
+    "parsed_year": 2005,
+    "parsed_container": "J Clin Epidemiol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3838,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.jclinepi.2004.10.015"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 3360,
+    "ordinal": 10,
+    "raw_string": "Asbury EA, Chandrruangphen P, Collins P. The importance of continued exercise participation in quality of life and psychological well-being in previously inactive postmenopausal women: a pilot study. Menopause. 2006; 13: 561–567. 16837877 10.1097/01.gme.0000196812.96128.e8",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/01.gme.0000196812.96128.e8",
+    "parsed_pmid": "16837877",
+    "parsed_title": "The importance of continued exercise participation in quality of life and psychological well-being in previously inactive postmenopausal women: a pilot study",
+    "parsed_first_author": "asbury",
+    "parsed_year": 2006,
+    "parsed_container": "Menopause",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3839,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/01.gme.0000196812.96128.e8"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.953
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 3361,
+    "ordinal": 11,
+    "raw_string": "Teoman N, Ozcan A, Acar B. The effect of exercise on physical fitness and quality of life in postmenopausal women. Maturitas. 2004; 47: 71–77. 14706768 10.1016/s0378-5122(03)00241-x",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s0378-5122(03)00241-x",
+    "parsed_pmid": "14706768",
+    "parsed_title": "The effect of exercise on physical fitness and quality of life in postmenopausal women",
+    "parsed_first_author": "teoman",
+    "parsed_year": 2004,
+    "parsed_container": "Maturitas",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3840,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0378-5122(03)00241-x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 3362,
+    "ordinal": 12,
+    "raw_string": "Bowen DJ, Fesinmeyer MD, Yasui Y, Tworoger S, Ulrich CM, Irwin ML et al. Randomized trial of exercise in sedentary middle aged women: effects on quality of life. Int J Behav Nutr Phys Act. 2006; 3: 34 17020620 10.1186/1479-5868-3-34 PMC1618856",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1186/1479-5868-3-34",
+    "parsed_pmid": "17020620",
+    "parsed_title": "Irwin ML et al. Randomized trial of exercise in sedentary middle aged women: effects on quality of life",
+    "parsed_first_author": "bowen",
+    "parsed_year": 2006,
+    "parsed_container": "Int J Behav Nutr Phys Act",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3841,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/1479-5868-3-34"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.92
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 3363,
+    "ordinal": 13,
+    "raw_string": "Martin CK, Church TS, Thompson AM, Earnest CP, Blair SN. Exercise dose and quality of life: a randomized controlled trial. Arch Intern Med. 2009; 169: 269–278. 10.1001/archinternmed.2008.545 19204218 PMC2745102",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1001/archinternmed.2008.545",
+    "parsed_pmid": "19204218",
+    "parsed_title": "Exercise dose and quality of life: a randomized controlled trial",
+    "parsed_first_author": "martin",
+    "parsed_year": 2009,
+    "parsed_container": "Arch Intern Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3842,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1001/archinternmed.2008.545"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.688
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 3364,
+    "ordinal": 14,
+    "raw_string": "van Gemert WA, Iestra JI, Schuit AJ, May AM, Takken T, Veldhuis WB et al Design of the SHAPE-2 study: the effect of physical activity, in addition to weight loss, on biomarkers of postmenopausal breast cancer risk. BMC Cancer. 2013; 13: 395 10.1186/1471-2407-13-395 23972905 PMC3765586",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1186/1471-2407-13-395",
+    "parsed_pmid": "23972905",
+    "parsed_title": "Design of the SHAPE-2 study: the effect of physical activity, in addition to weight loss, on biomarkers of postmenopausal breast cancer risk",
+    "parsed_first_author": "van gemert",
+    "parsed_year": 2013,
+    "parsed_container": "BMC Cancer",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3843,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/1471-2407-13-395"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 3365,
+    "ordinal": 15,
+    "raw_string": "Health Council of the Netherlands. Guidelines for a healthy diet. 2006. Available: http://www.gezondheidsraad.nl/sites/default/files/200621E_0.pdf",
+    "citation_tag": "mixed-citation",
+    "publication_type": "other",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": 2006,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 3366,
+    "ordinal": 16,
+    "raw_string": "Roza AM, Shizgal HM. The Harris Benedict equation reevaluated: resting energy requirements and the body cell mass. Am J Clin Nutr. 1984; 40: 168–182. 6741850 10.1093/ajcn/40.1.168",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/ajcn/40.1.168",
+    "parsed_pmid": "6741850",
+    "parsed_title": "The Harris Benedict equation reevaluated: resting energy requirements and the body cell mass",
+    "parsed_first_author": "roza",
+    "parsed_year": 1984,
+    "parsed_container": "Am J Clin Nutr",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3844,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/ajcn/40.1.168"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 3367,
+    "ordinal": 17,
+    "raw_string": "Armstrong MJ, Mottershead TA, Ronksley PE, Sigal RJ, Campbell TS, Hemmelgarn BR. Motivational interviewing to improve weight loss in overweight and/or obese patients: a systematic review and meta-analysis of randomized controlled trials. Obes Rev. 2011; 12: 709–723. 10.1111/j.1467-789X.2011.00892.x 21692966",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1467-789x.2011.00892.x",
+    "parsed_pmid": "21692966",
+    "parsed_title": "Motivational interviewing to improve weight loss in overweight and/or obese patients: a systematic review and meta-analysis of randomized controlled trials",
+    "parsed_first_author": "armstrong",
+    "parsed_year": 2011,
+    "parsed_container": "Obes Rev",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3845,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1467-789x.2011.00892.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 3368,
+    "ordinal": 18,
+    "raw_string": "Shaw K, O'Rourke P, Del MC, Kenardy J. Psychological interventions for overweight or obesity. Cochrane Database Syst Rev. 2005; CD003818.10.1002/14651858.CD003818.pub2 15846683",
+    "citation_tag": "mixed-citation",
+    "publication_type": "other",
+    "parsed_doi": "10.1002/14651858.cd003818.pub2",
+    "parsed_pmid": "15846683",
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3846,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/14651858.cd003818.pub2"
+      ],
+      "crossref_doi": 1
+     }
+    },
+    "notices": [
+     {
+      "notice_type": "retraction",
+      "notice_date": "2014-05-06",
+      "notice_doi": "10.1002/14651858.cd003818.pub3",
+      "reason": "Retract and Replace;Withdrawn as Out of Date;",
+      "source": "retraction_watch",
+      "source_record_id": "32408",
+      "matched_on": "doi"
+     }
+    ]
+   },
+   {
+    "reference_id": 3369,
+    "ordinal": 19,
+    "raw_string": "Wendel-Vos GC, Schuit AJ, Saris WH, Kromhout D. Reproducibility and relative validity of the short questionnaire to assess health-enhancing physical activity. J Clin Epidemiol. 2003; 56: 1163–1169. 14680666 10.1016/s0895-4356(03)00220-8",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s0895-4356(03)00220-8",
+    "parsed_pmid": "14680666",
+    "parsed_title": "Reproducibility and relative validity of the short questionnaire to assess health-enhancing physical activity",
+    "parsed_first_author": "wendel vos",
+    "parsed_year": 2003,
+    "parsed_container": "J Clin Epidemiol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3847,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0895-4356(03)00220-8"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 3370,
+    "ordinal": 20,
+    "raw_string": "Ware JE, Snow KK, Kosinski M, Gandek B. SF-36 Health Survey Manual and Interpretation Guide Boston, MA: New England Medical Center, The Health Institute 1993.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "SF-36 Health Survey Manual and Interpretation Guide",
+    "parsed_first_author": "ware",
+    "parsed_year": 1993,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 3371,
+    "ordinal": 21,
+    "raw_string": "Ware JE, Kosinski M, Keller SD. SF-36 Physical and Mental Health Summary Scales: A User's Manual, in The Health Data Institute of New England Medical Center, Boston, Nimrod 1994.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "SF-36 Physical and Mental Health Summary Scales: A User's Manual",
+    "parsed_first_author": "ware",
+    "parsed_year": 1994,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 3857,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 3372,
+    "ordinal": 22,
+    "raw_string": "VanderZee KI, Sanderman R, Heyink JW, de HH. Psychometric qualities of the RAND 36-Item Health Survey 1.0: a multidimensional measure of general health status. Int J Behav Med. 1996; 3: 104–122. 16250758 10.1207/s15327558ijbm0302_2",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1207/s15327558ijbm0302_2",
+    "parsed_pmid": "16250758",
+    "parsed_title": "Psychometric qualities of the RAND 36-Item Health Survey 1.0: a multidimensional measure of general health status",
+    "parsed_first_author": "vanderzee",
+    "parsed_year": 1996,
+    "parsed_container": "Int J Behav Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3858,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1207/s15327558ijbm0302_2"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 3373,
+    "ordinal": 23,
+    "raw_string": "Lyons RA, Perry HM, Littlepage BN. Evidence for the validity of the Short-form 36 Questionnaire (SF-36) in an elderly population. Age Ageing. 1994; 23: 182–184. 8085500 10.1093/ageing/23.3.182",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/ageing/23.3.182",
+    "parsed_pmid": "8085500",
+    "parsed_title": "Evidence for the validity of the Short-form 36 Questionnaire (SF-36) in an elderly population",
+    "parsed_first_author": "lyons",
+    "parsed_year": 1994,
+    "parsed_container": "Age Ageing",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3859,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/ageing/23.3.182"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 3374,
+    "ordinal": 24,
+    "raw_string": "Cohen J. Statistical Power Analysis for the Behavioral Sciences New York, NY: Lawrence Erlbaum Publishers; 10.1002/bs.3830330104 1988.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "book",
+    "parsed_doi": "10.1002/bs.3830330104",
+    "parsed_pmid": null,
+    "parsed_title": "Statistical Power Analysis for the Behavioral Sciences",
+    "parsed_first_author": "cohen",
+    "parsed_year": 1988,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3860,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/bs.3830330104"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.186
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 3375,
+    "ordinal": 25,
+    "raw_string": "Perneger TV, Etter JF, Rougemont. A Prospective versus retrospective measurement of change in health status: a community based study in Geneva, Switzerland. J Epidemiol Community Health. 1997; 51: 320–325. 9229064 10.1136/jech.51.3.320 PMC1060480",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1136/jech.51.3.320",
+    "parsed_pmid": "9229064",
+    "parsed_title": "Prospective versus retrospective measurement of change in health status: a community based study in Geneva, Switzerland",
+    "parsed_first_author": "perneger",
+    "parsed_year": 1997,
+    "parsed_container": "J Epidemiol Community Health",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 2514,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1136/jech.51.3.320"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 3376,
+    "ordinal": 26,
+    "raw_string": "Ware JE Jr., Gandek B. Overview of the SF-36 Health Survey and the International Quality of Life Assessment (IQOLA) Project. J Clin Epidemiol. 1998; 51: 903–912. 9817107 10.1016/s0895-4356(98)00081-x",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s0895-4356(98)00081-x",
+    "parsed_pmid": "9817107",
+    "parsed_title": "Overview of the SF-36 Health Survey and the International Quality of Life Assessment (IQOLA) Project",
+    "parsed_first_author": "ware",
+    "parsed_year": 1998,
+    "parsed_container": "J Clin Epidemiol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3861,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0895-4356(98)00081-x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 3377,
+    "ordinal": 27,
+    "raw_string": "Jenkinson CM, Doherty M, Avery AJ, Read A, Taylor MA, Sach TH et al Effects of dietary intervention and quadriceps strengthening exercises on pain and function in overweight people with knee pain: randomised controlled trial. BMJ. 2009; 339: b3170 10.1136/bmj.b3170 19690345 PMC2728801",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1136/bmj.b3170",
+    "parsed_pmid": "19690345",
+    "parsed_title": "Effects of dietary intervention and quadriceps strengthening exercises on pain and function in overweight people with knee pain: randomised controlled trial",
+    "parsed_first_author": "jenkinson",
+    "parsed_year": 2009,
+    "parsed_container": "BMJ",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3862,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1136/bmj.b3170"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 3378,
+    "ordinal": 28,
+    "raw_string": "Rejeski WJ, Focht BC, Messier SP, Morgan T, Pahor M, Penninx B. Obese, older adults with knee osteoarthritis: weight loss, exercise, and quality of life. Health Psychol. 2002; 21: 419–426. 12211508 10.1037//0278-6133.21.5.419",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1037//0278-6133.21.5.419",
+    "parsed_pmid": "12211508",
+    "parsed_title": "Obese, older adults with knee osteoarthritis: weight loss, exercise, and quality of life",
+    "parsed_first_author": "rejeski",
+    "parsed_year": 2002,
+    "parsed_container": "Health Psychol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3863,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1037//0278-6133.21.5.419"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 3379,
+    "ordinal": 29,
+    "raw_string": "Imayama I, Alfano CM, Kong A, Foster-Schubert KE, Bain CE, Xiao L et al Dietary weight loss and exercise interventions effects on quality of life in overweight/obese postmenopausal women: a randomized controlled trial. Int J Behav Nutr Phys Act. 2011; 8: 118 10.1186/1479-5868-8-118 22026966 PMC3215656",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1186/1479-5868-8-118",
+    "parsed_pmid": "22026966",
+    "parsed_title": "Dietary weight loss and exercise interventions effects on quality of life in overweight/obese postmenopausal women: a randomized controlled trial",
+    "parsed_first_author": "imayama",
+    "parsed_year": 2011,
+    "parsed_container": "Int J Behav Nutr Phys Act",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3864,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/1479-5868-8-118"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 3380,
+    "ordinal": 30,
+    "raw_string": "Ross KM, Milsom VA, Rickel KA, Debraganza N, Gibbons LM, Murawski ME et al The contributions of weight loss and increased physical fitness to improvements in health-related quality of life. Eat Behav. 2009; 10: 84–88. 10.1016/j.eatbeh.2008.12.002 19447349 PMC2720563",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.eatbeh.2008.12.002",
+    "parsed_pmid": "19447349",
+    "parsed_title": "The contributions of weight loss and increased physical fitness to improvements in health-related quality of life",
+    "parsed_first_author": "ross",
+    "parsed_year": 2009,
+    "parsed_container": "Eat Behav",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3865,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.eatbeh.2008.12.002"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 3381,
+    "ordinal": 31,
+    "raw_string": "Blissmer B, Riebe D, Dye G, Ruggiero L, Greene G, Caldwell M. Health-related quality of life following a clinical weight loss intervention among overweight and obese adults: intervention and 24 month follow-up effects. Health Qual Life Outcomes. 2006; 4: 43 16846509 10.1186/1477-7525-4-43 PMC1553435",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1186/1477-7525-4-43",
+    "parsed_pmid": "16846509",
+    "parsed_title": "Health-related quality of life following a clinical weight loss intervention among overweight and obese adults: intervention and 24 month follow-up effects",
+    "parsed_first_author": "blissmer",
+    "parsed_year": 2006,
+    "parsed_container": "Health Qual Life Outcomes",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3866,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/1477-7525-4-43"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 3382,
+    "ordinal": 32,
+    "raw_string": "Villareal DT, Chode S, Parimi N, Sinacore DR, Hilton T, rmamento-Villareal R et al Weight loss, exercise, or both and physical function in obese older adults. N Engl J Med. 2011; 364: 1218–1229. 10.1056/NEJMoa1008234 21449785 PMC3114602",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1056/nejmoa1008234",
+    "parsed_pmid": "21449785",
+    "parsed_title": "Weight loss, exercise, or both and physical function in obese older adults",
+    "parsed_first_author": "villareal",
+    "parsed_year": 2011,
+    "parsed_container": "N Engl J Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3867,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1056/nejmoa1008234"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 3383,
+    "ordinal": 33,
+    "raw_string": "Gusi N, Reyes MC, Gonzalez-Guerrero JL, Herrera E, Garcia JM. Cost-utility of a walking programme for moderately depressed, obese, or overweight elderly women in primary care: a randomised controlled trial. BMC Public Health. 2008; 8: 231 10.1186/1471-2458-8-231 18611277 PMC2491610",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1186/1471-2458-8-231",
+    "parsed_pmid": "18611277",
+    "parsed_title": "Cost-utility of a walking programme for moderately depressed, obese, or overweight elderly women in primary care: a randomised controlled trial",
+    "parsed_first_author": "gusi",
+    "parsed_year": 2008,
+    "parsed_container": "BMC Public Health",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3868,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/1471-2458-8-231"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   }
+  ],
+  "stat_tests": [],
+  "means": [],
+  "trials": []
+ }
+}

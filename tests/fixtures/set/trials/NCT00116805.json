@@ -1,0 +1,630 @@
+{
+ "id": "NCT00116805",
+ "subject": "trial",
+ "categories": [
+  "c05_results_posted"
+ ],
+ "source": {
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "Phase 3, completed, FDA-regulated drug with a US site, results first posted 2010-05-19.",
+ "expected": [
+  {
+   "check": "C05",
+   "status": "clean",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "trial": {
+   "nct_id": "NCT00116805",
+   "brief_title": "A Study to Compare Tenofovir Disoproxil Fumarate Versus Adefovir Dipivoxil for the Treatment of HBeAg-Positive Chronic Hepatitis B",
+   "overall_status": "COMPLETED",
+   "study_type": "INTERVENTIONAL",
+   "phase": "PHASE3",
+   "enrollment": 266,
+   "start_date": "2005-06-30",
+   "primary_completion_date": "2007-05-31",
+   "completion_date": "2016-01-31",
+   "results_first_posted": "2010-05-19",
+   "lead_sponsor": "Gilead Sciences",
+   "sponsor_class": "INDUSTRY",
+   "raw": {
+    "protocolSection": {
+     "identificationModule": {
+      "nctId": "NCT00116805",
+      "briefTitle": "A Study to Compare Tenofovir Disoproxil Fumarate Versus Adefovir Dipivoxil for the Treatment of HBeAg-Positive Chronic Hepatitis B"
+     },
+     "statusModule": {
+      "overallStatus": "COMPLETED",
+      "startDateStruct": {
+       "date": "2005-06",
+       "type": "ACTUAL"
+      },
+      "expandedAccessInfo": {
+       "hasExpandedAccess": false
+      },
+      "statusVerifiedDate": "2017-01",
+      "completionDateStruct": {
+       "date": "2016-01",
+       "type": "ACTUAL"
+      },
+      "lastUpdateSubmitDate": "2017-01-26",
+      "studyFirstSubmitDate": "2005-06-30",
+      "resultsFirstSubmitDate": "2010-02-11",
+      "studyFirstSubmitQcDate": "2005-06-30",
+      "lastUpdatePostDateStruct": {
+       "date": "2017-03-09",
+       "type": "ACTUAL"
+      },
+      "resultsFirstSubmitQcDate": "2010-04-29",
+      "studyFirstPostDateStruct": {
+       "date": "2005-07-01",
+       "type": "ESTIMATED"
+      },
+      "resultsFirstPostDateStruct": {
+       "date": "2010-05-19",
+       "type": "ESTIMATED"
+      },
+      "primaryCompletionDateStruct": {
+       "date": "2007-05",
+       "type": "ACTUAL"
+      }
+     },
+     "oversightModule": {
+      "oversightHasDmc": true,
+      "isFdaRegulatedDrug": true,
+      "isFdaRegulatedDevice": false
+     },
+     "designModule": {
+      "studyType": "INTERVENTIONAL",
+      "phases": [
+       "PHASE3"
+      ]
+     },
+     "contactsLocationsModule": {
+      "locations": [
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "Australia"
+       },
+       {
+        "country": "Australia"
+       },
+       {
+        "country": "Australia"
+       },
+       {
+        "country": "Australia"
+       },
+       {
+        "country": "Australia"
+       },
+       {
+        "country": "Australia"
+       },
+       {
+        "country": "Australia"
+       },
+       {
+        "country": "Australia"
+       },
+       {
+        "country": "Australia"
+       },
+       {
+        "country": "Australia"
+       },
+       {
+        "country": "Bulgaria"
+       },
+       {
+        "country": "Bulgaria"
+       },
+       {
+        "country": "Bulgaria"
+       },
+       {
+        "country": "Canada"
+       },
+       {
+        "country": "Canada"
+       },
+       {
+        "country": "Canada"
+       },
+       {
+        "country": "Canada"
+       },
+       {
+        "country": "Canada"
+       },
+       {
+        "country": "Czechia"
+       },
+       {
+        "country": "Czechia"
+       },
+       {
+        "country": "Czechia"
+       },
+       {
+        "country": "Czechia"
+       },
+       {
+        "country": "France"
+       },
+       {
+        "country": "France"
+       },
+       {
+        "country": "France"
+       },
+       {
+        "country": "France"
+       },
+       {
+        "country": "France"
+       },
+       {
+        "country": "France"
+       },
+       {
+        "country": "France"
+       },
+       {
+        "country": "Germany"
+       },
+       {
+        "country": "Germany"
+       },
+       {
+        "country": "Germany"
+       },
+       {
+        "country": "Germany"
+       },
+       {
+        "country": "Germany"
+       },
+       {
+        "country": "Germany"
+       },
+       {
+        "country": "Germany"
+       },
+       {
+        "country": "Germany"
+       },
+       {
+        "country": "Germany"
+       },
+       {
+        "country": "Germany"
+       },
+       {
+        "country": "Germany"
+       },
+       {
+        "country": "Germany"
+       },
+       {
+        "country": "Greece"
+       },
+       {
+        "country": "Greece"
+       },
+       {
+        "country": "Greece"
+       },
+       {
+        "country": "Italy"
+       },
+       {
+        "country": "Netherlands"
+       },
+       {
+        "country": "New Zealand"
+       },
+       {
+        "country": "New Zealand"
+       },
+       {
+        "country": "New Zealand"
+       },
+       {
+        "country": "New Zealand"
+       },
+       {
+        "country": "Poland"
+       },
+       {
+        "country": "Poland"
+       },
+       {
+        "country": "Poland"
+       },
+       {
+        "country": "Poland"
+       },
+       {
+        "country": "Poland"
+       },
+       {
+        "country": "Poland"
+       },
+       {
+        "country": "Poland"
+       },
+       {
+        "country": "Spain"
+       },
+       {
+        "country": "Spain"
+       },
+       {
+        "country": "Spain"
+       },
+       {
+        "country": "Spain"
+       },
+       {
+        "country": "Turkey (Türkiye)"
+       },
+       {
+        "country": "Turkey (Türkiye)"
+       },
+       {
+        "country": "Turkey (Türkiye)"
+       },
+       {
+        "country": "Turkey (Türkiye)"
+       },
+       {
+        "country": "United Kingdom"
+       },
+       {
+        "country": "United Kingdom"
+       }
+      ]
+     }
+    },
+    "hasResults": true
+   },
+   "outcomes": [
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "primary",
+     "measure": "Percentage of Participants With HBV DNA < 400 Copies/mL and Histological Improvement (2-point Reduction in Knodell Necroinflammatory Score Without Worsening in Knodell Fibrosis Score) at Week 48",
+     "description": "Complete response was a composite endpoint defined as histological response and HBV DNA \\< 400 copies/mL. Histological response was based on the Knodell numerical scoring of liver biopsy specimens and defined as at least a 2-point reduction in Knodell necroinflammatory score without worsening in Knodell fibrosis score. The Knodell necroinflammatory score is the combined necrosis and inflammation domain scores and ranges from 0 to 14; the Knodell fibrosis domain score ranges from 0 to 4.\n\nA participant was a nonresponder for the primary endpoint if either biopsy (baseline or end-of-treatment) was missing or if there was not an HBV DNA value available at or beyond Week 40.",
+     "time_frame": "Baseline; Week 48"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Percentage of Participants With HBV DNA < 400 Copies/mL at Week 48",
+     "description": null,
+     "time_frame": "Week 48"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Percentage of Participants With HBV DNA < 400 Copies/mL at Week 96",
+     "description": null,
+     "time_frame": "Week 96"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Percentage of Participants With HBV DNA < 400 Copies/mL at Weeks 144, 192, 240, 288, 336, and 384",
+     "description": null,
+     "time_frame": "Weeks 144, 192, 240, 288, 336, and 384"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Percentage of Participants With HBV DNA < 400 Copies/mL at Weeks 432 and 480",
+     "description": null,
+     "time_frame": "Weeks 432 and 480"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Change From Baseline in HBV DNA at Weeks 48, 96, 144, 192, 240, 288, 336, 384, 432, and 480",
+     "description": null,
+     "time_frame": "Baseline; Weeks 48, 96, 144, 192, 240, 288, 336, 384, 432, and 480"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Change From Week 48 in HBV DNA at Weeks 96, 144, 192, 240, 288, 336, 384, 432, and 480",
+     "description": null,
+     "time_frame": "Week 48; Weeks 96, 144, 192, 240, 288, 336, 384, 432, and 480"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Percentage of Participants With Histological Response at Week 48",
+     "description": "Histological response was based on the Knodell numerical scoring of liver biopsy specimens and defined as at least a 2-point reduction in Knodell necroinflammatory score without worsening in Knodell fibrosis score. The Knodell necroinflammatory score is the combined necrosis and inflammation domain scores and ranges from 0 to 14; the Knodell fibrosis domain score ranges from 0 to 4.",
+     "time_frame": "Baseline; Week 48"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Percentage of Participants With Histological Response at Week 240",
+     "description": "Histological response was based on the Knodell numerical scoring of liver biopsy specimens and defined as at least a 2-point reduction in Knodell necroinflammatory score without worsening in Knodell fibrosis score. The Knodell necroinflammatory score is the combined necrosis and inflammation domain scores and ranges from 0 to 14; the Knodell fibrosis domain score ranges from 0 to 4.",
+     "time_frame": "Baseline; Week 240"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Change From Baseline in Knodell and Ishak Necroinflammatory Scores at Week 48",
+     "description": "The Knodell necroinflammatory score is the combined score for necrosis and inflammation domains of the Knodell scoring system, and ranges from 0 (best) to 14 (worst). The Ishak score measures the degree of liver fibrosis (scarring) caused by chronic necroinflammation (inflammation leading to cell death) and ranges from 0 (best) to 6 (worst).",
+     "time_frame": "Baseline; Week 48"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Change From Baseline in Knodell and Ishak Necroinflammatory Scores at Week 240",
+     "description": "The Knodell necroinflammatory score is the combined score for necrosis and inflammation domains of the Knodell scoring system, and ranges from 0 (best) to 14 (worst). The Ishak score measures the degree of liver fibrosis (scarring) caused by chronic necroinflammation (inflammation leading to cell death) and ranges from 0 (best) to 6 (worst).",
+     "time_frame": "Baseline; Week 240"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Ranked Assessment of Necroinflammation and Fibrosis at Week 48",
+     "description": "Participants were ranked as having improvement, no change, worsening, or missing data (compared to Baseline) based on the Knodell scoring system, and results are presented as the percentage of participants in each category. The Knodell necroinflammatory score is the combined score for necrosis and inflammation domains of the Knodell scoring system, which ranges from 0 (best) to 14 (worst). The Knodell fibrosis domain score ranges from 0 (best) to 4 (worst). A decrease of 1 point or more indicated improvement, and an increase of 1 point or more indicated worsening.",
+     "time_frame": "Baseline; Week 48"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Ranked Assessment of Necroinflammation and Fibrosis at Week 240",
+     "description": "Participants were ranked as having improvement, no change, worsening, or missing data (compared to Baseline) based on the Knodell scoring system, and results are presented as the percentage of participants in each category. The Knodell necroinflammatory score is the combined score for necrosis and inflammation domains of the Knodell scoring system, which ranges from 0 (best) to 14 (worst). The Knodell fibrosis domain score ranges from 0 (best) to 4 (worst). A decrease of 1 point or more indicated improvement, and an increase of 1 point or more indicated worsening.",
+     "time_frame": "Baseline; Week 240"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Percentage of Participants With Alanine Aminotransferase (ALT) Normalization at Week 48",
+     "description": "ALT normalization was defined as ALT \\> upper limit of normal (ULN) at baseline and within the normal range at the end of blinded treatment. The ULN was 43 U/L for males and 34 U/L for females aged 18 to \\< 69, and 35 U/L for males and 32 U/L for females aged ≥ 69.",
+     "time_frame": "Baseline; Week 48"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Percentage of Participants With ALT Normalization at Week 96",
+     "description": "ALT normalization was defined as ALT \\> ULN at baseline and within the normal range at Week 96. The ULN was 43 U/L for males and 34 U/L for females aged 18 to \\< 69, and 35 U/L for males and 32 U/L for females aged ≥ 69.",
+     "time_frame": "Baseline; Week 96"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Percentage of Participants With ALT Normalization at Weeks 144, 192, 240, 288, 336, and 384",
+     "description": "ALT normalization was defined as ALT \\> ULN at baseline and within the normal range at the subsequent time point. The ULN was 43 U/L for males and 34 U/L for females aged 18 to \\< 69, and 35 U/L for males and 32 U/L for females aged ≥ 69.",
+     "time_frame": "Baseline; Weeks 144, 192, 240, 288, 336, and 384"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Percentage of Participants With ALT Normalization at Weeks 432 and 480",
+     "description": "ALT normalization was defined as ALT \\> ULN at baseline and within the normal range at the subsequent time point. The ULN was 43 U/L for males and 34 U/L for females aged 18 to \\< 69, and 35 U/L for males and 32 U/L for females aged ≥ 69.",
+     "time_frame": "Baseline; Weeks 432 and 480"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Change From Baseline in ALT at Weeks 48, 96, 144, 192, 240, 288, 336, 384, 432, and 480",
+     "description": null,
+     "time_frame": "Baseline; Weeks 48, 96, 144, 192, 240, 288, 336, 384, 432, and 480"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Change From Week 48 in ALT at Weeks 96, 144, 192, 240, 288, 336, 384, 432, and 480",
+     "description": null,
+     "time_frame": "Week 48; Weeks 96, 144, 192, 240, 288, 336, 384, 432, and 480"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Percentage of Participants With Hepatitis B e Antigen (HBeAg) Loss/Seroconversion at Week 48",
+     "description": "HBeAg loss was defined as HBeAg positive at baseline and HBeAg negative at Week 48. Seroconversion to anti-HBe was defined as change of detectable antibody to HBeAg from negative at baseline to positive at Week 48.",
+     "time_frame": "Baseline; Week 48"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Percentage of Participants With HBeAg Loss or Seroconversion to Anti-HBe at Week 96",
+     "description": "HBeAg loss was defined as HBeAg positive at baseline and HBeAg negative at Week 96. Seroconversion to anti-HBe was defined as change of detectable antibody to HBeAg from negative at baseline to positive at Week 96.",
+     "time_frame": "Baseline; Week 96"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Percentage of Participants With Hepatitis B S-Antigen (HBsAg) Loss or Seroconversion at Week 48",
+     "description": "HBsAg loss was defined as HBsAg positive at baseline and HBsAg negative at Week 48. Seroconversion to anti-HBs was defined as change of detectable antibody to HBsAg from negative at baseline to positive at Week 48.",
+     "time_frame": "Baseline; Week 48"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Percentage of Participants With HBsAg Loss or Seroconversion to Anti-HBs at Week 96",
+     "description": "HBsAg loss was defined as HBsAg positive at baseline and HBsAg negative at the subsequent time point. Seroconversion to anti-HBs was defined as change of detectable antibody to HBsAg from negative at baseline to positive at the subsequent time point.",
+     "time_frame": "Baseline; Week 96"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Percentage of Participants With HBsAg Loss or Seroconversion to Anti-HBs at Weeks 144, 192, 240, 288, 336, 384, 432, and 480",
+     "description": "HBsAg loss was defined as HBsAg positive at baseline and HBsAg negative at the subsequent time point. Seroconversion to anti-HBs was defined as change of detectable antibody to HBsAg from negative at baseline to positive at the subsequent time point.",
+     "time_frame": "Baseline; Weeks 144, 192, 240, 288, 336, 384, 432, and 480"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Number of Participants With HBV Genotypic Changes From Baseline at Week 48 (Resistance Surveillance)",
+     "description": "Of the total number analyzed, participants evaluated for resistance included those with HBV DNA ≥ 400 copies/mL, those with viral breakthrough, and those who discontinued after Week 24 with HBV DNA ≥ 400 copies/mL.",
+     "time_frame": "Baseline; Week 48"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Number of Participants With HBV Genotypic Changes From Baseline at Week 96 (Resistance Surveillance)",
+     "description": "Of the total number analyzed, participants evaluated for resistance included those with HBV DNA ≥ 400 copies/mL at Week 96 on TDF monotherapy, those with viral breakthrough, those who discontinued after Week 48 with HBV DNA ≥ 400 copies/mL, and those who added emtricitabine to the open-label TDF regimen and had HBV DNA ≥ 400 copies/mL at the time of the addition.",
+     "time_frame": "Baseline; Weeks 49 to 96"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Number of Participants With HBV Genotypic Changes From Baseline at Week 144 (Resistance Surveillance)",
+     "description": "Of the total number analyzed, participants evaluated for resistance included those with HBV DNA ≥ 400 copies/mL at Week 144 on TDF monotherapy, those with viral breakthrough, those who discontinued after Week 96 with HBV DNA ≥ 400 copies/mL, and those who added emtricitabine to the open-label TDF regimen after Week 96 and had HBV DNA ≥ 400 copies/mL at the time of the addition.",
+     "time_frame": "Baseline; Weeks 97 to 144"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Number of Participants With HBV Genotypic Changes From Baseline at Week 192 (Resistance Surveillance)",
+     "description": "Of the total number analyzed, participants evaluated for resistance included those with HBV DNA ≥ 400 copies/mL at Week 192 on TDF monotherapy, those with viral breakthrough, those who discontinued after Week 144 with HBV DNA ≥ 400 copies/mL, and those who added emtricitabine to the open-label TDF regimen after Week 144 and had HBV DNA ≥ 400 copies/mL at the time of the addition.",
+     "time_frame": "Baseline; Weeks 145 to 192"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Number of Participants With HBV Genotypic Changes From Baseline at Week 240 (Resistance Surveillance)",
+     "description": "Of the total number analyzed, participants evaluated for resistance included those with HBV DNA ≥ 400 copies/mL at Week 240 on TDF monotherapy, those with viral breakthrough, those who discontinued after Week 192 with HBV DNA ≥ 400 copies/mL, and those who added emtricitabine to the open-label TDF regimen after Week 192 and had HBV DNA ≥ 400 copies/mL at the time of the addition.",
+     "time_frame": "Baseline; Weeks 193 to 240"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Number of Participants With HBV Genotypic Changes From Baseline at Week 288 (Resistance Surveillance)",
+     "description": "Of the total number analyzed, participants evaluated for resistance included those with HBV DNA ≥ 400 copies/mL at Week 288 on TDF monotherapy, those with viral breakthrough, those who discontinued after Week 240 with HBV DNA ≥ 400 copies/mL, and those who added emtricitabine to the open-label TDF regimen after Week 240 and had HBV DNA ≥ 400 copies/mL at the time of the addition.",
+     "time_frame": "Baseline; Weeks 241 to 288"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Number of Participants With HBV Genotypic Changes From Baseline at Week 336 (Resistance Surveillance)",
+     "description": "Of the total number analyzed, participants evaluated for resistance included those with HBV DNA ≥ 400 copies/mL at Week 336 on TDF monotherapy, those with viral breakthrough, those who discontinued after Week 288 with HBV DNA ≥ 400 copies/mL, and those who added emtricitabine to the open-label TDF regimen after Week 288 and had HBV DNA ≥ 400 copies/mL at the time of the addition.",
+     "time_frame": "Baseline; Weeks 289 to 336"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Number of Participants With HBV Genotypic Changes From Baseline at Week 384 (Resistance Surveillance)",
+     "description": "Of the total number analyzed, participants evaluated for resistance included those with HBV DNA ≥ 400 copies/mL at Week 384 on TDF monotherapy, those with viral breakthrough, those who discontinued after Week 336 with HBV DNA ≥ 400 copies/mL, and those who added emtricitabine to the open-label TDF regimen after Week 336 and had HBV DNA ≥ 400 copies/mL at the time of the addition.",
+     "time_frame": "Baseline; Weeks 337 to 384"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Number of Participants With HBV Genotypic Changes From Baseline at Week 432 (Resistance Surveillance)",
+     "description": "Of the total number analyzed, participants evaluated for resistance included those with HBV DNA ≥ 400 copies/mL at Week 432 on TDF monotherapy, those with viral breakthrough, those who discontinued after Week 384 with HBV DNA ≥ 400 copies/mL, and those who added emtricitabine to the open-label TDF regimen after Week 384 and had HBV DNA ≥ 400 copies/mL at the time of the addition.",
+     "time_frame": "Baseline; Weeks 385 to 432"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2017-03-09",
+     "outcome_type": "secondary",
+     "measure": "Number of Participants With HBV Genotypic Changes From Baseline at Week 480 (Resistance Surveillance)",
+     "description": "Of the total number analyzed, participants evaluated for resistance included those with HBV DNA ≥ 400 copies/mL at Week 480 on TDF monotherapy, those with viral breakthrough, those who discontinued after Week 432 with HBV DNA ≥ 400 copies/mL, and those who added emtricitabine to the open-label TDF regimen after Week 432 and had HBV DNA ≥ 400 copies/mL at the time of the addition.",
+     "time_frame": "Baseline; Weeks 433 to 480"
+    }
+   ]
+  },
+  "fetched_on": "2026-10-24"
+ }
+}

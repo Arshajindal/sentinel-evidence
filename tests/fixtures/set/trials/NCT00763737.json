@@ -1,0 +1,272 @@
+{
+ "id": "NCT00763737",
+ "subject": "trial",
+ "categories": [
+  "c05_overdue"
+ ],
+ "source": {
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "Phase NA (in scope), started 2010-08, US site. Primary completion 2020-03-31 to 2026-10-24 = 78 whole months (day 24 < 31); no results posted.",
+ "expected": [
+  {
+   "check": "C05",
+   "status": "flagged",
+   "severity": "medium",
+   "why": "78 months since primary completion, results_first_posted null"
+  }
+ ],
+ "context": {
+  "trial": {
+   "nct_id": "NCT00763737",
+   "brief_title": "Fetal Surgery for Moderate Left Sided Congenital Diaphragmatic Hernia.",
+   "overall_status": "COMPLETED",
+   "study_type": "INTERVENTIONAL",
+   "phase": "NA",
+   "enrollment": 196,
+   "start_date": "2010-08-31",
+   "primary_completion_date": "2020-03-31",
+   "completion_date": "2020-03-31",
+   "results_first_posted": null,
+   "lead_sponsor": "University Hospital, Gasthuisberg",
+   "sponsor_class": "OTHER",
+   "raw": {
+    "protocolSection": {
+     "identificationModule": {
+      "nctId": "NCT00763737",
+      "briefTitle": "Fetal Surgery for Moderate Left Sided Congenital Diaphragmatic Hernia."
+     },
+     "statusModule": {
+      "overallStatus": "COMPLETED",
+      "startDateStruct": {
+       "date": "2010-08"
+      },
+      "expandedAccessInfo": {
+       "hasExpandedAccess": false
+      },
+      "statusVerifiedDate": "2020-11",
+      "completionDateStruct": {
+       "date": "2020-03",
+       "type": "ACTUAL"
+      },
+      "lastUpdateSubmitDate": "2020-11-30",
+      "studyFirstSubmitDate": "2008-09-30",
+      "studyFirstSubmitQcDate": "2008-09-30",
+      "lastUpdatePostDateStruct": {
+       "date": "2020-12-03",
+       "type": "ACTUAL"
+      },
+      "studyFirstPostDateStruct": {
+       "date": "2008-10-01",
+       "type": "ESTIMATED"
+      },
+      "primaryCompletionDateStruct": {
+       "date": "2020-03",
+       "type": "ACTUAL"
+      }
+     },
+     "oversightModule": {
+      "oversightHasDmc": true
+     },
+     "designModule": {
+      "studyType": "INTERVENTIONAL",
+      "phases": [
+       "NA"
+      ]
+     },
+     "contactsLocationsModule": {
+      "locations": [
+       {
+        "country": "United States"
+       },
+       {
+        "country": "United States"
+       },
+       {
+        "country": "Australia"
+       },
+       {
+        "country": "Belgium"
+       },
+       {
+        "country": "Canada"
+       },
+       {
+        "country": "France"
+       },
+       {
+        "country": "France"
+       },
+       {
+        "country": "Germany"
+       },
+       {
+        "country": "Italy"
+       },
+       {
+        "country": "Italy"
+       },
+       {
+        "country": "Poland"
+       },
+       {
+        "country": "Spain"
+       },
+       {
+        "country": "United Kingdom"
+       }
+      ]
+     }
+    },
+    "hasResults": false
+   },
+   "outcomes": [
+    {
+     "version_no": 0,
+     "version_date": "2020-12-03",
+     "outcome_type": "primary",
+     "measure": "Survival at discharge",
+     "description": null,
+     "time_frame": "at the time of discharge from NICU, approximately 2 months"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2020-12-03",
+     "outcome_type": "primary",
+     "measure": "Supplemental oxygen at 6 months of age",
+     "description": null,
+     "time_frame": "at 6 months of age"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2020-12-03",
+     "outcome_type": "secondary",
+     "measure": "Grading of oxygen dependency",
+     "description": null,
+     "time_frame": "between 28 and 56 days of life if born >32 weeks; at 36 weeks postmenstrual age if born <32 weeks"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2020-12-03",
+     "outcome_type": "secondary",
+     "measure": "Pulmonary hypertension",
+     "description": null,
+     "time_frame": "during NICU admission"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2020-12-03",
+     "outcome_type": "secondary",
+     "measure": "Use of extracorporeal membrane oxygenation",
+     "description": null,
+     "time_frame": "during NICU admission"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2020-12-03",
+     "outcome_type": "secondary",
+     "measure": "Change in O/E LHR after FETO",
+     "description": null,
+     "time_frame": "prior to unplug"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2020-12-03",
+     "outcome_type": "secondary",
+     "measure": "NICU days",
+     "description": null,
+     "time_frame": "during NICU admission"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2020-12-03",
+     "outcome_type": "secondary",
+     "measure": "days of ventilatory support",
+     "description": null,
+     "time_frame": "during NICU admission"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2020-12-03",
+     "outcome_type": "secondary",
+     "measure": "Periventricular leucomalacia",
+     "description": null,
+     "time_frame": "during NICU admission"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2020-12-03",
+     "outcome_type": "secondary",
+     "measure": "Neonatal sepsis",
+     "description": null,
+     "time_frame": "during NICU admission"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2020-12-03",
+     "outcome_type": "secondary",
+     "measure": "Intraventricular hemorrhage",
+     "description": null,
+     "time_frame": "during NICU admission"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2020-12-03",
+     "outcome_type": "secondary",
+     "measure": "Retinopathy of prematurity",
+     "description": null,
+     "time_frame": "during NICU admission"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2020-12-03",
+     "outcome_type": "secondary",
+     "measure": "Days until full enteral feeding",
+     "description": null,
+     "time_frame": "during NICU admission"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2020-12-03",
+     "outcome_type": "secondary",
+     "measure": "Gastroesophageal reflux",
+     "description": null,
+     "time_frame": "during NICU admission"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2020-12-03",
+     "outcome_type": "secondary",
+     "measure": "Day of postnatal surgery",
+     "description": null,
+     "time_frame": "during NICU admission"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2020-12-03",
+     "outcome_type": "secondary",
+     "measure": "Use of patch",
+     "description": null,
+     "time_frame": "at the time of postnatal surgery"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2020-12-03",
+     "outcome_type": "secondary",
+     "measure": "Defect size",
+     "description": null,
+     "time_frame": "at the time of postnatal surgery"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2020-12-03",
+     "outcome_type": "secondary",
+     "measure": "Number of days alive in case of postnatal death",
+     "description": null,
+     "time_frame": "during NICU admission"
+    }
+   ]
+  },
+  "fetched_on": "2026-10-24"
+ }
+}

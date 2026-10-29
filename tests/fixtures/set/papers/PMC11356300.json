@@ -1,0 +1,2668 @@
+{
+ "id": "PMC11356300",
+ "subject": "paper",
+ "categories": [
+  "c03_inconsistent"
+ ],
+ "source": {
+  "corpus": "pmc-rct-2015-2024",
+  "paper_id": 570,
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "3 F tests, 2 inconsistent.",
+ "expected": [
+  {
+   "check": "C01",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C02",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C03",
+   "status": "flagged",
+   "severity": "low",
+   "item": "stat 1",
+   "why": "F(1,37) = 7.14 gives p 0.0111, reported 0.013. Recomputed with scipy over every statistic value that rounds to the printed one: the reported p is outside the range, and it doesn't cross alpha = 0.05, so low. Sentence read in the full text: the extraction is faithful."
+  },
+  {
+   "check": "C03",
+   "status": "flagged",
+   "severity": "low",
+   "item": "stat 3",
+   "why": "F(1,37) = 4.49 gives p 0.0408-0.0410, reported 0.043. Recomputed with scipy over every statistic value that rounds to the printed one: the reported p is outside the range, and it doesn't cross alpha = 0.05, so low. Sentence read in the full text: the extraction is faithful."
+  },
+  {
+   "check": "C03",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C04",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "paper_id": 570,
+  "publication_date": "2024-08-21",
+  "fulltext_status": "full",
+  "references": [
+   {
+    "reference_id": 22314,
+    "ordinal": 1,
+    "raw_string": "Shalitin S. Moreno L.A. Obesity, Metabolic Syndrome, and Nutrition World Rev. Nutr. Diet. 2021 123 38 58 10.1159/000516452 34404049",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1159/000516452",
+    "parsed_pmid": "34404049",
+    "parsed_title": "Obesity, Metabolic Syndrome, and Nutrition",
+    "parsed_first_author": "shalitin",
+    "parsed_year": 2021,
+    "parsed_container": "World Rev. Nutr. Diet.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4840,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1159/000516452"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22315,
+    "ordinal": 2,
+    "raw_string": "Chai C. Chen L. Deng M.-G. Liang Y. Liu F. Nie J.-Q. Dietary Choline Intake and Non-Alcoholic Fatty Liver Disease (NAFLD) in U.S. Adults: National Health and Nutrition Examination Survey (NHANES) 2017–2018 Eur. J. Clin. Nutr. 2023 77 1160 1166 10.1038/s41430-023-01336-1 37634048",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/s41430-023-01336-1",
+    "parsed_pmid": "37634048",
+    "parsed_title": "Dietary Choline Intake and Non-Alcoholic Fatty Liver Disease (NAFLD) in U.S. Adults: National Health and Nutrition Examination Survey (NHANES) 2017–2018",
+    "parsed_first_author": "chai",
+    "parsed_year": 2023,
+    "parsed_container": "Eur. J. Clin. Nutr.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4841,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1038/s41430-023-01336-1"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22316,
+    "ordinal": 3,
+    "raw_string": "Niu M. Chen J. Hou R. Sun Y. Xiao Q. Pan X. Zhu X. Emerging Healthy Lifestyle Factors and All-Cause Mortality among People with Metabolic Syndrome and Metabolic Syndrome-like Characteristics in NHANES J. Transl. Med. 2023 21 239 10.1186/s12967-023-04062-1 37005663 PMC10068159",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1186/s12967-023-04062-1",
+    "parsed_pmid": "37005663",
+    "parsed_title": "Emerging Healthy Lifestyle Factors and All-Cause Mortality among People with Metabolic Syndrome and Metabolic Syndrome-like Characteristics in NHANES",
+    "parsed_first_author": "niu",
+    "parsed_year": 2023,
+    "parsed_container": "J. Transl. Med.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4842,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/s12967-023-04062-1"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22317,
+    "ordinal": 4,
+    "raw_string": "Popovici D. Stanisav C. Pricop M. Dragomir R. Saftescu S. Ciurescu D. Associations between Body Mass Index and Prostate Cancer: The Impact on Progression-Free Survival Medicina 2023 59 289 10.3390/medicina59020289 36837490 PMC9967817",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3390/medicina59020289",
+    "parsed_pmid": "36837490",
+    "parsed_title": "Associations between Body Mass Index and Prostate Cancer: The Impact on Progression-Free Survival",
+    "parsed_first_author": "popovici",
+    "parsed_year": 2023,
+    "parsed_container": "Medicina",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4843,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3390/medicina59020289"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22318,
+    "ordinal": 5,
+    "raw_string": "Roman D. Saftescu S. Timar B. Avram V. Braha A. Negru Ș. Bercea A. Serbulescu M. Popovici D. Timar R. Diabetes Mellitus and Other Predictors for the Successful Treatment of Metastatic Colorectal Cancer: A Retrospective Study Medicina 2022 58 872 10.3390/medicina58070872 35888591 PMC9320523",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3390/medicina58070872",
+    "parsed_pmid": "35888591",
+    "parsed_title": "Diabetes Mellitus and Other Predictors for the Successful Treatment of Metastatic Colorectal Cancer: A Retrospective Study",
+    "parsed_first_author": "roman",
+    "parsed_year": 2022,
+    "parsed_container": "Medicina",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 2916,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3390/medicina58070872"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22319,
+    "ordinal": 6,
+    "raw_string": "Popovici D. Stanisav C. Saftescu S. Negru S. Dragomir R. Ciurescu D. Diaconescu R. Exploring the Influence of Age, Gender and Body Mass Index on Colorectal Cancer Location Medicina 2023 59 1399 10.3390/medicina59081399 37629689 PMC10456780",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3390/medicina59081399",
+    "parsed_pmid": "37629689",
+    "parsed_title": "Exploring the Influence of Age, Gender and Body Mass Index on Colorectal Cancer Location",
+    "parsed_first_author": "popovici",
+    "parsed_year": 2023,
+    "parsed_container": "Medicina",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4844,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3390/medicina59081399"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22320,
+    "ordinal": 7,
+    "raw_string": "Dragomir R. Dragomir A.S. Negru A. Săftescu S. Popovici D. Schenker M. Lupușoru R. Negru Ș. Role of Combining Neutrophil-to-Lymphocyte Ratio and Pretreatment Body Mass Index in Predicting Progression-Free Survival in Patients with Non-Small Cell Lung Cancer Treated with Nivolumab Exp. Ther. Med. 2021 21 526 10.3892/etm.2021.9958 33815599 PMC8014982",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3892/etm.2021.9958",
+    "parsed_pmid": "33815599",
+    "parsed_title": "Role of Combining Neutrophil-to-Lymphocyte Ratio and Pretreatment Body Mass Index in Predicting Progression-Free Survival in Patients with Non-Small Cell Lung Cancer Treated with Nivolumab",
+    "parsed_first_author": "dragomir",
+    "parsed_year": 2021,
+    "parsed_container": "Exp. Ther. Med.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4845,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3892/etm.2021.9958"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22321,
+    "ordinal": 8,
+    "raw_string": "Chan W.-K. Chuah K.-H. Rajaram R.B. Lim L.-L. Ratnasingam J. Vethakkan S.R. Metabolic Dysfunction-Associated Steatotic Liver Disease (MASLD): A State-of-the-Art Review J. Obes. Metab. Syndr. 2023 32 197 213 10.7570/jomes23052 37700494 PMC10583766",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.7570/jomes23052",
+    "parsed_pmid": "37700494",
+    "parsed_title": "Metabolic Dysfunction-Associated Steatotic Liver Disease (MASLD): A State-of-the-Art Review",
+    "parsed_first_author": "chan",
+    "parsed_year": 2023,
+    "parsed_container": "J. Obes. Metab. Syndr.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4846,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.7570/jomes23052"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22322,
+    "ordinal": 9,
+    "raw_string": "Younossi Z.M. Koenig A.B. Abdelatif D. Fazel Y. Henry L. Wymer M. Global Epidemiology of Nonalcoholic Fatty Liver Disease-Meta-Analytic Assessment of Prevalence, Incidence, and Outcomes Hepatology 2016 64 73 84 10.1002/hep.28431 26707365",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/hep.28431",
+    "parsed_pmid": "26707365",
+    "parsed_title": "Global Epidemiology of Nonalcoholic Fatty Liver Disease-Meta-Analytic Assessment of Prevalence, Incidence, and Outcomes",
+    "parsed_first_author": "younossi",
+    "parsed_year": 2016,
+    "parsed_container": "Hepatology",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4847,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/hep.28431"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22323,
+    "ordinal": 10,
+    "raw_string": "Feng G. Valenti L. Wong V.W.-S. Fouad Y.M. Yilmaz Y. Kim W. Sebastiani G. Younossi Z.M. Hernandez-Gea V. Zheng M.-H. Recompensation in Cirrhosis: Unravelling the Evolving Natural History of Nonalcoholic Fatty Liver Disease Nat. Rev. Gastroenterol. Hepatol. 2024 21 46 56 10.1038/s41575-023-00846-4 37798441",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/s41575-023-00846-4",
+    "parsed_pmid": "37798441",
+    "parsed_title": "Recompensation in Cirrhosis: Unravelling the Evolving Natural History of Nonalcoholic Fatty Liver Disease",
+    "parsed_first_author": "feng",
+    "parsed_year": 2024,
+    "parsed_container": "Nat. Rev. Gastroenterol. Hepatol.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4848,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1038/s41575-023-00846-4"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22324,
+    "ordinal": 11,
+    "raw_string": "Powell E.E. Wong V.W.-S. Rinella M. Non-Alcoholic Fatty Liver Disease Lancet 2021 397 2212 2224 10.1016/S0140-6736(20)32511-3 33894145",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s0140-6736(20)32511-3",
+    "parsed_pmid": "33894145",
+    "parsed_title": "Non-Alcoholic Fatty Liver Disease",
+    "parsed_first_author": "powell",
+    "parsed_year": 2021,
+    "parsed_container": "Lancet",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4849,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s0140-6736(20)32511-3"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22325,
+    "ordinal": 12,
+    "raw_string": "Romero-Gómez M. Zelber-Sagi S. Trenell M. Treatment of NAFLD with Diet, Physical Activity and Exercise J. Hepatol. 2017 67 829 846 10.1016/j.jhep.2017.05.016 28545937",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.jhep.2017.05.016",
+    "parsed_pmid": "28545937",
+    "parsed_title": "Treatment of NAFLD with Diet, Physical Activity and Exercise",
+    "parsed_first_author": "romero gomez",
+    "parsed_year": 2017,
+    "parsed_container": "J. Hepatol.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4850,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.jhep.2017.05.016"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22326,
+    "ordinal": 13,
+    "raw_string": "Amato A. Caldara G.-F. Nuzzo D. Baldassano S. Picone P. Rizzo M. Mulè F. Di Carlo M. NAFLD and Atherosclerosis Are Prevented by a Natural Dietary Supplement Containing Curcumin, Silymarin, Guggul, Chlorogenic Acid and Inulin in Mice Fed a High-Fat Diet Nutrients 2017 9 492 10.3390/nu9050492 28505074 PMC5452222",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3390/nu9050492",
+    "parsed_pmid": "28505074",
+    "parsed_title": "NAFLD and Atherosclerosis Are Prevented by a Natural Dietary Supplement Containing Curcumin, Silymarin, Guggul, Chlorogenic Acid and Inulin in Mice Fed a High-Fat Diet",
+    "parsed_first_author": "amato",
+    "parsed_year": 2017,
+    "parsed_container": "Nutrients",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4851,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3390/nu9050492"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22327,
+    "ordinal": 14,
+    "raw_string": "Loguercio C. Andreone P. Brisc C. Brisc M.C. Bugianesi E. Chiaramonte M. Cursaro C. Danila M. de Sio I. Floreani A. Silybin Combined with Phosphatidylcholine and Vitamin E in Patients with Nonalcoholic Fatty Liver Disease: A Randomized Controlled Trial Free Radic. Biol. Med. 2012 52 1658 1665 10.1016/j.freeradbiomed.2012.02.008 22343419",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.freeradbiomed.2012.02.008",
+    "parsed_pmid": "22343419",
+    "parsed_title": "Silybin Combined with Phosphatidylcholine and Vitamin E in Patients with Nonalcoholic Fatty Liver Disease: A Randomized Controlled Trial",
+    "parsed_first_author": "loguercio",
+    "parsed_year": 2012,
+    "parsed_container": "Free Radic. Biol. Med.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4852,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.freeradbiomed.2012.02.008"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22328,
+    "ordinal": 15,
+    "raw_string": "Caliceti C. Franco P. Spinozzi S. Roda A. Cicero A.F.G. Berberine: New Insights from Pharmacological Aspects to Clinical Evidences in the Management of Metabolic Disorders Curr. Med. Chem. 2016 23 1460 1476 10.2174/0929867323666160411143314 27063256",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2174/0929867323666160411143314",
+    "parsed_pmid": "27063256",
+    "parsed_title": "Berberine: New Insights from Pharmacological Aspects to Clinical Evidences in the Management of Metabolic Disorders",
+    "parsed_first_author": "caliceti",
+    "parsed_year": 2016,
+    "parsed_container": "Curr. Med. Chem.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 2980,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {},
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22329,
+    "ordinal": 16,
+    "raw_string": "Fogacci F. Grassi D. Rizzo M. Cicero A.F.G. Metabolic Effect of Berberine-Silymarin Association: A Meta-Analysis of Randomized, Double-Blind, Placebo-Controlled Clinical Trials Phytother. Res. PTR 2019 33 862 870 10.1002/ptr.6282 30632209 PMC6590227",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/ptr.6282",
+    "parsed_pmid": "30632209",
+    "parsed_title": "Metabolic Effect of Berberine-Silymarin Association: A Meta-Analysis of Randomized, Double-Blind, Placebo-Controlled Clinical Trials",
+    "parsed_first_author": "fogacci",
+    "parsed_year": 2019,
+    "parsed_container": "Phytother. Res. PTR",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4853,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/ptr.6282"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22330,
+    "ordinal": 17,
+    "raw_string": "Cicero A.F.G. Sahebkar A. Fogacci F. Bove M. Giovannini M. Borghi C. Effects of Phytosomal Curcumin on Anthropometric Parameters, Insulin Resistance, Cortisolemia and Non-Alcoholic Fatty Liver Disease Indices: A Double-Blind, Placebo-Controlled Clinical Trial Eur. J. Nutr. 2020 59 477 483 10.1007/s00394-019-01916-7 30796508 PMC7058573",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s00394-019-01916-7",
+    "parsed_pmid": "30796508",
+    "parsed_title": "Effects of Phytosomal Curcumin on Anthropometric Parameters, Insulin Resistance, Cortisolemia and Non-Alcoholic Fatty Liver Disease Indices: A Double-Blind, Placebo-Controlled Clinical Trial",
+    "parsed_first_author": "cicero",
+    "parsed_year": 2020,
+    "parsed_container": "Eur. J. Nutr.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4854,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s00394-019-01916-7"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22331,
+    "ordinal": 18,
+    "raw_string": "Hallajzadeh J. Milajerdi A. Mobini M. Amirani E. Azizi S. Nikkhah E. Bahadori B. Sheikhsoleimani R. Mirhashemi S.M. Effects of Nigella Sativa on Glycemic Control, Lipid Profiles, and Biomarkers of Inflammatory and Oxidative Stress: A Systematic Review and Meta-Analysis of Randomized Controlled Clinical Trials Phytother. Res. PTR 2020 34 2586 2608 10.1002/ptr.6708 32394508",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/ptr.6708",
+    "parsed_pmid": "32394508",
+    "parsed_title": "Effects of Nigella Sativa on Glycemic Control, Lipid Profiles, and Biomarkers of Inflammatory and Oxidative Stress: A Systematic Review and Meta-Analysis of Randomized Controlled Clinical Trials",
+    "parsed_first_author": "hallajzadeh",
+    "parsed_year": 2020,
+    "parsed_container": "Phytother. Res. PTR",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4855,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/ptr.6708"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22332,
+    "ordinal": 19,
+    "raw_string": "Nicolucci A. Rossi M.C. Petrelli M. Effectiveness of Ascophyllum Nodosum and Fucus Vesiculosus on Metabolic Syndrome Components: A Real-World, Observational Study J. Diabetes Res. 2021 2021 3389316 10.1155/2021/3389316 34631894 PMC8497120",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1155/2021/3389316",
+    "parsed_pmid": "34631894",
+    "parsed_title": "Effectiveness of Ascophyllum Nodosum and Fucus Vesiculosus on Metabolic Syndrome Components: A Real-World, Observational Study",
+    "parsed_first_author": "nicolucci",
+    "parsed_year": 2021,
+    "parsed_container": "J. Diabetes Res.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4856,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1155/2021/3389316"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22333,
+    "ordinal": 20,
+    "raw_string": "Farsi F. Mohammadshahi M. Alavinejad P. Rezazadeh A. Zarei M. Engali K.A. Functions of Coenzyme Q10 Supplementation on Liver Enzymes, Markers of Systemic Inflammation, and Adipokines in Patients Affected by Nonalcoholic Fatty Liver Disease: A Double-Blind, Placebo-Controlled, Randomized Clinical Trial J. Am. Coll. Nutr. 2016 35 346 353 10.1080/07315724.2015.1021057 26156412",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1080/07315724.2015.1021057",
+    "parsed_pmid": "26156412",
+    "parsed_title": "Functions of Coenzyme Q10 Supplementation on Liver Enzymes, Markers of Systemic Inflammation, and Adipokines in Patients Affected by Nonalcoholic Fatty Liver Disease: A Double-Blind, Placebo-Controlled, Randomized Clinical Trial",
+    "parsed_first_author": "farsi",
+    "parsed_year": 2016,
+    "parsed_container": "J. Am. Coll. Nutr.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4857,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1080/07315724.2015.1021057"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22334,
+    "ordinal": 21,
+    "raw_string": "Shinozaki S. Tahara T. Lefor A.K. Ogura M. Pemafibrate Decreases Markers of Hepatic Inflammation in Patients with Non-Alcoholic Fatty Liver Disease Clin. Exp. Hepatol. 2020 6 270 274 10.5114/ceh.2020.99528 33145434 PMC7592096",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.5114/ceh.2020.99528",
+    "parsed_pmid": "33145434",
+    "parsed_title": "Pemafibrate Decreases Markers of Hepatic Inflammation in Patients with Non-Alcoholic Fatty Liver Disease",
+    "parsed_first_author": "shinozaki",
+    "parsed_year": 2020,
+    "parsed_container": "Clin. Exp. Hepatol.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4858,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.5114/ceh.2020.99528"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22335,
+    "ordinal": 22,
+    "raw_string": "Yang S. Ye Z. Liu M. Zhang Y. Wu Q. Zhou C. Zhang Z. He P. Zhang Y. Li H. Associations of Different Serum Folate Forms with Indices of Nonalcoholic Fatty Liver Disease and Advanced Fibrosis Obes. Res. Clin. Pract. 2023 17 58 65 10.1016/j.orcp.2023.01.004 36746711",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.orcp.2023.01.004",
+    "parsed_pmid": "36746711",
+    "parsed_title": "Associations of Different Serum Folate Forms with Indices of Nonalcoholic Fatty Liver Disease and Advanced Fibrosis",
+    "parsed_first_author": "yang",
+    "parsed_year": 2023,
+    "parsed_container": "Obes. Res. Clin. Pract.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4859,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.orcp.2023.01.004"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22336,
+    "ordinal": 23,
+    "raw_string": "Li L. Huang Q. Yang L. Zhang R. Gao L. Han X. Ji L. Zou X. The Association between Non-Alcoholic Fatty Liver Disease (NAFLD) and Advanced Fibrosis with Serological Vitamin B12 Markers: Results from the NHANES 1999–2004 Nutrients 2022 14 1224 10.3390/nu14061224 35334881 PMC8948655",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3390/nu14061224",
+    "parsed_pmid": "35334881",
+    "parsed_title": "The Association between Non-Alcoholic Fatty Liver Disease (NAFLD) and Advanced Fibrosis with Serological Vitamin B12 Markers: Results from the NHANES 1999–2004",
+    "parsed_first_author": "li",
+    "parsed_year": 2022,
+    "parsed_container": "Nutrients",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4860,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3390/nu14061224"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22337,
+    "ordinal": 24,
+    "raw_string": "Mitrovic M. Sistilli G. Horakova O. Rossmeisl M. Omega-3 Phospholipids and Obesity-Associated NAFLD: Potential Mechanisms and Therapeutic Perspectives Eur. J. Clin. Investig. 2022 52 e13650 10.1111/eci.13650 34291454",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/eci.13650",
+    "parsed_pmid": "34291454",
+    "parsed_title": "Omega-3 Phospholipids and Obesity-Associated NAFLD: Potential Mechanisms and Therapeutic Perspectives",
+    "parsed_first_author": "mitrovic",
+    "parsed_year": 2022,
+    "parsed_container": "Eur. J. Clin. Investig.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4861,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/eci.13650"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22338,
+    "ordinal": 25,
+    "raw_string": "Simon T.G. Corey K.E. Cannon C.P. Blazing M. Park J.-G. O’Donoghue M.L. Chung R.T. Giugliano R.P. The Nonalcoholic Fatty Liver Disease (NAFLD) Fibrosis Score, Cardiovascular Risk Stratification and a Strategy for Secondary Prevention with Ezetimibe Int. J. Cardiol. 2018 270 245 252 10.1016/j.ijcard.2018.05.087 29903515 PMC6139264",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.ijcard.2018.05.087",
+    "parsed_pmid": "29903515",
+    "parsed_title": "The Nonalcoholic Fatty Liver Disease (NAFLD) Fibrosis Score, Cardiovascular Risk Stratification and a Strategy for Secondary Prevention with Ezetimibe",
+    "parsed_first_author": "simon",
+    "parsed_year": 2018,
+    "parsed_container": "Int. J. Cardiol.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4862,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.ijcard.2018.05.087"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22339,
+    "ordinal": 26,
+    "raw_string": "Petroff D. Blank V. Newsome P.N. Shalimar Voican C.S. Thiele M. de Lédinghen V. Baumeler S. Chan W.K. Perlemuter G. Assessment of Hepatic Steatosis by Controlled Attenuation Parameter Using the M and XL Probes: An Individual Patient Data Meta-Analysis Lancet Gastroenterol. Hepatol. 2021 6 185 198 10.1016/S2468-1253(20)30357-5 33460567",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s2468-1253(20)30357-5",
+    "parsed_pmid": "33460567",
+    "parsed_title": "Assessment of Hepatic Steatosis by Controlled Attenuation Parameter Using the M and XL Probes: An Individual Patient Data Meta-Analysis",
+    "parsed_first_author": "petroff",
+    "parsed_year": 2021,
+    "parsed_container": "Lancet Gastroenterol. Hepatol.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4863,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s2468-1253(20)30357-5"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22340,
+    "ordinal": 27,
+    "raw_string": "Chen J. Duan S. Ma J. Wang R. Chen J. Liu X. Xue L. Xie S. Yao S. MRI-Determined Liver Fat Correlates with Risk of Metabolic Syndrome in Patients with Nonalcoholic Fatty Liver Disease Eur. J. Gastroenterol. Hepatol. 2020 32 754 761 10.1097/MEG.0000000000001688 32091437",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/meg.0000000000001688",
+    "parsed_pmid": "32091437",
+    "parsed_title": "MRI-Determined Liver Fat Correlates with Risk of Metabolic Syndrome in Patients with Nonalcoholic Fatty Liver Disease",
+    "parsed_first_author": "chen",
+    "parsed_year": 2020,
+    "parsed_container": "Eur. J. Gastroenterol. Hepatol.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4864,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/meg.0000000000001688"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22341,
+    "ordinal": 28,
+    "raw_string": "Li X. Xia M. Ma H. Hu Y. Yan H. He W. Lin H. Zhao N. Gao J. Gao X. Liver Fat Content, Evaluated through Semi-Quantitative Ultrasound Measurement, Is Associated with Impaired Glucose Profiles: A Community-Based Study in Chinese PLoS ONE 2013 8 e65210 10.1371/journal.pone.0065210 23843938 PMC3699589",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1371/journal.pone.0065210",
+    "parsed_pmid": "23843938",
+    "parsed_title": "Liver Fat Content, Evaluated through Semi-Quantitative Ultrasound Measurement, Is Associated with Impaired Glucose Profiles: A Community-Based Study in Chinese",
+    "parsed_first_author": "li",
+    "parsed_year": 2013,
+    "parsed_container": "PLoS ONE",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3184,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1371/journal.pone.0065210"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22342,
+    "ordinal": 29,
+    "raw_string": "Ajmera V. Park C.C. Caussy C. Singh S. Hernandez C. Bettencourt R. Hooker J. Sy E. Behling C. Xu R. Magnetic Resonance Imaging Proton Density Fat Fraction Associates with Progression of Fibrosis in Patients with Nonalcoholic Fatty Liver Disease Gastroenterology 2018 155 307 310.e2 10.1053/j.gastro.2018.04.014 29660324 PMC6090543",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1053/j.gastro.2018.04.014",
+    "parsed_pmid": "29660324",
+    "parsed_title": "Magnetic Resonance Imaging Proton Density Fat Fraction Associates with Progression of Fibrosis in Patients with Nonalcoholic Fatty Liver Disease",
+    "parsed_first_author": "ajmera",
+    "parsed_year": 2018,
+    "parsed_container": "Gastroenterology",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4865,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1053/j.gastro.2018.04.014"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22343,
+    "ordinal": 30,
+    "raw_string": "Șerban C.L. Sima A. Hogea C.M. Chiriță-Emandi A. Perva I.T. Vlad A. Albai A. Nicolae G. Putnoky S. Timar R. Assessment of Nutritional Intakes in Individuals with Obesity under Medical Supervision. A Cross-Sectional Study Int. J. Environ. Res. Public Health 2019 16 3036 10.3390/ijerph16173036 31443343 PMC6747404",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3390/ijerph16173036",
+    "parsed_pmid": "31443343",
+    "parsed_title": "Assessment of Nutritional Intakes in Individuals with Obesity under Medical Supervision. A Cross-Sectional Study",
+    "parsed_first_author": "serban",
+    "parsed_year": 2019,
+    "parsed_container": "Int. J. Environ. Res. Public Health",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4866,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3390/ijerph16173036"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22344,
+    "ordinal": 31,
+    "raw_string": "Castéra L. Foucher J. Bernard P.-H. Carvalho F. Allaix D. Merrouche W. Couzigou P. de Lédinghen V. Pitfalls of Liver Stiffness Measurement: A 5-Year Prospective Study of 13,369 Examinations Hepatology 2010 51 828 835 10.1002/hep.23425 20063276",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/hep.23425",
+    "parsed_pmid": "20063276",
+    "parsed_title": "Pitfalls of Liver Stiffness Measurement: A 5-Year Prospective Study of 13,369 Examinations",
+    "parsed_first_author": "castera",
+    "parsed_year": 2010,
+    "parsed_container": "Hepatology",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4867,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/hep.23425"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22345,
+    "ordinal": 32,
+    "raw_string": "Karlas T. Petroff D. Sasso M. Fan J.-G. Mi Y.-Q. de Lédinghen V. Kumar M. Lupsor-Platon M. Han K.-H. Cardoso A.C. Individual Patient Data Meta-Analysis of Controlled Attenuation Parameter (CAP) Technology for Assessing Steatosis J. Hepatol. 2017 66 1022 1030 10.1016/j.jhep.2016.12.022 28039099",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.jhep.2016.12.022",
+    "parsed_pmid": "28039099",
+    "parsed_title": "Individual Patient Data Meta-Analysis of Controlled Attenuation Parameter (CAP) Technology for Assessing Steatosis",
+    "parsed_first_author": "karlas",
+    "parsed_year": 2017,
+    "parsed_container": "J. Hepatol.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4868,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.jhep.2016.12.022"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22346,
+    "ordinal": 33,
+    "raw_string": "EASL-ALEH Clinical Practice Guidelines: Non-Invasive Tests for Evaluation of Liver Disease Severity and Prognosis J. Hepatol. 2015 63 237 264 10.1016/j.jhep.2015.04.006 25911335",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.jhep.2015.04.006",
+    "parsed_pmid": "25911335",
+    "parsed_title": "EASL-ALEH Clinical Practice Guidelines: Non-Invasive Tests for Evaluation of Liver Disease Severity and Prognosis",
+    "parsed_first_author": null,
+    "parsed_year": 2015,
+    "parsed_container": "J. Hepatol.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4869,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.jhep.2015.04.006"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22347,
+    "ordinal": 34,
+    "raw_string": "Singh S. Facciorusso A. Loomba R. Falck-Ytter Y.T. Magnitude and Kinetics of Decrease in Liver Stiffness After Antiviral Therapy in Patients with Chronic Hepatitis C: A Systematic Review and Meta-Analysis Clin. Gastroenterol. Hepatol. Off. Clin. Pract. J. Am. Gastroenterol. Assoc. 2018 16 27 38.e4 10.1016/j.cgh.2017.04.038 PMC5671365 28479504",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.cgh.2017.04.038",
+    "parsed_pmid": "28479504",
+    "parsed_title": "Magnitude and Kinetics of Decrease in Liver Stiffness After Antiviral Therapy in Patients with Chronic Hepatitis C: A Systematic Review and Meta-Analysis",
+    "parsed_first_author": "singh",
+    "parsed_year": 2018,
+    "parsed_container": "Clin. Gastroenterol. Hepatol. Off. Clin. Pract. J. Am. Gastroenterol. Assoc.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4870,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.cgh.2017.04.038"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22348,
+    "ordinal": 35,
+    "raw_string": "Giuffrè M. Masutti F. Maria Crosato I. Luzzati R. Saveria Crocè L. Behind the Decrease of Liver Stiffness After Successful Hepatitis C Virus Eradication with Direct-Acting Antiviral Agents Turk. J. Gastroenterol. Off. J. Turk. Soc. Gastroenterol. 2022 33 169 170 10.5152/tjg.2021.20736 PMC9128586 35238783",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.5152/tjg.2021.20736",
+    "parsed_pmid": "35238783",
+    "parsed_title": "Behind the Decrease of Liver Stiffness After Successful Hepatitis C Virus Eradication with Direct-Acting Antiviral Agents",
+    "parsed_first_author": "giuffre",
+    "parsed_year": 2022,
+    "parsed_container": "Turk. J. Gastroenterol. Off. J. Turk. Soc. Gastroenterol.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4871,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.5152/tjg.2021.20736"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22349,
+    "ordinal": 36,
+    "raw_string": "Gulumsek E. Sumbul H.E. Buyuksimsek M. Demir K. Koc A.S. Tas A. Bulut Y. Kara B. Liver Stiffness Is Markedly Decreased After Chronic Hepatitis C Treatment Ultrasound Q. 2022 38 142 148 10.1097/RUQ.0000000000000572 35678480",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/ruq.0000000000000572",
+    "parsed_pmid": "35678480",
+    "parsed_title": "Liver Stiffness Is Markedly Decreased After Chronic Hepatitis C Treatment",
+    "parsed_first_author": "gulumsek",
+    "parsed_year": 2022,
+    "parsed_container": "Ultrasound Q.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4872,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/ruq.0000000000000572"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22350,
+    "ordinal": 37,
+    "raw_string": "Wang J.-H. Changchien C.-S. Hung C.-H. Tung W.-C. Kee K.-M. Chen C.-H. Hu T.-H. Lee C.-M. Lu S.-N. Liver Stiffness Decrease after Effective Antiviral Therapy in Patients with Chronic Hepatitis C: Longitudinal Study Using FibroScan J. Gastroenterol. Hepatol. 2010 25 964 969 10.1111/j.1440-1746.2009.06194.x 20546451",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1440-1746.2009.06194.x",
+    "parsed_pmid": "20546451",
+    "parsed_title": "Liver Stiffness Decrease after Effective Antiviral Therapy in Patients with Chronic Hepatitis C: Longitudinal Study Using FibroScan",
+    "parsed_first_author": "wang",
+    "parsed_year": 2010,
+    "parsed_container": "J. Gastroenterol. Hepatol.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4873,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1440-1746.2009.06194.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22351,
+    "ordinal": 38,
+    "raw_string": "Trabut J.-B. Thépot V. Nalpas B. Lavielle B. Cosconea S. Corouge M. Vallet-Pichard A. Fontaine H. Mallet V. Sogni P. Rapid Decline of Liver Stiffness Following Alcohol Withdrawal in Heavy Drinkers Alcohol. Clin. Exp. Res. 2012 36 1407 1411 10.1111/j.1530-0277.2012.01737.x 22404692",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1530-0277.2012.01737.x",
+    "parsed_pmid": "22404692",
+    "parsed_title": "Rapid Decline of Liver Stiffness Following Alcohol Withdrawal in Heavy Drinkers",
+    "parsed_first_author": "trabut",
+    "parsed_year": 2012,
+    "parsed_container": "Alcohol. Clin. Exp. Res.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4874,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1530-0277.2012.01737.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22352,
+    "ordinal": 39,
+    "raw_string": "Gianni E. Forte P. Galli V. Razzolini G. Bardazzi G. Annese V. Prospective Evaluation of Liver Stiffness Using Transient Elastography in Alcoholic Patients Following Abstinence Alcohol Alcohol. 2017 52 42 47 10.1093/alcalc/agw053 27542989",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/alcalc/agw053",
+    "parsed_pmid": "27542989",
+    "parsed_title": "Prospective Evaluation of Liver Stiffness Using Transient Elastography in Alcoholic Patients Following Abstinence",
+    "parsed_first_author": "gianni",
+    "parsed_year": 2017,
+    "parsed_container": "Alcohol Alcohol.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4875,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/alcalc/agw053"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22353,
+    "ordinal": 40,
+    "raw_string": "Gelsi E. Dainese R. Truchi R. Mariné-Barjoan E. Anty R. Autuori M. Burroni S. Vanbiervliet G. Evesque L. Cherikh F. Effect of Detoxification on Liver Stiffness Assessed by FibroScan ® in Alcoholic Patients Alcohol. Clin. Exp. Res. 2011 35 566 570 10.1111/j.1530-0277.2010.01374.x 21143253",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1530-0277.2010.01374.x",
+    "parsed_pmid": "21143253",
+    "parsed_title": "Effect of Detoxification on Liver Stiffness Assessed by FibroScan® in Alcoholic Patients",
+    "parsed_first_author": "gelsi",
+    "parsed_year": 2011,
+    "parsed_container": "Alcohol. Clin. Exp. Res.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4876,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1530-0277.2010.01374.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22354,
+    "ordinal": 41,
+    "raw_string": "Montemayor S. Bouzas C. Mascaró C.M. Casares M. Llompart I. Abete I. Angullo-Martinez E. Zulet M.Á. Martínez J.A. Tur J.A. Effect of Dietary and Lifestyle Interventions on the Amelioration of NAFLD in Patients with Metabolic Syndrome: The FLIPAN Study Nutrients 2022 14 2223 10.3390/nu14112223 35684022 PMC9182851",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3390/nu14112223",
+    "parsed_pmid": "35684022",
+    "parsed_title": "Effect of Dietary and Lifestyle Interventions on the Amelioration of NAFLD in Patients with Metabolic Syndrome: The FLIPAN Study",
+    "parsed_first_author": "montemayor",
+    "parsed_year": 2022,
+    "parsed_container": "Nutrients",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4877,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3390/nu14112223"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22355,
+    "ordinal": 42,
+    "raw_string": "De Nucci S. Bonfiglio C. Donvito R. Di Chito M. Cerabino N. Rinaldi R. Sila A. Shahini E. Giannuzzi V. Pesole P.L. Effects of an Eight Week Very Low-Calorie Ketogenic Diet (VLCKD) on White Blood Cell and Platelet Counts in Relation to Metabolic Dysfunction-Associated Steatotic Liver Disease (MASLD) in Subjects with Overweight and Obesity Nutrients 2023 15 4468 10.3390/nu15204468 37892542 PMC10610501",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3390/nu15204468",
+    "parsed_pmid": "37892542",
+    "parsed_title": "Effects of an Eight Week Very Low-Calorie Ketogenic Diet (VLCKD) on White Blood Cell and Platelet Counts in Relation to Metabolic Dysfunction-Associated Steatotic Liver Disease (MASLD) in Subjects with Overweight and Obesity",
+    "parsed_first_author": "de nucci",
+    "parsed_year": 2023,
+    "parsed_container": "Nutrients",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4878,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3390/nu15204468"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22356,
+    "ordinal": 43,
+    "raw_string": "Ogawa Y. Nakahara T. Ando Y. Yamaoka K. Fujii Y. Uchikawa S. Fujino H. Ono A. Murakami E. Kawaoka T. Sodium-Glucose Cotransporter-2 Inhibitors Improve FibroScan-Aspartate Aminotransferase Scores in Patients with Nonalcoholic Fatty Liver Disease Complicated by Type 2 Diabetes Eur. J. Gastroenterol. Hepatol. 2023 35 989 996 10.1097/MEG.0000000000002588 37395206",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/meg.0000000000002588",
+    "parsed_pmid": "37395206",
+    "parsed_title": "Sodium-Glucose Cotransporter-2 Inhibitors Improve FibroScan-Aspartate Aminotransferase Scores in Patients with Nonalcoholic Fatty Liver Disease Complicated by Type 2 Diabetes",
+    "parsed_first_author": "ogawa",
+    "parsed_year": 2023,
+    "parsed_container": "Eur. J. Gastroenterol. Hepatol.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4879,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/meg.0000000000002588"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22357,
+    "ordinal": 44,
+    "raw_string": "Manuc T. Preda C.M. Istratescu D. Gheorghe L. Cerban R. Ester C. Stroie T.G. Alecu R.I. Ciuciureanu C.M. Marin A.I. Sylimarin Versus Essential Phospholipids in Metabolic Associated Steatotic Liver Disease (MASLD)—A Prospective Comparative Randomized Trial Maedica 2024 19 9 16 10.26574/maedica.2024.19.1.9 38736928 PMC11079726",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.26574/maedica.2024.19.1.9",
+    "parsed_pmid": "38736928",
+    "parsed_title": "Sylimarin Versus Essential Phospholipids in Metabolic Associated Steatotic Liver Disease (MASLD)—A Prospective Comparative Randomized Trial",
+    "parsed_first_author": "manuc",
+    "parsed_year": 2024,
+    "parsed_container": "Maedica",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4880,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.26574/maedica.2024.19.1.9"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22358,
+    "ordinal": 45,
+    "raw_string": "Moreira R.J. Castro É. Oliveira T.E. Belchior T. Peixoto A.S. Chaves-Filho A.B. Moreno M.F. Lima J.D. Yoshinaga M. Miyamoto S. Lipoatrophy-Associated Insulin Resistance and Hepatic Steatosis Are Attenuated by Intake of Diet Rich in Omega 3 Fatty Acids Mol. Nutr. Food Res. 2020 64 1900833 10.1002/mnfr.201900833 31978277",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/mnfr.201900833",
+    "parsed_pmid": "31978277",
+    "parsed_title": "Lipoatrophy-Associated Insulin Resistance and Hepatic Steatosis Are Attenuated by Intake of Diet Rich in Omega 3 Fatty Acids",
+    "parsed_first_author": "moreira",
+    "parsed_year": 2020,
+    "parsed_container": "Mol. Nutr. Food Res.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4881,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/mnfr.201900833"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22359,
+    "ordinal": 46,
+    "raw_string": "Sokal-Dembowska A. Jarmakiewicz-Czaja S. Ferenc K. Filip R. Can Nutraceuticals Support the Treatment of MASLD/MASH, and Thus Affect the Process of Liver Fibrosis? Int. J. Mol. Sci. 2024 25 5238 10.3390/ijms25105238 38791276 PMC11120776",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3390/ijms25105238",
+    "parsed_pmid": "38791276",
+    "parsed_title": "Can Nutraceuticals Support the Treatment of MASLD/MASH, and Thus Affect the Process of Liver Fibrosis?",
+    "parsed_first_author": "sokal dembowska",
+    "parsed_year": 2024,
+    "parsed_container": "Int. J. Mol. Sci.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4882,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3390/ijms25105238"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22360,
+    "ordinal": 47,
+    "raw_string": "Chen L. Wang Y. Xu Q. Chen S.-S. Omega-3 Fatty Acids as a Treatment for Non-Alcoholic Fatty Liver Disease in Children: A Systematic Review and Meta-Analysis of Randomized Controlled Trials Clin. Nutr. 2018 37 516 521 10.1016/j.clnu.2016.12.009 28040302",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.clnu.2016.12.009",
+    "parsed_pmid": "28040302",
+    "parsed_title": "Omega-3 Fatty Acids as a Treatment for Non-Alcoholic Fatty Liver Disease in Children: A Systematic Review and Meta-Analysis of Randomized Controlled Trials",
+    "parsed_first_author": "chen",
+    "parsed_year": 2018,
+    "parsed_container": "Clin. Nutr.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4883,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.clnu.2016.12.009"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22361,
+    "ordinal": 48,
+    "raw_string": "Argo C.K. Patrie J.T. Lackner C. Henry T.D. de Lange E.E. Weltman A.L. Shah N.L. Al-Osaimi A.M. Pramoonjago P. Jayakumar S. Effects of N-3 Fish Oil on Metabolic and Histological Parameters in NASH: A Double-Blind, Randomized, Placebo-Controlled Trial J. Hepatol. 2015 62 190 197 10.1016/j.jhep.2014.08.036 25195547 PMC4272639",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.jhep.2014.08.036",
+    "parsed_pmid": "25195547",
+    "parsed_title": "Effects of N-3 Fish Oil on Metabolic and Histological Parameters in NASH: A Double-Blind, Randomized, Placebo-Controlled Trial",
+    "parsed_first_author": "argo",
+    "parsed_year": 2015,
+    "parsed_container": "J. Hepatol.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4884,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.jhep.2014.08.036"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22362,
+    "ordinal": 49,
+    "raw_string": "Tobin D. Brevik-Andersen M. Qin Y. Innes J.K. Calder P.C. Evaluation of a High Concentrate Omega-3 for Correcting the Omega-3 Fatty Acid Nutritional Deficiency in Non-Alcoholic Fatty Liver Disease (CONDIN) Nutrients 2018 10 1126 10.3390/nu10081126 30127297 PMC6115838",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3390/nu10081126",
+    "parsed_pmid": "30127297",
+    "parsed_title": "Evaluation of a High Concentrate Omega-3 for Correcting the Omega-3 Fatty Acid Nutritional Deficiency in Non-Alcoholic Fatty Liver Disease (CONDIN)",
+    "parsed_first_author": "tobin",
+    "parsed_year": 2018,
+    "parsed_container": "Nutrients",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4885,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3390/nu10081126"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22363,
+    "ordinal": 50,
+    "raw_string": "Dahlhoff C. Worsch S. Sailer M. Hummel B.A. Fiamoncini J. Uebel K. Obeid R. Scherling C. Geisel J. Bader B.L. Methyl-Donor Supplementation in Obese Mice Prevents the Progression of NAFLD, Activates AMPK and Decreases Acyl-Carnitine Levels Mol. Metab. 2014 3 565 580 10.1016/j.molmet.2014.04.010 25061561 PMC4099513",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.molmet.2014.04.010",
+    "parsed_pmid": "25061561",
+    "parsed_title": "Methyl-Donor Supplementation in Obese Mice Prevents the Progression of NAFLD, Activates AMPK and Decreases Acyl-Carnitine Levels",
+    "parsed_first_author": "dahlhoff",
+    "parsed_year": 2014,
+    "parsed_container": "Mol. Metab.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4886,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.molmet.2014.04.010"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22364,
+    "ordinal": 51,
+    "raw_string": "Pugsley A.P. The Complete General Secretory Pathway in Gram-Negative Bacteria Microbiol. Rev. 1993 57 50 108 10.1128/mr.57.1.50-108.1993 8096622 PMC372901",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1128/mr.57.1.50-108.1993",
+    "parsed_pmid": "8096622",
+    "parsed_title": "The Complete General Secretory Pathway in Gram-Negative Bacteria",
+    "parsed_first_author": "pugsley",
+    "parsed_year": 1993,
+    "parsed_container": "Microbiol. Rev.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4887,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1128/mr.57.1.50-108.1993"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22365,
+    "ordinal": 52,
+    "raw_string": "Obeid R. The Metabolic Burden of Methyl Donor Deficiency with Focus on the Betaine Homocysteine Methyltransferase Pathway Nutrients 2013 5 3481 3495 10.3390/nu5093481 24022817 PMC3798916",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3390/nu5093481",
+    "parsed_pmid": "24022817",
+    "parsed_title": "The Metabolic Burden of Methyl Donor Deficiency with Focus on the Betaine Homocysteine Methyltransferase Pathway",
+    "parsed_first_author": "obeid",
+    "parsed_year": 2013,
+    "parsed_container": "Nutrients",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4888,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3390/nu5093481"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22366,
+    "ordinal": 53,
+    "raw_string": "Arumugam M.K. Paal M.C. Donohue T.M. Ganesan M. Osna N.A. Kharbanda K.K. Beneficial Effects of Betaine: A Comprehensive Review Biology 2021 10 456 10.3390/biology10060456 34067313 PMC8224793",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3390/biology10060456",
+    "parsed_pmid": "34067313",
+    "parsed_title": "Beneficial Effects of Betaine: A Comprehensive Review",
+    "parsed_first_author": "arumugam",
+    "parsed_year": 2021,
+    "parsed_container": "Biology",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4889,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3390/biology10060456"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22367,
+    "ordinal": 54,
+    "raw_string": "Lyall M.J. Cartier J. Richards J.A. Cobice D. Thomson J.P. Meehan R.R. Anderton S.M. Drake A.J. Methyl Donor Deficient Diets Cause Distinct Alterations in Lipid Metabolism but Are Poorly Representative of Human NAFLD Wellcome Open Res. 2017 2 67 10.12688/wellcomeopenres.12199.1 29707653 PMC5887079",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.12688/wellcomeopenres.12199.1",
+    "parsed_pmid": "29707653",
+    "parsed_title": "Methyl Donor Deficient Diets Cause Distinct Alterations in Lipid Metabolism but Are Poorly Representative of Human NAFLD",
+    "parsed_first_author": "lyall",
+    "parsed_year": 2017,
+    "parsed_container": "Wellcome Open Res.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4890,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.12688/wellcomeopenres.12199.1"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22368,
+    "ordinal": 55,
+    "raw_string": "Olthof M.R. van Vliet T. Verhoef P. Zock P.L. Katan M.B. Effect of Homocysteine-Lowering Nutrients on Blood Lipids: Results from Four Randomised, Placebo-Controlled Studies in Healthy Humans PLoS Med. 2005 2 e135 10.1371/journal.pmed.0020135 15916468 PMC1140947",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1371/journal.pmed.0020135",
+    "parsed_pmid": "15916468",
+    "parsed_title": "Effect of Homocysteine-Lowering Nutrients on Blood Lipids: Results from Four Randomised, Placebo-Controlled Studies in Healthy Humans",
+    "parsed_first_author": "olthof",
+    "parsed_year": 2005,
+    "parsed_container": "PLoS Med.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4891,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1371/journal.pmed.0020135"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22369,
+    "ordinal": 56,
+    "raw_string": "Wallace J.M.W. McCormack J.M. McNulty H. Walsh P.M. Robson P.J. Bonham M.P. Duffy M.E. Ward M. Molloy A.M. Scott J.M. Choline Supplementation and Measures of Choline and Betaine Status: A Randomised, Controlled Trial in Postmenopausal Women Br. J. Nutr. 2012 108 1264 1271 10.1017/S000711451100674X 22172554",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1017/s000711451100674x",
+    "parsed_pmid": "22172554",
+    "parsed_title": "Choline Supplementation and Measures of Choline and Betaine Status: A Randomised, Controlled Trial in Postmenopausal Women",
+    "parsed_first_author": "wallace",
+    "parsed_year": 2012,
+    "parsed_container": "Br. J. Nutr.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4892,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1017/s000711451100674x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22370,
+    "ordinal": 57,
+    "raw_string": "Della Torre S. Non-Alcoholic Fatty Liver Disease as a Canonical Example of Metabolic Inflammatory-Based Liver Disease Showing a Sex-Specific Prevalence: Relevance of Estrogen Signaling Front. Endocrinol. 2020 11 572490 10.3389/fendo.2020.572490 PMC7531579 33071979",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3389/fendo.2020.572490",
+    "parsed_pmid": "33071979",
+    "parsed_title": "Non-Alcoholic Fatty Liver Disease as a Canonical Example of Metabolic Inflammatory-Based Liver Disease Showing a Sex-Specific Prevalence: Relevance of Estrogen Signaling",
+    "parsed_first_author": "della torre",
+    "parsed_year": 2020,
+    "parsed_container": "Front. Endocrinol.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4893,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3389/fendo.2020.572490"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22371,
+    "ordinal": 58,
+    "raw_string": "Corbin K.D. Zeisel S.H. Choline Metabolism Provides Novel Insights into Nonalcoholic Fatty Liver Disease and Its Progression Curr. Opin. Gastroenterol. 2012 28 159 165 10.1097/MOG.0b013e32834e7b4b 22134222 PMC3601486",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/mog.0b013e32834e7b4b",
+    "parsed_pmid": "22134222",
+    "parsed_title": "Choline Metabolism Provides Novel Insights into Nonalcoholic Fatty Liver Disease and Its Progression",
+    "parsed_first_author": "corbin",
+    "parsed_year": 2012,
+    "parsed_container": "Curr. Opin. Gastroenterol.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 1863,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/mog.0b013e32834e7b4b"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22372,
+    "ordinal": 59,
+    "raw_string": "Kempson S.A. Vovor-Dassu K. Day C. Betaine Transport in Kidney and Liver: Use of Betaine in Liver Injury Cell. Physiol. Biochem. Int. J. Exp. Cell. Physiol. Biochem. Pharmacol. 2013 32 32 40 10.1159/000356622 24429813",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1159/000356622",
+    "parsed_pmid": "24429813",
+    "parsed_title": "Betaine Transport in Kidney and Liver: Use of Betaine in Liver Injury",
+    "parsed_first_author": "kempson",
+    "parsed_year": 2013,
+    "parsed_container": "Cell. Physiol. Biochem. Int. J. Exp. Cell. Physiol. Biochem. Pharmacol.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4894,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1159/000356622"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22373,
+    "ordinal": 60,
+    "raw_string": "Sid V. Siow Y.L. Karmin O. Role of Folate in Nonalcoholic Fatty Liver Disease Can. J. Physiol. Pharmacol. 2017 95 1141 1148 10.1139/cjpp-2016-0681 28460180",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1139/cjpp-2016-0681",
+    "parsed_pmid": "28460180",
+    "parsed_title": "Role of Folate in Nonalcoholic Fatty Liver Disease",
+    "parsed_first_author": "sid",
+    "parsed_year": 2017,
+    "parsed_container": "Can. J. Physiol. Pharmacol.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 1086,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1139/cjpp-2016-0681"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22374,
+    "ordinal": 61,
+    "raw_string": "Patanwala I. King M.J. Barrett D.A. Rose J. Jackson R. Hudson M. Philo M. Dainty J.R. Wright A.J. Finglas P.M. Folic Acid Handling by the Human Gut: Implications for Food Fortification and Supplementation Am. J. Clin. Nutr. 2014 100 593 599 10.3945/ajcn.113.080507 24944062 PMC4095662",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3945/ajcn.113.080507",
+    "parsed_pmid": "24944062",
+    "parsed_title": "Folic Acid Handling by the Human Gut: Implications for Food Fortification and Supplementation",
+    "parsed_first_author": "patanwala",
+    "parsed_year": 2014,
+    "parsed_container": "Am. J. Clin. Nutr.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4895,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3945/ajcn.113.080507"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22375,
+    "ordinal": 62,
+    "raw_string": "Zeisel S.H. Niculescu M.D. Perinatal Choline Influences Brain Structure and Function Nutr. Rev. 2006 64 197 203 10.1111/j.1753-4887.2006.tb00202.x 16673755 PMC2438605",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1753-4887.2006.tb00202.x",
+    "parsed_pmid": "16673755",
+    "parsed_title": "Perinatal Choline Influences Brain Structure and Function",
+    "parsed_first_author": "zeisel",
+    "parsed_year": 2006,
+    "parsed_container": "Nutr. Rev.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4896,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1753-4887.2006.tb00202.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22376,
+    "ordinal": 63,
+    "raw_string": "Alwayn I.P.J. Gura K. Nosé V. Zausche B. Javid P. Garza J. Verbesey J. Voss S. Ollero M. Andersson C. Omega-3 Fatty Acid Supplementation Prevents Hepatic Steatosis in a Murine Model of Nonalcoholic Fatty Liver Disease Pediatr. Res. 2005 57 445 452 10.1203/01.PDR.0000153672.43030.75 15659701",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1203/01.pdr.0000153672.43030.75",
+    "parsed_pmid": "15659701",
+    "parsed_title": "Omega-3 Fatty Acid Supplementation Prevents Hepatic Steatosis in a Murine Model of Nonalcoholic Fatty Liver Disease",
+    "parsed_first_author": "alwayn",
+    "parsed_year": 2005,
+    "parsed_container": "Pediatr. Res.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4897,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1203/01.pdr.0000153672.43030.75"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22377,
+    "ordinal": 64,
+    "raw_string": "Xin Y.-N. Xuan S.-Y. Zhang J.-H. Zheng M.-H. Guan H.-S. Omega-3 Polyunsaturated Fatty Acids: A Specific Liver Drug for Non-Alcoholic Fatty Liver Disease (NAFLD) Med. Hypotheses 2008 71 820 821 10.1016/j.mehy.2008.07.008 18752901",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.mehy.2008.07.008",
+    "parsed_pmid": "18752901",
+    "parsed_title": "Omega-3 Polyunsaturated Fatty Acids: A Specific Liver Drug for Non-Alcoholic Fatty Liver Disease (NAFLD)",
+    "parsed_first_author": "xin",
+    "parsed_year": 2008,
+    "parsed_container": "Med. Hypotheses",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4898,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.mehy.2008.07.008"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22378,
+    "ordinal": 65,
+    "raw_string": "Spooner M.H. Jump D.B. Nonalcoholic Fatty Liver Disease and Omega-3 Fatty Acids: Mechanisms and Clinical Use Annu. Rev. Nutr. 2023 43 199 223 10.1146/annurev-nutr-061021-030223 37207355",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1146/annurev-nutr-061021-030223",
+    "parsed_pmid": "37207355",
+    "parsed_title": "Nonalcoholic Fatty Liver Disease and Omega-3 Fatty Acids: Mechanisms and Clinical Use",
+    "parsed_first_author": "spooner",
+    "parsed_year": 2023,
+    "parsed_container": "Annu. Rev. Nutr.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4899,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1146/annurev-nutr-061021-030223"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22379,
+    "ordinal": 66,
+    "raw_string": "Masterton G.S. Plevris J.N. Hayes P.C. Review Article: Omega-3 Fatty Acids—A Promising Novel Therapy for Non-Alcoholic Fatty Liver Disease Aliment. Pharmacol. Ther. 2010 31 679 692 10.1111/j.1365-2036.2009.04230.x 20415840",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1365-2036.2009.04230.x",
+    "parsed_pmid": "20415840",
+    "parsed_title": "Review Article: Omega-3 Fatty Acids—A Promising Novel Therapy for Non-Alcoholic Fatty Liver Disease",
+    "parsed_first_author": "masterton",
+    "parsed_year": 2010,
+    "parsed_container": "Aliment. Pharmacol. Ther.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3431,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1365-2036.2009.04230.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22380,
+    "ordinal": 67,
+    "raw_string": "Institute of Medicine Dietary Reference Intakes: The Essential Guide to Nutrient Requirements National Academies Press Washington, DC, USA 2006 978-0-309-15742-1",
+    "citation_tag": "element-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Dietary Reference Intakes: The Essential Guide to Nutrient Requirements",
+    "parsed_first_author": "institute of medicine",
+    "parsed_year": 2006,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": [
+      {
+       "year": 2006,
+       "paper_id": 4905,
+       "rejected": "first author 'otten' vs 'institute of medicine'",
+       "similarity": 0.9565,
+       "first_author": "otten"
+      }
+     ]
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22381,
+    "ordinal": 68,
+    "raw_string": "Dietary Reference Values for Nutrients Summary Report|EFSA Available online: https://www.efsa.europa.eu/en/supporting/pub/e15121 (accessed on 25 July 2024)",
+    "citation_tag": "element-citation",
+    "publication_type": "webpage",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Dietary Reference Values for Nutrients Summary Report|EFSA",
+    "parsed_first_author": null,
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": [
+      {
+       "year": 2017,
+       "paper_id": 4906,
+       "rejected": "author or year missing or not matching",
+       "similarity": 0.9091,
+       "first_author": null
+      }
+     ]
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22382,
+    "ordinal": 69,
+    "raw_string": "Stark A.H. Crawford M.A. Reifen R. Update on Alpha-Linolenic Acid Nutr. Rev. 2008 66 326 332 10.1111/j.1753-4887.2008.00040.x 18522621",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1753-4887.2008.00040.x",
+    "parsed_pmid": "18522621",
+    "parsed_title": "Update on Alpha-Linolenic Acid",
+    "parsed_first_author": "stark",
+    "parsed_year": 2008,
+    "parsed_container": "Nutr. Rev.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4911,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1753-4887.2008.00040.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22383,
+    "ordinal": 70,
+    "raw_string": "Burron S. Richards T. Krebs G. Trevizan L. Rankovic A. Hartwig S. Pearson W. Ma D.W.L. Shoveller A.K. The Balance of N-6 and n-3 Fatty Acids in Canine, Feline, and Equine Nutrition: Exploring Sources and the Significance of Alpha-Linolenic Acid J. Anim. Sci. 2024 102 skae143 10.1093/jas/skae143 38776363 PMC11161904",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1093/jas/skae143",
+    "parsed_pmid": "38776363",
+    "parsed_title": "The Balance of N-6 and n-3 Fatty Acids in Canine, Feline, and Equine Nutrition: Exploring Sources and the Significance of Alpha-Linolenic Acid",
+    "parsed_first_author": "burron",
+    "parsed_year": 2024,
+    "parsed_container": "J. Anim. Sci.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4912,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1093/jas/skae143"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22384,
+    "ordinal": 71,
+    "raw_string": "Oh D.Y. Talukdar S. Bae E.J. Imamura T. Morinaga H. Fan W. Li P. Lu W.J. Watkins S.M. Olefsky J.M. GPR120 Is an Omega-3 Fatty Acid Receptor Mediating Potent Anti-Inflammatory and Insulin-Sensitizing Effects Cell 2010 142 687 698 10.1016/j.cell.2010.07.041 20813258 PMC2956412",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.cell.2010.07.041",
+    "parsed_pmid": "20813258",
+    "parsed_title": "GPR120 Is an Omega-3 Fatty Acid Receptor Mediating Potent Anti-Inflammatory and Insulin-Sensitizing Effects",
+    "parsed_first_author": "oh",
+    "parsed_year": 2010,
+    "parsed_container": "Cell",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4913,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.cell.2010.07.041"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22385,
+    "ordinal": 72,
+    "raw_string": "Yang L. Lei X.-T. Huang Q. Wang T. Sun H.-B. Wang H.-Y. A Novel GPR120-Selective Agonist Promotes Insulin Secretion and Improves Chronic Inflammation Life Sci. 2021 269 119029 10.1016/j.lfs.2021.119029 33450256",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.lfs.2021.119029",
+    "parsed_pmid": "33450256",
+    "parsed_title": "A Novel GPR120-Selective Agonist Promotes Insulin Secretion and Improves Chronic Inflammation",
+    "parsed_first_author": "yang",
+    "parsed_year": 2021,
+    "parsed_container": "Life Sci.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4914,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.lfs.2021.119029"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22386,
+    "ordinal": 73,
+    "raw_string": "Zwierz M. Chabowski A. Sztolsztener K. α-Lipoic Acid—A Promising Agent for Attenuating Inflammation and Preventing Steatohepatitis in Rats Fed a High-Fat Diet Arch. Biochem. Biophys. 2023 750 109811 10.1016/j.abb.2023.109811 37926405",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.abb.2023.109811",
+    "parsed_pmid": "37926405",
+    "parsed_title": "α-Lipoic Acid—A Promising Agent for Attenuating Inflammation and Preventing Steatohepatitis in Rats Fed a High-Fat Diet",
+    "parsed_first_author": "zwierz",
+    "parsed_year": 2023,
+    "parsed_container": "Arch. Biochem. Biophys.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4915,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.abb.2023.109811"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22387,
+    "ordinal": 74,
+    "raw_string": "Lee C.-H. Fu Y. Yang S.-J. Chi C.-C. Effects of Omega-3 Polyunsaturated Fatty Acid Supplementation on Non-Alcoholic Fatty Liver: A Systematic Review and Meta-Analysis Nutrients 2020 12 2769 10.3390/nu12092769 32932796 PMC7551292",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3390/nu12092769",
+    "parsed_pmid": "32932796",
+    "parsed_title": "Effects of Omega-3 Polyunsaturated Fatty Acid Supplementation on Non-Alcoholic Fatty Liver: A Systematic Review and Meta-Analysis",
+    "parsed_first_author": "lee",
+    "parsed_year": 2020,
+    "parsed_container": "Nutrients",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4916,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3390/nu12092769"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22388,
+    "ordinal": 75,
+    "raw_string": "Yang J. Fernández-Galilea M. Martínez-Fernández L. González-Muniesa P. Pérez-Chávez A. Martínez J.A. Moreno-Aliaga M.J. Oxidative Stress and Non-Alcoholic Fatty Liver Disease: Effects of Omega-3 Fatty Acid Supplementation Nutrients 2019 11 872 10.3390/nu11040872 31003450 PMC6521137",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3390/nu11040872",
+    "parsed_pmid": "31003450",
+    "parsed_title": "Oxidative Stress and Non-Alcoholic Fatty Liver Disease: Effects of Omega-3 Fatty Acid Supplementation",
+    "parsed_first_author": "yang",
+    "parsed_year": 2019,
+    "parsed_container": "Nutrients",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4917,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3390/nu11040872"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22389,
+    "ordinal": 76,
+    "raw_string": "Wu Y. Liang Y. Zhu Y. Gao Y. Chen H. Zhang Y. Yin W. Li Y. Wang K. Xiao J. Protective Effect of the ω-3 Polyunsaturated Fatty Acids on the Schistosomiasis Liver Fibrosis in Mice Int. J. Clin. Exp. Med. 2015 8 9470 9476 26309610 PMC4537995",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": "26309610",
+    "parsed_title": "Protective Effect of the ω-3 Polyunsaturated Fatty Acids on the Schistosomiasis Liver Fibrosis in Mice",
+    "parsed_first_author": "wu",
+    "parsed_year": 2015,
+    "parsed_container": "Int. J. Clin. Exp. Med.",
+    "resolution_status": "resolved",
+    "resolution_method": "pmid",
+    "resolved_paper_id": 4918,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "pmid:26309610"
+      ],
+      "openalex_pmid": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 22390,
+    "ordinal": 77,
+    "raw_string": "Yang Y. Shao C. Zhang W. Wang G. Lu D.-C. Han W. Wu Z.-S. Chen C.-B. Omega-3 Polyunsaturated Fatty Acids Prevent Progression of Liver Fibrosis and Promote Liver Regeneration after Partial Hepatectomy in Cirrhotic Rats Eur. Rev. Med. Pharmacol. Sci. 2019 23 10151 10160 10.26355/eurrev_201911_19585 31799687",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.26355/eurrev_201911_19585",
+    "parsed_pmid": "31799687",
+    "parsed_title": "Omega-3 Polyunsaturated Fatty Acids Prevent Progression of Liver Fibrosis and Promote Liver Regeneration after Partial Hepatectomy in Cirrhotic Rats",
+    "parsed_first_author": "yang",
+    "parsed_year": 2019,
+    "parsed_container": "Eur. Rev. Med. Pharmacol. Sci.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4919,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.26355/eurrev_201911_19585"
+      ],
+      "crossref_doi": 1,
+      "openalex_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   }
+  ],
+  "stat_tests": [
+   {
+    "stat_test_id": 539,
+    "location": "3. Results",
+    "raw_string": "F (1,37) = 7.14, p = 0.013"
+   },
+   {
+    "stat_test_id": 540,
+    "location": "3. Results",
+    "raw_string": "F (1,152) = 24.12, p < 0.013"
+   },
+   {
+    "stat_test_id": 541,
+    "location": "3. Results",
+    "raw_string": "F (1,37) = 4.49, p = 0.043"
+   }
+  ],
+  "means": [],
+  "trials": []
+ }
+}

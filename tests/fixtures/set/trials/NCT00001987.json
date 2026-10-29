@@ -1,0 +1,114 @@
+{
+ "id": "NCT00001987",
+ "subject": "trial",
+ "categories": [
+  "c05_out_of_scope_observational"
+ ],
+ "source": {
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "Observational study (still recruiting since 1976): not interventional, so C05 does not apply.",
+ "expected": [
+  {
+   "check": "C05",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "trial": {
+   "nct_id": "NCT00001987",
+   "brief_title": "Genetic Studies of Insulin and Diabetes",
+   "overall_status": "RECRUITING",
+   "study_type": "OBSERVATIONAL",
+   "phase": null,
+   "enrollment": 1200,
+   "start_date": "1976-02-01",
+   "primary_completion_date": null,
+   "completion_date": null,
+   "results_first_posted": null,
+   "lead_sponsor": "National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK)",
+   "sponsor_class": "NIH",
+   "raw": {
+    "protocolSection": {
+     "identificationModule": {
+      "nctId": "NCT00001987",
+      "briefTitle": "Genetic Studies of Insulin and Diabetes"
+     },
+     "statusModule": {
+      "overallStatus": "RECRUITING",
+      "startDateStruct": {
+       "date": "1976-02-01",
+       "type": "ACTUAL"
+      },
+      "expandedAccessInfo": {
+       "hasExpandedAccess": false
+      },
+      "statusVerifiedDate": "2026-10-02",
+      "lastUpdateSubmitDate": "2026-10-07",
+      "studyFirstSubmitDate": "2000-01-28",
+      "studyFirstSubmitQcDate": "2000-01-28",
+      "lastUpdatePostDateStruct": {
+       "date": "2026-10-08",
+       "type": "ACTUAL"
+      },
+      "studyFirstPostDateStruct": {
+       "date": "2000-01-31",
+       "type": "ESTIMATED"
+      }
+     },
+     "oversightModule": {
+      "isFdaRegulatedDrug": false,
+      "isFdaRegulatedDevice": true
+     },
+     "designModule": {
+      "studyType": "OBSERVATIONAL"
+     },
+     "contactsLocationsModule": {
+      "locations": [
+       {
+        "country": "United States"
+       }
+      ]
+     }
+    },
+    "hasResults": false
+   },
+   "outcomes": [
+    {
+     "version_no": 0,
+     "version_date": "2026-10-08",
+     "outcome_type": "primary",
+     "measure": "Diabetes control",
+     "description": "To help prevent additional health issues associated with poor glucose and insulin levels.",
+     "time_frame": "every 6-12 months"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2026-10-08",
+     "outcome_type": "primary",
+     "measure": "Genetics of insulin resistance",
+     "description": "To discover the cause of the insulin resistance to better assist with treatment for it.",
+     "time_frame": "End of Study"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2026-10-08",
+     "outcome_type": "primary",
+     "measure": "Pathophysiology of insulin resistance and its relationship to cardiovascular disease.",
+     "description": "To understand the pathophysiology of insulin resistance and its relationship to cardiovascular disease.",
+     "time_frame": "End of study"
+    },
+    {
+     "version_no": 0,
+     "version_date": "2026-10-08",
+     "outcome_type": "primary",
+     "measure": "Obtain tissue samples for ex vivo studies.",
+     "description": "To understand physiology and pathophysiology of insulin resistance and develop possible treatments.",
+     "time_frame": "End of study"
+    }
+   ]
+  },
+  "fetched_on": "2026-10-24"
+ }
+}

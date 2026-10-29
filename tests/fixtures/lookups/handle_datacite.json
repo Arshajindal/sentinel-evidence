@@ -1,0 +1,33 @@
+{
+ "status": 200,
+ "body": {
+  "responseCode": 1,
+  "handle": "10.5061/dryad.8515",
+  "values": [
+   {
+    "index": 100,
+    "type": "HS_ADMIN",
+    "data": {
+     "format": "admin",
+     "value": {
+      "handle": "10.admin/codata",
+      "index": 300,
+      "permissions": "111111111111"
+     }
+    },
+    "ttl": 86400,
+    "timestamp": "2019-04-08T16:37:25Z"
+   },
+   {
+    "index": 1,
+    "type": "URL",
+    "data": {
+     "format": "string",
+     "value": "https://datadryad.org/dataset/doi:10.5061/dryad.8515"
+    },
+    "ttl": 86400,
+    "timestamp": "2025-02-26T19:51:35Z"
+   }
+  ]
+ }
+}

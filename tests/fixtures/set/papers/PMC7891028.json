@@ -1,0 +1,1613 @@
+{
+ "id": "PMC7891028",
+ "subject": "paper",
+ "categories": [
+  "c02_cited_after_retraction"
+ ],
+ "source": {
+  "corpus": "pmc-rct-2015-2024",
+  "paper_id": 494,
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "46 references, 45 resolved. Two citations of retracted work, one of them Suresh 2011.",
+ "expected": [
+  {
+   "check": "C01",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C02",
+   "status": "flagged",
+   "severity": "high",
+   "item": "ref 11",
+   "band": "after_grace",
+   "why": "Shah 2017 JCDR (DOI matches) retracted 2018-01-01 per Retraction Watch (the notice DOI isn't in Crossref); paper published 2021-02-18 = 37 months later."
+  },
+  {
+   "check": "C02",
+   "status": "flagged",
+   "severity": "high",
+   "item": "ref 33",
+   "band": "after_grace",
+   "why": "Suresh 2011 J Hum Reprod Sci retracted for duplication; Crossref's notice 10.4103/0974-1208.170593 confirms. Retraction Watch dates it 2017-01-01 ('date unknown'), 49 months before publication."
+  },
+  {
+   "check": "C02",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C03",
+   "status": "not_applicable",
+   "severity": "info"
+  },
+  {
+   "check": "C04",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "paper_id": 494,
+  "publication_date": "2021-02-18",
+  "fulltext_status": "full",
+  "references": [
+   {
+    "reference_id": 19282,
+    "ordinal": 1,
+    "raw_string": "Gajendra S Kumar JV Oral health and pregnancy: a review N Y State Dent J 2004 70 40 44 15042797",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": "15042797",
+    "parsed_title": "Oral health and pregnancy: a review",
+    "parsed_first_author": "gajendra",
+    "parsed_year": 2004,
+    "parsed_container": "N Y State Dent J",
+    "resolution_status": "resolved",
+    "resolution_method": "pmid",
+    "resolved_paper_id": 4521,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "pmid:15042797"
+      ],
+      "openalex_pmid": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19283,
+    "ordinal": 2,
+    "raw_string": "Simón-Soro A Mira A Solving the etiology of dental caries Trends Microbiol 2015 23 76 82 10.1016/j.tim.2014.10.010 25435135",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.tim.2014.10.010",
+    "parsed_pmid": "25435135",
+    "parsed_title": "Solving the etiology of dental caries",
+    "parsed_first_author": "simon soro",
+    "parsed_year": 2015,
+    "parsed_container": "Trends Microbiol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4522,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.tim.2014.10.010"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19284,
+    "ordinal": 3,
+    "raw_string": "Machiulskiene V Campus G Carvalho JC Dige I Ekstrand KR Jablonski-Momeni A Terminology of dental caries and dental caries management: consensus report of a workshop organized by ORCA and cariology research group of IADR Caries Res 2020 54 7 14 10.1159/000503309 31590168",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1159/000503309",
+    "parsed_pmid": "31590168",
+    "parsed_title": "Terminology of dental caries and dental caries management: consensus report of a workshop organized by ORCA and cariology research group of IADR",
+    "parsed_first_author": "machiulskiene",
+    "parsed_year": 2020,
+    "parsed_container": "Caries Res",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4523,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1159/000503309"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19285,
+    "ordinal": 4,
+    "raw_string": "Russell SL Mayberry LJ Pregnancy and oral health: a review and recommendations to reduce gaps in practice and research MCN Am J Matern Child Nurs 2008 33 32 37 10.1097/01.NMC.0000305655.86495.39 18158525",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/01.nmc.0000305655.86495.39",
+    "parsed_pmid": "18158525",
+    "parsed_title": "Pregnancy and oral health: a review and recommendations to reduce gaps in practice and research",
+    "parsed_first_author": "russell",
+    "parsed_year": 2008,
+    "parsed_container": "MCN Am J Matern Child Nurs",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 2793,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/01.nmc.0000305655.86495.39"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.42
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19286,
+    "ordinal": 5,
+    "raw_string": "Dasanayake AP Li Y Wiener H Ruby JD Lee M-J Salivary Actinomyces naeslundii genospecies 2 and Lactobacillus casei levels predict pregnancy outcomes J Periodontol 2005 76 171 177 10.1902/jop.2005.76.2.171 15974839",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1902/jop.2005.76.2.171",
+    "parsed_pmid": "15974839",
+    "parsed_title": "Salivary Actinomyces naeslundii genospecies 2 and Lactobacillus casei levels predict pregnancy outcomes",
+    "parsed_first_author": "dasanayake",
+    "parsed_year": 2005,
+    "parsed_container": "J Periodontol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4524,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1902/jop.2005.76.2.171"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19287,
+    "ordinal": 6,
+    "raw_string": "Saraiva MCD Bettiol H Barbieri MA Silva AA Are intrauterine growth restriction and preterm birth associated with dental caries? Community Dent Oral Epidemiol 2007 35 364 376 10.1111/j.1600-0528.2006.00345.x 17822485",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/j.1600-0528.2006.00345.x",
+    "parsed_pmid": "17822485",
+    "parsed_title": "Are intrauterine growth restriction and preterm birth associated with dental caries?",
+    "parsed_first_author": "saraiva",
+    "parsed_year": 2007,
+    "parsed_container": "Community Dent Oral Epidemiol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4525,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1600-0528.2006.00345.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19288,
+    "ordinal": 7,
+    "raw_string": "Harjunmaa U Järnstedt J Alho L Dewey KG Cheung YB Deitchler M Association between maternal dental periapical infections and pregnancy outcomes: results from a cross-sectional study in Malawi Trop Med Int Health TM IH 2015 20 1549 1558 10.1111/tmi.12579 26224026",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1111/tmi.12579",
+    "parsed_pmid": "26224026",
+    "parsed_title": "Association between maternal dental periapical infections and pregnancy outcomes: results from a cross-sectional study in Malawi",
+    "parsed_first_author": "harjunmaa",
+    "parsed_year": 2015,
+    "parsed_container": "Trop Med Int Health TM IH",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4526,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/tmi.12579"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19289,
+    "ordinal": 8,
+    "raw_string": "Vt H Manigandan T Sarumathi T Aarthi Nisha V Amudhan A Dental considerations in pregnancy-a critical review on the oral care J Clin Diagn Res JCDR 2013 7 948 953 23814753 10.7860/JCDR/2013/5405.2986 PMC3681080",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.7860/jcdr/2013/5405.2986",
+    "parsed_pmid": "23814753",
+    "parsed_title": "Dental considerations in pregnancy-a critical review on the oral care",
+    "parsed_first_author": "vt",
+    "parsed_year": 2013,
+    "parsed_container": "J Clin Diagn Res JCDR",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4527,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.7860/jcdr/2013/5405.2986"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19290,
+    "ordinal": 9,
+    "raw_string": "Oliveira B Nadanovsky P The impact of oral pain on quality of life during pregnancy in low-income Brazilian women J Orofac Pain 2006 20 297 305 17190028",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": "17190028",
+    "parsed_title": "The impact of oral pain on quality of life during pregnancy in low-income Brazilian women",
+    "parsed_first_author": "oliveira",
+    "parsed_year": 2006,
+    "parsed_container": "J Orofac Pain",
+    "resolution_status": "resolved",
+    "resolution_method": "pmid",
+    "resolved_paper_id": 4528,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "pmid:17190028"
+      ],
+      "openalex_pmid": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19291,
+    "ordinal": 10,
+    "raw_string": "Krüger M Lang C Almeida L Correa F Romano A Pappen F Dental pain and associated factors among pregnant women: an observational study Matern Child Health J 2014 19 504 510 10.1007/s10995-014-1531-y 24894731",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s10995-014-1531-y",
+    "parsed_pmid": "24894731",
+    "parsed_title": "Dental pain and associated factors among pregnant women: an observational study",
+    "parsed_first_author": "kruger",
+    "parsed_year": 2014,
+    "parsed_container": "Matern Child Health J",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4529,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s10995-014-1531-y"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19292,
+    "ordinal": 11,
+    "raw_string": "Shah AF Batra M Qureshi A Evaluation of impact of pregnancy on oral health status and oral health related quality of life among women of Kashmir Valley J Clin Diagn Res JCDR. 2017 11 ZC01 ZC04 28658896 10.7860/JCDR/2017/25862.9769 PMC5483798",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.7860/jcdr/2017/25862.9769",
+    "parsed_pmid": "28658896",
+    "parsed_title": "Evaluation of impact of pregnancy on oral health status and oral health related quality of life among women of Kashmir Valley",
+    "parsed_first_author": "shah",
+    "parsed_year": 2017,
+    "parsed_container": "J Clin Diagn Res JCDR.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4530,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.7860/jcdr/2017/25862.9769"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": [
+     {
+      "notice_type": "retraction",
+      "notice_date": "2018-01-01",
+      "notice_doi": "10.7860/jcdr/2018/25862.11047",
+      "reason": "Error in Analyses;Error in Data;Error in Results and/or Conclusions;",
+      "source": "retraction_watch",
+      "source_record_id": "18340",
+      "matched_on": "doi"
+     }
+    ]
+   },
+   {
+    "reference_id": 19293,
+    "ordinal": 12,
+    "raw_string": "Mjör IA Odont D Pulp-dentin biology in restorative dentistry.s Part 2: initial reactions to preparation of teeth for restorative procedures Quintessence Int Berl Ger 1985 2001 32 537 551 11495566",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": "11495566",
+    "parsed_title": "Pulp-dentin biology in restorative dentistry.s Part 2: initial reactions to preparation of teeth for restorative procedures",
+    "parsed_first_author": "mjor",
+    "parsed_year": 1985,
+    "parsed_container": "Quintessence Int Berl Ger",
+    "resolution_status": "resolved",
+    "resolution_method": "pmid",
+    "resolved_paper_id": 4531,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "pmid:11495566"
+      ],
+      "openalex_pmid": 1
+     },
+     "title_agreement": 0.992
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19294,
+    "ordinal": 13,
+    "raw_string": "Frencken JE, Pilot T, Songpaisan Y, Phantumvanit P. Atraumatic restorative treatment (ART): rationale, technique, and development. J Public Health Dent. 1996;56:135–40; discussion 161–163.10.1111/j.1752-7325.1996.tb02423.x 8915958",
+    "citation_tag": "mixed-citation",
+    "publication_type": "other",
+    "parsed_doi": "10.1111/j.1752-7325.1996.tb02423.x",
+    "parsed_pmid": "8915958",
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4532,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/j.1752-7325.1996.tb02423.x"
+      ],
+      "crossref_doi": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19295,
+    "ordinal": 14,
+    "raw_string": "Frencken JE Leal SC Navarro MF Twenty-five-year atraumatic restorative treatment (ART) approach: a comprehensive overview Clin Oral Investig 2012 16 1337 1346 10.1007/s00784-012-0783-4 PMC3443346 22824915",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s00784-012-0783-4",
+    "parsed_pmid": "22824915",
+    "parsed_title": "Twenty-five-year atraumatic restorative treatment (ART) approach: a comprehensive overview",
+    "parsed_first_author": "frencken",
+    "parsed_year": 2012,
+    "parsed_container": "Clin Oral Investig",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4533,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s00784-012-0783-4"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19296,
+    "ordinal": 15,
+    "raw_string": "Carvalho T-S Ribeiro T-R Bönecker M Pinheiro E-C-M Colares V The atraumatic restorative treatment approach: an “atraumatic” alternative Med Oral Patol Oral Cirugia Bucal 2009 14 e668 e673 10.4317/medoral.14.e668 19680186",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.4317/medoral.14.e668",
+    "parsed_pmid": "19680186",
+    "parsed_title": "The atraumatic restorative treatment approach: an “atraumatic” alternative",
+    "parsed_first_author": "carvalho",
+    "parsed_year": 2009,
+    "parsed_container": "Med Oral Patol Oral Cirugia Bucal",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4534,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.4317/medoral.14.e668"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19297,
+    "ordinal": 16,
+    "raw_string": "Shenoy R Jain A Mala K Atraumatic restorative treatment for dental caries among pregnant women attending primary health centres: A small scale demonstration J Interdiscip Dent 2014 4 71 75 10.4103/2229-5194.142937",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.4103/2229-5194.142937",
+    "parsed_pmid": null,
+    "parsed_title": "Atraumatic restorative treatment for dental caries among pregnant women attending primary health centres: A small scale demonstration",
+    "parsed_first_author": "shenoy",
+    "parsed_year": 2014,
+    "parsed_container": "J Interdiscip Dent",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3233,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.4103/2229-5194.142937"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19298,
+    "ordinal": 17,
+    "raw_string": "Hamama H, Yiu C, Burrow M. Current update of chemomechanical caries removal methods. Aust Dent J. 2014;59:446–56; quiz 525.10.1111/adj.12214 25131424",
+    "citation_tag": "mixed-citation",
+    "publication_type": "other",
+    "parsed_doi": "10.1111/adj.12214",
+    "parsed_pmid": "25131424",
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4535,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1111/adj.12214"
+      ],
+      "crossref_doi": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19299,
+    "ordinal": 18,
+    "raw_string": "Mobeen N Jehan I Banday N Moore J McClure EM Pasha O Periodontal disease and adverse birth outcomes: a study from Pakistan Am J Obstet Gynecol 2008 198 514.e1 514.e8 10.1016/j.ajog.2008.03.010 18455527 PMC3897171",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/j.ajog.2008.03.010",
+    "parsed_pmid": "18455527",
+    "parsed_title": "Periodontal disease and adverse birth outcomes: a study from Pakistan",
+    "parsed_first_author": "mobeen",
+    "parsed_year": 2008,
+    "parsed_container": "Am J Obstet Gynecol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4536,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.ajog.2008.03.010"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19300,
+    "ordinal": 19,
+    "raw_string": "Wandera M Åstrøm AN Okullo I Tumwine JK Determinants of periodontal health in pregnant women and association with infants’ anthropometric status: a prospective cohort study from Eastern Uganda BMC Pregnancy Childbirth 2012 12 90 10.1186/1471-2393-12-90 22950749 PMC3515345",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1186/1471-2393-12-90",
+    "parsed_pmid": "22950749",
+    "parsed_title": "Determinants of periodontal health in pregnant women and association with infants’ anthropometric status: a prospective cohort study from Eastern Uganda",
+    "parsed_first_author": "wandera",
+    "parsed_year": 2012,
+    "parsed_container": "BMC Pregnancy Childbirth",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4537,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1186/1471-2393-12-90"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19301,
+    "ordinal": 20,
+    "raw_string": "Opeodu OI Dosumu EB Arowojolu MO Periodontal Condition and Treatment Needs of Some Pregnant Women in Ibadan Nigeria Ann Med Health Sci Res 2015 5 213 217 10.4103/2141-9248.157514 26097764 PMC4455012",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.4103/2141-9248.157514",
+    "parsed_pmid": "26097764",
+    "parsed_title": "Periodontal Condition and Treatment Needs of Some Pregnant Women in Ibadan",
+    "parsed_first_author": "opeodu",
+    "parsed_year": 2015,
+    "parsed_container": "Nigeria Ann Med Health Sci Res",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4538,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.4103/2141-9248.157514"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.949
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19302,
+    "ordinal": 21,
+    "raw_string": "Kashetty M Kumbhar S Patil S Patil P Oral hygiene status, gingival status, periodontal status, and treatment needs among pregnant and nonpregnant women: a comparative study J Indian Soc Periodontol 2018 22 164 170 10.4103/jisp.jisp_319_17 29769772 PMC5939025",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.4103/jisp.jisp_319_17",
+    "parsed_pmid": "29769772",
+    "parsed_title": "Oral hygiene status, gingival status, periodontal status, and treatment needs among pregnant and nonpregnant women: a comparative study",
+    "parsed_first_author": "kashetty",
+    "parsed_year": 2018,
+    "parsed_container": "J Indian Soc Periodontol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4539,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.4103/jisp.jisp_319_17"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19303,
+    "ordinal": 22,
+    "raw_string": "Jawa D Singh S Somani R Jaidka S Sirkar K Jaidka R Comparative evaluation of the efficacy of chemomechanical caries removal agent (Papacarie) and conventional method of caries removal: an in vitro study J Indian Soc Pedod Prev Dent 2010 28 73 77 10.4103/0970-4388.66739 20660971",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.4103/0970-4388.66739",
+    "parsed_pmid": "20660971",
+    "parsed_title": "Comparative evaluation of the efficacy of chemomechanical caries removal agent (Papacarie) and conventional method of caries removal: an in vitro study",
+    "parsed_first_author": "jawa",
+    "parsed_year": 2010,
+    "parsed_container": "J Indian Soc Pedod Prev Dent",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3364,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {},
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19304,
+    "ordinal": 23,
+    "raw_string": "Singh S Singh D Jaidka S Comparative clinical evaluation of chemomechanical caries removal agent Papacarie with conventional method among rural population in India - in vivo study Braz J Oral Sci 2011 10 193 198",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Comparative clinical evaluation of chemomechanical caries removal agent Papacarie with conventional method among rural population in India - in vivo study",
+    "parsed_first_author": "singh",
+    "parsed_year": 2011,
+    "parsed_container": "Braz J Oral Sci",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 3369,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19305,
+    "ordinal": 24,
+    "raw_string": "Maru VP Shakuntala BS Nagarathna C Caries removal by chemomechanical (CarisolvTM) vs. rotary drill: a systematic review Open Dent J. 2015 9 462 472 10.2174/1874210601509010462 26962375 PMC4768667",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2174/1874210601509010462",
+    "parsed_pmid": "26962375",
+    "parsed_title": "Caries removal by chemomechanical (CarisolvTM) vs. rotary drill: a systematic review",
+    "parsed_first_author": "maru",
+    "parsed_year": 2015,
+    "parsed_container": "Open Dent J.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4540,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2174/1874210601509010462"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19306,
+    "ordinal": 25,
+    "raw_string": "Almaz ME Sönmez IŞ Oba AA Comparison of chemomechanical caries removal using Papacárie versus conventional method in children Eur J Gen Dent 2016 5 1 10.4103/2278-9626.172734",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.4103/2278-9626.172734",
+    "parsed_pmid": null,
+    "parsed_title": "Comparison of chemomechanical caries removal using Papacárie versus conventional method in children",
+    "parsed_first_author": "almaz",
+    "parsed_year": 2016,
+    "parsed_container": "Eur J Gen Dent",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4541,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.4103/2278-9626.172734"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19307,
+    "ordinal": 26,
+    "raw_string": "Barata TJE, Bresciani E, Mattos MCR, Lauris JRP, Ericson D, Navarro MF de L. Comparison of two minimally invasive methods on the longevity of glass ionomer cement restorations: short-term results of a pilot study. J Appl Oral Sci Rev FOB. 2008;16:155–60.10.1590/S1678-77572008000200014 PMC4327637 19089209",
+    "citation_tag": "mixed-citation",
+    "publication_type": "other",
+    "parsed_doi": "10.1590/s1678-77572008000200014",
+    "parsed_pmid": "19089209",
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4542,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1590/s1678-77572008000200014"
+      ],
+      "crossref_doi": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19308,
+    "ordinal": 27,
+    "raw_string": "Schulz KF, Altman DG, Moher D, for the CONSORT Group. CONSORT Statement: updated guidelines for reporting parallel group randomised trials Ann Int Med 2010 2010 152 10.3736/jcim20100702 20619135",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3736/jcim20100702",
+    "parsed_pmid": "20619135",
+    "parsed_title": "Statement: updated guidelines for reporting parallel group randomised trials",
+    "parsed_first_author": "schulz kf altman dg moher d for the consort group consort",
+    "parsed_year": 2010,
+    "parsed_container": "Ann Int Med",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4543,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3736/jcim20100702"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.838
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19309,
+    "ordinal": 28,
+    "raw_string": "Wewers ME Lowe NK A critical review of visual analogue scales in the measurement of clinical phenomena Res Nurs Health 1990 13 227 236 10.1002/nur.4770130405 2197679",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/nur.4770130405",
+    "parsed_pmid": "2197679",
+    "parsed_title": "A critical review of visual analogue scales in the measurement of clinical phenomena",
+    "parsed_first_author": "wewers",
+    "parsed_year": 1990,
+    "parsed_container": "Res Nurs Health",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4544,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/nur.4770130405"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19310,
+    "ordinal": 29,
+    "raw_string": "Gugnani N Pandit I Srivastava N Gupta M Sharma M International Caries Detection and Assessment System (ICDAS): a new concept Int J Clin Pediatr Dent 2011 4 93 100 10.5005/jp-journals-10005-1089 27672245 PMC5030492",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.5005/jp-journals-10005-1089",
+    "parsed_pmid": "27672245",
+    "parsed_title": "International Caries Detection and Assessment System (ICDAS): a new concept",
+    "parsed_first_author": "gugnani",
+    "parsed_year": 2011,
+    "parsed_container": "Int J Clin Pediatr Dent",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4545,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.5005/jp-journals-10005-1089"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19311,
+    "ordinal": 30,
+    "raw_string": "Loe H Silness J Periodontal disease in pregnancy. I. Prevalence and severity Acta Odontol Scand. 1963 21 533 551 10.3109/00016356309011240 14121956",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3109/00016356309011240",
+    "parsed_pmid": "14121956",
+    "parsed_title": "Periodontal disease in pregnancy. I. Prevalence and severity",
+    "parsed_first_author": "loe",
+    "parsed_year": 1963,
+    "parsed_container": "Acta Odontol Scand.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3641,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {},
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19312,
+    "ordinal": 31,
+    "raw_string": "Nadanovsky P Cohen Carneiro F Souz de Mello F Removal of caries using only hand instruments: a comparison of mechanical and chemo-mechanical methods Caries Res 2001 35 384 389 10.1159/000047478 11641575",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1159/000047478",
+    "parsed_pmid": "11641575",
+    "parsed_title": "Removal of caries using only hand instruments: a comparison of mechanical and chemo-mechanical methods",
+    "parsed_first_author": "nadanovsky",
+    "parsed_year": 2001,
+    "parsed_container": "Caries Res",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4546,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1159/000047478"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19313,
+    "ordinal": 32,
+    "raw_string": "Faul F Erdfelder E Lang A-G Buchner A G*Power 3: a flexible statistical power analysis program for the social, behavioral, and biomedical sciences Behav Res Methods 2007 39 175 191 10.3758/BF03193146 17695343",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3758/bf03193146",
+    "parsed_pmid": "17695343",
+    "parsed_title": "G*Power 3: a flexible statistical power analysis program for the social, behavioral, and biomedical sciences",
+    "parsed_first_author": "faul",
+    "parsed_year": 2007,
+    "parsed_container": "Behav Res Methods",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3388,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {},
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19314,
+    "ordinal": 33,
+    "raw_string": "Suresh K An overview of randomization techniques: An unbiased assessment of outcome in clinical research J Hum Reprod Sci 2011 4 8 11 10.4103/0974-1208.82352 21772732 PMC3136079",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.4103/0974-1208.82352",
+    "parsed_pmid": "21772732",
+    "parsed_title": "An overview of randomization techniques: An unbiased assessment of outcome in clinical research",
+    "parsed_first_author": "suresh",
+    "parsed_year": 2011,
+    "parsed_container": "J Hum Reprod Sci",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3944,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {},
+     "title_agreement": 1.0
+    },
+    "notices": [
+     {
+      "notice_type": "retraction",
+      "notice_date": "2017-01-01",
+      "notice_doi": "10.4103/0974-1208.170593",
+      "reason": "Date of Article and/or Notice Unknown;Duplication of/in Article;Euphemisms for Duplication;",
+      "source": "retraction_watch",
+      "source_record_id": "8343",
+      "matched_on": "doi"
+     }
+    ]
+   },
+   {
+    "reference_id": 19315,
+    "ordinal": 34,
+    "raw_string": "Doig GS, Simpson F. Randomization and allocation concealment: a practical guide for researchers. J Crit Care. 2005;20:187–91; discussion 191–193.10.1016/j.jcrc.2005.04.005 16139163",
+    "citation_tag": "mixed-citation",
+    "publication_type": "other",
+    "parsed_doi": "10.1016/j.jcrc.2005.04.005",
+    "parsed_pmid": "16139163",
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4547,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/j.jcrc.2005.04.005"
+      ],
+      "crossref_doi": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19316,
+    "ordinal": 35,
+    "raw_string": "Freitas MCC de A, Fagundes TC, Modena KC da S, Cardia GS, Navarro MF de L. Randomized clinical trial of encapsulated and hand-mixed glass-ionomer ART restorations: one-year follow-up. J Appl Oral Sci. 2018;26:e20170129. 10.1590/1678-7757-2017-0129.10.1590/1678-7757-2017-0129 PMC5777411 29364343",
+    "citation_tag": "mixed-citation",
+    "publication_type": "other",
+    "parsed_doi": "10.1590/1678-7757-2017-0129",
+    "parsed_pmid": "29364343",
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4548,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1590/1678-7757-2017-0129"
+      ],
+      "crossref_doi": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19317,
+    "ordinal": 36,
+    "raw_string": "Molina GF, Faulks D, Frencken J. Acceptability, feasibility and perceived satisfaction of the use of the Atraumatic Restorative Treatment approach for people with disability. Braz Oral Res. 2015;29(1):1–9. 10.1590/1807-3107BOR-2015.vol29.0097.10.1590/1807-3107BOR-2015.vol29.0097 26247515",
+    "citation_tag": "mixed-citation",
+    "publication_type": "other",
+    "parsed_doi": "10.1590/1807-3107bor-2015.vol29.0097",
+    "parsed_pmid": "26247515",
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4549,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1590/1807-3107bor-2015.vol29.0097"
+      ],
+      "crossref_doi": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19318,
+    "ordinal": 37,
+    "raw_string": "Abdul Khalek A Elkateb MA Abdel Aziz WE El Tantawi M Effect of papacarie and alternative restorative treatment on pain reaction during caries removal among children: a randomized controlled clinical trial J Clin Pediatr Dent 2017 41 219 224 10.17796/1053-4628-41.3.219 28422591",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.17796/1053-4628-41.3.219",
+    "parsed_pmid": "28422591",
+    "parsed_title": "Effect of papacarie and alternative restorative treatment on pain reaction during caries removal among children: a randomized controlled clinical trial",
+    "parsed_first_author": "abdul khalek",
+    "parsed_year": 2017,
+    "parsed_container": "J Clin Pediatr Dent",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4550,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.17796/1053-4628-41.3.219"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19319,
+    "ordinal": 38,
+    "raw_string": "Khoshnevisan M, Albujeer A, Attaran N, Almahafdha A, Alaboudy A. WHO’s oral health assessment questionnaire for adult: psychometric properties of the Arabic version. J Contemp Med Sci. 2016;2:116–18.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "other",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "WHO’s oral health assessment questionnaire for adult: psychometric properties of the Arabic version",
+    "parsed_first_author": "khoshnevisan",
+    "parsed_year": 2016,
+    "parsed_container": "J Contemp Med Sci",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4551,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19320,
+    "ordinal": 39,
+    "raw_string": "Petersen, Poul Erik, Baez, Ramon J & World Health Organization. Oral health surveys: basic methods, 5th ed. World Health Organization; 2013. https://apps.who.int/iris/handle/10665/97035.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "other",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": 2013,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19321,
+    "ordinal": 40,
+    "raw_string": "Silness J Loe H Periodontal disease in pregnancy. II. Correlation between oral hygiene and periodontal condtion Acta Odontol Scand. 1964 22 121 135 10.3109/00016356408993968 14158464",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3109/00016356408993968",
+    "parsed_pmid": "14158464",
+    "parsed_title": "Periodontal disease in pregnancy. II. Correlation between oral hygiene and periodontal condtion",
+    "parsed_first_author": "silness",
+    "parsed_year": 1964,
+    "parsed_container": "Acta Odontol Scand.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 2911,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3109/00016356408993968"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.995
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19322,
+    "ordinal": 41,
+    "raw_string": "Kumar J Nayak M Prasad KL Gupta N A comparative study of the clinical efficiency of chemomechanical caries removal using Carisolv® and Papacarie®—a papain gel Indian J Dent Res 2012 23 697 10.4103/0970-9290.107429 23422631",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.4103/0970-9290.107429",
+    "parsed_pmid": "23422631",
+    "parsed_title": "A comparative study of the clinical efficiency of chemomechanical caries removal using Carisolv® and Papacarie®—a papain gel",
+    "parsed_first_author": "kumar",
+    "parsed_year": 2012,
+    "parsed_container": "Indian J Dent Res",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4556,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.4103/0970-9290.107429"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19323,
+    "ordinal": 42,
+    "raw_string": "Ericson D Zimmerman M Raber H Götrick B Bornstein R Thorell J Clinical evaluation of efficacy and safety of a new method for chemo-mechanical removal of caries Caries Res 1999 33 171 177 10.1159/000016513 10207191",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1159/000016513",
+    "parsed_pmid": "10207191",
+    "parsed_title": "Clinical evaluation of efficacy and safety of a new method for chemo-mechanical removal of caries",
+    "parsed_first_author": "ericson",
+    "parsed_year": 1999,
+    "parsed_container": "Caries Res",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4557,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1159/000016513"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19324,
+    "ordinal": 43,
+    "raw_string": "Innes NPT Frencken JE Bjørndal L Maltz M Manton DJ Ricketts D Managing carious lesions: consensus recommendations on terminology Adv Dent Res 2016 28 49 57 10.1177/0022034516639276 27099357",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1177/0022034516639276",
+    "parsed_pmid": "27099357",
+    "parsed_title": "Managing carious lesions: consensus recommendations on terminology",
+    "parsed_first_author": "innes",
+    "parsed_year": 2016,
+    "parsed_container": "Adv Dent Res",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 3523,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1177/0022034516639276"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19325,
+    "ordinal": 44,
+    "raw_string": "Anegundi RT Patil SB Tegginmani V Shetty SD A comparative microbiological study to assess caries excavation by conventional rotary method and a chemo-mechanical method Contemp Clin Dent 2012 3 388 392 10.4103/0976-237X.107420 23633794 PMC3636841",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.4103/0976-237x.107420",
+    "parsed_pmid": "23633794",
+    "parsed_title": "A comparative microbiological study to assess caries excavation by conventional rotary method and a chemo-mechanical method",
+    "parsed_first_author": "anegundi",
+    "parsed_year": 2012,
+    "parsed_container": "Contemp Clin Dent",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4558,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.4103/0976-237x.107420"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19326,
+    "ordinal": 45,
+    "raw_string": "Goyal PA Kumari R Kannan VP Madhu S Efficacy and tolerance of papain gel with conventional drilling method: a clinico-microbiological study J Clin Pediatr Dent 2015 39 109 112 10.17796/jcpd.39.2.n25754863557k727 25823480",
+    "citation_tag": "element-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.17796/jcpd.39.2.n25754863557k727",
+    "parsed_pmid": "25823480",
+    "parsed_title": "Efficacy and tolerance of papain gel with conventional drilling method: a clinico-microbiological study",
+    "parsed_first_author": "goyal",
+    "parsed_year": 2015,
+    "parsed_container": "J Clin Pediatr Dent",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4559,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.17796/jcpd.39.2.n25754863557k727"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 19327,
+    "ordinal": 46,
+    "raw_string": "Bottega F, Bussadori S, Battisti I, Vieira E, Pompeo T, Winkelmann E. Costs and benefits of Papacarie in pediatric dentistry: a randomized clinical trial. Sci Rep. 2018;3:17908. 10.1038/s41598-018-36092-x.10.1038/s41598-018-36092-x PMC6297251 30559343",
+    "citation_tag": "mixed-citation",
+    "publication_type": "other",
+    "parsed_doi": "10.1038/s41598-018-36092-x",
+    "parsed_pmid": "30559343",
+    "parsed_title": null,
+    "parsed_first_author": null,
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4560,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1038/s41598-018-36092-x"
+      ],
+      "crossref_doi": 1
+     }
+    },
+    "notices": []
+   }
+  ],
+  "stat_tests": [],
+  "means": [],
+  "trials": []
+ }
+}

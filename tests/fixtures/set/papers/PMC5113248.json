@@ -1,0 +1,712 @@
+{
+ "id": "PMC5113248",
+ "subject": "paper",
+ "categories": [
+  "c01_non_journal_references"
+ ],
+ "source": {
+  "corpus": "pmc-rct-2015-2024",
+  "paper_id": 1009,
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "4 non-journal references (UNAIDS and WHO reports, an encyclopedia entry): none flagged.",
+ "expected": [
+  {
+   "check": "C01",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C02",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C03",
+   "status": "not_applicable",
+   "severity": "info"
+  },
+  {
+   "check": "C04",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "paper_id": 1009,
+  "publication_date": "2016-08-01",
+  "fulltext_status": "full",
+  "references": [
+   {
+    "reference_id": 39216,
+    "ordinal": 1,
+    "raw_string": "UNAIDS. 2015 Progress Report on the Global Plan. Available at: http://www.unaids.org/sites/default/files/media_asset/JC2774_2015ProgressReport_GlobalPlan_en.pdf. Accessed February 1, 2016.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "2015 Progress Report on the Global Plan",
+    "parsed_first_author": "unaids",
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39217,
+    "ordinal": 2,
+    "raw_string": "Ladner J Besson MH Rodrigues M Performance of HIV prevention of mother-to-child transmission programs in sub-Saharan Africa: longitudinal assessment of 64 nevirapine-based programs implemented in 25 countries, 2000–2011. PLoS One. 2015;10:e0130103.26098311 10.1371/journal.pone.0130103 PMC4476579",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1371/journal.pone.0130103",
+    "parsed_pmid": "26098311",
+    "parsed_title": "Performance of HIV prevention of mother-to-child transmission programs in sub-Saharan Africa: longitudinal assessment of 64 nevirapine-based programs implemented in 25 countries, 2000–2011",
+    "parsed_first_author": "ladner",
+    "parsed_year": 2015,
+    "parsed_container": "PLoS One.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5273,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1371/journal.pone.0130103"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39218,
+    "ordinal": 3,
+    "raw_string": "Wettstein C Mugglin C Egger M Missed opportunities to prevent mother-to-child-transmission: systematic review and meta-analysis. AIDS. 2012;26:2361–2373.22948267 10.1097/QAD.0b013e328359ab0c PMC3741537",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/qad.0b013e328359ab0c",
+    "parsed_pmid": "22948267",
+    "parsed_title": "Missed opportunities to prevent mother-to-child-transmission: systematic review and meta-analysis",
+    "parsed_first_author": "wettstein",
+    "parsed_year": 2012,
+    "parsed_container": "AIDS",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5274,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/qad.0b013e328359ab0c"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.769
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39219,
+    "ordinal": 4,
+    "raw_string": "Stringer EM Ekouevi DK Coetzee D Coverage of nevirapine-based services to prevent mother-to-child HIV transmission in 4 African countries. JAMA. 2010;304:293–302.20639563 10.1001/jama.2010.990",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1001/jama.2010.990",
+    "parsed_pmid": "20639563",
+    "parsed_title": "Coverage of nevirapine-based services to prevent mother-to-child HIV transmission in 4 African countries",
+    "parsed_first_author": "stringer",
+    "parsed_year": 2010,
+    "parsed_container": "JAMA",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5275,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1001/jama.2010.990"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39220,
+    "ordinal": 5,
+    "raw_string": "Stringer JS Sinkala M Maclean CC Effectiveness of a city-wide program to prevent mother-to-child HIV transmission in Lusaka, Zambia. AIDS. 2005;19:1309–1315.16052086 10.1097/01.aids.0000180102.88511.7d PMC2745046",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/01.aids.0000180102.88511.7d",
+    "parsed_pmid": "16052086",
+    "parsed_title": "Effectiveness of a city-wide program to prevent mother-to-child HIV transmission in Lusaka, Zambia",
+    "parsed_first_author": "stringer",
+    "parsed_year": 2005,
+    "parsed_container": "AIDS",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5276,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/01.aids.0000180102.88511.7d"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39221,
+    "ordinal": 6,
+    "raw_string": "Violari A Cotton MF Gibb DM Early antiretroviral therapy and mortality among HIV-infected infants. N Engl J Med. 2008;359:2233–2244.19020325 10.1056/NEJMoa0800971 PMC2950021",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1056/nejmoa0800971",
+    "parsed_pmid": "19020325",
+    "parsed_title": "Early antiretroviral therapy and mortality among HIV-infected infants",
+    "parsed_first_author": "violari",
+    "parsed_year": 2008,
+    "parsed_container": "N Engl J Med.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5277,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1056/nejmoa0800971"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39222,
+    "ordinal": 7,
+    "raw_string": "Penazzato M Prendergast AJ Muhe LM Optimization of antiretroviral therapy in HIV-infected children under 3 years of age: a systematic review. AIDS. 2014;28(suppl 2):S137–S146.24849473 10.1097/QAD.0000000000000240",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/qad.0000000000000240",
+    "parsed_pmid": "24849473",
+    "parsed_title": "Optimization of antiretroviral therapy in HIV-infected children under 3 years of age: a systematic review",
+    "parsed_first_author": "penazzato",
+    "parsed_year": 2014,
+    "parsed_container": "AIDS",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5278,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/qad.0000000000000240"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.894
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39223,
+    "ordinal": 8,
+    "raw_string": "Johnson LF Davies MA Moultrie H The effect of early initiation of antiretroviral treatment in infants on pediatric AIDS mortality in South Africa: a model-based analysis. Pediatr Infect Dis J. 2012;31:474–480.22189531 10.1097/INF.0b013e3182456ba2",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/inf.0b013e3182456ba2",
+    "parsed_pmid": "22189531",
+    "parsed_title": "The effect of early initiation of antiretroviral treatment in infants on pediatric AIDS mortality in South Africa: a model-based analysis",
+    "parsed_first_author": "johnson",
+    "parsed_year": 2012,
+    "parsed_container": "Pediatr Infect Dis J.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5279,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/inf.0b013e3182456ba2"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.908
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39224,
+    "ordinal": 9,
+    "raw_string": "World Health Organization. Antiretroviral Therapy for HIV Infection in Infants and Children: Towards Universal Access (2010 Revision). Available at: http://www.who.int/hiv/pub/paediatric/infants2010/en/index.html. Accessed February 1, 2016.23741772",
+    "citation_tag": "mixed-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": "23741772",
+    "parsed_title": "Antiretroviral Therapy for HIV Infection in Infants and Children: Towards Universal Access (2010 Revision)",
+    "parsed_first_author": "world health organization",
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "pmid_not_found"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "openalex_pmid": 1,
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39225,
+    "ordinal": 10,
+    "raw_string": "Braun M Kabue MM McCollum ED Inadequate coordination of maternal and infant HIV services detrimentally affects early infant diagnosis outcomes in Lilongwe, Malawi. J Acquir Immune Defic Syndr. 2011;56:e122–128.21224736 10.1097/QAI.0b013e31820a7f2f PMC3112277",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/qai.0b013e31820a7f2f",
+    "parsed_pmid": "21224736",
+    "parsed_title": "Inadequate coordination of maternal and infant HIV services detrimentally affects early infant diagnosis outcomes in Lilongwe, Malawi",
+    "parsed_first_author": "braun",
+    "parsed_year": 2011,
+    "parsed_container": "J Acquir Immune Defic Syndr.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5285,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/qai.0b013e31820a7f2f"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39226,
+    "ordinal": 11,
+    "raw_string": "Laursen L Point-of-care tests poised to alter course of HIV treatment. Nat Med. 2012;18:1156.22869167 10.1038/nm0812-1156",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/nm0812-1156",
+    "parsed_pmid": "22869167",
+    "parsed_title": "Point-of-care tests poised to alter course of HIV treatment",
+    "parsed_first_author": "laursen",
+    "parsed_year": 2012,
+    "parsed_container": "Nat Med.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 2046,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1038/nm0812-1156"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39227,
+    "ordinal": 12,
+    "raw_string": "UNITAID. HIV/AIDS Diagnostic Technology Landscape: Technical Report. Geneva, Switzerland: WHO; 2012.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "HIV/AIDS Diagnostic Technology Landscape: Technical Report",
+    "parsed_first_author": "unitaid",
+    "parsed_year": 2012,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39228,
+    "ordinal": 13,
+    "raw_string": "Jani IV Meggi B Mabunda N Accurate early infant HIV diagnosis in primary health clinics using a point-of-care nucleic acid test. J Acquir Immune Defic Syndr. 2014;67:e1–4.24933096 10.1097/QAI.0000000000000250",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/qai.0000000000000250",
+    "parsed_pmid": "24933096",
+    "parsed_title": "Accurate early infant HIV diagnosis in primary health clinics using a point-of-care nucleic acid test",
+    "parsed_first_author": "jani",
+    "parsed_year": 2014,
+    "parsed_container": "J Acquir Immune Defic Syndr.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5291,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/qai.0000000000000250"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39229,
+    "ordinal": 14,
+    "raw_string": "Roland M Torgerson DJ What are pragmatic trials? BMJ. 1998;316:285.9472515 10.1136/bmj.316.7127.285 PMC2665488",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1136/bmj.316.7127.285",
+    "parsed_pmid": "9472515",
+    "parsed_title": "What are pragmatic trials?",
+    "parsed_first_author": "roland",
+    "parsed_year": 1998,
+    "parsed_container": "BMJ",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5292,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1136/bmj.316.7127.285"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 0.61
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39230,
+    "ordinal": 15,
+    "raw_string": "Yusuf S Collins R Peto R Why do we need some large, simple randomized trials? Stat Med. 1984;3:409–422.6528136 10.1002/sim.4780030421",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/sim.4780030421",
+    "parsed_pmid": "6528136",
+    "parsed_title": "Why do we need some large, simple randomized trials?",
+    "parsed_first_author": "yusuf",
+    "parsed_year": 1984,
+    "parsed_container": "Stat Med.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5293,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/sim.4780030421"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39231,
+    "ordinal": 16,
+    "raw_string": "Palumbo P Lindsey JC Hughes MD Antiretroviral treatment for children with peripartum nevirapine exposure. N Engl J Med. 2010;363:1510–1520.20942667 10.1056/NEJMoa1000931 PMC3021781",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1056/nejmoa1000931",
+    "parsed_pmid": "20942667",
+    "parsed_title": "Antiretroviral treatment for children with peripartum nevirapine exposure",
+    "parsed_first_author": "palumbo",
+    "parsed_year": 2010,
+    "parsed_container": "N Engl J Med.",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5294,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1056/nejmoa1000931"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39232,
+    "ordinal": 17,
+    "raw_string": "Bolton-Moore C Mubiana-Mbewe M Cantrell RA Clinical outcomes and CD4 cell response in children receiving antiretroviral therapy at primary health care facilities in Zambia. JAMA. 2007;298:1888–1899.17954540 10.1001/jama.298.16.1888",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1001/jama.298.16.1888",
+    "parsed_pmid": "17954540",
+    "parsed_title": "Clinical outcomes and CD4 cell response in children receiving antiretroviral therapy at primary health care facilities in Zambia",
+    "parsed_first_author": "bolton moore",
+    "parsed_year": 2007,
+    "parsed_container": "JAMA",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5295,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1001/jama.298.16.1888"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 39233,
+    "ordinal": 18,
+    "raw_string": "Agresti A Kateri M “Categorical Data Analysis.” International Encyclopedia of Statistical Science. Ed. Miodrag Lovric. Berlin, Germany: Springer, 2011;206–208.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "book",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "“Categorical Data Analysis.” International Encyclopedia of Statistical Science",
+    "parsed_first_author": "agresti",
+    "parsed_year": 2011,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": []
+    },
+    "notices": []
+   }
+  ],
+  "stat_tests": [],
+  "means": [],
+  "trials": []
+ }
+}

@@ -1,0 +1,543 @@
+{
+ "id": "PMC5132079",
+ "subject": "paper",
+ "categories": [
+  "clean"
+ ],
+ "source": {
+  "corpus": "pmc-rct-2015-2024",
+  "paper_id": 866,
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "No flags from any check. All references resolved or non-journal; no statistics found in the body text, and no means (C04 never applies in Phase 1).",
+ "expected": [
+  {
+   "check": "C01",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C02",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C03",
+   "status": "not_applicable",
+   "severity": "info"
+  },
+  {
+   "check": "C04",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "paper_id": 866,
+  "publication_date": "2016-06-22",
+  "fulltext_status": "full",
+  "references": [
+   {
+    "reference_id": 33804,
+    "ordinal": 1,
+    "raw_string": "Marchand C , Maddali K , Metifiot M , Pommier Y . HIV‐1 IN inhibitors: 2010 update and perspectives. Curr Top Med Chem. 2009;9(11):1016–1037.19747122 10.2174/156802609789630910 PMC2860603",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.2174/156802609789630910",
+    "parsed_pmid": "19747122",
+    "parsed_title": "HIV‐1 IN inhibitors: 2010 update and perspectives",
+    "parsed_first_author": "marchand",
+    "parsed_year": 2009,
+    "parsed_container": "Curr Top Med Chem",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5073,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.2174/156802609789630910"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 33805,
+    "ordinal": 2,
+    "raw_string": "Dow DE , Bartlett JA . Dolutegravir, the Second‐Generation of Integrase Strand Transfer Inhibitors (INSTIs) for the Treatment of HIV. Infect Dis Ther. 2014;3:83–102.25134686 10.1007/s40121-014-0029-7 PMC4269626",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1007/s40121-014-0029-7",
+    "parsed_pmid": "25134686",
+    "parsed_title": "Dolutegravir, the Second‐Generation of Integrase Strand Transfer Inhibitors (INSTIs) for the Treatment of HIV",
+    "parsed_first_author": "dow",
+    "parsed_year": 2014,
+    "parsed_container": "Infect Dis Ther",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5074,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1007/s40121-014-0029-7"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 33806,
+    "ordinal": 3,
+    "raw_string": "Markowitz M , Nguyen BY , Gotuzzo E , et al. Sustained antiretroviral effect of raltegravir after 96 weeks of combination therapy in treatment‐naive patients with HIV‐1 infection. J Acquir Immune Defic Syndr. 2009;52(3):350–356.19648823 10.1097/QAI.0b013e3181b064b0",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1097/qai.0b013e3181b064b0",
+    "parsed_pmid": "19648823",
+    "parsed_title": "Sustained antiretroviral effect of raltegravir after 96 weeks of combination therapy in treatment‐naive patients with HIV‐1 infection",
+    "parsed_first_author": "markowitz",
+    "parsed_year": 2009,
+    "parsed_container": "J Acquir Immune Defic Syndr",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5075,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1097/qai.0b013e3181b064b0"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 33807,
+    "ordinal": 4,
+    "raw_string": "Steigbigel RT , Cooper DA , Teppler H , et al. Long‐term efficacy and safety of raltegravir combined with optimized background therapy in treatment‐experienced patients with drug‐resistant HIV infection: week 96 results of the BENCHMRK 1 and 2 phase III trials. Clin Infect Dis. 2010;50(4):605–612.20085491 10.1086/650002 PMC6076431",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1086/650002",
+    "parsed_pmid": "20085491",
+    "parsed_title": "Long‐term efficacy and safety of raltegravir combined with optimized background therapy in treatment‐experienced patients with drug‐resistant HIV infection: week 96 results of the BENCHMRK 1 and 2 phase III trials",
+    "parsed_first_author": "steigbigel",
+    "parsed_year": 2010,
+    "parsed_container": "Clin Infect Dis",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5076,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1086/650002"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 33808,
+    "ordinal": 5,
+    "raw_string": "Spreen W , Min S , Ford SL , et al. Pharmacokinetics, safety, and monotherapy antiviral activity of GSK1265744, an HIV integrase strand transfer inhibitor. HIV Clin Trials. 2013;14(5):192–203.24144896 10.1310/hct1405-192",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1310/hct1405-192",
+    "parsed_pmid": "24144896",
+    "parsed_title": "Pharmacokinetics, safety, and monotherapy antiviral activity of GSK1265744, an HIV integrase strand transfer inhibitor",
+    "parsed_first_author": "spreen",
+    "parsed_year": 2013,
+    "parsed_container": "HIV Clin Trials",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5077,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1310/hct1405-192"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 33809,
+    "ordinal": 6,
+    "raw_string": "Bowers GD , Culp A , Reese MJ , et al. Disposition and metabolism of cabotegravir: a comparison of biotransformation and excretion between different species and routes of administration in humans. Xenobiotica. 2016;46(2):147–162.26134155 10.3109/00498254.2015.1060372",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.3109/00498254.2015.1060372",
+    "parsed_pmid": "26134155",
+    "parsed_title": "Disposition and metabolism of cabotegravir: a comparison of biotransformation and excretion between different species and routes of administration in humans",
+    "parsed_first_author": "bowers",
+    "parsed_year": 2016,
+    "parsed_container": "Xenobiotica",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5078,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3109/00498254.2015.1060372"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 33810,
+    "ordinal": 7,
+    "raw_string": "Ford SL , Gould E , Chen S , et al. Lack of pharmacokinetic interaction between rilpivirine and integrase inhibitors dolutegravir and GSK1265744. Antimicrob Agents Chemother. 2013;57(11):5472–5477.23979733 10.1128/AAC.01235-13 PMC3811315",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1128/aac.01235-13",
+    "parsed_pmid": "23979733",
+    "parsed_title": "Lack of pharmacokinetic interaction between rilpivirine and integrase inhibitors dolutegravir and GSK1265744",
+    "parsed_first_author": "ford",
+    "parsed_year": 2013,
+    "parsed_container": "Antimicrob Agents Chemother",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5079,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1128/aac.01235-13"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 33811,
+    "ordinal": 8,
+    "raw_string": "Ford SL , Gould E , Chen S , et al. Effects of etravirine on the pharmacokinetics of the integrase inhibitor S/GSK1265744. Antimicrob Agents Chemother. 2013;57(1):277–280.23114768 10.1128/AAC.01685-12 PMC3535890",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1128/aac.01685-12",
+    "parsed_pmid": "23114768",
+    "parsed_title": "Effects of etravirine on the pharmacokinetics of the integrase inhibitor S/GSK1265744",
+    "parsed_first_author": "ford",
+    "parsed_year": 2013,
+    "parsed_container": "Antimicrob Agents Chemother",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5080,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1128/aac.01685-12"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 33812,
+    "ordinal": 9,
+    "raw_string": "Darpo B , Nebout T , Sager PT . Clinical evaluation of QT/QTc prolongation and proarrhythmic potential for nonantiarrhythmic drugs: the International Conference on Harmonization of Technical Requirements for Registration of Pharmaceuticals for Human Use E14 guideline. J Clin Pharmacol. 2006;46(5):498–507.16638733 10.1177/0091270006286436",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1177/0091270006286436",
+    "parsed_pmid": "16638733",
+    "parsed_title": "Clinical evaluation of QT/QTc prolongation and proarrhythmic potential for nonantiarrhythmic drugs: the International Conference on Harmonization of Technical Requirements for Registration of Pharmaceuticals for Human Use E14 guideline",
+    "parsed_first_author": "darpo",
+    "parsed_year": 2006,
+    "parsed_container": "J Clin Pharmacol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5081,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1177/0091270006286436"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 33813,
+    "ordinal": 10,
+    "raw_string": "Iwamoto M , Kost JT , Mistry GC , et al. Raltegravir thorough QT/QTc study: a single supratherapeutic dose of raltegravir does not prolong the QTcF interval. J Clin Pharmacol. 2008;48(6):726–733.18441333 10.1177/0091270008318007",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1177/0091270008318007",
+    "parsed_pmid": "18441333",
+    "parsed_title": "Raltegravir thorough QT/QTc study: a single supratherapeutic dose of raltegravir does not prolong the QTcF interval",
+    "parsed_first_author": "iwamoto",
+    "parsed_year": 2008,
+    "parsed_container": "J Clin Pharmacol",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5082,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1177/0091270008318007"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 33814,
+    "ordinal": 11,
+    "raw_string": "Chen S , Min SS , Peppercorn A , et al. Effect of a single supratherapeutic dose of dolutegravir on cardiac repolarization. Pharmacotherapy. 2012;32(4):333–339.22422361 10.1002/j.1875-9114.2012.01033.x",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1002/j.1875-9114.2012.01033.x",
+    "parsed_pmid": "22422361",
+    "parsed_title": "Effect of a single supratherapeutic dose of dolutegravir on cardiac repolarization",
+    "parsed_first_author": "chen",
+    "parsed_year": 2012,
+    "parsed_container": "Pharmacotherapy",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5083,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1002/j.1875-9114.2012.01033.x"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 33815,
+    "ordinal": 12,
+    "raw_string": "Lou Y , Gould E , Chen S , et al. Meta‐analysis of safety data from 8 clinical studies with GSK1265744, an HIV integrase inhibitor, dosed orally or as injection of long‐acting parenteral nanosuspension (LAP). Poster presented at: 53rd Interscience Conference of Antimicrobial Agents and Chemotherapy; September 10‐13, 2013; Denver, CO.",
+    "citation_tag": "mixed-citation",
+    "publication_type": "miscellaneous",
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "lou",
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 33816,
+    "ordinal": 13,
+    "raw_string": "Margolis DA , Brinson CC , Smith GH , et al. Cabotegravir plus rilpivirine, once a day, after induction with cabotegravir plus nucleoside reverse transcriptase inhibitors in antiretroviral‐naive adults with HIV‐1 infection (LATTE): a randomised, phase 2b, dose‐ranging trial. Lancet Infect Dis. 2015;15(10):1145–1155.26201299 10.1016/S1473-3099(15)00152-8",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1016/s1473-3099(15)00152-8",
+    "parsed_pmid": "26201299",
+    "parsed_title": "Cabotegravir plus rilpivirine, once a day, after induction with cabotegravir plus nucleoside reverse transcriptase inhibitors in antiretroviral‐naive adults with HIV‐1 infection (LATTE): a randomised, phase 2b, dose‐ranging trial",
+    "parsed_first_author": "margolis",
+    "parsed_year": 2015,
+    "parsed_container": "Lancet Infect Dis",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5084,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1016/s1473-3099(15)00152-8"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 33817,
+    "ordinal": 14,
+    "raw_string": "Yan LK , Zhang J , Ng MJ , Dang Q . Statistical characteristics of moxifloxacin‐induced QTc effect. J Biopharm Stat. 2010;20(3):497–507.20358432 10.1080/10543400903581945",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1080/10543400903581945",
+    "parsed_pmid": "20358432",
+    "parsed_title": "Statistical characteristics of moxifloxacin‐induced QTc effect",
+    "parsed_first_author": "yan",
+    "parsed_year": 2010,
+    "parsed_container": "J Biopharm Stat",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5085,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1080/10543400903581945"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 33818,
+    "ordinal": 15,
+    "raw_string": "Bloomfield DM , Kost JT , Ghosh K , et al. The effect of moxifloxacin on QTc and implications for the design of thorough QT studies. Clin Pharmacol Ther. 2008;84(4):475–480.19238652 10.1038/clpt.2008.33",
+    "citation_tag": "mixed-citation",
+    "publication_type": "journal",
+    "parsed_doi": "10.1038/clpt.2008.33",
+    "parsed_pmid": "19238652",
+    "parsed_title": "The effect of moxifloxacin on QTc and implications for the design of thorough QT studies",
+    "parsed_first_author": "bloomfield",
+    "parsed_year": 2008,
+    "parsed_container": "Clin Pharmacol Ther",
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 5086,
+    "resolution_evidence": {
+     "parser": null,
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1038/clpt.2008.33"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   }
+  ],
+  "stat_tests": [],
+  "means": [],
+  "trials": []
+ }
+}

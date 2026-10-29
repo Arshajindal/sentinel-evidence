@@ -1,0 +1,3057 @@
+{
+ "id": "PMC11425656",
+ "subject": "paper",
+ "categories": [
+  "c03_inconsistent",
+  "edge_unicode_author"
+ ],
+ "source": {
+  "corpus": "pmc-rct-2015-2024",
+  "paper_id": 264,
+  "frozen_on": "2026-10-27"
+ },
+ "notes": "8 F tests, 4 inconsistent, all with reported p smaller than computed. Unicode first authors (Polanía, Šimko, Pupíková) resolve by exact title.",
+ "expected": [
+  {
+   "check": "C01",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C02",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C03",
+   "status": "flagged",
+   "severity": "low",
+   "item": "stat 2",
+   "why": "F(2,36) = 5.12 gives p 0.011, reported .008. Recomputed with scipy over every statistic value that rounds to the printed one: the reported p is outside the range, and it doesn't cross alpha = 0.05, so low. Sentence read in the full text: the extraction is faithful."
+  },
+  {
+   "check": "C03",
+   "status": "flagged",
+   "severity": "low",
+   "item": "stat 5",
+   "why": "F(2,34) = 3.82 gives p 0.032, reported .025. Recomputed with scipy over every statistic value that rounds to the printed one: the reported p is outside the range, and it doesn't cross alpha = 0.05, so low. Sentence read in the full text: the extraction is faithful."
+  },
+  {
+   "check": "C03",
+   "status": "flagged",
+   "severity": "low",
+   "item": "stat 6",
+   "why": "F(2,34) = 6.59 gives p 0.0038, reported .002. Recomputed with scipy over every statistic value that rounds to the printed one: the reported p is outside the range, and it doesn't cross alpha = 0.05, so low. Sentence read in the full text: the extraction is faithful."
+  },
+  {
+   "check": "C03",
+   "status": "flagged",
+   "severity": "low",
+   "item": "stat 8",
+   "why": "F(4,34) = 2.86 gives p 0.038, reported .030. Recomputed with scipy over every statistic value that rounds to the printed one: the reported p is outside the range, and it doesn't cross alpha = 0.05, so low. Sentence read in the full text: the extraction is faithful."
+  },
+  {
+   "check": "C03",
+   "status": "clean",
+   "severity": "info"
+  },
+  {
+   "check": "C04",
+   "status": "not_applicable",
+   "severity": "info"
+  }
+ ],
+ "context": {
+  "paper_id": 264,
+  "publication_date": "2024-08-14",
+  "fulltext_status": "full",
+  "references": [
+   {
+    "reference_id": 10377,
+    "ordinal": 1,
+    "raw_string": "Jekel K, Damian M, Wattmo C, Hausner L, Bullock R, Connelly PJ, et al. , 2015. Mild cognitive impairment and deficits in instrumental activities of daily living: a systematic review. Alzheimers. Res. Ther 7 (1), 17. Mar 18.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "jekel",
+    "parsed_year": 2015,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10378,
+    "ordinal": 2,
+    "raw_string": "Hale JM, Schneider DC, Gampe J, Mehta NK, Myrskylä M, 2020. Trends in the risk of cognitive impairment in the United States, 1996–2014. Epidemiology. (Fairfax) 31 (5), 745–754. Sep.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Trends in the risk of cognitive impairment in the United States, 1996–2014",
+    "parsed_first_author": "hale",
+    "parsed_year": 2020,
+    "parsed_container": "Epidemiology",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4129,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10379,
+    "ordinal": 3,
+    "raw_string": "Rajan KB, Weuve J, Barnes LL, McAninch EA, Wilson RS, Evans DA, 2021. Population estimate of people with clinical Alzheimer’s disease and mild cognitive impairment in the United States (2020–2060). Alzheimers. Dement 17 (12), 1966–1975. Dec.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Population estimate of people with clinical Alzheimer’s disease and mild cognitive impairment in the United States (2020–2060)",
+    "parsed_first_author": "rajan",
+    "parsed_year": 2021,
+    "parsed_container": "Alzheimers. Dement",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4134,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10380,
+    "ordinal": 4,
+    "raw_string": "Castaneda AE, Tuulio-Henriksson A, Marttunen M, Suvisaari J, Lönnqvist J, 2008. A review on cognitive impairments in depressive and anxiety disorders with a focus on young adults. J. Affect. Disord 106 (1), 1–27. Feb 1.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "A review on cognitive impairments in depressive and anxiety disorders with a focus on young adults",
+    "parsed_first_author": "castaneda",
+    "parsed_year": 2008,
+    "parsed_container": "J. Affect. Disord",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4139,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10381,
+    "ordinal": 5,
+    "raw_string": "Kitchen H, Rofail D, Heron L, Sacco P, 2012. Cognitive Impairment Associated with Schizophrenia: a Review of the Humanistic Burden. Adv. Ther 29 (2), 148–162. Feb 1.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Cognitive Impairment Associated with Schizophrenia: a Review of the Humanistic Burden",
+    "parsed_first_author": "kitchen",
+    "parsed_year": 2012,
+    "parsed_container": "Adv. Ther",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4144,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10382,
+    "ordinal": 6,
+    "raw_string": "Kuo MF, Chen PS, Nitsche MA, 2017. The application of tDCS for the treatment of psychiatric diseases. Int. Rev. Psychiatry 29 (2), 146–167. Mar 4.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "The application of tDCS for the treatment of psychiatric diseases",
+    "parsed_first_author": "kuo",
+    "parsed_year": 2017,
+    "parsed_container": "Int. Rev. Psychiatry",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 2583,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10383,
+    "ordinal": 7,
+    "raw_string": "Kronberg G, Rahman A, Sharma M, Bikson M, Parra LC, 2020. Direct current stimulation boosts hebbian plasticity in vitro. Brain Stimulat. 13 (2), 287–301.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Direct current stimulation boosts hebbian plasticity in vitro",
+    "parsed_first_author": "kronberg",
+    "parsed_year": 2020,
+    "parsed_container": "Brain Stimulat",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4149,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10384,
+    "ordinal": 8,
+    "raw_string": "Barbey AK, Koenigs M, Grafman J, 2013. Dorsolateral prefrontal contributions to human working memory. Cortex 49 (5), 1195–1205. May 1.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Dorsolateral prefrontal contributions to human working memory",
+    "parsed_first_author": "barbey",
+    "parsed_year": 2013,
+    "parsed_container": "Cortex",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4154,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10385,
+    "ordinal": 9,
+    "raw_string": "Raz N, Briggs SD, Marks W, Acker JD, 1999. Age-related deficits in generation and manipulation of mental images: II. The role of dorsolateral prefrontal cortex. Psychol. Aging 14 (3), 436–444. Sep.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Age-related deficits in generation and manipulation of mental images: II",
+    "parsed_first_author": "raz",
+    "parsed_year": 1999,
+    "parsed_container": "The role of dorsolateral prefrontal cortex. Psychol. Aging",
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": [
+      {
+       "year": 1999,
+       "paper_id": 4159,
+       "rejected": "similarity 0.667 below 0.85",
+       "similarity": 0.6667,
+       "first_author": "raz"
+      },
+      {
+       "year": 1999,
+       "paper_id": 4164,
+       "rejected": "similarity 0.667 below 0.85",
+       "similarity": 0.6667,
+       "first_author": "raz"
+      }
+     ]
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10386,
+    "ordinal": 10,
+    "raw_string": "Alvarez JA, Emory E, 2006. Executive function and the frontal lobes: a meta-analytic review. Neuropsychol. Rev 16 (1), 17–42. Mar.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Executive function and the frontal lobes: a meta-analytic review",
+    "parsed_first_author": "alvarez",
+    "parsed_year": 2006,
+    "parsed_container": "Neuropsychol. Rev",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4165,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10387,
+    "ordinal": 11,
+    "raw_string": "Nee DE, Brown JW, Askren MK, Berman MG, Demiralp E, Krawitz A, et al. , 2013. A meta-analysis of executive components of working memory. Cereb. Cortex 23 (2), 264–282. Feb 1.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "nee",
+    "parsed_year": 2013,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": null,
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10388,
+    "ordinal": 12,
+    "raw_string": "Koechlin E, Summerfield C, 2007. An information theoretical approach to prefrontal executive function. Trends. Cogn. Sci 11 (6), 229–235. Jun 1.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "An information theoretical approach to prefrontal executive function",
+    "parsed_first_author": "koechlin",
+    "parsed_year": 2007,
+    "parsed_container": "Trends. Cogn. Sci",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4170,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10389,
+    "ordinal": 13,
+    "raw_string": "Rounis E, Stephan KE, Lee L, Siebner HR, Pesenti A, Friston KJ, et al. , 2006. Acute changes in frontoparietal activity after repetitive transcranial magnetic stimulation over the dorsolateral prefrontal cortex in a cued reaction time task. J. Neurosci 26 (38), 9629–9638. Sep 20.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "rounis",
+    "parsed_year": 2006,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10390,
+    "ordinal": 14,
+    "raw_string": "Nilsson J, Lebedev AV, Rydström A, Lövdén M, 2017. Direct-current stimulation does little to improve the outcome of working memory training in older adults. Psychol. Sci 28 (7), 907–920. Jul.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Direct-current stimulation does little to improve the outcome of working memory training in older adults",
+    "parsed_first_author": "nilsson",
+    "parsed_year": 2017,
+    "parsed_container": "Psychol. Sci",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4175,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10391,
+    "ordinal": 15,
+    "raw_string": "Mancuso LE, Ilieva IP, Hamilton RH, Farah MJ, 2016. Does transcranial direct current stimulation improve healthy working memory?: a meta-analytic review. J. Cogn. Neurosci 28 (8), 1063–1089. Aug 1.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Does transcranial direct current stimulation improve healthy working memory?: a meta-analytic review",
+    "parsed_first_author": "mancuso",
+    "parsed_year": 2016,
+    "parsed_container": "J. Cogn. Neurosci",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4180,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10392,
+    "ordinal": 16,
+    "raw_string": "Pergher V, Au J, Shalchy MA, Santarnecchi E, Seitz A, Jaeggi SM, et al. , 2022. The benefits of simultaneous tDCS and working memory training on transfer outcomes: a systematic review and meta-analysis. Brain Stimul. Basic Transl. Clin. Res. Neuromodulation 15 (6), 1541–1551. Nov 1.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "pergher",
+    "parsed_year": 2022,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10393,
+    "ordinal": 17,
+    "raw_string": "Hsu WY, Ku Y, Zanto TP, Gazzaley A, 2015. Effects of noninvasive brain stimulation on cognitive function in healthy aging and Alzheimer’s disease: a systematic review and meta-analysis. Neurobiol. Aging 36 (8), 2348–2359. Aug.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Effects of noninvasive brain stimulation on cognitive function in healthy aging and Alzheimer’s disease: a systematic review and meta-analysis",
+    "parsed_first_author": "hsu",
+    "parsed_year": 2015,
+    "parsed_container": "Neurobiol. Aging",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4185,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10394,
+    "ordinal": 18,
+    "raw_string": "Begemann MJ, Brand BA, Ćurčić-Blake B, Aleman A, Sommer IE, 2020. Efficacy of non-invasive brain stimulation on cognitive functioning in brain disorders: a meta-analysis. Psychol. Med 50 (15), 2465–2486. Nov.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Efficacy of non-invasive brain stimulation on cognitive functioning in brain disorders: a meta-analysis",
+    "parsed_first_author": "begemann",
+    "parsed_year": 2020,
+    "parsed_container": "Psychol. Med",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4190,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10395,
+    "ordinal": 19,
+    "raw_string": "Burton CZ, Garnett EO, Capellari E, Chang SE, Tso IF, Hampstead BM, et al. , 2023. Combined cognitive training and transcranial direct current stimulation in neuropsychiatric disorders: a systematic review and meta-analysis. Biol. Psychiatry Cogn. Neurosci. NeuroimAging 8 (2), 151–161. Feb.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "burton",
+    "parsed_year": 2023,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10396,
+    "ordinal": 20,
+    "raw_string": "Mervis JE, Capizzi RJ, Boroda E, Macdonald AW, 2017. Transcranial direct current stimulation over the dorsolateral prefrontal cortex in schizophrenia: a quantitative review of cognitive outcomes. Front. Hum. Neurosci 11 (February), 1–8.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Transcranial direct current stimulation over the dorsolateral prefrontal cortex in schizophrenia: a quantitative review of cognitive outcomes",
+    "parsed_first_author": "mervis",
+    "parsed_year": 2017,
+    "parsed_container": "Front. Hum. Neurosci",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4195,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10397,
+    "ordinal": 21,
+    "raw_string": "Camchong J, Roediger D, Fiecas M, Gilmore CS, Kushner M, Kummerfeld E, et al. , 2023. Frontal tDCS reduces alcohol relapse rates by increasing connections from left dorsolateral prefrontal cortex to addiction networks. Brain Stimulat. 16 (4), 1032–1040.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "camchong",
+    "parsed_year": 2023,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10398,
+    "ordinal": 22,
+    "raw_string": "Polanía R, Nitsche MA, Paulus W, 2011. Modulating functional connectivity patterns and topological functional organization of the human brain with transcranial direct current stimulation. Hum. Brain Mapp 32 (8), 1236–1249. Aug.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Modulating functional connectivity patterns and topological functional organization of the human brain with transcranial direct current stimulation",
+    "parsed_first_author": "polania",
+    "parsed_year": 2011,
+    "parsed_container": "Hum. Brain Mapp",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 2588,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10399,
+    "ordinal": 23,
+    "raw_string": "Keeser D, Meindl T, Bor J, Palm U, Pogarell O, Mulert C, et al. , 2011. Prefrontal transcranial direct current stimulation changes connectivity of resting-state networks during fMRI. J Neurosci. Off. J. Soc. Neurosci 31 (43), 15284–15293. Oct 26.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "keeser",
+    "parsed_year": 2011,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10400,
+    "ordinal": 24,
+    "raw_string": "Šimko P, Pupíková M, Gajdoš M, Rektorová I, 2021. Cognitive aftereffects of acute tDCS coupled with cognitive training: an fmri study in healthy seniors. Neural Plast. 2021, e6664479. Apr 13.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Cognitive aftereffects of acute tDCS coupled with cognitive training: an fmri study in healthy seniors",
+    "parsed_first_author": "simko",
+    "parsed_year": 2021,
+    "parsed_container": "Neural Plast",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4200,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10401,
+    "ordinal": 25,
+    "raw_string": "Nissim NR, O’Shea A, Indahlastari A, Kraft JN, von Mering O, Aksu S, et al. , 2019. Effects of transcranial direct current stimulation paired with cognitive training on functional connectivity of the working memory network in older adults. Front. Aging Neurosci Dec 16 [cited 2024 Apr 1];11. Available from https://www.frontiersin.org/articles/10.3389/fnagi.2019.00340.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.3389/fnagi.2019.00340",
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "nissim",
+    "parsed_year": 2019,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4204,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3389/fnagi.2019.00340"
+      ],
+      "crossref_doi": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10402,
+    "ordinal": 26,
+    "raw_string": "Bikson M, Rahman A, Datta A, 2012. Computational models of transcranial direct current stimulation. Clin. EEG. Neurosci 43 (3), 176–183. Jul.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Computational models of transcranial direct current stimulation",
+    "parsed_first_author": "bikson",
+    "parsed_year": 2012,
+    "parsed_container": "Clin. EEG. Neurosci",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4205,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10403,
+    "ordinal": 27,
+    "raw_string": "Opitz A, Paulus W, Will S, Antunes A, Thielscher A, 2015. Determinants of the electric field during transcranial direct current stimulation. Neuroimage 109, 140–150. Apr 1.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Determinants of the electric field during transcranial direct current stimulation",
+    "parsed_first_author": "opitz",
+    "parsed_year": 2015,
+    "parsed_container": "Neuroimage",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4210,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10404,
+    "ordinal": 28,
+    "raw_string": "Caulfield KA, Badran BW, DeVries WH, Summers PM, Kofmehl E, Li X, et al. , 2020. Transcranial electrical stimulation motor threshold can estimate individualized tDCS dosage from reverse-calculation electric-field modeling. Brain Stimulat. 13 (4), 961–969.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "caulfield",
+    "parsed_year": 2020,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10405,
+    "ordinal": 29,
+    "raw_string": "Laakso I, Mikkonen M, Koyama S, Hirata A, Tanaka S, 2019. Can electric fields explain inter-individual variability in transcranial direct current stimulation of the motor cortex? Sci. Rep 9 (1), 626. Jan 24.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Can electric fields explain inter-individual variability in transcranial direct current stimulation of the motor cortex? Sci",
+    "parsed_first_author": "laakso",
+    "parsed_year": 2019,
+    "parsed_container": "Rep",
+    "resolution_status": "resolved",
+    "resolution_method": "title_author_year",
+    "resolved_paper_id": 4215,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10406,
+    "ordinal": 30,
+    "raw_string": "Mosayebi-Samani M, Jamil A, Salvador R, Ruffini G, Haueisen J, Nitsche MA, 2021. The impact of individual electrical fields and anatomical factors on the neurophysiological outcomes of tDCS: a TMS-MEP and MRI study. Brain Stimul. Basic Transl. Clin. Res. Neuromodulation 14 (2), 316–326. Mar 1.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "The impact of individual electrical fields and anatomical factors on the neurophysiological outcomes of tDCS: a TMS-MEP and MRI study",
+    "parsed_first_author": "mosayebi samani",
+    "parsed_year": 2021,
+    "parsed_container": "Brain Stimul. Basic Transl. Clin. Res. Neuromodulation",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4220,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10407,
+    "ordinal": 31,
+    "raw_string": "Albizu A, Fang R, Indahlastari A, O’Shea A, Stolte SE, See KB, et al. , 2020. Machine learning and individual variability in electric field characteristics predict tDCS treatment response. Brain Stimul. Basic Transl. Clin. Res. Neuromodulation 13 (6), 1753–1764. Nov 1.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "albizu",
+    "parsed_year": 2020,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10408,
+    "ordinal": 32,
+    "raw_string": "August SM, Kiwanuka JN, McMahon RP, Gold JM, 2012. The MATRICS Consensus Cognitive Battery (MCCB): clinical and cognitive correlates. Schizophr. Res 134 (1), 76–82. Jan 1.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "The MATRICS Consensus Cognitive Battery (MCCB): clinical and cognitive correlates",
+    "parsed_first_author": "august",
+    "parsed_year": 2012,
+    "parsed_container": "Schizophr. Res",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4225,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10409,
+    "ordinal": 33,
+    "raw_string": "Sheehan DV, Lecrubier Y, Sheehan KH, Amorim P, Janavs J, Weiller E, et al. , 1998. The Mini-International Neuropsychiatric Interview (M.I.N.I.): the development and validation of a structured diagnostic psychiatric interview for DSM-IV and ICD-10. J. Clin. Psychiatry 59 (20), 22–33. Suppl.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "sheehan",
+    "parsed_year": 1998,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10410,
+    "ordinal": 34,
+    "raw_string": "Wechsler D, 2018. Wechsler Abbreviated Scale of Intelligence–Second Edition [cited 2024 Apr 1]. Available from. https://doi.apa.org/doi/10.1037/t15171-000.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.1037/t15171-000",
+    "parsed_pmid": null,
+    "parsed_title": "Wechsler Abbreviated Scale of Intelligence–Second Edition",
+    "parsed_first_author": "wechsler",
+    "parsed_year": 2018,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4230,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.1037/t15171-000"
+      ],
+      "crossref_doi": 1
+     },
+     "title_agreement": 1.0
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10411,
+    "ordinal": 35,
+    "raw_string": "Eriksen BA, Eriksen CW, 1974. Effects of noise letters upon the identification of a target letter in a nonsearch task. Percept. Psychophys 16 (1), 143–149.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Effects of noise letters upon the identification of a target letter in a nonsearch task",
+    "parsed_first_author": "eriksen",
+    "parsed_year": 1974,
+    "parsed_container": "Percept. Psychophys",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4231,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10412,
+    "ordinal": 36,
+    "raw_string": "Kirchner WK, 1958. Age differences in short-term retention of rapidly changing information. J. Exp. Psychol 55 (4), 352–358.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Age differences in short-term retention of rapidly changing information",
+    "parsed_first_author": "kirchner",
+    "parsed_year": 1958,
+    "parsed_container": "J. Exp. Psychol",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4236,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10413,
+    "ordinal": 37,
+    "raw_string": "Mackworth JF, 1959. Paced memorizing in a continuous task. J. Exp. Psychol 58 (3), 206–211.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Paced memorizing in a continuous task",
+    "parsed_first_author": "mackworth",
+    "parsed_year": 1959,
+    "parsed_container": "J. Exp. Psychol",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 2614,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10414,
+    "ordinal": 38,
+    "raw_string": "MacDonald AW, Goghari VM, Hicks BM, Flory JD, Carter CS, Manuck SB, 2005. A convergent-divergent approach to context processing, general intellectual functioning, and the genetic liability to schizophrenia. Neuropsychology. 19 (6), 814–821. Nov.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "A convergent-divergent approach to context processing, general intellectual functioning, and the genetic liability to schizophrenia",
+    "parsed_first_author": "macdonald",
+    "parsed_year": 2005,
+    "parsed_container": "Neuropsychology",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4241,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10415,
+    "ordinal": 39,
+    "raw_string": "Horvath JC, Carter O, Forte JD, 2014. Transcranial direct current stimulation: five important issues we aren’t discussing (but probably should be). Front. Syst. Neurosci 8, 2.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Transcranial direct current stimulation: five important issues we aren’t discussing (but probably should be)",
+    "parsed_first_author": "horvath",
+    "parsed_year": 2014,
+    "parsed_container": "Front. Syst. Neurosci",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4246,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10416,
+    "ordinal": 40,
+    "raw_string": "Puonti O, Van Leemput K, Saturnino GB, Siebner HR, Madsen KH, Thielscher A, 2020. Accurate and robust whole-head segmentation from magnetic resonance images for individualized head modeling. Neuroimage 219, 117044. Oct.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Accurate and robust whole-head segmentation from magnetic resonance images for individualized head modeling",
+    "parsed_first_author": "puonti",
+    "parsed_year": 2020,
+    "parsed_container": "Neuroimage",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4251,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10417,
+    "ordinal": 41,
+    "raw_string": "Schaefer A, Kong R, Gordon EM, Laumann TO, Zuo XN, Holmes AJ, et al. , 2018. Local-global parcellation of the human cerebral cortex from intrinsic functional connectivity MRI. Cereb Cortex N Y N 1991 28 (9), 3095–3114. Sep 1.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "schaefer",
+    "parsed_year": null,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10418,
+    "ordinal": 42,
+    "raw_string": "Tian Y, Margulies DS, Breakspear M, Zalesky A, 2020. Topographic organization of the human subcortex unveiled with functional connectivity gradients. Nat. Neurosci 23 (11), 1421–1432. Nov.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Topographic organization of the human subcortex unveiled with functional connectivity gradients",
+    "parsed_first_author": "tian",
+    "parsed_year": 2020,
+    "parsed_container": "Nat. Neurosci",
+    "resolution_status": "ambiguous",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "tied": [
+      4256,
+      4257
+     ],
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "ambiguous"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10419,
+    "ordinal": 43,
+    "raw_string": "Cohen J, 1988. Statistical Power Analysis For the Behavioral Sciences, 2nd ed. Routledge, New York, p. 567.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Statistical Power Analysis For the Behavioral Sciences, 2nd ed",
+    "parsed_first_author": "cohen",
+    "parsed_year": 1988,
+    "parsed_container": "Routledge",
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "no_candidate_matched",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "openalex",
+       "stage": "3-5",
+       "outcome": "no_match"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1,
+      "openalex_search": 1
+     },
+     "near_misses": [
+      {
+       "year": 1989,
+       "paper_id": 1584,
+       "rejected": "first author 'lachenbruch' vs 'cohen'",
+       "similarity": 1.0,
+       "first_author": "lachenbruch"
+      },
+      {
+       "year": 2013,
+       "paper_id": 1578,
+       "rejected": "year 2013 vs 1988",
+       "similarity": 0.8833,
+       "first_author": "cohen"
+      },
+      {
+       "year": 1989,
+       "paper_id": 1583,
+       "rejected": "first author 'muller' vs 'cohen'",
+       "similarity": 0.8833,
+       "first_author": "muller"
+      }
+     ]
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10420,
+    "ordinal": 44,
+    "raw_string": "Rubinov M, Sporns O, 2010. Complex network measures of brain connectivity: uses and interpretations. Neuroimage 52 (3), 1059–1069. Sep.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Complex network measures of brain connectivity: uses and interpretations",
+    "parsed_first_author": "rubinov",
+    "parsed_year": 2010,
+    "parsed_container": "Neuroimage",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4261,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10421,
+    "ordinal": 45,
+    "raw_string": "Bassett DS, Nelson BG, Mueller BA, Camchong J, Lim KO, 2012. Altered resting state complexity in schizophrenia. Neuroimage 59 (3), 2196–2207. Feb 1.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Altered resting state complexity in schizophrenia",
+    "parsed_first_author": "bassett",
+    "parsed_year": 2012,
+    "parsed_container": "Neuroimage",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4266,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10422,
+    "ordinal": 46,
+    "raw_string": "Yeo BT, Krienen FM, Sepulcre J, Sabuncu MR, Lashkari D, Hollinshead M, et al. , 2011. The organization of the human cerebral cortex estimated by intrinsic functional connectivity. J. Neurophysiol 106 (3), 1125–1165.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "yeo",
+    "parsed_year": 2011,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10423,
+    "ordinal": 47,
+    "raw_string": "van Buuren S, Groothuis-Oudshoorn K, 2011. Mice: multivariate imputation by chained equations in R. J. Stat. Softw 45 (3), 1–67. Dec 12.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Mice: multivariate imputation by chained equations in R",
+    "parsed_first_author": "van buuren",
+    "parsed_year": 2011,
+    "parsed_container": "J. Stat. Softw",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4272,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10424,
+    "ordinal": 48,
+    "raw_string": "Wang L, Liu X, Guise KG, Knight RT, Ghajar J, Fan J, 2010. Effective connectivity of the fronto-parietal network during attentional control. J. Cogn. Neurosci 22 (3), 543–553. Mar.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Effective connectivity of the fronto-parietal network during attentional control",
+    "parsed_first_author": "wang",
+    "parsed_year": 2010,
+    "parsed_container": "J. Cogn. Neurosci",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4276,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10425,
+    "ordinal": 49,
+    "raw_string": "Wager TD, Smith EE Neuroimaging studies of working memory: cogn Affect Behav Neurosci. 2003. Dec 1;3(4):255–74.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "wager",
+    "parsed_year": 2003,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10426,
+    "ordinal": 50,
+    "raw_string": "Wu J, He Y, Liang S, Liu Z, Huang J, Liu W, et al. , 2023. Effects of computerized cognitive training on structure–function coupling and topology of multiple brain networks in people with mild cognitive impairment: a randomized controlled trial. Alzheimers. Res. Ther 15 (1), 158. Sep 23.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "wu",
+    "parsed_year": 2023,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10427,
+    "ordinal": 51,
+    "raw_string": "Pupíková M, Šimko P, Gajdoš M, Rektorová I, 2021. Modulation of working memory and resting-state fMRI by tDCS of the right frontoparietal network. Neural Plast. 2021, 5594305.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Modulation of working memory and resting-state fMRI by tDCS of the right frontoparietal network",
+    "parsed_first_author": "pupikova",
+    "parsed_year": 2021,
+    "parsed_container": "Neural Plast",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4281,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10428,
+    "ordinal": 52,
+    "raw_string": "Bassett DS, Yang M, Wymbs NF, Grafton ST, 2015. Learning-induced autonomy of sensorimotor systems. Nat. Neurosci 18 (5), 744–751. May.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Learning-induced autonomy of sensorimotor systems",
+    "parsed_first_author": "bassett",
+    "parsed_year": 2015,
+    "parsed_container": "Nat. Neurosci",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4286,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10429,
+    "ordinal": 53,
+    "raw_string": "Wischnewski M, Berger TA, Opitz A, 2024. Meta-modeling the effects of anodal left prefrontal transcranial direct current stimulation on working memory performance. Imaging Neurosci 2, 1–14. Jan 25.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Meta-modeling the effects of anodal left prefrontal transcranial direct current stimulation on working memory performance",
+    "parsed_first_author": "wischnewski",
+    "parsed_year": 2024,
+    "parsed_container": "Imaging Neurosci",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4291,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10430,
+    "ordinal": 54,
+    "raw_string": "Antonenko D, Fromm AE, Thams F, Kuzmina A, Backhaus M, Knochenhauer E, et al. , 2024. Cognitive training and brain stimulation in patients with cognitive impairment: a randomized controlled trial. Alzheimers. Res. Ther 16 (1), 6. Jan 11.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "antonenko",
+    "parsed_year": 2024,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10431,
+    "ordinal": 55,
+    "raw_string": "Jones KT, Peterson DJ, Blacker KJ, Berryhill ME, 2017. Frontoparietal neurostimulation modulates working memory training benefits and oscillatory synchronization. Brain Res. 1667, 28–40. Jul 15.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Frontoparietal neurostimulation modulates working memory training benefits and oscillatory synchronization",
+    "parsed_first_author": "jones",
+    "parsed_year": 2017,
+    "parsed_container": "Brain Res",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4296,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10432,
+    "ordinal": 56,
+    "raw_string": "Li R, Zhu X, Yin S, Niu Y, Zheng Z, Huang X, et al. , 2014. Multimodal intervention in older adults improves resting-state functional connectivity between the medial prefrontal cortex and medial temporal lobe. Front. Aging Neurosci Mar 10 [cited 2024 Apr 1];6. Available from https://www.frontiersin.org/articles/10.3389/fnagi.2014.00039.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.3389/fnagi.2014.00039",
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "li",
+    "parsed_year": 2014,
+    "parsed_container": null,
+    "resolution_status": "resolved",
+    "resolution_method": "doi",
+    "resolved_paper_id": 4301,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "matched"
+      }
+     ],
+     "lookups": {
+      "found": [
+       "doi:10.3389/fnagi.2014.00039"
+      ],
+      "crossref_doi": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10433,
+    "ordinal": 57,
+    "raw_string": "Heinzel S, Lorenz RC, Pelz P, Heinz A, Walter H, Kathmann N, et al. , 2016. Neural correlates of training and transfer effects in working memory in older adults. Neuroimage 134, 236–249. Jul 1.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "heinzel",
+    "parsed_year": 2016,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10434,
+    "ordinal": 58,
+    "raw_string": "Cohen JR, Gallen CL, Jacobs EG, Lee TG, D’Esposito M, 2014. Quantifying the reconfiguration of intrinsic networks during working memory. PLoS. One 9 (9), e106636.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Quantifying the reconfiguration of intrinsic networks during working memory",
+    "parsed_first_author": "cohen",
+    "parsed_year": 2014,
+    "parsed_container": "PLoS. One",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4302,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10435,
+    "ordinal": 59,
+    "raw_string": "Mohr H, Wolfensteller U, Betzel RF, Mišić B, Sporns O, Richiardi J, et al. , 2016. Integration and segregation of large-scale brain networks during short-term task automatization. Nat. Commun 7, 13217. Nov 3.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "mohr",
+    "parsed_year": 2016,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10436,
+    "ordinal": 60,
+    "raw_string": "Barban F, Mancini M, Cercignani M, Adriano F, Perri R, Annicchiarico R, et al. , 2017. A pilot study on brain plasticity of functional connectivity modulated by cognitive training in mild alzheimer’s disease and mild cognitive impairment. Brain Sci. 7 (5), 50. Apr 29.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "barban",
+    "parsed_year": 2017,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10437,
+    "ordinal": 61,
+    "raw_string": "Kim S, Park E, Cha H, Jung JC, Jung TD, Chang Y, 2020. Effects of cognitive training in mild cognitive impairmentmeasured by resting state functional imaging. Behav. Sci. Basel Switz 10 (11), 175. Nov 17.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Effects of cognitive training in mild cognitive impairmentmeasured by resting state functional imaging",
+    "parsed_first_author": "kim",
+    "parsed_year": 2020,
+    "parsed_container": "Behav. Sci. Basel Switz",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4307,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10438,
+    "ordinal": 62,
+    "raw_string": "Hardcastle C, Hausman HK, Kraft JN, Albizu A, O’Shea A, Boutzoukas EM, et al. , 2022. Proximal improvement and higher-order resting state network change after multidomain cognitive training intervention in healthy older adults. Geroscience 44 (2), 1011–1027. Apr.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": null,
+    "parsed_first_author": "hardcastle",
+    "parsed_year": 2022,
+    "parsed_container": null,
+    "resolution_status": "unresolved",
+    "resolution_method": null,
+    "resolved_paper_id": null,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "reason": "nothing_to_match_on",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "stage": "3-5",
+       "outcome": "no_title"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10439,
+    "ordinal": 63,
+    "raw_string": "Traut HJ, Guild RM, Munakata Y, 2021. Why does cognitive training yield inconsistent benefits? A meta-analysis of individual differences in baseline cognitive abilities and training outcomes. Front. Psychol May 26 [cited 2024 Apr 1];12. Available from https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2021.662139/full.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": "10.3389/fpsyg.2021.662139/full",
+    "parsed_pmid": null,
+    "parsed_title": "Why does cognitive training yield inconsistent benefits? A meta-analysis of individual differences in baseline cognitive abilities and training outcomes",
+    "parsed_first_author": "traut",
+    "parsed_year": 2021,
+    "parsed_container": "Front. Psychol May",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4312,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "doi_not_found",
+       "doi_org_registered": false
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "doi_handle": 1,
+      "crossref_doi": 1,
+      "openalex_doi": 1,
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10440,
+    "ordinal": 64,
+    "raw_string": "Peng P, Miller AC, 2016. Does attention training work? A selective meta-analysis to explore the effects of attention training and moderators. Learn. Individ. Differ 45, 77–87. Jan.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Does attention training work? A selective meta-analysis to explore the effects of attention training and moderators",
+    "parsed_first_author": "peng",
+    "parsed_year": 2016,
+    "parsed_container": "Learn. Individ. Differ",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4317,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10441,
+    "ordinal": 65,
+    "raw_string": "Kelly ME, Loughrey D, Lawlor BA, Robertson IH, Walsh C, Brennan S, 2014. The impact of cognitive training and mental stimulation on cognitive and everyday functioning of healthy older adults: a systematic review and meta-analysis. Ageing Res. Rev 15, 28–43. May.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "The impact of cognitive training and mental stimulation on cognitive and everyday functioning of healthy older adults: a systematic review and meta-analysis",
+    "parsed_first_author": "kelly",
+    "parsed_year": 2014,
+    "parsed_container": "Ageing Res. Rev",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4322,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10442,
+    "ordinal": 66,
+    "raw_string": "Roseberry JE, Kristian Hill S, 2014. Limited practice effects and evaluation of expectation for change: MATRICS Consensus Cognitive Battery. Schizophr. Res 159 (1), 188–192. Oct 1.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Limited practice effects and evaluation of expectation for change: MATRICS Consensus Cognitive Battery",
+    "parsed_first_author": "roseberry",
+    "parsed_year": 2014,
+    "parsed_container": "Schizophr. Res",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4327,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10443,
+    "ordinal": 67,
+    "raw_string": "Horvath JC, Forte JD, Carter O, 2015. Quantitative review finds no evidence of cognitive effects in healthy populations from single-session transcranial direct current stimulation (tDCS). Brain Stimulat. 8 (3), 535–550.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Quantitative review finds no evidence of cognitive effects in healthy populations from single-session transcranial direct current stimulation (tDCS)",
+    "parsed_first_author": "horvath",
+    "parsed_year": 2015,
+    "parsed_container": "Brain Stimulat",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4331,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10444,
+    "ordinal": 68,
+    "raw_string": "Brunoni AR, Vanderhasselt MA, 2014. Working memory improvement with non-invasive brain stimulation of the dorsolateral prefrontal cortex: a systematic review and meta-analysis. Brain Cogn. 86, 1–9. Apr.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Working memory improvement with non-invasive brain stimulation of the dorsolateral prefrontal cortex: a systematic review and meta-analysis",
+    "parsed_first_author": "brunoni",
+    "parsed_year": 2014,
+    "parsed_container": "Brain Cogn",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4336,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10445,
+    "ordinal": 69,
+    "raw_string": "Imburgio MJ, Orr JM, 2018. Effects of prefrontal tDCS on executive function: methodological considerations revealed by meta-analysis. Neuropsychologia 117, 156–166. Aug.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "Effects of prefrontal tDCS on executive function: methodological considerations revealed by meta-analysis",
+    "parsed_first_author": "imburgio",
+    "parsed_year": 2018,
+    "parsed_container": "Neuropsychologia",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4339,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10446,
+    "ordinal": 70,
+    "raw_string": "Dedoncker J, Brunoni AR, Baeken C, Vanderhasselt MA, 2016. A systematic review and meta-analysis of the effects of transcranial direct current stimulation (tDCS) over the dorsolateral prefrontal cortex in healthy and neuropsychiatric samples: influence of stimulation parameters. Brain Stimulat 9 (4), 501–517.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "A systematic review and meta-analysis of the effects of transcranial direct current stimulation (tDCS) over the dorsolateral prefrontal cortex in healthy and neuropsychiatric samples: influence of stimulation parameters",
+    "parsed_first_author": "dedoncker",
+    "parsed_year": 2016,
+    "parsed_container": "Brain Stimulat",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4338,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {}
+    },
+    "notices": []
+   },
+   {
+    "reference_id": 10447,
+    "ordinal": 71,
+    "raw_string": "de Boer NS, Schluter RS, Daams JG, van der Werf YD, Goudriaan AE, van Holst RJ, 2021. The effect of non-invasive brain stimulation on executive functioning in healthy controls: a systematic review and meta-analysis. Neurosci. Biobehav. Rev 125, 122–147. Jun.",
+    "citation_tag": "mixed-citation",
+    "publication_type": null,
+    "parsed_doi": null,
+    "parsed_pmid": null,
+    "parsed_title": "The effect of non-invasive brain stimulation on executive functioning in healthy controls: a systematic review and meta-analysis",
+    "parsed_first_author": "de boer",
+    "parsed_year": 2021,
+    "parsed_container": "Neurosci. Biobehav. Rev",
+    "resolution_status": "resolved",
+    "resolution_method": "title_exact",
+    "resolved_paper_id": 4344,
+    "resolution_evidence": {
+     "parser": "1.1.0",
+     "stages": [
+      {
+       "stage": 1,
+       "outcome": "no_doi"
+      },
+      {
+       "stage": 2,
+       "outcome": "no_pmid"
+      },
+      {
+       "pass": "local",
+       "stage": "3-5",
+       "outcome": "no_match"
+      },
+      {
+       "pass": "crossref",
+       "stage": "3-5",
+       "outcome": "resolved"
+      }
+     ],
+     "lookups": {
+      "crossref_search": 1
+     }
+    },
+    "notices": []
+   }
+  ],
+  "stat_tests": [
+   {
+    "stat_test_id": 396,
+    "location": "Results",
+    "raw_string": "F(2,36) = 29.6, p < 0.001"
+   },
+   {
+    "stat_test_id": 397,
+    "location": "Results",
+    "raw_string": "F(2,36) = 5.12, p = .008"
+   },
+   {
+    "stat_test_id": 398,
+    "location": "Results",
+    "raw_string": "F(2,36) = 13.6, p < .001"
+   },
+   {
+    "stat_test_id": 399,
+    "location": "Results",
+    "raw_string": "F(2,36) = 0.538, p = .589"
+   },
+   {
+    "stat_test_id": 400,
+    "location": "Results",
+    "raw_string": "F(2,34) = 3.82, p = .025"
+   },
+   {
+    "stat_test_id": 401,
+    "location": "Results",
+    "raw_string": "F(2,34) = 6.59, p = .002"
+   },
+   {
+    "stat_test_id": 402,
+    "location": "Results",
+    "raw_string": "F(2,34) = 10.83, p < .001"
+   },
+   {
+    "stat_test_id": 403,
+    "location": "Results",
+    "raw_string": "F(4,34) = 2.86, p = .030"
+   }
+  ],
+  "means": [],
+  "trials": []
+ }
+}
