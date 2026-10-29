@@ -11,12 +11,13 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 
 import httpx
-from sqlalchemy import Engine, func, select, text
+from sqlalchemy import Engine, func, or_, select, text
 
 from sentinel.ingest.crossref import CrossrefClient
 from sentinel.ingest.doi_handle import DoiHandleClient
 from sentinel.ingest.openalex import OpenAlexClient
 from sentinel.models import paper
+from sentinel.resolve.normalize import MAIN_TITLE_MIN_WORDS
 
 # Near-misses down to this similarity are recorded as evidence. It never
 # decides a match; the matching thresholds come from config.
@@ -30,6 +31,7 @@ class Candidate:
     year: int | None
     first_author: str | None
     similarity: float
+    title: str | None = None  # as stored, with its punctuation: a subtitle starts at the colon
 
 
 @dataclass
@@ -129,15 +131,33 @@ class CandidateSource:
             log.rejected.append(f"{source}:{exc.response.status_code}")
 
     def local_title_candidates(self, title_norm: str, exclude_paper_id: int,
-                               limit: int = 10) -> list[Candidate]:
+                               limit: int = 10, main_norm: str = "") -> list[Candidate]:
+        """Works with a similar title, plus works whose title is this one with a
+        subtitle added (`title_norm` + more) or removed (`main_norm`, the
+        reference's title before its colon). A title and its extension can score
+        below the trigram floor, so those are looked up directly."""
         with self.engine.begin() as conn:
             conn.execute(text("SELECT set_config('pg_trgm.similarity_threshold', :t, true)"),
                          {"t": str(NEAR_MISS_FLOOR)})
             sim = func.similarity(paper.c.title_norm, title_norm).label("sim")
+            columns = (paper.c.id, paper.c.title_norm, paper.c.year, paper.c.first_author, sim,
+                       paper.c.title)
             rows = conn.execute(
-                select(paper.c.id, paper.c.title_norm, paper.c.year, paper.c.first_author, sim)
+                select(*columns)
                 .where(paper.c.title_norm.op("%")(title_norm), paper.c.id != exclude_paper_id)
                 .order_by(sim.desc(), paper.c.id)
                 .limit(limit)
             ).all()
-        return [Candidate(r.id, r.title_norm, r.year, r.first_author, float(r.sim)) for r in rows]
+            if len(title_norm.split()) >= MAIN_TITLE_MIN_WORDS:
+                extended = [paper.c.title_norm.startswith(title_norm + " ", autoescape=True)]
+                if main_norm:
+                    extended.append(paper.c.title_norm == main_norm)
+                rows += conn.execute(
+                    select(*columns)
+                    .where(or_(*extended), paper.c.id != exclude_paper_id)
+                    .order_by(paper.c.id)
+                    .limit(limit)
+                ).all()
+        unique = {r.id: r for r in rows}
+        return [Candidate(r.id, r.title_norm, r.year, r.first_author, float(r.sim), r.title)
+                for r in sorted(unique.values(), key=lambda r: (-r.sim, r.id))]

@@ -57,6 +57,18 @@ def normalize_title(value: str | None) -> str:
     return " ".join(_NON_WORD_RE.sub(" ", text).split())
 
 
+MAIN_TITLE_MIN_WORDS = 2
+
+
+def main_title(value: str | None) -> str:
+    """The normalised title before its subtitle (the first colon), or "" if it
+    has none or what's left is under two words."""
+    if not value or ":" not in value:
+        return ""
+    main = normalize_title(html.unescape(value).split(":", 1)[0])
+    return main if len(main.split()) >= MAIN_TITLE_MIN_WORDS else ""
+
+
 def normalize_surname(value: str | None) -> str | None:
     """Folded surname, for matching first authors. Blank is None."""
     if not value or not value.strip():

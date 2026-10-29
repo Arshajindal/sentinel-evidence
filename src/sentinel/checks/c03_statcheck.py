@@ -20,8 +20,6 @@ from collections import Counter
 from dataclasses import dataclass
 from typing import Any
 
-from scipy import stats
-
 from sentinel.checks.base import Check
 from sentinel.checks.context import PaperContext
 from sentinel.parse.statistics import ReportedTest, find_statistics
@@ -42,6 +40,10 @@ class Assessment:
 
 def p_value(test: ReportedTest, statistic: float) -> float:
     """The test's p-value at `statistic` (two-tailed for t, r, z)."""
+    # Imported here: scipy takes seconds to load, and every CLI command imports
+    # the check registry (a report card must stay under five seconds, §9.10).
+    from scipy import stats
+
     x = abs(statistic)
     if test.test_type == "t":
         return float(2 * stats.t.sf(x, test.df1))

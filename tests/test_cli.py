@@ -71,7 +71,7 @@ def test_check_with_empty_corpus_fails_loudly(env, monkeypatch):
     def empty(*args, **kwargs):
         raise ValueError("corpus 'dev-sample' has no harvested papers")
 
-    monkeypatch.setattr(cli, "run_checks", empty)
+    monkeypatch.setattr("sentinel.checks.runner.run_checks", empty)
     monkeypatch.setattr(cli, "_corpus_labels", lambda: ["pmc-rct-2015-2024"])
     result = runner.invoke(cli.app, ["check", "--checks", "C01"])
     assert result.exit_code == 2

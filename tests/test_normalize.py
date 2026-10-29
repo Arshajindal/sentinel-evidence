@@ -4,6 +4,7 @@ import pytest
 
 from sentinel.resolve.normalize import (
     first_author_surname,
+    main_title,
     normalize_doi,
     normalize_pmid,
     normalize_surname,
@@ -28,6 +29,23 @@ from sentinel.resolve.normalize import (
 )
 def test_normalize_title(value, expected):
     assert normalize_title(value) == expected
+
+
+@pytest.mark.parametrize(
+    ("value", "expected"),
+    [
+        ("Preventing abuse during pregnancy: an assessment and intervention protocol",
+         "preventing abuse during pregnancy"),
+        ("A test in context: lipoprotein(a): diagnosis, prognosis", "a test in context"),
+        ("Migraine therapy: a review", "migraine therapy"),
+        ("Diet and cancer", ""),            # no subtitle
+        ("Melatonin: a review", ""),        # one word is too little to match on
+        ("Kids &amp; sport: a trial", "kids sport"),
+        (None, ""),
+    ],
+)
+def test_main_title(value, expected):
+    assert main_title(value) == expected
 
 
 @pytest.mark.parametrize(
