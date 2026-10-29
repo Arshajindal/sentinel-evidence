@@ -29,8 +29,9 @@ def _ref(**kw) -> RefFields:
     return RefFields(**{**base, **kw})
 
 
-def _cand(paper_id, sim=1.0, title_norm=NORM, year=2019, first_author="lok") -> Candidate:
-    return Candidate(paper_id, title_norm, year, first_author, sim)
+def _cand(paper_id, sim=1.0, title_norm=NORM, year=2019, first_author="lok",
+          title=None) -> Candidate:
+    return Candidate(paper_id, title_norm, year, first_author, sim, title)
 
 
 # --- pure matching ----------------------------------------------------------------
@@ -55,6 +56,40 @@ def test_stage3_rejects_a_contradicting_year():
 
 def test_stage3_rejects_a_contradicting_author():
     assert match_title(_ref(), [_cand(10, first_author="smith")], TH) is None
+
+
+FULL = TITLE + ": a randomised crossover study"
+
+
+def test_stage3b_reference_gives_a_subtitle_the_record_lacks():
+    r = match_title(_ref(title=FULL), [_cand(10, sim=0.5)], TH)
+    assert (r.status, r.method, r.score, r.paper_id) == ("resolved", "title_main", 0.85, 10)
+
+
+def test_stage3b_reference_gives_only_the_main_title():
+    stored = _cand(10, sim=0.5, title_norm=normalize_title(FULL), title=FULL)
+    r = match_title(_ref(), [stored], TH)
+    assert (r.status, r.method, r.paper_id) == ("resolved", "title_main", 10)
+
+
+@pytest.mark.parametrize("change", [{"first_author": "smith"}, {"first_author": None},
+                                    {"year": 2017}, {"year": None}])
+def test_stage3b_needs_author_and_year_to_agree(change):
+    # A subtitle can be all that separates two papers of a series.
+    r = match_title(_ref(title=FULL), [_cand(10, sim=0.5, **change)], TH)
+    assert r is None
+
+
+def test_stage3b_two_works_is_ambiguous():
+    r = match_title(_ref(title=FULL), [_cand(10, sim=0.5), _cand(11, sim=0.5)], TH)
+    assert (r.status, r.method, r.evidence["tied"]) == ("ambiguous", "title_main", [10, 11])
+
+
+def test_stage3b_needs_the_colon():
+    # "...alertness in shift workers" is a different, longer title, not a subtitle.
+    longer = TITLE + " in shift workers"
+    stored = _cand(10, sim=0.5, title_norm=normalize_title(longer), title=longer)
+    assert match_title(_ref(), [stored], TH) is None
 
 
 def test_stage4_similar_title_author_and_year():
@@ -184,7 +219,7 @@ class FakeSource:
         for c in self.openalex_adds:
             self.stored[c.paper_id] = c
 
-    def local_title_candidates(self, title_norm, exclude_paper_id, limit=10):
+    def local_title_candidates(self, title_norm, exclude_paper_id, limit=10, main_norm=""):
         return sorted((c for c in self.stored.values() if c.paper_id != exclude_paper_id),
                       key=lambda c: -c.similarity)[:limit]
 

@@ -61,7 +61,7 @@ class CrossrefClient(LookupClient):
             for a in raw.get("author") or []
         ]
         first = next((a for a in authors if a.get("last_name")), None)
-        title = _first(raw.get("title"))
+        title = full_title(raw)
         return PaperRecord(
             doi=normalize_doi(raw.get("DOI")),
             title=title or "",
@@ -116,6 +116,15 @@ class CrossrefClient(LookupClient):
                     continue
                 stored.append(self.upsert(conn, record))
         return stored
+
+
+def full_title(raw: dict) -> str | None:
+    """Title and subtitle as one, the form references cite. Crossref keeps the
+    subtitle in its own field, and a title without it can miss the reference."""
+    title, subtitle = _first(raw.get("title")), _first(raw.get("subtitle"))
+    if title and subtitle and normalize_title(subtitle) not in normalize_title(title):
+        return f"{title.rstrip(' .:')}: {subtitle}"
+    return title
 
 
 def _first(values: list[Any] | None) -> Any:

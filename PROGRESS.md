@@ -33,7 +33,7 @@ Low friction or it rots. The rules:
 
 **Phase:** 1 of 5 — data foundation and deterministic checks
 **Plan:** `docs/sentinel-project.md` §15 session IDs. Old brief and HTML spec are in `docs/archive/`.
-**Last worked:** 2026-10-27 — S1.14 (fixture set, `stats`, `export`)
+**Last worked:** 2026-10-28 — S1.15 (full corpus run, README). Phase 1 is complete once the human has checked §9.10 and committed.
 
 **Sessions:**
 
@@ -53,18 +53,23 @@ Low friction or it rots. The rules:
 | S1.12 Statistic extraction + C03 | done | `parse/statistics.py`, `ingest/fulltext_stats.py` (`sentinel extract stats`), `checks/c03_statcheck.py` (ADR-037). All five §9.7 patterns parse; the one-tailed rule is tested; 22 real corpus statistics in the tests. Corpus: 332 tests in 32 papers, 16 low flags in 7 papers, none gross. |
 | S1.13 C04 | done | `checks/c04_grim.py` (ADR-038): gate conditions each tested in both directions, arithmetic verified against brute force. No mean extraction in Phase 1, so the corpus is all `not_applicable`, as ADR-021 expected. |
 | S1.14 Fixture set + `stats` + `export` | done | 46 real fixtures (35 papers, 11 trials) in `tests/fixtures/set/` with hand-checked expected findings; all five checks match them exactly, with zero unexpected findings and zero flags on the 8 clean papers (ADR-040). Building the set found 3 C01 false positives and a C02 wording bug, all fixed (C01 1.0.1, C02 1.0.1, HTML entities decoded in titles). `stage_run` (migration `b41d7c2e9a10`) times ingest, resolve and extract; `sentinel stats --run N` and `sentinel export --run N --format csv\|json` (ADR-039). Run 17 over the 34 corpus fixture papers demonstrates both. |
-| S1.15 | not started | |
+| S1.15 Full corpus run + README | done | All 35,670 pending references resolved (runs 11–14, $1.71 of OpenAlex), and the 133 from before the glued-text fix retried (none changed). Live kill-and-resume of Retraction Watch: resumed at row 5,000 with no duplicates. Report card 4.62–4.75 s after lazy imports. Sampling corpus flags found Crossref subtitles missing (ADR-041): C01 flags went from 347 to 272. Check run 19 and `stats` give every flag rate and cascade ratio (metrics ledger), and the README has setup, each check's limits and the results. |
 
-**What works:** corpus selection and harvest; DOI lookups; parsing and resolution; statistic extraction; all five checks via `sentinel check` (C01–C04 over papers, C05 over trials); `sentinel report` for trials and papers; `sentinel stats` and `sentinel export`; stage timing. 672 tests, all passing, including the database tests against `sentinel_test` and the 46-item fixture set.
+**What works:** the whole Phase 1 pipeline over the 1,000-paper corpus: ingest, resolution (89.4% of all references, 94.4% of the structured sample), statistic extraction, all five checks, `report`, `stats`, `export` and stage timing. 692 tests, all passing, including the database tests and the 46-item fixture set.
 
-**What's broken:** nothing known. PMC6561645's full text returns a persistent HTTP 500 upstream, so it's stored without references (a re-run retries it). 133 corpus references left unresolved or ambiguous on 2026-10-25, before the glued-text fix, have never been retried; S1.15 should retry them.
+**What's broken:**
+- C01's corpus flags are mostly works that exist: 8 of 20 sampled are correct (README, C01 limits). The rate is published as an upper bound.
+- A dropped connection stops a run, because only 429 and 5xx responses are retried (Q9).
+- A hard-killed stage leaves its `stage_run` row `running` permanently (run 9).
+- `stats` counts items only for runs that finished.
+- PMC6561645's full text still returns HTTP 500 upstream.
 
 **Next three things:**
-1. S1.15: Full corpus run: resolve the ~35,700 pending references, retry the 133 from before the glued-text fix, then `sentinel check` and `sentinel stats` on the whole corpus
-2. S1.15: README covering setup, each check and its known limits; then check every item of §9.10. **This ends Phase 1.**
-3. Change the local database password from the `.env.example` placeholder (and update both URLs in `.env`)
+1. The human checks §9.10 and commits S1.15. **This ends Phase 1.**
+2. Decide Q9 (retry transport errors) and change the local database password from the `.env.example` placeholder (both URLs in `.env`).
+3. S2.1: pgvector migration and the Phase 2 tables. Then, with Phase 2's evaluation set, C01 recall work: a title-plus-author Crossref search for unresolved references, better book and instrument cues, and translated titles.
 
-**Then:** Phase 2 after S1.15. Open from S1.9/S1.10: a DOI pointing at a differently titled paper (title agreement is recorded) has no check yet; decide whether it belongs in C01 or a new check. Target: `sentinel report <nct-id>` prints a real overdue-results finding.
+**Then:** Phase 2. Still open from S1.9/S1.10: a DOI pointing at a differently titled paper (title agreement is recorded) has no check yet. Decide whether it belongs in C01 or in a new check.
 
 **Blocked on:** nothing.
 
@@ -645,6 +650,25 @@ Building the set found **3 C01 false positives and 1 wording bug**. All are fixe
 
 ---
 
+### ADR-041 — Titles keep their subtitles, and stage 3b matches across one
+**Status:** active
+
+Hand-checking C01's full-corpus flags (run 18) showed that Crossref keeps a subtitle in its own `subtitle` field, and `CrossrefClient.normalise` stored only `title`. A reference citing "Preventing abuse during pregnancy: an assessment and intervention protocol" was compared with "Preventing Abuse During Pregnancy", scored under every threshold, and was flagged as having no matching record, though the work was stored. 64 of 347 flags had this cause.
+
+Decision:
+- `paper.title` from Crossref is `title: subtitle`, the form references cite. The 2,689 stored Crossref rows with a subtitle were rebuilt from their stored `raw`, each validated through `PaperRecord`. No refetch was needed.
+- Cascade **stage 3b** (method `title_main`, confidence 0.85): one title equals the other before its first colon (`main_title`, at least two words). The first author and year must *agree*, not just not contradict, because a subtitle can be all that separates two papers in a series. Two such candidates give `ambiguous`.
+- `local_title_candidates` also fetches stored titles that extend the reference's title, and titles equal to its main part. A title and its extension can score under the trigram floor, so trigram search alone wouldn't return them.
+- Only the references the fix could change were re-resolved: 223 of the 4,309 unresolved or ambiguous, each matched on stored works, with no searches. 217 resolved and 6 became ambiguous. All 41 `title_main` matches were read: 40 are the cited work, and one is Crossref's record for that article's graphical-abstract figure.
+
+C01 flags fell from 347 to 272, and flagged papers from 224 to 195. C01's own logic is unchanged, so `check_ver` stays 1.0.1.
+
+**Rejected:**
+- Splitting at a full stop too. It explains only 4 of the remaining 272 flags, and full stops end title sentences far more often than they start subtitles.
+- A second Crossref search (title plus author) for references still unresolved. It would fix the largest remaining cause, but it changes how candidates are fetched; deferred to Phase 2 (your choice), where an evaluation set can measure it.
+
+---
+
 ### ADR-0NN — template
 **Status:** active
 
@@ -713,7 +737,20 @@ Headline numbers at each phase boundary. This becomes the evaluation report.
 
 | Date | Phase | Metric | Value | Notes |
 |---|---|---|---|---|
-| — | — | — | — | — |
+| 2026-10-28 | 1 | Resolution rate, structured sample (§9.10) | 94.4% (944/1,000) | S1.9 sample, seed 20260922 |
+| 2026-10-28 | 1 | Resolution rate, all corpus references | 89.4% resolved, 10.1% unresolved, 0.5% ambiguous | 38,685 references; check run 19 |
+| 2026-10-28 | 1 | Resolved by method | DOI 84.2%, exact title 13.3%, PMID 1.3%, title+author+year 1.0%, title but subtitle 0.1%, title only <0.1% | Share of 34,593 resolved |
+| 2026-10-28 | 1 | Cascade: where title matches came from | Crossref 3,846, stored works 659, OpenAlex 510 | 5,015 title matches |
+| 2026-10-28 | 1 | Cost per 1,000 references resolved | $0.048 of OpenAlex search | $1.71 over 35,670 references; Crossref and doi.org are free |
+| 2026-10-28 | 1 | Full-corpus resolve time | 2 h 41 min | Runs 11–14; about 220 references a minute |
+| 2026-10-28 | 1 | Check run time, all five checks | 6.1 s | 1,000 papers, 1,034 trials; 3.9 s loading contexts |
+| 2026-10-28 | 1 | Report card from a DOI | 4.62–4.75 s | Five runs, idle machine; under 5 s (§9.10) |
+| 2026-10-28 | 1 | Flag rate C01 | 19.5% of papers (195/1,000); 272 references | Sampled precision 8/20 (95% CI 22–61%): an upper bound |
+| 2026-10-28 | 1 | Flag rate C02 | 2.3% of papers (23/1,000); 25 citations | All 25 hand-checked: correct notice and band |
+| 2026-10-28 | 1 | Flag rate C03 | 21.2% of applicable papers (7/33); 16 low, 0 gross | Each read in its sentence (S1.12) |
+| 2026-10-28 | 1 | Flag rate C04 | not applicable (0/1,000) | No mean extraction in Phase 1 (ADR-038) |
+| 2026-10-28 | 1 | Flag rate C05 | 21.6% of in-scope corpus trials (69/320) | 10 sampled, all match the registry record |
+| 2026-10-28 | 1 | False positives on clean fixtures | 0 | 8 clean papers, `test_fixture_set.py` |
 
 **Metrics to track from week one, not retroactively:**
 - Cascade ratios — volume entering each tier
@@ -738,6 +775,15 @@ What happened. What you expected instead. Root cause. What changed as a result. 
 
 **2026-10-18 · ClinicalTrials.gov OpenAPI URL in ADR-019 returns 404**
 `/api/oas/v2/ctg-oas-v2.yaml` is gone; the spec is served as YAML at `/api/oas/v2`. Found while confirming endpoints before S1.4. Fixed in `config.py` and `.env.example`. A URL written from memory or from an old doc rots; confirm each one live.
+
+**2026-10-28 · Most of C01's full-corpus flags were works that exist**
+The fixture set had shown C01 flagging only unindexed works, so the corpus flags were sampled before their rate was published. In 20 from run 18, 6 were in Crossref. Four of those shared one cause: Sentinel stored Crossref titles without their subtitles. That was fixed (ADR-041), and C01's flags fell from 347 to 272. A fresh sample of 20 from run 19 still found 12 that exist, from seven smaller causes (README, C01 limits). The biggest of these is that Crossref's search on the whole reference string misses works a title-plus-author search finds. A fixture set chosen by hand doesn't show how a check behaves on the corpus; checking a sample of corpus flags is what showed it.
+
+**2026-10-27 · A reset connection stopped the corpus resolve**
+After 18,300 of 35,670 references ($0.895 of OpenAlex spent), Crossref reset a connection (`httpx.ReadError`, WinError 10054) and `sentinel resolve` exited 1. `RateLimitedHTTP` retries 429 and 5xx responses only, as §9.3 says, so a transport error isn't retried at all. Nothing was lost but the batch in progress: finished batches were already written, stage run 11 was marked `failed`, and a re-run picked up the 17,370 still pending. Retrying transport errors too (resets, timeouts) would change a documented rule, so it's left as an open question, not changed.
+
+**2026-10-27 · A report card took 10 seconds, not under 5**
+Checking §9.10 item 4 timed `sentinel report <doi>` at about 10 s. Loading the card was 0.1 s; the rest was start-up. `sentinel.cli` imported every client, the resolver and the check registry, and C03 imported scipy at module level, which alone took 4.4 s. Now scipy loads on C03's first p-value, and `cli.py` imports clients, the resolver and the checks inside the commands that use them. The card now takes 4.6-4.8 s, measured while a resolve ran in the background, and 4.62-4.75 s over five runs on an idle machine (2026-10-28). The margin is thin: about 0.3 s is the card itself, and the rest is SQLAlchemy, pydantic-settings, structlog, typer and the Postgres driver loading, so cutting further would mean restructuring around those libraries. The tests that patched `cli.run_checks` now patch `sentinel.checks.runner.run_checks`.
 
 **2026-10-27 · Building the fixture set found three C01 false positives**
 Each flag was searched by hand in Crossref and OpenAlex before being accepted, and three were real works:
@@ -801,6 +847,7 @@ The live v2 schema also has PI names in `responsibleParty` and contact emails in
 | Q6 — Which external labelled dataset, and is its licence compatible? | Validity of the external evaluation | Before S2.8 | open |
 | Q7 — Which LLM for extraction and judging, and what's the budget cap? | Cost and reproducibility | Before S2.7 | open |
 | Q8 — Should C05 cover only trials plausibly under FDAAA (a US site or an FDA-regulated product)? 461/1,034 corpus trials are flagged, 393 of them non-industry and many entirely outside the US. | Precision of C05's headline rate (ground rule 4) | Before S1.14 fixtures | **resolved — ADR-031** |
+| Q9 — Should `RateLimitedHTTP` also retry transport errors (connection reset, timeout), not only 429/5xx responses? §9.3 says "429 and 5xx responses only", and a reset Crossref connection stopped the S1.15 resolve. | Long runs stop on one dropped connection. Resuming loses only the batch in progress, but someone has to restart the run | Before Phase 2 bulk runs | open |
 
 ---
 

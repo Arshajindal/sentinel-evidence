@@ -1,38 +1,21 @@
-"""Command-line entry point (sentinel-project.md §9.8)."""
+"""Command-line entry point (sentinel-project.md §9.8).
+
+Network clients, the resolver and the checks are imported inside the commands
+that use them, so `sentinel report` doesn't pay for loading them: a report
+card must take under five seconds (§9.10).
+"""
 
 from __future__ import annotations
 
 from collections.abc import Callable
 from pathlib import Path
-from typing import Annotated, Optional
+from typing import TYPE_CHECKING, Annotated, Optional
 
-import httpx
 import typer
 from sqlalchemy import select
 
-from sentinel.checks.registry import build_checks
-from sentinel.checks.runner import run_checks
 from sentinel.config import Settings, get_settings
 from sentinel.db import get_engine
-from sentinel.ingest.base import Harvester
-from sentinel.ingest.clinicaltrials import ClinicalTrialsClient, normalise_nct_id
-from sentinel.ingest.crossref import CrossrefClient
-from sentinel.ingest.doi_handle import DoiHandleClient
-from sentinel.ingest.europepmc import EuropePMC, EuropePMCHarvester, select_corpus
-from sentinel.ingest.fulltext_stats import StatExtractor
-from sentinel.ingest.openalex import OpenAlexBudgetExhausted, OpenAlexClient
-from sentinel.report.export import export_findings, run_status
-from sentinel.report.stats import load_run_stats, render_stats_json, render_stats_text
-from sentinel.resolve.candidates import CandidateSource
-from sentinel.resolve.cascade import (
-    Resolver,
-    Thresholds,
-    resolve_references,
-    select_references,
-    summarise,
-)
-from sentinel.ingest.http import RateLimitedHTTP, RetryableHTTPError, build_http_client
-from sentinel.ingest.retraction_watch import RetractionWatchHarvester
 from sentinel.log import configure_logging, get_logger
 from sentinel.models import corpus as corpus_table
 from sentinel.report.card import (
@@ -44,8 +27,18 @@ from sentinel.report.card import (
     render_paper_text,
     render_text,
 )
+from sentinel.report.export import export_findings, run_status
+from sentinel.report.stats import load_run_stats, render_stats_json, render_stats_text
 from sentinel.resolve.normalize import normalize_doi
 from sentinel.stages import StageHandle, record_stage
+
+if TYPE_CHECKING:
+    import httpx
+
+    from sentinel.ingest.base import Harvester
+    from sentinel.ingest.clinicaltrials import ClinicalTrialsClient
+    from sentinel.ingest.europepmc import EuropePMC
+    from sentinel.ingest.http import RateLimitedHTTP
 
 app = typer.Typer(no_args_is_help=True, add_completion=False)
 corpus_app = typer.Typer(no_args_is_help=True, help="Select and inspect working corpora.")
@@ -54,8 +47,14 @@ extract_app = typer.Typer(no_args_is_help=True, help="Extract structured data fr
 app.add_typer(extract_app, name="extract")
 log = get_logger(__name__)
 
+def _retraction_watch(settings: Settings) -> Harvester:
+    from sentinel.ingest.retraction_watch import RetractionWatchHarvester
+
+    return RetractionWatchHarvester(settings.retraction_watch_csv_path)
+
+
 HARVESTERS: dict[str, Callable[[Settings], Harvester]] = {
-    "retraction-watch": lambda s: RetractionWatchHarvester(s.retraction_watch_csv_path),
+    "retraction-watch": _retraction_watch,
 }
 LOOKUPS = ("clinicaltrials", "crossref", "openalex", "doi-handle")
 CORPUS_SOURCES = ("europepmc",)
@@ -63,6 +62,8 @@ ALL_SOURCES = [*HARVESTERS, *LOOKUPS, *CORPUS_SOURCES]
 
 
 def _rate_limited(settings: Settings, client: httpx.Client, source: str, rps: float) -> RateLimitedHTTP:
+    from sentinel.ingest.http import RateLimitedHTTP
+
     return RateLimitedHTTP(
         client,
         source=source,
@@ -73,6 +74,8 @@ def _rate_limited(settings: Settings, client: httpx.Client, source: str, rps: fl
 
 
 def _trials_client(settings: Settings, client: httpx.Client) -> ClinicalTrialsClient:
+    from sentinel.ingest.clinicaltrials import ClinicalTrialsClient
+
     return ClinicalTrialsClient(
         _rate_limited(settings, client, "clinicaltrials", settings.rate_clinicaltrials_rps),
         base_url=settings.clinicaltrials_base_url,
@@ -82,6 +85,8 @@ def _trials_client(settings: Settings, client: httpx.Client) -> ClinicalTrialsCl
 
 
 def _europepmc(settings: Settings, client: httpx.Client) -> EuropePMC:
+    from sentinel.ingest.europepmc import EuropePMC
+
     return EuropePMC(
         _rate_limited(settings, client, "europepmc", settings.rate_europepmc_rps),
         base_url=settings.europepmc_base_url,
@@ -102,6 +107,9 @@ def corpus_select(
     label: Annotated[Optional[str], typer.Option(help="Corpus label")] = None,
 ) -> None:
     """Sample N papers from SENTINEL_CORPUS_QUERY with SENTINEL_RANDOM_SEED."""
+    from sentinel.ingest.europepmc import select_corpus
+    from sentinel.ingest.http import build_http_client
+
     settings = get_settings()
     label = label or settings.default_corpus_label
     with build_http_client(settings) as client:
@@ -123,6 +131,9 @@ def extract_stats(
     resume: Annotated[bool, typer.Option(help="Continue from the stored cursor")] = False,
 ) -> None:
     """Find reported test statistics in corpus papers' body text (C03's input)."""
+    from sentinel.ingest.fulltext_stats import StatExtractor
+    from sentinel.ingest.http import build_http_client
+
     settings = get_settings()
     label = corpus or settings.default_corpus_label
     with build_http_client(settings) as client:
@@ -157,6 +168,9 @@ def ingest(
     ] = None,
 ) -> None:
     """Harvest a source, or fetch records by ID from a lookup source."""
+    from sentinel.ingest.europepmc import EuropePMCHarvester
+    from sentinel.ingest.http import build_http_client
+
     settings = get_settings()
     if source == "clinicaltrials":
         if not nct:
@@ -209,6 +223,13 @@ def _stage_counts(stage: StageHandle, stats) -> None:
 
 def _lookup_dois(settings: Settings, source: str, raw_dois: list[str]) -> None:
     """Look up each DOI; one failure is reported and skipped, exit 1 if any failed."""
+    import httpx
+
+    from sentinel.ingest.crossref import CrossrefClient
+    from sentinel.ingest.doi_handle import DoiHandleClient
+    from sentinel.ingest.http import RetryableHTTPError, build_http_client
+    from sentinel.ingest.openalex import OpenAlexClient
+
     bad = [d for d in raw_dois if normalize_doi(d) is None]
     if bad:
         raise typer.BadParameter(f"not DOIs: {bad}", param_hint="--doi")
@@ -260,6 +281,11 @@ def _echo_stats(source: str, stats) -> None:
 def _fetch_trials(settings: Settings, raw_ids: list[str]) -> None:
     """Fetch each study. One failure is logged and skipped, not fatal to the
     rest; the command exits non-zero if any study failed."""
+    import httpx
+
+    from sentinel.ingest.clinicaltrials import normalise_nct_id
+    from sentinel.ingest.http import RetryableHTTPError, build_http_client
+
     nct_ids, bad = [], []
     for value in raw_ids:
         try:
@@ -303,6 +329,19 @@ def resolve(
     ] = False,
 ) -> None:
     """Match references to known works (stages 1-5, sentinel-project.md section 9.5)."""
+    from sentinel.ingest.crossref import CrossrefClient
+    from sentinel.ingest.doi_handle import DoiHandleClient
+    from sentinel.ingest.http import build_http_client
+    from sentinel.ingest.openalex import OpenAlexBudgetExhausted, OpenAlexClient
+    from sentinel.resolve.candidates import CandidateSource
+    from sentinel.resolve.cascade import (
+        Resolver,
+        Thresholds,
+        resolve_references,
+        select_references,
+        summarise,
+    )
+
     settings = get_settings()
     label = corpus or settings.default_corpus_label
     engine = get_engine()
@@ -366,6 +405,10 @@ def check(
     ] = None,
 ) -> None:
     """Run checks over stored data and record a check_run."""
+    from sentinel.checks.registry import build_checks
+    from sentinel.checks.runner import run_checks
+    from sentinel.ingest.clinicaltrials import normalise_nct_id
+
     settings = get_settings()
     requested = [c.strip().upper() for c in checks.split(",")] if checks else None
     try:

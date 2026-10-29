@@ -19,6 +19,8 @@ from sentinel.ingest.http import RateLimitedHTTP
 from sentinel.ingest.openalex import OpenAlexBudgetExhausted, OpenAlexClient
 from sentinel.ingest.papers import upsert_paper
 from sentinel.models import paper
+from sentinel.resolve.candidates import CandidateSource
+from sentinel.resolve.normalize import normalize_title
 from sentinel.schemas import PaperRecord
 from tests.conftest import FIXTURES, requires_db
 
@@ -82,6 +84,26 @@ def test_crossref_normalise():
     assert record.authors[0] == {"last_name": "Shiri", "full_name": "R. Shiri"}
     assert "author" not in record.raw
     assert "REDACTED" not in json.dumps(record.model_dump())
+
+
+@pytest.mark.parametrize(
+    ("title", "subtitle", "expected"),
+    [
+        # Crossref's record for a corpus reference C01 flagged (finding 11991, S1.15).
+        (["Preventing Abuse During Pregnancy"], ["An Assessment and Intervention Protocol"],
+         "Preventing Abuse During Pregnancy: An Assessment and Intervention Protocol"),
+        (["A Test in Context: Lipoprotein(a)"], ["Diagnosis, Prognosis"],
+         "A Test in Context: Lipoprotein(a): Diagnosis, Prognosis"),
+        (["Prevalence of X: A Population Study"], ["A population study"],
+         "Prevalence of X: A Population Study"),     # subtitle already in the title
+        (["Diet and Cancer"], [], "Diet and Cancer"),
+    ],
+)
+def test_crossref_title_includes_subtitle(title, subtitle, expected):
+    work = dict(_message("crossref_work.json"), title=title, subtitle=subtitle)
+    record = _crossref(None).normalise(work)
+    assert record.title == expected
+    assert record.title_norm == normalize_title(expected)
 
 
 def test_crossref_work_by_doi_uses_polite_pool():
@@ -308,3 +330,25 @@ def test_crossref_lookup_stores_once(lookup_engine):
             paper.c.doi == TEST_DOIS[0])).all()
     assert (first.action, second.action) == ("inserted", "updated")
     assert [tuple(r) for r in rows] == [("crossref", 2006)]
+
+
+@requires_db
+def test_local_candidates_include_a_title_with_or_without_its_subtitle(lookup_engine):
+    """A reference citing a title's main part, or giving a subtitle the record
+    lacks, scores below the trigram floor; the query fetches both anyway."""
+    titles = {TEST_DOIS[0]: "Quokka grooming in captivity: an observational protocol",
+              TEST_DOIS[1]: "Wombat burrow depth"}
+    with lookup_engine.begin() as conn:
+        for doi, title in titles.items():
+            upsert_paper(conn, PaperRecord(doi=doi, title=title, title_norm=normalize_title(title),
+                                           source="crossref", raw={}))
+    source = CandidateSource(lookup_engine, crossref=None, openalex=None)
+
+    cited_main = source.local_title_candidates("quokka grooming in captivity", -1)
+    assert [c.title for c in cited_main if c.title in titles.values()] == [titles[TEST_DOIS[0]]]
+
+    with_subtitle = "wombat burrow depth a field survey of seasonal variation in burrows"
+    assert not [c for c in source.local_title_candidates(with_subtitle, -1)
+                if c.title == titles[TEST_DOIS[1]]]
+    found = source.local_title_candidates(with_subtitle, -1, main_norm="wombat burrow depth")
+    assert [c.title for c in found if c.title in titles.values()] == [titles[TEST_DOIS[1]]]

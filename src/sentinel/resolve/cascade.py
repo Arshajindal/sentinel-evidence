@@ -5,6 +5,7 @@ Stages run in order and stop at the first that finds exactly one match:
   1 DOI exact                                         1.00  (fetched if not stored)
   2 PMID exact                                        1.00  (fetched if not stored)
   3 normalised title exact                            0.95
+ 3b title equal but for a subtitle, first author, year 0.85
   4 title trigram >= min, first author, year +/- tol  0.70-0.90, scaled by similarity
   5 title trigram >= strict alone                     0.60, weak: for review
 
@@ -17,6 +18,11 @@ Precision guards beyond §9.5 (ADR-034); both can only cost recall:
   reference is rejected;
 - stage 5 needs a title of at least four words; trigram similarity on very
   short titles is noisy.
+
+Stage 3b (ADR-041) is for a reference that gives a title's subtitle when the
+record doesn't, or the reverse. A subtitle can be all that tells two works in
+a series apart, so the first author and year must agree, not merely not
+contradict.
 """
 
 from __future__ import annotations
@@ -32,7 +38,7 @@ from sentinel.log import get_logger
 from sentinel.models import corpus_paper, paper, reference
 from sentinel.parse.references import PARSER_VERSION, parse_reference
 from sentinel.resolve.candidates import Candidate, CandidateSource, LookupLog
-from sentinel.resolve.normalize import normalize_title
+from sentinel.resolve.normalize import main_title, normalize_title
 
 log = get_logger(__name__)
 
@@ -110,6 +116,19 @@ def match_title(ref: RefFields, candidates: list[Candidate], th: Thresholds) -> 
         return Resolution("ambiguous", "title_exact", evidence={"tied": exact_ids})
     if exact_ids:
         return Resolution("resolved", "title_exact", 0.95, exact_ids[0])
+
+    # Stage 3b: the same title but for a subtitle, same first author and year.
+    if ref.first_author and ref.year is not None:
+        ref_main = main_title(ref.title)
+        partial_ids = sorted({
+            c.paper_id for c in candidates
+            if ((ref_main and c.title_norm == ref_main) or main_title(c.title) == title_norm)
+            and authors_match(ref.first_author, c.first_author)
+            and c.year is not None and abs(c.year - ref.year) <= th.year_tolerance})
+        if len(partial_ids) > 1:
+            return Resolution("ambiguous", "title_main", evidence={"tied": partial_ids})
+        if partial_ids:
+            return Resolution("resolved", "title_main", 0.85, partial_ids[0])
 
     # Stage 4: similar title, same first author, year within tolerance.
     if ref.first_author and ref.year is not None:
@@ -217,22 +236,26 @@ class Resolver:
         if not title_norm:
             stages.append({"stage": "3-5", "outcome": "no_title"})
             return Resolution("unresolved", evidence={"reason": "nothing_to_match_on"})
+        main_norm = main_title(ref.title)
 
-        candidates = self.source.local_title_candidates(title_norm, ref.citing_paper_id)
+        candidates = self.source.local_title_candidates(title_norm, ref.citing_paper_id,
+                                                        main_norm=main_norm)
         found = match_title(ref, candidates, self.th)
         stages.append({"stage": "3-5", "pass": "local", "outcome": found.status if found else "no_match"})
         if found:
             return found
 
         self.source.search_crossref(search_query(ref), lookups)
-        candidates = self.source.local_title_candidates(title_norm, ref.citing_paper_id)
+        candidates = self.source.local_title_candidates(title_norm, ref.citing_paper_id,
+                                                        main_norm=main_norm)
         found = match_title(ref, candidates, self.th)
         stages.append({"stage": "3-5", "pass": "crossref", "outcome": found.status if found else "no_match"})
         if found:
             return found
 
         self.source.search_openalex(ref.title, ref.year, lookups)
-        candidates = self.source.local_title_candidates(title_norm, ref.citing_paper_id)
+        candidates = self.source.local_title_candidates(title_norm, ref.citing_paper_id,
+                                                        main_norm=main_norm)
         found = match_title(ref, candidates, self.th)
         stages.append({"stage": "3-5", "pass": "openalex", "outcome": found.status if found else "no_match"})
         if found:
