@@ -805,7 +805,7 @@ Before precision rules, 7 "gross" z-flags in one paper were "Z = 0.777, p = 0.00
 - DOIs with a link glued on are cleaned (1 stored DOI fixed and re-resolved).
 - Title agreement was filled for 1,454 older DOI/PMID matches; 36 of 1,569 are below 0.6.
 - Tests read `TEST_DATABASE_URL` from `.env`.
-- Fixture sources, redactions and licences are listed in `tests/fixtures/README.md`. The Retraction Watch licence is unconfirmed: neither Crossref's repository nor its documentation names one.
+- Fixture sources, redactions and licences are listed in `tests/fixtures/README.md`. The Retraction Watch licence is unconfirmed: neither Crossref's repository nor its documentation names one. *Resolved 2026-10-29:* Crossref's announcement of the data in its API says Crossref metadata is "freely available to reuse without a license" and asks for a citation in published work. The 20-row sample stays, with that citation.
 
 **2026-10-25 · A wrong corpus label made commands silently do nothing**
 `SENTINEL_DEFAULT_CORPUS_LABEL` was still `dev-sample`, so `sentinel resolve` reported "0 references to resolve" and `sentinel check --checks C01` recorded an empty run as if it had succeeded. Now both fail with the known corpus labels listed, and the runner refuses to record a paper-check run with no papers. Tests in `test_cli.py`. The `.env` default is set to `pmc-rct-2015-2024`.

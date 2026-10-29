@@ -251,7 +251,7 @@ Over the four resolve runs, run 11 was stopped by a dropped Crossref connection,
 | Crossref | DOI metadata, candidate search | metadata, no reuse restriction (abstracts are dropped) |
 | OpenAlex | DOI metadata, candidate search (budgeted) | CC0 |
 | doi.org handle API | does a DOI exist at any agency | public |
-| Retraction Watch (via Crossref) | retraction and concern notices | attribution: Retraction Watch Database, Crossref. Licence not yet confirmed (see `tests/fixtures/README.md`) |
+| Retraction Watch (via Crossref) | retraction and concern notices | Crossref metadata: free to reuse without a licence; Crossref asks for a citation of the source (see `tests/fixtures/README.md`). Cite as: Retraction Watch Database, Crossref |
 | ClinicalTrials.gov API v2 | trial records | US government data; personal names and contacts are dropped before storage (ADR-018, ADR-025) |
 
 Code: MIT (see `LICENSE`).
