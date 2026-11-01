@@ -18,25 +18,24 @@ Phase 1 (this release) has five deterministic checks over a 1,000-paper corpus o
 
 ## Setup
 
-**Needs:** Python 3.11+, PostgreSQL 15+ with the `pg_trgm` extension (shipped with Postgres; the first migration creates it, which works for a role that owns the database), and git.
+**Needs:** Python 3.11+, Docker, and git. The database is PostgreSQL 17 with `pg_trgm` and pgvector, run from `docker/compose.yaml` (ADR-043).
 
-1. **Database.** As a Postgres superuser:
-   ```sql
-   CREATE ROLE sentinel LOGIN PASSWORD 'choose-a-password';
-   CREATE DATABASE sentinel OWNER sentinel;
-   CREATE DATABASE sentinel_test OWNER sentinel;  -- disposable, for the test suite
+1. **Database.** Copy `.env.example` to `.env` and set `POSTGRES_PASSWORD` and `APP_DB_PASSWORD`, then from the repository root:
+   ```bash
+   docker compose -f docker/compose.yaml --env-file .env up -d
    ```
+   This starts Postgres on `127.0.0.1:5434`. The first time, it creates the `sentinel` role (not a superuser); the `sentinel`, `sentinel_test` (disposable, for the test suite) and `mlflow` databases; and pgvector in each. To use your own Postgres instead, install pgvector and run `CREATE EXTENSION vector` as a superuser in each database.
 2. **Install.**
    ```bash
    python -m venv .venv
-   .venv/bin/pip install -e ".[dev]"        # Windows: .venv\Scripts\pip
+   .venv/bin/pip install -e ".[dev,ml]"     # Windows: .venv\Scripts\pip; [ml] adds MLflow (Phase 2)
    ```
-3. **Configure.** Copy `.env.example` to `.env` and set at least:
-   - `SENTINEL_DATABASE_URL`: your database and password.
+3. **Configure.** In `.env`, set at least:
+   - `SENTINEL_DATABASE_URL`, `TEST_DATABASE_URL` and `MLFLOW_BACKEND_STORE_URI`: each password is `APP_DB_PASSWORD`.
    - `SENTINEL_CONTACT_EMAIL`: a real address. Crossref and OpenAlex use it for their polite pools.
    - `SENTINEL_OPENALEX_API_KEY`: optional, from openalex.org/signup. With a key, set `SENTINEL_OPENALEX_DAILY_BUDGET_USD=1.0`.
    - `SENTINEL_DEFAULT_CORPUS_LABEL`: the corpus label you'll select in step 5.
-   - `TEST_DATABASE_URL`: the disposable `sentinel_test` database. The database tests downgrade it to empty.
+   - `TEST_DATABASE_URL` is the disposable `sentinel_test` database. The database tests downgrade it to empty.
 
    Every setting that can change a finding (thresholds, the corpus query, the seed) has no default, so a missing one stops startup (ADR-022). `.env.example` holds the values used for the published results. `.env` is gitignored.
 4. **Schema and reference data.**

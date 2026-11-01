@@ -18,6 +18,7 @@ dependencies = [
     "typer>=0.12",
     "structlog>=24.1",
     "tenacity>=8.2",
+    "pgvector>=0.5.1",  # vector column type for SQLAlchemy Core (ADR-044)
 ]
 
 [project.scripts]
@@ -25,6 +26,9 @@ sentinel = "sentinel.cli:app"
 
 [project.optional-dependencies]
 dev = ["pytest>=8.0"]
+# Phase 2+ experiment tracking and model registry (ADR-043). Kept out of the
+# core install so the Phase 1 pipeline and CLI don't pull in MLflow's stack.
+ml = ["mlflow>=3.17.1", "python-dotenv[cli]>=1.0"]  # dotenv runs `mlflow server` with .env
 
 [build-system]
 requires = ["hatchling"]

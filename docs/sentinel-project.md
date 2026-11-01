@@ -122,10 +122,10 @@ The random audit sample matters because without it you never learn what the chea
 | Layer | Choice | Phase | Why |
 |---|---|---|---|
 | Language | Python 3.11+ | 1 | |
-| Database | PostgreSQL 15+ with `pg_trgm` | 1 | One system for records, fuzzy matching, and later vectors |
+| Database | PostgreSQL 15+ with `pg_trgm`; from Phase 2, the pgvector container in `docker/compose.yaml` (ADR-043) | 1 | One system for records, fuzzy matching, and later vectors |
 | Database access | SQLAlchemy **Core** (no ORM) and Alembic (ADR-004) | 1 | Explicit SQL, and every schema change is a migration |
 | Validation | Pydantic v2 and pydantic-settings | 1 | Nothing unvalidated reaches the database |
-| HTTP | httpx and tenacity | 1 | Retries on 429 and 5xx responses only |
+| HTTP | httpx and tenacity | 1 | Retries on 429 and 5xx responses and on dropped connections only (ADR-042) |
 | CLI | typer | 1 | |
 | Logging | structlog, JSON output | 1 | Cost and latency are logged from day one |
 | Statistics | scipy | 1 | p-value recomputation |
@@ -234,7 +234,7 @@ sentinel-evidence/
   tests/
     fixtures/               # real papers and trials with hand-checked expected findings
     test_*.py
-  docker/                   # Phases 4–5: compose files for Postgres, MLflow, Langfuse, TEI
+  docker/                   # Phase 2 onward: Postgres with pgvector (ADR-043); later Langfuse and TEI
 ```
 
 The ML package is named `ml/`, not `models/`, so it doesn't clash with `models.py`, which holds the table definitions.
@@ -514,7 +514,7 @@ class Harvester(ABC):
 Requirements for both kinds:
 
 - **Rate limit** with a token bucket, configurable per source
-- **Retry** with exponential backoff through `tenacity`, on 429 and 5xx responses only
+- **Retry** with exponential backoff through `tenacity`, on 429 and 5xx responses and on transient transport errors (timeouts, resets) only (ADR-042)
 - **Idempotent upserts** on the natural key: never delete, mark superseded instead
 - **Structured logs** per batch: records seen, written, skipped, and failed
 - Harvesters only: **resumable** from `ingest_watermark.cursor`, so a run killed at record 40,000 restarts there
@@ -748,29 +748,49 @@ The suite asserts exact matches on check ID, status, and severity.
 8. **Tabular baseline.** Gradient boosting on metadata alone, for example venue, year, reference count, the year gap between citing and cited paper, self-citation, the cited paper's retraction status, and sponsor class. Give it calibrated outputs and SHAP explanations. It predicts the same labels as the Phase 3 models. It is the number the expensive pipeline must beat, and if it comes close, that's a finding to report rather than hide.
 9. **MLflow** from the first experiment. Set up the model registry roles listed in `PROGRESS.md`.
 
-### 10.2 Schema additions (first Phase 2 session, sketch to finalise)
+### 10.2 Schema additions (finalised in S2.1, ADR-044)
+
+Migration `6bb29bc195ff`. The authoritative definitions are in `models.py`; this is the shape.
 
 ```sql
-CREATE EXTENSION IF NOT EXISTS vector;
+CREATE EXTENSION IF NOT EXISTS vector;   -- installed by a superuser locally (ADR-043)
 
 CREATE TABLE passage (
-    id          BIGSERIAL PRIMARY KEY,
-    paper_id    BIGINT NOT NULL REFERENCES paper(id) ON DELETE CASCADE,
-    section     TEXT,              -- abstract|introduction|methods|results|discussion|other
-    ordinal     INT NOT NULL,
-    text        TEXT NOT NULL,
-    embedding   vector(768),
-    embed_model TEXT,
-    UNIQUE (paper_id, ordinal)
+    id           BIGSERIAL PRIMARY KEY,
+    paper_id     BIGINT NOT NULL REFERENCES paper(id) ON DELETE CASCADE,
+    splitter_ver TEXT NOT NULL,       -- a new splitter adds rows; old ones stay
+    ordinal      INT NOT NULL,
+    section      TEXT,                -- abstract|introduction|methods|results|discussion|other
+    text         TEXT NOT NULL,
+    created_at   TIMESTAMPTZ NOT NULL DEFAULT now(),
+    UNIQUE (paper_id, splitter_ver, ordinal)
 );
-CREATE INDEX passage_embedding_hnsw ON passage USING hnsw (embedding vector_cosine_ops);
+
+CREATE TABLE passage_embedding (     -- one row per passage per model
+    passage_id BIGINT REFERENCES passage(id) ON DELETE CASCADE,
+    model      TEXT,
+    embedding  vector(768) NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    PRIMARY KEY (passage_id, model)
+);
+CREATE INDEX passage_embedding_hnsw ON passage_embedding USING hnsw (embedding vector_cosine_ops);
 
 CREATE TABLE citation_context (
-    id           BIGSERIAL PRIMARY KEY,
-    reference_id BIGINT NOT NULL REFERENCES reference(id) ON DELETE CASCADE,
-    section      TEXT,
-    sentence     TEXT NOT NULL,     -- the citing sentence
-    context_text TEXT NOT NULL      -- plus one sentence either side
+    id              BIGSERIAL PRIMARY KEY,
+    citing_paper_id BIGINT NOT NULL REFERENCES paper(id) ON DELETE CASCADE,
+    extractor_ver   TEXT NOT NULL,
+    ordinal         INT NOT NULL,
+    section         TEXT,
+    marker          TEXT,             -- the citation as printed, e.g. "[3-5]"
+    sentence        TEXT NOT NULL,    -- the citing sentence
+    context_text    TEXT NOT NULL,    -- plus one sentence either side
+    UNIQUE (citing_paper_id, extractor_ver, ordinal)
+);
+
+CREATE TABLE citation_context_reference (   -- "[3-5]" cites three references
+    citation_context_id BIGINT REFERENCES citation_context(id) ON DELETE CASCADE,
+    reference_id        BIGINT REFERENCES reference(id) ON DELETE CASCADE,
+    PRIMARY KEY (citation_context_id, reference_id)
 );
 
 CREATE TABLE claim (
@@ -779,19 +799,28 @@ CREATE TABLE claim (
     skeleton            JSONB,      -- population, intervention, comparator, outcome, effect, n, direction
     extractor           TEXT NOT NULL,
     extractor_ver       TEXT NOT NULL,
-    valid               BOOLEAN NOT NULL
+    valid               BOOLEAN NOT NULL,
+    created_at          TIMESTAMPTZ NOT NULL DEFAULT now(),
+    UNIQUE (citation_context_id, extractor, extractor_ver)
 );
 
 CREATE TABLE eval_item (
-    id               BIGSERIAL PRIMARY KEY,
-    set_name         TEXT NOT NULL,   -- synthetic|external|holdout
-    split            TEXT NOT NULL,   -- train|val|test
-    claim_text       TEXT NOT NULL,
-    source_paper_id  BIGINT REFERENCES paper(id),
-    gold_passage_ids BIGINT[],
-    label            TEXT,            -- supported|contradicted|insufficient
-    corruption_type  TEXT,            -- NULL unless synthetic
-    origin           JSONB            -- provenance, for leakage checks
+    id              BIGSERIAL PRIMARY KEY,
+    set_name        TEXT NOT NULL,   -- synthetic|external|holdout
+    split           TEXT NOT NULL,   -- train|val|test
+    claim_text      TEXT NOT NULL,
+    source_paper_id BIGINT REFERENCES paper(id),
+    label           TEXT,            -- supported|contradicted|insufficient
+    corruption_type TEXT,            -- NULL unless synthetic
+    license         TEXT NOT NULL,   -- the licence of the item's text
+    origin          JSONB,           -- provenance, for leakage checks
+    created_at      TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+CREATE TABLE eval_item_gold_passage (       -- a foreign key, so gold passages can't vanish
+    eval_item_id BIGINT REFERENCES eval_item(id) ON DELETE CASCADE,
+    passage_id   BIGINT REFERENCES passage(id) ON DELETE RESTRICT,
+    PRIMARY KEY (eval_item_id, passage_id)
 );
 ```
 
@@ -1023,6 +1052,7 @@ unsure about, and draft the three PROGRESS.md lines. Don't commit.
 
 | Session | Scope | Done when |
 |---|---|---|
+| S2.0 | Housekeeping before bulk work: retry dropped connections (Q9), pgvector, MLflow | Q9 closed (ADR-042); `CREATE EXTENSION vector` works and the Phase 1 data is moved with matching counts; the MLflow UI is up (ADR-043) |
 | S2.1 | Migration: pgvector and the Phase 2 tables | Up, down, up runs cleanly |
 | S2.2 | Full-text fetch | Coverage is measured and recorded (Q2) |
 | S2.3 | Passages and citation contexts | Every open-access paper is split, and contexts are linked to references |
