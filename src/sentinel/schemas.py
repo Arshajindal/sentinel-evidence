@@ -115,6 +115,36 @@ class CorpusPaperRecord(BaseModel):
     )
 
 
+class TextAvailability(BaseModel):
+    """One row of `text_availability`: what text is held for a work (ADR-045)."""
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    paper_id: int
+    source: Literal["europepmc"]
+    lookup_key: str | None = Field(default=None, pattern=r"^(doi|pmid):\S+$")
+    found: bool
+    pmcid: str | None = Field(default=None, pattern=r"^PMC\d+$")
+    is_oa: bool | None = None
+    in_pmc: bool | None = None
+    license: str | None = None
+    fulltext: Literal["full", "abstract", "none"]
+    fulltext_error: str | None = None
+    abstract: str | None = Field(default=None, min_length=1)
+    abstract_source: Literal["europepmc", "crossref", "openalex"] | None = None
+    raw: dict[str, Any] | None = None
+
+    @model_validator(mode="after")
+    def _check(self) -> TextAvailability:
+        if self.fulltext == "full" and not (self.pmcid and self.is_oa):
+            raise ValueError("full text is held only for open-access works with a PMCID")
+        if self.fulltext == "abstract" and self.abstract is None:
+            raise ValueError("fulltext 'abstract' needs an abstract")
+        if (self.abstract is None) != (self.abstract_source is None):
+            raise ValueError("an abstract and its source come together")
+        return self
+
+
 Severity = Literal["info", "low", "medium", "high"]
 FindingStatus = Literal["flagged", "clean", "not_applicable", "insufficient_data"]
 

@@ -65,6 +65,8 @@ def test_up_down_up(alembic_cfg):
         gold_fk = insp.get_foreign_keys("eval_item_gold_passage")
         assert {fk["referred_table"]: fk["options"].get("ondelete") for fk in gold_fk} == {
             "eval_item": "CASCADE", "passage": "RESTRICT"}
+        assert "text_availability_fulltext" in {
+            i["name"] for i in insp.get_indexes("text_availability")}  # ADR-045
 
         # A finding must have exactly one subject. Rolled back, so nothing persists.
         with engine.connect() as conn:

@@ -1,0 +1,129 @@
+{
+ "version": "6.9",
+ "hitCount": 2,
+ "resultList": {
+  "result": [
+   {
+    "id": "10411764",
+    "source": "MED",
+    "pmid": "10411764",
+    "doi": "10.1046/j.1460-9592.1999.00351.x",
+    "title": "Effects of sevoflurane anaesthesia on recovery in children: a comparison with halothane.",
+    "authorString": "Lapin SL, Auden SM, Goldsmith LJ, Reynolds AM.",
+    "journalInfo": {
+     "issue": "4",
+     "volume": "9",
+     "journalIssueId": 919285,
+     "dateOfPublication": "1999 ",
+     "monthOfPublication": 0,
+     "yearOfPublication": 1999,
+     "journal": {
+      "medlineAbbreviation": "Paediatr Anaesth",
+      "title": "Paediatric anaesthesia",
+      "essn": "1460-9592",
+      "issn": "1155-5645",
+      "nlmid": "9206575",
+      "isoabbreviation": "Paediatr Anaesth"
+     },
+     "printPublicationDate": "1999-01-01"
+    },
+    "pubYear": "1999",
+    "pageInfo": "299-304",
+    "abstractText": "We prospectively studied one hundred ASA physical status I-II children, ages six months to six years, undergoing myringotomy surgery. Children were randomly assigned to one of four anaesthetic groups receiving either halothane or sevoflurane for anaesthesia and oral midazolam premedication or no premedication. We found that children anaesthetized with sevoflurane had significantly faster recovery times and discharge home times than those who received halothane. Patients given oral midazolam premedication had significantly longer recovery times, but no delay in discharge home compared with those not premedicated. However, children anaesthetized with sevoflurane and no premedication had an unacceptably high incidence (67%) of postoperative agitation. The use of oral midazolam preoperatively did decrease the amount of postoperative agitation seen with sevoflurane. We conclude that although sevoflurane does shorten recovery times, the degree of associated postoperative agitation makes it unacceptable as a sole anaesthetic for myringotomy surgery.",
+    "publicationStatus": "ppublish",
+    "language": "eng",
+    "pubModel": "Print",
+    "pubTypeList": {
+     "pubType": [
+      "Comparative Study",
+      "Clinical Trial",
+      "Randomized Controlled Trial",
+      "Journal Article"
+     ]
+    },
+    "isOpenAccess": "N",
+    "inEPMC": "N",
+    "inPMC": "N",
+    "citedByCount": 113,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "N",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "N",
+    "hasData": "N",
+    "authMan": "N",
+    "epmcAuthMan": "N",
+    "nihAuthMan": "N",
+    "hasTMAccessionNumbers": "N",
+    "dateOfCompletion": "1999-08-11",
+    "dateOfCreation": "1999-07-20",
+    "dateOfRevision": "2022-04-08",
+    "firstPublicationDate": "1999-01-01",
+    "firstIndexDate": "2008-01-29",
+    "hasEvaluations": "N"
+   },
+   {
+    "id": "9731008",
+    "source": "MED",
+    "pmid": "9731008",
+    "doi": "10.1164/ajrccm.158.3.9709055",
+    "title": "Maternal cigarette smoking is associated with increased inner airway wall thickness in children who die from sudden infant death syndrome.",
+    "authorString": "Elliot J, Vullermin P, Robinson P.",
+    "journalInfo": {
+     "issue": "3",
+     "volume": "158",
+     "journalIssueId": 931427,
+     "dateOfPublication": "1998 Sep",
+     "monthOfPublication": 9,
+     "yearOfPublication": 1998,
+     "journal": {
+      "medlineAbbreviation": "Am J Respir Crit Care Med",
+      "title": "American journal of respiratory and critical care medicine",
+      "essn": "1535-4970",
+      "issn": "1073-449X",
+      "nlmid": "9421642",
+      "isoabbreviation": "Am J Respir Crit Care Med"
+     },
+     "printPublicationDate": "1998-09-01"
+    },
+    "pubYear": "1998",
+    "pageInfo": "802-806",
+    "abstractText": "The harmful effects of passive cigarette smoke exposure to infants include an increased frequency of asthma exacerbations, lower respiratory viral infections, and the sudden infant death syndrome (SIDS). Because of a difficulty in obtaining airway tissue from infants, little information is available on the effects of passive cigarette smoke exposure on the structure of the infant airway wall. We examined airway dimensions in 19 children who died from SIDS whose mothers smoked more than 20 cigarettes a day prenatally and postnatally, and compared these data with those from 19 infants who died from SIDS and had nonsmoking mothers. Total inner and outer wall areas were calculated for each airway and expressed in terms of the basement membrane perimeter (Pbm). Inner airway wall thickness was greater in the larger airways of those infants whose mothers had smoked more than 20 cigarettes a day. These findings suggest that infants exposed to a high level of passive cigarette smoke develop significant structural changes in their airways. Increased airway wall thickness may contribute to exaggerated airway narrowing and may help explain the previously observed abnormalities in neonatal lung function that have been described in infants of smoking mothers.",
+    "publicationStatus": "ppublish",
+    "language": "eng",
+    "pubModel": "Print",
+    "pubTypeList": {
+     "pubType": [
+      "Comparative Study",
+      "Research Support, Non-U.S. Gov't",
+      "Journal Article"
+     ]
+    },
+    "isOpenAccess": "N",
+    "inEPMC": "N",
+    "inPMC": "N",
+    "citedByCount": 116,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "N",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "N",
+    "hasData": "N",
+    "authMan": "N",
+    "epmcAuthMan": "N",
+    "nihAuthMan": "N",
+    "hasTMAccessionNumbers": "N",
+    "dateOfCompletion": "1998-10-05",
+    "dateOfCreation": "1998-09-10",
+    "dateOfRevision": "2006-11-15",
+    "firstPublicationDate": "1998-09-01",
+    "firstIndexDate": "2008-01-29",
+    "hasEvaluations": "N"
+   }
+  ]
+ }
+}

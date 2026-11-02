@@ -57,7 +57,7 @@ HARVESTERS: dict[str, Callable[[Settings], Harvester]] = {
     "retraction-watch": _retraction_watch,
 }
 LOOKUPS = ("clinicaltrials", "crossref", "openalex", "doi-handle")
-CORPUS_SOURCES = ("europepmc",)
+CORPUS_SOURCES = ("europepmc", "fulltext")
 ALL_SOURCES = [*HARVESTERS, *LOOKUPS, *CORPUS_SOURCES]
 
 
@@ -124,6 +124,24 @@ def corpus_select(
                f"(seed {settings.random_seed})")
 
 
+@corpus_app.command("coverage")
+def corpus_coverage(
+    corpus: Annotated[Optional[str], typer.Option(help="Corpus label")] = None,
+    fmt: Annotated[str, typer.Option("--format", help="text or json")] = "text",
+) -> None:
+    """What full text and abstracts are held for a corpus and its cited works (Q2)."""
+    import json
+
+    from sentinel.ingest.fulltext import coverage, render_coverage
+
+    label = corpus or get_settings().default_corpus_label
+    if label not in _corpus_labels():
+        raise typer.BadParameter(f"unknown corpus {label!r}. Known corpora: {_corpus_labels()}")
+    with get_engine().connect() as conn:
+        result = coverage(conn, label)
+    typer.echo(json.dumps(result, indent=2) if fmt == "json" else render_coverage(result))
+
+
 @extract_app.command("stats")
 def extract_stats(
     corpus: Annotated[Optional[str], typer.Option(help="Corpus label")] = None,
@@ -161,7 +179,7 @@ def ingest(
         Optional[list[str]], typer.Option(help="NCT ID to fetch (clinicaltrials; repeatable)")
     ] = None,
     corpus: Annotated[
-        Optional[str], typer.Option(help="Corpus label to harvest (europepmc)")
+        Optional[str], typer.Option(help="Corpus label to harvest (europepmc, fulltext)")
     ] = None,
     doi: Annotated[
         Optional[list[str]], typer.Option(help="DOI to look up (crossref/openalex/doi-handle)")
@@ -205,6 +223,9 @@ def ingest(
             typer.echo(f"full text failed upstream, stored without references "
                        f"(re-run to retry): {sorted(harvester.fulltext_failed)}")
         return
+    if source == "fulltext":
+        _ingest_fulltext(settings, corpus or settings.default_corpus_label, resume, limit)
+        return
     if source not in HARVESTERS:
         raise typer.BadParameter(f"unknown source {source!r}; choose from {ALL_SOURCES}")
     with record_stage(get_engine(), "ingest", source=source) as stage:
@@ -213,6 +234,27 @@ def ingest(
         )
         _stage_counts(stage, stats)
     _echo_stats(source, stats)
+
+
+def _ingest_fulltext(settings: Settings, label: str, resume: bool, limit: int | None) -> None:
+    """Text availability for a corpus and the works it cites (ADR-045)."""
+    from sentinel.ingest.fulltext import FulltextHarvester
+    from sentinel.ingest.http import build_http_client
+
+    with build_http_client(settings) as client:
+        try:
+            harvester = FulltextHarvester(get_engine(), _europepmc(settings, client), label=label,
+                                          cache_dir=settings.fulltext_cache_dir)
+        except ValueError as exc:
+            raise typer.BadParameter(f"{exc}. Known corpora: {_corpus_labels()}") from exc
+        # One batch is one lookup query plus the XML fetches it needs.
+        with record_stage(get_engine(), "ingest", source="fulltext", corpus_label=label) as stage:
+            stats = harvester.run(get_engine(), resume=resume, limit=limit, batch_size=25)
+            _stage_counts(stage, stats)
+    _echo_stats("fulltext", stats)
+    if harvester.fetch_failed:
+        typer.echo(f"open-access XML failed upstream (re-run to retry): "
+                   f"{sorted(harvester.fetch_failed)}")
 
 
 def _stage_counts(stage: StageHandle, stats) -> None:

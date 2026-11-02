@@ -86,7 +86,7 @@ Keep updates quick, or the file stops being kept up. The rules:
 
 **Phase:** 2 of 5: full text, retrieval, and the evaluation foundation. Phase 1 is finished and merged (PR #1).
 **Plan:** the session list in §15 of `docs/sentinel-project.md`. The old brief and HTML spec are in `docs/archive/`.
-**Last worked:** 2026-10-31, sessions S2.0 (retries, pgvector, MLflow) and S2.1 (Phase 2 tables).
+**Last worked:** 2026-11-01, session S2.2 (full-text fetch; Q2 measured).
 
 **Sessions:**
 
@@ -109,8 +109,9 @@ Keep updates quick, or the file stops being kept up. The rules:
 | S1.15 Full corpus run and README | done | All 35,670 remaining references matched (runs 11–14, $1.71 spent on OpenAlex). The 133 references matched before the glued-text fix were retried, and none changed. The Retraction Watch load was killed and restarted live: it resumed at row 5,000 with no duplicates. A report card takes 4.62–4.75 s now that imports load only when needed. Checking a sample of corpus flags showed that Crossref subtitles were being dropped (ADR-041); fixing that cut C01 flags from 347 to 272. Check run 19 and `stats` give every flag rate and cascade ratio (see the metrics ledger). The README covers setup, each check's limits, and the results. |
 | S2.0 Retries, pgvector and MLflow | done | Dropped connections and timeouts are now retried like 5xx responses (ADR-042, 8 new tests). Postgres moved to a pgvector 0.8.6 container on 127.0.0.1:5434 with a role that isn't a superuser; every table's row count and the migration version match the old server (ADR-043). MLflow runs at 127.0.0.1:5000 with its data in the same Postgres, checked with one test run. |
 | S2.1 Phase 2 tables | done | Migration `6bb29bc195ff` (ADR-044): passages with a splitter version, one vector row per passage per model (HNSW, cosine), citation contexts linked to several references, claims, evaluation items with a required licence, and gold passages protected by a foreign key. Up, down, up runs cleanly; `alembic check` finds no difference; applied to the working database. |
+| S2.2 Full-text fetch | done | `ingest/fulltext.py`, `sentinel ingest fulltext`, `sentinel corpus coverage`, migration `8d0bd1c5a522` (ADR-045). All 33,664 works checked in Europe PMC; 8,427 open-access XML files cached. **Q2: 22.6% of resolved references cite a work with full text**, 92.8% at least an abstract. Europe PMC answers 500 for non-open-access full text, so only open-access records are requested. |
 
-**What works:** the whole Phase 1 pipeline over the 1,000-paper corpus. That means loading data, matching references (89.4% of all references, 94.4% of the structured sample), pulling out statistics, all five checks, `report`, `stats`, `export` and stage timing. 701 tests, all passing, including the database tests and the 46-item fixture set. Phase 2 so far: the database has pgvector and the Phase 2 tables (empty), and MLflow is ready for experiments.
+**What works:** the whole Phase 1 pipeline over the 1,000-paper corpus. That means loading data, matching references (89.4% of all references, 94.4% of the structured sample), pulling out statistics, all five checks, `report`, `stats`, `export` and stage timing. 716 tests, all passing, including the database tests and the 46-item fixture set. Phase 2 so far: pgvector and the Phase 2 tables, MLflow, and text availability for every corpus paper and cited work (Q2 measured).
 
 **What's broken:**
 - Most of C01's corpus flags are works that do exist: only 8 of 20 sampled flags were correct (see the README's section on C01's limits). So C01's flag rate is published as an upper bound.
@@ -119,9 +120,9 @@ Keep updates quick, or the file stops being kept up. The rules:
 - The full text of PMC6561645 still returns an HTTP 500 error from Europe PMC.
 
 **Next three things:**
-1. S2.2: fetch full text for the corpus papers and every cited source that is open access, keep abstracts for the rest, and measure how many cited sources have full text (Q2).
-2. S2.3: split papers into passages and extract citation contexts. This needs a new ADR, because ADR-037 says body text isn't stored in the database.
-3. Answer Q1 before S2.4 (this machine has no NVIDIA GPU, so local embedding would run on the CPU), Q6 before loading the external dataset, and Q7 before claim extraction.
+1. S2.3: split papers into passages and extract citation contexts. This needs a new ADR, because ADR-037 says body text isn't stored in the database. Passages come from the 8,427 cached XML files plus abstracts for the rest.
+2. Answer Q1 before S2.4. This machine has no NVIDIA GPU, so local embedding runs on the CPU, over roughly 8,400 full texts.
+3. Answer Q6 before loading the external dataset, and Q7 before claim extraction.
 
 **After that:** the session-order problem from planning. S2.6 (retrieval evaluation) needs the gold passages that S2.8 builds, so loading the external set should move ahead of S2.6. S2.9's tabular baseline has no real labels until S3.4's hand-labelled set. Still open from Phase 1: nothing checks for a DOI that points to a paper with a different title, and the title-plus-author Crossref search for C01 (ADR-041) has no session yet.
 
@@ -887,6 +888,37 @@ Tests (`test_migrations.py`): up, down, up; the index, keys and foreign-key rule
 
 ---
 
+### ADR-045 — Full text from Europe PMC's open-access records only, recorded per work in `text_availability`
+**Status:** active · answers Q2
+
+**In short:** each work's text is looked up in Europe PMC. Open-access full text is cached on disk, and every other work keeps its abstract. **22.6% of resolved references cite a work whose full text Sentinel holds**, so that is the most C09 can check against full text.
+
+How it works (`ingest/fulltext.py`, `sentinel ingest fulltext`, `sentinel corpus coverage`):
+- The works are the corpus's papers plus every work their references resolved to: 33,664 works, 32,689 of them cited.
+- Europe PMC is searched 25 works at a time, by quoted DOI. A work the DOI search misses is tried by PMID (source MED). When several records match one work, the preference order is open access with a PMCID, then any PMCID, then PubMed's record.
+- **Full text** means the record is open access (`isOpenAccess` Y, with a PMCID) and its JATS XML has body paragraphs. The XML goes into `SENTINEL_FULLTEXT_CACHE_DIR`, the cache ADR-037 started, so nothing is downloaded twice.
+- Otherwise the work keeps its **abstract**: Europe PMC's, else the one in its stored Crossref record, else OpenAlex's inverted index, rebuilt into text. Markup is stripped, including markup some sources escape, while real "<" signs stay ("18.5<BMI<25"). Placeholder text such as "Abstract is missing." isn't counted.
+- Results go to a new table, `text_availability` (migration `8d0bd1c5a522`). It holds one row per work with the lookup key, PMCID, open-access and PMC flags, the licence as Europe PMC states it, `fulltext` (`full`, `abstract` or `none`), any fetch error, and the abstract with its source.
+- `paper` stays as its first source wrote it (ADR-032), apart from `fulltext_status`, which is only ever raised. That's because C03 relies on 'full' meaning "the body was examined" (ADR-037).
+
+Results on `pmc-rct-2015-2024` (stage run 16):
+- Corpus papers: 999 full text, 1 abstract only (PMC6561645, whose XML still returns 500).
+- Cited works: 7,437 full text (22.8%), 23,008 abstract only, 2,244 neither.
+- References: 7,825 of 34,593 resolved references (**22.6%**) cite a work with full text, which is 20.2% of all 38,685 references. 92.8% of resolved references cite a work with at least an abstract.
+- The median corpus paper has full text for 19.5% of its resolved references (interquartile range 10.7–29.6%).
+- Coverage depends on the cited work's age: before 2000, 0.2%; 2000–09, 4.8%; 2010–14, 19.8%; 2015 on, 37.8%.
+- Another 5,480 cited works are in PMC but not open access, so no XML is served for them.
+- Licences of the cited full text: CC BY 4,842; CC BY-NC 1,138; CC BY-NC-ND 734; not stated 512; CC BY-NC-SA 143; CC0 62; CC BY-ND 5; CC BY-SA 1. About a third are non-commercial or no-derivatives, so they matter for anything exported (ADR-044's licence column).
+- 51 open-access records (0.6% of 8,478 attempts) answered 500 on every retry. Each is recorded as `http_500` and kept as an abstract, which understates coverage by at most 0.15 points. A re-run retries them.
+- Cost: no money, 8,427 XML files (1.1 GB, gitignored), and about 3.3 hours of fetching. The stage row shows 14 hours because the machine slept for 10.7 of them.
+
+**Turned down:**
+- Writing Europe PMC's PMCID, open-access flag and licence into `paper`: it breaks the first-source rule (ADR-032), and a Crossref row's `license` is the publisher's text-mining URL, a different thing.
+- Asking for XML for every record with a PMCID: Europe PMC answers 500 for the ones that aren't open access, after five retries each.
+- Measuring Q2 on 100 papers, as the old open question suggested: the whole corpus took one run.
+
+---
+
 ### ADR-0NN — template
 **Status:** active
 
@@ -928,6 +960,7 @@ Every model in the system: what it does, where it runs, why it was chosen, and h
 | Hand-labelled held-out set | *TBD* |
 | Evaluation reports | `docs/evals/` |
 | Config | `.env`, `src/sentinel/config.py` |
+| Full-text cache | `data/fulltext/` (`SENTINEL_FULLTEXT_CACHE_DIR`): JATS XML by PMCID, 8,427 files, 1.1 GB (ADR-037, ADR-045) |
 
 ### Graveyard
 
@@ -969,6 +1002,10 @@ The headline numbers at the end of each phase. These become the evaluation repor
 | 2026-10-28 | 1 | Flag rate, C04 | does not apply (0/1,000) | No mean extraction in Phase 1 (ADR-038) |
 | 2026-10-28 | 1 | Flag rate, C05 | 21.6% of corpus trials in scope (69/320) | 10 sampled, all agree with the registry record |
 | 2026-10-28 | 1 | False positives on clean fixtures | 0 | 8 clean papers, `test_fixture_set.py` |
+| 2026-11-01 | 2 | Cited-source full-text coverage (Q2) | 22.6% of resolved references (7,825/34,593); 20.2% of all references | ADR-045; stage run 16 |
+| 2026-11-01 | 2 | Cited works with full text / abstract only / neither | 7,437 / 23,008 / 2,244 of 32,689 | 92.8% of resolved references have at least an abstract |
+| 2026-11-01 | 2 | Full-text coverage by cited work's year | <2000 0.2%; 2000–09 4.8%; 2010–14 19.8%; 2015+ 37.8% | Older evidence is mostly abstract only |
+| 2026-11-01 | 2 | Full-text fetch | 8,427 XML files, 1.1 GB; 51 persistent 500s (0.6%) | About 3.3 h of fetching; $0 |
 
 **Metrics to track from week one, not work out afterwards:**
 - Cascade ratios: how many items enter each stage
@@ -990,6 +1027,15 @@ This section becomes deliverable five, the post-mortem. Most candidates ship a R
 
 **Date · one-line title**
 What happened. What you expected instead. The root cause. What changed as a result. Whether a fixture or test now covers it.
+
+**2026-11-01 · Europe PMC answers 500, not 404, for full text it won't serve**
+Asking for `fullTextXML` for a PMC record that isn't open access returns HTTP 500 with a short error body. The client expected 404 for "not available", and since 500 is retried, each such request would have spent five retries and about 30 seconds before failing. Found by testing three non-open-access PMCIDs before the run. The fetch now asks only for open-access records (ADR-045), and `EuropePMC.fulltext_xml` documents it. PMC6561645's long-running 500 may be the same thing, since it is the one corpus paper Europe PMC won't serve. `test_fulltext.py` covers it.
+
+**2026-11-01 · The machine slept for ten hours in the middle of the full-text run**
+The log stops at 09:17 UTC and resumes at 19:59. The first request after waking hit a dropped connection (`httpx.ReadError`), which was retried under ADR-042 and the run finished normally: the failure that stopped S1.15's run, handled. The stage row's 14-hour duration includes the sleep, so wall time per stage overstates work when a laptop sleeps.
+
+**2026-11-01 · Some sources escape their markup inside abstracts**
+Spot-checking stored abstracts mid-run found Crossref abstracts reading "<em>Introduction:</em><strong>…", because the source had escaped the tags (`&lt;em&gt;`), so they reappeared after unescaping. Removing every tag-like string after unescaping would also delete real text, since Europe PMC abstracts contain "18.5<BMI<25". The fix removes only known HTML tag names after unescaping, and drops placeholders such as "Abstract is missing.". The 16 affected stored abstracts were cleaned in place, each validated through `TextAvailability`; 3 placeholders now count as no abstract. Tests in `test_fulltext.py` use both real cases.
 
 **2026-10-31 · Three surprises moving the database into Docker**
 - Port 5433 was already taken by another Postgres server on this machine, so Docker refused to start the container. It now uses 5434.
@@ -1060,10 +1106,10 @@ The live v2 format also has PI names in `responsibleParty` and contact emails in
 | Which starting corpus? | Affects how fixtures are designed and whether prevalence can be compared with published figures | Week 1 | **answered: ADR-021** |
 | Should `config.py` have defaults, or require every setting? | Decides whether `.env.example` is just documentation or required setup | Week 1 | **answered: ADR-022** |
 | Is a GPU available, or should one be rented? | Decides whether encoders and fine-tuning run locally or through an API | Week 6 | open. Not needed until Phase 3; renting by the hour would probably cost under $100 in total. Tracked as Q1 |
-| What share of *cited* sources have full text available? | Limits how many claims can be checked against their source. This is different from coverage of the citing papers, which is about 100% by design | Week 4 | open. Measure on 100 papers and report next to accuracy. Tracked as Q2 |
+| What share of *cited* sources have full text available? | Limits how many claims can be checked against their source. This is different from coverage of the citing papers, which is about 100% by design | Week 4 | **answered: ADR-045** (whole corpus, not 100 papers). Tracked as Q2 |
 | Publish findings about individual papers, or only totals? | Wrongly accusing someone of making up a reference would do serious harm | Week 10 | open. Current leaning: rule-based checks may name papers, model-based checks report rates only. Tracked as Q4 |
 | Q1: Is a GPU available? | Decides whether encoders and training run locally or through an API | Before S2.4 | open. The development machine has no NVIDIA GPU (checked 2026-10-31), so local serving means CPU |
-| Q2: What share of cited sources have open full text? | Limits how much C09 can check | Measured in S2.2 | open |
+| Q2: What share of cited sources have open full text? | Limits how much C09 can check | Measured in S2.2 | **answered: ADR-045.** 22.6% of resolved references cite a work with full text; 92.8% at least an abstract |
 | Q3: What exact Europe PMC query picks the corpus? | Decides what the working corpus is | S1.6 | **answered: ADR-028** |
 | Q4: Publish findings about individual papers, or only totals? | Wrongly accusing someone of making up a reference would do serious harm | Before S5.8 | open |
 | Q5: Where can earlier versions of registered outcomes come from? The public v2 API has no history endpoint. Options: the website's change-history tab (check the terms of use); a third-party dataset that rebuilds the history (check the licence and access); or the current record only, which supports only the weaker claim "the registry and the paper don't match" rather than "the outcome was switched". | Decides what C06 can honestly claim | Before S3.9, ideally by the end of Phase 1 | open |

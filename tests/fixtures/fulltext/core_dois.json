@@ -1,0 +1,215 @@
+{
+ "version": "6.9",
+ "hitCount": 3,
+ "resultList": {
+  "result": [
+   {
+    "id": "35335624",
+    "source": "MED",
+    "pmid": "35335624",
+    "pmcid": "PMC8950561",
+    "fullTextIdList": {
+     "fullTextId": [
+      "PMC8950561"
+     ]
+    },
+    "doi": "10.3390/pathogens11030300",
+    "title": "Pathogenesis of the <i>Pseudomonas aeruginosa</i> Biofilm: A Review.",
+    "authorString": "Tuon FF, Dantas LR, Suss PH, Tasca Ribeiro VS.",
+    "dataLinksTagsList": {
+     "dataLinkstag": [
+      "altmetrics"
+     ]
+    },
+    "journalInfo": {
+     "issue": "3",
+     "volume": "11",
+     "journalIssueId": 3333206,
+     "dateOfPublication": "2022 Feb",
+     "monthOfPublication": 2,
+     "yearOfPublication": 2022,
+     "journal": {
+      "medlineAbbreviation": "Pathogens",
+      "title": "Pathogens (Basel, Switzerland)",
+      "essn": "2076-0817",
+      "issn": "2076-0817",
+      "nlmid": "101596317",
+      "isoabbreviation": "Pathogens"
+     },
+     "printPublicationDate": "2022-02-01"
+    },
+    "pubYear": "2022",
+    "pageInfo": "300",
+    "abstractText": "<i>Pseudomonas aeruginosa</i> is associated with several human infections, mainly related to healthcare services. In the hospital, it is associated with resistance to several antibiotics, which poses a great challenge to therapy. However, one of the biggest challenges in treating <i>P. aeruginosa</i> infections is that related to biofilms. The complex structure of the <i>P. aeruginosa</i> biofilm contributes an additional factor to the pathogenicity of this microorganism, leading to therapeutic failure, in addition to escape from the immune system, and generating chronic infections that are difficult to eradicate. In this review, we address several molecular aspects of the pathogenicity of <i>P. aeruginosa</i> biofilms.",
+    "publicationStatus": "epublish",
+    "language": "eng",
+    "pubModel": "Electronic",
+    "pubTypeList": {
+     "pubType": [
+      "review-article",
+      "Review",
+      "Journal Article"
+     ]
+    },
+    "isOpenAccess": "Y",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "citedByCount": 288,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "Y",
+    "hasData": "N",
+    "license": "cc by",
+    "authMan": "N",
+    "epmcAuthMan": "N",
+    "nihAuthMan": "N",
+    "hasTMAccessionNumbers": "N",
+    "dateOfCreation": "2022-03-26",
+    "dateOfRevision": "2022-03-29",
+    "electronicPublicationDate": "2022-02-27",
+    "firstPublicationDate": "2022-02-27",
+    "firstIndexDate": "2022-03-28",
+    "fullTextReceivedDate": "2025-02-04",
+    "hasEvaluations": "N"
+   },
+   {
+    "id": "32346862",
+    "source": "MED",
+    "pmid": "32346862",
+    "pmcid": "PMC7393191",
+    "fullTextIdList": {
+     "fullTextId": [
+      "PMC7393191"
+     ]
+    },
+    "doi": "10.1111/bph.15085",
+    "title": "Inhaled NO and COVID-19.",
+    "authorString": "Ignarro LJ.",
+    "dataLinksTagsList": {
+     "dataLinkstag": [
+      "altmetrics"
+     ]
+    },
+    "journalInfo": {
+     "issue": "16",
+     "volume": "177",
+     "journalIssueId": 2987053,
+     "dateOfPublication": "2020 Aug",
+     "monthOfPublication": 8,
+     "yearOfPublication": 2020,
+     "journal": {
+      "medlineAbbreviation": "Br J Pharmacol",
+      "title": "British journal of pharmacology",
+      "essn": "1476-5381",
+      "issn": "0007-1188",
+      "nlmid": "7502536",
+      "isoabbreviation": "Br J Pharmacol"
+     },
+     "printPublicationDate": "2020-08-01"
+    },
+    "pubYear": "2020",
+    "pageInfo": "3848-3849",
+    "publicationStatus": "ppublish",
+    "language": "eng",
+    "pubModel": "Print-Electronic",
+    "pubTypeList": {
+     "pubType": [
+      "Letter"
+     ]
+    },
+    "isOpenAccess": "N",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "citedByCount": 41,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "Y",
+    "hasData": "N",
+    "authMan": "N",
+    "epmcAuthMan": "N",
+    "nihAuthMan": "N",
+    "hasTMAccessionNumbers": "N",
+    "dateOfCompletion": "2020-08-21",
+    "dateOfCreation": "2020-04-30",
+    "dateOfRevision": "2021-08-02",
+    "electronicPublicationDate": "2020-05-10",
+    "firstPublicationDate": "2020-05-10",
+    "firstIndexDate": "2020-05-05",
+    "fullTextReceivedDate": "2025-02-03",
+    "hasEvaluations": "N"
+   },
+   {
+    "id": "34480548",
+    "source": "MED",
+    "pmid": "34480548",
+    "doi": "10.1093/europace/euab216",
+    "title": "Personalized paroxysmal atrial fibrillation ablation by tailoring ablation index to the left atrial wall thickness: the 'Ablate by-LAW' single-centre study-a pilot study.",
+    "authorString": "Teres C, Soto-Iglesias D, Penela D, Jáuregui B, Ordoñez A, Chauca A, Carreño JM, Scherer C, San Antonio R, Huguet M, Roque A, Ramírez C, Oller G, Jornet A, Palet J, Santana D, Panaro A, Maldonado G, de Leon G, Jiménez G, Evangelista A, Carballo J, Ortíz-Pérez JT, Berruezo A.",
+    "dataLinksTagsList": {
+     "dataLinkstag": [
+      "altmetrics"
+     ]
+    },
+    "journalInfo": {
+     "issue": "3",
+     "volume": "24",
+     "journalIssueId": 3322191,
+     "dateOfPublication": "2022 Mar",
+     "monthOfPublication": 3,
+     "yearOfPublication": 2022,
+     "journal": {
+      "medlineAbbreviation": "Europace",
+      "title": "Europace : European pacing, arrhythmias, and cardiac electrophysiology : journal of the working groups on cardiac pacing, arrhythmias, and cardiac cellular electrophysiology of the European Society of Cardiology",
+      "essn": "1532-2092",
+      "issn": "1099-5129",
+      "nlmid": "100883649",
+      "isoabbreviation": "Europace"
+     },
+     "printPublicationDate": "2022-03-01"
+    },
+    "pubYear": "2022",
+    "pageInfo": "390-399",
+    "abstractText": "<h4>Aims</h4>To determine if adapting the ablation index (AI) to the left atrial wall thickness (LAWT), which is a determinant of lesion transmurality, is feasible, effective, and safe during paroxysmal atrial fibrillation (PAF) ablation.<h4>Methods and results</h4>Consecutive patients referred for PAF first ablation. Left atrial wall thickness three-dimensional maps were obtained from multidetector computed tomography and integrated into the CARTO navigation system. Left atrial wall thickness was categorized into 1 mm layers and AI was titrated to the LAWT. The ablation line was personalized to avoid thicker regions. Primary endpoints were acute efficacy and safety, and freedom from atrial fibrillation (AF) recurrences. Follow-up (FU) was scheduled at 1, 3, 6, and every 6 months thereafter. Ninety patients [60 (67%) male, age 58 ± 13 years] were included. Mean LAWT was 1.25 ± 0.62 mm. Mean AI was 366 ± 26 on the right pulmonary veins with a first-pass isolation in 84 (93%) patients and 380 ± 42 on the left pulmonary veins with first-pass in 87 (97%). Procedure time was 59 min (49-66); radiofrequency (RF) time 14 min (12.5-16); and fluoroscopy time 0.7 min (0.5-1.4). No major complication occurred. Eighty-four out of 90 (93.3%) patients were free of recurrence after a mean FU of 16 ± 4 months.<h4>Conclusion</h4>Personalized AF ablation, adapting the AI to LAWT allowed pulmonary vein isolation with low RF delivery, fluoroscopy, and procedure time while obtaining a high rate of first-pass isolation, in this patient population. Freedom from AF recurrences was as high as in more demanding ablation protocols. A multicentre trial is ongoing to evaluate reproducibility of these results.",
+    "publicationStatus": "ppublish",
+    "language": "eng",
+    "pubModel": "Print",
+    "pubTypeList": {
+     "pubType": [
+      "Multicenter Study",
+      "Journal Article"
+     ]
+    },
+    "isOpenAccess": "N",
+    "inEPMC": "N",
+    "inPMC": "N",
+    "citedByCount": 52,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "N",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "Y",
+    "hasData": "N",
+    "authMan": "N",
+    "epmcAuthMan": "N",
+    "nihAuthMan": "N",
+    "hasTMAccessionNumbers": "N",
+    "dateOfCompletion": "2022-03-31",
+    "dateOfCreation": "2021-09-04",
+    "dateOfRevision": "2022-04-01",
+    "firstPublicationDate": "2022-03-01",
+    "firstIndexDate": "2021-09-05",
+    "hasEvaluations": "N"
+   }
+  ]
+ }
+}

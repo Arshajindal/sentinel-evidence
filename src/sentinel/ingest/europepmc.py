@@ -2,7 +2,7 @@
 
 Endpoints, confirmed live on 2026-10-18:
   {base}/search                      query; resultType idlist|core; cursorMark paging
-  {base}/{pmcid}/fullTextXML         JATS full text; only the <ref-list> is read
+  {base}/{pmcid}/fullTextXML         JATS full text; open-access records only (500 otherwise)
   {annotations}/annotationsByArticleIds   text-mined accession numbers, 8 IDs per call
 
 Reference lists come from the full text, not {base}/{source}/{id}/references:
@@ -87,8 +87,31 @@ class EuropePMC:
         })
         return {r["pmcid"]: r for r in page["resultList"]["result"] if r.get("pmcid")}
 
+    def core_by_dois(self, dois: list[str]) -> list[dict]:
+        """Core records matching any of `dois` (quoted), unfiltered (ADR-045)."""
+        return self._core_query(" OR ".join(f'DOI:"{d}"' for d in dois), len(dois))
+
+    def core_by_pmids(self, pmids: list[str]) -> list[dict]:
+        """Core records for PubMed IDs, unfiltered; callers keep source MED."""
+        return self._core_query(" OR ".join(f"EXT_ID:{p}" for p in pmids), len(pmids))
+
+    def _core_query(self, query: str, n: int) -> list[dict]:
+        page_size = max(4 * n, 25)
+        page = self._json(f"{self.base_url}/search", {
+            "query": query, "format": "json", "resultType": "core", "pageSize": page_size,
+        })
+        if page["hitCount"] > page_size:
+            # More versions than expected share these IDs; a silent cut would
+            # make a work look missing, so the batch fails instead.
+            raise ValueError(f"{page['hitCount']} hits for {n} identifiers; page holds {page_size}")
+        return page["resultList"]["result"]
+
     def fulltext_xml(self, pmcid: str) -> str | None:
-        """JATS XML for an open-access paper, or None if Europe PMC has none."""
+        """JATS XML for an open-access paper, or None if Europe PMC has none.
+
+        Only ask for open-access records (isOpenAccess Y): for a PMC record
+        that isn't open access, Europe PMC answers 500, not 404 (2026-11-01).
+        """
         response = self.http.get(f"{self.base_url}/{pmcid}/fullTextXML")
         if response.status_code == 404:
             return None

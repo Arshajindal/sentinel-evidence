@@ -539,3 +539,38 @@ eval_item_gold_passage = Table(
     ),
 )
 Index("eval_item_gold_passage_passage", eval_item_gold_passage.c.passage_id)
+
+# What text Sentinel holds for a work, and under what licence (§10.1 item 1,
+# ADR-045). One row per work that has been looked up; Europe PMC is asked by
+# DOI, else PMID. fulltext: full (open-access JATS XML with a body, cached on
+# disk by PMCID) | abstract | none. The source's own metadata in `paper` is
+# not rewritten (ADR-032); paper.fulltext_status mirrors `fulltext`.
+text_availability = Table(
+    "text_availability",
+    metadata,
+    Column(
+        "paper_id",
+        BigInteger,
+        ForeignKey("paper.id", ondelete="CASCADE"),
+        primary_key=True,
+    ),
+    Column("source", Text, nullable=False),
+    Column("lookup_key", Text),  # "doi:..." or "pmid:..."; NULL if the work has neither
+    Column("found", Boolean, nullable=False),
+    Column("pmcid", Text),
+    Column("is_oa", Boolean),
+    Column("in_pmc", Boolean),
+    Column("license", Text),  # the licence of the text held, as the source states it
+    Column("fulltext", Text, nullable=False),
+    Column("fulltext_error", Text),  # e.g. http_500 when open-access XML couldn't be fetched
+    Column("abstract", Text),
+    Column("abstract_source", Text),  # europepmc | crossref | openalex
+    Column("raw", JSONB),
+    Column(
+        "checked_at",
+        DateTime(timezone=True),
+        nullable=False,
+        server_default=func.now(),
+    ),
+)
+Index("text_availability_fulltext", text_availability.c.fulltext)

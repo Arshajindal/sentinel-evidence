@@ -155,7 +155,7 @@ All sources are public and free. Every source that offers a "polite pool" gets t
 
 | Source | How Sentinel gets it at current scale | Used for | Phase |
 |---|---|---|---|
-| Europe PMC | REST API, plus the Annotations API for text-mined NCT numbers | Corpus selection, paper metadata, reference lists (from the full-text XML `<ref-list>`, ADR-030), trial links (ADR-028), open-access full text | 1 (body text in 2) |
+| Europe PMC | REST API, plus the Annotations API for text-mined NCT numbers | Corpus selection, paper metadata, reference lists (from the full-text XML `<ref-list>`, ADR-030), trial links (ADR-028), open-access full text and abstracts (ADR-045; XML is served only for open-access records) | 1 (body text in 2) |
 | Crossref | REST API | DOI lookups, candidate search for unmatched references, deposited reference lists | 1 |
 | OpenAlex | REST API, metered (ADR-032): DOI lookups free, searches $0.001 against a daily budget | Work metadata, a fallback candidate source, the citation graph | 1 |
 | doi.org handle API | REST, by DOI | Confirms whether a DOI exists at any registration agency, not just Crossref | 1 |
@@ -1110,7 +1110,7 @@ unsure about, and draft the three PROGRESS.md lines. Don't commit.
 | # | Question | Why it matters | Decide by |
 |---|---|---|---|
 | Q1 | Is a GPU available? | Decides local or API serving for encoders and training | Before S2.4 |
-| Q2 | What share of cited sources has open full text? | Caps how much C09 can check | Measured in S2.2 |
+| Q2 | What share of cited sources has open full text? | Caps how much C09 can check | **Answered (ADR-045):** 22.6% of resolved references; 92.8% have at least an abstract |
 | Q3 | What exact Europe PMC query selects the corpus? | Decides what the working corpus is | S1.6 |
 | Q4 | Publish individual findings, or aggregate only? | A false accusation of fabrication is a serious harm | Before S5.8 |
 | Q5 | Where do earlier versions of registered outcomes come from? The public v2 API has no history endpoint. The options are the website's change-history tab (check its terms of use first), a third-party reconstructed history dataset (check its licence and access terms), or comparing against the current record only, which supports a weaker claim ("registry–publication mismatch" rather than "switching"). | It decides what C06 can honestly claim | Before S3.9, ideally by the end of Phase 1 |

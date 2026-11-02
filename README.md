@@ -59,10 +59,14 @@ sentinel check --corpus pmc-rct-2015-2024                   # run C01-C05, recor
 sentinel stats --run <run-id>                               # flag rates, cascade ratios, stage times
 sentinel export --run <run-id> --format csv --out out/findings.csv
 sentinel report 10.1007/s11357-023-00725-5                  # one paper's report card (DOI, paper ID or NCT ID)
+
+# Phase 2
+sentinel ingest fulltext --corpus pmc-rct-2015-2024         # full text or abstract for the corpus and cited works
+sentinel corpus coverage --corpus pmc-rct-2015-2024         # how many cited sources have full text (Q2)
 ```
 
 **Resuming:**
-- **Harvesters** (`ingest europepmc`, `ingest retraction-watch`, `extract stats`) save a cursor with each batch. `--resume` continues from it.
+- **Harvesters** (`ingest europepmc`, `ingest retraction-watch`, `ingest fulltext`, `extract stats`) save a cursor with each batch. `--resume` continues from it.
 - **`resolve`** picks up the references still `pending`.
 - **OpenAlex budget:** OpenAlex charges $0.001 per search. When the day's budget runs out, `resolve` stops with exit code 3 and keeps finished batches; run it again the next day.
 - **Lookups:** `ingest crossref|openalex|doi-handle --doi ...` and `ingest clinicaltrials --nct ...` fetch single records on demand.
