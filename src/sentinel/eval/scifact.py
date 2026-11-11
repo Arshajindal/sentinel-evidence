@@ -35,9 +35,9 @@ from pathlib import Path
 from typing import Literal
 
 import httpx
-from pydantic import BaseModel, ConfigDict, Field, model_validator
 from sqlalchemy import Engine, insert, select
 
+from sentinel.eval.items import EvalItemRecord, hash_split
 from sentinel.fulltext.passages import PassageParams, sentence_windows
 from sentinel.log import get_logger
 from sentinel.models import eval_item, eval_item_gold_passage, paper, passage
@@ -49,7 +49,6 @@ log = get_logger(__name__)
 DATASET = "scifact"
 LICENSE = "claims and labels CC-BY-4.0; abstracts ODC-By-1.0"
 LABELS = {"SUPPORT": "supported", "CONTRADICT": "contradicted"}
-SPLITS = (("train", 0.6), ("val", 0.8), ("test", 1.0))  # cumulative shares
 
 
 @dataclass(frozen=True)
@@ -70,28 +69,6 @@ class Loaded:
     gold_links: int = 0
     by_split_label: dict[str, int] = field(default_factory=dict)
     unmapped_sentences: int = 0
-
-
-class EvalItemRecord(BaseModel):
-    """One row of `eval_item` with its gold passages (ADR-044)."""
-
-    model_config = ConfigDict(extra="forbid", frozen=True)
-
-    set_name: Literal["synthetic", "external", "holdout"]
-    split: Literal["train", "val", "test"]
-    claim_text: str = Field(min_length=1)
-    source_paper_id: int
-    label: Literal["supported", "contradicted", "insufficient"]
-    corruption_type: str | None = None
-    license: str = Field(min_length=1)
-    origin: dict
-    gold_passage_ids: list[int]
-
-    @model_validator(mode="after")
-    def _gold(self) -> EvalItemRecord:
-        if (self.label == "insufficient") != (not self.gold_passage_ids):
-            raise ValueError("supported/contradicted items need gold passages; insufficient ones have none")
-        return self
 
 
 # --- fetching ----------------------------------------------------------------------
@@ -160,13 +137,8 @@ def assign_splits(items: list[Item], seed: int) -> dict[tuple[int, int], str]:
     members: dict[tuple[str, int], list[int]] = defaultdict(list)
     for it in items:
         members[find(("d", it.doc_id))].append(it.doc_id)
-    split_of_root = {root: _split(f"{seed}:{DATASET}:{min(docs)}") for root, docs in members.items()}
+    split_of_root = {root: hash_split(f"{seed}:{DATASET}:{min(docs)}") for root, docs in members.items()}
     return {(it.claim_id, it.doc_id): split_of_root[find(("d", it.doc_id))] for it in items}
-
-
-def _split(key: str) -> str:
-    value = int(hashlib.sha256(key.encode()).hexdigest()[:12], 16) / 16 ** 12
-    return next(name for name, upto in SPLITS if value < upto)
 
 
 # --- loading -----------------------------------------------------------------------

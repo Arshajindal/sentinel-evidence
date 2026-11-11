@@ -86,7 +86,7 @@ Keep updates quick, or the file stops being kept up. The rules:
 
 **Phase:** 2 of 5: full text, retrieval, and the evaluation foundation. Phase 1 is finished and merged (PR #1).
 **Plan:** the session list in §15 of `docs/sentinel-project.md`. The old brief and HTML spec are in `docs/archive/`.
-**Last worked:** 2026-11-11, session S2.6 (the retrieval ablation, ADR-050). Before that, 2026-11-10: S2.4 (passage embeddings; Q1 answered), S2.5 (retrieval) and S2.6a (SciFact; Q6 answered).
+**Last worked:** 2026-11-11, sessions S2.6 (the retrieval ablation, ADR-050) and S2.8 (the synthetic set, ADR-051). Before that, 2026-11-10: S2.4 (passage embeddings; Q1 answered), S2.5 (retrieval) and S2.6a (SciFact; Q6 answered).
 
 **Sessions:**
 
@@ -115,25 +115,28 @@ Keep updates quick, or the file stops being kept up. The rules:
 | S2.5 BM25, dense, fusion, rerank | done | `retrieve/` (bm25, dense, fusion, search; query and cross encoders), `sentinel retrieve build-bm25` and `sentinel retrieve search` (ADR-048). BM25 index of 263,440 passages. **The debug command returns the top passages for a claim or a citation, with every stage's rank.** Dot and cosine both implemented; S2.6 decides. |
 | S2.6a External set (SciFact) | done | `eval/scifact.py`, `sentinel eval load-scifact` (ADR-049; Q6 answered). Release pinned by SHA-256 and unpacked safely. **1,258 items in our own splits by linked claims and abstracts** (SciFact's split shares 181 of 283 dev abstracts with train). 5,992 passages; every evidence sentence mapped to its gold passages. |
 | S2.6 Retrieval ablation | done | `eval/retrieval.py`, `sentinel eval retrieval` and `eval compare` (ADR-050). **Four rows, dot and cosine, in MLflow** over 263 SciFact claims. nDCG@10 on val: BM25 0.763, dense 0.791, fusion 0.801, fusion plus rerank 0.895. Test: 0.822 to 0.865, and there the reranker adds nothing measurable. The first run's cosine rows were cut short by the HNSW index, so dense search is now exact. Dot product chosen; reranker kept on val's evidence. Report in `docs/evals/`. |
+| S2.8 Synthetic set | done | `eval/synthetic.py`, `eval/items.py`, `sentinel eval make-synthetic` (ADR-051). Rules, no language model. **5,323 items from 1,628 number-anchored abstract–results pairs in 1,000 cited works; every item has a corruption type, and splits are by source paper.** 48 of 50 sampled items read as rightly labelled. Reading the drafts found S2.2's abstract cleaner deleting text after a "<" (failure log). The reranker re-measurement on full text waits for S2.4's run. |
 
-**What works:** the whole Phase 1 pipeline over the 1,000-paper corpus. That means loading data, matching references (89.4% of all references, 94.4% of the structured sample), pulling out statistics, all five checks, `report`, `stats`, `export` and stage timing. 802 tests, all passing, including the database tests and the 46-item fixture set. Phase 2 so far:
+**What works:** the whole Phase 1 pipeline over the 1,000-paper corpus. That means loading data, matching references (89.4% of all references, 94.4% of the structured sample), pulling out statistics, all five checks, `report`, `stats`, `export` and stage timing. 833 tests, all passing, including the database tests and the 46-item fixture set. Phase 2 so far:
 - pgvector, the Phase 2 tables and MLflow;
 - text availability for every corpus paper and cited work (Q2 measured);
 - 290,977 passages and 35,921 citation contexts;
-- MedCPT embeddings, the run 9% done;
+- MedCPT embeddings, the run 43% done;
 - BM25, exact dense search, fusion and reranking;
-- SciFact loaded, and the retrieval ablation in MLflow.
+- SciFact loaded, and the retrieval ablation in MLflow;
+- the synthetic set, 5,323 items.
 
 **What's broken:**
+- S2.2's abstract cleaner deleted text after a literal "<" in about 12% of stored abstracts, and so in their abstract passages (failure log, 2026-11-11). Body passages are fine.
 - Most of C01's corpus flags are works that do exist: only 8 of 20 sampled flags were correct (see the README's section on C01's limits). So C01's flag rate is published as an upper bound.
 - A stage that is force-killed leaves its `stage_run` row saying `running` forever (run 9).
 - `stats` counts items only for runs that finished.
 - The full text of PMC6561645 still returns an HTTP 500 error from Europe PMC.
 
 **Next three things:**
-1. Finish S2.4: resume the corpus embedding run (`sentinel embed passages --corpus pmc-rct-2015-2024 --resume`; 23,552 of 263,440 done, about 13 h left) and record the final count.
-2. S2.8: the corruption generator, for full-text items SciFact can't provide. Use its pairs to re-measure the reranker on full-text passages, since test didn't confirm its gain (ADR-050).
-3. Answer Q7 before claim extraction (S2.7). Also decide whether to drop the now-unused cosine HNSW index, which needs a migration (ADR-050).
+1. Finish S2.4: the corpus embedding run is going (112,128 of 263,440 at 20:40 UTC, about 8 h left; `--resume` continues it if stopped). Record the final count.
+2. Fix S2.2's abstract cleaner so it removes only tag-shaped markup, with the BSB case as a test. Then fetch the damaged abstracts again, replace their abstract passages and vectors, and regenerate the synthetic set. It refuses to add to an existing generator 1.0.0 set, so delete that set or bump the version.
+3. Re-measure the reranker on the synthetic set's full-text pairs (ADR-050 asked for it; needs item 1). Then answer Q7 for S2.7, and decide whether to drop the unused cosine HNSW index (a migration).
 
 **After that:** S2.9's tabular baseline has no real labels until S3.4's hand-labelled set. Phase 3 needs a plan for reranking cost: about 13 s per claim on this CPU (ADR-048, ADR-050). Still open from Phase 1: nothing checks for a DOI that points to a paper with a different title, and the title-plus-author Crossref search for C01 (ADR-041) has no session yet.
 
@@ -1136,6 +1139,79 @@ Checked:
 
 ---
 
+### ADR-051 — The synthetic set: number-anchored pairs from full text, corrupted by rule
+**Status:** active · implements S2.8 · no language model (your choice; Q7 stays open for S2.7)
+
+**In short:** 5,323 items from 1,628 supported pairs in 1,000 cited works. A pair is a sentence from a work's own abstract, plus the results passages in its body that repeat every number the sentence pins its result to. Four rule-based corruptions turn pairs into contradicted and insufficient items, each recording its type. It costs nothing and is reproducible. The catch is that the claims are the sources' own words, not a citing author's.
+
+How it's made (`eval/synthetic.py`, `sentinel eval make-synthetic`, generator 1.0.0):
+- **Sources:**
+  - the corpus's cited works with body passages: 7,432;
+  - of those, works whose licence allows adapted text: 4,025 (CC BY, BY-SA, BY-NC, BY-NC-SA, CC0, public domain);
+  - skipped: NoDerivatives, text-mining-only licences, publisher terms and missing licences.
+- **Anchors:** decimals, percentages, and whole numbers of 10 or more that aren't years. P values and "95% CI" don't count, since every results section has them.
+- **What makes a claim:**
+  - at least two anchors, one of them a decimal or a percentage;
+  - 8–60 words;
+  - no abstract heading inside it (that's two sentences run together);
+  - not an aim ("To assess…").
+- **Gold:** the one to three results passages that hold every anchor. A paper gives at most three pairs.
+- **Splits:** by source paper, with the seeded hash shared with SciFact (moved to `eval/items.py`), 60/20/20. A swapped source comes from the claim paper's split. `EvalItemRecord` now requires a corruption type on synthetic items and refuses one on any other set.
+- **Provenance:** every item's `origin` holds:
+  - the generator version and the pair it came from;
+  - the claim's paper and abstract passage;
+  - the anchors;
+  - the raw licence;
+  - what changed.
+- Running again adds nothing.
+
+| Type | Rule | Label | Items |
+|---|---|---|---:|
+| `none` | The pair as found | supported, with gold | 1,628 |
+| `direction_flipped` | Every direction word swapped (higher/lower, increased/decreased, …); skipped if the sentence negates | contradicted, same gold | 453 |
+| `number_changed` | One anchor ×0.5 or ×1.5, to a value the source never prints | contradicted, same gold | 1,567 |
+| `population_changed` | One population word swapped (children/adults, men/women, mice → humans, type 1/2 diabetes). Skipped if the source uses any word for the new group, or the claim gives the group's count or share | insufficient | 47 |
+| `source_swapped` | The claim paired with another cited work that doesn't repeat its anchors; one cited by the same corpus paper where possible (1,517), else random (111) | insufficient | 1,628 |
+
+| Split | Supported | Contradicted | Insufficient |
+|---|---:|---:|---:|
+| train | 1,022 | 1,273 | 1,048 |
+| val | 317 | 407 | 330 |
+| test | 289 | 340 | 297 |
+
+**Spot check.** These are Claude's readings, not human labels.
+- **Two drafts of the set were read and deleted.** Reading 62 items of the first and 15 population swaps of the second found:
+  - claims merged across two sentences: the abstract bug in the failure log, 2026-11-11;
+  - aims taken as findings;
+  - one heading the stripper missed ("Result");
+  - population swaps on sample-composition sentences: "33.7% … were women" became "were men", which contradicts rather than leaving the claim unsupported.
+
+  Each became a rule above.
+- **In the final set, 48 of 50 items (10 per type, seed 99) read as rightly labelled.**
+  - One number change altered a dilution ("1:500" to "1:750"), which is arguably insufficient rather than contradicted.
+  - One intact pair's abstract restates its body loosely.
+  - Two co-cited swaps whose source could have restated the claim were checked against the source's passages, and neither did.
+  - Population swaps are right but often absurd ("men with uterine fibroids"), so they're easy.
+- A person should read a sample before Phase 3 trains on the set.
+
+**Limits:**
+- The claim is the source's own sentence. Retrieval on this set flatters BM25, and verdicts are easier than on real citations, which is why §14 reports synthetic and real numbers together. Retrieval should search body passages only: the claim's abstract passage is `origin.claim_passage_id`.
+- An intact pair assumes the abstract agrees with the body.
+- A changed number can be any anchor, including an SD, a CI bound or a design value. `number_from` and `number_to` allow error analysis by kind.
+- 47 population items are too few to report alone.
+- Abstracts damaged by S2.2's cleaner give fewer pairs, though none merged now (0 of 1,628). Regenerate after the fix.
+- 2 source papers share a title with a SciFact abstract, so they should be excluded when one set trains and the other tests.
+- The set's cited works will also be the sources of S3.4's real items. Phase 3 must keep a work's synthetic items out of training when that work is in the holdout.
+
+**Turned down:**
+- A language model writing paraphrased claims and corruptions. It needs Q7 and a budget, and it's circular if the same model later judges. It can be added later as a second set over the same pairs.
+- Citation contexts as claims. They're the real input, but nothing says which are supported; that's S3.4's hand labelling.
+- SciFact's supported claims as the source: abstracts only, the gap this set fills.
+- Only random swapped sources: too easy, since co-cited works share a topic.
+- Every licence: NoDerivatives forbids adapted text, and text-mining licences don't clearly allow it.
+
+---
+
 ### ADR-0NN — template
 **Status:** active
 
@@ -1150,7 +1226,7 @@ Every model in the system: what it does, where it runs, why it was chosen, and h
 | Role | Model | Where it runs | Why chosen | Main metric | Status |
 |---|---|---|---|---|---|
 | Dense retrieval | MedCPT article encoder (`d05a736da4bb`) for passages, query encoder (`d83a36cc6b8e`) for claims; SPECTER2 or a general model as the comparison | in-process PyTorch, CPU (ADR-047) | Named in §10.1; dot product beat cosine on val (ADR-050) | nDCG@10 on SciFact: 0.791 val, 0.879 test (dense alone) | in use; no comparison model tried yet |
-| Reranker | MedCPT cross-encoder (`71caf65d4927`); bge-reranker-v2-m3 as the comparison | in-process PyTorch, CPU (ADR-048) | Named in §10.1; kept on val's gain (ADR-050) | nDCG@10 gain over fusion on SciFact: +0.094 val, −0.006 test | in use; re-measure on full text (S2.8); no comparison model tried yet |
+| Reranker | MedCPT cross-encoder (`71caf65d4927`); bge-reranker-v2-m3 as the comparison | in-process PyTorch, CPU (ADR-048) | Named in §10.1; kept on val's gain (ADR-050) | nDCG@10 gain over fusion on SciFact: +0.094 val, −0.006 test | in use; re-measure on the synthetic set's full-text pairs once S2.4's run ends (ADR-051); no comparison model tried yet |
 | Claim entity recognition (NER) | *TBD: GLiNER-biomed vs a fine-tuned encoder* | local | Pending, week 6 | entity F1 | not selected |
 | Outcome equivalence | *TBD* | local | Pending, week 7 | macro F1 | not selected |
 | Entailment, zero-shot | *TBD: an NLI head* | local | Baseline, week 7 | macro F1 | not selected |
@@ -1174,7 +1250,7 @@ Every model in the system: what it does, where it runs, why it was chosen, and h
 | Model registry | MLflow, tagged by stage |
 | Fixture corpus | `tests/fixtures/` |
 | External evaluation set | SciFact: `eval_item` rows with `origin.dataset = scifact`; release in `data/external/scifact/` (ADR-049) |
-| Generated evaluation set | *TBD* |
+| Generated evaluation set | The synthetic set: `eval_item` rows with `origin.dataset = synthetic-rules`, made from stored passages by `sentinel eval make-synthetic` (ADR-051) |
 | Hand-labelled held-out set | *TBD* |
 | Evaluation reports | `docs/evals/`: `retrieval-ablation-2026-11-11.md` (ADR-050) |
 | Ablation results | `data/evals/retrieval-ablation-<UTC stamp>.json`, every ranking; MLflow experiment `retrieval-ablation`, one run per row |
@@ -1242,6 +1318,10 @@ The headline numbers at the end of each phase. These become the evaluation repor
 | 2026-11-11 | 2 | Gain of fusion + rerank over BM25 (§10.3: 15–30%) | val +17.2% [+9.9%, +25.4%]; test +5.1% [+1.2%, +9.6%] | Paired bootstrap; no sign of leakage |
 | 2026-11-11 | 2 | Cross-encoder throughput, CPU free | 3.9 pairs/s; about 13 s per claim for 50 pairs | Replaces the 3 pairs/s measured while sharing the CPU |
 | 2026-11-11 | 2 | Retrieval ablation run time | 62.8 min for 263 claims × 2 metrics | 14,866 cross-encoder pairs, cached across metrics |
+| 2026-11-11 | 2 | Synthetic evaluation set | 5,323 items: 1,628 supported, 2,020 contradicted, 1,675 insufficient; 4,327 gold passage links | ADR-051; 1,628 pairs from 1,000 of 4,025 cited works with an adaptable licence; about a minute to build |
+| 2026-11-11 | 2 | Synthetic items by corruption type | none 1,628; number changed 1,567; direction flipped 453; population changed 47; source swapped 1,628 | Swapped sources: 1,517 co-cited, 111 random |
+| 2026-11-11 | 2 | Synthetic labels judged right in a spot check | 48 of 50 (10 per type, seed 99) | Claude's reading, not human labels |
+| 2026-11-11 | 2 | Abstracts damaged by S2.2's cleaner | 4,233 of 36,418 works show the signature (a lower bound) | Failure log, 2026-11-11; not yet repaired |
 
 **Metrics to track from week one, not work out afterwards:**
 - Cascade ratios: how many items enter each stage
@@ -1263,6 +1343,16 @@ This section becomes deliverable five, the post-mortem. Most candidates ship a R
 
 **Date · one-line title**
 What happened. What you expected instead. The root cause. What changed as a result. Whether a fixture or test now covers it.
+
+**2026-11-11 · The abstract cleaner deleted text after a literal "<" in about 12% of abstracts**
+Reading S2.8's first synthetic items found claims that ran two sentences together: "…in the BSB group (P Conclusion Our BSB could be…". The cause is `clean_markup` (S2.2), which removes tags with `<[^>]+>` before unescaping. Europe PMC's `abstractText` mixes real tags (`<h4>Conclusion</h4>`) with unescaped less-than signs (`P<0.001`). So everything from `<0.001).` to the next tag's `>` went, the heading's opening tag included. The 2026-11-01 fix covered escaped tags after unescaping, not this. Its test case, "18.5<BMI<25", has no tag after the "<", so the bug never showed.
+
+Abstract passages come from these cleaned abstracts, and body passages from the JATS, which is unaffected.
+- 4,233 of 36,418 works' abstract passages show the "P Conclusion" signature.
+- Losses with no heading after them leave no signature, so the true count is higher.
+- No results passage shows it (0 of 48,709).
+
+The raw `abstractText` wasn't kept, so a repair means fetching again, then replacing those abstract passages and their vectors. Not fixed yet (your choice: its own session next). S2.8 keeps merged sentences out of its claims. Lesson: when testing a rule that must not delete something, include the case where the thing to keep comes before something the rule should delete.
 
 **2026-11-11 · The HNSW index cut every cosine search in the first ablation short**
 The first full ablation run (68.6 min) printed a plausible table, with cosine a little behind dot product. Checking how many results each row returned showed every cosine dense list had fewer than 50: median 24, at most 40, and one empty. `EXPLAIN` showed why. The cosine query was served by the HNSW index, which returns its 40 nearest vectors (`hnsw.ef_search`) and only then applies the SciFact filter. With 23,552 corpus vectors in the same table, most of those 40 were other papers' passages. Dot product has no HNSW index, so its searches were exact and its rows were right. ADR-044 had assumed pgvector 0.8's iterative scans would prevent this, but they are off by default and nothing turned them on. Dense search is now exact by construction (ADR-050), a test reproduces the empty result under the old query, and the ablation now warns when any row returns fewer than 50. The configured metric was always `dot`, so no stored result was affected. Lesson: a table of averages can look right while every row underneath it is broken; check the shape of the outputs, not just the means.

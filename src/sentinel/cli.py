@@ -523,6 +523,41 @@ def eval_load_scifact() -> None:
         typer.echo(f"  {key}: {n:,}")
 
 
+@eval_app.command("make-synthetic")
+def eval_make_synthetic(
+    corpus: Annotated[Optional[str], typer.Option(help="Corpus label")] = None,
+) -> None:
+    """Build the synthetic set: claim–passage pairs from the corpus's cited
+    works with full text, corrupted by rule (S2.8, ADR-051)."""
+    from sentinel.eval.synthetic import GENERATOR_VERSION, generate
+
+    settings = get_settings()
+    label = _scope_label(settings, corpus, "cited")
+    version = _passage_params(settings).version()
+    with record_stage(get_engine(), "extract", source="synthetic", corpus_label=label) as stage:
+        result = generate(get_engine(), corpus=label, seed=settings.random_seed, splitter_ver=version)
+        stage.items = result.items_added
+        stage.counts = {"sources": result.sources, "adaptable": result.adaptable,
+                        "papers_with_pairs": result.papers_with_pairs, "pairs": result.pairs,
+                        "items": result.items_added, "gold_links": result.gold_links,
+                        "by_type": result.by_type, "partners": result.partners,
+                        "scifact_title_overlap": result.scifact_title_overlap}
+    if result.already_present:
+        typer.echo(f"The synthetic set (generator {GENERATOR_VERSION}, {version}) is already loaded for {label}.")
+        return
+    typer.echo(f"Synthetic set, generator {GENERATOR_VERSION}: {result.sources:,} cited works with full text, "
+               f"{result.adaptable:,} with a licence that allows adapted text, {result.papers_with_pairs:,} "
+               f"giving {result.pairs:,} pairs")
+    typer.echo(f"{result.items_added:,} items, {result.gold_links:,} gold passage links; swapped sources: "
+               + ", ".join(f"{k} {n:,}" for k, n in sorted(result.partners.items())))
+    for key, n in result.by_type.items():
+        typer.echo(f"  {key}: {n:,}")
+    for key, n in result.by_split_label.items():
+        typer.echo(f"  {key}: {n:,}")
+    if result.scifact_title_overlap:
+        typer.echo(f"{result.scifact_title_overlap} source papers share a title with a SciFact abstract")
+
+
 @extract_app.command("stats")
 def extract_stats(
     corpus: Annotated[Optional[str], typer.Option(help="Corpus label")] = None,

@@ -743,7 +743,7 @@ The suite asserts exact matches on check ID, status, and severity.
 6. **Claim skeletons.** From each citation context, extract population, intervention, comparator, outcome, effect size, sample size, and direction into a Pydantic model. Start with an LLM call through LiteLLM, retrying on validation failure, and track the validation failure rate as a metric. Paper text goes into the prompt marked as untrusted data.
 7. **Evaluation sets:**
    - **External:** a published, human-labelled claim–evidence dataset, such as SciFact. Check its licence first (Q6).
-   - **Synthetic:** a corruption generator that takes supported (claim, source passage) pairs and corrupts them in known ways: swap the source, flip the direction, weaken or strengthen the effect, or change the population. Each item records its corruption type, which makes error analysis possible later.
+   - **Synthetic:** a corruption generator that takes supported (claim, source passage) pairs and corrupts them in known ways: swap the source, flip the direction, weaken or strengthen the effect, or change the population. Each item records its corruption type, which makes error analysis possible later. Built by rule, with no language model (ADR-051). A pair is a sentence from a cited work's abstract and the results passages that repeat its numbers. Only works whose licence allows adapted text are used.
    - **Retrieval:** claim → correct passage(s), built from the external dataset's rationales and from the generator's source pairs.
 8. **Tabular baseline.** Gradient boosting on metadata alone, for example venue, year, reference count, the year gap between citing and cited paper, self-citation, the cited paper's retraction status, and sponsor class. Give it calibrated outputs and SHAP explanations. It predicts the same labels as the Phase 3 models. It is the number the expensive pipeline must beat, and if it comes close, that's a finding to report rather than hide.
 9. **MLflow** from the first experiment. Set up the model registry roles listed in `PROGRESS.md`.
@@ -1061,7 +1061,7 @@ unsure about, and draft the three PROGRESS.md lines. Don't commit.
 | S2.6a | External set (decide Q6 first; split from S2.8, ADR-049) | Loaded, with splits by source paper and gold passages mapped |
 | S2.6 | Retrieval evaluation harness, on SciFact (ADR-050) | The four-row ablation is in MLflow |
 | S2.7 | Claim skeleton extraction (decide Q7 first) | The validation failure rate is reported |
-| S2.8 | Corruption generator (the external set moved to S2.6a) | The synthetic set is loaded, with splits made by source paper |
+| S2.8 | Corruption generator, by rule (ADR-051; the external set moved to S2.6a) | The synthetic set is loaded, with splits made by source paper |
 | S2.9 | Tabular baseline | Trained, calibrated, with SHAP saved and logged |
 
 ### Phase 3

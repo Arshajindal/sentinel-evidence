@@ -14,6 +14,7 @@ Phase 1 (this release) has five deterministic checks over a 1,000-paper corpus o
 - [The checks](#the-checks)
 - [Results on the Phase 1 corpus](#results-on-the-phase-1-corpus)
 - [Retrieval on SciFact (Phase 2)](#retrieval-on-scifact-phase-2)
+- [The synthetic evaluation set (Phase 2)](#the-synthetic-evaluation-set-phase-2)
 - [Tests](#tests)
 - [Data sources and licences](#data-sources-and-licences)
 
@@ -74,6 +75,7 @@ sentinel embed passages --scope scifact                     # vectors for SciFac
 sentinel retrieve build-bm25 --scope scifact                # and their BM25 index
 sentinel eval retrieval                                     # four-row ablation, dot and cosine, logged in MLflow (~70 min)
 sentinel eval compare data/evals/<results>.json fusion+rerank/dot bm25   # paired bootstrap of two rows
+sentinel eval make-synthetic                                # synthetic set: corrupted claim–passage pairs (~1 min)
 ```
 
 **Resuming:**
@@ -251,6 +253,29 @@ C09 will need to find the passages of a cited work that bear on a citing claim. 
 | Fusion, then MedCPT cross-encoder rerank | **0.895** | 0.865 |
 
 The reranker's gain on val (+0.094, 95% interval +0.048 to +0.140) doesn't appear on test (−0.006, −0.039 to +0.026), so it will be re-measured on full-text passages before Phase 3 relies on it. On this CPU it costs about 13 s per claim.
+
+## The synthetic evaluation set (Phase 2)
+
+SciFact has abstracts only, so a second set supplies labelled full-text items (ADR-051). It is built by rule, with no language model.
+
+**Pairs.** A cited work reports its results twice: in the abstract and in the body. A sentence from the abstract becomes a claim. Its gold passages are the body's results passages that repeat every one of its numbers, ignoring P values and confidence levels.
+
+**Corruptions.** Each pair yields:
+- the intact claim (supported);
+- the claim with its direction words flipped, or with one number scaled to a value the source never prints (contradicted);
+- the claim with a population the source never mentions, or paired with another work the same paper cites (insufficient).
+
+**Data.** Only works whose licence allows adapted text are used.
+
+| Label | Items | How |
+|---|---:|---|
+| supported | 1,628 | intact pairs, from 1,000 cited works |
+| contradicted | 2,020 | 1,567 numbers changed, 453 directions flipped |
+| insufficient | 1,675 | 1,628 sources swapped, 47 populations changed |
+
+Splits are by source paper. In a spot check, 48 of 50 items read as rightly labelled.
+
+**Limits.** The claims are the sources' own sentences, so this set is easier than real citations: it flatters keyword search, and verdicts on it will be higher. Results on it are always reported next to the real holdout (§14).
 
 ## Tests
 
