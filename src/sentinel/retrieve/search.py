@@ -52,6 +52,7 @@ class SearchResult:
     bm25: list[tuple[int, float]]
     dense: list[tuple[int, float]]
     fused: list[tuple[int, float]]
+    reranked: list[tuple[int, float]]  # the fused pool in cross-encoder order; empty if not reranked
     hits: list[Hit]  # the final `keep`, best first
     seconds: dict[str, float] = field(default_factory=dict)
 
@@ -102,7 +103,9 @@ class Retriever:
                     text=rows[i]["text"], bm25_rank=bm25_rank.get(i), dense_rank=dense_rank.get(i),
                     fused_rank=fused_rank[i], rerank_score=scores.get(i))
                 for i in order[:p.keep]]
-        return SearchResult(bm25=bm25, dense=dense, fused=fused, hits=hits, seconds=seconds)
+        reranked = [(i, scores[i]) for i in order] if scores else []
+        return SearchResult(bm25=bm25, dense=dense, fused=fused, reranked=reranked, hits=hits,
+                            seconds=seconds)
 
     def _passage_ids(self, paper_ids: Sequence[int]) -> list[int]:
         with self.engine.connect() as conn:

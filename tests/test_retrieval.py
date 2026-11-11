@@ -8,7 +8,7 @@ score are simple functions of the text, chosen so each stage's effect shows.
 from __future__ import annotations
 
 import pytest
-from sqlalchemy import delete, insert, select
+from sqlalchemy import delete, insert, select, text
 
 from sentinel.models import EMBEDDING_DIM, paper, passage, passage_embedding
 from sentinel.retrieve.bm25 import BM25Index
@@ -93,7 +93,7 @@ def s25_engine(db_engine):
         a, b = (conn.execute(insert(paper).values(title=t, title_norm=t, source="test", raw={})
                              .returning(paper.c.id)).scalar_one() for t in TITLES)
         ids = {}
-        for key, (pid, text, vec) in {
+        for key, (pid, body, vec) in {
             # Against the query (1, 0): "long" has the larger inner product,
             # "aligned" the larger cosine. Dot and cosine disagree on purpose.
             "aligned": (a, "Aspirin reduced stroke.", _vec(1.0, 0.0)),
@@ -101,7 +101,7 @@ def s25_engine(db_engine):
             "other": (b, "Statins and cholesterol.", _vec(0.0, 1.0)),
         }.items():
             ids[key] = conn.execute(insert(passage).values(
-                paper_id=pid, splitter_ver=VER, ordinal=len(ids) + 1, section="results", text=text,
+                paper_id=pid, splitter_ver=VER, ordinal=len(ids) + 1, section="results", text=body,
             ).returning(passage.c.id)).scalar_one()
             conn.execute(insert(passage_embedding).values(passage_id=ids[key], model=MODEL, embedding=vec))
         conn.execute(insert(passage_embedding).values(passage_id=ids["other"], model="another@0",
@@ -110,9 +110,35 @@ def s25_engine(db_engine):
     _clear(db_engine)
 
 
-def _clear(engine) -> None:
+def _clear(engine, titles=TITLES) -> None:
     with engine.begin() as conn:
-        conn.execute(delete(paper).where(paper.c.title.in_(TITLES)))
+        conn.execute(delete(paper).where(paper.c.title.in_(titles)))
+
+
+CROWDED = ("s26-target", "s26-decoy")
+
+
+@pytest.fixture
+def crowded_engine(db_engine):
+    """A target paper whose 3 passages are far from the query, and a decoy
+    paper with 45 near ones: more than the 40 candidates HNSW returns by
+    default (`hnsw.ef_search`)."""
+    with db_engine.connect() as conn:
+        if conn.execute(select(paper.c.id).where(paper.c.title.not_in(CROWDED))).first():
+            pytest.skip("paper holds other data; not a disposable database")
+    _clear(db_engine, CROWDED)
+    with db_engine.begin() as conn:
+        target, decoy = (conn.execute(insert(paper).values(title=t, title_norm=t, source="test", raw={})
+                                      .returning(paper.c.id)).scalar_one() for t in CROWDED)
+        rows = ([(target, _vec(-1.0, float(i))) for i in range(1, 4)]
+                + [(decoy, _vec(1.0, i / 100)) for i in range(45)])
+        for ordinal, (pid, vec) in enumerate(rows, start=1):
+            passage_id = conn.execute(insert(passage).values(
+                paper_id=pid, splitter_ver=VER, ordinal=ordinal, section=None, text="x",
+            ).returning(passage.c.id)).scalar_one()
+            conn.execute(insert(passage_embedding).values(passage_id=passage_id, model=MODEL, embedding=vec))
+    yield db_engine, target
+    _clear(db_engine, CROWDED)
 
 
 @requires_db
@@ -128,6 +154,23 @@ def test_dense_search_by_dot_and_by_cosine(s25_engine):
     assert [i for i, _ in cos] == [ids["aligned"], ids["long"], ids["other"]]
     assert [s for _, s in cos] == pytest.approx([1.0, 0.6, 0.0])
     assert [i for i, _ in only_b] == [ids["other"]]  # and only this model's vector of it
+
+
+@requires_db
+def test_dense_search_is_exact_even_where_the_index_would_cut_it_short(crowded_engine):
+    # Regression (ADR-050): the cosine query was served by the HNSW index,
+    # which hands over its 40 nearest vectors before the paper filter runs.
+    # Here all 40 belong to the decoy paper, so the search found nothing.
+    # Sequential scans and sorts are priced out, so the planner takes the
+    # index whenever the query lets it.
+    engine, target = crowded_engine
+    with engine.connect() as conn:
+        conn.execute(text("SET LOCAL enable_seqscan = off"))
+        conn.execute(text("SET LOCAL enable_sort = off"))
+        for metric in ("dot", "cosine"):
+            hits = dense_search(conn, _vec(1.0, 0.0), model=MODEL, splitter_ver=VER, metric=metric,
+                                n=10, paper_ids=[target])
+            assert len(hits) == 3, metric
 
 
 class FakeQueryEncoder:

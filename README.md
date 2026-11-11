@@ -13,6 +13,7 @@ Phase 1 (this release) has five deterministic checks over a 1,000-paper corpus o
 - [Running the pipeline](#running-the-pipeline)
 - [The checks](#the-checks)
 - [Results on the Phase 1 corpus](#results-on-the-phase-1-corpus)
+- [Retrieval on SciFact (Phase 2)](#retrieval-on-scifact-phase-2)
 - [Tests](#tests)
 - [Data sources and licences](#data-sources-and-licences)
 
@@ -28,7 +29,7 @@ Phase 1 (this release) has five deterministic checks over a 1,000-paper corpus o
 2. **Install.**
    ```bash
    python -m venv .venv
-   .venv/bin/pip install -e ".[dev,ml]"     # Windows: .venv\Scripts\pip; [ml] adds MLflow (Phase 2)
+   .venv/bin/pip install -e ".[dev,ml]"     # Windows: .venv\Scripts\pip; [ml] adds MLflow and PyTorch (Phase 2)
    ```
 3. **Configure.** In `.env`, set at least:
    - `SENTINEL_DATABASE_URL`, `TEST_DATABASE_URL` and `MLFLOW_BACKEND_STORE_URI`: each password is `APP_DB_PASSWORD`.
@@ -65,6 +66,14 @@ sentinel ingest fulltext --corpus pmc-rct-2015-2024         # full text or abstr
 sentinel corpus coverage --corpus pmc-rct-2015-2024         # how many cited sources have full text (Q2)
 sentinel extract passages --corpus pmc-rct-2015-2024       # cut every work with text into passages
 sentinel extract contexts --corpus pmc-rct-2015-2024       # citing sentences, linked to references
+sentinel embed passages --corpus pmc-rct-2015-2024         # MedCPT vectors for cited works' passages (~14 h on CPU)
+sentinel retrieve build-bm25 --corpus pmc-rct-2015-2024     # BM25 index over the same passages
+sentinel retrieve search --context <id>                    # debug: top passages for a citation, every stage's rank
+sentinel eval load-scifact                                  # external evaluation set (checksum-pinned download)
+sentinel embed passages --scope scifact                     # vectors for SciFact's 5,992 passages (~20 min)
+sentinel retrieve build-bm25 --scope scifact                # and their BM25 index
+sentinel eval retrieval                                     # four-row ablation, dot and cosine, logged in MLflow (~70 min)
+sentinel eval compare data/evals/<results>.json fusion+rerank/dot bm25   # paired bootstrap of two rows
 ```
 
 **Resuming:**
@@ -229,6 +238,19 @@ Of the 5,015 resolved by title, the match came from Crossref search for 3,846, f
 | `sentinel report <doi>` | 4.6–4.8 s | Mostly start-up imports; the card itself takes about 0.3 s |
 
 Over the four resolve runs, run 11 was stopped by a dropped Crossref connection, which isn't retried, and run 12 by the OpenAlex daily budget; each re-run picked up where it stopped. `stats` counts items only for runs that finished, so it shows fewer than 35,670. The corpus's Europe PMC harvest ran before stage timing existed, so it has no recorded time.
+
+## Retrieval on SciFact (Phase 2)
+
+C09 will need to find the passages of a cited work that bear on a citing claim. The retrieval stack was measured on 263 SciFact claims, with each claim's evidence passages as gold, searching all 5,992 SciFact passages. Choices were made on val and confirmed on test (ADR-050; full report in [`docs/evals/retrieval-ablation-2026-11-11.md`](docs/evals/retrieval-ablation-2026-11-11.md)).
+
+| Stage | val nDCG@10 | test nDCG@10 |
+|---|---:|---:|
+| BM25 | 0.763 | 0.822 |
+| MedCPT dense, dot product | 0.791 | 0.879 |
+| Rank fusion of both | 0.801 | 0.871 |
+| Fusion, then MedCPT cross-encoder rerank | **0.895** | 0.865 |
+
+The reranker's gain on val (+0.094, 95% interval +0.048 to +0.140) doesn't appear on test (−0.006, −0.039 to +0.026), so it will be re-measured on full-text passages before Phase 3 relies on it. On this CPU it costs about 13 s per claim.
 
 ## Tests
 

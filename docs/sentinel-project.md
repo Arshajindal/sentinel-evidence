@@ -132,7 +132,7 @@ The random audit sample matters because without it you never learn what the chea
 | Data frames | polars | 1 | |
 | Vectors | pgvector with HNSW (ADR-003) | 2 | Hybrid search is a join, not a second system |
 | Retrieval | BM25 plus MedCPT dense retrieval, reciprocal rank fusion, cross-encoder rerank | 2 | Lexical-plus-dense fusion is the proven setup for biomedical retrieval |
-| Embedding serving | Text Embeddings Inference (container) | 2 | Runs locally and works on CPU |
+| Embedding serving | In-process PyTorch on CPU (ADR-047) | 2 | Measured: 16x faster than Text Embeddings Inference on this CPU, and takes MedCPT's title-and-text pair |
 | LLM access | LiteLLM router | 2 | Fallback chains and per-request cost accounting |
 | Experiment tracking | MLflow, self-hosted | 2 | Runs, ablations, and the model registry |
 | Classical ML | LightGBM or XGBoost, plus SHAP | 2 | The honest metadata-only baseline |
@@ -234,7 +234,7 @@ sentinel-evidence/
   tests/
     fixtures/               # real papers and trials with hand-checked expected findings
     test_*.py
-  docker/                   # Phase 2 onward: Postgres with pgvector (ADR-043); later Langfuse and TEI
+  docker/                   # Phase 2 onward: Postgres with pgvector (ADR-043); later Langfuse (and TEI only if a GPU is used, ADR-047)
 ```
 
 The ML package is named `ml/`, not `models/`, so it doesn't clash with `models.py`, which holds the table definitions.
@@ -734,10 +734,10 @@ The suite asserts exact matches on check ID, status, and severity.
 1. **Full-text fetch.** Get Europe PMC JATS XML (the structured XML format journals use) for the corpus papers and for every cited source that is open access. Set `fulltext_status` and `license`. Store full text only for open-access or licensed records. For everything else, keep a pointer and the abstract. **Measure what share of cited sources has full text.** That number caps how much C09 can ever check (Q2).
 2. **Passages.** Split the XML by section, then into passages of about 150–300 words with a small overlap. Keep the section label (methods, results, and so on) on each passage.
 3. **Citation contexts.** From each in-text citation marker (`<xref ref-type="bibr">`), take the citing sentence plus one sentence on either side, and link it to its `reference` row. This step is deterministic.
-4. **Embeddings.** Use the MedCPT article encoder for passages and the MedCPT query encoder for claims (confirm the model names on Hugging Face before use). Serve them with Text Embeddings Inference. Store each vector alongside the name of the model that made it.
-5. **Retrieval**, for "given a claim, find the passages in the cited source that bear on it":
+4. **Embeddings.** Use the MedCPT article encoder for passages and the MedCPT query encoder for claims (confirm the model names on Hugging Face before use). Run them in-process with PyTorch (ADR-047: TEI was 16x slower on this CPU and can't take MedCPT's title-and-text pair). Store each vector alongside the name of the model that made it, and its revision.
+5. **Retrieval** (ADR-048), for "given a claim, find the passages in the cited source that bear on it":
    - BM25 keyword search, using a real BM25 implementation such as the `bm25s` library. Postgres's built-in `ts_rank` is not BM25, so don't label it as BM25.
-   - Dense search with pgvector HNSW.
+   - Dense search with pgvector, exact (ADR-050: the HNSW index cut filtered searches short).
    - Reciprocal rank fusion (k = 60), which merges the two ranked lists into one.
    - Cross-encoder rerank of the top 50 (MedCPT cross-encoder), keeping the top 3–5.
 6. **Claim skeletons.** From each citation context, extract population, intervention, comparator, outcome, effect size, sample size, and direction into a Pydantic model. Start with an LLM call through LiteLLM, retrying on validation failure, and track the validation failure rate as a metric. Paper text goes into the prompt marked as untrusted data.
@@ -1056,11 +1056,12 @@ unsure about, and draft the three PROGRESS.md lines. Don't commit.
 | S2.1 | Migration: pgvector and the Phase 2 tables | Up, down, up runs cleanly |
 | S2.2 | Full-text fetch | Coverage is measured and recorded (Q2) |
 | S2.3 | Passages and citation contexts | Every open-access paper is split, and contexts are linked to references |
-| S2.4 | Embeddings through TEI (decide Q1 first) | All passages are embedded, with the model name stored |
+| S2.4 | Embeddings, in-process on CPU (ADR-047; Q1 answered) | All cited-work passages are embedded, with the model name stored |
 | S2.5 | BM25, dense search, fusion, rerank | A debug command returns the top-k passages for a claim |
-| S2.6 | Retrieval evaluation harness | The four-row ablation is in MLflow |
+| S2.6a | External set (decide Q6 first; split from S2.8, ADR-049) | Loaded, with splits by source paper and gold passages mapped |
+| S2.6 | Retrieval evaluation harness, on SciFact (ADR-050) | The four-row ablation is in MLflow |
 | S2.7 | Claim skeleton extraction (decide Q7 first) | The validation failure rate is reported |
-| S2.8 | External set and corruption generator (decide Q6 first) | Both sets are loaded, with splits made by source paper |
+| S2.8 | Corruption generator (the external set moved to S2.6a) | The synthetic set is loaded, with splits made by source paper |
 | S2.9 | Tabular baseline | Trained, calibrated, with SHAP saved and logged |
 
 ### Phase 3
@@ -1109,12 +1110,12 @@ unsure about, and draft the three PROGRESS.md lines. Don't commit.
 
 | # | Question | Why it matters | Decide by |
 |---|---|---|---|
-| Q1 | Is a GPU available? | Decides local or API serving for encoders and training | Before S2.4 |
+| Q1 | Is a GPU available? | Decides local or API serving for encoders and training | **Answered (ADR-047):** no; encoders run in-process on CPU |
 | Q2 | What share of cited sources has open full text? | Caps how much C09 can check | **Answered (ADR-045):** 22.6% of resolved references; 92.8% have at least an abstract |
 | Q3 | What exact Europe PMC query selects the corpus? | Decides what the working corpus is | S1.6 |
 | Q4 | Publish individual findings, or aggregate only? | A false accusation of fabrication is a serious harm | Before S5.8 |
 | Q5 | Where do earlier versions of registered outcomes come from? The public v2 API has no history endpoint. The options are the website's change-history tab (check its terms of use first), a third-party reconstructed history dataset (check its licence and access terms), or comparing against the current record only, which supports a weaker claim ("registry–publication mismatch" rather than "switching"). | It decides what C06 can honestly claim | Before S3.9, ideally by the end of Phase 1 |
-| Q6 | Which external labelled dataset, and is its licence compatible? | Validity of the external evaluation | Before S2.8 |
+| Q6 | Which external labelled dataset, and is its licence compatible? | Validity of the external evaluation | **Answered (ADR-049):** SciFact, from the authors' release (CC BY 4.0 claims, ODC-By 1.0 abstracts) |
 | Q7 | Which LLM for extraction and judging, and what's the budget cap? | Cost and reproducibility | Before S2.7 |
 
 Closed questions (the corpus, config defaults, API vs bulk) are recorded as ADRs in `PROGRESS.md`.

@@ -29,7 +29,8 @@ from sentinel.retrieve.encoders import ArticleEncoder
 
 log = get_logger(__name__)
 
-Scope = Literal["cited", "all"]
+Scope = Literal["cited", "all", "scifact"]
+SCOPES = ("cited", "all", "scifact")
 CHUNK = 256
 
 
@@ -53,7 +54,11 @@ class PassageEmbedding(BaseModel):
 
 
 def scope_ids(label: str, scope: Scope):
-    """Paper IDs whose passages are embedded for a corpus."""
+    """Paper IDs whose passages are embedded or indexed: a corpus's cited
+    works, those plus the corpus papers, or the SciFact abstracts (ADR-049),
+    which belong to no corpus and ignore `label`."""
+    if scope == "scifact":
+        return select(paper.c.id).where(paper.c.source == "scifact")
     if scope == "all":
         return work_ids(label)
     return (select(reference.c.resolved_paper_id.label("id"))

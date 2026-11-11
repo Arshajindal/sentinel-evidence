@@ -1,11 +1,18 @@
-"""Dense search over stored passage vectors with pgvector (§10.1 item 5, ADR-048).
+"""Dense search over stored passage vectors with pgvector (§10.1 item 5, ADR-048, ADR-050).
 
 `dot` ranks by inner product, which MedCPT was trained for; `cosine` by
-cosine similarity, which the HNSW index from ADR-044 serves. Restricted to
-some papers (C09: the works one citation cites), Postgres reads those few
-rows exactly; over the whole index, cosine can use HNSW and dot is an exact
-scan until S2.6 decides which index to keep. Scores are similarities, higher
-is better; ties go to the lower passage ID.
+cosine similarity. Scores are similarities, higher is better; ties go to the
+lower passage ID.
+
+The search is exact. Every candidate's distance is computed in a
+materialised CTE and sorted there, so an HNSW index can't serve the ORDER
+BY. It used to: the cosine query was answered by the HNSW index, which
+hands over only its 40 nearest vectors (`hnsw.ef_search`) before the model,
+splitter and paper filters run. With the search restricted to some papers
+(C09, and the S2.6 ablation), those 40 were mostly other papers' passages,
+and every cosine search in the ablation came back short, some empty
+(ADR-050). Restricted to a few cited works, exact search reads only their
+rows; over the whole index it reads every vector of the model.
 """
 
 from __future__ import annotations
@@ -28,11 +35,15 @@ def dense_search(conn: Connection, vector: Sequence[float], *, model: str, split
     # both sort ascending, best first.
     distance = (col.max_inner_product(list(vector)) if metric == "dot"
                 else col.cosine_distance(list(vector))).label("distance")
-    stmt = (select(passage.c.id, distance)
-            .join(passage, passage.c.id == passage_embedding.c.passage_id)
-            .where(passage_embedding.c.model == model, passage.c.splitter_ver == splitter_ver))
+    scored = (select(passage.c.id, distance)
+              .join(passage, passage.c.id == passage_embedding.c.passage_id)
+              .where(passage_embedding.c.model == model, passage.c.splitter_ver == splitter_ver))
     if paper_ids is not None:
-        stmt = stmt.where(passage.c.paper_id.in_(list(paper_ids)))
-    rows = conn.execute(stmt.order_by(distance, passage.c.id).limit(n)).all()
+        scored = scored.where(passage.c.paper_id.in_(list(paper_ids)))
+    # MATERIALIZED fences the CTE off from the outer ORDER BY ... LIMIT, so
+    # the planner can't turn the pair into an approximate index scan.
+    candidates = scored.cte("candidates").prefix_with("MATERIALIZED")
+    rows = conn.execute(select(candidates.c.id, candidates.c.distance)
+                        .order_by(candidates.c.distance, candidates.c.id).limit(n)).all()
     return [(r.id, -float(r.distance) if metric == "dot" else 1.0 - float(r.distance))
             for r in rows]

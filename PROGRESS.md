@@ -86,7 +86,7 @@ Keep updates quick, or the file stops being kept up. The rules:
 
 **Phase:** 2 of 5: full text, retrieval, and the evaluation foundation. Phase 1 is finished and merged (PR #1).
 **Plan:** the session list in §15 of `docs/sentinel-project.md`. The old brief and HTML spec are in `docs/archive/`.
-**Last worked:** 2026-11-02, session S2.3 (passages and citation contexts).
+**Last worked:** 2026-11-11, session S2.6 (the retrieval ablation, ADR-050). Before that, 2026-11-10: S2.4 (passage embeddings; Q1 answered), S2.5 (retrieval) and S2.6a (SciFact; Q6 answered).
 
 **Sessions:**
 
@@ -111,8 +111,18 @@ Keep updates quick, or the file stops being kept up. The rules:
 | S2.1 Phase 2 tables | done | Migration `6bb29bc195ff` (ADR-044): passages with a splitter version, one vector row per passage per model (HNSW, cosine), citation contexts linked to several references, claims, evaluation items with a required licence, and gold passages protected by a foreign key. Up, down, up runs cleanly; `alembic check` finds no difference; applied to the working database. |
 | S2.2 Full-text fetch | done | `ingest/fulltext.py`, `sentinel ingest fulltext`, `sentinel corpus coverage`, migration `8d0bd1c5a522` (ADR-045). All 33,664 works checked in Europe PMC; 8,427 open-access XML files cached. **Q2: 22.6% of resolved references cite a work with full text**, 92.8% at least an abstract. Europe PMC answers 500 for non-open-access full text, so only open-access records are requested. |
 | S2.3 Passages and citation contexts | done | `fulltext/` (body, sentences, passages, contexts, extract), `sentinel extract passages\|contexts` (ADR-046). 290,977 passages from all 31,420 works with text, abstracts included. 35,921 contexts; **96.3% of references have a citing context**, linked through the XML ref ids (labels agree for 99.87% of numbered citations). |
+| S2.4 Embeddings | code done; run in progress |`retrieve/encoders.py`, `retrieve/embed.py`, `sentinel embed passages` (ADR-047). Q1: no GPU, so MedCPT runs in-process with PyTorch on CPU, with the model card's exact title-and-passage input; TEI measured 16x slower. **263,440 cited-work passages being embedded** (about 14 h of awake time; resumable), model stored as `ncbi/MedCPT-Article-Encoder@d05a736da4bb`; stored vectors equal the model card's output. Corpus papers' own passages wait for Phase 3. |
+| S2.5 BM25, dense, fusion, rerank | done | `retrieve/` (bm25, dense, fusion, search; query and cross encoders), `sentinel retrieve build-bm25` and `sentinel retrieve search` (ADR-048). BM25 index of 263,440 passages. **The debug command returns the top passages for a claim or a citation, with every stage's rank.** Dot and cosine both implemented; S2.6 decides. |
+| S2.6a External set (SciFact) | done | `eval/scifact.py`, `sentinel eval load-scifact` (ADR-049; Q6 answered). Release pinned by SHA-256 and unpacked safely. **1,258 items in our own splits by linked claims and abstracts** (SciFact's split shares 181 of 283 dev abstracts with train). 5,992 passages; every evidence sentence mapped to its gold passages. |
+| S2.6 Retrieval ablation | done | `eval/retrieval.py`, `sentinel eval retrieval` and `eval compare` (ADR-050). **Four rows, dot and cosine, in MLflow** over 263 SciFact claims. nDCG@10 on val: BM25 0.763, dense 0.791, fusion 0.801, fusion plus rerank 0.895. Test: 0.822 to 0.865, and there the reranker adds nothing measurable. The first run's cosine rows were cut short by the HNSW index, so dense search is now exact. Dot product chosen; reranker kept on val's evidence. Report in `docs/evals/`. |
 
-**What works:** the whole Phase 1 pipeline over the 1,000-paper corpus. That means loading data, matching references (89.4% of all references, 94.4% of the structured sample), pulling out statistics, all five checks, `report`, `stats`, `export` and stage timing. 716 tests, all passing, including the database tests and the 46-item fixture set. Phase 2 so far: pgvector and the Phase 2 tables, MLflow, text availability for every corpus paper and cited work (Q2 measured), 290,977 passages and 35,921 citation contexts.
+**What works:** the whole Phase 1 pipeline over the 1,000-paper corpus. That means loading data, matching references (89.4% of all references, 94.4% of the structured sample), pulling out statistics, all five checks, `report`, `stats`, `export` and stage timing. 802 tests, all passing, including the database tests and the 46-item fixture set. Phase 2 so far:
+- pgvector, the Phase 2 tables and MLflow;
+- text availability for every corpus paper and cited work (Q2 measured);
+- 290,977 passages and 35,921 citation contexts;
+- MedCPT embeddings, the run 9% done;
+- BM25, exact dense search, fusion and reranking;
+- SciFact loaded, and the retrieval ablation in MLflow.
 
 **What's broken:**
 - Most of C01's corpus flags are works that do exist: only 8 of 20 sampled flags were correct (see the README's section on C01's limits). So C01's flag rate is published as an upper bound.
@@ -121,11 +131,11 @@ Keep updates quick, or the file stops being kept up. The rules:
 - The full text of PMC6561645 still returns an HTTP 500 error from Europe PMC.
 
 **Next three things:**
-1. Answer Q1, then S2.4: embed the 290,977 passages. There's no NVIDIA GPU here, so on the CPU this is hours, not minutes. Decide whether to embed everything or only cited works' passages first.
-2. Answer Q6 before loading the external dataset.
-3. Answer Q7 before claim extraction.
+1. Finish S2.4: resume the corpus embedding run (`sentinel embed passages --corpus pmc-rct-2015-2024 --resume`; 23,552 of 263,440 done, about 13 h left) and record the final count.
+2. S2.8: the corruption generator, for full-text items SciFact can't provide. Use its pairs to re-measure the reranker on full-text passages, since test didn't confirm its gain (ADR-050).
+3. Answer Q7 before claim extraction (S2.7). Also decide whether to drop the now-unused cosine HNSW index, which needs a migration (ADR-050).
 
-**After that:** the session-order problem from planning. S2.6 (retrieval evaluation) needs the gold passages that S2.8 builds, so loading the external set should move ahead of S2.6. S2.9's tabular baseline has no real labels until S3.4's hand-labelled set. Still open from Phase 1: nothing checks for a DOI that points to a paper with a different title, and the title-plus-author Crossref search for C01 (ADR-041) has no session yet.
+**After that:** S2.9's tabular baseline has no real labels until S3.4's hand-labelled set. Phase 3 needs a plan for reranking cost: about 13 s per claim on this CPU (ADR-048, ADR-050). Still open from Phase 1: nothing checks for a DOI that points to a paper with a different title, and the title-plus-author Crossref search for C01 (ADR-041) has no session yet.
 
 **Blocked on:** nothing.
 
@@ -966,6 +976,166 @@ Three patterns were found in the real output and fixed before it was kept. Each 
 
 ---
 
+### ADR-047 — Embeddings run in-process with PyTorch on CPU, with MedCPT's exact title-and-passage input
+**Status:** active · amends §4 and §10.1 item 4 · answers Q1
+
+**In short:** there's no GPU here (your choice: the CPU here). Measured on this CPU, Text Embeddings Inference (TEI) would have taken about 11 days, while the model card's own PyTorch code takes about 14 hours. So passages are embedded in-process with PyTorch, exactly as the model card does it.
+
+The models, confirmed on Hugging Face: `ncbi/MedCPT-Article-Encoder` (revision `d05a736da4bb`) for passages and `ncbi/MedCPT-Query-Encoder` (`d83a36cc6b8e`) for claims in S2.5. Both are 768-number BERT encoders, public domain as US government works; NCBI asks for a citation (Jin et al., *Bioinformatics* 2023). The article encoder reads a pair, title then text, truncated to 512 tokens, and its vector is the `[CLS]` token's last hidden state, not normalised.
+
+Measured before choosing, on 300 random passages:
+- **TEI 1.9.4 (CPU image): 0.3 passages a second.** No ONNX build exists for this model, so TEI fell back to its own CPU backend, limited to 4 inputs per batch. Its vectors equal PyTorch's for the same input (cosine 0.99999), so the problem is speed only.
+- **TEI takes single strings, not pairs.** A passage without its title drifts from the model's pair format: mean cosine 0.955, as low as 0.776. "Title [SEP] passage" as one string reaches 0.990, which is close but not exact.
+- **The model card's PyTorch code with the true pair: 4.0 a second;** 4.7–4.8 with batches of similar length, since less padding is computed. Thread count made no difference. The real run averaged 5.1 a second.
+
+Decision:
+- `retrieve/encoders.py` runs the model card's code: (paper title, passage text) pairs, 512 tokens, `[CLS]`. torch 2.15.0 (CPU) and transformers 5.22.2 are in the `[ml]` extra and load only when an encoder is built.
+- `sentinel embed passages` (`retrieve/embed.py`) embeds passages of the current splitter version that have no vector from the model. It walks them in passage ID order and encodes each 256-passage chunk in batches of similar length. Each chunk is written in one transaction with its cursor, so a killed run loses at most one chunk, and a re-run does nothing.
+- `passage_embedding.model` is `model@revision` (`ncbi/MedCPT-Article-Encoder@d05a736da4bb`). `SENTINEL_EMBED_ARTICLE_MODEL` and `SENTINEL_EMBED_ARTICLE_REVISION` have no defaults and feed `config_hash` (ADR-022); the batch size is operational.
+- Scope (your choice): the works the corpus cites, 263,440 passages, which is what C09 retrieves from. The corpus papers' own 28,326 passages wait for Phase 3 (`--scope all`).
+- Stored vectors were checked against the model card's code run separately: cosine 1.0, largest difference 1.4e-6.
+- Run time: about 14 hours of awake time; the final count goes in the metrics ledger when it ends. Windows idle sleep was held off for the run's process only (`SetThreadExecutionState`), with no power setting changed.
+
+**For S2.5:** MedCPT is trained for dot-product similarity, but the HNSW index from ADR-044 uses cosine distance. S2.5's dense search should measure both, and add an inner-product index (`vector_ip_ops`) if dot product wins.
+
+**Turned down:**
+- TEI on this CPU: 11 days.
+- "Title [SEP] passage" through TEI: not the exact input, and still the slow backend.
+- Renting a GPU (you chose the CPU here). TEI stays the option if a GPU is used later.
+- int8 quantisation: about twice as fast but changes the vectors, and 14 hours didn't need it.
+
+---
+
+### ADR-048 — Retrieval: bm25s BM25, MedCPT dense search, rank fusion, MedCPT cross-encoder, in-process
+**Status:** active · implements §10.1 item 5
+
+**In short:** a claim's passages are found by four stages, all on this CPU: BM25 and dense search each return 50, rank fusion merges them, and the cross-encoder rescores the 50 and keeps 5. `sentinel retrieve search` shows every stage's rank for any claim or citation.
+
+How it works (`retrieve/`):
+- **BM25** (`bm25.py`) uses the bm25s library (0.3.16, MIT), not Postgres's `ts_rank`, which isn't BM25.
+  - It indexes each passage as "title. text": lower-cased words, English stopwords removed, Snowball English stems.
+  - `SENTINEL_BM25_K1`=1.5 and `SENTINEL_BM25_B`=0.75 are bm25s's defaults, set explicitly.
+  - `sentinel retrieve build-bm25` builds the index from the database and saves it under `data/bm25/` with each row's passage ID and a manifest: corpus, scope, splitter version, k1, b, tokenizer version.
+  - Loading refuses an index whose manifest disagrees with the settings, so a stale index can't be used silently.
+  - Searching one work's passages keeps the whole index's term statistics.
+- **Dense search** (`dense.py`) runs in pgvector over the article encoder's vectors, with the MedCPT query encoder (`d83a36cc6b8e`; 64 tokens, `[CLS]`, as its model card does) for the claim.
+  - `SENTINEL_RETRIEVE_DENSE_METRIC` is `dot` (inner product, which MedCPT is trained for) or `cosine` (which the HNSW index from ADR-044 serves). It's set to `dot`, and S2.6 measures both.
+  - Restricted to the works a citation cites, Postgres reads those few rows exactly.
+- **Fusion** (`fusion.py`) is reciprocal rank fusion with k = `SENTINEL_RETRIEVE_RRF_K` (60). Ties go to the lower passage ID, so results never depend on dictionary order.
+- **Rerank** uses the MedCPT cross-encoder (`71caf65d4927`), with (claim, "title. text") pairs, 512 tokens and the logit as score, as its model card does. It scores the fused top `SENTINEL_RETRIEVE_DEPTH` (50) and keeps `SENTINEL_RETRIEVE_KEEP` (5).
+- `search.py` keeps every stage's ranks, scores and time on the result, so S2.6 can score BM25, dense, fusion and fusion plus rerank from one search each.
+- Models load in-process, as in ADR-047. All ten settings have no defaults and feed `config_hash`.
+
+Checked on real data:
+- The BM25 index holds 263,440 cited-work passages: built in 72 s, 194 MB on disk.
+- For a citing sentence about convalescent plasma, searched within the cited trial's 27 passages, the five results came from its introduction, abstract and discussion. The stages disagreed: the cross-encoder's first choice was 6th by BM25 and 2nd by dense search, which is the disagreement fusion and reranking are for.
+- Latency within one work: BM25 0.01 s, dense 0.13 s. Over the whole index: BM25 0.19 s, dense 0.35 s.
+- The cross-encoder scored about 3 pairs a second while the embedding run shared the CPU; it is re-measured with the CPU free.
+
+**For Phase 3:** C09 reranks every citation's candidates. 35,921 contexts with up to 50 candidates each is up to 1.8 million pairs; at 3 a second that is far too slow for one machine. Phase 3 needs a narrower pool (the cited work's passages only, usually under 30), a cheaper reranker, or a GPU (Q1).
+
+**Turned down:**
+- Postgres full-text search as "BM25": `ts_rank` isn't BM25 (§10.1).
+- A per-work BM25 index built at query time: its term statistics would come from a handful of passages.
+- Choosing cosine or dot now: S2.6's ablation measures both.
+
+---
+
+### ADR-049 — SciFact is the external evaluation set, from the authors' release, split by linked claims and abstracts
+**Status:** active · answers Q6 · splits §15's S2.8 (the external set loads first, as S2.6a)
+
+**In short:** SciFact (your choice) is loaded as 1,258 claim-and-abstract items with exact gold passages, in our own train/val/test splits. SciFact's own split shares abstracts between train and dev, so it would leak.
+
+SciFact (Wadden et al., EMNLP 2020) has 1,409 claims rewritten from citing sentences in biomedical papers, and 5,183 abstracts whose sentences experts marked as supporting or contradicting them. The claims are close to C09's input, and the marked sentences are gold evidence.
+
+**Licence.** The authors' `LICENSE.md` puts the claims and labels under CC BY 4.0 and the abstracts under ODC-By 1.0: use and redistribution with attribution. The Hugging Face copy says CC BY-NC 2.0. The authors' release is the one used, and each item's `license` says so.
+
+How it's loaded (`eval/scifact.py`, `sentinel eval load-scifact`):
+- `SENTINEL_SCIFACT_URL` is the authors' "latest" release, whose content could change, so the download must match `SENTINEL_SCIFACT_SHA256` (`11c62128…`). Both have no default. Neither feeds `config_hash`: they change evaluation results, not findings.
+- The archive is unpacked with tarfile's "data" filter, which refuses paths outside the target, links and devices. A test proves it.
+- Only train and dev claims are used; test claims have no labels.
+- **One item per (claim, cited abstract)**, which is C09's own question:
+  - evidence in the abstract gives `supported` or `contradicted` (SciFact never mixes them within an abstract);
+  - an abstract the citation named but with no evidence gives `insufficient`, with no gold passage.
+- Each abstract becomes a paper (source `scifact`). Its sentences are cut into passages by the corpus's window rules, from SciFact's own sentence list and with the same `splitter_ver`, so every evidence sentence maps to its passages exactly. 0 evidence sentences were unmapped.
+- `origin` keeps the claim and abstract IDs, SciFact's own split, the evidence sentence indexes and the release checksum. Loading again adds nothing.
+
+**Splits** (§10.2: by source paper, never by row): SciFact's train and dev share 181 of dev's 283 abstracts, and the shared abstracts hold opposite claims. Train claim 2 ("1 in 5 million in UK have abnormal PrP positivity", contradicted) and dev claim 5 ("1/2000 in UK…", supported) rest on the same sentence. So claims and abstracts linked by any item form groups: 572 of them, the largest holding 9 claims. Each group goes to train, val or test (60/20/20) by a hash seeded with `SENTINEL_RANDOM_SEED`. No abstract and no claim falls in two splits.
+
+Result: 5,183 abstracts, 5,992 passages, 1,258 items, 868 gold links.
+
+| Split | Supported | Contradicted | Insufficient |
+|---|---|---|---|
+| train | 310 | 167 | 294 |
+| val | 98 | 49 | 96 |
+| test | 100 | 49 | 95 |
+
+1,259 items were expected; claim 1245 names one abstract twice, and it is counted once.
+
+**For S2.6:** 87% of SciFact abstracts are a single passage, so searching within one cited abstract is usually trivial. The retrieval ablation should search all 5,992 SciFact passages, which is SciFact's standard abstract-retrieval task. SciFact tests abstracts only; full-text retrieval needs the synthetic set (S2.8) or the hand-labelled holdout (S3.4).
+
+**Turned down:**
+- The Hugging Face copy: its licence label disagrees with the authors'.
+- SciFact's own split: it leaks.
+- One item per claim: C09 judges each cited source separately.
+- Finding gold passages by text matching: SciFact's sentence indexes map exactly.
+- `claims_with_citances.jsonl`, the original citing sentences: closer to C09's real input, and worth trying later as a second query form.
+
+---
+
+### ADR-050 — Retrieval ablation: dot product, exact dense search, and the reranker kept on val's evidence
+**Status:** active · implements S2.6 · changes ADR-044 item 1 (iterative scans) and ADR-048 (dense search)
+
+**In short:** the four-row ablation on 263 SciFact claims is in MLflow. Fusion plus rerank scores nDCG@10 0.895 on val against BM25's 0.763. Dense search stays on dot product and is now exact: the HNSW index had cut every cosine search in the first run short. The reranker stays because val shows a clear gain, but test shows none. Full report: `docs/evals/retrieval-ablation-2026-11-11.md`.
+
+How it's measured (`eval/retrieval.py`, `sentinel eval retrieval`):
+- Every claim with evidence in val (128) and test (135) searches all 5,992 SciFact passages. Gold is the evidence sentences' passages (ADR-049).
+- Each search keeps every stage's list, so it scores BM25, dense, fusion and fusion plus rerank. Dense search runs once by dot product and once by cosine. Settings are ADR-048's, fixed before the run.
+- nDCG@10 (binary) and Recall@50 per split. Choices are made on val; test confirms (§14).
+- `sentinel eval compare <results> <row> <row>` gives paired bootstrap intervals: 10,000 resamples of claims, seed 20260922.
+- The results file in `data/evals/` holds every ranking. The command warns if any row returns fewer than 50 passages.
+
+| Row | val nDCG@10 | test nDCG@10 |
+|---|---:|---:|
+| BM25 | 0.763 | 0.822 |
+| Dense, dot | 0.791 | 0.879 |
+| Fusion, dot | 0.801 | 0.871 |
+| Fusion + rerank, dot | 0.895 | 0.865 |
+| Dense, cosine | 0.770 | 0.849 |
+
+Decided:
+1. **Dot product.** It beats cosine on val for dense search (+0.021) and for fusion (+0.013), though both val intervals include zero. Test confirms the dense difference (+0.030 [+0.005, +0.057]). After reranking the two are identical on every claim. `SENTINEL_RETRIEVE_DENSE_METRIC` stays `dot`.
+2. **Dense search is exact.**
+   - Every candidate's distance is computed in a `MATERIALIZED` CTE and sorted there, so no HNSW index can serve the query.
+   - Before, the cosine query went through HNSW, which returns 40 vectors (`hnsw.ef_search`) before the paper filter runs. Every cosine list in the first run was short, and one was empty (failure log, 2026-11-11). This changes ADR-044 item 1: iterative scans are off by default, and even when on they are approximate, with no guarantee under a narrow filter.
+   - No inner-product HNSW index is added, although ADR-047 proposed one if dot won: under a filter it would fail the same way.
+   - The cosine HNSW index is now unused. Dropping it needs a migration, so that waits for a decision.
+   - Measured: one cited work reads only its own rows; the SciFact pool takes 0.1 s; the whole table (29,544 vectors so far) takes 0.15–1.4 s.
+3. **Keep the reranker.**
+   - On val it adds +0.094 [+0.048, +0.140], better on 45 claims and worse on 14.
+   - Test doesn't confirm it: −0.006 [−0.039, +0.026]; 18 better, 19 worse. Test's fused order is already strong (0.871 against val's 0.801).
+   - The rule fixed in advance chooses on val. But at about 13 s per claim on this CPU (3.9 pairs/s with the CPU free), Phase 3 should re-measure it on full-text passages before paying for it corpus-wide.
+4. **Keep fusion.** Its nDCG@10 is within noise of dense search alone on both splits. It does raise val's Recall@50, the reranker's pool, from 0.992 to 1.000, and BM25 costs 0.01 s.
+
+§10.3's sanity check (fusion plus rerank over BM25):
+- val +17.2% [+9.9%, +25.4%], inside 15–30%;
+- test +5.1% [+1.2%, +9.6%], below it.
+
+Neither is the outsized gain that signals leakage. Nothing is fitted to SciFact, and no abstract or claim crosses splits.
+
+Checked:
+- The rerun reproduced every dot ranking exactly (263 of 263 claims, four rows).
+- No row in the rerun returned fewer than 50 passages.
+- A test reproduces the empty cosine result under the old query, with sequential scans and sorts priced out, and passes on the exact query.
+
+**Turned down:**
+- Turning on `hnsw.iterative_scan`: it is still approximate, and a narrow filter can still return too few rows.
+- Dropping the reranker because of test: that would be choosing on test.
+- Pooling val and test to decide: §14 fixes the choice on val.
+- Deleting the first run's MLflow runs: they're tagged `status=superseded` with the reason, as the record of what went wrong.
+
+---
+
 ### ADR-0NN — template
 **Status:** active
 
@@ -979,8 +1149,8 @@ Every model in the system: what it does, where it runs, why it was chosen, and h
 
 | Role | Model | Where it runs | Why chosen | Main metric | Status |
 |---|---|---|---|---|---|
-| Dense retrieval | *TBD: MedCPT vs SPECTER2 vs a general model* | TEI container | Comparison pending, week 4 | nDCG@10 | not selected |
-| Reranker | *TBD: bge-reranker-v2-m3 vs MedCPT cross-encoder* | TEI container | Comparison pending, week 5 | nDCG@10 improvement | not selected |
+| Dense retrieval | MedCPT article encoder (`d05a736da4bb`) for passages, query encoder (`d83a36cc6b8e`) for claims; SPECTER2 or a general model as the comparison | in-process PyTorch, CPU (ADR-047) | Named in §10.1; dot product beat cosine on val (ADR-050) | nDCG@10 on SciFact: 0.791 val, 0.879 test (dense alone) | in use; no comparison model tried yet |
+| Reranker | MedCPT cross-encoder (`71caf65d4927`); bge-reranker-v2-m3 as the comparison | in-process PyTorch, CPU (ADR-048) | Named in §10.1; kept on val's gain (ADR-050) | nDCG@10 gain over fusion on SciFact: +0.094 val, −0.006 test | in use; re-measure on full text (S2.8); no comparison model tried yet |
 | Claim entity recognition (NER) | *TBD: GLiNER-biomed vs a fine-tuned encoder* | local | Pending, week 6 | entity F1 | not selected |
 | Outcome equivalence | *TBD* | local | Pending, week 7 | macro F1 | not selected |
 | Entailment, zero-shot | *TBD: an NLI head* | local | Baseline, week 7 | macro F1 | not selected |
@@ -1003,10 +1173,13 @@ Every model in the system: what it does, where it runs, why it was chosen, and h
 | MLflow tracking | `http://127.0.0.1:5000` (`dotenv run -- mlflow server`); runs in the `mlflow` database, artifacts in `data/mlartifacts/` (ADR-043) |
 | Model registry | MLflow, tagged by stage |
 | Fixture corpus | `tests/fixtures/` |
+| External evaluation set | SciFact: `eval_item` rows with `origin.dataset = scifact`; release in `data/external/scifact/` (ADR-049) |
 | Generated evaluation set | *TBD* |
 | Hand-labelled held-out set | *TBD* |
-| Evaluation reports | `docs/evals/` |
+| Evaluation reports | `docs/evals/`: `retrieval-ablation-2026-11-11.md` (ADR-050) |
+| Ablation results | `data/evals/retrieval-ablation-<UTC stamp>.json`, every ranking; MLflow experiment `retrieval-ablation`, one run per row |
 | Config | `.env`, `src/sentinel/config.py` |
+| BM25 index | `data/bm25/<corpus>-<scope>-<splitter>/` with `manifest.json` (ADR-048) |
 | Full-text cache | `data/fulltext/` (`SENTINEL_FULLTEXT_CACHE_DIR`): JATS XML by PMCID, 8,427 files, 1.1 GB (ADR-037, ADR-045) |
 
 ### Graveyard
@@ -1025,7 +1198,10 @@ Add a row whenever you get a number. Bad numbers especially: they're the raw mat
 
 | Date | ID | Question | Setup | Result | Verdict |
 |---|---|---|---|---|---|
-| — | E001 | *example: does reranking beat fusion alone?* | *1k queries, held out* | *nDCG@10 0.61 → 0.68* | *keep* |
+| 2026-11-11 | E001 | Four-row ablation, dot and cosine (first run) | 263 SciFact claims, all 5,992 passages | Cosine dense lists cut short by HNSW (median 24 of 50) | discarded; dense search made exact |
+| 2026-11-11 | E002 | Four-row ablation, dot and cosine (rerun) | Same; exact dense search | nDCG@10 val/test: BM25 0.763/0.822, dense 0.791/0.879, fusion 0.801/0.871, + rerank 0.895/0.865 | dot rows identical to E001 |
+| 2026-11-11 | E003 | Does reranking beat fusion alone? | E002, paired bootstrap | val +0.094 [+0.048, +0.140]; test −0.006 [−0.039, +0.026] | keep (val decides); re-measure on full text |
+| 2026-11-11 | E004 | Dot or cosine? | E002, paired bootstrap | Dense: val +0.021 [−0.007, +0.051], test +0.030 [+0.005, +0.057]; same after rerank | dot |
 
 ---
 
@@ -1055,6 +1231,17 @@ The headline numbers at the end of each phase. These become the evaluation repor
 | 2026-11-01 | 2 | Full-text fetch | 8,427 XML files, 1.1 GB; 51 persistent 500s (0.6%) | About 3.3 h of fetching; $0 |
 | 2026-11-02 | 2 | Passages | 290,977 from 31,420 works; median 166 words | Splitter 1.0.0/150-300-1 (ADR-046); 398 MB |
 | 2026-11-02 | 2 | Citation contexts | 35,921 in 968 papers; 96.3% of references have one | Labels agree for 99.87% of numbered citations; ranges 99.5% exact |
+| 2026-11-10 | 2 | Passages to embed (MedCPT article encoder) | 263,440 cited-work passages; run in progress | ADR-047; final count when the run ends |
+| 2026-11-10 | 2 | Embedding throughput, CPU | 5.1 passages/s; about 14 h | TEI on the same CPU: 0.3/s |
+| 2026-11-10 | 2 | BM25 index | 263,440 passages; 72 s; 194 MB | ADR-048 |
+| 2026-11-10 | 2 | Retrieval latency, one cited work | BM25 0.01 s; dense 0.13 s | Whole index: 0.19 s and 0.35 s |
+| 2026-11-10 | 2 | Cross-encoder throughput, CPU | 3 pairs/s | Too slow to rerank 50 per citation corpus-wide (ADR-048) |
+| 2026-11-10 | 2 | External evaluation set (SciFact) | 1,258 items: 508 supported, 265 contradicted, 485 insufficient; 868 gold passage links | ADR-049; own splits, 60/20/20 by linked group |
+| 2026-11-11 | 2 | Retrieval nDCG@10, fusion + rerank (SciFact) | val 0.895, test 0.865 | ADR-050; 128 and 135 claims, all 5,992 passages |
+| 2026-11-11 | 2 | Retrieval nDCG@10, BM25 (SciFact) | val 0.763, test 0.822 | Recall@50 0.971 and 0.970 |
+| 2026-11-11 | 2 | Gain of fusion + rerank over BM25 (§10.3: 15–30%) | val +17.2% [+9.9%, +25.4%]; test +5.1% [+1.2%, +9.6%] | Paired bootstrap; no sign of leakage |
+| 2026-11-11 | 2 | Cross-encoder throughput, CPU free | 3.9 pairs/s; about 13 s per claim for 50 pairs | Replaces the 3 pairs/s measured while sharing the CPU |
+| 2026-11-11 | 2 | Retrieval ablation run time | 62.8 min for 263 claims × 2 metrics | 14,866 cross-encoder pairs, cached across metrics |
 
 **Metrics to track from week one, not work out afterwards:**
 - Cascade ratios: how many items enter each stage
@@ -1076,6 +1263,12 @@ This section becomes deliverable five, the post-mortem. Most candidates ship a R
 
 **Date · one-line title**
 What happened. What you expected instead. The root cause. What changed as a result. Whether a fixture or test now covers it.
+
+**2026-11-11 · The HNSW index cut every cosine search in the first ablation short**
+The first full ablation run (68.6 min) printed a plausible table, with cosine a little behind dot product. Checking how many results each row returned showed every cosine dense list had fewer than 50: median 24, at most 40, and one empty. `EXPLAIN` showed why. The cosine query was served by the HNSW index, which returns its 40 nearest vectors (`hnsw.ef_search`) and only then applies the SciFact filter. With 23,552 corpus vectors in the same table, most of those 40 were other papers' passages. Dot product has no HNSW index, so its searches were exact and its rows were right. ADR-044 had assumed pgvector 0.8's iterative scans would prevent this, but they are off by default and nothing turned them on. Dense search is now exact by construction (ADR-050), a test reproduces the empty result under the old query, and the ablation now warns when any row returns fewer than 50. The configured metric was always `dot`, so no stored result was affected. Lesson: a table of averages can look right while every row underneath it is broken; check the shape of the outputs, not just the means.
+
+**2026-11-10 · My estimate for CPU embedding was off by a factor of 50**
+Before Q1 was answered, I guessed CPU embedding with TEI would take "a few hours". Measured, TEI's CPU backend did 0.3 passages a second, which would have been 11 days. The decision (your choice: "CPU here, measured first") asked for a measurement before the full run, and that is what caught it: the model card's PyTorch code does 5 a second, and the run takes about 14 hours. The same test showed TEI can't take MedCPT's title-and-passage pair, which the documents had assumed away. Both are recorded in ADR-047. Lesson: time a sample before quoting a duration.
 
 **2026-11-02 · Sentence boundaries hidden by markup, found by reading the output**
 The first full context run looked fine in aggregate (96.2% of references with a context), but the longest "sentences" were 365 words. Reading them showed three ways JATS hides a boundary: list items inside a paragraph rendered with no space ("ultrasound.Recent use"), a space between a citation and its full stop ("countries 20) . While"), and panel titles running into their text ("Research in contextEvidence"). A separate check of linked references against printed citation numbers found a fourth problem: some publishers mark up the dash of a range as its own citation, so "20–27" linked only 20, 21 and 27. All four are fixed and tested, and the rows made before the fixes were deleted. As with C03's precision rules, aggregate numbers didn't show any of this; reading the longest and the mismatched cases did.
@@ -1157,15 +1350,15 @@ The live v2 format also has PI names in `responsibleParty` and contact emails in
 |---|---|---|---|
 | Which starting corpus? | Affects how fixtures are designed and whether prevalence can be compared with published figures | Week 1 | **answered: ADR-021** |
 | Should `config.py` have defaults, or require every setting? | Decides whether `.env.example` is just documentation or required setup | Week 1 | **answered: ADR-022** |
-| Is a GPU available, or should one be rented? | Decides whether encoders and fine-tuning run locally or through an API | Week 6 | open. Not needed until Phase 3; renting by the hour would probably cost under $100 in total. Tracked as Q1 |
+| Is a GPU available, or should one be rented? | Decides whether encoders and fine-tuning run locally or through an API | Week 6 | **answered: ADR-047.** No GPU; embeddings run on this CPU with PyTorch. Training in Phase 3 may still need one. Tracked as Q1 |
 | What share of *cited* sources have full text available? | Limits how many claims can be checked against their source. This is different from coverage of the citing papers, which is about 100% by design | Week 4 | **answered: ADR-045** (whole corpus, not 100 papers). Tracked as Q2 |
 | Publish findings about individual papers, or only totals? | Wrongly accusing someone of making up a reference would do serious harm | Week 10 | open. Current leaning: rule-based checks may name papers, model-based checks report rates only. Tracked as Q4 |
-| Q1: Is a GPU available? | Decides whether encoders and training run locally or through an API | Before S2.4 | open. The development machine has no NVIDIA GPU (checked 2026-10-31), so local serving means CPU |
+| Q1: Is a GPU available? | Decides whether encoders and training run locally or through an API | Before S2.4 | **answered: ADR-047.** No GPU: MedCPT runs in-process on this CPU (5 passages a second); TEI measured 16x slower |
 | Q2: What share of cited sources have open full text? | Limits how much C09 can check | Measured in S2.2 | **answered: ADR-045.** 22.6% of resolved references cite a work with full text; 92.8% at least an abstract |
 | Q3: What exact Europe PMC query picks the corpus? | Decides what the working corpus is | S1.6 | **answered: ADR-028** |
 | Q4: Publish findings about individual papers, or only totals? | Wrongly accusing someone of making up a reference would do serious harm | Before S5.8 | open |
 | Q5: Where can earlier versions of registered outcomes come from? The public v2 API has no history endpoint. Options: the website's change-history tab (check the terms of use); a third-party dataset that rebuilds the history (check the licence and access); or the current record only, which supports only the weaker claim "the registry and the paper don't match" rather than "the outcome was switched". | Decides what C06 can honestly claim | Before S3.9, ideally by the end of Phase 1 | open |
-| Q6: Which outside labelled dataset, and is its licence compatible? | Whether the external evaluation is valid | Before S2.8 | open |
+| Q6: Which outside labelled dataset, and is its licence compatible? | Whether the external evaluation is valid | Before S2.8 | **answered: ADR-049.** SciFact from the authors' release: claims CC BY 4.0, abstracts ODC-By 1.0 |
 | Q7: Which LLM for extraction and judging, and what's the spending cap? | Cost and reproducibility | Before S2.7 | open |
 | Q8: Should C05 cover only trials the US law could plausibly apply to (a US site or an FDA-regulated product)? 461 of 1,034 corpus trials are flagged, 393 of them not industry-funded and many entirely outside the US. | Precision of C05's headline rate (ground rule 4) | Before the S1.14 fixtures | **answered: ADR-031** |
 | Q9: Should `RateLimitedHTTP` also retry network errors (connection reset, timeout), not only 429/5xx responses? §9.3 says "429 and 5xx responses only", and a reset Crossref connection stopped the S1.15 matching run. | One dropped connection stops a long run. Resuming loses only the batch in progress, but someone has to restart the run | Before the Phase 2 bulk runs | **answered: ADR-042** |

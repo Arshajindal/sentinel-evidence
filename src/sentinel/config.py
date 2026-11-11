@@ -175,6 +175,7 @@ class Settings(BaseSettings):
     retrieve_depth: int  # no default: candidates per retriever, and the rerank pool
     retrieve_keep: int  # no default: passages kept after reranking
     bm25_index_dir: str = "./data/bm25"  # operational
+    mlflow_tracking_uri: str = "http://127.0.0.1:5000"  # operational: where results are logged (ADR-043)
 
     # --- External evaluation set (Q6, ADR-049) --------------------------------
     # The evaluation data, pinned by checksum. It changes evaluation results,

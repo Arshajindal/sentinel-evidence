@@ -215,7 +215,7 @@ def extract_contexts(
 @embed_app.command("passages")
 def embed_passages(
     corpus: Annotated[Optional[str], typer.Option(help="Corpus label")] = None,
-    scope: Annotated[str, typer.Option(help="cited: works the corpus cites; all: corpus papers too")] = "cited",
+    scope: Annotated[str, typer.Option(help="cited: works the corpus cites; all: corpus papers too; scifact: the external set")] = "cited",
     limit: Annotated[Optional[int], typer.Option(help="Stop after N passages")] = None,
     resume: Annotated[bool, typer.Option(help="Continue from the stored cursor")] = False,
 ) -> None:
@@ -224,12 +224,8 @@ def embed_passages(
     from sentinel.retrieve.embed import CHUNK, PassageEmbedder
     from sentinel.retrieve.encoders import MedCPTArticleEncoder
 
-    if scope not in ("cited", "all"):
-        raise typer.BadParameter("scope is 'cited' or 'all'")
     settings = get_settings()
-    label = corpus or settings.default_corpus_label
-    if label not in _corpus_labels():
-        raise typer.BadParameter(f"unknown corpus {label!r}. Known corpora: {_corpus_labels()}")
+    label = _scope_label(settings, corpus, scope)
     version = PassageParams(settings.passage_min_words, settings.passage_max_words,
                             settings.passage_overlap_sentences).version()
     encoder = MedCPTArticleEncoder(settings.embed_article_model, settings.embed_article_revision)
@@ -243,6 +239,21 @@ def embed_passages(
         _stage_counts(stage, stats)
         stage.counts["model"] = encoder.name
     typer.echo(f"passages {stats.seen:,}: {stats.inserted:,} embedded, failed {stats.failed}")
+
+
+def _scope_label(settings: Settings, corpus: str | None, scope: str) -> str:
+    """The label a scope's index and cursor are named by: the corpus for
+    `cited` and `all`, "scifact" for the external set (ADR-049)."""
+    from sentinel.retrieve.embed import SCOPES
+
+    if scope not in SCOPES:
+        raise typer.BadParameter(f"scope is one of {SCOPES}")
+    if scope == "scifact":
+        return "scifact"
+    label = corpus or settings.default_corpus_label
+    if label not in _corpus_labels():
+        raise typer.BadParameter(f"unknown corpus {label!r}. Known corpora: {_corpus_labels()}")
+    return label
 
 
 def _passage_params(settings: Settings):
@@ -264,7 +275,7 @@ def _bm25_expect(settings: Settings, label: str, scope: str) -> dict:
 @retrieve_app.command("build-bm25")
 def retrieve_build_bm25(
     corpus: Annotated[Optional[str], typer.Option(help="Corpus label")] = None,
-    scope: Annotated[str, typer.Option(help="cited: works the corpus cites; all: corpus papers too")] = "cited",
+    scope: Annotated[str, typer.Option(help="cited: works the corpus cites; all: corpus papers too; scifact: the external set")] = "cited",
 ) -> None:
     """Build and save the BM25 index over a corpus's passages (ADR-048)."""
     import time
@@ -273,11 +284,7 @@ def retrieve_build_bm25(
     from sentinel.retrieve.embed import scope_ids
 
     settings = get_settings()
-    label = corpus or settings.default_corpus_label
-    if label not in _corpus_labels():
-        raise typer.BadParameter(f"unknown corpus {label!r}. Known corpora: {_corpus_labels()}")
-    if scope not in ("cited", "all"):
-        raise typer.BadParameter("scope is 'cited' or 'all'")
+    label = _scope_label(settings, corpus, scope)
     expect = _bm25_expect(settings, label, scope)
     started = time.monotonic()
     index = BM25Index.build(get_engine(), scope_ids(label, scope), splitter_ver=expect["splitter_ver"],
@@ -295,7 +302,7 @@ def retrieve_search(
     context: Annotated[Optional[int], typer.Option(help="A citation_context id: search the works it cites")] = None,
     paper: Annotated[Optional[list[int]], typer.Option(help="Search only this paper id (repeatable)")] = None,
     corpus: Annotated[Optional[str], typer.Option(help="Corpus label")] = None,
-    scope: Annotated[str, typer.Option(help="Which BM25 index: cited or all")] = "cited",
+    scope: Annotated[str, typer.Option(help="Which BM25 index: cited, all or scifact")] = "cited",
     rerank: Annotated[bool, typer.Option(help="Rerank with the cross-encoder")] = True,
 ) -> None:
     """Debug: the top passages for a claim, with every stage's rank (ADR-048)."""
@@ -307,7 +314,7 @@ def retrieve_search(
     from sentinel.retrieve.search import RetrieveParams, Retriever
 
     settings = get_settings()
-    label = corpus or settings.default_corpus_label
+    label = _scope_label(settings, corpus, scope)
     paper_ids = list(paper) if paper else None
     if context is not None:
         with get_engine().connect() as conn:
@@ -353,6 +360,139 @@ def retrieve_search(
         typer.echo(f"\n{rank}. passage {h.passage_id} (paper {h.paper_id}, {h.section}) {score}; "
                    f"BM25 #{h.bm25_rank or '-'}, dense #{h.dense_rank or '-'}, fused #{h.fused_rank}")
         typer.echo("   " + (h.text[:300] + ("..." if len(h.text) > 300 else "")))
+
+
+@eval_app.command("retrieval")
+def eval_retrieval(
+    splits: Annotated[str, typer.Option(help="Comma-separated splits to score")] = "val,test",
+    limit: Annotated[Optional[int], typer.Option(help="Score only the first N claims (a quick check)")] = None,
+    mlflow: Annotated[bool, typer.Option(help="Log the rows to MLflow")] = True,
+) -> None:
+    """The four-row retrieval ablation on SciFact, dot and cosine (S2.6, ADR-050)."""
+    import json
+    import time
+    from datetime import datetime, timezone
+
+    from sqlalchemy import select as sql_select
+
+    from sentinel.eval.retrieval import (
+        CachingCrossEncoder,
+        load_queries,
+        log_to_mlflow,
+        run_ablation,
+        score,
+        short_rankings,
+    )
+    from sentinel.models import paper as paper_table
+    from sentinel.retrieve.bm25 import TOKENIZER_VERSION, BM25Index, index_dir
+    from sentinel.retrieve.encoders import MedCPTCrossEncoder, MedCPTQueryEncoder, model_tag
+    from sentinel.retrieve.search import RetrieveParams, Retriever
+
+    settings = get_settings()
+    wanted = [s.strip() for s in splits.split(",") if s.strip()]
+    engine = get_engine()
+    queries = load_queries(engine, dataset="scifact", splits=wanted)[:limit]
+    if not queries:
+        raise typer.BadParameter("no SciFact claims with evidence; run `sentinel eval load-scifact`")
+    with engine.connect() as conn:
+        pool = list(conn.execute(sql_select(paper_table.c.id).where(paper_table.c.source == "scifact")).scalars())
+    expect = _bm25_expect(settings, "scifact", "scifact")
+    try:
+        bm25 = BM25Index.load(index_dir(settings.bm25_index_dir, "scifact", "scifact", expect["splitter_ver"]),
+                              expect=expect)
+    except (FileNotFoundError, ValueError) as exc:
+        raise typer.BadParameter(str(exc)) from exc
+    article = model_tag(settings.embed_article_model, settings.embed_article_revision)
+    query_encoder = MedCPTQueryEncoder(settings.embed_query_model, settings.embed_query_revision)
+    cross = CachingCrossEncoder(MedCPTCrossEncoder(settings.rerank_model, settings.rerank_revision))
+    retrievers = {metric: Retriever(engine, bm25, query_encoder, cross, RetrieveParams(
+        splitter_ver=expect["splitter_ver"], article_model=article, metric=metric,
+        rrf_k=settings.retrieve_rrf_k, depth=settings.retrieve_depth, keep=settings.retrieve_keep))
+        for metric in ("dot", "cosine")}
+
+    typer.echo(f"{len(queries)} claims ({', '.join(wanted)}) against {len(pool):,} SciFact abstracts")
+    started = time.monotonic()
+
+    def progress(done: int, total: int) -> None:
+        if done % 25 == 0 or done == total:
+            log.info("ablation_progress", done=done, total=total, cross_pairs=cross.scored,
+                     elapsed_s=round(time.monotonic() - started))
+
+    rankings = run_ablation(lambda claim, metric: retrievers[metric].search(claim, paper_ids=pool),
+                            queries, progress=progress)
+    results = score(rankings, queries)
+    elapsed = time.monotonic() - started
+    short = short_rankings(rankings, settings.retrieve_depth)
+
+    params = {"dataset": "scifact", "dataset_sha256": settings.scifact_sha256,
+              "splitter_ver": expect["splitter_ver"], "article_model": article,
+              "query_model": model_tag(settings.embed_query_model, settings.embed_query_revision),
+              "rerank_model": cross.name, "bm25_k1": settings.bm25_k1, "bm25_b": settings.bm25_b,
+              "bm25_tokenizer": TOKENIZER_VERSION, "rrf_k": settings.retrieve_rrf_k,
+              "depth": settings.retrieve_depth, "config_hash": settings.config_hash,
+              "seed": settings.random_seed, "claims": len(queries)}
+    out_dir = Path(settings.data_dir) / "evals"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    out = out_dir / f"retrieval-ablation-{stamp}.json"
+    out.write_text(json.dumps({"params": params, "scores": results, "seconds": elapsed,
+                               "cross_pairs_scored": cross.scored, "short_rankings": short,
+                               "rankings": {row: {str(k): v for k, v in by.items()}
+                                            for row, by in rankings.items()}}, indent=1), "utf-8")
+
+    typer.echo(f"\n{'row':26s}" + "".join(f"{s + ' nDCG@10':>16s}{s + ' R@50':>13s}" for s in wanted))
+    for row, by_split in results.items():
+        # A split with no claims prints "-", not a zero that reads like a result.
+        typer.echo(f"{row:26s}" + "".join(
+            f"{by_split[s]['ndcg@10']:16.3f}{by_split[s]['recall@50']:13.3f}" if s in by_split
+            else f"{'-':>16s}{'-':>13s}" for s in wanted))
+    typer.echo(f"\n{elapsed / 60:.1f} min; {cross.scored:,} cross-encoder pairs scored; results -> {out}")
+    if short:
+        # Every pool is far bigger than the depth: short lists mean a stage lost candidates.
+        log.warning("ablation_short_rankings", depth=settings.retrieve_depth, rows=short)
+        typer.echo(f"WARNING: claims with fewer than {settings.retrieve_depth} results, by row: {short}")
+    if mlflow:
+        try:
+            run_ids = log_to_mlflow(results, params, tracking_uri=settings.mlflow_tracking_uri,
+                                    experiment="retrieval-ablation", artifact=str(out))
+        except Exception as exc:  # the results are saved; a down server mustn't lose them
+            typer.echo(f"MLflow logging failed ({type(exc).__name__}: {exc}); start it with "
+                       f"`dotenv run -- mlflow server` and rerun, or log {out} by hand")
+            raise typer.Exit(code=2) from exc
+        typer.echo(f"logged {len(run_ids)} MLflow runs to experiment 'retrieval-ablation'")
+
+
+@eval_app.command("compare")
+def eval_compare(
+    results: Annotated[Path, typer.Argument(help="A results file written by `sentinel eval retrieval`")],
+    row_a: Annotated[str, typer.Argument(help="The row to test, e.g. fusion+rerank/dot")],
+    row_b: Annotated[str, typer.Argument(help="The row to test it against, e.g. bm25")],
+) -> None:
+    """Paired bootstrap of two ablation rows' nDCG@10, per split (ADR-050)."""
+    import json
+
+    from sentinel.eval.retrieval import BOOTSTRAP_RESAMPLES, load_queries, paired_bootstrap, per_claim
+
+    settings = get_settings()
+    data = json.loads(results.read_text("utf-8"))
+    rankings = {row: {int(k): v for k, v in by.items()} for row, by in data["rankings"].items()}
+    for row in (row_a, row_b):
+        if row not in rankings:
+            raise typer.BadParameter(f"no row {row!r}; the rows are {', '.join(rankings)}")
+    splits = sorted({split for by_split in data["scores"].values() for split in by_split})
+    scored = rankings[row_a].keys() & rankings[row_b].keys()
+    queries = [q for q in load_queries(get_engine(), dataset=data["params"]["dataset"], splits=splits)
+               if q.claim_id in scored]
+    typer.echo(f"{row_a} against {row_b}, nDCG@10; {BOOTSTRAP_RESAMPLES:,} paired resamples, "
+               f"seed {settings.random_seed}, 95% intervals")
+    for split in splits:
+        qs = [q for q in queries if q.split == split]
+        a, b = per_claim(rankings[row_a], qs), per_claim(rankings[row_b], qs)
+        p = paired_bootstrap(a, b, seed=settings.random_seed)
+        typer.echo(f"  {split:5s} {p.claims} claims: {sum(a) / len(a):.3f} vs {sum(b) / len(b):.3f}; "
+                   f"difference {p.diff:+.3f} [{p.lo:+.3f}, {p.hi:+.3f}]; "
+                   f"gain {p.gain:+.1%} [{p.gain_lo:+.1%}, {p.gain_hi:+.1%}]; "
+                   f"better on {p.better}, worse on {p.worse}")
 
 
 @eval_app.command("load-scifact")
