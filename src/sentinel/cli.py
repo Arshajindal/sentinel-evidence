@@ -45,6 +45,12 @@ corpus_app = typer.Typer(no_args_is_help=True, help="Select and inspect working 
 app.add_typer(corpus_app, name="corpus")
 extract_app = typer.Typer(no_args_is_help=True, help="Extract structured data from full text.")
 app.add_typer(extract_app, name="extract")
+embed_app = typer.Typer(no_args_is_help=True, help="Embed passages for dense retrieval.")
+app.add_typer(embed_app, name="embed")
+retrieve_app = typer.Typer(no_args_is_help=True, help="Find the passages that bear on a claim.")
+app.add_typer(retrieve_app, name="retrieve")
+eval_app = typer.Typer(no_args_is_help=True, help="Evaluation sets.")
+app.add_typer(eval_app, name="eval")
 log = get_logger(__name__)
 
 def _retraction_watch(settings: Settings) -> Harvester:
@@ -140,6 +146,241 @@ def corpus_coverage(
     with get_engine().connect() as conn:
         result = coverage(conn, label)
     typer.echo(json.dumps(result, indent=2) if fmt == "json" else render_coverage(result))
+
+
+@extract_app.command("passages")
+def extract_passages(
+    corpus: Annotated[Optional[str], typer.Option(help="Corpus label")] = None,
+    limit: Annotated[Optional[int], typer.Option(help="Stop after N works")] = None,
+    resume: Annotated[bool, typer.Option(help="Continue from the stored cursor")] = False,
+) -> None:
+    """Cut every corpus paper and cited work with text into passages (ADR-046)."""
+    from sentinel.fulltext.extract import PassageExtractor
+    from sentinel.fulltext.passages import PassageParams
+
+    settings = get_settings()
+    label = corpus or settings.default_corpus_label
+    params = PassageParams(settings.passage_min_words, settings.passage_max_words,
+                           settings.passage_overlap_sentences)
+    try:
+        extractor = PassageExtractor(get_engine(), label=label,
+                                     cache_dir=settings.fulltext_cache_dir, params=params)
+    except ValueError as exc:
+        raise typer.BadParameter(f"{exc}. Known corpora: {_corpus_labels()}") from exc
+    with record_stage(get_engine(), "extract", source="passages", corpus_label=label) as stage:
+        stats = extractor.run(get_engine(), resume=resume, limit=limit, batch_size=200)
+        _stage_counts(stage, stats)
+    typer.echo(f"works {stats.seen}: {stats.inserted} split ({params.version()}), "
+               f"{stats.unchanged} already split or empty, failed {stats.failed}")
+    if extractor.missing_xml:
+        typer.echo(f"full text marked but not cached: {len(extractor.missing_xml)}")
+
+
+@extract_app.command("contexts")
+def extract_contexts(
+    corpus: Annotated[Optional[str], typer.Option(help="Corpus label")] = None,
+    limit: Annotated[Optional[int], typer.Option(help="Stop after N papers")] = None,
+    resume: Annotated[bool, typer.Option(help="Continue from the stored cursor")] = False,
+) -> None:
+    """Citation contexts from corpus papers' full text, linked to references (ADR-046)."""
+    from sentinel.fulltext.extract import ContextExtractor, context_coverage
+
+    settings = get_settings()
+    label = corpus or settings.default_corpus_label
+    try:
+        extractor = ContextExtractor(get_engine(), label=label, cache_dir=settings.fulltext_cache_dir)
+    except ValueError as exc:
+        raise typer.BadParameter(f"{exc}. Known corpora: {_corpus_labels()}") from exc
+    with record_stage(get_engine(), "extract", source="contexts", corpus_label=label) as stage:
+        stats = extractor.run(get_engine(), resume=resume, limit=limit, batch_size=25)
+        _stage_counts(stage, stats)
+        s = extractor.stats
+        stage.counts.update({"citations": s.citations, "groups": s.groups, "contexts": s.contexts,
+                             "unknown_rids": s.unknown_rids, "unlinked_groups": s.unlinked_groups,
+                             "ranges_expanded": s.ranges_expanded})
+    s = extractor.stats
+    typer.echo(f"papers {stats.seen}: {stats.inserted} with contexts, failed {stats.failed}")
+    typer.echo(f"citations {s.citations:,} in {s.groups:,} groups -> {s.contexts:,} contexts; "
+               f"{s.ranges_expanded:,} ranges expanded; {s.unknown_rids:,} citations point at no "
+               f"stored reference ({s.unlinked_groups:,} groups unlinked)")
+    with get_engine().connect() as conn:
+        cov = context_coverage(conn, label)
+    share = cov["with_context"] / cov["references"] if cov["references"] else 0
+    typer.echo(f"references with a context: {cov['with_context']:,} of {cov['references']:,} "
+               f"({100 * share:.1f}%)")
+    if extractor.missing_xml:
+        typer.echo(f"no cached XML: {sorted(extractor.missing_xml)}")
+
+
+@embed_app.command("passages")
+def embed_passages(
+    corpus: Annotated[Optional[str], typer.Option(help="Corpus label")] = None,
+    scope: Annotated[str, typer.Option(help="cited: works the corpus cites; all: corpus papers too")] = "cited",
+    limit: Annotated[Optional[int], typer.Option(help="Stop after N passages")] = None,
+    resume: Annotated[bool, typer.Option(help="Continue from the stored cursor")] = False,
+) -> None:
+    """MedCPT article vectors for passages that don't have one yet (ADR-047)."""
+    from sentinel.fulltext.passages import PassageParams
+    from sentinel.retrieve.embed import CHUNK, PassageEmbedder
+    from sentinel.retrieve.encoders import MedCPTArticleEncoder
+
+    if scope not in ("cited", "all"):
+        raise typer.BadParameter("scope is 'cited' or 'all'")
+    settings = get_settings()
+    label = corpus or settings.default_corpus_label
+    if label not in _corpus_labels():
+        raise typer.BadParameter(f"unknown corpus {label!r}. Known corpora: {_corpus_labels()}")
+    version = PassageParams(settings.passage_min_words, settings.passage_max_words,
+                            settings.passage_overlap_sentences).version()
+    encoder = MedCPTArticleEncoder(settings.embed_article_model, settings.embed_article_revision)
+    embedder = PassageEmbedder(get_engine(), encoder, label=label, splitter_ver=version,
+                               scope=scope, batch_size=settings.embed_batch_size)
+    pending = embedder.count_pending()
+    typer.echo(f"{pending:,} passages ({version}, scope {scope}) need a vector from {encoder.name}")
+    with record_stage(get_engine(), "embed", source=f"passages:{scope}", corpus_label=label) as stage:
+        # One transaction per encoded chunk, so a killed run loses at most one chunk.
+        stats = embedder.run(get_engine(), resume=resume, limit=limit, batch_size=CHUNK)
+        _stage_counts(stage, stats)
+        stage.counts["model"] = encoder.name
+    typer.echo(f"passages {stats.seen:,}: {stats.inserted:,} embedded, failed {stats.failed}")
+
+
+def _passage_params(settings: Settings):
+    from sentinel.fulltext.passages import PassageParams
+
+    return PassageParams(settings.passage_min_words, settings.passage_max_words,
+                         settings.passage_overlap_sentences)
+
+
+def _splitter_version(settings: Settings) -> str:
+    return _passage_params(settings).version()
+
+
+def _bm25_expect(settings: Settings, label: str, scope: str) -> dict:
+    return {"corpus": label, "scope": scope, "splitter_ver": _splitter_version(settings),
+            "k1": settings.bm25_k1, "b": settings.bm25_b}
+
+
+@retrieve_app.command("build-bm25")
+def retrieve_build_bm25(
+    corpus: Annotated[Optional[str], typer.Option(help="Corpus label")] = None,
+    scope: Annotated[str, typer.Option(help="cited: works the corpus cites; all: corpus papers too")] = "cited",
+) -> None:
+    """Build and save the BM25 index over a corpus's passages (ADR-048)."""
+    import time
+
+    from sentinel.retrieve.bm25 import BM25Index, index_dir
+    from sentinel.retrieve.embed import scope_ids
+
+    settings = get_settings()
+    label = corpus or settings.default_corpus_label
+    if label not in _corpus_labels():
+        raise typer.BadParameter(f"unknown corpus {label!r}. Known corpora: {_corpus_labels()}")
+    if scope not in ("cited", "all"):
+        raise typer.BadParameter("scope is 'cited' or 'all'")
+    expect = _bm25_expect(settings, label, scope)
+    started = time.monotonic()
+    index = BM25Index.build(get_engine(), scope_ids(label, scope), splitter_ver=expect["splitter_ver"],
+                            k1=settings.bm25_k1, b=settings.bm25_b,
+                            manifest={"corpus": label, "scope": scope})
+    path = index_dir(settings.bm25_index_dir, label, scope, expect["splitter_ver"])
+    index.save(path)
+    typer.echo(f"BM25 index: {index.manifest['documents']:,} passages in "
+               f"{time.monotonic() - started:.0f} s -> {path}")
+
+
+@retrieve_app.command("search")
+def retrieve_search(
+    claim: Annotated[Optional[str], typer.Argument(help="Claim text (or use --context)")] = None,
+    context: Annotated[Optional[int], typer.Option(help="A citation_context id: search the works it cites")] = None,
+    paper: Annotated[Optional[list[int]], typer.Option(help="Search only this paper id (repeatable)")] = None,
+    corpus: Annotated[Optional[str], typer.Option(help="Corpus label")] = None,
+    scope: Annotated[str, typer.Option(help="Which BM25 index: cited or all")] = "cited",
+    rerank: Annotated[bool, typer.Option(help="Rerank with the cross-encoder")] = True,
+) -> None:
+    """Debug: the top passages for a claim, with every stage's rank (ADR-048)."""
+    from sqlalchemy import select as sql_select
+
+    from sentinel.models import citation_context, citation_context_reference, reference
+    from sentinel.retrieve.bm25 import BM25Index, index_dir
+    from sentinel.retrieve.encoders import MedCPTCrossEncoder, MedCPTQueryEncoder, model_tag
+    from sentinel.retrieve.search import RetrieveParams, Retriever
+
+    settings = get_settings()
+    label = corpus or settings.default_corpus_label
+    paper_ids = list(paper) if paper else None
+    if context is not None:
+        with get_engine().connect() as conn:
+            row = conn.execute(sql_select(citation_context.c.sentence)
+                               .where(citation_context.c.id == context)).first()
+            if row is None:
+                raise typer.BadParameter(f"no citation_context {context}")
+            claim = claim or row.sentence
+            paper_ids = sorted(set(conn.execute(
+                sql_select(reference.c.resolved_paper_id)
+                .join(citation_context_reference,
+                      citation_context_reference.c.reference_id == reference.c.id)
+                .where(citation_context_reference.c.citation_context_id == context,
+                       reference.c.resolved_paper_id.is_not(None))).scalars()))
+            if not paper_ids:
+                raise typer.BadParameter(f"context {context} cites no resolved work")
+    if not claim:
+        raise typer.BadParameter("give a claim or --context")
+    expect = _bm25_expect(settings, label, scope)
+    try:
+        bm25 = BM25Index.load(index_dir(settings.bm25_index_dir, label, scope, expect["splitter_ver"]),
+                              expect=expect)
+    except (FileNotFoundError, ValueError) as exc:
+        raise typer.BadParameter(str(exc)) from exc
+    params = RetrieveParams(
+        splitter_ver=expect["splitter_ver"],
+        article_model=model_tag(settings.embed_article_model, settings.embed_article_revision),
+        metric=settings.retrieve_dense_metric, rrf_k=settings.retrieve_rrf_k,
+        depth=settings.retrieve_depth, keep=settings.retrieve_keep)
+    query_encoder = MedCPTQueryEncoder(settings.embed_query_model, settings.embed_query_revision)
+    cross = MedCPTCrossEncoder(settings.rerank_model, settings.rerank_revision) if rerank else None
+    result = Retriever(get_engine(), bm25, query_encoder, cross, params).search(
+        claim, paper_ids=paper_ids, rerank=rerank)
+
+    where = f"papers {paper_ids}" if paper_ids else "the whole index"
+    typer.echo(f"Claim: {claim}\nSearched {where}: BM25 {len(result.bm25)}, dense {len(result.dense)} "
+               f"({params.metric}), fused {len(result.fused)}; "
+               + ", ".join(f"{k} {v:.2f} s" for k, v in result.seconds.items()))
+    if not result.dense:
+        typer.echo("  (no passage vectors here yet: is `sentinel embed passages` finished?)")
+    for rank, h in enumerate(result.hits, start=1):
+        score = f"rerank {h.rerank_score:.2f}" if h.rerank_score is not None else "not reranked"
+        typer.echo(f"\n{rank}. passage {h.passage_id} (paper {h.paper_id}, {h.section}) {score}; "
+                   f"BM25 #{h.bm25_rank or '-'}, dense #{h.dense_rank or '-'}, fused #{h.fused_rank}")
+        typer.echo("   " + (h.text[:300] + ("..." if len(h.text) > 300 else "")))
+
+
+@eval_app.command("load-scifact")
+def eval_load_scifact() -> None:
+    """Download SciFact, check it against the pinned SHA-256, and load it as
+    the external evaluation set (Q6, ADR-049)."""
+    from sentinel.eval.scifact import fetch, load
+    from sentinel.ingest.http import build_http_client
+
+    settings = get_settings()
+    directory = Path(settings.data_dir) / "external" / "scifact"
+    with build_http_client(settings) as client:
+        try:
+            data = fetch(settings.scifact_url, settings.scifact_sha256, directory, client=client)
+        except ValueError as exc:
+            raise typer.BadParameter(str(exc)) from exc
+    with record_stage(get_engine(), "ingest", source="scifact") as stage:
+        result = load(get_engine(), data, seed=settings.random_seed,
+                      params=_passage_params(settings), release_sha256=settings.scifact_sha256)
+        stage.items = result.items_added
+        stage.counts = {"papers": result.papers_added, "passages": result.passages_added,
+                        "items": result.items_added, "gold_links": result.gold_links,
+                        "unmapped_sentences": result.unmapped_sentences}
+    typer.echo(f"SciFact: {result.papers_added:,} abstracts and {result.passages_added:,} passages added; "
+               f"{result.items_added:,} items, {result.gold_links:,} gold passage links, "
+               f"{result.unmapped_sentences} evidence sentences unmapped")
+    for key, n in result.by_split_label.items():
+        typer.echo(f"  {key}: {n:,}")
 
 
 @extract_app.command("stats")

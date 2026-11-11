@@ -86,7 +86,7 @@ Keep updates quick, or the file stops being kept up. The rules:
 
 **Phase:** 2 of 5: full text, retrieval, and the evaluation foundation. Phase 1 is finished and merged (PR #1).
 **Plan:** the session list in §15 of `docs/sentinel-project.md`. The old brief and HTML spec are in `docs/archive/`.
-**Last worked:** 2026-11-01, session S2.2 (full-text fetch; Q2 measured).
+**Last worked:** 2026-11-02, session S2.3 (passages and citation contexts).
 
 **Sessions:**
 
@@ -110,8 +110,9 @@ Keep updates quick, or the file stops being kept up. The rules:
 | S2.0 Retries, pgvector and MLflow | done | Dropped connections and timeouts are now retried like 5xx responses (ADR-042, 8 new tests). Postgres moved to a pgvector 0.8.6 container on 127.0.0.1:5434 with a role that isn't a superuser; every table's row count and the migration version match the old server (ADR-043). MLflow runs at 127.0.0.1:5000 with its data in the same Postgres, checked with one test run. |
 | S2.1 Phase 2 tables | done | Migration `6bb29bc195ff` (ADR-044): passages with a splitter version, one vector row per passage per model (HNSW, cosine), citation contexts linked to several references, claims, evaluation items with a required licence, and gold passages protected by a foreign key. Up, down, up runs cleanly; `alembic check` finds no difference; applied to the working database. |
 | S2.2 Full-text fetch | done | `ingest/fulltext.py`, `sentinel ingest fulltext`, `sentinel corpus coverage`, migration `8d0bd1c5a522` (ADR-045). All 33,664 works checked in Europe PMC; 8,427 open-access XML files cached. **Q2: 22.6% of resolved references cite a work with full text**, 92.8% at least an abstract. Europe PMC answers 500 for non-open-access full text, so only open-access records are requested. |
+| S2.3 Passages and citation contexts | done | `fulltext/` (body, sentences, passages, contexts, extract), `sentinel extract passages\|contexts` (ADR-046). 290,977 passages from all 31,420 works with text, abstracts included. 35,921 contexts; **96.3% of references have a citing context**, linked through the XML ref ids (labels agree for 99.87% of numbered citations). |
 
-**What works:** the whole Phase 1 pipeline over the 1,000-paper corpus. That means loading data, matching references (89.4% of all references, 94.4% of the structured sample), pulling out statistics, all five checks, `report`, `stats`, `export` and stage timing. 716 tests, all passing, including the database tests and the 46-item fixture set. Phase 2 so far: pgvector and the Phase 2 tables, MLflow, and text availability for every corpus paper and cited work (Q2 measured).
+**What works:** the whole Phase 1 pipeline over the 1,000-paper corpus. That means loading data, matching references (89.4% of all references, 94.4% of the structured sample), pulling out statistics, all five checks, `report`, `stats`, `export` and stage timing. 716 tests, all passing, including the database tests and the 46-item fixture set. Phase 2 so far: pgvector and the Phase 2 tables, MLflow, text availability for every corpus paper and cited work (Q2 measured), 290,977 passages and 35,921 citation contexts.
 
 **What's broken:**
 - Most of C01's corpus flags are works that do exist: only 8 of 20 sampled flags were correct (see the README's section on C01's limits). So C01's flag rate is published as an upper bound.
@@ -120,9 +121,9 @@ Keep updates quick, or the file stops being kept up. The rules:
 - The full text of PMC6561645 still returns an HTTP 500 error from Europe PMC.
 
 **Next three things:**
-1. S2.3: split papers into passages and extract citation contexts. This needs a new ADR, because ADR-037 says body text isn't stored in the database. Passages come from the 8,427 cached XML files plus abstracts for the rest.
-2. Answer Q1 before S2.4. This machine has no NVIDIA GPU, so local embedding runs on the CPU, over roughly 8,400 full texts.
-3. Answer Q6 before loading the external dataset, and Q7 before claim extraction.
+1. Answer Q1, then S2.4: embed the 290,977 passages. There's no NVIDIA GPU here, so on the CPU this is hours, not minutes. Decide whether to embed everything or only cited works' passages first.
+2. Answer Q6 before loading the external dataset.
+3. Answer Q7 before claim extraction.
 
 **After that:** the session-order problem from planning. S2.6 (retrieval evaluation) needs the gold passages that S2.8 builds, so loading the external set should move ahead of S2.6. S2.9's tabular baseline has no real labels until S3.4's hand-labelled set. Still open from Phase 1: nothing checks for a DOI that points to a paper with a different title, and the title-plus-author Crossref search for C01 (ADR-041) has no session yet.
 
@@ -685,7 +686,7 @@ Matching uses both the reference's own DOI/PMID and those of the paper it was ma
 ---
 
 ### ADR-037 — C03: full text cached on disk, statistics only from body paragraphs, and rules to avoid false alarms
-**Status:** active
+**Status:** active · "body text is not stored in the database" superseded by ADR-046
 
 **In short:** C03 recomputes each p-value from its test statistic, allows for rounding and common reporting habits, and found 16 small inconsistencies in the corpus.
 
@@ -919,6 +920,52 @@ Results on `pmc-rct-2015-2024` (stage run 16):
 
 ---
 
+### ADR-046 — Passages and citation contexts: sentence windows in the database, citations linked through the XML
+**Status:** active · supersedes ADR-037's "body text is not stored in the database"
+
+**In short:** every work with text is cut into passages of whole sentences, stored in `passage`. Every corpus paper's in-text citations become contexts linked to the references they cite. **96.3% of the corpus's references now have at least one citing context.**
+
+ADR-037 kept body text out of the database because Phase 2's passage design wasn't settled. Retrieval needs the text next to its vectors (§10.2), so passages are stored. The XML stays on disk as the source.
+
+**Passages** (`fulltext/passages.py`, `sentinel extract passages`):
+- A full-text work gives its abstract (from `text_availability`) plus its body. An abstract-only work gives its abstract (your choice), which is what C09 falls back on for most citations.
+- The body is read from the cached JATS. Tables, figures, footnotes and non-content top-level sections are skipped: references, acknowledgements, funding, declarations, data availability, author biographies, publisher's notes, trial status and the like.
+- Sections map to §10.1's labels by `sec-type`, else by title. "Objectives" counts as introduction, protocol headings such as "Assignment of interventions" as methods, "Concluding remarks" as discussion. Anything else is `other`.
+- Each section is cut separately into windows of whole sentences. A window closes once it reaches `SENTINEL_PASSAGE_MIN_WORDS` (150) and never grows past `SENTINEL_PASSAGE_MAX_WORDS` (300). The next window repeats the last `SENTINEL_PASSAGE_OVERLAP_SENTENCES` (1) sentences. A short last window joins the one before when they fit, and a sentence longer than the maximum is cut by words.
+- The three sizes have no defaults and feed `config_hash` (ADR-022, §7). They also appear in `splitter_ver` (`1.0.0/150-300-1`), so a change of size makes new rows beside the old instead of rewriting them (ADR-044).
+
+**Sentences** (`fulltext/sentences.py`): rule-based. A boundary is a full stop, question mark or exclamation mark, then whitespace, then a capital, digit, bracket or quote.
+- It isn't a boundary after an abbreviation ("et al.", "e.g.", "Fig.", "vs.") or an initial.
+- A citation right after the stop ("adults.12,13 Next") stays with its sentence.
+- When unsure, sentences stay joined: a context one sentence too long is better than one cut mid-claim.
+
+**Contexts** (`fulltext/contexts.py`, `sentinel extract contexts`): each `<xref ref-type="bibr">` is linked to its stored reference through the ref id kept since S1.6 (`reference.raw.id`).
+- Citations joined only by ",", ";" or a dash form one context.
+- Ranges are expanded in reference-list order in three markups seen in the corpus: two citations joined by a dash; one citation reading "9–13", when its start agrees with the reference's label; and a dash marked up as a citation of its own (`<xref rid="B21">–</xref>`, PMC4750684).
+- Author-year citations are never expanded.
+- The context is the citing sentence plus one either side, within the paragraph. `marker` keeps the citation as printed.
+
+Results on `pmc-rct-2015-2024`:
+- Passages: 290,977 from 31,420 works, every work with text; 398 MB in the database. Median 166 words (5th–95th percentile 150–249), and a median of 28 passages per full-text work.
+- Contexts: 49,770 citations in 35,995 groups gave 35,921 contexts in 968 papers. 2,508 ranges were expanded, and 97 citations point at no stored reference.
+- 32 papers have no contexts: PMC6561645 has no XML, and 31 have no citation markup.
+- **37,243 of 38,685 references (96.3%) have at least one context.**
+- Link checks: the linked reference's printed label equals the citation number for 99.87% of single-number citations (23,385 of 23,415); the rest follow publishers' markup that points elsewhere. Ranges link exactly a..b in 99.5% (2,111 of 2,121); most misses are references with no numeric label to compare.
+- Citing sentences: median 28 words, 99th percentile 102. 195 are over 120 words, mostly real long sentences such as questionnaire lists.
+
+Three patterns were found in the real output and fixed before it was kept. Each is a test, and the earlier rows were deleted, so version 1.0.0 names one set of rules (as with C03 in ADR-037):
+- List items inside a paragraph ran together ("ultrasound.Recent"), making a 365-word sentence.
+- A space before the full stop ("countries 20) . While") hid the boundary.
+- Panel titles ran into their text ("Research in contextEvidence").
+
+**Turned down:**
+- A sentence-splitting library: the repository's parsers are rule-based and tested against real cases (§9.4), and citation spans have to be protected anyway.
+- Passages that cross section boundaries: results text would sit beside methods text in one retrieval unit.
+- Contexts across paragraph boundaries: a new paragraph usually starts a new point.
+- Expanding author-year "ranges": a hyphen there is part of a name.
+
+---
+
 ### ADR-0NN — template
 **Status:** active
 
@@ -1006,6 +1053,8 @@ The headline numbers at the end of each phase. These become the evaluation repor
 | 2026-11-01 | 2 | Cited works with full text / abstract only / neither | 7,437 / 23,008 / 2,244 of 32,689 | 92.8% of resolved references have at least an abstract |
 | 2026-11-01 | 2 | Full-text coverage by cited work's year | <2000 0.2%; 2000–09 4.8%; 2010–14 19.8%; 2015+ 37.8% | Older evidence is mostly abstract only |
 | 2026-11-01 | 2 | Full-text fetch | 8,427 XML files, 1.1 GB; 51 persistent 500s (0.6%) | About 3.3 h of fetching; $0 |
+| 2026-11-02 | 2 | Passages | 290,977 from 31,420 works; median 166 words | Splitter 1.0.0/150-300-1 (ADR-046); 398 MB |
+| 2026-11-02 | 2 | Citation contexts | 35,921 in 968 papers; 96.3% of references have one | Labels agree for 99.87% of numbered citations; ranges 99.5% exact |
 
 **Metrics to track from week one, not work out afterwards:**
 - Cascade ratios: how many items enter each stage
@@ -1027,6 +1076,9 @@ This section becomes deliverable five, the post-mortem. Most candidates ship a R
 
 **Date · one-line title**
 What happened. What you expected instead. The root cause. What changed as a result. Whether a fixture or test now covers it.
+
+**2026-11-02 · Sentence boundaries hidden by markup, found by reading the output**
+The first full context run looked fine in aggregate (96.2% of references with a context), but the longest "sentences" were 365 words. Reading them showed three ways JATS hides a boundary: list items inside a paragraph rendered with no space ("ultrasound.Recent use"), a space between a citation and its full stop ("countries 20) . While"), and panel titles running into their text ("Research in contextEvidence"). A separate check of linked references against printed citation numbers found a fourth problem: some publishers mark up the dash of a range as its own citation, so "20–27" linked only 20, 21 and 27. All four are fixed and tested, and the rows made before the fixes were deleted. As with C03's precision rules, aggregate numbers didn't show any of this; reading the longest and the mismatched cases did.
 
 **2026-11-01 · Europe PMC answers 500, not 404, for full text it won't serve**
 Asking for `fullTextXML` for a PMC record that isn't open access returns HTTP 500 with a short error body. The client expected 404 for "not available", and since 500 is retried, each such request would have spent five retries and about 30 seconds before failing. Found by testing three non-open-access PMCIDs before the run. The fetch now asks only for open-access records (ADR-045), and `EuropePMC.fulltext_xml` documents it. PMC6561645's long-running 500 may be the same thing, since it is the one corpus paper Europe PMC won't serve. `test_fulltext.py` covers it.

@@ -64,14 +64,19 @@ class Work:
     pmid: str | None
 
 
-def load_works(engine: Engine, label: str) -> list[Work]:
-    """The corpus's papers and every work their references resolved to."""
+def work_ids(label: str):
+    """IDs of the corpus's papers and every work their references resolved to."""
     members = select(corpus_paper.c.paper_id.label("id")).where(
         corpus_paper.c.label == label, corpus_paper.c.paper_id.is_not(None))
     cited = (select(reference.c.resolved_paper_id.label("id"))
              .join(corpus_paper, corpus_paper.c.paper_id == reference.c.citing_paper_id)
              .where(corpus_paper.c.label == label, reference.c.resolved_paper_id.is_not(None)))
-    ids = union(members, cited).subquery()
+    return union(members, cited)
+
+
+def load_works(engine: Engine, label: str) -> list[Work]:
+    """The corpus's papers and every work their references resolved to."""
+    ids = work_ids(label).subquery()
     with engine.connect() as conn:
         rows = conn.execute(
             select(paper.c.id, paper.c.doi, paper.c.pmid)

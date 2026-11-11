@@ -153,6 +153,35 @@ class Settings(BaseSettings):
     # --- Corpus selection (§9.2, ADR-028) — defines the corpus, no default -----
     corpus_query: str  # no default — ADR-022
 
+    # --- Passages (§10.1 item 2, ADR-046) — decide what retrieval finds -------
+    passage_min_words: int  # no default — ADR-022
+    passage_max_words: int  # no default — ADR-022
+    passage_overlap_sentences: int  # no default — ADR-022
+
+    # --- Embeddings (§10.1 item 4, ADR-047) — decide what retrieval finds ------
+    embed_article_model: str  # no default — ADR-022
+    embed_article_revision: str  # no default — pins the weights
+    embed_batch_size: int = 8  # operational: speed only
+
+    # --- Retrieval (§10.1 item 5, ADR-048) — decide what is retrieved ----------
+    embed_query_model: str  # no default — ADR-022
+    embed_query_revision: str  # no default
+    rerank_model: str  # no default
+    rerank_revision: str  # no default
+    bm25_k1: float  # no default
+    bm25_b: float  # no default
+    retrieve_dense_metric: Literal["dot", "cosine"]  # no default
+    retrieve_rrf_k: int  # no default
+    retrieve_depth: int  # no default: candidates per retriever, and the rerank pool
+    retrieve_keep: int  # no default: passages kept after reranking
+    bm25_index_dir: str = "./data/bm25"  # operational
+
+    # --- External evaluation set (Q6, ADR-049) --------------------------------
+    # The evaluation data, pinned by checksum. It changes evaluation results,
+    # not findings, so it isn't in config_hash; it has no default all the same.
+    scifact_url: str
+    scifact_sha256: str
+
     # --- Runs and output -------------------------------------------------------
     default_corpus_label: str = "dev-sample"
     export_dir: str = "./out"
@@ -185,6 +214,21 @@ class Settings(BaseSettings):
             "c04_min_decimals": self.c04_min_decimals,
             "c04_epsilon": self.c04_epsilon,
             "c05_grace_months": self.c05_grace_months,
+            "passage_min_words": self.passage_min_words,
+            "passage_max_words": self.passage_max_words,
+            "passage_overlap_sentences": self.passage_overlap_sentences,
+            "embed_article_model": self.embed_article_model,
+            "embed_article_revision": self.embed_article_revision,
+            "embed_query_model": self.embed_query_model,
+            "embed_query_revision": self.embed_query_revision,
+            "rerank_model": self.rerank_model,
+            "rerank_revision": self.rerank_revision,
+            "bm25_k1": self.bm25_k1,
+            "bm25_b": self.bm25_b,
+            "retrieve_dense_metric": self.retrieve_dense_metric,
+            "retrieve_rrf_k": self.retrieve_rrf_k,
+            "retrieve_depth": self.retrieve_depth,
+            "retrieve_keep": self.retrieve_keep,
         }
         payload = json.dumps(fields, sort_keys=True).encode("utf-8")
         return hashlib.sha256(payload).hexdigest()

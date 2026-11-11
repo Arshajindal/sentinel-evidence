@@ -63,10 +63,12 @@ sentinel report 10.1007/s11357-023-00725-5                  # one paper's report
 # Phase 2
 sentinel ingest fulltext --corpus pmc-rct-2015-2024         # full text or abstract for the corpus and cited works
 sentinel corpus coverage --corpus pmc-rct-2015-2024         # how many cited sources have full text (Q2)
+sentinel extract passages --corpus pmc-rct-2015-2024       # cut every work with text into passages
+sentinel extract contexts --corpus pmc-rct-2015-2024       # citing sentences, linked to references
 ```
 
 **Resuming:**
-- **Harvesters** (`ingest europepmc`, `ingest retraction-watch`, `ingest fulltext`, `extract stats`) save a cursor with each batch. `--resume` continues from it.
+- **Harvesters** (`ingest europepmc`, `ingest retraction-watch`, `ingest fulltext`, `extract stats|passages|contexts`) save a cursor with each batch. `--resume` continues from it.
 - **`resolve`** picks up the references still `pending`.
 - **OpenAlex budget:** OpenAlex charges $0.001 per search. When the day's budget runs out, `resolve` stops with exit code 3 and keeps finished batches; run it again the next day.
 - **Lookups:** `ingest crossref|openalex|doi-handle --doi ...` and `ingest clinicaltrials --nct ...` fetch single records on demand.

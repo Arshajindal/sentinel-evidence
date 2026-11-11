@@ -1,0 +1,3 @@
+{"id": 47, "claim": "A strong bias in the phage genome locations where the spacers were derived has been observed in many CRISPR subtypes that confer the immunity to phage.", "evidence": {"26996935": [{"sentences": [6], "label": "SUPPORT"}]}, "cited_doc_ids": [3512154, 26996935]}
+{"id": 2, "claim": "1 in 5 million in UK have abnormal PrP positivity.", "evidence": {"13734012": [{"sentences": [4], "label": "CONTRADICT"}]}, "cited_doc_ids": [13734012]}
+{"id": 0, "claim": "0-dimensional biomaterials lack inductive properties.", "evidence": {}, "cited_doc_ids": [31715818]}

@@ -134,7 +134,7 @@ def _stages(conn: Connection, corpus_label: str | None, before: datetime) -> lis
         g.by_status[row.status] = row.runs
         g.seconds += float(row.seconds)
         g.items += int(row.items)
-    order = {"ingest": 0, "resolve": 1, "extract": 2}
+    order = {"ingest": 0, "resolve": 1, "extract": 2, "embed": 3}
     return sorted(groups.values(), key=lambda g: (order.get(g.stage, 9), g.source or ""))
 
 

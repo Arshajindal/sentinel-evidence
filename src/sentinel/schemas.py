@@ -145,6 +145,58 @@ class TextAvailability(BaseModel):
         return self
 
 
+SectionLabel = Literal["abstract", "introduction", "methods", "results", "discussion", "other"]
+
+
+class PassageRecord(BaseModel):
+    """One row of `passage`, without its paper (ADR-046)."""
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    ordinal: int = Field(ge=1)
+    section: SectionLabel
+    text: str = Field(min_length=1)
+
+
+class PaperPassages(BaseModel):
+    """A work's passages under one splitter version."""
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    paper_id: int
+    splitter_ver: str = Field(min_length=1)
+    passages: list[PassageRecord]
+
+
+class CitationContextRecord(BaseModel):
+    """One row of `citation_context` and the references it cites (ADR-046)."""
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    ordinal: int = Field(ge=1)
+    section: SectionLabel
+    marker: str | None = None
+    sentence: str = Field(min_length=1)
+    context_text: str = Field(min_length=1)
+    reference_ids: list[int] = Field(min_length=1)
+
+    @model_validator(mode="after")
+    def _check(self) -> CitationContextRecord:
+        if self.sentence not in self.context_text:
+            raise ValueError("the context must contain its citing sentence")
+        return self
+
+
+class PaperContexts(BaseModel):
+    """A citing paper's contexts under one extractor version."""
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    citing_paper_id: int
+    extractor_ver: str = Field(min_length=1)
+    contexts: list[CitationContextRecord]
+
+
 Severity = Literal["info", "low", "medium", "high"]
 FindingStatus = Literal["flagged", "clean", "not_applicable", "insufficient_data"]
 

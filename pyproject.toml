@@ -28,7 +28,13 @@ sentinel = "sentinel.cli:app"
 dev = ["pytest>=8.0"]
 # Phase 2+ experiment tracking and model registry (ADR-043). Kept out of the
 # core install so the Phase 1 pipeline and CLI don't pull in MLflow's stack.
-ml = ["mlflow>=3.17.1", "python-dotenv[cli]>=1.0"]  # dotenv runs `mlflow server` with .env
+ml = [
+    "mlflow>=3.17.1",
+    "python-dotenv[cli]>=1.0",  # dotenv runs `mlflow server` with .env
+    "torch>=2.14.1",  # MedCPT encoders run in-process on CPU (ADR-047)
+    "transformers>=5.21.1",
+    "bm25s[stem]>=0.3.14",  # BM25 for passage retrieval (ADR-048); MIT
+]
 
 [build-system]
 requires = ["hatchling"]
