@@ -269,11 +269,11 @@ SciFact has abstracts only, so a second set supplies labelled full-text items (A
 
 | Label | Items | How |
 |---|---:|---|
-| supported | 1,628 | intact pairs, from 1,000 cited works |
-| contradicted | 2,020 | 1,567 numbers changed, 453 directions flipped |
-| insufficient | 1,675 | 1,628 sources swapped, 47 populations changed |
+| supported | 2,005 | intact pairs, from 1,176 cited works |
+| contradicted | 2,558 | 1,934 numbers changed, 624 directions flipped |
+| insufficient | 2,065 | 2,005 sources swapped, 60 populations changed |
 
-Splits are by source paper. In a spot check, 48 of 50 items read as rightly labelled.
+Splits are by source paper. In two spot checks, 60 of 63 items read as rightly labelled.
 
 **Limits.** The claims are the sources' own sentences, so this set is easier than real citations: it flatters keyword search, and verdicts on it will be higher. Results on it are always reported next to the real holdout (§14).
 

@@ -123,6 +123,22 @@ def test_escaped_markup_goes_but_real_less_than_signs_stay():
     assert clean_markup("normal weight (18.5&lt;BMI&lt;25), cut-off &lt;or=35 mm, age &lt;/=50") ==         "normal weight (18.5<BMI<25), cut-off <or=35 mm, age </=50"
 
 
+def test_bare_less_than_sign_before_a_tag_keeps_the_text_between():
+    # Europe PMC's abstractText mixes real tags with unescaped "<". The old
+    # pattern read "<0.001)." as a tag running on to the heading's ">", so the
+    # first sentence lost its end and the heading (2026-11-11 failure log).
+    assert clean_markup("in the BSB group (P<0.001).<h4>Conclusion</h4>Our BSB could be") == \
+        "in the BSB group (P<0.001). Conclusion Our BSB could be"
+    # A thin space after "<" (U+2009, common in Europe PMC) becomes a plain one.
+    assert clean_markup("<h4>Results</h4>OR 0.8 (P <\u20090.05), age <65 y and n<i>=</i>40.") == \
+        "Results OR 0.8 (P < 0.05), age <65 y and n=40."
+    assert clean_markup("normal weight (18.5<BMI<25), cut-off <or=35 mm, age </=50<h4>Methods</h4>") == \
+        "normal weight (18.5<BMI<25), cut-off <or=35 mm, age </=50 Methods"
+    # Tags with attributes, self-closing tags and namespaces still go.
+    assert clean_markup('A<br/>B<br />C<span class="x">D</span><jats:sec id="s1">E</jats:sec>') == \
+        "A B CD E"
+
+
 def test_placeholder_text_is_not_an_abstract():
     assert clean_markup("<p>Abstract is missing.</p>") is None
     assert clean_markup("[Figure: see text].") is None

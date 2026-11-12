@@ -43,9 +43,15 @@ LOOKUP_BATCH = 25
 RAW_KEYS = ("id", "source", "pmid", "pmcid", "doi", "isOpenAccess", "inEPMC", "inPMC",
             "hasPDF", "license", "fullTextIdList", "firstPublicationDate")
 _RANK = {"none": 0, "abstract": 1, "full": 2}
-_INLINE = re.compile(r"</?(?:[a-z]+:)?(?:i|b|em|strong|sup|sub|sc|span|a|u|italic|bold)\b[^>]*>",
+# A tag: "<" or "</", an optional namespace, a name, optional attributes,
+# then ">" or "/>", with no "<" or ">" in between. Europe PMC's abstracts mix
+# real tags with bare less-than signs ("(P<0.001).<h4>Conclusion</h4>"), so
+# "<" followed by anything else is text, not the start of a tag that runs on
+# to the next ">".
+_TAG_SHAPE = r"</?(?:[a-z][a-z0-9]*:)?(?:{name})(?:\s[^<>]*)?/?>"
+_INLINE = re.compile(_TAG_SHAPE.format(name="i|b|em|strong|sup|sub|sc|span|a|u|italic|bold"),
                      re.IGNORECASE)
-_TAG = re.compile(r"<[^>]+>")
+_TAG = re.compile(_TAG_SHAPE.format(name="[a-z][a-z0-9-]*"))
 # Markup some sources escape (&lt;em&gt;), so it reappears after unescaping.
 # Only known HTML tag names: abstracts also hold real "<" ("18.5<BMI<25").
 _ESCAPED_TAG = re.compile(r"</?(?:i|b|em|strong|sup|sub|span|u|br|p|div|h[1-6]|li|ul|ol)\b[^<>]*>",
