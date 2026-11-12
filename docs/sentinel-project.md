@@ -130,10 +130,10 @@ The random audit sample matters because without it you never learn what the chea
 | Logging | structlog, JSON output | 1 | Cost and latency are logged from day one |
 | Statistics | scipy | 1 | p-value recomputation |
 | Data frames | polars | 1 | |
-| Vectors | pgvector with HNSW (ADR-003) | 2 | Hybrid search is a join, not a second system |
+| Vectors | pgvector, exact search (ADR-003; ADR-050 and ADR-052 dropped HNSW) | 2 | Hybrid search is a join, not a second system |
 | Retrieval | BM25 plus MedCPT dense retrieval, reciprocal rank fusion, cross-encoder rerank | 2 | Lexical-plus-dense fusion is the proven setup for biomedical retrieval |
 | Embedding serving | In-process PyTorch on CPU (ADR-047) | 2 | Measured: 16x faster than Text Embeddings Inference on this CPU, and takes MedCPT's title-and-text pair |
-| LLM access | LiteLLM router | 2 | Fallback chains and per-request cost accounting |
+| LLM access | ASU Research Computing's OpenAI-compatible gateway, free and on ASU hardware (ADR-053) | 2 | Open-weight models, strict JSON output, token counts per call |
 | Experiment tracking | MLflow, self-hosted | 2 | Runs, ablations, and the model registry |
 | Classical ML | LightGBM or XGBoost, plus SHAP | 2 | The honest metadata-only baseline |
 | Training | PyTorch, Transformers, PEFT | 3 | Encoder-scale fine-tuning and distillation |
@@ -740,7 +740,7 @@ The suite asserts exact matches on check ID, status, and severity.
    - Dense search with pgvector, exact (ADR-050: the HNSW index cut filtered searches short).
    - Reciprocal rank fusion (k = 60), which merges the two ranked lists into one.
    - Cross-encoder rerank of the top 50 (MedCPT cross-encoder), keeping the top 3–5.
-6. **Claim skeletons.** From each citation context, extract population, intervention, comparator, outcome, effect size, sample size, and direction into a Pydantic model. Start with an LLM call through LiteLLM, retrying on validation failure, and track the validation failure rate as a metric. Paper text goes into the prompt marked as untrusted data.
+6. **Claim skeletons.** From each citation context, extract population, intervention, comparator, outcome, effect size, sample size, and direction into a Pydantic model. Start with an LLM call through ASU Research Computing's gateway (ADR-053), retrying on validation failure, and track the validation failure rate as a metric. Paper text goes into the prompt marked as untrusted data.
 7. **Evaluation sets:**
    - **External:** a published, human-labelled claim–evidence dataset, such as SciFact. Check its licence first (Q6).
    - **Synthetic:** a corruption generator that takes supported (claim, source passage) pairs and corrupts them in known ways: swap the source, flip the direction, weaken or strengthen the effect, or change the population. Each item records its corruption type, which makes error analysis possible later. Built by rule, with no language model (ADR-051). A pair is a sentence from a cited work's abstract and the results passages that repeat its numbers. Only works whose licence allows adapted text are used.
@@ -773,7 +773,7 @@ CREATE TABLE passage_embedding (     -- one row per passage per model
     created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
     PRIMARY KEY (passage_id, model)
 );
-CREATE INDEX passage_embedding_hnsw ON passage_embedding USING hnsw (embedding vector_cosine_ops);
+-- No vector index: dense search is exact (ADR-050); the HNSW index made here was dropped (ADR-052).
 
 CREATE TABLE citation_context (
     id              BIGSERIAL PRIMARY KEY,
@@ -1116,7 +1116,7 @@ unsure about, and draft the three PROGRESS.md lines. Don't commit.
 | Q4 | Publish individual findings, or aggregate only? | A false accusation of fabrication is a serious harm | Before S5.8 |
 | Q5 | Where do earlier versions of registered outcomes come from? The public v2 API has no history endpoint. The options are the website's change-history tab (check its terms of use first), a third-party reconstructed history dataset (check its licence and access terms), or comparing against the current record only, which supports a weaker claim ("registry–publication mismatch" rather than "switching"). | It decides what C06 can honestly claim | Before S3.9, ideally by the end of Phase 1 |
 | Q6 | Which external labelled dataset, and is its licence compatible? | Validity of the external evaluation | **Answered (ADR-049):** SciFact, from the authors' release (CC BY 4.0 claims, ODC-By 1.0 abstracts) |
-| Q7 | Which LLM for extraction and judging, and what's the budget cap? | Cost and reproducibility | Before S2.7 |
+| Q7 | Which LLM for extraction and judging, and what's the budget cap? | Cost and reproducibility | **Answered for extraction (ADR-053):** open-weight models on ASU Research Computing's free gateway, so no budget cap; gemma4-31b-it for claim skeletons. The judge is chosen at S3.3 |
 
 Closed questions (the corpus, config defaults, API vs bulk) are recorded as ADRs in `PROGRESS.md`.
 

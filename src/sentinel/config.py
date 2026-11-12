@@ -177,6 +177,16 @@ class Settings(BaseSettings):
     bm25_index_dir: str = "./data/bm25"  # operational
     mlflow_tracking_uri: str = "http://127.0.0.1:5000"  # operational: where results are logged (ADR-043)
 
+    # --- Language-model gateway (Q7, ADR-053) -----------------------------------
+    # ASU Research Computing's OpenAI-compatible gateway (docs.rc.asu.edu/ai/api).
+    # The model is a required option of each command, never a setting with a
+    # default, and every claim row names the model that made it.
+    llm_base_url: str = "https://openai.rc.asu.edu/v1"
+    llm_api_key: str = ""  # a Voyager key; required by the commands that call the gateway
+    llm_timeout_s: int = 300  # operational: the gateway queues a busy model for up to 5 minutes
+    llm_workers: int = 4  # operational: the gateway's docs advise 4 to 8 per model
+    rate_llm_rps: float = 10  # operational
+
     # --- External evaluation set (Q6, ADR-049) --------------------------------
     # The evaluation data, pinned by checksum. It changes evaluation results,
     # not findings, so it isn't in config_hash; it has no default all the same.

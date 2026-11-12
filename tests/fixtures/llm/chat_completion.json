@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-694c1dd4-5d89-4ae9-b934-80a2ab7c69e3",
+  "created": 1794460392,
+  "model": "gemma4-31b-it",
+  "object": "chat.completion",
+  "system_fingerprint": "vllm-0.26.0-tp4-24487d56",
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "content": "{\"kind\": \"finding\", \"statement\": \"Drug A lowered systolic blood pressure by 12 mmHg in 1,204 adults with hypertension\", \"population\": \"adults with hypertension\", \"intervention\": \"Drug A\", \"comparator\": \"placebo\", \"outcome\": \"systolic blood pressure\", \"effect\": \"by 12 mmHg\", \"n\": 1204, \"direction\": \"decrease\"}",
+        "role": "assistant",
+        "provider_specific_fields": {"reasoning": null, "refusal": null}
+      },
+      "provider_specific_fields": {"routed_experts": null, "stop_reason": null, "token_ids": null}
+    }
+  ],
+  "usage": {
+    "completion_tokens": 88,
+    "prompt_tokens": 912,
+    "total_tokens": 1000,
+    "prompt_tokens_details": {"cached_tokens": 0, "created_cache_tokens": 0}
+  }
+}

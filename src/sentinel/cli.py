@@ -586,6 +586,82 @@ def extract_stats(
         typer.echo(f"no full text: {len(extractor.no_fulltext)} papers")
 
 
+@extract_app.command("claims")
+def extract_claims(
+    model: Annotated[str, typer.Option(help="Gateway model ID, exactly as GET /v1/models lists it")],
+    corpus: Annotated[Optional[str], typer.Option(help="Corpus label")] = None,
+    sample: Annotated[Optional[int], typer.Option(
+        help="Only N contexts, in an order fixed by SENTINEL_RANDOM_SEED (the same N for every model)")] = None,
+    limit: Annotated[Optional[int], typer.Option(help="Stop after N contexts")] = None,
+    mlflow: Annotated[bool, typer.Option(help="Log the run's rates to MLflow")] = True,
+) -> None:
+    """Claim skeletons for citation contexts from a gateway model (S2.7, ADR-053).
+
+    Contexts that already have a claim from this model and extractor version
+    are skipped, so rerunning resumes a stopped run."""
+    import httpx
+
+    from sentinel.extract.claims import (
+        CHUNK, EXTRACTOR_VER, MAX_REPAIRS, MAX_TOKENS, ClaimExtractor, log_to_mlflow, stored_summary)
+    from sentinel.extract.llm import ChatClient
+
+    settings = get_settings()
+    label = corpus or settings.default_corpus_label
+    if label not in _corpus_labels():
+        raise typer.BadParameter(f"unknown corpus {label!r}. Known corpora: {_corpus_labels()}")
+    # No From header: the key identifies the caller, and the contact email is
+    # only for the public APIs' polite pools.
+    client = httpx.Client(timeout=settings.llm_timeout_s, headers={"User-Agent": settings.user_agent},
+                          limits=httpx.Limits(max_connections=2 * settings.llm_workers))
+    with client:
+        try:
+            chat = ChatClient(_rate_limited(settings, client, "llm", settings.rate_llm_rps),
+                              base_url=settings.llm_base_url, api_key=settings.llm_api_key)
+            extractor = ClaimExtractor(get_engine(), chat, label=label, model=model,
+                                       seed=settings.random_seed, sample=sample,
+                                       workers=settings.llm_workers)
+        except ValueError as exc:
+            raise typer.BadParameter(str(exc)) from exc
+        typer.echo(f"{len(extractor.pending_ids()):,} contexts need a claim from {extractor.extractor} "
+                   f"{EXTRACTOR_VER}" + (f" (sample of {sample:,})" if sample else ""))
+        with record_stage(get_engine(), "extract", source=f"claims:{model}", corpus_label=label) as stage:
+            stats = extractor.run(get_engine(), limit=limit, batch_size=CHUNK)
+            _stage_counts(stage, stats)
+            s = extractor.stats
+            stage.counts.update({"model": model, "extractor_ver": EXTRACTOR_VER, "sample": sample,
+                                 "valid_first": s.valid_first, "valid_repaired": s.valid_repaired,
+                                 "invalid": s.invalid, "rejected": s.rejected, "calls": s.calls,
+                                 "deployments": dict(s.deployments)})
+    s = extractor.stats
+    r = s.rates()
+    typer.echo(f"contexts {s.contexts:,}: {s.valid_first:,} valid at once, {s.valid_repaired:,} after "
+               f"repair, {s.invalid:,} still invalid, {s.rejected:,} refused by the gateway")
+    typer.echo(f"validation failure rate: {100 * r['failure_rate_first']:.1f}% on the first answer, "
+               f"{100 * r['failure_rate_final']:.1f}% after up to {MAX_REPAIRS} repairs")
+    typer.echo(f"{s.calls:,} calls, {r['seconds_per_call']:.1f} s each; "
+               f"{r['prompt_tokens_per_context']:.0f} prompt and "
+               f"{r['completion_tokens_per_context']:.0f} answer tokens per context; "
+               f"{s.truncated} answers cut off")
+    if s.first_errors:
+        typer.echo("first-answer errors: " + ", ".join(f"{k} {v}" for k, v in s.first_errors.most_common()))
+    if s.final_errors:
+        typer.echo("errors left: " + ", ".join(f"{k} {v}" for k, v in s.final_errors.most_common()))
+    typer.echo("kinds: " + ", ".join(f"{k} {v}" for k, v in s.kinds.most_common()))
+    with get_engine().connect() as conn:
+        stored = stored_summary(conn, label=label, extractor=extractor.extractor)
+    typer.echo(f"stored for {extractor.extractor} {EXTRACTOR_VER}: {stored['valid']:,} valid, "
+               f"{stored['invalid']:,} invalid")
+    if mlflow and s.contexts:
+        params = {"model": model, "extractor_ver": EXTRACTOR_VER, "corpus": label,
+                  "sample": sample or "all", "seed": settings.random_seed,
+                  "max_repairs": MAX_REPAIRS, "max_tokens": MAX_TOKENS, "temperature": 0}
+        try:
+            run_id = log_to_mlflow(s, params, tracking_uri=settings.mlflow_tracking_uri)
+            typer.echo(f"MLflow run {run_id}")
+        except Exception as exc:  # the rows are stored; only the log is missing
+            typer.echo(f"MLflow logging failed ({type(exc).__name__}); the claims are stored")
+
+
 @app.command()
 def ingest(
     source: Annotated[str, typer.Argument(help=f"One of: {', '.join(ALL_SOURCES)}")],

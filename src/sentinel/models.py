@@ -392,8 +392,8 @@ passage = Table(
 )
 
 # One vector per passage per model, so encoders can be compared side by side.
-# Queries filter on model; pgvector 0.8's iterative HNSW scans keep filtered
-# searches from returning short lists.
+# No vector index: dense search is exact over the few cited works it is given
+# (ADR-050), and the HNSW index it had was dropped as unused (ADR-052).
 passage_embedding = Table(
     "passage_embedding",
     metadata,
@@ -411,12 +411,6 @@ passage_embedding = Table(
         nullable=False,
         server_default=func.now(),
     ),
-)
-Index(
-    "passage_embedding_hnsw",
-    passage_embedding.c.embedding,
-    postgresql_using="hnsw",
-    postgresql_ops={"embedding": "vector_cosine_ops"},
 )
 
 # A citing sentence plus one sentence either side, taken deterministically

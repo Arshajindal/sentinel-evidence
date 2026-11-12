@@ -15,6 +15,7 @@ Phase 1 (this release) has five deterministic checks over a 1,000-paper corpus o
 - [Results on the Phase 1 corpus](#results-on-the-phase-1-corpus)
 - [Retrieval on SciFact (Phase 2)](#retrieval-on-scifact-phase-2)
 - [The synthetic evaluation set (Phase 2)](#the-synthetic-evaluation-set-phase-2)
+- [Claim skeletons (Phase 2)](#claim-skeletons-phase-2)
 - [Tests](#tests)
 - [Data sources and licences](#data-sources-and-licences)
 
@@ -276,6 +277,25 @@ SciFact has abstracts only, so a second set supplies labelled full-text items (A
 Splits are by source paper. In two spot checks, 60 of 63 items read as rightly labelled.
 
 **Limits.** The claims are the sources' own sentences, so this set is easier than real citations: it flatters keyword search, and verdicts on it will be higher. Results on it are always reported next to the real holdout (§14).
+
+## Claim skeletons (Phase 2)
+
+C09 will check what a citing sentence claims about the work it cites. `sentinel extract claims` asks a language model to describe that claim (ADR-053):
+- **kind:** a finding, background, a method, or other;
+- **the sentence's words** that the citation supports;
+- **for a finding:** the population, intervention, comparator, outcome, effect, sample size and direction.
+
+The models are open-weight models on ASU Research Computing's free gateway, so nothing is sent to a commercial provider. The model must answer in a fixed JSON schema at temperature 0. An answer counts as valid only if every field is copied from the citation's context and every sample size is a number written there, so invented or paraphrased text fails. An invalid answer gets two chances to fix the rules it broke.
+
+Three models were run on the same 200 contexts ([report](docs/evals/claim-extraction-pilot-2026-11-12.md)):
+
+| Model | Invalid, first answer | Invalid after repairs | Wrong in a 20-context reading |
+|---|---:|---:|---:|
+| **gemma4-31b-it** (chosen) | 11.0% | 5.0% | 0 |
+| qwen3-235b-a22b-instruct-2507 | 24.0% | 2.5% | 5 |
+| olmo3-32b-instruct | 34.5% | 8.5% | 3 |
+
+**Limits.** Validity means grounded, not right. All three models sometimes borrow a field, such as the citing study's own population, from the sentence next to the citation. Field accuracy will be measured on Phase 3's hand-labelled set.
 
 ## Tests
 

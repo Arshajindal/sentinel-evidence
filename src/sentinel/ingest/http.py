@@ -85,7 +85,8 @@ def build_http_client(settings: Settings) -> httpx.Client:
 
 
 class RateLimitedHTTP:
-    """GET with a token bucket in front and retries on 429/5xx and dropped connections behind."""
+    """GET or POST with a token bucket in front and retries on 429/5xx and
+    dropped connections behind."""
 
     def __init__(
         self,
@@ -106,6 +107,14 @@ class RateLimitedHTTP:
         self._sleep = sleep
 
     def get(self, url: str, **kwargs) -> httpx.Response:
+        return self._send("GET", url, **kwargs)
+
+    def post(self, url: str, **kwargs) -> httpx.Response:
+        """A POST is retried like a GET, so use it only where repeating the
+        request is harmless, such as a language-model call with no side effects."""
+        return self._send("POST", url, **kwargs)
+
+    def _send(self, method: str, url: str, **kwargs) -> httpx.Response:
         retrying = Retrying(
             stop=stop_after_attempt(self.max_retries + 1),
             wait=self._wait,
@@ -117,7 +126,7 @@ class RateLimitedHTTP:
         for attempt in retrying:
             with attempt:
                 self.bucket.acquire()
-                response = self.client.get(url, **kwargs)
+                response = self.client.request(method, url, **kwargs)
                 if response.status_code == 429 or response.status_code >= 500:
                     raise RetryableHTTPError(response)
                 return response

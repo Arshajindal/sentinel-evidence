@@ -86,7 +86,7 @@ Keep updates quick, or the file stops being kept up. The rules:
 
 **Phase:** 2 of 5: full text, retrieval, and the evaluation foundation. Phase 1 is finished and merged (PR #1).
 **Plan:** the session list in §15 of `docs/sentinel-project.md`. The old brief and HTML spec are in `docs/archive/`.
-**Last worked:** 2026-11-11, sessions S2.6 (the retrieval ablation, ADR-050) and S2.8 (the synthetic set, ADR-051), then the fix and repair of S2.2's abstract cleaner (failure log). Before that, 2026-11-10: S2.4 (passage embeddings; Q1 answered), S2.5 (retrieval) and S2.6a (SciFact; Q6 answered).
+**Last worked:** 2026-11-12, S2.7 (claim skeletons; Q7 answered, ADR-053), the end of S2.4's embedding run, and the HNSW index drop (ADR-052). Before that, 2026-11-11: S2.6 (the retrieval ablation, ADR-050), S2.8 (the synthetic set, ADR-051), and the fix and repair of S2.2's abstract cleaner (failure log). 2026-11-10: S2.4 (passage embeddings; Q1 answered), S2.5 (retrieval) and S2.6a (SciFact; Q6 answered).
 
 **Sessions:**
 
@@ -111,20 +111,22 @@ Keep updates quick, or the file stops being kept up. The rules:
 | S2.1 Phase 2 tables | done | Migration `6bb29bc195ff` (ADR-044): passages with a splitter version, one vector row per passage per model (HNSW, cosine), citation contexts linked to several references, claims, evaluation items with a required licence, and gold passages protected by a foreign key. Up, down, up runs cleanly; `alembic check` finds no difference; applied to the working database. |
 | S2.2 Full-text fetch | done | `ingest/fulltext.py`, `sentinel ingest fulltext`, `sentinel corpus coverage`, migration `8d0bd1c5a522` (ADR-045). All 33,664 works checked in Europe PMC; 8,427 open-access XML files cached. **Q2: 22.6% of resolved references cite a work with full text**, 92.8% at least an abstract. Europe PMC answers 500 for non-open-access full text, so only open-access records are requested. The abstract cleaner cut text after a bare "<"; fixed, and the 5,989 abstracts it changed repaired, on 2026-11-11 (failure log). |
 | S2.3 Passages and citation contexts | done | `fulltext/` (body, sentences, passages, contexts, extract), `sentinel extract passages\|contexts` (ADR-046). 290,977 passages from all 31,420 works with text, abstracts included (293,067 after the 2026-11-11 abstract repair). 35,921 contexts; **96.3% of references have a citing context**, linked through the XML ref ids (labels agree for 99.87% of numbered citations). |
-| S2.4 Embeddings | code done; run in progress |`retrieve/encoders.py`, `retrieve/embed.py`, `sentinel embed passages` (ADR-047). Q1: no GPU, so MedCPT runs in-process with PyTorch on CPU, with the model card's exact title-and-passage input; TEI measured 16x slower. **265,424 cited-work passages being embedded** (263,440 before the abstract repair; about 14 h of awake time; resumable), model stored as `ncbi/MedCPT-Article-Encoder@d05a736da4bb`; stored vectors equal the model card's output. Corpus papers' own passages wait for Phase 3. |
+| S2.4 Embeddings | done |`retrieve/encoders.py`, `retrieve/embed.py`, `sentinel embed passages` (ADR-047). Q1: no GPU, so MedCPT runs in-process with PyTorch on CPU, with the model card's exact title-and-passage input; TEI measured 16x slower. **All 265,424 cited-work passages embedded** (263,440 before the abstract repair), finished 2026-11-12 with no failures; the last of three runs did 115,056, model stored as `ncbi/MedCPT-Article-Encoder@d05a736da4bb`; stored vectors equal the model card's output. Corpus papers' own passages wait for Phase 3. |
 | S2.5 BM25, dense, fusion, rerank | done | `retrieve/` (bm25, dense, fusion, search; query and cross encoders), `sentinel retrieve build-bm25` and `sentinel retrieve search` (ADR-048). BM25 index of 265,424 passages, rebuilt after the abstract repair. **The debug command returns the top passages for a claim or a citation, with every stage's rank.** Dot and cosine both implemented; S2.6 decides. |
 | S2.6a External set (SciFact) | done | `eval/scifact.py`, `sentinel eval load-scifact` (ADR-049; Q6 answered). Release pinned by SHA-256 and unpacked safely. **1,258 items in our own splits by linked claims and abstracts** (SciFact's split shares 181 of 283 dev abstracts with train). 5,992 passages; every evidence sentence mapped to its gold passages. |
 | S2.6 Retrieval ablation | done | `eval/retrieval.py`, `sentinel eval retrieval` and `eval compare` (ADR-050). **Four rows, dot and cosine, in MLflow** over 263 SciFact claims. nDCG@10 on val: BM25 0.763, dense 0.791, fusion 0.801, fusion plus rerank 0.895. Test: 0.822 to 0.865, and there the reranker adds nothing measurable. The first run's cosine rows were cut short by the HNSW index, so dense search is now exact. Dot product chosen; reranker kept on val's evidence. Report in `docs/evals/`. |
+| S2.7 Claim skeletons | done | `extract/` (skeleton, prompt, llm, claims), `sentinel extract claims` (ADR-053; Q7 answered: ASU Research Computing's free gateway). Strict JSON schema at temperature 0; valid means grounded: every field is copied from the context, and a broken rule goes back to the model up to twice. **Validation failure rate on 200 contexts:** gemma4-31b-it 11.0% on the first answer, 5.0% after repairs; Qwen-235B 24.0%/2.5%; OLMo-32B 34.5%/8.5%. Gemma chosen: 0 of 20 wrong in a side-by-side reading (Qwen 5, OLMo 3). In MLflow (`claim-extraction`). The full run over 35,921 contexts (about 20 h) is not started. |
 | S2.8 Synthetic set | done | `eval/synthetic.py`, `eval/items.py`, `sentinel eval make-synthetic` (ADR-051). Rules, no language model. **6,628 items from 2,005 number-anchored abstract–results pairs in 1,176 cited works; every item has a corruption type, and splits are by source paper.** Rebuilt after the abstract repair; the first build had 5,323 items from 1,628 pairs. Spot checks: 48 of 50 items in the first build, and 12 of 13 from repaired abstracts, read as rightly labelled. Reading the drafts found S2.2's abstract cleaner deleting text after a "<" (failure log, now fixed). The reranker re-measurement on full text waits for S2.4's run. |
 
-**What works:** the whole Phase 1 pipeline over the 1,000-paper corpus. That means loading data, matching references (89.4% of all references, 94.4% of the structured sample), pulling out statistics, all five checks, `report`, `stats`, `export` and stage timing. 834 tests, all passing, including the database tests and the 46-item fixture set. Phase 2 so far:
+**What works:** the whole Phase 1 pipeline over the 1,000-paper corpus. That means loading data, matching references (89.4% of all references, 94.4% of the structured sample), pulling out statistics, all five checks, `report`, `stats`, `export` and stage timing. 854 tests, all passing, including the database tests and the 46-item fixture set. Phase 2 so far:
 - pgvector, the Phase 2 tables and MLflow;
 - text availability for every corpus paper and cited work (Q2 measured);
 - 293,067 passages and 35,921 citation contexts;
-- MedCPT embeddings, the run 57% done;
+- MedCPT embeddings for all 265,424 cited-work passages, searched exactly, with no vector index (ADR-052);
 - BM25, exact dense search, fusion and reranking;
 - SciFact loaded, and the retrieval ablation in MLflow;
-- the synthetic set, 6,628 items.
+- the synthetic set, 6,628 items;
+- claim skeletons from ASU's gateway: the extractor and the three-model pilot, gemma4-31b-it chosen (ADR-053).
 
 **What's broken:**
 - Most of C01's corpus flags are works that do exist: only 8 of 20 sampled flags were correct (see the README's section on C01's limits). So C01's flag rate is published as an upper bound.
@@ -133,9 +135,9 @@ Keep updates quick, or the file stops being kept up. The rules:
 - The full text of PMC6561645 still returns an HTTP 500 error from Europe PMC.
 
 **Next three things:**
-1. Finish S2.4: the corpus embedding run is going (150,368 of 265,424 at 22:29 UTC, about 5 h left; `--resume` continues it if stopped). Record the final count.
-2. Re-measure the reranker on the synthetic set's full-text pairs (ADR-050 asked for it; needs item 1).
-3. Answer Q7 for S2.7, and decide whether to drop the unused cosine HNSW index (a migration).
+1. Re-measure the reranker on the synthetic set's full-text pairs (ADR-050 asked for it; the vectors are all in now).
+2. Extract claim skeletons for all 35,921 contexts with gemma4-31b-it: about 20 h of the shared gateway at 4 workers. First decide between direct calls and the gateway's batch API, which its docs advise for big runs (ADR-053).
+3. S2.9, the tabular baseline: decide what it trains on, since there are no real labels until S3.4.
 
 **After that:** S2.9's tabular baseline has no real labels until S3.4's hand-labelled set. Phase 3 needs a plan for reranking cost: about 13 s per claim on this CPU (ADR-048, ADR-050). Still open from Phase 1: nothing checks for a DOI that points to a paper with a different title, and the title-plus-author Crossref search for C01 (ADR-041) has no session yet.
 
@@ -1211,6 +1213,86 @@ How it's made (`eval/synthetic.py`, `sentinel eval make-synthetic`, generator 1.
 
 ---
 
+### ADR-052 — Drop the unused cosine HNSW index on passage vectors
+**Status:** active · changes ADR-044 item 1 · follows ADR-050
+
+**In short:** migration `d1219fa0eeed` drops `passage_embedding_hnsw`. Since ADR-050, dense search is exact, so no query used the index, but it took about 1 GB once all 271,416 vectors were in (839 MB at 214,728) and added work to every insert.
+
+- **Why no query used it:** dense search scores its candidates in a materialised CTE, limited to the cited works being searched (ADR-050). An HNSW index can't serve that query, and under a narrow filter it cut result lists short.
+- **The downgrade** rebuilds the same index (cosine operators). On a full table that takes minutes.
+- **Applied after S2.4's embedding run finished,** so the drop's table lock never paused the run. With all 271,416 vectors in, the table and its indexes went from 2,195 MB to 1,134 MB; `alembic check` finds no difference.
+
+**Turned down:**
+- Keeping it for Phase 5's 10,000-paper run. If approximate search over the whole corpus is needed then, an index is one migration away, and that index should be measured then.
+- An inner-product HNSW index now, as ADR-047 had planned if dot product won. Under a filter it fails the same way.
+
+---
+
+### ADR-053 — Q7: open-weight models on ASU's free gateway; claim skeletons validated by grounding
+**Status:** active · implements S2.7 · answers Q7 for extraction (the judge's model is decided at S3.3) · changes §6's "LiteLLM router"
+
+**In short:** claim skeletons come from gemma4-31b-it on ASU Research Computing's free, on-premises gateway. It was chosen from three models run on the same 200 citation contexts. Its validation failure rate is 11.0% on the first answer and 5.0% after up to two repairs. In a reading of 20 contexts it got none wrong. Report: `docs/evals/claim-extraction-pilot-2026-11-12.md`.
+
+**The model source (your choice):**
+- ASU Research Computing's gateway (`https://openai.rc.asu.edu/v1`; key from the Voyager portal, in `.env` as `SENTINEL_LLM_API_KEY`).
+- It costs nothing, and every model runs on ASU hardware, so prompts never reach a commercial provider. It keeps request metadata for 180 days, not prompt text.
+- The paper text sent is open access and public.
+- A Claude pilot, about $3 with a capped full run, was turned down in favour of free.
+
+**The gateway differs from its docs** (checked live on 2026-11-12):
+- The model list has no capability fields.
+- There are no `x-obleth-*` headers.
+- Answers come through a LiteLLM 1.83.7 proxy over vLLM 0.26.0.
+- Strict JSON-schema output and temperature 0 work as documented.
+
+Because of this:
+- each run records the deployment ID (`x-litellm-model-id`) and server build (`system_fingerprint`) in its `stage_run` counts;
+- strict output was checked per model by running it.
+
+**The client:** the project's own HTTP client, not a new SDK. `RateLimitedHTTP` gained `post`, with the same retry rules (ADR-042). A 400 marks only that context as refused; any other 4xx stops the run. No `From` header with the contact email is sent. Settings:
+- `SENTINEL_LLM_BASE_URL`, `SENTINEL_LLM_WORKERS` (4, as the gateway's docs advise), `SENTINEL_LLM_TIMEOUT_S` and `SENTINEL_RATE_LLM_RPS` are operational, with defaults.
+- The model has no setting. It's a required `--model` option, and every row's `extractor` is `llm:<model>`.
+
+**The skeleton** (`extract/skeleton.py`, extractor 1.0.0):
+- **Fields:** kind (finding, background, method, other), statement, population, intervention, comparator, outcome, effect, n and direction (increase, decrease, no_effect, unspecified).
+- **The gateway's strict schema** comes from the same Pydantic model, so the shape is fixed and validity is about grounding.
+- **Grounding rules:**
+  - the statement is copied from the citing sentence;
+  - the other text fields are copied from the context, with case, dashes, quotes and spacing ignored;
+  - n is a number written there;
+  - a finding has a direction;
+  - a non-finding has no finding fields.
+- **Repairs:** an invalid answer goes back with the broken rules, up to two times. What still fails is stored as `valid = false` with no skeleton, so no unvalidated output is written.
+- **The citation marker is named in the prompt,** because one sentence can cite several groups for different claims.
+- **Paper text is untrusted.** It goes only inside tags, the system message says so, and the reply is only validated, never acted on.
+
+**The pilot** (`sentinel extract claims --model M --sample 200`; MLflow experiment `claim-extraction`):
+
+| Model | Invalid, first answer | After repairs | Spot check: right / partly / wrong / invalid | s / call |
+|---|---:|---:|---|---:|
+| gemma4-31b-it | 11.0% | 5.0% | 14 / 6 / 0 / 0 | 6.3 |
+| qwen3-235b-a22b-instruct-2507 | 24.0% | 2.5% | 10 / 5 / 5 / 0 | 9.4 |
+| olmo3-32b-instruct | 34.5% | 8.5% | 13 / 2 / 3 / 2 | 2.9 |
+
+The spot check is Claude's reading, not human labels.
+
+**Why Gemma:**
+- Qwen has the lowest final failure rate, but it makes findings out of speculation and out of the citing paper's own results. That is the worst error for C09, which would then check a claim nobody made.
+- OLMo marks real findings as background, so C09 would skip them.
+
+**Limits:**
+- **All three borrow fields from neighbouring sentences,** mostly the citing study's population. Grounding to the citing sentence alone would catch that, but it would also reject comparators named in the sentence before, so that trade-off is for a later version to measure.
+- **Field accuracy isn't measured.** S3.4's hand-labelled set should measure it.
+- **The full run over 35,921 contexts hasn't been done.** At 4 workers it takes about 20 hours of a shared, free service, and the gateway's docs suggest batches for runs that size.
+
+**Turned down:**
+- **Claude through the Anthropic SDK:** costs money, and the user chose free.
+- **A local model on this CPU:** hundreds of hours.
+- **The LiteLLM library from §6:** with one gateway, its routing adds a dependency for nothing (the gateway runs LiteLLM itself).
+- **Shape-only validation:** under a strict schema it would report a failure rate near zero and say nothing about invented text.
+
+---
+
 ### ADR-0NN — template
 **Status:** active
 
@@ -1230,7 +1312,8 @@ Every model in the system: what it does, where it runs, why it was chosen, and h
 | Outcome equivalence | *TBD* | local | Pending, week 7 | macro F1 | not selected |
 | Entailment, zero-shot | *TBD: an NLI head* | local | Baseline, week 7 | macro F1 | not selected |
 | Entailment, fine-tuned | *TBD* | local | Week 8 | macro F1 | not selected |
-| Judge | *API model* | LiteLLM router | Teacher for distillation, week 8 | macro F1, $ per 1,000 | not selected |
+| Claim skeleton extraction | gemma4-31b-it (deployment `dca36210…`, vLLM 0.26.0) | ASU Research Computing gateway, free (ADR-053) | Fewest wrong skeletons of three in a 20-context reading; second-lowest failure rate | validation failure rate: 11.0% first answer, 5.0% after repairs | in use; pilot of 200 done, full run not started |
+| Judge | *TBD at S3.3; the ASU gateway first (ADR-053)* | ASU Research Computing gateway | Teacher for distillation, week 8 | macro F1, cost per 1,000 | not selected |
 | Distilled verdict model | *trained from the judge* | local | Week 10 | share of the judge's F1 kept, cost ratio | not built |
 | Tabular baseline | Gradient boosting | local | Honest comparison point | PR-AUC | not built |
 | Vision, for figures | *TBD: a vision-language model* | API | Week 13 | accuracy of numbers read from figures | not selected |
@@ -1251,7 +1334,8 @@ Every model in the system: what it does, where it runs, why it was chosen, and h
 | External evaluation set | SciFact: `eval_item` rows with `origin.dataset = scifact`; release in `data/external/scifact/` (ADR-049) |
 | Generated evaluation set | The synthetic set: `eval_item` rows with `origin.dataset = synthetic-rules`, made from stored passages by `sentinel eval make-synthetic` (ADR-051) |
 | Hand-labelled held-out set | *TBD* |
-| Evaluation reports | `docs/evals/`: `retrieval-ablation-2026-11-11.md` (ADR-050) |
+| Evaluation reports | `docs/evals/`: `retrieval-ablation-2026-11-11.md` (ADR-050), `claim-extraction-pilot-2026-11-12.md` (ADR-053) |
+| Claim skeletons | `claim` rows, extractor `llm:<model>`, version 1.0.0; MLflow experiment `claim-extraction`, one run per model run (ADR-053) |
 | Ablation results | `data/evals/retrieval-ablation-<UTC stamp>.json`, every ranking; MLflow experiment `retrieval-ablation`, one run per row |
 | Config | `.env`, `src/sentinel/config.py` |
 | BM25 index | `data/bm25/<corpus>-<scope>-<splitter>/` with `manifest.json` (ADR-048) |
@@ -1277,6 +1361,7 @@ Add a row whenever you get a number. Bad numbers especially: they're the raw mat
 | 2026-11-11 | E002 | Four-row ablation, dot and cosine (rerun) | Same; exact dense search | nDCG@10 val/test: BM25 0.763/0.822, dense 0.791/0.879, fusion 0.801/0.871, + rerank 0.895/0.865 | dot rows identical to E001 |
 | 2026-11-11 | E003 | Does reranking beat fusion alone? | E002, paired bootstrap | val +0.094 [+0.048, +0.140]; test −0.006 [−0.039, +0.026] | keep (val decides); re-measure on full text |
 | 2026-11-11 | E004 | Dot or cosine? | E002, paired bootstrap | Dense: val +0.021 [−0.007, +0.051], test +0.030 [+0.005, +0.057]; same after rerank | dot |
+| 2026-11-12 | E005 | Which gateway model extracts claim skeletons? | 200 citation contexts (seed 20260922), 3 models, temperature 0, strict schema, 2 repairs | Invalid first/final: gemma 11.0%/5.0%, Qwen-235B 24.0%/2.5%, OLMo-32B 34.5%/8.5%; spot check of 20 wrong: 0, 5, 3 | gemma4-31b-it (ADR-053) |
 
 ---
 
@@ -1306,7 +1391,7 @@ The headline numbers at the end of each phase. These become the evaluation repor
 | 2026-11-01 | 2 | Full-text fetch | 8,427 XML files, 1.1 GB; 51 persistent 500s (0.6%) | About 3.3 h of fetching; $0 |
 | 2026-11-02 | 2 | Passages | 290,977 from 31,420 works; median 166 words | Splitter 1.0.0/150-300-1 (ADR-046); 398 MB |
 | 2026-11-02 | 2 | Citation contexts | 35,921 in 968 papers; 96.3% of references have one | Labels agree for 99.87% of numbered citations; ranges 99.5% exact |
-| 2026-11-10 | 2 | Passages to embed (MedCPT article encoder) | 263,440 cited-work passages; run in progress | ADR-047; final count when the run ends |
+| 2026-11-10 | 2 | Passages to embed (MedCPT article encoder) | 265,424 cited-work passages, all embedded by 2026-11-12, none failed | ADR-047; 263,440 before the abstract repair; plus 5,992 SciFact passages |
 | 2026-11-10 | 2 | Embedding throughput, CPU | 5.1 passages/s; about 14 h | TEI on the same CPU: 0.3/s |
 | 2026-11-10 | 2 | BM25 index | 263,440 passages; 72 s; 194 MB | ADR-048 |
 | 2026-11-10 | 2 | Retrieval latency, one cited work | BM25 0.01 s; dense 0.13 s | Whole index: 0.19 s and 0.35 s |
@@ -1327,6 +1412,10 @@ The headline numbers at the end of each phase. These become the evaluation repor
 | 2026-11-11 | 2 | Synthetic evaluation set, rebuilt | 6,628 items: 2,005 supported, 2,558 contradicted, 2,065 insufficient; 5,423 gold passage links | ADR-051's rules; 2,005 pairs from 1,176 works; replaces the 5,323-item build |
 | 2026-11-11 | 2 | Synthetic items by corruption type, rebuilt | none 2,005; number changed 1,934; direction flipped 624; population changed 60; source swapped 2,005 | Swapped sources: 1,850 co-cited, 155 random |
 | 2026-11-11 | 2 | Synthetic labels judged right, items from repaired abstracts | 12 of 13 | Claude's reading; the miss changed a range bound ("1000-1499 g") |
+| 2026-11-12 | 2 | Claim skeleton validation failure rate (S2.7) | gemma4-31b-it: 11.0% first answer, 5.0% after two repairs | ADR-053; 200 contexts, seed 20260922; Qwen-235B 24.0%/2.5%, OLMo-32B 34.5%/8.5% |
+| 2026-11-12 | 2 | Claim skeletons judged right in a spot check | gemma 14 right, 6 partly, 0 wrong of 20 | Claude's reading; Qwen 5 wrong, OLMo 3 wrong and 2 invalid |
+| 2026-11-12 | 2 | Vector table after dropping the HNSW index | 1,134 MB, down from 2,195 MB | ADR-052; 271,416 vectors, exact search only |
+| 2026-11-12 | 2 | Claim extraction speed and size | 6.3 s per call, 1.17 calls and 823 + 111 tokens per context; about 0.5 contexts/s at 4 workers | ASU gateway, free; a full run of 35,921 contexts is about 20 h |
 
 **Metrics to track from week one, not work out afterwards:**
 - Cascade ratios: how many items enter each stage

@@ -54,7 +54,9 @@ def test_up_down_up(alembic_cfg):
         assert "retraction_notice_source_record_key" in uniques
 
         # Phase 2 (§10.2, ADR-044).
-        assert "passage_embedding_hnsw" in {i["name"] for i in insp.get_indexes("passage_embedding")}
+        # The cosine HNSW index from 6bb29bc195ff is dropped again (ADR-052).
+        assert "passage_embedding_hnsw" not in {
+            i["name"] for i in insp.get_indexes("passage_embedding")}
         assert {c["name"] for c in insp.get_columns("passage_embedding")} >= {"passage_id", "model", "embedding"}
         assert insp.get_pk_constraint("passage_embedding")["constrained_columns"] == ["passage_id", "model"]
         assert "passage_paper_ver_ordinal_key" in {
