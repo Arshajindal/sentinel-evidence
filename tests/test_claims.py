@@ -4,6 +4,7 @@ a saved response behind httpx.MockTransport, or a scripted fake."""
 from __future__ import annotations
 
 import json
+from collections import Counter
 
 import httpx
 import pytest
@@ -12,7 +13,7 @@ from sqlalchemy import delete, insert, select
 from sentinel.extract import prompt
 from sentinel.extract.claims import (
     EXTRACTOR_VER, MAX_REPAIRS, ClaimExtractor, check_answer, extract_one, stored_summary)
-from sentinel.extract.llm import ChatClient, Completion, GatewayError
+from sentinel.extract.llm import BatchClient, ChatClient, Completion, GatewayError, parse_completion
 from sentinel.extract.skeleton import (
     ClaimRecord, ClaimSkeleton, grounding_errors, norm, numbers_in, response_schema)
 from sentinel.fulltext.contexts import EXTRACTOR_VERSION as CONTEXT_VERSION
@@ -164,6 +165,7 @@ def test_a_completion_is_requested_strict_at_temperature_0_and_parsed():
     request = seen[0]
     assert str(request.url) == "https://gateway.test/v1/chat/completions"
     assert request.headers["Authorization"] == "Bearer test-key"
+    assert request.headers["x-obleth-boons"] == "off"  # add-ons off, for reproducibility
     body = json.loads(request.content)
     assert body["model"] == "gemma4-31b-it" and body["temperature"] == 0 and body["max_tokens"] == 64
     fmt = body["response_format"]
@@ -196,6 +198,53 @@ def test_a_busy_model_is_retried_and_a_bad_key_is_not():
     with pytest.raises(GatewayError) as exc:
         _chat(bad_key).complete(model="m", messages=[], schema={}, schema_name="s", max_tokens=8)
     assert exc.value.status == 401 and "invalid api key" in str(exc.value) and len(calls) == 1
+
+
+def test_the_current_gateway_reports_the_variant_energy_and_co2():
+    data = _saved_completion()
+    data["usage"] |= {"energy_wh": 0.39, "co2_g": 0.13}
+    done = parse_completion(data, {"x-obleth-model-variant": "olmo3-32b-instruct"})
+    assert (done.deployment, done.energy_wh, done.co2_g) == ("olmo3-32b-instruct", 0.39, 0.13)
+    assert parse_completion(_saved_completion()).deployment is None  # a batch line has no headers
+
+
+def test_the_batch_client_uploads_jsonl_creates_reads_and_cancels():
+    seen: list[httpx.Request] = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        seen.append(request)
+        path = request.url.path
+        if path == "/v1/files":
+            return httpx.Response(200, json={"id": "file-in", "purpose": "batch"})
+        if path == "/v1/batches":
+            return httpx.Response(200, json={"id": "batch-1", "status": "validating"})
+        if path == "/v1/batches/batch-1":
+            return httpx.Response(200, json={"id": "batch-1", "status": "completed",
+                                             "output_file_id": "file-out", "error_file_id": "file-err"})
+        if path == "/v1/files/file-out/content":
+            return httpx.Response(200, text='{"custom_id": "1:0", "response": {"status_code": 200}}\n')
+        if path == "/v1/files/file-err/content":
+            return httpx.Response(200, text='{"custom_id": "2:0", "error": {"code": "batch_expired"}}\n\n')
+        if path == "/v1/batches/batch-1/cancel":
+            return httpx.Response(200, json={"id": "batch-1", "status": "cancelling"})
+        return httpx.Response(404)
+
+    http = RateLimitedHTTP(httpx.Client(transport=httpx.MockTransport(handler)), source="llm",
+                           rate_per_s=1000, max_retries=0, backoff_base_s=0)
+    client = BatchClient(http, base_url="https://gateway.test/v1", api_key="test-key")
+    lines = [{"custom_id": "1:0", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "m"}},
+             {"custom_id": "2:0", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "m"}}]
+    assert client.submit(lines, name="test", window="24h") == "batch-1"
+    upload, create = seen[0], seen[1]
+    assert b'name="purpose"' in upload.content and b"batch" in upload.content
+    assert b'{"custom_id": "1:0"' in upload.content and b'{"custom_id": "2:0"' in upload.content
+    assert json.loads(create.content) == {"input_file_id": "file-in", "endpoint": "/v1/chat/completions",
+                                          "completion_window": "24h", "metadata": {"name": "test"}}
+    assert all(r.headers["Authorization"] == "Bearer test-key" for r in seen)
+    status = client.status("batch-1")
+    assert [line["custom_id"] for line in client.result_lines(status)] == ["1:0", "2:0"]
+    client.cancel("batch-1")
+    assert seen[-1].method == "POST" and seen[-1].url.path == "/v1/batches/batch-1/cancel"
 
 
 def test_an_empty_key_is_refused_before_any_call():
@@ -328,3 +377,112 @@ def test_a_sample_is_the_same_contexts_for_every_model_and_changes_with_the_seed
     ex = ClaimExtractor(s27_engine, FakeChat(_script(range(1, 7))), label=LABEL, model="a", seed=1, sample=3)
     ex.run(s27_engine, limit=1)
     assert ex.pending_ids() == first[1:]
+
+
+# --- batch mode against the test database ------------------------------------------------
+
+class FakeBatch:
+    """The gateway's batch API in memory. Each batch is in progress on its
+    first poll and complete on the next. Answers come from a script keyed by
+    the passage: a skeleton or text is a 200 answer, an int another status,
+    and "lost" an error line."""
+
+    def __init__(self, script: dict[str, list]) -> None:
+        self.script = {k: list(v) for k, v in script.items()}
+        self.batches: dict[str, list[dict]] = {}
+        self.polls: Counter = Counter()
+        self.cancelled: list[str] = []
+
+    def submit(self, lines, *, name, window):
+        batch_id = f"b{len(self.batches) + 1}"
+        self.batches[batch_id] = lines
+        return batch_id
+
+    def status(self, batch_id):
+        self.polls[batch_id] += 1
+        if self.polls[batch_id] == 1:
+            return {"id": batch_id, "status": "in_progress"}
+        return {"id": batch_id, "status": "completed", "output_file_id": f"out-{batch_id}"}
+
+    def result_lines(self, status):
+        out = []
+        for line in self.batches[status["id"]]:
+            user = line["body"]["messages"][1]["content"]
+            passage = user.split("<passage>\n", 1)[1].split("\n</passage>", 1)[0]
+            answer = self.script[passage].pop(0)
+            cid = line["custom_id"]
+            if answer == "lost":
+                out.append({"custom_id": cid, "response": None, "error": {"code": "batch_expired"}})
+            elif isinstance(answer, int):
+                out.append({"custom_id": cid, "response": {"status_code": answer, "body": {}}})
+            else:
+                content = answer.model_dump_json() if isinstance(answer, ClaimSkeleton) else answer
+                body = _saved_completion()
+                body["choices"][0]["message"]["content"] = content
+                out.append({"custom_id": cid, "response": {"status_code": 200, "body": body}})
+        return out
+
+    def cancel(self, batch_id):
+        self.cancelled.append(batch_id)
+
+
+def _batch_script() -> dict[str, list]:
+    return {
+        _context(1): [finding()],
+        _context(2): [finding(population="hypertensive adults"), finding()],  # fixed in round 1
+        _context(3): [finding()],
+        _context(4): ["not json"] * (MAX_REPAIRS + 1),  # still invalid after round 2
+        _context(5): ["lost"],  # no answer: no row, asked again next run
+        _context(6): [400],  # refused by the gateway
+    }
+
+
+@requires_db
+def test_batch_mode_runs_repair_rounds_and_leaves_unanswered_contexts_for_the_next_run(s27_engine):
+    fake = FakeBatch(_batch_script())
+    naps: list[float] = []
+    ex = ClaimExtractor(s27_engine, None, batch=fake, label=LABEL, model="m", seed=1,
+                        batch_contexts=4, poll_s=7, sleep=naps.append)
+    stats = ex.run(s27_engine, batch_size=4)
+    assert stats.inserted == 5
+    # Two first-round batches (4 + 2 contexts), then one repair round each for
+    # context 2 and context 4, and a last round for context 4.
+    sizes = [len(lines) for lines in fake.batches.values()]
+    assert sorted(sizes[:2]) == [2, 4] and sum(sizes[2:]) == 3
+    assert all(line["custom_id"].endswith(":0") for b in list(fake.batches.values())[:2] for line in b)
+    assert naps and set(naps) == {7}
+    assert fake.cancelled == []
+    with s27_engine.connect() as conn:
+        rows = dict(conn.execute(select(claim.c.citation_context_id, claim.c.valid)).all())
+        ids = dict(conn.execute(select(citation_context.c.ordinal, citation_context.c.id)).all())
+    assert {o: rows.get(ids[o]) for o in range(1, 7)} == {
+        1: True, 2: True, 3: True, 4: False, 5: None, 6: False}
+    s = ex.stats
+    assert (s.valid_first, s.valid_repaired, s.invalid, s.rejected, s.unanswered) == (2, 1, 1, 1, 1)
+    assert s.calls == 1 + 2 + 1 + 3  # context 6 was refused, context 5 never answered
+
+    again = ClaimExtractor(s27_engine, None, batch=FakeBatch({_context(5): [finding()]}),
+                           label=LABEL, model="m", seed=1, sleep=lambda s: None)
+    assert again.pending_ids() == [ids[5]]
+    assert again.run(s27_engine).inserted == 1
+
+
+@requires_db
+def test_a_batch_run_that_stops_early_cancels_its_running_batches(s27_engine):
+    class Broken(FakeBatch):
+        def status(self, batch_id):
+            raise RuntimeError("gateway down")
+
+    fake = Broken(_batch_script())
+    ex = ClaimExtractor(s27_engine, None, batch=fake, label=LABEL, model="m", seed=1,
+                        batch_contexts=4, sleep=lambda s: None)
+    with pytest.raises(RuntimeError):
+        ex.run(s27_engine)
+    assert sorted(fake.cancelled) == ["b1", "b2"]
+
+
+def test_a_claim_extractor_takes_one_way_of_asking():
+    with pytest.raises(ValueError):
+        ClaimExtractor(None, None, label=LABEL, model="m", seed=1)  # type: ignore[arg-type]
+    with pytest.raises(ValueError):
+        ClaimExtractor(None, FakeChat({}), batch=FakeBatch({}), label=LABEL, model="m", seed=1)  # type: ignore[arg-type]

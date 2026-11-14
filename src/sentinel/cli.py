@@ -593,9 +593,11 @@ def extract_claims(
     sample: Annotated[Optional[int], typer.Option(
         help="Only N contexts, in an order fixed by SENTINEL_RANDOM_SEED (the same N for every model)")] = None,
     limit: Annotated[Optional[int], typer.Option(help="Stop after N contexts")] = None,
+    batch: Annotated[bool, typer.Option(
+        help="Use the gateway's batch API, which runs on spare capacity (for large runs)")] = False,
     mlflow: Annotated[bool, typer.Option(help="Log the run's rates to MLflow")] = True,
 ) -> None:
-    """Claim skeletons for citation contexts from a gateway model (S2.7, ADR-053).
+    """Claim skeletons for citation contexts from a gateway model (S2.7, ADR-053, ADR-054).
 
     Contexts that already have a claim from this model and extractor version
     are skipped, so rerunning resumes a stopped run."""
@@ -603,7 +605,7 @@ def extract_claims(
 
     from sentinel.extract.claims import (
         CHUNK, EXTRACTOR_VER, MAX_REPAIRS, MAX_TOKENS, ClaimExtractor, log_to_mlflow, stored_summary)
-    from sentinel.extract.llm import ChatClient
+    from sentinel.extract.llm import BatchClient, ChatClient
 
     settings = get_settings()
     label = corpus or settings.default_corpus_label
@@ -615,15 +617,17 @@ def extract_claims(
                           limits=httpx.Limits(max_connections=2 * settings.llm_workers))
     with client:
         try:
-            chat = ChatClient(_rate_limited(settings, client, "llm", settings.rate_llm_rps),
-                              base_url=settings.llm_base_url, api_key=settings.llm_api_key)
-            extractor = ClaimExtractor(get_engine(), chat, label=label, model=model,
-                                       seed=settings.random_seed, sample=sample,
-                                       workers=settings.llm_workers)
+            http = _rate_limited(settings, client, "llm", settings.rate_llm_rps)
+            gateway = dict(base_url=settings.llm_base_url, api_key=settings.llm_api_key)
+            extractor = ClaimExtractor(
+                get_engine(), None if batch else ChatClient(http, **gateway),
+                batch=BatchClient(http, **gateway) if batch else None, label=label, model=model,
+                seed=settings.random_seed, sample=sample, workers=settings.llm_workers)
         except ValueError as exc:
             raise typer.BadParameter(str(exc)) from exc
         typer.echo(f"{len(extractor.pending_ids()):,} contexts need a claim from {extractor.extractor} "
-                   f"{EXTRACTOR_VER}" + (f" (sample of {sample:,})" if sample else ""))
+                   f"{EXTRACTOR_VER}" + (f" (sample of {sample:,})" if sample else "")
+                   + (" by batch" if batch else ""))
         with record_stage(get_engine(), "extract", source=f"claims:{model}", corpus_label=label) as stage:
             stats = extractor.run(get_engine(), limit=limit, batch_size=CHUNK)
             _stage_counts(stage, stats)
@@ -631,17 +635,24 @@ def extract_claims(
             stage.counts.update({"model": model, "extractor_ver": EXTRACTOR_VER, "sample": sample,
                                  "valid_first": s.valid_first, "valid_repaired": s.valid_repaired,
                                  "invalid": s.invalid, "rejected": s.rejected, "calls": s.calls,
-                                 "deployments": dict(s.deployments)})
+                                 "deployments": dict(s.deployments), "batch": batch,
+                                 "batches": s.batches, "unanswered": s.unanswered,
+                                 "energy_wh": round(s.energy_wh, 3), "co2_g": round(s.co2_g, 3)})
     s = extractor.stats
     r = s.rates()
     typer.echo(f"contexts {s.contexts:,}: {s.valid_first:,} valid at once, {s.valid_repaired:,} after "
                f"repair, {s.invalid:,} still invalid, {s.rejected:,} refused by the gateway")
+    if s.unanswered:
+        typer.echo(f"{s.unanswered:,} contexts got no answer from the gateway; run again to ask them")
     typer.echo(f"validation failure rate: {100 * r['failure_rate_first']:.1f}% on the first answer, "
                f"{100 * r['failure_rate_final']:.1f}% after up to {MAX_REPAIRS} repairs")
-    typer.echo(f"{s.calls:,} calls, {r['seconds_per_call']:.1f} s each; "
+    timing = f"in {s.batches} batches" if batch else f"{r['seconds_per_call']:.1f} s each"
+    typer.echo(f"{s.calls:,} calls, {timing}; "
                f"{r['prompt_tokens_per_context']:.0f} prompt and "
                f"{r['completion_tokens_per_context']:.0f} answer tokens per context; "
                f"{s.truncated} answers cut off")
+    if s.energy_wh:
+        typer.echo(f"the gateway's estimate: {s.energy_wh:,.1f} Wh, {s.co2_g:,.1f} g CO2")
     if s.first_errors:
         typer.echo("first-answer errors: " + ", ".join(f"{k} {v}" for k, v in s.first_errors.most_common()))
     if s.final_errors:
@@ -654,7 +665,8 @@ def extract_claims(
     if mlflow and s.contexts:
         params = {"model": model, "extractor_ver": EXTRACTOR_VER, "corpus": label,
                   "sample": sample or "all", "seed": settings.random_seed,
-                  "max_repairs": MAX_REPAIRS, "max_tokens": MAX_TOKENS, "temperature": 0}
+                  "max_repairs": MAX_REPAIRS, "max_tokens": MAX_TOKENS, "temperature": 0,
+                  "mode": "batch" if batch else "direct"}
         try:
             run_id = log_to_mlflow(s, params, tracking_uri=settings.mlflow_tracking_uri)
             typer.echo(f"MLflow run {run_id}")

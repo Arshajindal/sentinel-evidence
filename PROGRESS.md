@@ -86,7 +86,7 @@ Keep updates quick, or the file stops being kept up. The rules:
 
 **Phase:** 2 of 5: full text, retrieval, and the evaluation foundation. Phase 1 is finished and merged (PR #1).
 **Plan:** the session list in §15 of `docs/sentinel-project.md`. The old brief and HTML spec are in `docs/archive/`.
-**Last worked:** 2026-11-12, S2.7 (claim skeletons; Q7 answered, ADR-053), the end of S2.4's embedding run, and the HNSW index drop (ADR-052). Before that, 2026-11-11: S2.6 (the retrieval ablation, ADR-050), S2.8 (the synthetic set, ADR-051), and the fix and repair of S2.2's abstract cleaner (failure log). 2026-11-10: S2.4 (passage embeddings; Q1 answered), S2.5 (retrieval) and S2.6a (SciFact; Q6 answered).
+**Last worked:** 2026-11-14, batch mode for claim extraction on the current ASU gateway (ADR-054). 2026-11-12: S2.7 (claim skeletons; Q7 answered, ADR-053), the end of S2.4's embedding run, and the HNSW index drop (ADR-052). Before that, 2026-11-11: S2.6 (the retrieval ablation, ADR-050), S2.8 (the synthetic set, ADR-051), and the fix and repair of S2.2's abstract cleaner (failure log). 2026-11-10: S2.4 (passage embeddings; Q1 answered), S2.5 (retrieval) and S2.6a (SciFact; Q6 answered).
 
 **Sessions:**
 
@@ -115,7 +115,7 @@ Keep updates quick, or the file stops being kept up. The rules:
 | S2.5 BM25, dense, fusion, rerank | done | `retrieve/` (bm25, dense, fusion, search; query and cross encoders), `sentinel retrieve build-bm25` and `sentinel retrieve search` (ADR-048). BM25 index of 265,424 passages, rebuilt after the abstract repair. **The debug command returns the top passages for a claim or a citation, with every stage's rank.** Dot and cosine both implemented; S2.6 decides. |
 | S2.6a External set (SciFact) | done | `eval/scifact.py`, `sentinel eval load-scifact` (ADR-049; Q6 answered). Release pinned by SHA-256 and unpacked safely. **1,258 items in our own splits by linked claims and abstracts** (SciFact's split shares 181 of 283 dev abstracts with train). 5,992 passages; every evidence sentence mapped to its gold passages. |
 | S2.6 Retrieval ablation | done | `eval/retrieval.py`, `sentinel eval retrieval` and `eval compare` (ADR-050). **Four rows, dot and cosine, in MLflow** over 263 SciFact claims. nDCG@10 on val: BM25 0.763, dense 0.791, fusion 0.801, fusion plus rerank 0.895. Test: 0.822 to 0.865, and there the reranker adds nothing measurable. The first run's cosine rows were cut short by the HNSW index, so dense search is now exact. Dot product chosen; reranker kept on val's evidence. Report in `docs/evals/`. |
-| S2.7 Claim skeletons | done | `extract/` (skeleton, prompt, llm, claims), `sentinel extract claims` (ADR-053; Q7 answered: ASU Research Computing's free gateway). Strict JSON schema at temperature 0; valid means grounded: every field is copied from the context, and a broken rule goes back to the model up to twice. **Validation failure rate on 200 contexts:** gemma4-31b-it 11.0% on the first answer, 5.0% after repairs; Qwen-235B 24.0%/2.5%; OLMo-32B 34.5%/8.5%. Gemma chosen: 0 of 20 wrong in a side-by-side reading (Qwen 5, OLMo 3). In MLflow (`claim-extraction`). The full run over 35,921 contexts (about 20 h) is not started. |
+| S2.7 Claim skeletons | done | `extract/` (skeleton, prompt, llm, claims), `sentinel extract claims` (ADR-053; Q7 answered: ASU Research Computing's free gateway). Strict JSON schema at temperature 0; valid means grounded: every field is copied from the context, and a broken rule goes back to the model up to twice. **Validation failure rate on 200 contexts:** gemma4-31b-it 11.0% on the first answer, 5.0% after repairs; Qwen-235B 24.0%/2.5%; OLMo-32B 34.5%/8.5%. Gemma chosen: 0 of 20 wrong in a side-by-side reading (Qwen 5, OLMo 3). In MLflow (`claim-extraction`). Then the current gateway and a batch mode (ADR-054); the full run is not started. |
 | S2.8 Synthetic set | done | `eval/synthetic.py`, `eval/items.py`, `sentinel eval make-synthetic` (ADR-051). Rules, no language model. **6,628 items from 2,005 number-anchored abstract–results pairs in 1,176 cited works; every item has a corruption type, and splits are by source paper.** Rebuilt after the abstract repair; the first build had 5,323 items from 1,628 pairs. Spot checks: 48 of 50 items in the first build, and 12 of 13 from repaired abstracts, read as rightly labelled. Reading the drafts found S2.2's abstract cleaner deleting text after a "<" (failure log, now fixed). The reranker re-measurement on full text waits for S2.4's run. |
 
 **What works:** the whole Phase 1 pipeline over the 1,000-paper corpus. That means loading data, matching references (89.4% of all references, 94.4% of the structured sample), pulling out statistics, all five checks, `report`, `stats`, `export` and stage timing. 854 tests, all passing, including the database tests and the 46-item fixture set. Phase 2 so far:
@@ -136,7 +136,7 @@ Keep updates quick, or the file stops being kept up. The rules:
 
 **Next three things:**
 1. Re-measure the reranker on the synthetic set's full-text pairs (ADR-050 asked for it; the vectors are all in now).
-2. Extract claim skeletons for all 35,921 contexts with gemma4-31b-it: about 20 h of the shared gateway at 4 workers. First decide between direct calls and the gateway's batch API, which its docs advise for big runs (ADR-053).
+2. Extract claim skeletons for the remaining 35,701 contexts: `sentinel extract claims --model gemma4-31b-it --corpus pmc-rct-2015-2024 --batch` (ADR-054). Rerun it to ask again for anything the gateway didn't answer. The gateway estimates about 80 kWh.
 3. S2.9, the tabular baseline: decide what it trains on, since there are no real labels until S3.4.
 
 **After that:** S2.9's tabular baseline has no real labels until S3.4's hand-labelled set. Phase 3 needs a plan for reranking cost: about 13 s per claim on this CPU (ADR-048, ADR-050). Still open from Phase 1: nothing checks for a DOI that points to a paper with a different title, and the title-plus-author Crossref search for C01 (ADR-041) has no session yet.
@@ -1293,6 +1293,45 @@ The spot check is Claude's reading, not human labels.
 
 ---
 
+### ADR-054 — The current ASU gateway, and batch mode for large extraction runs
+**Status:** active · follows ADR-053, whose gateway notes describe 2026-11-12
+
+**In short:** a new Voyager key (2026-11-14) reaches the gateway the docs describe. Gemma answers there from the same server build as in the pilot, so the pilot stands and the extractor stays at 1.0.0. Large runs now go through the gateway's batch API, which uses only capacity interactive users aren't using.
+
+**What the current gateway adds:**
+- the model list has capability fields (`supports_response_schema`, `context_window`, `quantization`, add-ons);
+- responses carry `x-obleth-*` headers;
+- usage includes the gateway's own estimate of energy (`energy_wh`) and CO2 (`co2_g`).
+
+**Gemma there:** bf16, no add-ons, server build `vllm-0.26.0-tp4-24487d56`, the same as the pilot's. The old LiteLLM deployment ID no longer exists.
+
+**Provenance:** each call records the server build, plus `x-obleth-model-variant` for a model family, or `x-litellm-model-id` on a legacy key.
+
+**Add-ons ("boons"):** direct calls send `x-obleth-boons: off`, as the docs advise for reproducible research. Batch lines can't carry headers, but Gemma has no add-ons.
+
+**Why the version doesn't change:** the prompt, schema, rules, model and server build are all the same as the pilot's. The add-on header changes nothing for a model that has none.
+
+**Batch mode** (`sentinel extract claims --batch`):
+- The requests are the same as direct calls (`request_body` is shared).
+- 5,000 contexts per batch (about 21 MB), up to 8 batches at once (the gateway allows 10 per key), each with a 24-hour window.
+- Each repair round is a new, smaller batch.
+- A context with an error line, or one whose batch expired, gets no row, so the next run asks again.
+- If the run stops early, its running batches are cancelled. A hard kill can't do that, so they would run to the end unread.
+
+**Checked live:**
+- A 10-request probe finished in 30 s, with 8 of 10 answers valid at once.
+- A 20-context batch run took 3 batches (a first round and two repair rounds): 18 valid at once, 2 invalid, both with the statement taken from outside the citing sentence.
+
+**Energy:**
+- The gateway's estimate for Gemma is about 2 Wh and 0.66 g CO2 per call: 46.8 Wh and 15.8 g over the smoke run's 24 calls.
+- On that estimate, the full run of about 35,700 contexts (1.2 calls each) is roughly 80 kWh and 27 kg CO2. Each run logs its total.
+
+**Turned down:**
+- **Direct calls for the full run.** The gateway shares capacity fairly between keys, but its docs ask for batches for runs nobody is waiting on.
+- **One 154 MB batch file.** Smaller batches save progress as they finish, and a failure loses less.
+
+---
+
 ### ADR-0NN — template
 **Status:** active
 
@@ -1415,6 +1454,8 @@ The headline numbers at the end of each phase. These become the evaluation repor
 | 2026-11-12 | 2 | Claim skeleton validation failure rate (S2.7) | gemma4-31b-it: 11.0% first answer, 5.0% after two repairs | ADR-053; 200 contexts, seed 20260922; Qwen-235B 24.0%/2.5%, OLMo-32B 34.5%/8.5% |
 | 2026-11-12 | 2 | Claim skeletons judged right in a spot check | gemma 14 right, 6 partly, 0 wrong of 20 | Claude's reading; Qwen 5 wrong, OLMo 3 wrong and 2 invalid |
 | 2026-11-12 | 2 | Vector table after dropping the HNSW index | 1,134 MB, down from 2,195 MB | ADR-052; 271,416 vectors, exact search only |
+| 2026-11-14 | 2 | Gateway energy estimate per claim call | about 2 Wh and 0.66 g CO2 (46.8 Wh, 15.8 g over 24 calls) | ADR-054; the gateway's own figures for gemma4-31b-it; full run about 80 kWh by this estimate |
+| 2026-11-14 | 2 | Batch mode, live check | 10-request probe in 30 s; 20 contexts in 3 batches, 18 valid at once, 2 invalid | ADR-054 |
 | 2026-11-12 | 2 | Claim extraction speed and size | 6.3 s per call, 1.17 calls and 823 + 111 tokens per context; about 0.5 contexts/s at 4 workers | ASU gateway, free; a full run of 35,921 contexts is about 20 h |
 
 **Metrics to track from week one, not work out afterwards:**

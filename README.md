@@ -295,6 +295,8 @@ Three models were run on the same 200 contexts ([report](docs/evals/claim-extrac
 | qwen3-235b-a22b-instruct-2507 | 24.0% | 2.5% | 5 |
 | olmo3-32b-instruct | 34.5% | 8.5% | 3 |
 
+For a large run, `--batch` sends the requests through the gateway's batch API, which uses only spare capacity. Running it again asks only for what is missing (ADR-054).
+
 **Limits.** Validity means grounded, not right. All three models sometimes borrow a field, such as the citing study's own population, from the sentence next to the citation. Field accuracy will be measured on Phase 3's hand-labelled set.
 
 ## Tests

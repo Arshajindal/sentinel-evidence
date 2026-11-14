@@ -11,7 +11,7 @@
   - olmo3-32b-instruct: 34.5%, then 8.5%.
 - **Gemma is chosen.** In a side-by-side reading of 20 contexts, it got no skeleton wrong. Qwen got 5 wrong, mostly by calling speculation or the citing paper's own result a finding. OLMo got 3 wrong by calling findings "background", and 2 more were invalid.
 - **Every model sometimes borrows a field from a neighbouring sentence,** usually the citing study's own population. The grounding rules allow this, since the field is in the context. It's the main weakness to fix in a later version.
-- **Not yet done:** extracting all 35,921 contexts. At about 0.5 contexts a second with 4 workers, that is roughly 20 hours of gateway time (ADR-053).
+- **Not yet done:** extracting all 35,921 contexts. With direct calls at 4 workers it would take about 20 hours, so it will run through the gateway's batch API (`--batch`, ADR-054).
 
 ## Setup
 
