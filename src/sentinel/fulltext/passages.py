@@ -42,8 +42,10 @@ def make_passages(abstract: str | None, body: list[Paragraph],
     if abstract:
         sections.append(("abstract", _sentences(abstract)))
     for para in body:
-        sents = [para.text[s:e] for s, e in sentences.split(para.text, [(c.start, c.end)
-                                                                          for c in para.cites])]
+        # Passages 1.0.0 keep the splitter's 1.0.0 citation rules (ADR-056): new
+        # rules would change stored text that vectors and the BM25 index were made from.
+        sents = [para.text[s:e] for s, e in sentences.split(
+            para.text, [(c.start, c.end) for c in para.cites], cites_across_space=False)]
         if sections and sections[-1][0] == para.section and sections[-1][0] != "abstract":
             sections[-1][1].extend(sents)
         else:

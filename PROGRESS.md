@@ -86,13 +86,12 @@ Keep updates quick, or the file stops being kept up. The rules:
 
 **Phase:** 2 of 5: full text, retrieval, and the evaluation foundation. Phase 1 is finished and merged (PR #1).
 **Plan:** the session list in §15 of `docs/sentinel-project.md`. The old brief and HTML spec are in `docs/archive/`.
-**Last worked:** 2026-11-14:
-- the full claim skeleton run (S2.7);
-- reading its failures, which found citation contexts with the wrong sentence (failure log);
-- the reranker re-measured on full text with the synthetic set (ADR-055);
-- batch mode for claim extraction on the current ASU gateway (ADR-054).
+**Last worked:** 2026-11-15: both problems the full claim run found are fixed (ADR-056):
+- contexts 1.1.0, with the citing-sentence fix and citation spans;
+- claim extractor 1.1.0, with a marker-tolerant statement rule and invalid answers kept;
+- 31,389 skeletons copied, 4,532 contexts asked again; 0.63% now invalid.
 
-2026-11-12: S2.7 (claim skeletons; Q7 answered, ADR-053), the end of S2.4's embedding run, and the HNSW index drop (ADR-052). Before that, 2026-11-11: S2.6 (the retrieval ablation, ADR-050), S2.8 (the synthetic set, ADR-051), and the fix and repair of S2.2's abstract cleaner (failure log). 2026-11-10: S2.4 (passage embeddings; Q1 answered), S2.5 (retrieval) and S2.6a (SciFact; Q6 answered).
+2026-11-14: the full claim skeleton run (S2.7), reading its failures (failure log), the reranker re-measured on full text (ADR-055), and batch mode on the current ASU gateway (ADR-054). 2026-11-12: S2.7 (claim skeletons; Q7 answered, ADR-053), the end of S2.4's embedding run, and the HNSW index drop (ADR-052). Before that, 2026-11-11: S2.6 (the retrieval ablation, ADR-050), S2.8 (the synthetic set, ADR-051), and the fix and repair of S2.2's abstract cleaner (failure log). 2026-11-10: S2.4 (passage embeddings; Q1 answered), S2.5 (retrieval) and S2.6a (SciFact; Q6 answered).
 
 **Sessions:**
 
@@ -116,41 +115,40 @@ Keep updates quick, or the file stops being kept up. The rules:
 | S2.0 Retries, pgvector and MLflow | done | Dropped connections and timeouts are now retried like 5xx responses (ADR-042, 8 new tests). Postgres moved to a pgvector 0.8.6 container on 127.0.0.1:5434 with a role that isn't a superuser; every table's row count and the migration version match the old server (ADR-043). MLflow runs at 127.0.0.1:5000 with its data in the same Postgres, checked with one test run. |
 | S2.1 Phase 2 tables | done | Migration `6bb29bc195ff` (ADR-044): passages with a splitter version, one vector row per passage per model (HNSW, cosine), citation contexts linked to several references, claims, evaluation items with a required licence, and gold passages protected by a foreign key. Up, down, up runs cleanly; `alembic check` finds no difference; applied to the working database. |
 | S2.2 Full-text fetch | done | `ingest/fulltext.py`, `sentinel ingest fulltext`, `sentinel corpus coverage`, migration `8d0bd1c5a522` (ADR-045). All 33,664 works checked in Europe PMC; 8,427 open-access XML files cached. **Q2: 22.6% of resolved references cite a work with full text**, 92.8% at least an abstract. Europe PMC answers 500 for non-open-access full text, so only open-access records are requested. The abstract cleaner cut text after a bare "<"; fixed, and the 5,989 abstracts it changed repaired, on 2026-11-11 (failure log). |
-| S2.3 Passages and citation contexts | done | `fulltext/` (body, sentences, passages, contexts, extract), `sentinel extract passages\|contexts` (ADR-046). 290,977 passages from all 31,420 works with text, abstracts included (293,067 after the 2026-11-11 abstract repair). 35,921 contexts; **96.3% of references have a citing context**, linked through the XML ref ids (labels agree for 99.87% of numbered citations). |
+| S2.3 Passages and citation contexts | done | `fulltext/` (body, sentences, passages, contexts, extract), `sentinel extract passages\|contexts` (ADR-046). 290,977 passages from all 31,420 works with text, abstracts included (293,067 after the 2026-11-11 abstract repair). 35,921 contexts; **96.3% of references have a citing context**, linked through the XML ref ids (labels agree for 99.87% of numbered citations). **Contexts 1.1.0, 2026-11-15** (ADR-056): a numeric citation after a full stop and a space now stays with its sentence, and each context stores its sentence's citation spans; 2,421 contexts changed. Passages keep the 1.0.0 rules. |
 | S2.4 Embeddings | done |`retrieve/encoders.py`, `retrieve/embed.py`, `sentinel embed passages` (ADR-047). Q1: no GPU, so MedCPT runs in-process with PyTorch on CPU, with the model card's exact title-and-passage input; TEI measured 16x slower. **All 265,424 cited-work passages embedded** (263,440 before the abstract repair), finished 2026-11-12 with no failures; the last of three runs did 115,056, model stored as `ncbi/MedCPT-Article-Encoder@d05a736da4bb`; stored vectors equal the model card's output. Corpus papers' own passages wait for Phase 3. |
 | S2.5 BM25, dense, fusion, rerank | done | `retrieve/` (bm25, dense, fusion, search; query and cross encoders), `sentinel retrieve build-bm25` and `sentinel retrieve search` (ADR-048). BM25 index of 265,424 passages, rebuilt after the abstract repair. **The debug command returns the top passages for a claim or a citation, with every stage's rank.** Dot and cosine both implemented; S2.6 decides. |
 | S2.6a External set (SciFact) | done | `eval/scifact.py`, `sentinel eval load-scifact` (ADR-049; Q6 answered). Release pinned by SHA-256 and unpacked safely. **1,258 items in our own splits by linked claims and abstracts** (SciFact's split shares 181 of 283 dev abstracts with train). 5,992 passages; every evidence sentence mapped to its gold passages. |
 | S2.6 Retrieval ablation | done | `eval/retrieval.py`, `sentinel eval retrieval` and `eval compare` (ADR-050). **Four rows, dot and cosine, in MLflow** over 263 SciFact claims. nDCG@10 on val: BM25 0.763, dense 0.791, fusion 0.801, fusion plus rerank 0.895. Test: 0.822 to 0.865, and there the reranker adds nothing measurable. The first run's cosine rows were cut short by the HNSW index, so dense search is now exact. Dot product chosen; reranker kept on val's evidence. Report in `docs/evals/`. **Re-measured on full text on 2026-11-14** (`--set synthetic`, ADR-055): each of 760 synthetic claims searched its own paper's body. The reranker gained over fusion on both splits (+0.069 val, +0.067 test); dot beat cosine again; BM25 alone scored best (0.919), as the set's number anchors predict. |
-| S2.7 Claim skeletons | done | `extract/` (skeleton, prompt, llm, claims), `sentinel extract claims` (ADR-053; Q7 answered: ASU Research Computing's free gateway). Strict JSON schema at temperature 0; valid means grounded: every field is copied from the context, and a broken rule goes back to the model up to twice. **Validation failure rate on 200 contexts:** gemma4-31b-it 11.0% on the first answer, 5.0% after repairs; Qwen-235B 24.0%/2.5%; OLMo-32B 34.5%/8.5%. Gemma chosen: 0 of 20 wrong in a side-by-side reading (Qwen 5, OLMo 3). In MLflow (`claim-extraction`). Then the current gateway and a batch mode (ADR-054). **Full run, 2026-11-14: all 35,921 contexts stored, 33,584 valid skeletons. Of the other 35,701, 14.5% were invalid on the first answer and 6.5% after repairs.** It took 81 min by batch, with none unanswered; the gateway estimates 46.8 kWh. Reading the failures found two problems (failure log). In 18 of 20 contexts asked again, the statement was an exact copy without its citation markers, so the true failure rate is nearer 1–2%. And 993 contexts have the wrong citing sentence. Report in `docs/evals/`. |
+| S2.7 Claim skeletons | done | `extract/` (skeleton, prompt, llm, claims), `sentinel extract claims` (ADR-053; Q7 answered: ASU Research Computing's free gateway). Strict JSON schema at temperature 0; valid means grounded: every field is copied from the context, and a broken rule goes back to the model up to twice. **Validation failure rate on 200 contexts:** gemma4-31b-it 11.0% on the first answer, 5.0% after repairs; Qwen-235B 24.0%/2.5%; OLMo-32B 34.5%/8.5%. Gemma chosen: 0 of 20 wrong in a side-by-side reading (Qwen 5, OLMo 3). In MLflow (`claim-extraction`). Then the current gateway and a batch mode (ADR-054). **Full run, 2026-11-14: all 35,921 contexts stored, 33,584 valid skeletons. Of the other 35,701, 14.5% were invalid on the first answer and 6.5% after repairs.** It took 81 min by batch, with none unanswered; the gateway estimates 46.8 kWh. Reading the failures found two problems (failure log): the statement rule rejected exact copies without their citation markers, and at least 993 contexts had the wrong citing sentence. **Both fixed 2026-11-15** (ADR-056): extractor 1.1.0 on contexts 1.1.0, with 31,389 skeletons copied and 4,532 contexts asked again. **0.63% of all 35,921 now invalid** (226), against 6.5%. Reports in `docs/evals/`. |
 | S2.8 Synthetic set | done | `eval/synthetic.py`, `eval/items.py`, `sentinel eval make-synthetic` (ADR-051). Rules, no language model. **6,628 items from 2,005 number-anchored abstract–results pairs in 1,176 cited works; every item has a corruption type, and splits are by source paper.** Rebuilt after the abstract repair; the first build had 5,323 items from 1,628 pairs. Spot checks: 48 of 50 items in the first build, and 12 of 13 from repaired abstracts, read as rightly labelled. Reading the drafts found S2.2's abstract cleaner deleting text after a "<" (failure log, now fixed). The reranker was re-measured on its intact pairs on 2026-11-14 (ADR-055). |
 
-**What works:** the whole Phase 1 pipeline over the 1,000-paper corpus. That means loading data, matching references (89.4% of all references, 94.4% of the structured sample), pulling out statistics, all five checks, `report`, `stats`, `export` and stage timing. 863 tests, all passing, including the database tests and the 46-item fixture set. Phase 2 so far:
+**What works:** the whole Phase 1 pipeline over the 1,000-paper corpus. That means loading data, matching references (89.4% of all references, 94.4% of the structured sample), pulling out statistics, all five checks, `report`, `stats`, `export` and stage timing. 878 tests, all passing, including the database tests and the 46-item fixture set. Phase 2 so far:
 - pgvector, the Phase 2 tables and MLflow;
 - text availability for every corpus paper and cited work (Q2 measured);
-- 293,067 passages and 35,921 citation contexts;
+- 293,067 passages and 35,921 citation contexts (contexts 1.1.0, ADR-056);
 - MedCPT embeddings for all 265,424 cited-work passages, searched exactly, with no vector index (ADR-052);
 - BM25, exact dense search, fusion and reranking;
 - SciFact loaded, and the retrieval ablation in MLflow, on SciFact and on full text from the synthetic set (ADR-050, ADR-055);
 - the synthetic set, 6,628 items;
-- claim skeletons from ASU's gateway for all 35,921 contexts, 33,584 valid (gemma4-31b-it; ADR-053, ADR-054).
+- claim skeletons from ASU's gateway for all 35,921 contexts, 35,695 valid (gemma4-31b-it, extractor 1.1.0; ADR-053, ADR-054, ADR-056).
 
 **What's broken:**
-- At least 993 citation contexts (2.8%, in 77 papers) have the wrong citing sentence. S2.3's splitter moves a citation that follows a full stop and a space into the next sentence. Their claims describe that sentence; 856 of them passed validation (failure log, 2026-11-14).
-- The claim statement rule rejects exact copies that leave out citation markers. That accounts for most of the 2,337 invalid claims (failure log, 2026-11-14).
+- Passages are still cut with the splitter's 1.0.0 rules, so a citation printed after a full stop and a space sits at the start of the next sentence there (ADR-056). Only window edges are affected; the next passage version takes the new rules.
 - Most of C01's corpus flags are works that do exist: only 8 of 20 sampled flags were correct (see the README's section on C01's limits). So C01's flag rate is published as an upper bound.
 - A stage that is force-killed leaves its `stage_run` row saying `running` forever (run 9).
 - `stats` counts items only for runs that finished.
 - The full text of PMC6561645 still returns an HTTP 500 error from Europe PMC.
 
 **Next three things:**
-1. Decide whether to fix both claim problems now (failure log, 2026-11-14), as one follow-up:
-   - **The splitter:** keep a citation that follows a full stop and a space with the sentence before it, bump the context extractor version, and rebuild contexts.
-   - **Claim extractor 1.1.0:** accept a statement that matches the sentence without its citation markers, and keep invalid answers.
-   - **Then ask again** for the changed and invalid contexts: about 3,200, a few batches.
-2. S2.9, the tabular baseline, the last Phase 2 session: decide what it trains on, since there are no real labels until S3.4.
-3. Close Phase 2: end-of-phase ledger rows, README pass, and the PR to main.
+1. S2.9, the tabular baseline, the last Phase 2 session: decide what it trains on, since there are no real labels until S3.4.
+2. Close Phase 2: end-of-phase ledger rows, README pass, and the PR to main.
+3. Start Phase 3 (§15). Anything that uses claims reads contexts 1.1.0 and claims 1.1.0; the 1.0.0 rows stay only so earlier reports can be reproduced.
 
 **After that:**
+- A later claim extractor version could:
+  - let a citation's whole parenthesis be left out (24 of the 226 invalid);
+  - decide whether a list sentence's part-copy counts (40). Both can be re-checked from the kept answers without new calls (ADR-056).
 - Phase 3 needs a plan for reranking cost: about 7.5 s for one paper's body on this CPU, and 13 s for 50 SciFact passages (ADR-050, ADR-055).
 - Weighted fusion, or reranking BM25's list, should be measured on S3.4's real citations (ADR-055). Still open from Phase 1: nothing checks for a DOI that points to a paper with a different title, and the title-plus-author Crossref search for C01 (ADR-041) has no session yet.
 
@@ -1407,6 +1405,75 @@ Recall@50 is 0.997–1.000 for every row. With pools this small it says nothing.
 
 ---
 
+### ADR-056 — Contexts 1.1.0 and claim extractor 1.1.0: the citing-sentence fix, a marker-tolerant statement rule, and copying unchanged skeletons
+**Status:** active · fixes both 2026-11-14 failure-log entries · amends ADR-046 (sentences, contexts) and ADR-053 (validity) · passages stay at 1.0.0
+
+**In short:** the splitter now keeps a numeric citation printed after the full stop and a space with the sentence before it, and contexts 1.1.0 record where each citation sits in the sentence. A claim's statement may now leave those citations out, as the prompt asks. Valid 1.0.0 skeletons were copied where the model's input hadn't changed, and the other 4,532 contexts were asked again. **0.63% of the 35,921 contexts are now invalid, against 6.5%.** Report: `docs/evals/claim-extraction-1.1.0-2026-11-15.md`.
+
+**Sentences** (`fulltext/sentences.py`): `split(..., cites_across_space=True)` gives rules 1.1.0, and `False` gives 1.0.0's exactly.
+- A numeric citation after the end punctuation stays with the sentence before, even after a space ("removal. 15 However").
+- The citations after it may be spaced ("16 , 17"), with up to three joining characters ("], [").
+- Closing brackets after the last one go with it.
+- An author-year citation after a space still starts the next sentence, where it is usually the subject.
+- When the next character isn't a capital, sentences stay joined, as before.
+
+**Contexts 1.1.0** (`fulltext/contexts.py`; migration `e5a7c3d91b20`):
+- sentences are cut with rules 1.1.0;
+- `citation_context.sentence_cites` holds every citation group in the sentence, linked or not, as [start, end] offsets, widened to brackets that enclose them exactly. It is NULL on 1.0.0 rows.
+- **Result:** 2,421 of 35,921 contexts changed, in 161 papers (the failure log's lower bound was 993):
+  - 958 had the wrong sentence;
+  - 944 had two sentences run together behind a spaced citation list;
+  - the rest gained a lost trailing marker or a changed neighbour.
+- Citing sentences that start with their own marker fell from 962 to 4, all author-year subjects. Marker-only sentences fell from 208 to 0.
+- Citations, groups, ranges and links are unchanged, with 96.3% of references still having a context.
+- `context_coverage` now counts only the current version.
+
+**Passages stay at 1.0.0.** `make_passages` passes `cites_across_space=False`, so a rebuild gives the stored text. That text feeds 265,424 vectors (about 14 h of CPU), the BM25 index and the synthetic set's gold passages. The new rules would change 858 of the 13,690 corpus-paper paragraphs that contain a citation, moving a marker between neighbouring sentences. Within a passage that matters only at window edges. The next passage version takes the new rules.
+
+**Claim extractor 1.1.0** (`extract/skeleton.py`, `extract/claims.py`):
+- **The statement rule:** the statement must read off the citing sentence as one run, but any citation group in `sentence_cites` may be left out. Where one is, spacing is ignored. Nothing else is excused. It accepts everything 1.0.0 accepted.
+- **Why:** the prompt has always said "copied exactly. Leave out the citation marker." 1.0.0's rule rejected exactly that whenever the marker sat inside the statement.
+- **Invalid answers are kept:** `claim.answer` holds the last answer as text, and `claim.errors` the rules it broke. Valid rows keep only the skeleton, and nothing reads `answer` as one.
+- The prompt, schema, model (gemma4-31b-it), temperature and repairs are 1.0.0's.
+
+**Copying unchanged skeletons** (`carry_over`, `sentinel extract claims-carry --model … --from-ver 1.0.0`):
+- **When a skeleton is copied:** a 1.0.0 skeleton is copied to the 1.1.0 context with the same paper, ordinal, sentence, passage, marker, section and cited references, so the model would be asked the same request.
+- **Conditions:** only valid skeletons are copied, each is checked against the 1.1.0 rules first, and no context that already has a 1.1.0 claim is touched.
+- **Result:** 31,389 copied, and none failed the check.
+- **Asked again:** the other 4,532, by batch in 56 minutes. That was 5,276 calls, none unanswered, and 10.5 kWh by the gateway's estimate.
+
+| | Contexts | Invalid after repairs |
+|---|---:|---:|
+| Copied from 1.0.0 | 31,389 | 0 |
+| Text changed, asked again | 2,421 | 16 (0.7%) |
+| Unchanged, invalid under 1.0.0, asked again | 2,111 | 210 (9.9%) |
+| All | 35,921 | 226 (0.63%; 95% CI 0.55–0.72%) |
+
+**Checks:**
+- 90.1% of the contexts that were invalid only under 1.0.0's rule are now valid. E010's re-ask of 20 had predicted 18 of 20.
+- Among the changed contexts valid under both versions:
+  - where the citing sentence changed, 539 of 1,941 claims (28%) changed kind;
+  - where only a neighbour changed, 10 of 244 (4%) did.
+  - In 8 of the 539 read side by side, the 1.0.0 claim described the next sentence or the bare marker, and the 1.1.0 claim the right sentence.
+
+**What's left:** 226 invalid.
+- 135 have a field reworded rather than copied, mostly the outcome.
+- 90 break the statement rule:
+  - 40 select this citation's part of a list sentence;
+  - 50 edit or run on;
+  - 24 of the 90 would pass if a citation's whole parenthesis could be left out (year-only markup: "(Peacock et al. <xref>2013</xref>)").
+- 1 is not JSON.
+- The answers are kept for a later rule.
+
+**Turned down:**
+- **Asking all 35,921 again.** About 47 kWh by the full run's rate, to replace 31,389 skeletons that pass the same rules from the same request. The cost is a mixed set: 1.1.0's first-answer failure rate over every context isn't measured.
+- **Fixing passages now.** It would mean rebuilding and re-embedding passages and remaking the BM25 index and the synthetic set, for a change that only moves markers at window edges.
+- **Stripping markers by pattern instead of storing spans.** The XML knows exactly where each citation is; patterns would miss publisher variants and strip real numbers.
+- **Accepting part-copies of list sentences.** It may be the right reading for one citation, but it is a looser rule that needs its own measurement.
+- **Deleting the 1.0.0 contexts and claims.** Earlier reports and the pilot's Qwen and OLMo rows depend on them.
+
+---
+
 ### ADR-0NN — template
 **Status:** active
 
@@ -1426,7 +1493,7 @@ Every model in the system: what it does, where it runs, why it was chosen, and h
 | Outcome equivalence | *TBD* | local | Pending, week 7 | macro F1 | not selected |
 | Entailment, zero-shot | *TBD: an NLI head* | local | Baseline, week 7 | macro F1 | not selected |
 | Entailment, fine-tuned | *TBD* | local | Week 8 | macro F1 | not selected |
-| Claim skeleton extraction | gemma4-31b-it (server build `vllm-0.26.0-tp4-24487d56`; the pilot ran on legacy deployment `dca36210…`) | ASU Research Computing gateway, free (ADR-053, ADR-054) | Fewest wrong skeletons of three in a 20-context reading; second-lowest failure rate | validation failure rate: 11.0% first answer, 5.0% after repairs (pilot, 200); 14.5% and 6.5% (the other 35,701) | in use; all 35,921 contexts done 2026-11-14 |
+| Claim skeleton extraction | gemma4-31b-it (server build `vllm-0.26.0-tp4-24487d56`; the pilot ran on legacy deployment `dca36210…`) | ASU Research Computing gateway, free (ADR-053, ADR-054) | Fewest wrong skeletons of three in a 20-context reading; second-lowest failure rate | validation failure rate: 11.0% first answer, 5.0% after repairs (pilot, 200); 14.5% and 6.5% (the other 35,701); extractor 1.1.0: 0.63% of all 35,921 invalid after repairs (ADR-056) | in use, extractor 1.1.0 on contexts 1.1.0 since 2026-11-15 |
 | Judge | *TBD at S3.3; the ASU gateway first (ADR-053)* | ASU Research Computing gateway | Teacher for distillation, week 8 | macro F1, cost per 1,000 | not selected |
 | Distilled verdict model | *trained from the judge* | local | Week 10 | share of the judge's F1 kept, cost ratio | not built |
 | Tabular baseline | Gradient boosting | local | Honest comparison point | PR-AUC | not built |
@@ -1448,8 +1515,8 @@ Every model in the system: what it does, where it runs, why it was chosen, and h
 | External evaluation set | SciFact: `eval_item` rows with `origin.dataset = scifact`; release in `data/external/scifact/` (ADR-049) |
 | Generated evaluation set | The synthetic set: `eval_item` rows with `origin.dataset = synthetic-rules`, made from stored passages by `sentinel eval make-synthetic` (ADR-051) |
 | Hand-labelled held-out set | *TBD* |
-| Evaluation reports | `docs/evals/`: `retrieval-ablation-2026-11-11.md` (ADR-050), `claim-extraction-pilot-2026-11-12.md` (ADR-053), `claim-extraction-full-2026-11-14.md` (ADR-054), `retrieval-synthetic-2026-11-14.md` (ADR-055) |
-| Claim skeletons | `claim` rows, extractor `llm:<model>`, version 1.0.0; MLflow experiment `claim-extraction`, one run per model run (ADR-053) |
+| Evaluation reports | `docs/evals/`: `retrieval-ablation-2026-11-11.md` (ADR-050), `claim-extraction-pilot-2026-11-12.md` (ADR-053), `claim-extraction-full-2026-11-14.md` (ADR-054), `retrieval-synthetic-2026-11-14.md` (ADR-055), `claim-extraction-1.1.0-2026-11-15.md` (ADR-056) |
+| Claim skeletons | `claim` rows, extractor `llm:<model>`, version 1.1.0 on contexts 1.1.0 (1.0.0 rows kept for the earlier reports); an invalid row's last answer in `claim.answer`; MLflow experiment `claim-extraction`, one run per model run (ADR-053, ADR-056) |
 | Ablation results | `data/evals/retrieval-ablation-<UTC stamp>.json` (SciFact) and `retrieval-ablation-synthetic-<UTC stamp>.json`, every ranking; MLflow experiment `retrieval-ablation`, one run per row |
 | Config | `.env`, `src/sentinel/config.py` |
 | BM25 index | `data/bm25/<corpus>-<scope>-<splitter>/` with `manifest.json` (ADR-048) |
@@ -1480,7 +1547,9 @@ Add a row whenever you get a number. Bad numbers especially: they're the raw mat
 | 2026-11-14 | E007 | Four-row ablation on full text | 760 intact synthetic pairs (val 390, test 370), each searching its own paper's body, abstract left out; ADR-048's settings | nDCG@10 val/test: BM25 0.919/0.916, dense 0.671/0.691, fusion 0.831/0.827, + rerank 0.900/0.895 | BM25 favoured by the set's number anchors (ADR-051) |
 | 2026-11-14 | E008 | Does reranking beat fusion on full text? | E007, paired bootstrap | val +0.069 [+0.044, +0.094]; test +0.067 [+0.044, +0.090] | keep the reranker: test now agrees (ADR-055) |
 | 2026-11-14 | E009 | Does the full pipeline beat BM25 on number-anchored claims? | E007, paired bootstrap; top passages read where the reranker lost | val −0.020 [−0.040, +0.000]; test −0.022 [−0.040, −0.004]; 80 of 101 non-gold top passages lacked a claim number | no change: an artefact of the set; weighted fusion to be measured on real citations |
-| 2026-11-14 | E010 | Why do statement failures survive two repairs? | 20 invalid contexts with words in the sentence (seed "11"), asked again directly, nothing stored; 59 calls, 136.8 Wh | 18 copied the sentence exactly but without its citation markers; 1 valid this time; 1 effect rule | the rule, not the model: a marker-tolerant rule in extractor 1.1.0 (not yet built) |
+| 2026-11-14 | E010 | Why do statement failures survive two repairs? | 20 invalid contexts with words in the sentence (seed "11"), asked again directly, nothing stored; 59 calls, 136.8 Wh | 18 copied the sentence exactly but without its citation markers; 1 valid this time; 1 effect rule | the rule, not the model: a marker-tolerant rule in extractor 1.1.0 (built 2026-11-15, ADR-056) |
+| 2026-11-15 | E011 | Does the splitter fix change which sentence a context reads? | Contexts 1.1.0 built in memory, then stored, against 1.0.0 by paper and ordinal | 2,421 changed in 161 papers: 958 had the wrong sentence, 944 were two sentences run together; starts-with-marker 962 → 4, marker-only 208 → 0 | contexts 1.1.0 (ADR-056); passages kept at 1.0.0 |
+| 2026-11-15 | E012 | Do the fixes bring the claim failure rate down as predicted? | 31,389 valid skeletons copied where the input was unchanged; 4,532 asked by batch with extractor 1.1.0 | 226 of 35,921 invalid (0.63% [0.55, 0.72]); previously-invalid unchanged contexts 90.1% valid (E010 predicted 18 of 20); kind changed for 28% of claims whose sentence changed, 4% where only a neighbour did | extractor 1.1.0 in use (ADR-056) |
 
 ---
 
@@ -1546,6 +1615,9 @@ The headline numbers at the end of each phase. These become the evaluation repor
 | 2026-11-14 | 2 | Reranker gain over fusion, full text | val +0.069 [+0.044, +0.094]; test +0.067 [+0.044, +0.090] | Paired bootstrap; answers ADR-050's re-measure |
 | 2026-11-14 | 2 | Gain of fusion + rerank over BM25 (§10.3: 15–30%), synthetic | val −2.1% [−4.3%, +0.0%]; test −2.4% [−4.3%, −0.5%] | Below the band because of the set's construction; no sign of leakage |
 | 2026-11-14 | 2 | Synthetic retrieval ablation run time | 97 min for 760 claims; 19,756 cross-encoder pairs | About 7.5 s per claim, nearly all reranking (3.4 pairs/s) |
+| 2026-11-15 | 2 | Citation contexts changed by the splitter fix | 2,421 of 35,921 (6.7%), in 161 papers | ADR-056; replaces the "at least 993" lower bound; stage run 40 |
+| 2026-11-15 | 2 | Claim skeleton validation failure rate, extractor 1.1.0 | 0.63% of all 35,921 after repairs [0.55, 0.72]; 35,695 valid | ADR-056; 31,389 copied from 1.0.0, 4,532 asked again (stage runs 43, 44); first-answer rate over all contexts not measured |
+| 2026-11-15 | 2 | Claim re-ask by batch | 56 min; 5,276 calls in 3 batches; 0 unanswered; 10.5 kWh, 3.6 kg CO2 (2.0 Wh per call) | The gateway's figures; asking all 35,921 again would have been about 47 kWh |
 
 **Metrics to track from week one, not work out afterwards:**
 - Cascade ratios: how many items enter each stage
@@ -1585,6 +1657,16 @@ That goes beyond this session (your choice). The pattern suggests roughly 1–2%
 
 Lesson: read a sample of what a validator rejects before reporting its rejection rate as the model's failure rate.
 
+*Fixed 2026-11-15* (ADR-056). Building the fix showed the root cause. The prompt has always said "copied exactly. Leave out the citation marker." The rule required one exact run of the sentence. So the rule rejected exactly what the prompt asked for whenever the marker sat inside the statement. The repair message ("not copied exactly") couldn't resolve that contradiction, which is why two repairs changed nothing.
+- **Extractor 1.1.0** lets the statement leave out any citation group stored in the context's `sentence_cites`.
+- **It keeps invalid answers** in `claim.answer`.
+- **It copied 31,389 valid skeletons** where the input was unchanged.
+- **4,532 contexts were asked again.**
+- **Result:** 0.63% of the 35,921 are invalid. Of the unchanged contexts that failed only 1.0.0's rule, 90.1% are now valid, as E010's 18 of 20 predicted.
+- **Tests:** `test_claims.py` has both shapes from E010.
+
+Second lesson: when a validator checks a prompt's output, read the prompt and the rule side by side.
+
 **2026-11-14 · About 1 citation context in 36 has the wrong citing sentence**
 I compared the 2,337 contexts whose claim skeleton failed validation in the full S2.7 run with the valid ones. Very short "sentences" were ten times commoner among the failures. Reading them showed 92 whose citing sentence was only the citation marker: "16 , 17".
 
@@ -1609,6 +1691,14 @@ Not fixed yet. A fix means four steps:
 That goes beyond this session (your choice).
 
 Lesson: a validity rate measures whether an answer fits its input, not whether the input is right. Reading the failures found an upstream bug that the 856 valid rows were hiding.
+
+*Fixed 2026-11-15* (ADR-056). Splitter rules 1.1.0 keep a numeric citation after a space with the sentence before it, and contexts 1.1.0 were built with them.
+- **More contexts changed than the lower bound:** 2,421, in 161 papers, against "at least 993".
+- **958 had the wrong sentence.**
+- **944 more were two sentences run together.** A spaced citation list ("(QoL).3, 4, 5, 6 Psychological …") failed the old two-character glue rule, so the boundary was never found. The three patterns above couldn't see this, because the sentence still contained its marker.
+- **Their claims were asked again.** Where the citing sentence changed, 28% of claims changed kind, against 4% where only a neighbour changed.
+- **Tests:** `test_passages_contexts.py` now has the spaced superscript, the paragraph-end marker, the spaced list, a bracket after the stop, the author-year subject and the lowercase join.
+- **Passages keep the 1.0.0 rules** until their next version.
 
 **2026-11-11 · The abstract cleaner deleted text after a literal "<" in about 12% of abstracts**
 Reading S2.8's first synthetic items found claims that ran two sentences together: "…in the BSB group (P Conclusion Our BSB could be…". The cause is `clean_markup` (S2.2), which removes tags with `<[^>]+>` before unescaping. Europe PMC's `abstractText` mixes real tags (`<h4>Conclusion</h4>`) with unescaped less-than signs (`P<0.001`). So everything from `<0.001).` to the next tag's `>` went, the heading's opening tag included. The 2026-11-01 fix covered escaped tags after unescaping, not this. Its test case, "18.5<BMI<25", has no tag after the "<", so the bug never showed.

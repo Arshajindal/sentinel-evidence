@@ -166,7 +166,9 @@ class ContextExtractor(Harvester):
                              contexts=[CitationContextRecord(
                                  ordinal=c.ordinal, section=c.section, marker=c.marker,
                                  sentence=c.sentence, context_text=c.context_text,
-                                 reference_ids=list(c.reference_ids)) for c in found])
+                                 reference_ids=list(c.reference_ids),
+                                 sentence_cites=[list(x) for x in c.sentence_cites])
+                                 for c in found])
 
     def upsert(self, conn: Connection, records: list[PaperContexts]) -> UpsertCounts:
         counts = UpsertCounts()
@@ -197,12 +199,15 @@ def numeric_label(label: str | None) -> int | None:
 
 
 def context_coverage(conn: Connection, label: str) -> dict[str, int]:
-    """How many of a corpus's references have at least one citation context."""
+    """How many of a corpus's references have at least one citation context
+    from the current context extractor."""
     refs = (select(reference.c.id)
             .join(corpus_paper, corpus_paper.c.paper_id == reference.c.citing_paper_id)
             .where(corpus_paper.c.label == label)).subquery()
     total = conn.execute(select(refs.c.id)).all()
     with_ctx = conn.execute(
         select(citation_context_reference.c.reference_id).distinct()
-        .join(refs, refs.c.id == citation_context_reference.c.reference_id)).all()
+        .join(refs, refs.c.id == citation_context_reference.c.reference_id)
+        .join(citation_context, citation_context.c.id == citation_context_reference.c.citation_context_id)
+        .where(citation_context.c.extractor_ver == EXTRACTOR_VERSION)).all()
     return {"references": len(total), "with_context": len(with_ctx)}

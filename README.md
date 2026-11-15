@@ -77,6 +77,8 @@ sentinel retrieve build-bm25 --scope scifact                # and their BM25 ind
 sentinel eval retrieval                                     # four-row ablation, dot and cosine, logged in MLflow (~70 min)
 sentinel eval compare data/evals/<results>.json fusion+rerank/dot bm25   # paired bootstrap of two rows
 sentinel eval make-synthetic                                # synthetic set: corrupted claim–passage pairs (~1 min)
+sentinel extract claims --model gemma4-31b-it --batch       # claim skeletons from ASU's gateway, by batch
+sentinel extract claims-carry --model gemma4-31b-it --from-ver 1.0.0   # keep valid skeletons whose context is unchanged
 ```
 
 **Resuming:**
@@ -308,15 +310,20 @@ Three models were run on the same 200 contexts ([report](docs/evals/claim-extrac
 
 For a large run, `--batch` sends the requests through the gateway's batch API, which uses only spare capacity. Running it again asks only for what is missing (ADR-054).
 
-Gemma then extracted every other context by batch in 81 minutes ([report](docs/evals/claim-extraction-full-2026-11-14.md)):
-- 14.5% of answers were invalid at first, and 6.5% after repairs;
-- all 35,921 contexts are now stored, 33,584 of them with a valid skeleton;
-- the gateway's own energy estimate is 46.8 kWh.
+Gemma then extracted every other context by batch in 81 minutes ([report](docs/evals/claim-extraction-full-2026-11-14.md)). 14.5% of answers were invalid at first, and 6.5% after repairs. Reading the failures found two problems, both fixed in version 1.1.0 (ADR-056, [report](docs/evals/claim-extraction-1.1.0-2026-11-15.md)):
+- **The statement rule contradicted the prompt.** The prompt asks for the sentence's words without the citation marker, but the rule wanted an exact copy, marker included. A statement may now leave out any of the sentence's citations, which each context records from the XML.
+- **2,421 contexts (6.7%) read the wrong sentence.** The sentence splitter put a citation printed after a full stop and a space ("removal. 15 However") into the next sentence, or ran two sentences together behind a spaced citation list. Contexts were rebuilt.
+
+Valid skeletons whose context hadn't changed were kept, and the 4,532 other contexts were asked again:
+- **0.63% of all 35,921 contexts are now invalid** (226), against 6.5%;
+- the remaining failures are mostly a field reworded instead of copied;
+- invalid answers are now kept, so a later rule can re-check them without asking again;
+- the gateway's own energy estimate is 46.8 kWh for the full run and 10.5 kWh for the re-ask.
 
 **Limits.**
 - Validity means grounded, not right. All three models sometimes borrow a field, such as the citing study's own population, from the sentence next to the citation. Field accuracy will be measured on Phase 3's hand-labelled set.
-- The 6.5% overstates the model's failures. Asked again, 18 of 20 invalid contexts had the sentence copied exactly but without its citation markers, which the exact-copy rule rejects. A rule that tolerates missing markers is planned.
-- About 2.8% of citation contexts have the wrong citing sentence: the sentence splitter moves a citation that comes after a full stop and a space into the next sentence. Most of their skeletons are valid but describe that next sentence. This is not fixed yet.
+- The statement must be one stretch of the sentence, so a claim that picks one citation's part out of a list sentence fails. That is 40 of the 226 invalid.
+- Passages still use the splitter's old citation rule, so a marker can sit at the start of the next sentence there. That only matters at the edges of a passage, and changing it would mean re-embedding every passage.
 
 ## Tests
 

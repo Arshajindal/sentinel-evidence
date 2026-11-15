@@ -12,13 +12,16 @@ from sqlalchemy import delete, insert, select
 
 from sentinel.extract import prompt
 from sentinel.extract.claims import (
-    EXTRACTOR_VER, MAX_REPAIRS, ClaimExtractor, check_answer, extract_one, stored_summary)
+    EXTRACTOR_VER, MAX_REPAIRS, ClaimExtractor, carry_over, check_answer, extract_one, stored_summary)
 from sentinel.extract.llm import BatchClient, ChatClient, Completion, GatewayError, parse_completion
 from sentinel.extract.skeleton import (
-    ClaimRecord, ClaimSkeleton, grounding_errors, norm, numbers_in, response_schema)
+    MAX_ANSWER_CHARS, ClaimRecord, ClaimSkeleton, grounding_errors, norm, numbers_in, response_schema,
+    statement_in_sentence)
 from sentinel.fulltext.contexts import EXTRACTOR_VERSION as CONTEXT_VERSION
 from sentinel.ingest.http import RateLimitedHTTP
-from sentinel.models import citation_context, claim, corpus, corpus_paper, ingest_watermark, paper
+from sentinel.models import (
+    citation_context, citation_context_reference, claim, corpus, corpus_paper, ingest_watermark, paper,
+    reference)
 from tests.conftest import FIXTURES, requires_db
 
 # A made-up context in the shape of the corpus's: the citing sentence with a
@@ -99,6 +102,55 @@ def test_only_a_finding_fills_the_finding_fields_and_it_needs_a_direction():
 def test_empty_and_overlong_spans_fail():
     assert errors(finding(outcome="")) == ["outcome_empty"]
     assert errors(finding(outcome="x" * 401)) == ["outcome_too_long"]
+
+
+def _cites(sentence: str, *marks: str) -> list[tuple[int, int]]:
+    return [(sentence.index(m), sentence.index(m) + len(m)) for m in marks]
+
+
+def test_the_statement_may_leave_out_the_citation_markers_as_the_prompt_asks():
+    # Both shapes are from the full S2.7 run's invalid contexts (failure log, 2026-11-14).
+    sentence = "Halse et al. [60] noted that drains [61] were removed early."
+    cites = _cites(sentence, "[60]", "[61]")
+    for statement in ("Halse et al. noted that drains were removed early",  # every marker out
+                      "Halse et al. noted that drains [61] were removed",  # only its own out
+                      "Halse et al. [60] noted that drains [61] were removed early"):  # exact copy
+        assert statement_in_sentence(statement, sentence, cites), statement
+    superscript = "These include chemotherapy,16,17,18,19,20 offering relief."
+    cites = [(superscript.index("16"), superscript.index(" offering"))]
+    assert statement_in_sentence("chemotherapy, offering relief", superscript, cites)
+
+
+def test_leaving_out_a_marker_excuses_nothing_else():
+    sentence = "Halse et al. [60] noted that drains [61] were removed early."
+    cites = _cites(sentence, "[60]", "[61]")
+    assert not statement_in_sentence("Halse noted that drains were removed early", sentence, cites)
+    assert not statement_in_sentence("drains were taken out early", sentence, cites)  # paraphrase
+    assert not statement_in_sentence("Halse et al. noted", sentence, [])  # 1.0.0's rule without spans
+    superscript = "These include chemotherapy,16,17,18,19,20 offering relief."
+    cites = [(superscript.index("16"), superscript.index(" offering"))]
+    assert not statement_in_sentence("chemotherapy offering relief", superscript, cites)  # comma kept
+
+
+def test_grounding_takes_the_sentences_citations():
+    sentence = "Drug A lowered systolic blood pressure [7] by 12 mmHg in 1,204 adults [8]."
+    sk = finding(statement="Drug A lowered systolic blood pressure by 12 mmHg in 1,204 adults",
+                 population="adults", comparator=None)
+    assert grounding_errors(sk, sentence=sentence, context=sentence) == ["statement_not_in_sentence"]
+    assert grounding_errors(sk, sentence=sentence, context=sentence,
+                            cites=_cites(sentence, "[7]", "[8]")) == []
+
+
+def test_an_invalid_claim_keeps_its_answer_and_a_valid_one_only_its_skeleton():
+    invalid = ClaimRecord(citation_context_id=1, skeleton=None, extractor="llm:m", extractor_ver="1.1.0",
+                          valid=False, answer="not json", errors=["invalid_json"])
+    assert invalid.row()["answer"] == "not json" and invalid.row()["errors"] == ["invalid_json"]
+    with pytest.raises(ValueError):
+        ClaimRecord(citation_context_id=1, skeleton=finding(), extractor="llm:m", extractor_ver="1.1.0",
+                    valid=True, answer="{}")
+    with pytest.raises(ValueError):
+        ClaimRecord(citation_context_id=1, skeleton=None, extractor="llm:m", extractor_ver="1.1.0",
+                    valid=False, answer="x" * (MAX_ANSWER_CHARS + 1), errors=["invalid_json"])
 
 
 def test_answers_that_are_not_the_schema_fail_as_invalid_json():
@@ -273,9 +325,10 @@ class FakeChat:
 
 
 class Row:
-    def __init__(self, id: int, context: str = CONTEXT, sentence: str = SENTENCE) -> None:
+    def __init__(self, id: int, context: str = CONTEXT, sentence: str = SENTENCE,
+                 cites: list | None = None) -> None:
         self.id, self.context_text, self.sentence = id, context, sentence
-        self.marker, self.section = "7", "discussion"
+        self.marker, self.section, self.sentence_cites = "7", "discussion", cites
 
 
 def test_a_broken_rule_goes_back_to_the_model_and_a_fixed_answer_is_kept():
@@ -286,6 +339,17 @@ def test_a_broken_rule_goes_back_to_the_model_and_a_fixed_answer_is_kept():
     repair = chat.requests[1]
     assert [m["role"] for m in repair] == ["system", "user", "assistant", "user"]
     assert "population is not copied word for word" in repair[3]["content"]
+
+
+def test_a_statement_without_its_marker_is_valid_at_once_when_the_context_has_spans():
+    sentence = "In the TRIAL-X study [7], Drug A lowered systolic blood pressure."
+    statement = "In the TRIAL-X study, Drug A lowered systolic blood pressure"
+    answer = finding(statement=statement, population=None, effect=None, n=None, comparator=None,
+                     outcome="systolic blood pressure", direction="decrease")
+    old = extract_one(FakeChat({sentence: [answer] * 3}), "m", Row(1, sentence, sentence))
+    assert old.skeleton is None and old.final_errors == ["statement_not_in_sentence"]  # 1.0.0 contexts
+    new = extract_one(FakeChat({sentence: [answer]}), "m", Row(1, sentence, sentence, _cites(sentence, "[7]")))
+    assert new.skeleton == answer and new.calls == 1
 
 
 def test_a_context_still_invalid_after_the_repairs_has_no_skeleton():
@@ -354,6 +418,11 @@ def test_a_run_stores_one_claim_per_context_and_a_rerun_does_nothing(s27_engine)
         summary = stored_summary(conn, label=LABEL, extractor="llm:m")
     assert [r.valid for r in rows] == [True, True, True, False, True, True]
     assert rows[3].skeleton is None and rows[0].skeleton == finding().model_dump()
+    with s27_engine.connect() as conn:
+        kept = conn.execute(select(claim.c.valid, claim.c.answer, claim.c.errors)
+                            .order_by(claim.c.citation_context_id)).all()
+    assert kept[3] == (False, "not json", ["invalid_json"])  # the last answer, for re-checking
+    assert all(r.answer is None and r.errors is None for r in kept if r.valid)
     assert {(r.extractor, r.extractor_ver) for r in rows} == {("llm:m", EXTRACTOR_VER)}
     assert summary == {"valid": 5, "invalid": 1, "kinds": {"finding": 5}}
     assert ex.stats.valid_first == 5 and ex.stats.invalid == 1
@@ -377,6 +446,44 @@ def test_a_sample_is_the_same_contexts_for_every_model_and_changes_with_the_seed
     ex = ClaimExtractor(s27_engine, FakeChat(_script(range(1, 7))), label=LABEL, model="a", seed=1, sample=3)
     ex.run(s27_engine, limit=1)
     assert ex.pending_ids() == first[1:]
+
+
+@requires_db
+def test_valid_skeletons_carry_over_only_where_the_models_input_is_unchanged(s27_engine):
+    """Old contexts 1..6 beside the fixture's current ones: 1 unchanged and
+    valid, 2 invalid, 3 with another passage, 4 citing other references, 5
+    already done, 6 unchanged but breaking the current rules."""
+    with s27_engine.begin() as conn:
+        pid = conn.execute(select(paper.c.id).where(paper.c.title == TITLE)).scalar_one()
+        new = dict(conn.execute(select(citation_context.c.ordinal, citation_context.c.id)).all())
+        old = dict(conn.execute(insert(citation_context).returning(
+            citation_context.c.ordinal, citation_context.c.id), [
+            {"citing_paper_id": pid, "extractor_ver": "0.9.0", "ordinal": i, "section": "discussion",
+             "marker": "7", "sentence": SENTENCE,
+             "context_text": f"Other {i}. {SENTENCE}" if i == 3 else _context(i)} for i in range(1, 7)]).all())
+        ref = conn.execute(insert(reference).values(citing_paper_id=pid, ordinal=1, raw={})
+                           .returning(reference.c.id)).scalar_one()
+        conn.execute(insert(citation_context_reference).values(citation_context_id=old[4], reference_id=ref))
+        drifted = finding(statement="a statement the sentence never had")
+        conn.execute(insert(claim), [
+            ClaimRecord(citation_context_id=old[i], skeleton=None if i == 2 else drifted if i == 6 else finding(),
+                        extractor="llm:m", extractor_ver="0.9.0", valid=i != 2,
+                        errors=["invalid_json"] if i == 2 else None).row() for i in range(1, 7)])
+        conn.execute(insert(claim).values(ClaimRecord(
+            citation_context_id=new[5], skeleton=finding(effect=None), extractor="llm:m",
+            extractor_ver=EXTRACTOR_VER, valid=True).row()))
+
+    stats = carry_over(s27_engine, label=LABEL, extractor="llm:m", from_ver="0.9.0")
+    assert (stats.matched, stats.carried, stats.failed_rules) == (2, 1, 1)
+    with s27_engine.connect() as conn:
+        current = dict(conn.execute(select(claim.c.citation_context_id, claim.c.skeleton)
+                                    .where(claim.c.extractor_ver == EXTRACTOR_VER)).all())
+    assert current == {new[1]: finding().model_dump(), new[5]: finding(effect=None).model_dump()}
+
+    ex = ClaimExtractor(s27_engine, FakeChat({}), label=LABEL, model="m", seed=1)
+    assert ex.pending_ids() == sorted(new[i] for i in (2, 3, 4, 6))  # only these get asked
+    again = carry_over(s27_engine, label=LABEL, extractor="llm:m", from_ver="0.9.0")
+    assert (again.matched, again.carried) == (1, 0)  # only 6 matches again, and still fails
 
 
 # --- batch mode against the test database ------------------------------------------------

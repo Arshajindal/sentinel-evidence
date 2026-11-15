@@ -5,7 +5,14 @@ is "llm:<model>", so models can be compared on the same contexts. The model
 answers in a strict JSON schema at temperature 0. An answer that breaks a
 grounding rule (`skeleton.grounding_errors`) goes back to the model with the
 rules it broke, up to MAX_REPAIRS times. What is still invalid is stored as
-valid=false with no skeleton.
+valid=false with no skeleton, and from 1.1.0 with its last answer and the
+rules it broke, so a later rule can re-check it without asking again.
+
+Version 1.1.0 (ADR-056) runs on citation contexts 1.1.0 and lets the
+statement leave out the sentence's citation markers, as the prompt asks. The
+prompt and settings are 1.0.0's. A 1.0.0 skeleton passes 1.1.0's rules, so
+`carry_over` copies the valid ones to the new contexts whose text is
+unchanged, and only the rest are asked again.
 
 Two ways to ask, with the same requests and the same rules:
 - **direct:** a few calls at a time, in context order;
@@ -35,21 +42,22 @@ from dataclasses import dataclass, field
 
 from pydantic import ValidationError
 from sqlalchemy import Connection, Engine, Text, cast, exists, func, literal, select
-from sqlalchemy.dialects.postgresql import insert
+from sqlalchemy.dialects.postgresql import aggregate_order_by, insert
 
 from sentinel.extract import prompt
 from sentinel.extract.llm import BatchClient, ChatClient, Completion, GatewayError, parse_completion, request_body
-from sentinel.extract.skeleton import ClaimRecord, ClaimSkeleton, grounding_errors, response_schema
+from sentinel.extract.skeleton import (
+    MAX_ANSWER_CHARS, ClaimRecord, ClaimSkeleton, grounding_errors, response_schema)
 from sentinel.fulltext.contexts import EXTRACTOR_VERSION as CONTEXT_VERSION
 from sentinel.ingest.base import Harvester, UpsertCounts
 from sentinel.log import get_logger
-from sentinel.models import citation_context, claim, corpus_paper
+from sentinel.models import citation_context, citation_context_reference, claim, corpus_paper
 
 log = get_logger(__name__)
 
 # Bump on any change to the prompt, the schema, the grounding rules or the
 # settings below: each changes what is extracted.
-EXTRACTOR_VER = "1.0.0"
+EXTRACTOR_VER = "1.1.0"
 MAX_REPAIRS = 2
 MAX_TOKENS = 1024
 SCHEMA_NAME = "claim_skeleton"
@@ -69,6 +77,7 @@ class Outcome:
 
     citation_context_id: int
     skeleton: ClaimSkeleton | None
+    answer: str | None = None  # the last answer, as text
     calls: int = 0
     first_errors: list[str] = field(default_factory=list)
     final_errors: list[str] = field(default_factory=list)
@@ -93,13 +102,16 @@ class Attempt:
     round: int = 0
 
 
-def check_answer(content: str, *, sentence: str, context: str) -> tuple[ClaimSkeleton | None, list[str]]:
-    """The skeleton if the answer is valid, else None and the rules it breaks."""
+def check_answer(content: str, *, sentence: str, context: str,
+                 cites: list | None = None) -> tuple[ClaimSkeleton | None, list[str]]:
+    """The skeleton if the answer is valid, else None and the rules it breaks.
+    `cites` are the sentence's citation spans (contexts 1.1.0 on)."""
     try:
         skeleton = ClaimSkeleton.model_validate_json(content)
     except ValidationError:
         return None, ["invalid_json"]
-    errors = grounding_errors(skeleton, sentence=sentence, context=context)
+    errors = grounding_errors(skeleton, sentence=sentence, context=context,
+                              cites=[tuple(c) for c in cites or ()])
     return (None if errors else skeleton), errors
 
 
@@ -133,8 +145,10 @@ def record_answer(attempt: Attempt, done: Completion) -> bool:
     out.co2_g += done.co2_g
     out.truncated += done.finish_reason == "length"
     out.deployments.append(f"{done.deployment}|{done.fingerprint}")
+    out.answer = done.content
     row = attempt.row
-    skeleton, errors = check_answer(done.content, sentence=row.sentence, context=row.context_text)
+    skeleton, errors = check_answer(done.content, sentence=row.sentence, context=row.context_text,
+                                    cites=row.sentence_cites)
     if attempt.round == 0:
         out.first_errors = errors
     out.final_errors = errors
@@ -280,7 +294,8 @@ class ClaimExtractor(Harvester):
 
     def _rows(self, ids: list[int]) -> list:
         cols = (citation_context.c.id, citation_context.c.sentence, citation_context.c.context_text,
-                citation_context.c.marker, citation_context.c.section)
+                citation_context.c.marker, citation_context.c.section,
+                citation_context.c.sentence_cites)
         with self.engine.connect() as conn:
             return conn.execute(select(*cols).where(citation_context.c.id.in_(ids))
                                 .order_by(citation_context.c.id)).all()
@@ -293,7 +308,8 @@ class ClaimExtractor(Harvester):
         outcomes = self._batched(ids) if self.batch else self._direct(ids)
         for out in outcomes:
             self.stats.add(out)
-            yield ({"citation_context_id": out.citation_context_id, "skeleton": out.skeleton},
+            yield ({"citation_context_id": out.citation_context_id, "skeleton": out.skeleton,
+                    "answer": out.answer, "errors": out.final_errors},
                    f"{self.label}:{out.citation_context_id}")
 
     def _direct(self, ids: list[int]) -> Iterator[Outcome]:
@@ -361,15 +377,85 @@ class ClaimExtractor(Harvester):
         return str(raw.get("citation_context_id"))
 
     def normalise(self, raw: dict) -> ClaimRecord:
+        valid = raw["skeleton"] is not None
+        answer = raw.get("answer")
         return ClaimRecord(citation_context_id=raw["citation_context_id"], skeleton=raw["skeleton"],
-                           extractor=self.extractor, extractor_ver=EXTRACTOR_VER,
-                           valid=raw["skeleton"] is not None)
+                           extractor=self.extractor, extractor_ver=EXTRACTOR_VER, valid=valid,
+                           answer=None if valid or answer is None else answer[:MAX_ANSWER_CHARS],
+                           errors=None if valid else list(raw.get("errors") or []))
 
     def upsert(self, conn: Connection, records: list[ClaimRecord]) -> UpsertCounts:
         written = len(conn.execute(
             insert(claim).on_conflict_do_nothing(constraint="claim_context_extractor_key")
             .returning(claim.c.id), [r.row() for r in records]).all())
         return UpsertCounts(inserted=written, unchanged=len(records) - written)
+
+
+@dataclass
+class CarryStats:
+    matched: int = 0  # current contexts with an unchanged earlier context and a valid skeleton
+    carried: int = 0
+    failed_rules: int = 0  # broke the current rules, so left to be asked (none expected)
+
+
+def _refs(ctx):
+    """A context's cited references, as a sorted array, for comparing two contexts."""
+    links = citation_context_reference.alias()  # one per subquery, so neither correlates the other
+    return (select(func.array_agg(aggregate_order_by(links.c.reference_id, links.c.reference_id)))
+            .where(links.c.citation_context_id == ctx.c.id)
+            .correlate_except(links)
+            .scalar_subquery())
+
+
+def carry_over(engine: Engine, *, label: str, extractor: str, from_ver: str) -> CarryStats:
+    """Copy valid skeletons from extractor version `from_ver` to the current
+    contexts whose model input is unchanged: same paper and ordinal, and the
+    same sentence, passage, marker, section and cited references, so the
+    model was asked exactly what it would be asked now. Each copy is checked
+    against the current rules first, and stored only if it passes. Contexts
+    that already have a current claim are left alone (ADR-056)."""
+    new, old = citation_context.alias("new"), citation_context.alias("old")
+    current = claim.alias("current")
+    in_corpus = select(corpus_paper.c.paper_id).where(corpus_paper.c.label == label)
+    done = exists().where(current.c.citation_context_id == new.c.id, current.c.extractor == extractor,
+                          current.c.extractor_ver == EXTRACTOR_VER)
+    stmt = (select(new.c.id, new.c.sentence, new.c.context_text, new.c.sentence_cites,
+                   claim.c.skeleton)
+            .join(old, (old.c.citing_paper_id == new.c.citing_paper_id)
+                  & (old.c.ordinal == new.c.ordinal) & (old.c.extractor_ver != CONTEXT_VERSION)
+                  & (old.c.sentence == new.c.sentence) & (old.c.context_text == new.c.context_text)
+                  & old.c.marker.is_not_distinct_from(new.c.marker)
+                  & old.c.section.is_not_distinct_from(new.c.section))
+            .join(claim, claim.c.citation_context_id == old.c.id)
+            .where(new.c.extractor_ver == CONTEXT_VERSION, new.c.citing_paper_id.in_(in_corpus),
+                   claim.c.extractor == extractor, claim.c.extractor_ver == from_ver, claim.c.valid,
+                   _refs(new).is_not_distinct_from(_refs(old)), ~done)
+            .order_by(new.c.id, old.c.id))
+    stats = CarryStats()
+    seen: set[int] = set()
+    records: dict[int, ClaimRecord] = {}
+    with engine.connect() as conn:
+        for row in conn.execute(stmt):
+            if row.id in seen:
+                continue  # one source per context, the earliest
+            seen.add(row.id)
+            stats.matched += 1
+            skeleton = ClaimSkeleton.model_validate(row.skeleton)
+            if grounding_errors(skeleton, sentence=row.sentence, context=row.context_text,
+                                cites=[tuple(c) for c in row.sentence_cites or ()]):
+                stats.failed_rules += 1
+                continue
+            records[row.id] = ClaimRecord(citation_context_id=row.id, skeleton=skeleton,
+                                          extractor=extractor, extractor_ver=EXTRACTOR_VER, valid=True)
+    rows = [r.row() for r in records.values()]
+    with engine.begin() as conn:
+        for i in range(0, len(rows), 1000):
+            stats.carried += len(conn.execute(
+                insert(claim).on_conflict_do_nothing(constraint="claim_context_extractor_key")
+                .returning(claim.c.id), rows[i:i + 1000]).all())
+    log.info("claims_carried", extractor=extractor, from_ver=from_ver, to_ver=EXTRACTOR_VER,
+             matched=stats.matched, carried=stats.carried, failed_rules=stats.failed_rules)
+    return stats
 
 
 def stored_summary(conn: Connection, *, label: str, extractor: str) -> dict:

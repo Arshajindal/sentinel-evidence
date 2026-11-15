@@ -179,11 +179,16 @@ class CitationContextRecord(BaseModel):
     sentence: str = Field(min_length=1)
     context_text: str = Field(min_length=1)
     reference_ids: list[int] = Field(min_length=1)
+    # Citation groups in the sentence as (start, end) offsets; None before 1.1.0.
+    sentence_cites: list[tuple[int, int]] | None = None
 
     @model_validator(mode="after")
     def _check(self) -> CitationContextRecord:
         if self.sentence not in self.context_text:
             raise ValueError("the context must contain its citing sentence")
+        for start, end in self.sentence_cites or ():
+            if not 0 <= start < end <= len(self.sentence):
+                raise ValueError("a citation span must lie inside the sentence")
         return self
 
 

@@ -8,8 +8,8 @@
 - **Validation failure rate:** 14.5% on the first answer (95% CI 14.1–14.8), 6.5% after up to two repairs (6.3–6.8). That is a little above the pilot's 11.0% and 5.0%, and inside the pilot's intervals.
 - **All 35,921 contexts now have a stored result:** 33,584 valid skeletons and 2,337 invalid.
 - **Almost every remaining failure is the statement rule:** 2,180 of the 2,325 contexts left invalid break it. Repairs fix most other rules but only 40% of statement failures.
-- **Most of those are the rule's fault, not the model's.** Asking again for 20 invalid contexts showed what happens in 18 of them: the model copies the sentence exactly but leaves out its citation markers, which the exact-copy rule rejects. A marker-tolerant rule would put the failure rate after repairs at roughly 1–2%.
-- **Reading the failures found an upstream bug.** At least 993 contexts (2.8%) have the wrong citing sentence, from S2.3's sentence splitter. 856 of them still passed validation (failure log, 2026-11-14).
+- **Most of those are the rule's fault, not the model's.** Asking again for 20 invalid contexts showed what happens in 18 of them: the model copies the sentence exactly but leaves out its citation markers, which the exact-copy rule rejects. A marker-tolerant rule would put the failure rate after repairs at roughly 1–2%. *Fixed 2026-11-15 in extractor 1.1.0: 0.63% invalid. See `claim-extraction-1.1.0-2026-11-15.md`.*
+- **Reading the failures found an upstream bug.** At least 993 contexts (2.8%) have the wrong citing sentence, from S2.3's sentence splitter. 856 of them still passed validation (failure log, 2026-11-14). *Fixed 2026-11-15 in contexts 1.1.0: 2,421 contexts changed, more than this lower bound. See `claim-extraction-1.1.0-2026-11-15.md`.*
 - **The gateway's own energy estimate:** 46.8 kWh and 15.8 kg CO2. That is about 1.08 Wh per call, half the smoke run's rate, so about 60% of ADR-054's 80 kWh projection.
 
 ## Setup

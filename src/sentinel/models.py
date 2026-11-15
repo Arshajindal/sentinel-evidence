@@ -432,6 +432,8 @@ citation_context = Table(
     Column("marker", Text),  # the citation as printed, e.g. "[3-5]"
     Column("sentence", Text, nullable=False),
     Column("context_text", Text, nullable=False),
+    # Citation groups in the sentence as [start, end] offsets (1.1.0 on).
+    Column("sentence_cites", JSONB),
     UniqueConstraint(
         "citing_paper_id",
         "extractor_ver",
@@ -460,7 +462,8 @@ Index("citation_context_reference_ref", citation_context_reference.c.reference_i
 
 # A claim skeleton extracted from a citation context: population,
 # intervention, comparator, outcome, effect, n, direction. `valid` is false
-# when the extractor's output never passed validation (§10.1 item 6).
+# when the extractor's output never passed validation (§10.1 item 6); then
+# `answer` is its last answer and `errors` the rules it broke (1.1.0 on).
 claim = Table(
     "claim",
     metadata,
@@ -475,6 +478,8 @@ claim = Table(
     Column("extractor", Text, nullable=False),
     Column("extractor_ver", Text, nullable=False),
     Column("valid", Boolean, nullable=False),
+    Column("answer", Text),
+    Column("errors", JSONB),
     Column(
         "created_at",
         DateTime(timezone=True),

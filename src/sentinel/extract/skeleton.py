@@ -10,6 +10,10 @@ the statement from the citing sentence itself, and a sample size must be a
 number written there. A paraphrased or invented span fails, and that failure
 rate is S2.7's metric.
 
+The prompt asks for the statement without the citation marker, so from 1.1.0
+a statement may leave out any of the sentence's citations (ADR-056). 1.0.0
+wanted one exact run of the sentence and rejected those faithful copies.
+
 Context text is untrusted data from papers. Nothing here acts on it; it is
 only compared against.
 """
@@ -18,9 +22,10 @@ from __future__ import annotations
 
 import re
 import unicodedata
+from collections.abc import Iterable, Sequence
 from typing import Literal
 
-from pydantic import BaseModel, ConfigDict, model_validator
+from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 Kind = Literal["finding", "background", "method", "other"]
 Direction = Literal["increase", "decrease", "no_effect", "unspecified"]
@@ -64,11 +69,63 @@ _QUOTES = {ord("‘"): "'", ord("’"): "'", ord("“"): '"', ord("”"): '"'}
 _EDGE = " \t\n.,;:"
 
 
+def _fold(text: str) -> str:
+    return unicodedata.normalize("NFKC", text).casefold().translate(_DASHES).translate(_QUOTES)
+
+
 def norm(text: str) -> str:
     """Compare text the way a reader would: Unicode-compatible forms, case,
     dashes, quotes and runs of whitespace don't matter."""
-    text = unicodedata.normalize("NFKC", text).casefold().translate(_DASHES).translate(_QUOTES)
-    return " ".join(text.split()).strip(_EDGE)
+    return " ".join(_fold(text).split()).strip(_EDGE)
+
+
+def _squash(text: str) -> str:
+    return "".join(_fold(text).split())
+
+
+def statement_in_sentence(statement: str, sentence: str,
+                          cites: Sequence[tuple[int, int]] = ()) -> bool:
+    """True when the statement is a run of the sentence's words, with any of
+    the citation groups at `cites` (offsets into the sentence) left out:
+    "Halse et al. noted" is in "Halse et al. [60] noted". When a marker is
+    left out, spacing is ignored, since the marker's spaces stay behind."""
+    if norm(statement) in norm(sentence):
+        return True  # 1.0.0's rule
+    if not cites:
+        return False
+    text, skips, pos = "", {}, 0
+    for start, end in sorted(cites):
+        if start < pos:
+            continue  # overlapping spans: keep the first
+        text += _squash(sentence[pos:start])
+        mark = _squash(sentence[start:end])
+        if mark:
+            skips[len(text)] = len(text) + len(mark)
+        text += mark
+        pos = end
+    text += _squash(sentence[pos:])
+    return _reads_off(_squash(norm(statement)), text, skips)
+
+
+def _reads_off(target: str, text: str, skips: dict[int, int]) -> bool:
+    """Whether `target` reads off `text` from some position onwards, where
+    the block starting at a key of `skips` may be jumped to its end."""
+    def reach(positions: Iterable[int]) -> set[int]:
+        out, stack = set(), list(positions)
+        while stack:
+            p = stack.pop()
+            if p not in out:
+                out.add(p)
+                if p in skips:
+                    stack.append(skips[p])
+        return out
+
+    states = reach(range(len(text) + 1))
+    for ch in target:
+        states = reach(p + 1 for p in states if p < len(text) and text[p] == ch)
+        if not states:
+            return False
+    return bool(target)
 
 
 _NUMBER = re.compile(r"\d(?:[\d,]*\d)?")
@@ -81,15 +138,18 @@ def numbers_in(text: str) -> set[int]:
     return {int(m.group().replace(",", "")) for m in _NUMBER.finditer(text)}
 
 
-def grounding_errors(skeleton: ClaimSkeleton, *, sentence: str, context: str) -> list[str]:
+def grounding_errors(skeleton: ClaimSkeleton, *, sentence: str, context: str,
+                     cites: Sequence[tuple[int, int]] = ()) -> list[str]:
     """Rule codes the skeleton breaks, empty if it is valid. Codes, not
-    messages, so they can be counted and logged without quoting paper text."""
+    messages, so they can be counted and logged without quoting paper text.
+    `cites` are the sentence's citation groups, which the statement may
+    leave out; without them it must be one exact run of the sentence (1.0.0)."""
     errors: list[str] = []
     ctx = norm(context)
     stmt = norm(skeleton.statement)
     if not stmt:
         errors.append("statement_empty")
-    elif stmt not in norm(sentence):
+    elif not statement_in_sentence(skeleton.statement, sentence, cites):
         errors.append("statement_not_in_sentence")
 
     for field in SPAN_FIELDS:
@@ -114,9 +174,15 @@ def grounding_errors(skeleton: ClaimSkeleton, *, sentence: str, context: str) ->
     return errors
 
 
+# An invalid answer is kept for re-checking, up to this many characters;
+# MAX_TOKENS answer tokens fit well inside it.
+MAX_ANSWER_CHARS = 20_000
+
+
 class ClaimRecord(BaseModel):
-    """One row of `claim`. A valid row holds its skeleton; an invalid one
-    holds none, so nothing that failed validation is ever stored."""
+    """One row of `claim`. A valid row holds its skeleton. An invalid one
+    holds none; from 1.1.0 its last answer is kept as text in `answer`, with
+    the rules it broke in `errors`, and is never read as a skeleton."""
 
     model_config = ConfigDict(extra="forbid", frozen=True)
 
@@ -125,15 +191,19 @@ class ClaimRecord(BaseModel):
     extractor: str
     extractor_ver: str
     valid: bool
+    answer: str | None = Field(default=None, max_length=MAX_ANSWER_CHARS)
+    errors: list[str] | None = None
 
     @model_validator(mode="after")
     def _skeleton_iff_valid(self) -> ClaimRecord:
         if self.valid != (self.skeleton is not None):
             raise ValueError("a valid claim has a skeleton and an invalid one has none")
+        if self.valid and (self.answer is not None or self.errors):
+            raise ValueError("a valid claim keeps no answer or errors beside its skeleton")
         return self
 
     def row(self) -> dict:
         return {"citation_context_id": self.citation_context_id,
                 "skeleton": self.skeleton.model_dump() if self.skeleton else None,
                 "extractor": self.extractor, "extractor_ver": self.extractor_ver,
-                "valid": self.valid}
+                "valid": self.valid, "answer": self.answer, "errors": self.errors}

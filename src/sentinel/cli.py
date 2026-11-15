@@ -723,6 +723,36 @@ def extract_claims(
             typer.echo(f"MLflow logging failed ({type(exc).__name__}); the claims are stored")
 
 
+@extract_app.command("claims-carry")
+def extract_claims_carry(
+    model: Annotated[str, typer.Option(help="Gateway model ID whose claims are copied")],
+    from_ver: Annotated[str, typer.Option(help="The earlier claim extractor version to copy from")],
+    corpus: Annotated[Optional[str], typer.Option(help="Corpus label")] = None,
+) -> None:
+    """Copy valid claim skeletons to the current contexts where the model's input
+    is unchanged, so only the rest need asking (ADR-056). Calls nothing."""
+    from sentinel.extract.claims import EXTRACTOR_VER, carry_over, stored_summary
+
+    settings = get_settings()
+    label = corpus or settings.default_corpus_label
+    if label not in _corpus_labels():
+        raise typer.BadParameter(f"unknown corpus {label!r}. Known corpora: {_corpus_labels()}")
+    if from_ver == EXTRACTOR_VER:
+        raise typer.BadParameter(f"--from-ver must be an earlier version than {EXTRACTOR_VER}")
+    extractor = f"llm:{model}"
+    with record_stage(get_engine(), "extract", source=f"claims-carry:{model}", corpus_label=label) as stage:
+        cs = carry_over(get_engine(), label=label, extractor=extractor, from_ver=from_ver)
+        stage.items = cs.matched
+        stage.counts = {"model": model, "from_ver": from_ver, "to_ver": EXTRACTOR_VER,
+                        "matched": cs.matched, "carried": cs.carried, "failed_rules": cs.failed_rules}
+    typer.echo(f"{cs.matched:,} contexts unchanged with a valid {from_ver} skeleton: {cs.carried:,} "
+               f"copied to {EXTRACTOR_VER}, {cs.failed_rules:,} broke the current rules")
+    with get_engine().connect() as conn:
+        stored = stored_summary(conn, label=label, extractor=extractor)
+    typer.echo(f"stored for {extractor} {EXTRACTOR_VER}: {stored['valid']:,} valid, "
+               f"{stored['invalid']:,} invalid")
+
+
 @app.command()
 def ingest(
     source: Annotated[str, typer.Argument(help=f"One of: {', '.join(ALL_SOURCES)}")],

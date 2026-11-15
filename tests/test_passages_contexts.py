@@ -87,6 +87,43 @@ def test_a_citation_after_the_full_stop_stays_with_its_sentence():
     assert [text[s:e] for s, e in spans] == ["Risk rose in adults.12,13", "Next we tested it."]
 
 
+def _cut(text: str, cites: list[str], *, across: bool = True) -> list[str]:
+    spans, start = [], 0
+    for c in cites:
+        i = text.index(c, start)
+        spans.append((i, i + len(c)))
+        start = i + len(c)
+    return [text[s:e] for s, e in sentences.split(text, spans, cites_across_space=across)]
+
+
+@pytest.mark.parametrize("text, cites, expected", [
+    # Shapes from the corpus (failure log, 2026-11-14; ADR-056).
+    ("Pain fell until drain removal. 15 However, it rose later.", ["15"],
+     ["Pain fell until drain removal. 15", "However, it rose later."]),
+    ("It predicts severity in adults. 16 , 17", ["16", "17"], ["It predicts severity in adults. 16 , 17"]),
+    ("It harms quality of life (QoL).3, 4, 5, 6 Mood suffers too.7", ["3", "4", "5", "6", "7"],
+     ["It harms quality of life (QoL).3, 4, 5, 6", "Mood suffers too.7"]),
+    ("It reduces nausea after ambulatory surgery.[4,24] Previous studies agree.", ["4", "24"],
+     ["It reduces nausea after ambulatory surgery.[4,24]", "Previous studies agree."]),
+    ("Craving varied. Gorini et al. (2014) tested both sides.", ["Gorini et al. (2014)"],
+     ["Craving varied.", "Gorini et al. (2014) tested both sides."]),  # author-year: the subject
+    ("They act after transcription. 11 miRNAs matter here.", ["11"],
+     ["They act after transcription. 11 miRNAs matter here."]),  # unsure: left joined
+])
+def test_splitter_1_1_0_keeps_spaced_numeric_citations_with_the_sentence_before(text, cites, expected):
+    assert _cut(text, cites) == expected
+
+
+def test_splitter_1_0_0_rules_still_cut_passages_as_before():
+    text = "Pain fell until drain removal. 15 However, it rose later."
+    assert _cut(text, ["15"], across=False) == ["Pain fell until drain removal.", "15 However, it rose later."]
+    assert _cut("Risk rose in adults.12,13 Next we tested it.", ["12", "13"], across=False) == [
+        "Risk rose in adults.12,13", "Next we tested it."]
+    para = body.Paragraph(section="introduction", text=text, cites=[body.Cite(text.index("15"), text.index("15") + 2, "R1", "15")])
+    assert [p.text for p in make_passages(None, [para], PassageParams(1, 300, 0))] == [
+        "Pain fell until drain removal.", "15 However, it rose later."]
+
+
 # --- body -------------------------------------------------------------------------
 
 
@@ -202,6 +239,25 @@ def test_contexts_group_citations_and_take_one_sentence_either_side():
     assert second.context_text.endswith("Vaccines help.")  # the sentence after, same paragraph
 
 
+def test_each_context_records_every_citation_in_its_sentence_brackets_included():
+    ctx, _ = _contexts()
+    marks = {c.marker: [c.sentence[s:e] for s, e in c.sentence_cites] for c in ctx}
+    assert marks["1"] == ["1"] and marks["2,3"] == ["2,3"]
+    assert marks["4–7"] == ["[4–7]"] and marks["9–11"] == ["(9–11)"]
+    xml = ('<article><body><sec><title>Discussion</title><p>A rose [<xref ref-type="bibr" rid="R3">3</xref>] '
+           'and B fell [<xref ref-type="bibr" rid="X9">9</xref>].</p></sec></body></article>')
+    (only,) = extract(body.paragraphs(body.parse(xml)), REFS)  # 9 cites no stored reference
+    assert [only.sentence[s:e] for s, e in only.sentence_cites] == ["[3]", "[9]"]
+
+
+def test_a_superscript_printed_after_a_space_cites_the_sentence_before():
+    xml = ('<article><body><sec><title>Discussion</title><p>Pain fell until drain removal. '
+           '<sup><xref ref-type="bibr" rid="R5">5</xref></sup> However, it rose later.</p></sec></body></article>')
+    (ctx,) = extract(body.paragraphs(body.parse(xml)), REFS)
+    assert ctx.sentence == "Pain fell until drain removal. 5"
+    assert ctx.context_text == "Pain fell until drain removal. 5 However, it rose later."
+
+
 def test_ranges_expand_in_both_forms_but_author_year_does_not():
     ctx, stats = _contexts()
     by_marker = {c.marker: c.reference_ids for c in ctx}
@@ -307,6 +363,12 @@ def test_passages_and_contexts_are_stored_once(s23_engine):
     assert {v for *_, v in sections} == {"1.0.0/150-300-1"}
     assert n_ctx == 5 and links == 1 + 2 + 4 + 3 + 1  # "99" is not linked
     assert ctx.stats.unknown_rids == 1
+    with engine.connect() as conn:
+        stored = conn.execute(select(citation_context.c.extractor_ver, citation_context.c.sentence,
+                                     citation_context.c.sentence_cites)
+                              .order_by(citation_context.c.ordinal)).all()
+    assert {v for v, *_ in stored} == {"1.1.0"}
+    assert [[sentence[s:e] for s, e in cites] for _, sentence, cites in stored][2] == ["[4–7]"]
 
 
 @requires_db
