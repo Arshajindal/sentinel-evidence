@@ -6,12 +6,13 @@ import math
 from types import SimpleNamespace
 
 import pytest
-from sqlalchemy import delete, select
+from sqlalchemy import delete, insert, select
 
 from sentinel.eval.retrieval import (
     CachingCrossEncoder,
     Query,
     load_queries,
+    load_synthetic_queries,
     ndcg_at,
     paired_bootstrap,
     per_claim,
@@ -22,7 +23,7 @@ from sentinel.eval.retrieval import (
 )
 from sentinel.eval.scifact import load
 from sentinel.fulltext.passages import PassageParams
-from sentinel.models import eval_item, paper
+from sentinel.models import eval_item, eval_item_gold_passage, paper, passage
 from tests.conftest import FIXTURES, requires_db
 
 
@@ -104,7 +105,7 @@ def test_caching_cross_encoder_scores_each_pair_once():
 
 
 def test_run_ablation_builds_a_row_per_stage_and_metric():
-    def search(claim, metric):
+    def search(query, metric):
         base = 1 if metric == "dot" else 2
         return SimpleNamespace(bm25=[(5, 1.0)], dense=[(base, 0.9)], fused=[(base, 0.1), (5, 0.1)],
                                reranked=[(5, 3.0), (base, 1.0)])
@@ -141,3 +142,61 @@ def test_queries_are_claims_with_evidence_and_their_gold_passages(sf_engine):
     assert [len(q.gold) for q in queries] == [2, 2, 1]
     assert queries[0].gold == queries[1].gold
     assert load_queries(sf_engine, dataset="scifact", splits=["nonexistent"]) == []
+
+
+def test_short_rankings_compare_each_claim_with_its_own_pool_when_smaller():
+    rankings = {"bm25": {1: [1, 2], 2: [1, 2, 3]}, "dense/dot": {1: [1], 2: [1, 2, 3]}}
+    # Claim 1's pool holds 2 passages, claim 2's 10: depth 3 applies to claim 2 only.
+    assert short_rankings(rankings, depth=3, pool={1: 2, 2: 10}) == {"dense/dot": 1}
+
+
+# --- the synthetic set's queries (ADR-055) ------------------------------------------------
+
+SYN_TITLE = "s255-source"
+SYN_CORPUS = "test-s255"
+SYN_VER = "1.0.0/150-300-1"
+
+
+@pytest.fixture
+def syn_engine(db_engine):
+    with db_engine.connect() as conn:
+        if conn.execute(select(paper.c.id).where(paper.c.title != SYN_TITLE)).first():
+            pytest.skip("paper holds other data; not a disposable database")
+    _clear_syn(db_engine)
+    with db_engine.begin() as conn:
+        pid = conn.execute(insert(paper).values(title=SYN_TITLE, title_norm=SYN_TITLE, source="test", raw={})
+                           .returning(paper.c.id)).scalar_one()
+        p1, p2 = (conn.execute(insert(passage).values(paper_id=pid, splitter_ver=SYN_VER, ordinal=k,
+                                                      section="results", text=f"r{k}")
+                               .returning(passage.c.id)).scalar_one() for k in (1, 2))
+
+        def item(split, corruption, corpus=SYN_CORPUS, gold=(p1,)):
+            iid = conn.execute(insert(eval_item).values(
+                set_name="synthetic", split=split, claim_text=f"{split} {corruption} {corpus}",
+                source_paper_id=pid, label="supported", corruption_type=corruption, license="cc by",
+                origin={"dataset": "synthetic-rules", "corpus": corpus, "splitter_ver": SYN_VER,
+                        "claim_paper_id": pid}).returning(eval_item.c.id)).scalar_one()
+            conn.execute(insert(eval_item_gold_passage), [{"eval_item_id": iid, "passage_id": g} for g in gold])
+            return iid
+
+        ids = {"val": item("val", "none", gold=(p1, p2)), "test": item("test", "none"),
+               "changed": item("val", "number_changed"), "other": item("val", "none", corpus="elsewhere")}
+    yield db_engine, pid, ids, (p1, p2)
+    _clear_syn(db_engine)
+
+
+def _clear_syn(engine) -> None:
+    with engine.begin() as conn:
+        conn.execute(delete(eval_item).where(eval_item.c.origin["dataset"].astext == "synthetic-rules"))
+        conn.execute(delete(paper).where(paper.c.title == SYN_TITLE))
+
+
+@requires_db
+def test_synthetic_queries_are_intact_pairs_searching_their_own_paper(syn_engine):
+    engine, pid, ids, (p1, p2) = syn_engine
+    queries = load_synthetic_queries(engine, splits=["val", "test"], corpus=SYN_CORPUS, splitter_ver=SYN_VER)
+    assert [q.claim_id for q in queries] == sorted([ids["val"], ids["test"]])  # no corrupted, no other corpus
+    by_id = {q.claim_id: q for q in queries}
+    assert by_id[ids["val"]].gold == frozenset({p1, p2}) and by_id[ids["test"]].gold == frozenset({p1})
+    assert {q.paper_ids for q in queries} == {(pid,)}
+    assert load_synthetic_queries(engine, splits=["val"], corpus=SYN_CORPUS, splitter_ver="0.9.0/x") == []

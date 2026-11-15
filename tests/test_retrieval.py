@@ -218,3 +218,29 @@ def test_pipeline_fuses_bm25_and_dense_then_reranks(s25_engine):
     only_b = Retriever(engine, bm25, FakeQueryEncoder(), None, params).search("aspirin", paper_ids=[b])
     assert only_b.bm25 == [] and [h.passage_id for h in only_b.hits] == [ids["other"]]
     assert only_b.hits[0].rerank_score is None
+
+
+@requires_db
+def test_skipped_sections_leave_both_retrievers(s25_engine):
+    engine, ids, (a, b) = s25_engine
+    bm25 = BM25Index.from_documents([ids["aligned"], ids["long"]],
+                                    ["s25-a. Aspirin reduced stroke.", "s25-a. Aspirin and bleeding."],
+                                    k1=1.5, b=0.75)
+    params = RetrieveParams(splitter_ver=VER, article_model=MODEL, metric="dot", rrf_k=60, depth=50, keep=5)
+    retriever = Retriever(engine, bm25, FakeQueryEncoder(), None, params)
+    # Every passage of paper a is a results passage: skipping results leaves nothing.
+    none_left = retriever.search("aspirin", paper_ids=[a], skip_sections=("results",))
+    assert none_left.bm25 == [] and none_left.dense == [] and none_left.hits == []
+    kept = retriever.search("aspirin", paper_ids=[a], skip_sections=("abstract",))
+    assert {h.passage_id for h in kept.hits} == {ids["aligned"], ids["long"]}
+    with pytest.raises(ValueError):
+        retriever.search("aspirin", skip_sections=("abstract",))  # only within given works
+
+
+@requires_db
+def test_a_passage_with_no_section_is_never_skipped(crowded_engine):
+    crowded, target = crowded_engine
+    with crowded.connect() as conn:  # the crowded target's passages have no section
+        hits = dense_search(conn, _vec(1.0, 0.0), model=MODEL, splitter_ver=VER, metric="dot", n=10,
+                            paper_ids=[target], skip_sections=("abstract",))
+    assert len(hits) == 3

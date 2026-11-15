@@ -86,7 +86,13 @@ Keep updates quick, or the file stops being kept up. The rules:
 
 **Phase:** 2 of 5: full text, retrieval, and the evaluation foundation. Phase 1 is finished and merged (PR #1).
 **Plan:** the session list in §15 of `docs/sentinel-project.md`. The old brief and HTML spec are in `docs/archive/`.
-**Last worked:** 2026-11-14, batch mode for claim extraction on the current ASU gateway (ADR-054). 2026-11-12: S2.7 (claim skeletons; Q7 answered, ADR-053), the end of S2.4's embedding run, and the HNSW index drop (ADR-052). Before that, 2026-11-11: S2.6 (the retrieval ablation, ADR-050), S2.8 (the synthetic set, ADR-051), and the fix and repair of S2.2's abstract cleaner (failure log). 2026-11-10: S2.4 (passage embeddings; Q1 answered), S2.5 (retrieval) and S2.6a (SciFact; Q6 answered).
+**Last worked:** 2026-11-14:
+- the full claim skeleton run (S2.7);
+- reading its failures, which found citation contexts with the wrong sentence (failure log);
+- the reranker re-measured on full text with the synthetic set (ADR-055);
+- batch mode for claim extraction on the current ASU gateway (ADR-054).
+
+2026-11-12: S2.7 (claim skeletons; Q7 answered, ADR-053), the end of S2.4's embedding run, and the HNSW index drop (ADR-052). Before that, 2026-11-11: S2.6 (the retrieval ablation, ADR-050), S2.8 (the synthetic set, ADR-051), and the fix and repair of S2.2's abstract cleaner (failure log). 2026-11-10: S2.4 (passage embeddings; Q1 answered), S2.5 (retrieval) and S2.6a (SciFact; Q6 answered).
 
 **Sessions:**
 
@@ -114,32 +120,39 @@ Keep updates quick, or the file stops being kept up. The rules:
 | S2.4 Embeddings | done |`retrieve/encoders.py`, `retrieve/embed.py`, `sentinel embed passages` (ADR-047). Q1: no GPU, so MedCPT runs in-process with PyTorch on CPU, with the model card's exact title-and-passage input; TEI measured 16x slower. **All 265,424 cited-work passages embedded** (263,440 before the abstract repair), finished 2026-11-12 with no failures; the last of three runs did 115,056, model stored as `ncbi/MedCPT-Article-Encoder@d05a736da4bb`; stored vectors equal the model card's output. Corpus papers' own passages wait for Phase 3. |
 | S2.5 BM25, dense, fusion, rerank | done | `retrieve/` (bm25, dense, fusion, search; query and cross encoders), `sentinel retrieve build-bm25` and `sentinel retrieve search` (ADR-048). BM25 index of 265,424 passages, rebuilt after the abstract repair. **The debug command returns the top passages for a claim or a citation, with every stage's rank.** Dot and cosine both implemented; S2.6 decides. |
 | S2.6a External set (SciFact) | done | `eval/scifact.py`, `sentinel eval load-scifact` (ADR-049; Q6 answered). Release pinned by SHA-256 and unpacked safely. **1,258 items in our own splits by linked claims and abstracts** (SciFact's split shares 181 of 283 dev abstracts with train). 5,992 passages; every evidence sentence mapped to its gold passages. |
-| S2.6 Retrieval ablation | done | `eval/retrieval.py`, `sentinel eval retrieval` and `eval compare` (ADR-050). **Four rows, dot and cosine, in MLflow** over 263 SciFact claims. nDCG@10 on val: BM25 0.763, dense 0.791, fusion 0.801, fusion plus rerank 0.895. Test: 0.822 to 0.865, and there the reranker adds nothing measurable. The first run's cosine rows were cut short by the HNSW index, so dense search is now exact. Dot product chosen; reranker kept on val's evidence. Report in `docs/evals/`. |
-| S2.7 Claim skeletons | done | `extract/` (skeleton, prompt, llm, claims), `sentinel extract claims` (ADR-053; Q7 answered: ASU Research Computing's free gateway). Strict JSON schema at temperature 0; valid means grounded: every field is copied from the context, and a broken rule goes back to the model up to twice. **Validation failure rate on 200 contexts:** gemma4-31b-it 11.0% on the first answer, 5.0% after repairs; Qwen-235B 24.0%/2.5%; OLMo-32B 34.5%/8.5%. Gemma chosen: 0 of 20 wrong in a side-by-side reading (Qwen 5, OLMo 3). In MLflow (`claim-extraction`). Then the current gateway and a batch mode (ADR-054); the full run is not started. |
-| S2.8 Synthetic set | done | `eval/synthetic.py`, `eval/items.py`, `sentinel eval make-synthetic` (ADR-051). Rules, no language model. **6,628 items from 2,005 number-anchored abstract–results pairs in 1,176 cited works; every item has a corruption type, and splits are by source paper.** Rebuilt after the abstract repair; the first build had 5,323 items from 1,628 pairs. Spot checks: 48 of 50 items in the first build, and 12 of 13 from repaired abstracts, read as rightly labelled. Reading the drafts found S2.2's abstract cleaner deleting text after a "<" (failure log, now fixed). The reranker re-measurement on full text waits for S2.4's run. |
+| S2.6 Retrieval ablation | done | `eval/retrieval.py`, `sentinel eval retrieval` and `eval compare` (ADR-050). **Four rows, dot and cosine, in MLflow** over 263 SciFact claims. nDCG@10 on val: BM25 0.763, dense 0.791, fusion 0.801, fusion plus rerank 0.895. Test: 0.822 to 0.865, and there the reranker adds nothing measurable. The first run's cosine rows were cut short by the HNSW index, so dense search is now exact. Dot product chosen; reranker kept on val's evidence. Report in `docs/evals/`. **Re-measured on full text on 2026-11-14** (`--set synthetic`, ADR-055): each of 760 synthetic claims searched its own paper's body. The reranker gained over fusion on both splits (+0.069 val, +0.067 test); dot beat cosine again; BM25 alone scored best (0.919), as the set's number anchors predict. |
+| S2.7 Claim skeletons | done | `extract/` (skeleton, prompt, llm, claims), `sentinel extract claims` (ADR-053; Q7 answered: ASU Research Computing's free gateway). Strict JSON schema at temperature 0; valid means grounded: every field is copied from the context, and a broken rule goes back to the model up to twice. **Validation failure rate on 200 contexts:** gemma4-31b-it 11.0% on the first answer, 5.0% after repairs; Qwen-235B 24.0%/2.5%; OLMo-32B 34.5%/8.5%. Gemma chosen: 0 of 20 wrong in a side-by-side reading (Qwen 5, OLMo 3). In MLflow (`claim-extraction`). Then the current gateway and a batch mode (ADR-054). **Full run, 2026-11-14: all 35,921 contexts stored, 33,584 valid skeletons. Of the other 35,701, 14.5% were invalid on the first answer and 6.5% after repairs.** It took 81 min by batch, with none unanswered; the gateway estimates 46.8 kWh. Reading the failures found two problems (failure log). In 18 of 20 contexts asked again, the statement was an exact copy without its citation markers, so the true failure rate is nearer 1–2%. And 993 contexts have the wrong citing sentence. Report in `docs/evals/`. |
+| S2.8 Synthetic set | done | `eval/synthetic.py`, `eval/items.py`, `sentinel eval make-synthetic` (ADR-051). Rules, no language model. **6,628 items from 2,005 number-anchored abstract–results pairs in 1,176 cited works; every item has a corruption type, and splits are by source paper.** Rebuilt after the abstract repair; the first build had 5,323 items from 1,628 pairs. Spot checks: 48 of 50 items in the first build, and 12 of 13 from repaired abstracts, read as rightly labelled. Reading the drafts found S2.2's abstract cleaner deleting text after a "<" (failure log, now fixed). The reranker was re-measured on its intact pairs on 2026-11-14 (ADR-055). |
 
-**What works:** the whole Phase 1 pipeline over the 1,000-paper corpus. That means loading data, matching references (89.4% of all references, 94.4% of the structured sample), pulling out statistics, all five checks, `report`, `stats`, `export` and stage timing. 854 tests, all passing, including the database tests and the 46-item fixture set. Phase 2 so far:
+**What works:** the whole Phase 1 pipeline over the 1,000-paper corpus. That means loading data, matching references (89.4% of all references, 94.4% of the structured sample), pulling out statistics, all five checks, `report`, `stats`, `export` and stage timing. 863 tests, all passing, including the database tests and the 46-item fixture set. Phase 2 so far:
 - pgvector, the Phase 2 tables and MLflow;
 - text availability for every corpus paper and cited work (Q2 measured);
 - 293,067 passages and 35,921 citation contexts;
 - MedCPT embeddings for all 265,424 cited-work passages, searched exactly, with no vector index (ADR-052);
 - BM25, exact dense search, fusion and reranking;
-- SciFact loaded, and the retrieval ablation in MLflow;
+- SciFact loaded, and the retrieval ablation in MLflow, on SciFact and on full text from the synthetic set (ADR-050, ADR-055);
 - the synthetic set, 6,628 items;
-- claim skeletons from ASU's gateway: the extractor and the three-model pilot, gemma4-31b-it chosen (ADR-053).
+- claim skeletons from ASU's gateway for all 35,921 contexts, 33,584 valid (gemma4-31b-it; ADR-053, ADR-054).
 
 **What's broken:**
+- At least 993 citation contexts (2.8%, in 77 papers) have the wrong citing sentence. S2.3's splitter moves a citation that follows a full stop and a space into the next sentence. Their claims describe that sentence; 856 of them passed validation (failure log, 2026-11-14).
+- The claim statement rule rejects exact copies that leave out citation markers. That accounts for most of the 2,337 invalid claims (failure log, 2026-11-14).
 - Most of C01's corpus flags are works that do exist: only 8 of 20 sampled flags were correct (see the README's section on C01's limits). So C01's flag rate is published as an upper bound.
 - A stage that is force-killed leaves its `stage_run` row saying `running` forever (run 9).
 - `stats` counts items only for runs that finished.
 - The full text of PMC6561645 still returns an HTTP 500 error from Europe PMC.
 
 **Next three things:**
-1. Re-measure the reranker on the synthetic set's full-text pairs (ADR-050 asked for it; the vectors are all in now).
-2. Extract claim skeletons for the remaining 35,701 contexts: `sentinel extract claims --model gemma4-31b-it --corpus pmc-rct-2015-2024 --batch` (ADR-054). Rerun it to ask again for anything the gateway didn't answer. The gateway estimates about 80 kWh.
-3. S2.9, the tabular baseline: decide what it trains on, since there are no real labels until S3.4.
+1. Decide whether to fix both claim problems now (failure log, 2026-11-14), as one follow-up:
+   - **The splitter:** keep a citation that follows a full stop and a space with the sentence before it, bump the context extractor version, and rebuild contexts.
+   - **Claim extractor 1.1.0:** accept a statement that matches the sentence without its citation markers, and keep invalid answers.
+   - **Then ask again** for the changed and invalid contexts: about 3,200, a few batches.
+2. S2.9, the tabular baseline, the last Phase 2 session: decide what it trains on, since there are no real labels until S3.4.
+3. Close Phase 2: end-of-phase ledger rows, README pass, and the PR to main.
 
-**After that:** S2.9's tabular baseline has no real labels until S3.4's hand-labelled set. Phase 3 needs a plan for reranking cost: about 13 s per claim on this CPU (ADR-048, ADR-050). Still open from Phase 1: nothing checks for a DOI that points to a paper with a different title, and the title-plus-author Crossref search for C01 (ADR-041) has no session yet.
+**After that:**
+- Phase 3 needs a plan for reranking cost: about 7.5 s for one paper's body on this CPU, and 13 s for 50 SciFact passages (ADR-050, ADR-055).
+- Weighted fusion, or reranking BM25's list, should be measured on S3.4's real citations (ADR-055). Still open from Phase 1: nothing checks for a DOI that points to a paper with a different title, and the title-plus-author Crossref search for C01 (ADR-041) has no session yet.
 
 **Blocked on:** nothing.
 
@@ -1332,6 +1345,68 @@ The spot check is Claude's reading, not human labels.
 
 ---
 
+### ADR-055 — Retrieval on full text: the reranker confirmed, and BM25 strongest on number-anchored claims
+**Status:** active · answers ADR-050 item 3's re-measure · uses ADR-051's set · the pipeline doesn't change
+
+**In short:** each of the synthetic set's 760 intact val and test pairs searched the body of its own source paper, the way C09 will search a cited work. The reranker beat fusion by nDCG@10 +0.069 on val, and test confirmed it (+0.067). So ADR-050's choice holds on full text, and dot product again beat cosine. BM25 alone scored best, 0.919 on val against 0.900. The set rewards repeated numbers by construction (ADR-051), so it isn't used to choose components. Full report: `docs/evals/retrieval-synthetic-2026-11-14.md`.
+
+**How it's measured** (`sentinel eval retrieval --set synthetic --corpus pmc-rct-2015-2024`):
+- **Queries:** the intact pairs (`corruption_type = none`): 390 in val and 370 in test, from 450 source papers. The claim is the abstract sentence. Gold is the results passages that hold every anchor, about 1.2 per claim. Corrupted items are left out, since their gold is the same passages under a changed claim.
+- **Pool:** the source paper's own passages, with the abstract left out, since the claim is copied from it (ADR-051). Pools average 26 passages (median 24, maximum 80). Only 23 of 760 are bigger than the depth of 50. So for 97% of claims the fused list is the whole body, and "fusion + rerank" is the cross-encoder ranking every passage.
+- **Code:**
+  - `Retriever.search` and `dense_search` take `skip_sections`; a passage with no section is never skipped.
+  - `Query.paper_ids` gives each query its own pool.
+  - A short list now means fewer results than min(depth, pool size).
+  - `eval compare` reloads synthetic queries from the results file's parameters.
+- **Settings:** ADR-048's, the same as ADR-050's run.
+- **Results:** `data/evals/retrieval-ablation-synthetic-20261114T233915Z.json`, and MLflow `retrieval-ablation`, 7 runs with `dataset = synthetic-rules`.
+
+| Row | val nDCG@10 | test nDCG@10 |
+|---|---:|---:|
+| BM25 | 0.919 | 0.916 |
+| Dense, dot | 0.671 | 0.691 |
+| Fusion, dot | 0.831 | 0.827 |
+| Fusion + rerank, dot | 0.900 | 0.895 |
+| Dense, cosine | 0.642 | 0.646 |
+| Fusion, cosine | 0.807 | 0.809 |
+| Fusion + rerank, cosine | 0.900 | 0.895 |
+
+Recall@50 is 0.997–1.000 for every row. With pools this small it says nothing.
+
+| Paired bootstrap (10,000 resamples, seed 20260922) | val | test |
+|---|---|---|
+| Fusion + rerank against fusion, dot | +0.069 [+0.044, +0.094]; 130 better, 50 worse | +0.067 [+0.044, +0.090]; 112 better, 43 worse |
+| Fusion + rerank against BM25 | −0.020 [−0.040, +0.000] | −0.022 [−0.040, −0.004] |
+| Fusion against BM25 | −0.089 [−0.110, −0.068] | −0.089 [−0.110, −0.070] |
+| Dense: dot against cosine | +0.030 [+0.007, +0.051] | +0.045 [+0.022, +0.067] |
+
+**Decided:**
+1. **Keep the reranker.** ADR-050 kept it on val alone and asked for a re-measure on full text. On full text both splits show a gain of about 0.07, unlike SciFact's test.
+2. **Dot product, confirmed.** For dense search alone, dot beats cosine on both splits. After reranking the two are identical, because both rerank the same whole-body pool.
+3. **Don't switch to BM25 alone, and don't choose components on this set.**
+   - The set's gold is defined by shared numbers. BM25 matches numbers exactly; the encoders don't.
+   - Where the reranker lost to BM25 (117 claims), its top passage was gold in 16. Of the other 101, 80 were missing at least one of the claim's numbers. The cross-encoder found a passage on the topic, not the one with the numbers.
+   - On SciFact, whose claims annotators wrote in their own words, the full pipeline beats BM25 by +0.132 on val. Real citing sentences paraphrase too.
+   - Whether numbers deserve more weight is for S3.4's real citations to decide.
+4. **Equal-weight fusion is the weak stage when one ranker is much worse.** It pulls BM25's 0.919 down to 0.831, and the reranker wins most of that back. Weighting the fusion, or reranking BM25's list, is a Phase 3 candidate. Measure it on real citations; don't tune it on this set.
+
+§10.3's sanity check, the gain of fusion plus rerank over BM25: −2.1% on val [−4.3%, +0.0%] and −2.4% on test [−4.3%, −0.5%]. That is outside the 15–30% band, downwards. This is the set's construction at work; there's no sign of leakage.
+
+**Cost:** 97 min for 760 claims, about 7.5 s per claim. Nearly all of it is the cross-encoder: 19,756 pairs, about 26 per claim. The cosine pass reused the dot pass's scores.
+
+**Checked:**
+- Every pool passage is in the BM25 index.
+- BM25 returned fewer passages than the pool for 90 claims. In every case the missing passages share no term with the claim, and no gold passage was lost.
+- No dense, fused or reranked list came back short.
+
+**Turned down:**
+- **BM25 alone, on this set's evidence.** The set's construction favours it (ADR-051's limits).
+- **Scoring the corrupted items too.** They would repeat the intact pairs' gold under altered claims.
+- **Leaving the abstract in the pool.** The claim would find its own sentence.
+- **One pool of all 450 papers' bodies.** C09 searches the works a citation cites, so a single paper is the case that matters.
+
+---
+
 ### ADR-0NN — template
 **Status:** active
 
@@ -1345,13 +1420,13 @@ Every model in the system: what it does, where it runs, why it was chosen, and h
 
 | Role | Model | Where it runs | Why chosen | Main metric | Status |
 |---|---|---|---|---|---|
-| Dense retrieval | MedCPT article encoder (`d05a736da4bb`) for passages, query encoder (`d83a36cc6b8e`) for claims; SPECTER2 or a general model as the comparison | in-process PyTorch, CPU (ADR-047) | Named in §10.1; dot product beat cosine on val (ADR-050) | nDCG@10 on SciFact: 0.791 val, 0.879 test (dense alone) | in use; no comparison model tried yet |
-| Reranker | MedCPT cross-encoder (`71caf65d4927`); bge-reranker-v2-m3 as the comparison | in-process PyTorch, CPU (ADR-048) | Named in §10.1; kept on val's gain (ADR-050) | nDCG@10 gain over fusion on SciFact: +0.094 val, −0.006 test | in use; re-measure on the synthetic set's full-text pairs once S2.4's run ends (ADR-051); no comparison model tried yet |
+| Dense retrieval | MedCPT article encoder (`d05a736da4bb`) for passages, query encoder (`d83a36cc6b8e`) for claims; SPECTER2 or a general model as the comparison | in-process PyTorch, CPU (ADR-047) | Named in §10.1; dot product beat cosine on val (ADR-050) | nDCG@10 on SciFact: 0.791 val, 0.879 test (dense alone); on the synthetic set's full text, 0.671 and 0.691 (ADR-055) | in use; no comparison model tried yet |
+| Reranker | MedCPT cross-encoder (`71caf65d4927`); bge-reranker-v2-m3 as the comparison | in-process PyTorch, CPU (ADR-048) | Named in §10.1; kept on val's gain (ADR-050), confirmed on full text (ADR-055) | nDCG@10 gain over fusion: SciFact +0.094 val, −0.006 test; synthetic full text +0.069 val, +0.067 test | in use; no comparison model tried yet |
 | Claim entity recognition (NER) | *TBD: GLiNER-biomed vs a fine-tuned encoder* | local | Pending, week 6 | entity F1 | not selected |
 | Outcome equivalence | *TBD* | local | Pending, week 7 | macro F1 | not selected |
 | Entailment, zero-shot | *TBD: an NLI head* | local | Baseline, week 7 | macro F1 | not selected |
 | Entailment, fine-tuned | *TBD* | local | Week 8 | macro F1 | not selected |
-| Claim skeleton extraction | gemma4-31b-it (deployment `dca36210…`, vLLM 0.26.0) | ASU Research Computing gateway, free (ADR-053) | Fewest wrong skeletons of three in a 20-context reading; second-lowest failure rate | validation failure rate: 11.0% first answer, 5.0% after repairs | in use; pilot of 200 done, full run not started |
+| Claim skeleton extraction | gemma4-31b-it (server build `vllm-0.26.0-tp4-24487d56`; the pilot ran on legacy deployment `dca36210…`) | ASU Research Computing gateway, free (ADR-053, ADR-054) | Fewest wrong skeletons of three in a 20-context reading; second-lowest failure rate | validation failure rate: 11.0% first answer, 5.0% after repairs (pilot, 200); 14.5% and 6.5% (the other 35,701) | in use; all 35,921 contexts done 2026-11-14 |
 | Judge | *TBD at S3.3; the ASU gateway first (ADR-053)* | ASU Research Computing gateway | Teacher for distillation, week 8 | macro F1, cost per 1,000 | not selected |
 | Distilled verdict model | *trained from the judge* | local | Week 10 | share of the judge's F1 kept, cost ratio | not built |
 | Tabular baseline | Gradient boosting | local | Honest comparison point | PR-AUC | not built |
@@ -1373,9 +1448,9 @@ Every model in the system: what it does, where it runs, why it was chosen, and h
 | External evaluation set | SciFact: `eval_item` rows with `origin.dataset = scifact`; release in `data/external/scifact/` (ADR-049) |
 | Generated evaluation set | The synthetic set: `eval_item` rows with `origin.dataset = synthetic-rules`, made from stored passages by `sentinel eval make-synthetic` (ADR-051) |
 | Hand-labelled held-out set | *TBD* |
-| Evaluation reports | `docs/evals/`: `retrieval-ablation-2026-11-11.md` (ADR-050), `claim-extraction-pilot-2026-11-12.md` (ADR-053) |
+| Evaluation reports | `docs/evals/`: `retrieval-ablation-2026-11-11.md` (ADR-050), `claim-extraction-pilot-2026-11-12.md` (ADR-053), `claim-extraction-full-2026-11-14.md` (ADR-054), `retrieval-synthetic-2026-11-14.md` (ADR-055) |
 | Claim skeletons | `claim` rows, extractor `llm:<model>`, version 1.0.0; MLflow experiment `claim-extraction`, one run per model run (ADR-053) |
-| Ablation results | `data/evals/retrieval-ablation-<UTC stamp>.json`, every ranking; MLflow experiment `retrieval-ablation`, one run per row |
+| Ablation results | `data/evals/retrieval-ablation-<UTC stamp>.json` (SciFact) and `retrieval-ablation-synthetic-<UTC stamp>.json`, every ranking; MLflow experiment `retrieval-ablation`, one run per row |
 | Config | `.env`, `src/sentinel/config.py` |
 | BM25 index | `data/bm25/<corpus>-<scope>-<splitter>/` with `manifest.json` (ADR-048) |
 | Full-text cache | `data/fulltext/` (`SENTINEL_FULLTEXT_CACHE_DIR`): JATS XML by PMCID, 8,427 files, 1.1 GB (ADR-037, ADR-045) |
@@ -1401,6 +1476,11 @@ Add a row whenever you get a number. Bad numbers especially: they're the raw mat
 | 2026-11-11 | E003 | Does reranking beat fusion alone? | E002, paired bootstrap | val +0.094 [+0.048, +0.140]; test −0.006 [−0.039, +0.026] | keep (val decides); re-measure on full text |
 | 2026-11-11 | E004 | Dot or cosine? | E002, paired bootstrap | Dense: val +0.021 [−0.007, +0.051], test +0.030 [+0.005, +0.057]; same after rerank | dot |
 | 2026-11-12 | E005 | Which gateway model extracts claim skeletons? | 200 citation contexts (seed 20260922), 3 models, temperature 0, strict schema, 2 repairs | Invalid first/final: gemma 11.0%/5.0%, Qwen-235B 24.0%/2.5%, OLMo-32B 34.5%/8.5%; spot check of 20 wrong: 0, 5, 3 | gemma4-31b-it (ADR-053) |
+| 2026-11-14 | E006 | Does the pilot's failure rate hold over every context? | The other 35,701 contexts; gemma4-31b-it by batch; same prompt, rules and server build | Invalid first/final 14.5%/6.5% (pilot 11.0%/5.0%); repairs fixed 40% of statement failures and nearly all others | holds, inside the pilot's intervals; reading the failures found the S2.3 splitter bug |
+| 2026-11-14 | E007 | Four-row ablation on full text | 760 intact synthetic pairs (val 390, test 370), each searching its own paper's body, abstract left out; ADR-048's settings | nDCG@10 val/test: BM25 0.919/0.916, dense 0.671/0.691, fusion 0.831/0.827, + rerank 0.900/0.895 | BM25 favoured by the set's number anchors (ADR-051) |
+| 2026-11-14 | E008 | Does reranking beat fusion on full text? | E007, paired bootstrap | val +0.069 [+0.044, +0.094]; test +0.067 [+0.044, +0.090] | keep the reranker: test now agrees (ADR-055) |
+| 2026-11-14 | E009 | Does the full pipeline beat BM25 on number-anchored claims? | E007, paired bootstrap; top passages read where the reranker lost | val −0.020 [−0.040, +0.000]; test −0.022 [−0.040, −0.004]; 80 of 101 non-gold top passages lacked a claim number | no change: an artefact of the set; weighted fusion to be measured on real citations |
+| 2026-11-14 | E010 | Why do statement failures survive two repairs? | 20 invalid contexts with words in the sentence (seed "11"), asked again directly, nothing stored; 59 calls, 136.8 Wh | 18 copied the sentence exactly but without its citation markers; 1 valid this time; 1 effect rule | the rule, not the model: a marker-tolerant rule in extractor 1.1.0 (not yet built) |
 
 ---
 
@@ -1457,6 +1537,15 @@ The headline numbers at the end of each phase. These become the evaluation repor
 | 2026-11-14 | 2 | Gateway energy estimate per claim call | about 2 Wh and 0.66 g CO2 (46.8 Wh, 15.8 g over 24 calls) | ADR-054; the gateway's own figures for gemma4-31b-it; full run about 80 kWh by this estimate |
 | 2026-11-14 | 2 | Batch mode, live check | 10-request probe in 30 s; 20 contexts in 3 batches, 18 valid at once, 2 invalid | ADR-054 |
 | 2026-11-12 | 2 | Claim extraction speed and size | 6.3 s per call, 1.17 calls and 823 + 111 tokens per context; about 0.5 contexts/s at 4 workers | ASU gateway, free; a full run of 35,921 contexts is about 20 h |
+| 2026-11-14 | 2 | Claim skeleton validation failure rate, full run (S2.7) | 14.5% first answer [14.1, 14.8]; 6.5% after two repairs [6.3, 6.8] | 35,701 contexts, stage run 39; with the pilot, all 35,921 stored, 33,584 valid |
+| 2026-11-14 | 2 | Claim extraction by batch | 81 min; 43,462 calls in 24 batches; about 7.3 contexts/s; 0 unanswered | ADR-054; 856 + 118 tokens and 1.22 calls per context; 5 answers cut off |
+| 2026-11-14 | 2 | Gateway energy estimate, full claim run | 46.8 kWh, 15.8 kg CO2; 1.08 Wh per call | The gateway's figures; ADR-054 projected 80 kWh from the smoke run's 1.95 Wh per call |
+| 2026-11-14 | 2 | Citation contexts with the wrong citing sentence | at least 993 of 35,921 (2.8%), in 77 papers | Failure log, 2026-11-14; 856 of their claims passed validation |
+| 2026-11-14 | 2 | Retrieval nDCG@10, fusion + rerank (synthetic, own paper's body) | val 0.900, test 0.895 | ADR-055; 390 and 370 intact pairs; pools of 26 passages on average |
+| 2026-11-14 | 2 | Retrieval nDCG@10, BM25 (synthetic) | val 0.919, test 0.916 | The set's gold repeats the claim's numbers (ADR-051) |
+| 2026-11-14 | 2 | Reranker gain over fusion, full text | val +0.069 [+0.044, +0.094]; test +0.067 [+0.044, +0.090] | Paired bootstrap; answers ADR-050's re-measure |
+| 2026-11-14 | 2 | Gain of fusion + rerank over BM25 (§10.3: 15–30%), synthetic | val −2.1% [−4.3%, +0.0%]; test −2.4% [−4.3%, −0.5%] | Below the band because of the set's construction; no sign of leakage |
+| 2026-11-14 | 2 | Synthetic retrieval ablation run time | 97 min for 760 claims; 19,756 cross-encoder pairs | About 7.5 s per claim, nearly all reranking (3.4 pairs/s) |
 
 **Metrics to track from week one, not work out afterwards:**
 - Cascade ratios: how many items enter each stage
@@ -1478,6 +1567,48 @@ This section becomes deliverable five, the post-mortem. Most candidates ship a R
 
 **Date · one-line title**
 What happened. What you expected instead. The root cause. What changed as a result. Whether a fixture or test now covers it.
+
+**2026-11-14 · Most "invalid" claim skeletons were exact copies with the citation markers left out**
+After repairs, 2,180 of the full run's 2,325 invalid contexts still broke the statement rule. That rule wants the words of the citing sentence copied exactly, compared as one run of text. Invalid answers aren't stored, so 20 invalid contexts were asked again, with nothing written:
+- 18 of the 20 failed the statement rule again;
+- in all 18, the model had copied the sentence, or part of it, exactly except for the citation markers ("Halse et al. [60] noted" became "Halse et al. noted");
+- two repair messages saying the statement wasn't copied exactly changed nothing.
+
+I expected this rule to catch paraphrase and text from other sentences. It also catches the one edit that changes no meaning, and the "6.5% invalid" reported for S2.7 is mostly that. ADR-054's live check described its two invalid answers as statements "taken from outside the citing sentence". That was my reading of the rule's code name, not of the answers.
+
+Not fixed yet. A fix needs:
+- extractor 1.1.0, which also accepts a statement that matches the sentence with its citation markers removed;
+- keeping invalid answers, so a later rule can re-check them without new calls;
+- asking again for the invalid contexts.
+
+That goes beyond this session (your choice). The pattern suggests roughly 1–2% would stay invalid.
+
+Lesson: read a sample of what a validator rejects before reporting its rejection rate as the model's failure rate.
+
+**2026-11-14 · About 1 citation context in 36 has the wrong citing sentence**
+I compared the 2,337 contexts whose claim skeleton failed validation in the full S2.7 run with the valid ones. Very short "sentences" were ten times commoner among the failures. Reading them showed 92 whose citing sentence was only the citation marker: "16 , 17".
+
+The cause is S2.3's sentence splitter (ADR-046). A citation stays with the sentence before it only when at most two joining characters (commas, dashes, brackets) separate it from the full stop. Some publishers put a space there: "…until drain removal. 15 However, …". The boundary then falls before the citation, so the citation starts the next sentence. At the end of a paragraph, it stands alone as the whole "sentence". The 2026-11-02 fix covered a space before the full stop ("countries 20) ."), not after it. The splitter's tests have no citation after a full stop and a space.
+
+Three patterns find at least 993 of the 35,921 contexts (2.8%), in 77 of the 968 papers with contexts:
+- 209 where the sentence is the marker alone;
+- the rest where the sentence starts with the marker, bare or in brackets, followed by a capital letter.
+
+**Their claims:**
+- 137 are invalid;
+- 856 are valid but describe the sentence after the one the citation supports.
+
+Grounding can't catch this. It checks that the statement is copied from the sentence it was given, not that this is the right sentence. Nothing downstream uses claims yet.
+
+Not fixed yet. A fix means four steps:
+- allowing whitespace between the punctuation and a citation that follows it;
+- a new context extractor version;
+- rebuilding the contexts;
+- asking again for the claims of the contexts that change.
+
+That goes beyond this session (your choice).
+
+Lesson: a validity rate measures whether an answer fits its input, not whether the input is right. Reading the failures found an upstream bug that the 856 valid rows were hiding.
 
 **2026-11-11 · The abstract cleaner deleted text after a literal "<" in about 12% of abstracts**
 Reading S2.8's first synthetic items found claims that ran two sentences together: "…in the BSB group (P Conclusion Our BSB could be…". The cause is `clean_markup` (S2.2), which removes tags with `<[^>]+>` before unescaping. Europe PMC's `abstractText` mixes real tags (`<h4>Conclusion</h4>`) with unescaped less-than signs (`P<0.001`). So everything from `<0.001).` to the next tag's `>` went, the heading's opening tag included. The 2026-11-01 fix covered escaped tags after unescaping, not this. Its test case, "18.5<BMI<25", has no tag after the "<", so the bug never showed.

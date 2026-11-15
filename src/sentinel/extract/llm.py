@@ -112,7 +112,11 @@ class BatchClient:
     Uploading and creating are POSTs, retried on 5xx like the rest (ADR-042).
     A retried create could leave a duplicate batch on the gateway; only the
     batch whose ID comes back is read. Request lines carry no headers, so the
-    add-on switch can't be sent per line; no model used so far has add-ons."""
+    add-on switch can't be sent per line; no model used so far has add-ons.
+    Output lines carry the response body but no headers, and a batch's status
+    names only the model, so a model family's variant isn't recorded in batch
+    mode; the server build (`system_fingerprint`) is. gemma4-31b-it isn't a
+    family, so it has no variant either way."""
 
     def __init__(self, http: RateLimitedHTTP, *, base_url: str, api_key: str) -> None:
         if not api_key:

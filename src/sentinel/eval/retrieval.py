@@ -1,12 +1,19 @@
-"""The retrieval ablation (§10.1, §10.3, §14, S2.6, ADR-050).
+"""The retrieval ablation (§10.1, §10.3, §14, S2.6, ADR-050, ADR-055).
 
-Queries are the external set's claims that have evidence, with their gold
-passages pooled across the abstracts they cite (SciFact, ADR-049). Every
-query searches the same pool: all SciFact passages, SciFact's standard
-abstract-retrieval task (87% of its abstracts are one passage, so searching
-inside one would be trivial). Each search keeps every stage's ranking, so
-one search scores four rows: BM25, dense, fusion, fusion plus rerank. Dense
-search runs once by dot product and once by cosine (ADR-048).
+Two query sets:
+- **SciFact** (ADR-049): the external set's claims that have evidence, with
+  their gold passages pooled across the abstracts they cite. Every query
+  searches the same pool: all SciFact passages, SciFact's standard
+  abstract-retrieval task (87% of its abstracts are one passage, so
+  searching inside one would be trivial).
+- **Synthetic** (ADR-051): the intact pairs, an abstract sentence and the
+  body passages that repeat its numbers. Each query searches only its own
+  source paper's body, since the abstract holds the claim itself. That is
+  C09's task: find the passages of a cited work that bear on a claim.
+
+Each search keeps every stage's ranking, so one search scores four rows:
+BM25, dense, fusion, fusion plus rerank. Dense search runs once by dot
+product and once by cosine (ADR-048).
 
 Measures, per query then averaged: nDCG@10 with binary relevance (§14's
 selection measure for retrieval) and Recall@50. Fusion plus rerank reorders
@@ -32,6 +39,7 @@ class Query:
     claim: str
     split: str
     gold: frozenset[int]
+    paper_ids: tuple[int, ...] | None = None  # this query's own pool; None means the set's shared one
 
 
 def ndcg_at(ranking: Sequence[int], gold: frozenset[int], k: int = 10) -> float:
@@ -60,6 +68,34 @@ def load_queries(engine: Engine, *, dataset: str, splits: Sequence[str]) -> list
         claims[int(r.claim_id)] = (r.claim_text, r.split)
         gold[int(r.claim_id)].add(r.passage_id)
     return [Query(cid, claims[cid][0], claims[cid][1], frozenset(gold[cid])) for cid in sorted(claims)]
+
+
+SYNTHETIC = "synthetic-rules"
+
+
+def load_synthetic_queries(engine: Engine, *, splits: Sequence[str], corpus: str,
+                           splitter_ver: str) -> list[Query]:
+    """One query per intact synthetic pair (ADR-051), keyed by its item ID,
+    searching only its source paper. Corrupted items are left out: their
+    gold is the same passages, under a changed claim."""
+    with engine.connect() as conn:
+        rows = conn.execute(
+            select(eval_item.c.id, eval_item.c.claim_text, eval_item.c.split,
+                   eval_item.c.origin["claim_paper_id"].astext.label("paper_id"),
+                   eval_item_gold_passage.c.passage_id)
+            .join(eval_item_gold_passage, eval_item_gold_passage.c.eval_item_id == eval_item.c.id)
+            .where(eval_item.c.set_name == "synthetic", eval_item.c.corruption_type == "none",
+                   eval_item.c.origin["dataset"].astext == SYNTHETIC,
+                   eval_item.c.origin["corpus"].astext == corpus,
+                   eval_item.c.origin["splitter_ver"].astext == splitter_ver,
+                   eval_item.c.split.in_(list(splits)))).all()
+    items: dict[int, tuple[str, str, int]] = {}
+    gold: dict[int, set[int]] = defaultdict(set)
+    for r in rows:
+        items[r.id] = (r.claim_text, r.split, int(r.paper_id))
+        gold[r.id].add(r.passage_id)
+    return [Query(i, items[i][0], items[i][1], frozenset(gold[i]), paper_ids=(items[i][2],))
+            for i in sorted(items)]
 
 
 def score(rankings: dict[str, dict[int, list[int]]], queries: Sequence[Query]
@@ -125,12 +161,15 @@ def paired_bootstrap(a: Sequence[float], b: Sequence[float], *, seed: int,
                   better=int((x > y).sum()), worse=int((x < y).sum()), claims=int(x.size))
 
 
-def short_rankings(rankings: dict[str, dict[int, list[int]]], depth: int) -> dict[str, int]:
-    """Per row, how many claims got fewer than `depth` results; rows with
-    none are left out. The pool is far bigger than `depth`, so a short list
-    means a stage lost candidates: the first run's cosine rows were all short,
-    cut by the HNSW index (ADR-050)."""
-    counts = {row: sum(len(r) < depth for r in by_claim.values()) for row, by_claim in rankings.items()}
+def short_rankings(rankings: dict[str, dict[int, list[int]]], depth: int,
+                   pool: dict[int, int] | None = None) -> dict[str, int]:
+    """Per row, how many claims got fewer results than they should: `depth`,
+    or the claim's pool size from `pool` when that is smaller. Rows with
+    none are left out. A short list means a stage lost candidates: the first
+    run's cosine rows were all short, cut by the HNSW index (ADR-050)."""
+    pool = pool or {}
+    counts = {row: sum(len(r) < min(depth, pool.get(cid, depth)) for cid, r in by_claim.items())
+              for row, by_claim in rankings.items()}
     return {row: n for row, n in counts.items() if n}
 
 
@@ -153,16 +192,16 @@ class CachingCrossEncoder:
         return [self._cache[(query, d)] for d in documents]
 
 
-def run_ablation(search: Callable[[str, str], object], queries: Sequence[Query],
+def run_ablation(search: Callable[[Query, str], object], queries: Sequence[Query],
                  metrics: Sequence[str] = ("dot", "cosine"),
                  progress: Callable[[int, int], None] | None = None) -> dict[str, dict[int, list[int]]]:
-    """Rankings per row for every query. `search(claim, metric)` returns a
+    """Rankings per row for every query. `search(query, metric)` returns a
     SearchResult. BM25 doesn't depend on the dense metric, so it's kept once."""
     rankings: dict[str, dict[int, list[int]]] = defaultdict(dict)
     done, total = 0, len(queries) * len(metrics)
     for metric in metrics:
         for q in queries:
-            result = search(q.claim, metric)
+            result = search(q, metric)
             if "bm25" not in rankings or q.claim_id not in rankings["bm25"]:
                 rankings["bm25"][q.claim_id] = [i for i, _ in result.bm25]
             rankings[f"dense/{metric}"][q.claim_id] = [i for i, _ in result.dense]

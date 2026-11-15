@@ -366,24 +366,33 @@ def retrieve_search(
 def eval_retrieval(
     splits: Annotated[str, typer.Option(help="Comma-separated splits to score")] = "val,test",
     limit: Annotated[Optional[int], typer.Option(help="Score only the first N claims (a quick check)")] = None,
+    query_set: Annotated[str, typer.Option("--set", help=(
+        "scifact: all SciFact abstracts as one pool; synthetic: each intact pair searches "
+        "its own source paper's body (ADR-055)"))] = "scifact",
+    corpus: Annotated[Optional[str], typer.Option(help="Corpus label, for --set synthetic")] = None,
     mlflow: Annotated[bool, typer.Option(help="Log the rows to MLflow")] = True,
 ) -> None:
-    """The four-row retrieval ablation on SciFact, dot and cosine (S2.6, ADR-050)."""
+    """The four-row retrieval ablation, dot and cosine (S2.6, ADR-050, ADR-055)."""
     import json
     import time
     from datetime import datetime, timezone
 
     from sqlalchemy import select as sql_select
 
+    from sqlalchemy import func
+
     from sentinel.eval.retrieval import (
+        SYNTHETIC,
         CachingCrossEncoder,
         load_queries,
+        load_synthetic_queries,
         log_to_mlflow,
         run_ablation,
         score,
         short_rankings,
     )
     from sentinel.models import paper as paper_table
+    from sentinel.models import passage as passage_table
     from sentinel.retrieve.bm25 import TOKENIZER_VERSION, BM25Index, index_dir
     from sentinel.retrieve.encoders import MedCPTCrossEncoder, MedCPTQueryEncoder, model_tag
     from sentinel.retrieve.search import RetrieveParams, Retriever
@@ -391,15 +400,41 @@ def eval_retrieval(
     settings = get_settings()
     wanted = [s.strip() for s in splits.split(",") if s.strip()]
     engine = get_engine()
-    queries = load_queries(engine, dataset="scifact", splits=wanted)[:limit]
-    if not queries:
-        raise typer.BadParameter("no SciFact claims with evidence; run `sentinel eval load-scifact`")
-    with engine.connect() as conn:
-        pool = list(conn.execute(sql_select(paper_table.c.id).where(paper_table.c.source == "scifact")).scalars())
-    expect = _bm25_expect(settings, "scifact", "scifact")
+    if query_set not in ("scifact", "synthetic"):
+        raise typer.BadParameter("--set is scifact or synthetic")
+    synthetic = query_set == "synthetic"
+    skip = ("abstract",) if synthetic else ()
+    label = "scifact"
+    if synthetic:
+        label = _scope_label(settings, corpus, "cited")
+        dataset = SYNTHETIC
+        queries = load_synthetic_queries(engine, splits=wanted, corpus=label,
+                                         splitter_ver=_splitter_version(settings))[:limit]
+        if not queries:
+            raise typer.BadParameter("no intact synthetic pairs; run `sentinel eval make-synthetic`")
+        expect = _bm25_expect(settings, label, "cited")
+        index = index_dir(settings.bm25_index_dir, label, "cited", expect["splitter_ver"])
+        pool: list[int] = []
+        with engine.connect() as conn:  # each query's own pool size, to tell a short list
+            sizes = dict(conn.execute(
+                sql_select(passage_table.c.paper_id, func.count())
+                .where(passage_table.c.paper_id.in_({q.paper_ids[0] for q in queries}),
+                       passage_table.c.splitter_ver == expect["splitter_ver"],
+                       func.coalesce(passage_table.c.section, "").not_in(list(skip)))
+                .group_by(passage_table.c.paper_id)).all())
+        pool_sizes = {q.claim_id: sizes.get(q.paper_ids[0], 0) for q in queries}
+    else:
+        dataset = "scifact"
+        queries = load_queries(engine, dataset="scifact", splits=wanted)[:limit]
+        if not queries:
+            raise typer.BadParameter("no SciFact claims with evidence; run `sentinel eval load-scifact`")
+        with engine.connect() as conn:
+            pool = list(conn.execute(sql_select(paper_table.c.id).where(paper_table.c.source == "scifact")).scalars())
+        pool_sizes = None
+        expect = _bm25_expect(settings, "scifact", "scifact")
+        index = index_dir(settings.bm25_index_dir, "scifact", "scifact", expect["splitter_ver"])
     try:
-        bm25 = BM25Index.load(index_dir(settings.bm25_index_dir, "scifact", "scifact", expect["splitter_ver"]),
-                              expect=expect)
+        bm25 = BM25Index.load(index, expect=expect)
     except (FileNotFoundError, ValueError) as exc:
         raise typer.BadParameter(str(exc)) from exc
     article = model_tag(settings.embed_article_model, settings.embed_article_revision)
@@ -410,7 +445,11 @@ def eval_retrieval(
         rrf_k=settings.retrieve_rrf_k, depth=settings.retrieve_depth, keep=settings.retrieve_keep))
         for metric in ("dot", "cosine")}
 
-    typer.echo(f"{len(queries)} claims ({', '.join(wanted)}) against {len(pool):,} SciFact abstracts")
+    if synthetic:
+        typer.echo(f"{len(queries)} intact pairs ({', '.join(wanted)}), each against its own source "
+                   f"paper's body: {sum(pool_sizes.values()) / len(queries):.1f} passages on average")
+    else:
+        typer.echo(f"{len(queries)} claims ({', '.join(wanted)}) against {len(pool):,} SciFact abstracts")
     started = time.monotonic()
 
     def progress(done: int, total: int) -> None:
@@ -418,13 +457,17 @@ def eval_retrieval(
             log.info("ablation_progress", done=done, total=total, cross_pairs=cross.scored,
                      elapsed_s=round(time.monotonic() - started))
 
-    rankings = run_ablation(lambda claim, metric: retrievers[metric].search(claim, paper_ids=pool),
-                            queries, progress=progress)
+    rankings = run_ablation(
+        lambda q, metric: retrievers[metric].search(
+            q.claim, paper_ids=q.paper_ids if q.paper_ids is not None else pool, skip_sections=skip),
+        queries, progress=progress)
     results = score(rankings, queries)
     elapsed = time.monotonic() - started
-    short = short_rankings(rankings, settings.retrieve_depth)
+    short = short_rankings(rankings, settings.retrieve_depth, pool_sizes)
 
-    params = {"dataset": "scifact", "dataset_sha256": settings.scifact_sha256,
+    params = {"dataset": dataset, "corpus": label,
+              "dataset_sha256": "" if synthetic else settings.scifact_sha256,
+              "pool": "own paper's body" if synthetic else "all SciFact abstracts",
               "splitter_ver": expect["splitter_ver"], "article_model": article,
               "query_model": model_tag(settings.embed_query_model, settings.embed_query_revision),
               "rerank_model": cross.name, "bm25_k1": settings.bm25_k1, "bm25_b": settings.bm25_b,
@@ -434,7 +477,7 @@ def eval_retrieval(
     out_dir = Path(settings.data_dir) / "evals"
     out_dir.mkdir(parents=True, exist_ok=True)
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-    out = out_dir / f"retrieval-ablation-{stamp}.json"
+    out = out_dir / f"retrieval-ablation-{'synthetic-' if synthetic else ''}{stamp}.json"
     out.write_text(json.dumps({"params": params, "scores": results, "seconds": elapsed,
                                "cross_pairs_scored": cross.scored, "short_rankings": short,
                                "rankings": {row: {str(k): v for k, v in by.items()}
@@ -448,7 +491,7 @@ def eval_retrieval(
             else f"{'-':>16s}{'-':>13s}" for s in wanted))
     typer.echo(f"\n{elapsed / 60:.1f} min; {cross.scored:,} cross-encoder pairs scored; results -> {out}")
     if short:
-        # Every pool is far bigger than the depth: short lists mean a stage lost candidates.
+        # Fewer results than min(depth, pool): a stage lost candidates.
         log.warning("ablation_short_rankings", depth=settings.retrieve_depth, rows=short)
         typer.echo(f"WARNING: claims with fewer than {settings.retrieve_depth} results, by row: {short}")
     if mlflow:
@@ -471,7 +514,8 @@ def eval_compare(
     """Paired bootstrap of two ablation rows' nDCG@10, per split (ADR-050)."""
     import json
 
-    from sentinel.eval.retrieval import BOOTSTRAP_RESAMPLES, load_queries, paired_bootstrap, per_claim
+    from sentinel.eval.retrieval import (
+        BOOTSTRAP_RESAMPLES, SYNTHETIC, load_queries, load_synthetic_queries, paired_bootstrap, per_claim)
 
     settings = get_settings()
     data = json.loads(results.read_text("utf-8"))
@@ -481,8 +525,13 @@ def eval_compare(
             raise typer.BadParameter(f"no row {row!r}; the rows are {', '.join(rankings)}")
     splits = sorted({split for by_split in data["scores"].values() for split in by_split})
     scored = rankings[row_a].keys() & rankings[row_b].keys()
-    queries = [q for q in load_queries(get_engine(), dataset=data["params"]["dataset"], splits=splits)
-               if q.claim_id in scored]
+    params = data["params"]
+    if params["dataset"] == SYNTHETIC:
+        loaded = load_synthetic_queries(get_engine(), splits=splits, corpus=params["corpus"],
+                                        splitter_ver=params["splitter_ver"])
+    else:
+        loaded = load_queries(get_engine(), dataset=params["dataset"], splits=splits)
+    queries = [q for q in loaded if q.claim_id in scored]
     typer.echo(f"{row_a} against {row_b}, nDCG@10; {BOOTSTRAP_RESAMPLES:,} paired resamples, "
                f"seed {settings.random_seed}, 95% intervals")
     for split in splits:

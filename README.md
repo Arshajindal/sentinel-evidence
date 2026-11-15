@@ -253,7 +253,18 @@ C09 will need to find the passages of a cited work that bear on a citing claim. 
 | Rank fusion of both | 0.801 | 0.871 |
 | Fusion, then MedCPT cross-encoder rerank | **0.895** | 0.865 |
 
-The reranker's gain on val (+0.094, 95% interval +0.048 to +0.140) doesn't appear on test (−0.006, −0.039 to +0.026), so it will be re-measured on full-text passages before Phase 3 relies on it. On this CPU it costs about 13 s per claim.
+The reranker's gain on val (+0.094, 95% interval +0.048 to +0.140) doesn't appear on test (−0.006, −0.039 to +0.026). So it was measured again on full text: each of 760 claims from the synthetic set below searched the body of its own source paper, as C09 will search a cited work (ADR-055, [report](docs/evals/retrieval-synthetic-2026-11-14.md)).
+
+| Stage | val nDCG@10 | test nDCG@10 |
+|---|---:|---:|
+| BM25 | **0.919** | **0.916** |
+| MedCPT dense, dot product | 0.671 | 0.691 |
+| Rank fusion of both | 0.831 | 0.827 |
+| Fusion, then rerank | 0.900 | 0.895 |
+
+- **The reranker helps on full text:** about +0.07 over fusion on both splits, so it stays.
+- **BM25 does best here** because each claim pins its result to numbers and the gold passages repeat them, the kind of match keyword search makes. The stack isn't changed on this set's evidence; whether numbers deserve more weight will be measured on real citations in Phase 3.
+- **Cost:** reranking a paper's body takes about 7.5 s on this CPU.
 
 ## The synthetic evaluation set (Phase 2)
 
@@ -297,7 +308,15 @@ Three models were run on the same 200 contexts ([report](docs/evals/claim-extrac
 
 For a large run, `--batch` sends the requests through the gateway's batch API, which uses only spare capacity. Running it again asks only for what is missing (ADR-054).
 
-**Limits.** Validity means grounded, not right. All three models sometimes borrow a field, such as the citing study's own population, from the sentence next to the citation. Field accuracy will be measured on Phase 3's hand-labelled set.
+Gemma then extracted every other context by batch in 81 minutes ([report](docs/evals/claim-extraction-full-2026-11-14.md)):
+- 14.5% of answers were invalid at first, and 6.5% after repairs;
+- all 35,921 contexts are now stored, 33,584 of them with a valid skeleton;
+- the gateway's own energy estimate is 46.8 kWh.
+
+**Limits.**
+- Validity means grounded, not right. All three models sometimes borrow a field, such as the citing study's own population, from the sentence next to the citation. Field accuracy will be measured on Phase 3's hand-labelled set.
+- The 6.5% overstates the model's failures. Asked again, 18 of 20 invalid contexts had the sentence copied exactly but without its citation markers, which the exact-copy rule rejects. A rule that tolerates missing markers is planned.
+- About 2.8% of citation contexts have the wrong citing sentence: the sentence splitter moves a citation that comes after a full stop and a space into the next sentence. Most of their skeletons are valid but describe that next sentence. This is not fixed yet.
 
 ## Tests
 

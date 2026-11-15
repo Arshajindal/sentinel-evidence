@@ -20,7 +20,7 @@ from __future__ import annotations
 from collections.abc import Sequence
 from typing import Literal
 
-from sqlalchemy import Connection, select
+from sqlalchemy import Connection, func, select
 
 from sentinel.models import passage, passage_embedding
 
@@ -28,8 +28,10 @@ Metric = Literal["dot", "cosine"]
 
 
 def dense_search(conn: Connection, vector: Sequence[float], *, model: str, splitter_ver: str,
-                 metric: Metric, n: int,
-                 paper_ids: Sequence[int] | None = None) -> list[tuple[int, float]]:
+                 metric: Metric, n: int, paper_ids: Sequence[int] | None = None,
+                 skip_sections: Sequence[str] = ()) -> list[tuple[int, float]]:
+    """The `n` nearest passages, exactly. `skip_sections` leaves out passages
+    of those sections; a passage with no section is never skipped."""
     col = passage_embedding.c.embedding
     # pgvector's <#> is the negative inner product and <=> the cosine distance:
     # both sort ascending, best first.
@@ -40,6 +42,8 @@ def dense_search(conn: Connection, vector: Sequence[float], *, model: str, split
               .where(passage_embedding.c.model == model, passage.c.splitter_ver == splitter_ver))
     if paper_ids is not None:
         scored = scored.where(passage.c.paper_id.in_(list(paper_ids)))
+    if skip_sections:
+        scored = scored.where(func.coalesce(passage.c.section, "").not_in(list(skip_sections)))
     # MATERIALIZED fences the CTE off from the outer ORDER BY ... LIMIT, so
     # the planner can't turn the pair into an approximate index scan.
     candidates = scored.cte("candidates").prefix_with("MATERIALIZED")

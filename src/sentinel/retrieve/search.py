@@ -16,7 +16,7 @@ import time
 from collections.abc import Sequence
 from dataclasses import dataclass, field
 
-from sqlalchemy import Engine, select
+from sqlalchemy import Engine, func, select
 
 from sentinel.models import paper, passage
 from sentinel.retrieve.bm25 import BM25Index
@@ -67,10 +67,15 @@ class Retriever:
         self.params = params
 
     def search(self, claim: str, *, paper_ids: Sequence[int] | None = None,
-               rerank: bool = True) -> SearchResult:
+               skip_sections: Sequence[str] = (), rerank: bool = True) -> SearchResult:
+        """`skip_sections` leaves out passages of those sections, such as the
+        abstract a synthetic claim was copied from (ADR-051). It needs
+        `paper_ids`."""
         p = self.params
         seconds: dict[str, float] = {}
-        candidates = self._passage_ids(paper_ids) if paper_ids is not None else None
+        if skip_sections and paper_ids is None:
+            raise ValueError("skip_sections needs paper_ids")
+        candidates = self._passage_ids(paper_ids, skip_sections) if paper_ids is not None else None
 
         t = time.monotonic()
         bm25 = self.bm25.search(claim, n=p.depth, passage_ids=candidates)
@@ -80,7 +85,8 @@ class Retriever:
         vector = self.query_encoder.encode([claim])[0]
         with self.engine.connect() as conn:
             dense = dense_search(conn, vector, model=p.article_model, splitter_ver=p.splitter_ver,
-                                 metric=p.metric, n=p.depth, paper_ids=paper_ids)
+                                 metric=p.metric, n=p.depth, paper_ids=paper_ids,
+                                 skip_sections=skip_sections)
         seconds["dense"] = time.monotonic() - t
 
         fused = rrf([[i for i, _ in bm25], [i for i, _ in dense]], p.rrf_k)[:p.depth]
@@ -107,11 +113,13 @@ class Retriever:
         return SearchResult(bm25=bm25, dense=dense, fused=fused, reranked=reranked, hits=hits,
                             seconds=seconds)
 
-    def _passage_ids(self, paper_ids: Sequence[int]) -> list[int]:
+    def _passage_ids(self, paper_ids: Sequence[int], skip_sections: Sequence[str] = ()) -> list[int]:
+        stmt = select(passage.c.id).where(passage.c.paper_id.in_(list(paper_ids)),
+                                          passage.c.splitter_ver == self.params.splitter_ver)
+        if skip_sections:
+            stmt = stmt.where(func.coalesce(passage.c.section, "").not_in(list(skip_sections)))
         with self.engine.connect() as conn:
-            return list(conn.execute(select(passage.c.id).where(
-                passage.c.paper_id.in_(list(paper_ids)),
-                passage.c.splitter_ver == self.params.splitter_ver)).scalars())
+            return list(conn.execute(stmt).scalars())
 
     def _passages(self, ids: list[int]) -> dict[int, dict]:
         if not ids:
