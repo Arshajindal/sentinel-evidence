@@ -79,6 +79,8 @@ sentinel eval compare data/evals/<results>.json fusion+rerank/dot bm25   # paire
 sentinel eval make-synthetic                                # synthetic set: corrupted claim–passage pairs (~1 min)
 sentinel extract claims --model gemma4-31b-it --batch       # claim skeletons from ASU's gateway, by batch
 sentinel extract claims-carry --model gemma4-31b-it --from-ver 1.0.0   # keep valid skeletons whose context is unchanged
+sentinel ml features                                        # the tabular baseline's metadata, one row per citation
+sentinel ml baseline --placebo 200                          # plumbing check on random labels; --labels <csv> for real ones
 ```
 
 **Resuming:**
@@ -324,6 +326,17 @@ Valid skeletons whose context hadn't changed were kept, and the 4,532 other cont
 - Validity means grounded, not right. All three models sometimes borrow a field, such as the citing study's own population, from the sentence next to the citation. Field accuracy will be measured on Phase 3's hand-labelled set.
 - The statement must be one stretch of the sentence, so a claim that picks one citation's part out of a list sentence fails. That is 40 of the 226 invalid.
 - Passages still use the splitter's old citation rule, so a marker can sit at the start of the next sentence there. That only matters at the edges of a passage, and changing it would mean re-embedding every passage.
+
+## The tabular baseline (Phase 2)
+
+Before trusting an expensive pipeline, it helps to know how far cheap metadata gets. The baseline predicts C09's verdict (supported, contradicted or insufficient) for each citation without reading any text (ADR-057, [report](docs/evals/tabular-baseline-2026-11-15.md)). It uses:
+- **the citing paper:** year, venue size, reference count, and its trial's sponsor class;
+- **the cited work:** year, how often the corpus cites its venue, whether it was matched, what text exists for it, and any retraction or other notice;
+- **the citation:** the year gap, the authors the two papers share, the section, and how many references are cited together.
+
+It is LightGBM with Platt scaling, scored by cross-validation that never puts a citing paper on both sides, and explained with SHAP.
+
+**It isn't trained yet.** No citation has a real label until Phase 3's 200 hand-labelled items, and the synthetic set can't stand in, because its labels come from how it was built. On 200 citations with random labels it scores at chance (macro F1 0.274), and calibration removes its overconfidence (ECE 0.253 to 0.019). Over 20 such runs, macro F1 never passed 0.369. So once real labels exist, the baseline has to clear about 0.37 to show that metadata predicts anything. If it then comes close to the full pipeline, that will be reported.
 
 ## Tests
 

@@ -86,10 +86,9 @@ Keep updates quick, or the file stops being kept up. The rules:
 
 **Phase:** 2 of 5: full text, retrieval, and the evaluation foundation. Phase 1 is finished and merged (PR #1).
 **Plan:** the session list in §15 of `docs/sentinel-project.md`. The old brief and HTML spec are in `docs/archive/`.
-**Last worked:** 2026-11-15: both problems the full claim run found are fixed (ADR-056):
-- contexts 1.1.0, with the citing-sentence fix and citation spans;
-- claim extractor 1.1.0, with a marker-tolerant statement rule and invalid answers kept;
-- 31,389 skeletons copied, 4,532 contexts asked again; 0.63% now invalid.
+**Last worked:** 2026-11-15:
+- S2.9, the tabular baseline, built and checked with placebo labels; it trains on S3.4's labels (ADR-057);
+- both problems the full claim run found, fixed (ADR-056): contexts 1.1.0 and claim extractor 1.1.0, with 0.63% of claims now invalid.
 
 2026-11-14: the full claim skeleton run (S2.7), reading its failures (failure log), the reranker re-measured on full text (ADR-055), and batch mode on the current ASU gateway (ADR-054). 2026-11-12: S2.7 (claim skeletons; Q7 answered, ADR-053), the end of S2.4's embedding run, and the HNSW index drop (ADR-052). Before that, 2026-11-11: S2.6 (the retrieval ablation, ADR-050), S2.8 (the synthetic set, ADR-051), and the fix and repair of S2.2's abstract cleaner (failure log). 2026-11-10: S2.4 (passage embeddings; Q1 answered), S2.5 (retrieval) and S2.6a (SciFact; Q6 answered).
 
@@ -122,8 +121,9 @@ Keep updates quick, or the file stops being kept up. The rules:
 | S2.6 Retrieval ablation | done | `eval/retrieval.py`, `sentinel eval retrieval` and `eval compare` (ADR-050). **Four rows, dot and cosine, in MLflow** over 263 SciFact claims. nDCG@10 on val: BM25 0.763, dense 0.791, fusion 0.801, fusion plus rerank 0.895. Test: 0.822 to 0.865, and there the reranker adds nothing measurable. The first run's cosine rows were cut short by the HNSW index, so dense search is now exact. Dot product chosen; reranker kept on val's evidence. Report in `docs/evals/`. **Re-measured on full text on 2026-11-14** (`--set synthetic`, ADR-055): each of 760 synthetic claims searched its own paper's body. The reranker gained over fusion on both splits (+0.069 val, +0.067 test); dot beat cosine again; BM25 alone scored best (0.919), as the set's number anchors predict. |
 | S2.7 Claim skeletons | done | `extract/` (skeleton, prompt, llm, claims), `sentinel extract claims` (ADR-053; Q7 answered: ASU Research Computing's free gateway). Strict JSON schema at temperature 0; valid means grounded: every field is copied from the context, and a broken rule goes back to the model up to twice. **Validation failure rate on 200 contexts:** gemma4-31b-it 11.0% on the first answer, 5.0% after repairs; Qwen-235B 24.0%/2.5%; OLMo-32B 34.5%/8.5%. Gemma chosen: 0 of 20 wrong in a side-by-side reading (Qwen 5, OLMo 3). In MLflow (`claim-extraction`). Then the current gateway and a batch mode (ADR-054). **Full run, 2026-11-14: all 35,921 contexts stored, 33,584 valid skeletons. Of the other 35,701, 14.5% were invalid on the first answer and 6.5% after repairs.** It took 81 min by batch, with none unanswered; the gateway estimates 46.8 kWh. Reading the failures found two problems (failure log): the statement rule rejected exact copies without their citation markers, and at least 993 contexts had the wrong citing sentence. **Both fixed 2026-11-15** (ADR-056): extractor 1.1.0 on contexts 1.1.0, with 31,389 skeletons copied and 4,532 contexts asked again. **0.63% of all 35,921 now invalid** (226), against 6.5%. Reports in `docs/evals/`. |
 | S2.8 Synthetic set | done | `eval/synthetic.py`, `eval/items.py`, `sentinel eval make-synthetic` (ADR-051). Rules, no language model. **6,628 items from 2,005 number-anchored abstract–results pairs in 1,176 cited works; every item has a corruption type, and splits are by source paper.** Rebuilt after the abstract repair; the first build had 5,323 items from 1,628 pairs. Spot checks: 48 of 50 items in the first build, and 12 of 13 from repaired abstracts, read as rightly labelled. Reading the drafts found S2.2's abstract cleaner deleting text after a "<" (failure log, now fixed). The reranker was re-measured on its intact pairs on 2026-11-14 (ADR-055). |
+| S2.9 Tabular baseline | built; training waits for S3.4 | `ml/` (features, baseline), `sentinel ml features` and `sentinel ml baseline` (ADR-057). Metadata features for all 54,824 citations; LightGBM with Platt scaling, folds by citing paper, SHAP, logged to MLflow (`tabular-baseline`). No real labels until S3.4 (your choice), so it ran on 200 placebo labels. **Macro F1 0.274 against chance 0.194–0.333; ECE 0.253 → 0.019 after calibration.** Over 20 seeds, placebo macro F1 reached at most 0.369, the bar a real run must clear. Report in `docs/evals/`. |
 
-**What works:** the whole Phase 1 pipeline over the 1,000-paper corpus. That means loading data, matching references (89.4% of all references, 94.4% of the structured sample), pulling out statistics, all five checks, `report`, `stats`, `export` and stage timing. 878 tests, all passing, including the database tests and the 46-item fixture set. Phase 2 so far:
+**What works:** the whole Phase 1 pipeline over the 1,000-paper corpus. That means loading data, matching references (89.4% of all references, 94.4% of the structured sample), pulling out statistics, all five checks, `report`, `stats`, `export` and stage timing. 890 tests, all passing, including the database tests and the 46-item fixture set. Phase 2 so far:
 - pgvector, the Phase 2 tables and MLflow;
 - text availability for every corpus paper and cited work (Q2 measured);
 - 293,067 passages and 35,921 citation contexts (contexts 1.1.0, ADR-056);
@@ -131,7 +131,8 @@ Keep updates quick, or the file stops being kept up. The rules:
 - BM25, exact dense search, fusion and reranking;
 - SciFact loaded, and the retrieval ablation in MLflow, on SciFact and on full text from the synthetic set (ADR-050, ADR-055);
 - the synthetic set, 6,628 items;
-- claim skeletons from ASU's gateway for all 35,921 contexts, 35,695 valid (gemma4-31b-it, extractor 1.1.0; ADR-053, ADR-054, ADR-056).
+- claim skeletons from ASU's gateway for all 35,921 contexts, 35,695 valid (gemma4-31b-it, extractor 1.1.0; ADR-053, ADR-054, ADR-056);
+- the tabular baseline's features, training, calibration and SHAP, checked with placebo labels (ADR-057).
 
 **What's broken:**
 - Passages are still cut with the splitter's 1.0.0 rules, so a citation printed after a full stop and a space sits at the start of the next sentence there (ADR-056). Only window edges are affected; the next passage version takes the new rules.
@@ -141,9 +142,9 @@ Keep updates quick, or the file stops being kept up. The rules:
 - The full text of PMC6561645 still returns an HTTP 500 error from Europe PMC.
 
 **Next three things:**
-1. S2.9, the tabular baseline, the last Phase 2 session: decide what it trains on, since there are no real labels until S3.4.
-2. Close Phase 2: end-of-phase ledger rows, README pass, and the PR to main.
-3. Start Phase 3 (§15). Anything that uses claims reads contexts 1.1.0 and claims 1.1.0; the 1.0.0 rows stay only so earlier reports can be reproduced.
+1. **Close Phase 2:** end-of-phase ledger rows, README pass, and the PR to main. Every §10.3 item is met, except that the baseline is trained only on placebo labels (ADR-057).
+2. **Start Phase 3 with S3.1.** Anything that uses claims reads contexts 1.1.0 and claims 1.1.0; the 1.0.0 rows stay only so earlier reports can be reproduced.
+3. **When S3.4's labels exist,** train the baseline on them (`sentinel ml baseline --labels`) and report it beside the judges. A macro F1 under about 0.37 is no signal at 200 labels.
 
 **After that:**
 - A later claim extractor version could:
@@ -1474,6 +1475,57 @@ Recall@50 is 0.997–1.000 for every row. With pools this small it says nothing.
 
 ---
 
+### ADR-057 — The tabular baseline: built and checked in Phase 2, trained on S3.4's labels
+**Status:** active · S2.9 · moves part of §10.3's exit criterion ("trained and calibrated, and its SHAP plot is saved") to Phase 3
+
+**In short:** the baseline predicts C09's labels (supported, contradicted, insufficient) from citation metadata alone, as §10.1 item 8 asks. No real citation has a label until S3.4's hand-labelled holdout, and no other set can stand in (your choice, 2026-11-15). So S2.9 builds:
+- the feature table;
+- training with grouped cross-validation, Platt scaling, SHAP and MLflow logging;
+- a placebo check that the whole path works on real citations.
+
+It is trained when S3.4's labels exist. Report: `docs/evals/tabular-baseline-2026-11-15.md`.
+
+**Why not train now:**
+- **The synthetic set's labels** are random corruptions within each pair, and its "citing" side is the cited work itself. Metadata such as shared authors or the year gap would only reveal source swaps.
+- **SciFact** has labels but no metadata to join, and no citing papers.
+- **A proxy label from C01 or C02** isn't the label the judges predict.
+
+**Features** (`ml/features.py`, version 1.0.0, `sentinel ml features`). One row per citation: a context from contexts 1.1.0 and one reference it cites. That makes 54,824 rows from 35,921 contexts in 968 papers.
+- **The citing paper:** year, venue (as a count of corpus papers), reference count, and its trial's sponsor class.
+- **The cited work:** year, venue (as a count of corpus references), match status, text held, and its most serious notice.
+- **The pair:** year gap, shared authors (surname and first initial, counted), section, and co-cited references.
+- **Encoding:** unknown numbers stay NaN, never zero. Categories have fixed vocabularies plus "unknown", so the encoding doesn't depend on which citations are labelled.
+- **Nothing comes from the text, a model, or a check's verdict.**
+
+**Model** (`ml/baseline.py`, version 1.0.0, `sentinel ml baseline --labels FILE | --placebo N`):
+- LightGBM with fixed, conservative settings (200 trees, depth 3, 7 leaves, at least 10 per leaf), not tuned;
+- Platt scaling (`CalibratedClassifierCV`, sigmoid), fitted on inner folds its booster didn't train on;
+- 5 outer and 3 inner folds, all split by citing paper, with the separation asserted in code;
+- **measures:** macro F1, accuracy, log loss, PR-AUC per label and for "not supported", and top-label ECE before and after calibration, each beside its chance level;
+- **SHAP** on a final model fitted on every label, with one-hot columns summed so a category counts once;
+- **logging:** metrics, SHAP values, out-of-fold predictions and two plots, written to `data/ml/` and logged to MLflow (`tabular-baseline`) with the calibrated model. skops trusts five named types. Nothing is registered.
+
+**Placebo check:** 200 real citations with random labels; MLflow run `170f7b32`.
+- macro F1 0.274, against 0.194 for always the commonest label and 1/3 for guessing;
+- PR-AUC for "not supported" 0.675, against a prevalence of 0.680;
+- ECE 0.253 uncalibrated, 0.019 calibrated.
+
+Over 20 seeds, macro F1 was 0.217–0.352 (5th–95th percentile, maximum 0.369). **So at 200 labels, the baseline must clear about 0.37 before it shows signal.** On a planted signal in the tests it reaches 0.928, and SHAP ranks the planted features first.
+
+**When S3.4's labels exist:** train with `sentinel ml baseline --labels <csv>`. The CSV has `citation_context_id` (contexts 1.1.0), `reference_id` and `label`. Report the result beside the judges on the same 200 items. If it comes close, that is a finding (§10.1 item 8). S3.4 may replace the CSV with a loader from its own tables.
+
+**Known asymmetry:** S3.4's items will be chosen by active learning. The baseline is trained on them by cross-validation and the judges aren't, which favours the baseline, so "the pipeline beats the baseline" is a conservative claim.
+
+**Turned down:**
+- **Training on the synthetic set to meet the criterion literally.** The number would describe how the set was built.
+- **Deferring S2.9 entirely.** The features and pipeline don't depend on labels, and the placebo check catches plumbing faults now.
+- **One category per venue, or LightGBM's own categorical handling.** It's too many levels for a few hundred labels. One-hot over small fixed vocabularies keeps SHAP simple too.
+- **Tuning hyperparameters.** With 200 labels it would fit noise.
+- **Isotonic calibration.** It needs more data than Platt scaling; S3.7 compares the two on real labels.
+- **A binary label.** The judges predict three labels. "Not supported" is reported as a PR-AUC for the registry's metric.
+
+---
+
 ### ADR-0NN — template
 **Status:** active
 
@@ -1496,7 +1548,7 @@ Every model in the system: what it does, where it runs, why it was chosen, and h
 | Claim skeleton extraction | gemma4-31b-it (server build `vllm-0.26.0-tp4-24487d56`; the pilot ran on legacy deployment `dca36210…`) | ASU Research Computing gateway, free (ADR-053, ADR-054) | Fewest wrong skeletons of three in a 20-context reading; second-lowest failure rate | validation failure rate: 11.0% first answer, 5.0% after repairs (pilot, 200); 14.5% and 6.5% (the other 35,701); extractor 1.1.0: 0.63% of all 35,921 invalid after repairs (ADR-056) | in use, extractor 1.1.0 on contexts 1.1.0 since 2026-11-15 |
 | Judge | *TBD at S3.3; the ASU gateway first (ADR-053)* | ASU Research Computing gateway | Teacher for distillation, week 8 | macro F1, cost per 1,000 | not selected |
 | Distilled verdict model | *trained from the judge* | local | Week 10 | share of the judge's F1 kept, cost ratio | not built |
-| Tabular baseline | Gradient boosting | local | Honest comparison point | PR-AUC | not built |
+| Tabular baseline | LightGBM 4.7.0 with Platt scaling, on metadata only (features 1.0.0, baseline 1.0.0) | local, CPU (ADR-057) | Honest comparison point | macro F1 beside the judges; PR-AUC for "not supported". Placebo, 200 random labels: macro F1 0.274, PR-AUC 0.675 at prevalence 0.680 | built; trains on S3.4's labels |
 | Vision, for figures | *TBD: a vision-language model* | API | Week 13 | accuracy of numbers read from figures | not selected |
 
 **How models will be chosen, decided in advance so results can't be explained away afterwards:**
@@ -1515,7 +1567,8 @@ Every model in the system: what it does, where it runs, why it was chosen, and h
 | External evaluation set | SciFact: `eval_item` rows with `origin.dataset = scifact`; release in `data/external/scifact/` (ADR-049) |
 | Generated evaluation set | The synthetic set: `eval_item` rows with `origin.dataset = synthetic-rules`, made from stored passages by `sentinel eval make-synthetic` (ADR-051) |
 | Hand-labelled held-out set | *TBD* |
-| Evaluation reports | `docs/evals/`: `retrieval-ablation-2026-11-11.md` (ADR-050), `claim-extraction-pilot-2026-11-12.md` (ADR-053), `claim-extraction-full-2026-11-14.md` (ADR-054), `retrieval-synthetic-2026-11-14.md` (ADR-055), `claim-extraction-1.1.0-2026-11-15.md` (ADR-056) |
+| Evaluation reports | `docs/evals/`: `retrieval-ablation-2026-11-11.md` (ADR-050), `claim-extraction-pilot-2026-11-12.md` (ADR-053), `claim-extraction-full-2026-11-14.md` (ADR-054), `retrieval-synthetic-2026-11-14.md` (ADR-055), `claim-extraction-1.1.0-2026-11-15.md` (ADR-056), `tabular-baseline-2026-11-15.md` (ADR-057) |
+| Tabular baseline runs | `data/ml/baseline-<labelled\|placebo>-<UTC stamp>/` (metrics, SHAP, out-of-fold predictions, plots); MLflow experiment `tabular-baseline`, one run per training run, with the calibrated model (ADR-057) |
 | Claim skeletons | `claim` rows, extractor `llm:<model>`, version 1.1.0 on contexts 1.1.0 (1.0.0 rows kept for the earlier reports); an invalid row's last answer in `claim.answer`; MLflow experiment `claim-extraction`, one run per model run (ADR-053, ADR-056) |
 | Ablation results | `data/evals/retrieval-ablation-<UTC stamp>.json` (SciFact) and `retrieval-ablation-synthetic-<UTC stamp>.json`, every ranking; MLflow experiment `retrieval-ablation`, one run per row |
 | Config | `.env`, `src/sentinel/config.py` |
@@ -1550,6 +1603,8 @@ Add a row whenever you get a number. Bad numbers especially: they're the raw mat
 | 2026-11-14 | E010 | Why do statement failures survive two repairs? | 20 invalid contexts with words in the sentence (seed "11"), asked again directly, nothing stored; 59 calls, 136.8 Wh | 18 copied the sentence exactly but without its citation markers; 1 valid this time; 1 effect rule | the rule, not the model: a marker-tolerant rule in extractor 1.1.0 (built 2026-11-15, ADR-056) |
 | 2026-11-15 | E011 | Does the splitter fix change which sentence a context reads? | Contexts 1.1.0 built in memory, then stored, against 1.0.0 by paper and ordinal | 2,421 changed in 161 papers: 958 had the wrong sentence, 944 were two sentences run together; starts-with-marker 962 → 4, marker-only 208 → 0 | contexts 1.1.0 (ADR-056); passages kept at 1.0.0 |
 | 2026-11-15 | E012 | Do the fixes bring the claim failure rate down as predicted? | 31,389 valid skeletons copied where the input was unchanged; 4,532 asked by batch with extractor 1.1.0 | 226 of 35,921 invalid (0.63% [0.55, 0.72]); previously-invalid unchanged contexts 90.1% valid (E010 predicted 18 of 20); kind changed for 28% of claims whose sentence changed, 4% where only a neighbour did | extractor 1.1.0 in use (ADR-056) |
+| 2026-11-15 | E013 | Does the baseline's pipeline run end to end on real citations? | 200 citations from 183 papers, random labels (seed 20260922); 5 outer folds by citing paper, Platt on 3 inner | Macro F1 0.274 (chance 0.194–0.333); PR-AUC not supported 0.675 at prevalence 0.680; ECE 0.253 → 0.019 | pipeline works; MLflow run `170f7b32` (ADR-057) |
+| 2026-11-15 | E014 | How high can a model with no signal score at 200 labels? | E013 over 20 seeds, cross-validation only | Macro F1 mean 0.278, 5th–95th 0.217–0.352, max 0.369; calibrated ECE up to 0.143 | a real baseline must clear about 0.37 |
 
 ---
 
@@ -1617,6 +1672,8 @@ The headline numbers at the end of each phase. These become the evaluation repor
 | 2026-11-14 | 2 | Synthetic retrieval ablation run time | 97 min for 760 claims; 19,756 cross-encoder pairs | About 7.5 s per claim, nearly all reranking (3.4 pairs/s) |
 | 2026-11-15 | 2 | Citation contexts changed by the splitter fix | 2,421 of 35,921 (6.7%), in 161 papers | ADR-056; replaces the "at least 993" lower bound; stage run 40 |
 | 2026-11-15 | 2 | Claim skeleton validation failure rate, extractor 1.1.0 | 0.63% of all 35,921 after repairs [0.55, 0.72]; 35,695 valid | ADR-056; 31,389 copied from 1.0.0, 4,532 asked again (stage runs 43, 44); first-answer rate over all contexts not measured |
+| 2026-11-15 | 2 | Tabular baseline feature table | 54,824 citations from 35,921 contexts in 968 papers; cited year known for 98.5%, text held for 89.9%, shared authors for 89.0% | ADR-057; built in about 9 s |
+| 2026-11-15 | 2 | Tabular baseline, placebo labels (200) | macro F1 0.274 (20-seed range up to 0.369); ECE 0.253 → 0.019 after Platt scaling | ADR-057; no real labels until S3.4; 29 s per run |
 | 2026-11-15 | 2 | Claim re-ask by batch | 56 min; 5,276 calls in 3 batches; 0 unanswered; 10.5 kWh, 3.6 kg CO2 (2.0 Wh per call) | The gateway's figures; asking all 35,921 again would have been about 47 kWh |
 
 **Metrics to track from week one, not work out afterwards:**

@@ -51,6 +51,8 @@ retrieve_app = typer.Typer(no_args_is_help=True, help="Find the passages that be
 app.add_typer(retrieve_app, name="retrieve")
 eval_app = typer.Typer(no_args_is_help=True, help="Evaluation sets.")
 app.add_typer(eval_app, name="eval")
+ml_app = typer.Typer(no_args_is_help=True, help="Trained models: the tabular baseline (ADR-057).")
+app.add_typer(ml_app, name="ml")
 log = get_logger(__name__)
 
 def _retraction_watch(settings: Settings) -> Harvester:
@@ -751,6 +753,102 @@ def extract_claims_carry(
         stored = stored_summary(conn, label=label, extractor=extractor)
     typer.echo(f"stored for {extractor} {EXTRACTOR_VER}: {stored['valid']:,} valid, "
                f"{stored['invalid']:,} invalid")
+
+
+@ml_app.command("features")
+def ml_features(
+    corpus: Annotated[Optional[str], typer.Option(help="Corpus label")] = None,
+    out: Annotated[Optional[Path], typer.Option(help="Also write the table as CSV")] = None,
+) -> None:
+    """The tabular baseline's metadata features, one row per citation, and how
+    complete each is (S2.9, ADR-057). Reads only."""
+    import csv
+
+    from sentinel.ml.features import FEATURES_VER, CitationFeatures, build_features, describe
+
+    settings = get_settings()
+    label = corpus or settings.default_corpus_label
+    if label not in _corpus_labels():
+        raise typer.BadParameter(f"unknown corpus {label!r}. Known corpora: {_corpus_labels()}")
+    with get_engine().connect() as conn:
+        rows = build_features(conn, label=label)
+    summary = describe(rows)
+    typer.echo(f"features {FEATURES_VER}: {summary['rows']:,} citations from {summary['contexts']:,} "
+               f"contexts in {summary['citing_papers']:,} papers")
+    for name, s in summary["numeric"].items():
+        known = f"{s['known']:,} known ({100 * s['known'] / max(summary['rows'], 1):.1f}%)"
+        spread = (f"median {s['median']:g}, 5th-95th {s['p5']:g}-{s['p95']:g}"
+                  if s["known"] else "no values")
+        typer.echo(f"  {name}: {known}; {spread}")
+    for name, counts in summary["categories"].items():
+        typer.echo(f"  {name}: " + ", ".join(f"{k} {v:,}" for k, v in counts.items()))
+    if out:
+        out.parent.mkdir(parents=True, exist_ok=True)
+        with out.open("w", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=list(CitationFeatures.model_fields))
+            writer.writeheader()
+            writer.writerows(r.model_dump() for r in rows)
+        typer.echo(f"wrote {out}")
+
+
+@ml_app.command("baseline")
+def ml_baseline(
+    labels: Annotated[Optional[Path], typer.Option(
+        help="CSV of labelled citations: citation_context_id, reference_id, label")] = None,
+    placebo: Annotated[Optional[int], typer.Option(
+        help="Instead of labels, N random citations with random labels: a plumbing check that "
+             "should score at chance")] = None,
+    corpus: Annotated[Optional[str], typer.Option(help="Corpus label")] = None,
+    mlflow: Annotated[bool, typer.Option(help="Log the run to MLflow")] = True,
+) -> None:
+    """Train, calibrate and explain the tabular baseline by cross-validation
+    grouped by citing paper (S2.9, ADR-057). Real labels arrive with S3.4."""
+    from datetime import datetime, timezone
+
+    from sentinel.ml.baseline import (
+        LABELS, OUTER_FOLDS, load_labels, log_to_mlflow, placebo_labels, run, save)
+    from sentinel.ml.features import build_features
+
+    if (labels is None) == (placebo is None):
+        raise typer.BadParameter("give --labels or --placebo, not both")
+    settings = get_settings()
+    label = corpus or settings.default_corpus_label
+    if label not in _corpus_labels():
+        raise typer.BadParameter(f"unknown corpus {label!r}. Known corpora: {_corpus_labels()}")
+    with get_engine().connect() as conn:
+        features = build_features(conn, label=label)
+    try:
+        if placebo is not None:
+            rows, source = placebo_labels(features, placebo, settings.random_seed), f"placebo:{placebo}"
+        else:
+            rows, source = load_labels(labels), str(labels)
+        result = run(features, rows, seed=settings.random_seed, label_source=source)
+    except ValueError as exc:
+        raise typer.BadParameter(str(exc)) from exc
+    m = result.cv.metrics
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    kind = "placebo" if placebo is not None else "labelled"
+    out_dir = Path(settings.data_dir) / "ml" / f"baseline-{kind}-{stamp}"
+    files = save(result, out_dir, title="Placebo labels" if placebo is not None else "Tabular baseline")
+    counts = ", ".join(f"{n} {result.params[f'n_{n}']}" for n in LABELS)
+    typer.echo(f"{len(rows)} labelled citations from {result.params['citing_papers']} citing papers "
+               f"({counts}); {result.cv.folds} folds by citing paper (up to {OUTER_FOLDS})")
+    typer.echo(f"macro F1 {m['macro_f1']:.3f} (chance: {m['chance_macro_f1']:.3f} always the commonest "
+               f"label, {m['chance_macro_f1_guessing']:.3f} guessing by the shares); "
+               f"accuracy {m['accuracy']:.3f}; log loss {m['log_loss']:.3f}")
+    typer.echo(f"PR-AUC, not supported: {m['pr_auc_not_supported']:.3f} "
+               f"(prevalence {m['chance_pr_auc_not_supported']:.3f})")
+    typer.echo(f"ECE: {m['raw_ece']:.3f} uncalibrated, {m['ece']:.3f} after Platt scaling")
+    typer.echo("SHAP, largest first: " + ", ".join(
+        f"{g} {sum(v.values()):.3f}" for g, v in list(result.shap["mean_abs_shap"].items())[:6]))
+    typer.echo(f"files in {out_dir}")
+    if mlflow:
+        try:
+            run_id = log_to_mlflow(result, files, tracking_uri=settings.mlflow_tracking_uri,
+                                   run_name=f"{kind} {len(rows)}", tags={"labels": kind})
+            typer.echo(f"MLflow run {run_id}")
+        except Exception as exc:  # the files are written; only the log is missing
+            typer.echo(f"MLflow logging failed ({type(exc).__name__}); the files are in {out_dir}")
 
 
 @app.command()
