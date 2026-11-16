@@ -84,9 +84,10 @@ Keep updates quick, or the file stops being kept up. The rules:
 
 > Rewrite this section each session. Keep it short.
 
-**Phase:** 2 of 5: full text, retrieval, and the evaluation foundation. Phase 1 is finished and merged (PR #1).
+**Phase:** 2 of 5: full text, retrieval, and the evaluation foundation. Every Phase 2 session is done; the phase closes when `feature/phase-2` is merged to main (see the exit check below). Phase 1 is finished and merged (PR #1).
 **Plan:** the session list in §15 of `docs/sentinel-project.md`. The old brief and HTML spec are in `docs/archive/`.
 **Last worked:** 2026-11-15:
+- Phase 2 close-out: the §10.3 exit check, the end-of-phase ledger rows, and a README pass (Phase 2's text, sources and licences);
 - S2.9, the tabular baseline, built and checked with placebo labels; it trains on S3.4's labels (ADR-057);
 - both problems the full claim run found, fixed (ADR-056): contexts 1.1.0 and claim extractor 1.1.0, with 0.63% of claims now invalid.
 
@@ -141,8 +142,19 @@ Keep updates quick, or the file stops being kept up. The rules:
 - `stats` counts items only for runs that finished.
 - The full text of PMC6561645 still returns an HTTP 500 error from Europe PMC.
 
+**Phase 2 exit check (§10.3), 2026-11-15:**
+
+| Criterion | Status | Evidence |
+|---|---|---|
+| Cited-source full-text coverage measured and written here | met | ADR-045: 22.6% of resolved references cite a work with full text, 92.8% at least an abstract |
+| Four-row retrieval ablation in MLflow, with nDCG@10 and Recall@50 | met | ADR-050 on SciFact, ADR-055 on full text; MLflow `retrieval-ablation` |
+| Synthetic set with a corruption type on every item; external set loaded | met | ADR-051: 6,628 items; ADR-049: SciFact, 1,258 items |
+| Claim-extraction validation failure rate reported | met | ADR-053, ADR-054, ADR-056: 0.63% invalid after repairs with extractor 1.1.0 |
+| Tabular baseline trained and calibrated, SHAP plot saved | **partly**: built, calibrated and SHAP-logged on placebo labels only | ADR-057: no real labels until S3.4, so training on them moves to Phase 3 (your choice, 2026-11-15) |
+| Sanity check: fusion + rerank beats BM25 by about 15–30% | reported, mixed | SciFact val +17.2% (in band), test +5.1% (below); synthetic −2.1% / −2.4%, from the set's number anchors (ADR-050, ADR-055); no sign of leakage |
+
 **Next three things:**
-1. **Close Phase 2:** end-of-phase ledger rows, README pass, and the PR to main. Every §10.3 item is met, except that the baseline is trained only on placebo labels (ADR-057).
+1. **Close Phase 2:** push `feature/phase-2` and open the PR to main (yours to do). The ledger rows and the README pass are done.
 2. **Start Phase 3 with S3.1.** Anything that uses claims reads contexts 1.1.0 and claims 1.1.0; the 1.0.0 rows stay only so earlier reports can be reproduced.
 3. **When S3.4's labels exist,** train the baseline on them (`sentinel ml baseline --labels`) and report it beside the judges. A macro F1 under about 0.37 is no signal at 200 labels.
 
@@ -1674,6 +1686,11 @@ The headline numbers at the end of each phase. These become the evaluation repor
 | 2026-11-15 | 2 | Claim skeleton validation failure rate, extractor 1.1.0 | 0.63% of all 35,921 after repairs [0.55, 0.72]; 35,695 valid | ADR-056; 31,389 copied from 1.0.0, 4,532 asked again (stage runs 43, 44); first-answer rate over all contexts not measured |
 | 2026-11-15 | 2 | Tabular baseline feature table | 54,824 citations from 35,921 contexts in 968 papers; cited year known for 98.5%, text held for 89.9%, shared authors for 89.0% | ADR-057; built in about 9 s |
 | 2026-11-15 | 2 | Tabular baseline, placebo labels (200) | macro F1 0.274 (20-seed range up to 0.369); ECE 0.253 → 0.019 after Platt scaling | ADR-057; no real labels until S3.4; 29 s per run |
+| 2026-11-15 | 2 | **End of Phase 2:** §10.3 exit criteria | 4 of 5 met, the baseline partly (placebo labels only, ADR-057); the sanity check reported | Exit check in the current state |
+| 2026-11-15 | 2 | **End of Phase 2:** money spent | $0 | Europe PMC, Hugging Face and ASU's gateway are free; Phase 1's OpenAlex spend was $1.71 |
+| 2026-11-15 | 2 | **End of Phase 2:** gateway energy, all claim runs | 57.4 kWh, 19.3 kg CO2 over 49,556 calls; about 1.3 kWh per 1,000 contexts in a full batch run | The gateway's own estimates (stage runs 38, 39, 44); the legacy-gateway pilot (runs 34–37) reported none; the E010 diagnostic added 0.14 kWh |
+| 2026-11-15 | 2 | **End of Phase 2:** wall time by stage | Text check and fetch 14.0 h (run 16); passages 15.6 min; contexts 0.5 min; embeddings about 14 h; BM25 index 81 s; synthetic set 1 min; claims 2.7 h over all runs; retrieval ablations 63 min (SciFact) and 97 min (synthetic); baseline 29 s | `stage_run` and the experiment logs, on this CPU |
+| 2026-11-15 | 2 | **End of Phase 2:** tests | 890 passing | Including database tests and the 46-item fixture set |
 | 2026-11-15 | 2 | Claim re-ask by batch | 56 min; 5,276 calls in 3 batches; 0 unanswered; 10.5 kWh, 3.6 kg CO2 (2.0 Wh per call) | The gateway's figures; asking all 35,921 again would have been about 47 kWh |
 
 **Metrics to track from week one, not work out afterwards:**
