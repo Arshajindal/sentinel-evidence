@@ -95,3 +95,54 @@ def test_retry_after_header_sets_minimum_wait():
     handler, _ = _sequence(429, 200, headers={"Retry-After": "7"})
     _http(handler, clock).get("https://example.test/x")
     assert 7.0 in clock.sleeps
+
+
+def _failing(*errors: Exception | None):
+    """Raises each error in turn; None means answer 200."""
+    calls: list[str] = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        error = errors[min(len(calls), len(errors) - 1)]
+        calls.append(type(error).__name__ if error else "200")
+        if error is not None:
+            raise error
+        return httpx.Response(200, json={"ok": True})
+
+    return handler, calls
+
+
+@pytest.mark.parametrize("error", [
+    httpx.ReadError("connection reset"),  # S1.15: WinError 10054 from Crossref
+    httpx.ConnectError("refused"),
+    httpx.ReadTimeout("slow"),
+    httpx.ConnectTimeout("slow"),
+    httpx.RemoteProtocolError("server disconnected"),
+])
+def test_retries_transient_transport_errors_then_succeeds(error):
+    """ADR-042: a dropped connection is retried with the same backoff as a 5xx."""
+    clock = FakeClock()
+    handler, calls = _failing(error, error, None)
+    response = _http(handler, clock).get("https://example.test/x")
+    assert response.status_code == 200
+    assert len(calls) == 3
+    assert [s for s in clock.sleeps if s >= 1] == [1.0, 2.0]
+
+
+def test_transport_error_gives_up_after_max_retries_and_reraises_it():
+    clock = FakeClock()
+    handler, calls = _failing(httpx.ReadError("connection reset"))
+    with pytest.raises(httpx.ReadError):
+        _http(handler, clock, max_retries=2).get("https://example.test/x")
+    assert len(calls) == 3
+
+
+@pytest.mark.parametrize("error", [
+    httpx.UnsupportedProtocol("ftp"),
+    httpx.LocalProtocolError("bad request"),
+])
+def test_does_not_retry_errors_in_the_request_itself(error):
+    clock = FakeClock()
+    handler, calls = _failing(error)
+    with pytest.raises(type(error)):
+        _http(handler, clock).get("https://example.test/x")
+    assert len(calls) == 1

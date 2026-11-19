@@ -1,0 +1,33 @@
+# Local services (ADR-043). Run from the repository root so the root `.env`
+# supplies the passwords:
+#
+#   docker compose -f docker/compose.yaml --env-file .env up -d
+#
+# Postgres listens on 127.0.0.1:5434, beside the Windows Postgres service on
+# 5432 and another local server on 5433. Data lives in the named volume, not
+# in the repository.
+
+name: sentinel
+
+services:
+  postgres:
+    # pgvector 0.8.6 on PostgreSQL 17 (same major as the Phase 1 server).
+    image: pgvector/pgvector:0.8.6-pg17
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      SENTINEL_DB_PASSWORD: ${APP_DB_PASSWORD:?set APP_DB_PASSWORD in .env}
+    ports:
+      - "127.0.0.1:5434:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./postgres/init.sh:/docker-entrypoint-initdb.d/10-sentinel.sh:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  pgdata:

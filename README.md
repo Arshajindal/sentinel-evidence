@@ -2,7 +2,16 @@
 
 Corpus-scale integrity auditing for biomedical literature. Sentinel checks published papers and registered clinical trials for problems a reader can verify: references that can't be found, citations of retracted work, reported statistics that don't add up, impossible means, and trials with no posted results.
 
-Phase 1 (this release) has five deterministic checks over a 1,000-paper corpus of open-access randomised controlled trials. Every finding carries its evidence and says only what the evidence supports. An unmatched reference "could not be verified"; Sentinel never calls it fabricated. An overdue trial has "no results posted"; Sentinel never calls it non-compliant.
+**Phase 1** has five deterministic checks over a 1,000-paper corpus of open-access randomised controlled trials. Every finding carries its evidence and says only what the evidence supports. An unmatched reference "could not be verified"; Sentinel never calls it fabricated. An overdue trial has "no results posted"; Sentinel never calls it non-compliant.
+
+**Phase 2** (this release) builds what the next checks need, and the means to measure them. The next checks are C09 (does the cited work support the claim?) and C06 (was a trial's outcome switched?). Phase 2 adds:
+- the full text of the works the corpus cites, cut into passages;
+- every in-text citation with its sentence;
+- retrieval of the passages that bear on a claim, measured on two evaluation sets;
+- a structured reading of each citing claim;
+- a metadata-only baseline the later models must beat.
+
+Phase 2 issues no new findings; verdicts start in Phase 3.
 
 - Design and phase plan: [`docs/sentinel-project.md`](docs/sentinel-project.md)
 - Decisions (ADRs), failures and current state: [`PROGRESS.md`](PROGRESS.md)
@@ -13,30 +22,35 @@ Phase 1 (this release) has five deterministic checks over a 1,000-paper corpus o
 - [Running the pipeline](#running-the-pipeline)
 - [The checks](#the-checks)
 - [Results on the Phase 1 corpus](#results-on-the-phase-1-corpus)
+- [Full text, passages and citations (Phase 2)](#full-text-passages-and-citations-phase-2)
+- [Retrieval on SciFact (Phase 2)](#retrieval-on-scifact-phase-2)
+- [The synthetic evaluation set (Phase 2)](#the-synthetic-evaluation-set-phase-2)
+- [Claim skeletons (Phase 2)](#claim-skeletons-phase-2)
+- [The tabular baseline (Phase 2)](#the-tabular-baseline-phase-2)
 - [Tests](#tests)
 - [Data sources and licences](#data-sources-and-licences)
 
 ## Setup
 
-**Needs:** Python 3.11+, PostgreSQL 15+ with the `pg_trgm` extension (shipped with Postgres; the first migration creates it, which works for a role that owns the database), and git.
+**Needs:** Python 3.11+, Docker, and git. The database is PostgreSQL 17 with `pg_trgm` and pgvector, run from `docker/compose.yaml` (ADR-043).
 
-1. **Database.** As a Postgres superuser:
-   ```sql
-   CREATE ROLE sentinel LOGIN PASSWORD 'choose-a-password';
-   CREATE DATABASE sentinel OWNER sentinel;
-   CREATE DATABASE sentinel_test OWNER sentinel;  -- disposable, for the test suite
+1. **Database.** Copy `.env.example` to `.env` and set `POSTGRES_PASSWORD` and `APP_DB_PASSWORD`, then from the repository root:
+   ```bash
+   docker compose -f docker/compose.yaml --env-file .env up -d
    ```
+   This starts Postgres on `127.0.0.1:5434`. The first time, it creates the `sentinel` role (not a superuser); the `sentinel`, `sentinel_test` (disposable, for the test suite) and `mlflow` databases; and pgvector in each. To use your own Postgres instead, install pgvector and run `CREATE EXTENSION vector` as a superuser in each database.
 2. **Install.**
    ```bash
    python -m venv .venv
-   .venv/bin/pip install -e ".[dev]"        # Windows: .venv\Scripts\pip
+   .venv/bin/pip install -e ".[dev,ml]"     # Windows: .venv\Scripts\pip; [ml] adds Phase 2's MLflow, PyTorch, LightGBM and SHAP
    ```
-3. **Configure.** Copy `.env.example` to `.env` and set at least:
-   - `SENTINEL_DATABASE_URL`: your database and password.
+3. **Configure.** In `.env`, set at least:
+   - `SENTINEL_DATABASE_URL`, `TEST_DATABASE_URL` and `MLFLOW_BACKEND_STORE_URI`: each password is `APP_DB_PASSWORD`.
    - `SENTINEL_CONTACT_EMAIL`: a real address. Crossref and OpenAlex use it for their polite pools.
    - `SENTINEL_OPENALEX_API_KEY`: optional, from openalex.org/signup. With a key, set `SENTINEL_OPENALEX_DAILY_BUDGET_USD=1.0`.
    - `SENTINEL_DEFAULT_CORPUS_LABEL`: the corpus label you'll select in step 5.
-   - `TEST_DATABASE_URL`: the disposable `sentinel_test` database. The database tests downgrade it to empty.
+   - `SENTINEL_LLM_API_KEY`: only for `sentinel extract claims` (Phase 2). It is a key for ASU Research Computing's model gateway; keep it in `.env` only.
+   - `TEST_DATABASE_URL` is the disposable `sentinel_test` database. The database tests downgrade it to empty.
 
    Every setting that can change a finding (thresholds, the corpus query, the seed) has no default, so a missing one stops startup (ADR-022). `.env.example` holds the values used for the published results. `.env` is gitignored.
 4. **Schema and reference data.**
@@ -45,6 +59,7 @@ Phase 1 (this release) has five deterministic checks over a 1,000-paper corpus o
    git clone https://gitlab.com/crossref/retraction-watch-data data/retraction-watch-data
    ```
 5. **Check it works.** Run `sentinel --help` and `pytest`.
+6. **Phase 2 experiment tracking.** `dotenv run -- mlflow server` starts MLflow on `127.0.0.1:5000`. It reads its database and artifact folder from `.env`, so no password appears on the command line (ADR-043). Evaluation and extraction runs log there, and keep their results in `data/` or the database if it is down.
 
 ## Running the pipeline
 
@@ -60,10 +75,29 @@ sentinel check --corpus pmc-rct-2015-2024                   # run C01-C05, recor
 sentinel stats --run <run-id>                               # flag rates, cascade ratios, stage times
 sentinel export --run <run-id> --format csv --out out/findings.csv
 sentinel report 10.1007/s11357-023-00725-5                  # one paper's report card (DOI, paper ID or NCT ID)
+
+# Phase 2
+sentinel ingest fulltext --corpus pmc-rct-2015-2024         # full text or abstract for the corpus and cited works
+sentinel corpus coverage --corpus pmc-rct-2015-2024         # how many cited sources have full text (Q2)
+sentinel extract passages --corpus pmc-rct-2015-2024       # cut every work with text into passages
+sentinel extract contexts --corpus pmc-rct-2015-2024       # citing sentences, linked to references
+sentinel embed passages --corpus pmc-rct-2015-2024         # MedCPT vectors for cited works' passages (~14 h on CPU)
+sentinel retrieve build-bm25 --corpus pmc-rct-2015-2024     # BM25 index over the same passages
+sentinel retrieve search --context <id>                    # debug: top passages for a citation, every stage's rank
+sentinel eval load-scifact                                  # external evaluation set (checksum-pinned download)
+sentinel embed passages --scope scifact                     # vectors for SciFact's 5,992 passages (~20 min)
+sentinel retrieve build-bm25 --scope scifact                # and their BM25 index
+sentinel eval retrieval                                     # four-row ablation, dot and cosine, logged in MLflow (~70 min)
+sentinel eval compare data/evals/<results>.json fusion+rerank/dot bm25   # paired bootstrap of two rows
+sentinel eval make-synthetic                                # synthetic set: corrupted claim–passage pairs (~1 min)
+sentinel extract claims --model gemma4-31b-it --batch       # claim skeletons from ASU's gateway, by batch
+sentinel extract claims-carry --model gemma4-31b-it --from-ver 1.0.0   # keep valid skeletons whose context is unchanged
+sentinel ml features                                        # the tabular baseline's metadata, one row per citation
+sentinel ml baseline --placebo 200                          # plumbing check on random labels; --labels <csv> for real ones
 ```
 
 **Resuming:**
-- **Harvesters** (`ingest europepmc`, `ingest retraction-watch`, `extract stats`) save a cursor with each batch. `--resume` continues from it.
+- **Harvesters** (`ingest europepmc`, `ingest retraction-watch`, `ingest fulltext`, `extract stats|passages|contexts`) save a cursor with each batch. `--resume` continues from it.
 - **`resolve`** picks up the references still `pending`.
 - **OpenAlex budget:** OpenAlex charges $0.001 per search. When the day's budget runs out, `resolve` stops with exit code 3 and keeps finished batches; run it again the next day.
 - **Lookups:** `ingest crossref|openalex|doi-handle --doi ...` and `ingest clinicaltrials --nct ...` fetch single records on demand.
@@ -225,6 +259,117 @@ Of the 5,015 resolved by title, the match came from Crossref search for 3,846, f
 
 Over the four resolve runs, run 11 was stopped by a dropped Crossref connection, which isn't retried, and run 12 by the OpenAlex daily budget; each re-run picked up where it stopped. `stats` counts items only for runs that finished, so it shows fewer than 35,670. The corpus's Europe PMC harvest ran before stage timing existed, so it has no recorded time.
 
+## Full text, passages and citations (Phase 2)
+
+C09 will judge a citation by reading the cited work. That needs the work's text, the citing sentence, and a way to find the right part of the work.
+
+**How much cited work can be read** (ADR-045):
+- **22.6% of resolved references cite a work whose full text is open** (7,825 of 34,593), and 92.8% at least an abstract. That caps what C09 can check against full text. The rest falls back to the abstract, labelled as such.
+- **Coverage falls with age:** 37.8% of works from 2015 on have full text, against 0.2% before 2000.
+- **Only open-access records are fetched,** from Europe PMC: 8,427 XML files. Each work's licence is recorded, and about a third are non-commercial or no-derivatives, which limits what may be exported.
+
+**Passages** (ADR-046):
+- Each work with text is cut into windows of whole sentences, 150–300 words, within one section.
+- The result is 293,067 passages from 31,420 works, with a median of 166 words.
+- The 265,424 passages of cited works have MedCPT vectors, computed on CPU in about 14 hours (ADR-047).
+
+**Citations** (ADR-046, ADR-056):
+- Every in-text citation in the corpus's full text becomes a context: the citing sentence plus one either side, linked to the references it cites through the XML.
+- That gives 35,921 contexts in 968 papers, and **96.3% of references have at least one**.
+- A numeric label agrees with the cited reference for 99.87% of single citations.
+
+## Retrieval on SciFact (Phase 2)
+
+C09 will need to find the passages of a cited work that bear on a citing claim. The retrieval stack was measured on 263 SciFact claims, with each claim's evidence passages as gold, searching all 5,992 SciFact passages. Choices were made on val and confirmed on test (ADR-050; full report in [`docs/evals/retrieval-ablation-2026-11-11.md`](docs/evals/retrieval-ablation-2026-11-11.md)).
+
+| Stage | val nDCG@10 | test nDCG@10 |
+|---|---:|---:|
+| BM25 | 0.763 | 0.822 |
+| MedCPT dense, dot product | 0.791 | 0.879 |
+| Rank fusion of both | 0.801 | 0.871 |
+| Fusion, then MedCPT cross-encoder rerank | **0.895** | 0.865 |
+
+The reranker's gain on val (+0.094, 95% interval +0.048 to +0.140) doesn't appear on test (−0.006, −0.039 to +0.026). So it was measured again on full text: each of 760 claims from the synthetic set below searched the body of its own source paper, as C09 will search a cited work (ADR-055, [report](docs/evals/retrieval-synthetic-2026-11-14.md)).
+
+| Stage | val nDCG@10 | test nDCG@10 |
+|---|---:|---:|
+| BM25 | **0.919** | **0.916** |
+| MedCPT dense, dot product | 0.671 | 0.691 |
+| Rank fusion of both | 0.831 | 0.827 |
+| Fusion, then rerank | 0.900 | 0.895 |
+
+- **The reranker helps on full text:** about +0.07 over fusion on both splits, so it stays.
+- **BM25 does best here** because each claim pins its result to numbers and the gold passages repeat them, the kind of match keyword search makes. The stack isn't changed on this set's evidence; whether numbers deserve more weight will be measured on real citations in Phase 3.
+- **Cost:** reranking a paper's body takes about 7.5 s on this CPU.
+
+## The synthetic evaluation set (Phase 2)
+
+SciFact has abstracts only, so a second set supplies labelled full-text items (ADR-051). It is built by rule, with no language model.
+
+**Pairs.** A cited work reports its results twice: in the abstract and in the body. A sentence from the abstract becomes a claim. Its gold passages are the body's results passages that repeat every one of its numbers, ignoring P values and confidence levels.
+
+**Corruptions.** Each pair yields:
+- the intact claim (supported);
+- the claim with its direction words flipped, or with one number scaled to a value the source never prints (contradicted);
+- the claim with a population the source never mentions, or paired with another work the same paper cites (insufficient).
+
+**Data.** Only works whose licence allows adapted text are used.
+
+| Label | Items | How |
+|---|---:|---|
+| supported | 2,005 | intact pairs, from 1,176 cited works |
+| contradicted | 2,558 | 1,934 numbers changed, 624 directions flipped |
+| insufficient | 2,065 | 2,005 sources swapped, 60 populations changed |
+
+Splits are by source paper. In two spot checks, 60 of 63 items read as rightly labelled.
+
+**Limits.** The claims are the sources' own sentences, so this set is easier than real citations: it flatters keyword search, and verdicts on it will be higher. Results on it are always reported next to the real holdout (§14).
+
+## Claim skeletons (Phase 2)
+
+C09 will check what a citing sentence claims about the work it cites. `sentinel extract claims` asks a language model to describe that claim (ADR-053):
+- **kind:** a finding, background, a method, or other;
+- **the sentence's words** that the citation supports;
+- **for a finding:** the population, intervention, comparator, outcome, effect, sample size and direction.
+
+The models are open-weight models on ASU Research Computing's free gateway, so nothing is sent to a commercial provider. The model must answer in a fixed JSON schema at temperature 0. An answer counts as valid only if every field is copied from the citation's context and every sample size is a number written there, so invented or paraphrased text fails. An invalid answer gets two chances to fix the rules it broke.
+
+Three models were run on the same 200 contexts ([report](docs/evals/claim-extraction-pilot-2026-11-12.md)):
+
+| Model | Invalid, first answer | Invalid after repairs | Wrong in a 20-context reading |
+|---|---:|---:|---:|
+| **gemma4-31b-it** (chosen) | 11.0% | 5.0% | 0 |
+| qwen3-235b-a22b-instruct-2507 | 24.0% | 2.5% | 5 |
+| olmo3-32b-instruct | 34.5% | 8.5% | 3 |
+
+For a large run, `--batch` sends the requests through the gateway's batch API, which uses only spare capacity. Running it again asks only for what is missing (ADR-054).
+
+Gemma then extracted every other context by batch in 81 minutes ([report](docs/evals/claim-extraction-full-2026-11-14.md)). 14.5% of answers were invalid at first, and 6.5% after repairs. Reading the failures found two problems, both fixed in version 1.1.0 (ADR-056, [report](docs/evals/claim-extraction-1.1.0-2026-11-15.md)):
+- **The statement rule contradicted the prompt.** The prompt asks for the sentence's words without the citation marker, but the rule wanted an exact copy, marker included. A statement may now leave out any of the sentence's citations, which each context records from the XML.
+- **2,421 contexts (6.7%) read the wrong sentence.** The sentence splitter put a citation printed after a full stop and a space ("removal. 15 However") into the next sentence, or ran two sentences together behind a spaced citation list. Contexts were rebuilt.
+
+Valid skeletons whose context hadn't changed were kept, and the 4,532 other contexts were asked again:
+- **0.63% of all 35,921 contexts are now invalid** (226), against 6.5%;
+- the remaining failures are mostly a field reworded instead of copied;
+- invalid answers are now kept, so a later rule can re-check them without asking again;
+- the gateway's own energy estimate is 46.8 kWh for the full run and 10.5 kWh for the re-ask.
+
+**Limits.**
+- Validity means grounded, not right. All three models sometimes borrow a field, such as the citing study's own population, from the sentence next to the citation. Field accuracy will be measured on Phase 3's hand-labelled set.
+- The statement must be one stretch of the sentence, so a claim that picks one citation's part out of a list sentence fails. That is 40 of the 226 invalid.
+- Passages still use the splitter's old citation rule, so a marker can sit at the start of the next sentence there. That only matters at the edges of a passage, and changing it would mean re-embedding every passage.
+
+## The tabular baseline (Phase 2)
+
+Before trusting an expensive pipeline, it helps to know how far cheap metadata gets. The baseline predicts C09's verdict (supported, contradicted or insufficient) for each citation without reading any text (ADR-057, [report](docs/evals/tabular-baseline-2026-11-15.md)). It uses:
+- **the citing paper:** year, venue size, reference count, and its trial's sponsor class;
+- **the cited work:** year, how often the corpus cites its venue, whether it was matched, what text exists for it, and any retraction or other notice;
+- **the citation:** the year gap, the authors the two papers share, the section, and how many references are cited together.
+
+It is LightGBM with Platt scaling, scored by cross-validation that never puts a citing paper on both sides, and explained with SHAP.
+
+**It isn't trained yet.** No citation has a real label until Phase 3's 200 hand-labelled items, and the synthetic set can't stand in, because its labels come from how it was built. On 200 citations with random labels it scores at chance (macro F1 0.274), and calibration removes its overconfidence (ECE 0.253 to 0.019). Over 20 such runs, macro F1 never passed 0.369. So once real labels exist, the baseline has to clear about 0.37 to show that metadata predicts anything. If it then comes close to the full pipeline, that will be reported.
+
 ## Tests
 
 `pytest` runs everything with no network: fixtures are saved API responses and frozen database contexts.
@@ -242,12 +387,17 @@ Over the four resolve runs, run 11 was stopped by a dropped Crossref connection,
   - removing any required setting stops startup (ADR-022);
   - migrations run up, down and up against a real Postgres.
 - **Database tests** need `TEST_DATABASE_URL`, and skip without it.
+- **Phase 2 tests never call a model service:** the gateway is a scripted fake, and embedding tests use a stand-in encoder. The splitter and context tests use sentence shapes found in the corpus. The baseline is tested on planted and random labels.
 
 ## Data sources and licences
 
 | Source | Used for | Terms |
 |---|---|---|
-| Europe PMC (REST, Annotations) | corpus, metadata, full-text reference lists, trial links | each article's own licence; Sentinel keeps reference lists and statistics, not article text |
+| Europe PMC (REST, Annotations) | corpus, metadata, full-text reference lists, trial links | each article's own licence; Phase 1 keeps reference lists and statistics, not article text |
+| Europe PMC open-access full text (Phase 2) | passages, citation contexts, the synthetic set | only open-access records are fetched; each work's licence is stored, and evaluation items record theirs, so non-commercial and no-derivatives text isn't exported or adapted (ADR-045, ADR-051) |
+| SciFact (authors' release) | external evaluation set | claims and labels CC BY 4.0, abstracts ODC-By 1.0 (ADR-049) |
+| MedCPT article, query and cross encoders (NCBI, via Hugging Face) | passage and claim vectors, reranking | public domain, per each model card; NCBI asks for a citation: Jin et al., *Bioinformatics* 2023 (ADR-047) |
+| ASU Research Computing gateway (gemma4-31b-it) | claim skeletons | open-weight models on ASU hardware, used under ASU's terms; prompts don't reach a commercial provider (ADR-053) |
 | Crossref | DOI metadata, candidate search | metadata, no reuse restriction (abstracts are dropped) |
 | OpenAlex | DOI metadata, candidate search (budgeted) | CC0 |
 | doi.org handle API | does a DOI exist at any agency | public |

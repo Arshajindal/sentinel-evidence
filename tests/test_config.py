@@ -36,6 +36,23 @@ EXPECTED_REQUIRED = {
     "c04_epsilon",
     "c05_grace_months",
     "corpus_query",
+    "passage_min_words",  # ADR-046
+    "passage_max_words",
+    "passage_overlap_sentences",
+    "embed_article_model",  # ADR-047
+    "embed_article_revision",
+    "embed_query_model",  # ADR-048
+    "embed_query_revision",
+    "rerank_model",
+    "rerank_revision",
+    "bm25_k1",
+    "bm25_b",
+    "retrieve_dense_metric",
+    "retrieve_rrf_k",
+    "retrieve_depth",
+    "retrieve_keep",
+    "scifact_url",  # ADR-049
+    "scifact_sha256",
 }
 
 

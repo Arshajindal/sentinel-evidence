@@ -1,8 +1,10 @@
 """HTTP plumbing shared by every source (sentinel-project.md §9.3).
 
 Rate limiting is a token bucket per source. Retries use exponential backoff
-through tenacity, on 429 and 5xx responses only; a Retry-After header, when
-present, sets the minimum wait.
+through tenacity, on 429 and 5xx responses and on transient transport errors
+(timeouts, resets, a server closing the connection) only (ADR-042); a
+Retry-After header, when present, sets the minimum wait. Other 4xx responses
+and errors in the request itself are never retried.
 """
 
 from __future__ import annotations
@@ -55,6 +57,16 @@ class TokenBucket:
                 self._tokens -= 1
 
 
+# Transient failures of the connection, not of the request (ADR-042).
+# UnsupportedProtocol, LocalProtocolError and ProxyError are not here: a retry
+# would send the same broken request again.
+TRANSIENT_TRANSPORT_ERRORS: tuple[type[httpx.TransportError], ...] = (
+    httpx.TimeoutException,
+    httpx.NetworkError,
+    httpx.RemoteProtocolError,
+)
+
+
 class RetryableHTTPError(Exception):
     """A 429 or 5xx response. Raised so tenacity retries it."""
 
@@ -73,7 +85,8 @@ def build_http_client(settings: Settings) -> httpx.Client:
 
 
 class RateLimitedHTTP:
-    """GET with a token bucket in front and retries on 429/5xx behind."""
+    """GET or POST with a token bucket in front and retries on 429/5xx and
+    dropped connections behind."""
 
     def __init__(
         self,
@@ -94,10 +107,18 @@ class RateLimitedHTTP:
         self._sleep = sleep
 
     def get(self, url: str, **kwargs) -> httpx.Response:
+        return self._send("GET", url, **kwargs)
+
+    def post(self, url: str, **kwargs) -> httpx.Response:
+        """A POST is retried like a GET, so use it only where repeating the
+        request is harmless, such as a language-model call with no side effects."""
+        return self._send("POST", url, **kwargs)
+
+    def _send(self, method: str, url: str, **kwargs) -> httpx.Response:
         retrying = Retrying(
             stop=stop_after_attempt(self.max_retries + 1),
             wait=self._wait,
-            retry=retry_if_exception_type(RetryableHTTPError),
+            retry=retry_if_exception_type((RetryableHTTPError, *TRANSIENT_TRANSPORT_ERRORS)),
             before_sleep=self._log_retry,
             sleep=self._sleep,
             reraise=True,
@@ -105,7 +126,7 @@ class RateLimitedHTTP:
         for attempt in retrying:
             with attempt:
                 self.bucket.acquire()
-                response = self.client.get(url, **kwargs)
+                response = self.client.request(method, url, **kwargs)
                 if response.status_code == 429 or response.status_code >= 500:
                     raise RetryableHTTPError(response)
                 return response
@@ -123,10 +144,12 @@ class RateLimitedHTTP:
     def _log_retry(self, state: RetryCallState) -> None:
         exc = state.outcome.exception() if state.outcome else None
         status = exc.response.status_code if isinstance(exc, RetryableHTTPError) else None
+        error = None if isinstance(exc, RetryableHTTPError) or exc is None else type(exc).__name__
         log.warning(
             "http_retry",
             source=self.source,
             attempt=state.attempt_number,
             status=status,
+            error=error,
             wait_s=state.next_action.sleep if state.next_action else None,
         )

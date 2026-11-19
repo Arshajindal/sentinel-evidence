@@ -19,7 +19,7 @@ from sentinel.models import stage_run
 
 log = get_logger(__name__)
 
-STAGES = ("ingest", "resolve", "extract")
+STAGES = ("ingest", "resolve", "extract", "embed")
 
 
 @dataclass

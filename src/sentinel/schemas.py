@@ -115,6 +115,93 @@ class CorpusPaperRecord(BaseModel):
     )
 
 
+class TextAvailability(BaseModel):
+    """One row of `text_availability`: what text is held for a work (ADR-045)."""
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    paper_id: int
+    source: Literal["europepmc"]
+    lookup_key: str | None = Field(default=None, pattern=r"^(doi|pmid):\S+$")
+    found: bool
+    pmcid: str | None = Field(default=None, pattern=r"^PMC\d+$")
+    is_oa: bool | None = None
+    in_pmc: bool | None = None
+    license: str | None = None
+    fulltext: Literal["full", "abstract", "none"]
+    fulltext_error: str | None = None
+    abstract: str | None = Field(default=None, min_length=1)
+    abstract_source: Literal["europepmc", "crossref", "openalex"] | None = None
+    raw: dict[str, Any] | None = None
+
+    @model_validator(mode="after")
+    def _check(self) -> TextAvailability:
+        if self.fulltext == "full" and not (self.pmcid and self.is_oa):
+            raise ValueError("full text is held only for open-access works with a PMCID")
+        if self.fulltext == "abstract" and self.abstract is None:
+            raise ValueError("fulltext 'abstract' needs an abstract")
+        if (self.abstract is None) != (self.abstract_source is None):
+            raise ValueError("an abstract and its source come together")
+        return self
+
+
+SectionLabel = Literal["abstract", "introduction", "methods", "results", "discussion", "other"]
+
+
+class PassageRecord(BaseModel):
+    """One row of `passage`, without its paper (ADR-046)."""
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    ordinal: int = Field(ge=1)
+    section: SectionLabel
+    text: str = Field(min_length=1)
+
+
+class PaperPassages(BaseModel):
+    """A work's passages under one splitter version."""
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    paper_id: int
+    splitter_ver: str = Field(min_length=1)
+    passages: list[PassageRecord]
+
+
+class CitationContextRecord(BaseModel):
+    """One row of `citation_context` and the references it cites (ADR-046)."""
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    ordinal: int = Field(ge=1)
+    section: SectionLabel
+    marker: str | None = None
+    sentence: str = Field(min_length=1)
+    context_text: str = Field(min_length=1)
+    reference_ids: list[int] = Field(min_length=1)
+    # Citation groups in the sentence as (start, end) offsets; None before 1.1.0.
+    sentence_cites: list[tuple[int, int]] | None = None
+
+    @model_validator(mode="after")
+    def _check(self) -> CitationContextRecord:
+        if self.sentence not in self.context_text:
+            raise ValueError("the context must contain its citing sentence")
+        for start, end in self.sentence_cites or ():
+            if not 0 <= start < end <= len(self.sentence):
+                raise ValueError("a citation span must lie inside the sentence")
+        return self
+
+
+class PaperContexts(BaseModel):
+    """A citing paper's contexts under one extractor version."""
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    citing_paper_id: int
+    extractor_ver: str = Field(min_length=1)
+    contexts: list[CitationContextRecord]
+
+
 Severity = Literal["info", "low", "medium", "high"]
 FindingStatus = Literal["flagged", "clean", "not_applicable", "insufficient_data"]
 

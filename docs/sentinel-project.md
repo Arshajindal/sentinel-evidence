@@ -122,18 +122,18 @@ The random audit sample matters because without it you never learn what the chea
 | Layer | Choice | Phase | Why |
 |---|---|---|---|
 | Language | Python 3.11+ | 1 | |
-| Database | PostgreSQL 15+ with `pg_trgm` | 1 | One system for records, fuzzy matching, and later vectors |
+| Database | PostgreSQL 15+ with `pg_trgm`; from Phase 2, the pgvector container in `docker/compose.yaml` (ADR-043) | 1 | One system for records, fuzzy matching, and later vectors |
 | Database access | SQLAlchemy **Core** (no ORM) and Alembic (ADR-004) | 1 | Explicit SQL, and every schema change is a migration |
 | Validation | Pydantic v2 and pydantic-settings | 1 | Nothing unvalidated reaches the database |
-| HTTP | httpx and tenacity | 1 | Retries on 429 and 5xx responses only |
+| HTTP | httpx and tenacity | 1 | Retries on 429 and 5xx responses and on dropped connections only (ADR-042) |
 | CLI | typer | 1 | |
 | Logging | structlog, JSON output | 1 | Cost and latency are logged from day one |
 | Statistics | scipy | 1 | p-value recomputation |
 | Data frames | polars | 1 | |
-| Vectors | pgvector with HNSW (ADR-003) | 2 | Hybrid search is a join, not a second system |
+| Vectors | pgvector, exact search (ADR-003; ADR-050 and ADR-052 dropped HNSW) | 2 | Hybrid search is a join, not a second system |
 | Retrieval | BM25 plus MedCPT dense retrieval, reciprocal rank fusion, cross-encoder rerank | 2 | Lexical-plus-dense fusion is the proven setup for biomedical retrieval |
-| Embedding serving | Text Embeddings Inference (container) | 2 | Runs locally and works on CPU |
-| LLM access | LiteLLM router | 2 | Fallback chains and per-request cost accounting |
+| Embedding serving | In-process PyTorch on CPU (ADR-047) | 2 | Measured: 16x faster than Text Embeddings Inference on this CPU, and takes MedCPT's title-and-text pair |
+| LLM access | ASU Research Computing's OpenAI-compatible gateway, free and on ASU hardware (ADR-053) | 2 | Open-weight models, strict JSON output, token counts per call |
 | Experiment tracking | MLflow, self-hosted | 2 | Runs, ablations, and the model registry |
 | Classical ML | LightGBM or XGBoost, plus SHAP | 2 | The honest metadata-only baseline |
 | Training | PyTorch, Transformers, PEFT | 3 | Encoder-scale fine-tuning and distillation |
@@ -155,7 +155,7 @@ All sources are public and free. Every source that offers a "polite pool" gets t
 
 | Source | How Sentinel gets it at current scale | Used for | Phase |
 |---|---|---|---|
-| Europe PMC | REST API, plus the Annotations API for text-mined NCT numbers | Corpus selection, paper metadata, reference lists (from the full-text XML `<ref-list>`, ADR-030), trial links (ADR-028), open-access full text | 1 (body text in 2) |
+| Europe PMC | REST API, plus the Annotations API for text-mined NCT numbers | Corpus selection, paper metadata, reference lists (from the full-text XML `<ref-list>`, ADR-030), trial links (ADR-028), open-access full text and abstracts (ADR-045; XML is served only for open-access records) | 1 (body text in 2) |
 | Crossref | REST API | DOI lookups, candidate search for unmatched references, deposited reference lists | 1 |
 | OpenAlex | REST API, metered (ADR-032): DOI lookups free, searches $0.001 against a daily budget | Work metadata, a fallback candidate source, the citation graph | 1 |
 | doi.org handle API | REST, by DOI | Confirms whether a DOI exists at any registration agency, not just Crossref | 1 |
@@ -234,7 +234,7 @@ sentinel-evidence/
   tests/
     fixtures/               # real papers and trials with hand-checked expected findings
     test_*.py
-  docker/                   # Phases 4–5: compose files for Postgres, MLflow, Langfuse, TEI
+  docker/                   # Phase 2 onward: Postgres with pgvector (ADR-043); later Langfuse (and TEI only if a GPU is used, ADR-047)
 ```
 
 The ML package is named `ml/`, not `models/`, so it doesn't clash with `models.py`, which holds the table definitions.
@@ -514,7 +514,7 @@ class Harvester(ABC):
 Requirements for both kinds:
 
 - **Rate limit** with a token bucket, configurable per source
-- **Retry** with exponential backoff through `tenacity`, on 429 and 5xx responses only
+- **Retry** with exponential backoff through `tenacity`, on 429 and 5xx responses and on transient transport errors (timeouts, resets) only (ADR-042)
 - **Idempotent upserts** on the natural key: never delete, mark superseded instead
 - **Structured logs** per batch: records seen, written, skipped, and failed
 - Harvesters only: **resumable** from `ingest_watermark.cursor`, so a run killed at record 40,000 restarts there
@@ -734,43 +734,63 @@ The suite asserts exact matches on check ID, status, and severity.
 1. **Full-text fetch.** Get Europe PMC JATS XML (the structured XML format journals use) for the corpus papers and for every cited source that is open access. Set `fulltext_status` and `license`. Store full text only for open-access or licensed records. For everything else, keep a pointer and the abstract. **Measure what share of cited sources has full text.** That number caps how much C09 can ever check (Q2).
 2. **Passages.** Split the XML by section, then into passages of about 150–300 words with a small overlap. Keep the section label (methods, results, and so on) on each passage.
 3. **Citation contexts.** From each in-text citation marker (`<xref ref-type="bibr">`), take the citing sentence plus one sentence on either side, and link it to its `reference` row. This step is deterministic.
-4. **Embeddings.** Use the MedCPT article encoder for passages and the MedCPT query encoder for claims (confirm the model names on Hugging Face before use). Serve them with Text Embeddings Inference. Store each vector alongside the name of the model that made it.
-5. **Retrieval**, for "given a claim, find the passages in the cited source that bear on it":
+4. **Embeddings.** Use the MedCPT article encoder for passages and the MedCPT query encoder for claims (confirm the model names on Hugging Face before use). Run them in-process with PyTorch (ADR-047: TEI was 16x slower on this CPU and can't take MedCPT's title-and-text pair). Store each vector alongside the name of the model that made it, and its revision.
+5. **Retrieval** (ADR-048), for "given a claim, find the passages in the cited source that bear on it":
    - BM25 keyword search, using a real BM25 implementation such as the `bm25s` library. Postgres's built-in `ts_rank` is not BM25, so don't label it as BM25.
-   - Dense search with pgvector HNSW.
+   - Dense search with pgvector, exact (ADR-050: the HNSW index cut filtered searches short).
    - Reciprocal rank fusion (k = 60), which merges the two ranked lists into one.
    - Cross-encoder rerank of the top 50 (MedCPT cross-encoder), keeping the top 3–5.
-6. **Claim skeletons.** From each citation context, extract population, intervention, comparator, outcome, effect size, sample size, and direction into a Pydantic model. Start with an LLM call through LiteLLM, retrying on validation failure, and track the validation failure rate as a metric. Paper text goes into the prompt marked as untrusted data.
+6. **Claim skeletons.** From each citation context, extract population, intervention, comparator, outcome, effect size, sample size, and direction into a Pydantic model. Start with an LLM call through ASU Research Computing's gateway (ADR-053), retrying on validation failure, and track the validation failure rate as a metric. Paper text goes into the prompt marked as untrusted data.
 7. **Evaluation sets:**
    - **External:** a published, human-labelled claim–evidence dataset, such as SciFact. Check its licence first (Q6).
-   - **Synthetic:** a corruption generator that takes supported (claim, source passage) pairs and corrupts them in known ways: swap the source, flip the direction, weaken or strengthen the effect, or change the population. Each item records its corruption type, which makes error analysis possible later.
+   - **Synthetic:** a corruption generator that takes supported (claim, source passage) pairs and corrupts them in known ways: swap the source, flip the direction, weaken or strengthen the effect, or change the population. Each item records its corruption type, which makes error analysis possible later. Built by rule, with no language model (ADR-051). A pair is a sentence from a cited work's abstract and the results passages that repeat its numbers. Only works whose licence allows adapted text are used.
    - **Retrieval:** claim → correct passage(s), built from the external dataset's rationales and from the generator's source pairs.
 8. **Tabular baseline.** Gradient boosting on metadata alone, for example venue, year, reference count, the year gap between citing and cited paper, self-citation, the cited paper's retraction status, and sponsor class. Give it calibrated outputs and SHAP explanations. It predicts the same labels as the Phase 3 models. It is the number the expensive pipeline must beat, and if it comes close, that's a finding to report rather than hide.
 9. **MLflow** from the first experiment. Set up the model registry roles listed in `PROGRESS.md`.
 
-### 10.2 Schema additions (first Phase 2 session, sketch to finalise)
+### 10.2 Schema additions (finalised in S2.1, ADR-044)
+
+Migration `6bb29bc195ff`. The authoritative definitions are in `models.py`; this is the shape.
 
 ```sql
-CREATE EXTENSION IF NOT EXISTS vector;
+CREATE EXTENSION IF NOT EXISTS vector;   -- installed by a superuser locally (ADR-043)
 
 CREATE TABLE passage (
-    id          BIGSERIAL PRIMARY KEY,
-    paper_id    BIGINT NOT NULL REFERENCES paper(id) ON DELETE CASCADE,
-    section     TEXT,              -- abstract|introduction|methods|results|discussion|other
-    ordinal     INT NOT NULL,
-    text        TEXT NOT NULL,
-    embedding   vector(768),
-    embed_model TEXT,
-    UNIQUE (paper_id, ordinal)
+    id           BIGSERIAL PRIMARY KEY,
+    paper_id     BIGINT NOT NULL REFERENCES paper(id) ON DELETE CASCADE,
+    splitter_ver TEXT NOT NULL,       -- a new splitter adds rows; old ones stay
+    ordinal      INT NOT NULL,
+    section      TEXT,                -- abstract|introduction|methods|results|discussion|other
+    text         TEXT NOT NULL,
+    created_at   TIMESTAMPTZ NOT NULL DEFAULT now(),
+    UNIQUE (paper_id, splitter_ver, ordinal)
 );
-CREATE INDEX passage_embedding_hnsw ON passage USING hnsw (embedding vector_cosine_ops);
+
+CREATE TABLE passage_embedding (     -- one row per passage per model
+    passage_id BIGINT REFERENCES passage(id) ON DELETE CASCADE,
+    model      TEXT,
+    embedding  vector(768) NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    PRIMARY KEY (passage_id, model)
+);
+-- No vector index: dense search is exact (ADR-050); the HNSW index made here was dropped (ADR-052).
 
 CREATE TABLE citation_context (
-    id           BIGSERIAL PRIMARY KEY,
-    reference_id BIGINT NOT NULL REFERENCES reference(id) ON DELETE CASCADE,
-    section      TEXT,
-    sentence     TEXT NOT NULL,     -- the citing sentence
-    context_text TEXT NOT NULL      -- plus one sentence either side
+    id              BIGSERIAL PRIMARY KEY,
+    citing_paper_id BIGINT NOT NULL REFERENCES paper(id) ON DELETE CASCADE,
+    extractor_ver   TEXT NOT NULL,
+    ordinal         INT NOT NULL,
+    section         TEXT,
+    marker          TEXT,             -- the citation as printed, e.g. "[3-5]"
+    sentence        TEXT NOT NULL,    -- the citing sentence
+    context_text    TEXT NOT NULL,    -- plus one sentence either side
+    UNIQUE (citing_paper_id, extractor_ver, ordinal)
+);
+
+CREATE TABLE citation_context_reference (   -- "[3-5]" cites three references
+    citation_context_id BIGINT REFERENCES citation_context(id) ON DELETE CASCADE,
+    reference_id        BIGINT REFERENCES reference(id) ON DELETE CASCADE,
+    PRIMARY KEY (citation_context_id, reference_id)
 );
 
 CREATE TABLE claim (
@@ -779,19 +799,28 @@ CREATE TABLE claim (
     skeleton            JSONB,      -- population, intervention, comparator, outcome, effect, n, direction
     extractor           TEXT NOT NULL,
     extractor_ver       TEXT NOT NULL,
-    valid               BOOLEAN NOT NULL
+    valid               BOOLEAN NOT NULL,
+    created_at          TIMESTAMPTZ NOT NULL DEFAULT now(),
+    UNIQUE (citation_context_id, extractor, extractor_ver)
 );
 
 CREATE TABLE eval_item (
-    id               BIGSERIAL PRIMARY KEY,
-    set_name         TEXT NOT NULL,   -- synthetic|external|holdout
-    split            TEXT NOT NULL,   -- train|val|test
-    claim_text       TEXT NOT NULL,
-    source_paper_id  BIGINT REFERENCES paper(id),
-    gold_passage_ids BIGINT[],
-    label            TEXT,            -- supported|contradicted|insufficient
-    corruption_type  TEXT,            -- NULL unless synthetic
-    origin           JSONB            -- provenance, for leakage checks
+    id              BIGSERIAL PRIMARY KEY,
+    set_name        TEXT NOT NULL,   -- synthetic|external|holdout
+    split           TEXT NOT NULL,   -- train|val|test
+    claim_text      TEXT NOT NULL,
+    source_paper_id BIGINT REFERENCES paper(id),
+    label           TEXT,            -- supported|contradicted|insufficient
+    corruption_type TEXT,            -- NULL unless synthetic
+    license         TEXT NOT NULL,   -- the licence of the item's text
+    origin          JSONB,           -- provenance, for leakage checks
+    created_at      TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+CREATE TABLE eval_item_gold_passage (       -- a foreign key, so gold passages can't vanish
+    eval_item_id BIGINT REFERENCES eval_item(id) ON DELETE CASCADE,
+    passage_id   BIGINT REFERENCES passage(id) ON DELETE RESTRICT,
+    PRIMARY KEY (eval_item_id, passage_id)
 );
 ```
 
@@ -1023,14 +1052,16 @@ unsure about, and draft the three PROGRESS.md lines. Don't commit.
 
 | Session | Scope | Done when |
 |---|---|---|
+| S2.0 | Housekeeping before bulk work: retry dropped connections (Q9), pgvector, MLflow | Q9 closed (ADR-042); `CREATE EXTENSION vector` works and the Phase 1 data is moved with matching counts; the MLflow UI is up (ADR-043) |
 | S2.1 | Migration: pgvector and the Phase 2 tables | Up, down, up runs cleanly |
 | S2.2 | Full-text fetch | Coverage is measured and recorded (Q2) |
 | S2.3 | Passages and citation contexts | Every open-access paper is split, and contexts are linked to references |
-| S2.4 | Embeddings through TEI (decide Q1 first) | All passages are embedded, with the model name stored |
+| S2.4 | Embeddings, in-process on CPU (ADR-047; Q1 answered) | All cited-work passages are embedded, with the model name stored |
 | S2.5 | BM25, dense search, fusion, rerank | A debug command returns the top-k passages for a claim |
-| S2.6 | Retrieval evaluation harness | The four-row ablation is in MLflow |
+| S2.6a | External set (decide Q6 first; split from S2.8, ADR-049) | Loaded, with splits by source paper and gold passages mapped |
+| S2.6 | Retrieval evaluation harness, on SciFact (ADR-050) | The four-row ablation is in MLflow |
 | S2.7 | Claim skeleton extraction (decide Q7 first) | The validation failure rate is reported |
-| S2.8 | External set and corruption generator (decide Q6 first) | Both sets are loaded, with splits made by source paper |
+| S2.8 | Corruption generator, by rule (ADR-051; the external set moved to S2.6a) | The synthetic set is loaded, with splits made by source paper |
 | S2.9 | Tabular baseline | Trained, calibrated, with SHAP saved and logged |
 
 ### Phase 3
@@ -1079,13 +1110,13 @@ unsure about, and draft the three PROGRESS.md lines. Don't commit.
 
 | # | Question | Why it matters | Decide by |
 |---|---|---|---|
-| Q1 | Is a GPU available? | Decides local or API serving for encoders and training | Before S2.4 |
-| Q2 | What share of cited sources has open full text? | Caps how much C09 can check | Measured in S2.2 |
+| Q1 | Is a GPU available? | Decides local or API serving for encoders and training | **Answered (ADR-047):** no; encoders run in-process on CPU |
+| Q2 | What share of cited sources has open full text? | Caps how much C09 can check | **Answered (ADR-045):** 22.6% of resolved references; 92.8% have at least an abstract |
 | Q3 | What exact Europe PMC query selects the corpus? | Decides what the working corpus is | S1.6 |
 | Q4 | Publish individual findings, or aggregate only? | A false accusation of fabrication is a serious harm | Before S5.8 |
 | Q5 | Where do earlier versions of registered outcomes come from? The public v2 API has no history endpoint. The options are the website's change-history tab (check its terms of use first), a third-party reconstructed history dataset (check its licence and access terms), or comparing against the current record only, which supports a weaker claim ("registry–publication mismatch" rather than "switching"). | It decides what C06 can honestly claim | Before S3.9, ideally by the end of Phase 1 |
-| Q6 | Which external labelled dataset, and is its licence compatible? | Validity of the external evaluation | Before S2.8 |
-| Q7 | Which LLM for extraction and judging, and what's the budget cap? | Cost and reproducibility | Before S2.7 |
+| Q6 | Which external labelled dataset, and is its licence compatible? | Validity of the external evaluation | **Answered (ADR-049):** SciFact, from the authors' release (CC BY 4.0 claims, ODC-By 1.0 abstracts) |
+| Q7 | Which LLM for extraction and judging, and what's the budget cap? | Cost and reproducibility | **Answered for extraction (ADR-053):** open-weight models on ASU Research Computing's free gateway, so no budget cap; gemma4-31b-it for claim skeletons. The judge is chosen at S3.3 |
 
 Closed questions (the corpus, config defaults, API vs bulk) are recorded as ADRs in `PROGRESS.md`.
 
